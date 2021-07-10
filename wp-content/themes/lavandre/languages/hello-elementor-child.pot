@@ -1,0 +1,572 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Wegwerphanddoeken.nl\n"
+"POT-Creation-Date: 2021-02-28 09:45+0100\n"
+"PO-Revision-Date: 2021-02-27 14:18+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+
+#: functions/custom-ajax.php:68
+msgid "Voer alstublieft een coupon code in."
+msgstr ""
+
+#: functions/custom-ajax.php:79 functions/custom-ajax.php:93
+msgid "Helaas, deze code is niet geldig."
+msgstr ""
+
+#: functions/custom-ajax.php:86
+#, php-format
+msgid "Coupon code \"%s\" is al toegepast."
+msgstr ""
+
+#: functions/custom-ajax.php:102
+#, php-format
+msgid ""
+"Coupon code \"%s\" is al toegepast en kan niet samen worden gebruikt met "
+"andere coupon codes."
+msgstr ""
+
+#: functions/custom-ajax.php:240
+msgid ""
+"Er bestaat al een account met dit e-mailadres. U kunt door middel van het "
+"inlogformulier inloggen om verder te gaan."
+msgstr ""
+
+#: functions/dynamic-pricing.php:9
+msgid "Dynamic pricing"
+msgstr ""
+
+#: functions/dynamic-pricing.php:12
+msgid "Dynamic pricing information."
+msgstr ""
+
+#: functions/dynamic-pricing.php:76 functions/woocommerce-tweaks.php:69
+msgid "Vanaf"
+msgstr ""
+
+#: functions/dynamic-pricing.php:76
+msgid "pakken"
+msgstr ""
+
+#: functions/dynamic-pricing.php:77
+msgid "per pak"
+msgstr ""
+
+#: functions/woocommerce-account.php:10
+msgid "Mijn gegevens"
+msgstr ""
+
+#: functions/woocommerce-account.php:11
+msgid "Mijn aankopen"
+msgstr ""
+
+#: functions/woocommerce-account.php:12
+msgid "Mijn adressen"
+msgstr ""
+
+#: functions/woocommerce-account.php:117 functions/woocommerce-tweaks.php:133
+msgid "Voornaam"
+msgstr ""
+
+#: functions/woocommerce-account.php:118 functions/woocommerce-tweaks.php:134
+msgid "Achternaam"
+msgstr ""
+
+#: functions/woocommerce-account.php:119 functions/woocommerce-tweaks.php:135
+msgid "Bedrijfsnaam"
+msgstr ""
+
+#: functions/woocommerce-account.php:120 functions/woocommerce-tweaks.php:136
+msgid "Straatnaam"
+msgstr ""
+
+#: functions/woocommerce-account.php:121 functions/woocommerce-tweaks.php:137
+msgid "Huisnummer"
+msgstr ""
+
+#: functions/woocommerce-account.php:122 functions/woocommerce-tweaks.php:138
+msgid "Toevoeging"
+msgstr ""
+
+#: functions/woocommerce-account.php:123 functions/woocommerce-tweaks.php:139
+msgid "Postcode"
+msgstr ""
+
+#: functions/woocommerce-account.php:124 functions/woocommerce-tweaks.php:140
+msgid "Plaats"
+msgstr ""
+
+#: functions/woocommerce-account.php:125 functions/woocommerce-tweaks.php:141
+msgid "Land"
+msgstr ""
+
+#: functions/woocommerce-account.php:126 functions/woocommerce-tweaks.php:142
+msgid "Telefoonnummer"
+msgstr ""
+
+#: functions/woocommerce-account.php:127 functions/woocommerce-tweaks.php:143
+msgid "E-mailadres"
+msgstr ""
+
+#: functions/woocommerce-account.php:128 functions/woocommerce-tweaks.php:144
+msgid "BTW nummer"
+msgstr ""
+
+#: functions/woocommerce-checkout-login-step.php:20
+#: woocommerce/myaccount/form-login.php:40
+msgid "Login"
+msgstr ""
+
+#: functions/woocommerce-checkout-login-step.php:27
+#: functions/woocommerce-checkout-login-step.php:28
+#: woocommerce/myaccount/form-edit-account.php:41
+#: woocommerce/myaccount/form-edit-account.php:42
+#: woocommerce/myaccount/form-login.php:47
+#: woocommerce/myaccount/form-login.php:48
+#: woocommerce/myaccount/form-login.php:94
+#: woocommerce/myaccount/form-login.php:95
+msgid "Email address"
+msgstr ""
+
+#: functions/woocommerce-checkout-login-step.php:32
+#: functions/woocommerce-checkout-login-step.php:33
+#: woocommerce/myaccount/form-login.php:52
+#: woocommerce/myaccount/form-login.php:53
+#: woocommerce/myaccount/form-login.php:99
+#: woocommerce/myaccount/form-login.php:100
+msgid "Password"
+msgstr ""
+
+#: functions/woocommerce-checkout-login-step.php:40
+#: woocommerce/myaccount/form-login.php:60
+msgid "Lost your password?"
+msgstr ""
+
+#: functions/woocommerce-checkout-login-step.php:44
+#: woocommerce/myaccount/form-login.php:64
+msgid "Log in"
+msgstr ""
+
+#: functions/woocommerce-checkout-login-step.php:56
+#: functions/woocommerce-checkout-login-step.php:66
+#: woocommerce/myaccount/form-login.php:76
+#: woocommerce/myaccount/form-login.php:105
+msgid "Register"
+msgstr ""
+
+#: functions/woocommerce-checkout-login-step.php:60
+#: woocommerce/myaccount/form-login.php:80
+msgid ""
+"Registreer u gratis om te genieten van vele voordelen. Met onderstaande "
+"gegevens kunt u in de toekomst inloggen op onze website."
+msgstr ""
+
+#: functions/woocommerce-checkout-login-step.php:74
+#: functions/woocommerce-checkout-login-step.php:82
+msgid "Bestellen als gast"
+msgstr ""
+
+#: functions/woocommerce-checkout-login-step.php:78
+msgid ""
+"Wanneer je bestelt als gast maak je geen account aan en kan je geen gebruik "
+"maken van de vele voordelen van een account."
+msgstr ""
+
+#: functions/woocommerce-tweaks.php:9
+msgid "Brand"
+msgstr ""
+
+#: functions/woocommerce-tweaks.php:12
+msgid "Product brand"
+msgstr ""
+
+#: functions/woocommerce-tweaks.php:232
+#, php-format
+msgid "%s is a required field."
+msgstr ""
+
+#: functions/woocommerce-tweaks.php:250 functions/woocommerce-tweaks.php:251
+#: woocommerce/myaccount/form-edit-account.php:30
+#: woocommerce/myaccount/form-edit-account.php:31
+msgid "First name"
+msgstr ""
+
+#: functions/woocommerce-tweaks.php:255 functions/woocommerce-tweaks.php:256
+#: woocommerce/myaccount/form-edit-account.php:35
+#: woocommerce/myaccount/form-edit-account.php:36
+msgid "Last name"
+msgstr ""
+
+#: functions/woocommerce-tweaks.php:272
+msgid "<strong>Error</strong>: First name is required!"
+msgstr ""
+
+#: functions/woocommerce-tweaks.php:275
+msgid "<strong>Error</strong>: Last name is required!."
+msgstr ""
+
+#: header.php:33
+msgid "Request a sample"
+msgstr ""
+
+#: header.php:35
+msgid "Customer service"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:23
+msgid "Billing &amp; Shipping"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:25
+msgid "Billing details"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:28
+msgid ""
+"Uw gegevens worden verwerkt in overeenstemming met ons <a href=\"/privacy-"
+"policy/\" target=\"_blank\" rel=\"noopener\">privacybeleid</a>."
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:51
+msgid "Create an account?"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:26
+msgid "You must be logged in to checkout."
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:61
+msgid "Additional information"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:77
+msgid "Overzicht"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:81
+#: woocommerce/checkout/payment.php:50
+msgid "Betalen"
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:28
+msgid "Afleveradres"
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:42
+msgid "Levering aan mijn factuuradres"
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:57
+msgid "Nieuw afleveradres"
+msgstr ""
+
+#: woocommerce/checkout/payment.php:33
+msgid ""
+"Sorry, it seems that there are no available payment methods for your state. "
+"Please contact us if you require assistance or wish to make alternate "
+"arrangements."
+msgstr ""
+
+#: woocommerce/checkout/payment.php:33
+msgid "Please fill in your details above to see available payment methods."
+msgstr ""
+
+#. translators: $1 and $2 opening and closing emphasis tags respectively
+#: woocommerce/checkout/payment.php:42
+#, php-format
+msgid ""
+"Since your browser does not support JavaScript, or it is disabled, please "
+"ensure you click the %1$sUpdate Totals%2$s button before placing your order. "
+"You may be charged more than the amount stated above if you fail to do so."
+msgstr ""
+
+#: woocommerce/checkout/payment.php:44
+msgid "Update totals"
+msgstr ""
+
+#: woocommerce/checkout/review-order.php:92
+msgid "Subtotal"
+msgstr ""
+
+#: woocommerce/checkout/review-order.php:139
+msgid "Total"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:23
+#: woocommerce/myaccount/form-edit-address.php:20
+#: woocommerce/myaccount/my-address.php:26
+#: woocommerce/myaccount/my-address.php:35
+msgid "Billing address"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:24
+#: woocommerce/myaccount/form-edit-address.php:20
+#: woocommerce/myaccount/my-address.php:27
+msgid "Shipping address"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:52
+#: woocommerce/myaccount/form-edit-account.php:55
+msgid "Phone"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:59
+#: woocommerce/myaccount/form-edit-account.php:60
+msgid "Company name"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:78
+msgid "Branche"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:84
+msgid "Wachtwoord aanpassen"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:90
+msgid "Current password (leave blank to leave unchanged)"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:91
+msgid "Huidig wachtwoord"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:95
+msgid "New password (leave blank to leave unchanged)"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:96
+msgid "Nieuw wachtwoord"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:100
+#: woocommerce/myaccount/form-edit-account.php:101
+msgid "Confirm new password"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:107
+#: woocommerce/myaccount/form-edit-address.php:45
+#: woocommerce/myaccount/form-reset-password.php:49
+msgid "Save"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:30
+msgid "Je wachtwoord is succesvol gewijzigd."
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:87
+#: woocommerce/myaccount/form-login.php:88
+msgid "Username"
+msgstr ""
+
+#: woocommerce/myaccount/form-lost-password.php:25
+msgid ""
+"Lost your password? Please enter your username or email address. You will "
+"receive a link to create a new password via email."
+msgstr ""
+
+#: woocommerce/myaccount/form-lost-password.php:28
+msgid "Username or email"
+msgstr ""
+
+#: woocommerce/myaccount/form-lost-password.php:38
+msgid "Reset password"
+msgstr ""
+
+#: woocommerce/myaccount/form-reset-password.php:29
+msgid ""
+"Kies een nieuw wachtwoord (advies: minimaal 12 tekens met 1 cijfer en 1 "
+"hoofdletter en kleine letter)"
+msgstr ""
+
+#: woocommerce/myaccount/form-reset-password.php:33
+msgid "New password"
+msgstr ""
+
+#: woocommerce/myaccount/form-reset-password.php:37
+msgid "Re-enter new password"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:58
+msgid "You have not set up this type of address yet."
+msgstr ""
+
+#: woocommerce/myaccount/orders.php:85
+msgid "Previous"
+msgstr ""
+
+#: woocommerce/myaccount/orders.php:89
+msgid "Next"
+msgstr ""
+
+#: woocommerce/myaccount/orders.php:102
+msgid "U heeft nog geen aankopen gedaan"
+msgstr ""
+
+#: woocommerce/myaccount/view-order.php:26
+msgid "Terug naar overzicht"
+msgstr ""
+
+#: woocommerce/myaccount/view-order.php:34
+msgid "Besteld op"
+msgstr ""
+
+#: woocommerce/myaccount/view-order.php:42
+msgid "Ordernummer"
+msgstr ""
+
+#: woocommerce/myaccount/view-order.php:49
+msgid "Bezorgadres"
+msgstr ""
+
+#: woocommerce/myaccount/view-order.php:84
+msgid "Betaaldetails"
+msgstr ""
+
+#: woocommerce/myaccount/view-order.php:89
+msgid "Totaal artikelen"
+msgstr ""
+
+#: woocommerce/myaccount/view-order.php:94
+msgid "Verzendkosten"
+msgstr ""
+
+#: woocommerce/myaccount/view-order.php:99
+msgid "BTW"
+msgstr ""
+
+#: woocommerce/myaccount/view-order.php:104
+msgid "Totaal"
+msgstr ""
+
+#: woocommerce/myaccount/view-order.php:112
+msgid "Betaald met "
+msgstr ""
+
+#: woocommerce/myaccount/view-order.php:123
+msgid "Factuuradres"
+msgstr ""
+
+#: woocommerce/myaccount/view-order.php:168
+msgid "Factuur downloaden"
+msgstr ""
+
+#: woocommerce/pdf/custom-business/credit-note.php:42
+#: woocommerce/pdf/custom-business/invoice.php:43
+#: woocommerce/pdf/custom-business/packing-slip.php:55
+#: woocommerce/pdf/custom-business/proforma.php:42
+msgid "Billing Address:"
+msgstr ""
+
+#: woocommerce/pdf/custom-business/credit-note.php:55
+#: woocommerce/pdf/custom-business/invoice.php:56
+#: woocommerce/pdf/custom-business/proforma.php:55
+msgid "Ship To:"
+msgstr ""
+
+#: woocommerce/pdf/custom-business/credit-note.php:71
+msgid "Credit Note Number:"
+msgstr ""
+
+#: woocommerce/pdf/custom-business/credit-note.php:76
+#: woocommerce/pdf/custom-business/invoice.php:77
+#: woocommerce/pdf/custom-business/packing-slip.php:70
+#: woocommerce/pdf/custom-business/proforma.php:76
+msgid "Order Number:"
+msgstr ""
+
+#: woocommerce/pdf/custom-business/credit-note.php:86
+msgid "Credit Note Date:"
+msgstr ""
+
+#: woocommerce/pdf/custom-business/credit-note.php:91
+#: woocommerce/pdf/custom-business/invoice.php:92
+#: woocommerce/pdf/custom-business/packing-slip.php:83
+#: woocommerce/pdf/custom-business/proforma.php:91
+msgid "Order Date:"
+msgstr ""
+
+#: woocommerce/pdf/custom-business/credit-note.php:139
+#: woocommerce/pdf/custom-business/invoice.php:150
+#: woocommerce/pdf/custom-business/packing-slip.php:131
+#: woocommerce/pdf/custom-business/proforma.php:139
+msgid "Customer Notes"
+msgstr ""
+
+#: woocommerce/pdf/custom-business/invoice.php:72
+msgid "Invoice Number:"
+msgstr ""
+
+#: woocommerce/pdf/custom-business/invoice.php:87
+msgid "Invoice Date:"
+msgstr ""
+
+#: woocommerce/pdf/custom-business/invoice.php:142
+msgid "Notes"
+msgstr ""
+
+#: woocommerce/pdf/custom-business/packing-slip.php:42
+msgid "Shipping Address:"
+msgstr ""
+
+#: woocommerce/pdf/custom-business/packing-slip.php:74
+msgid "Shipping Method:"
+msgstr ""
+
+#: woocommerce/pdf/custom-business/proforma.php:71
+msgid "Proforma Invoice Number:"
+msgstr ""
+
+#: woocommerce/pdf/custom-business/proforma.php:86
+msgid "Proforma Invoice Date:"
+msgstr ""
+
+#: woocommerce/product-searchform.php:24
+msgid "Search for:"
+msgstr ""
+
+#: woocommerce/product-searchform.php:25
+msgid "Search"
+msgstr ""
+
+#: woocommerce/product-searchform.php:26
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Wegwerphanddoeken.nl"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://github.com/WesleySmits/wegwerphanddoeken-theme"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Theme for Wegwerphanddoeken.nl"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Wesley Smits"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.wesleysmits.com/"
+msgstr ""

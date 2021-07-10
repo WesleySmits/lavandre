@@ -1,0 +1,29 @@
+@import "../variables/variables.pcss";
+
+[data-curtain-toggle] {
+    cursor: pointer;
+}
+
+[data-curtain-toggle] i {
+    margin-left: 10px;
+}
+
+[data-curtain-toggle].active i {
+    transform: rotate(180deg);
+}
+
+[data-curtain-content] {
+    transition: max-height .4s, padding .4s;
+    overflow: hidden;
+}
+
+[data-curtain-content]:not(.active) {
+    max-height: 0;
+    padding: 0 !important;
+}
+
+@media (--tablet) {
+    [data-curtain-content][data-only-on-mobile="true"] {
+        max-height: none;
+    }
+}

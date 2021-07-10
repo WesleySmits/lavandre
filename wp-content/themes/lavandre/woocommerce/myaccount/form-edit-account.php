@@ -1,0 +1,114 @@
+<?php
+/**
+ * Edit account form
+ *
+ * This template can be overridden by copying it to yourtheme/woocommerce/myaccount/form-edit-account.php.
+ *
+ * HOWEVER, on occasion WooCommerce will need to update template files and you
+ * (the theme developer) will need to copy the new files to your theme to
+ * maintain compatibility. We try to do this as little as possible, but it does
+ * happen. When this occurs the version of the template file will be bumped and
+ * the readme will list any important changes.
+ *
+ * @see https://docs.woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 3.5.0
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+do_action( 'woocommerce_before_edit_account_form' ); ?>
+
+<form class="woocommerce-EditAccountForm edit-account" action="" method="post" <?php do_action( 'woocommerce_edit_account_form_tag' ); ?> >
+
+    <?php do_action( 'woocommerce_edit_account_form_start' ); ?>
+
+    <h1><?php _e('Mijn gegevens', 'woocommerce'); ?></h1>
+
+	<div class="flex">
+        <p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first flex-col-xs-12 flex-col-md-6">
+            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="account_first_name" id="account_first_name" autocomplete="given-name" value="<?php echo esc_attr( $user->first_name ); ?>" placeholder="<?php esc_html_e( 'First name', 'woocommerce' ); ?>" />
+            <label for="account_first_name"><?php esc_html_e( 'First name', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
+        </p>
+
+        <p class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last flex-col-xs-12 flex-col-md-6">
+            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="account_last_name" id="account_last_name" autocomplete="family-name" value="<?php echo esc_attr( $user->last_name ); ?>" placeholder="<?php esc_html_e( 'Last name', 'woocommerce' ); ?>" />
+            <label for="account_last_name"><?php esc_html_e( 'Last name', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
+        </p>
+    </div>
+
+	<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+		<input type="email" class="woocommerce-Input woocommerce-Input--email input-text" name="account_email" id="account_email" autocomplete="email" value="<?php echo esc_attr( $user->user_email ); ?>" placeholder="<?php esc_html_e( 'Email address', 'woocommerce' ); ?>" />
+		<label for="account_email"><?php esc_html_e( 'Email address', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
+    </p>
+
+    <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+        <input
+            type="tel"
+            class="woocommerce-Input woocommerce-Input--phone input-text"
+            name="billing_phone"
+            id="billing_phone"
+            value="<?php echo esc_attr( $user->billing_phone ); ?>"
+            placeholder="<?php _e( 'Phone', 'woocommerce' ); ?>"
+            pattern="(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)"
+        />
+        <label for="billing_phone"><?php _e( 'Phone', 'woocommerce' ); ?> <span class="required">*</span></label>
+    </p>
+
+    <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+        <input type="text" class="woocommerce-Input woocommerce-Input--phone input-text" name="billing_company" id="billing_company" value="<?php echo esc_attr( $user->billing_company ); ?>" placeholder="<?php _e( 'Company name', 'woocommerce' ); ?>" />
+        <label for="billing_company"><?php _e( 'Company name', 'woocommerce' ); ?> <span class="required">*</span></label>
+    </p>
+
+    <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+        <?php $selected = esc_attr( $user->billing_company_type ); ?>
+        <select class="woocommerce-Input woocommerce-Input--phone input-text" name="billing_company_type" id="billing_company_type" value="<?php echo esc_attr( $user->billing_company_type ); ?>">
+            <option value="0" <?php if ($selected === '0') { ?> selected <?php } ?>>Branche</option>
+                <option value="<?php _e('hairdresser', 'hello-elementor-child'); ?>" <?php if ($selected === __('hairdresser', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('hairdresser', 'hello-elementor-child')); ?></option>
+                <option value="<?php _e('pedicure', 'hello-elementor-child'); ?>" <?php if ($selected === __('pedicure', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('pedicure', 'hello-elementor-child')); ?></option>
+                <option value="<?php _e('spa', 'hello-elementor-child'); ?>" <?php if ($selected === __('spa', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('spa', 'hello-elementor-child')); ?></option>
+                <option value="<?php _e('massage parlor', 'hello-elementor-child'); ?>" <?php if ($selected === __('massage parlor', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('massage parlor', 'hello-elementor-child')); ?></option>
+                <option value="<?php _e('nail stylist', 'hello-elementor-child'); ?>" <?php if ($selected === __('nail stylist', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('nail stylist', 'hello-elementor-child')); ?></option>
+                <option value="<?php _e('beauty salon', 'hello-elementor-child'); ?>" <?php if ($selected === __('beauty salon', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('beauty salon', 'hello-elementor-child')); ?></option>
+                <option value="<?php _e('medical', 'hello-elementor-child'); ?>" <?php if ($selected === __('medical', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('medical', 'hello-elementor-child')); ?></option>
+                <option value="<?php _e('travel', 'hello-elementor-child'); ?>" <?php if ($selected === __('travel', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('travel', 'hello-elementor-child')); ?></option>
+                <option value="<?php _e('cleaning', 'hello-elementor-child'); ?>" <?php if ($selected === __('cleaning', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('cleaning', 'hello-elementor-child')); ?></option>
+                <option value="<?php _e('other', 'hello-elementor-child'); ?>" <?php if ($selected === __('other', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('other', 'hello-elementor-child')); ?></option>
+        </select>
+        <label for="billing_company_type"><?php _e( 'Branche', 'woocommerce' ); ?> <span class="required">*</span></label>
+    </p>
+
+    <?php do_action( 'woocommerce_edit_account_form' ); ?>
+
+    <h3 data-curtain-toggle="password-save">
+        <span><?php esc_html_e( 'Wachtwoord aanpassen', 'woocommerce' ); ?></span>
+        <?php include get_stylesheet_directory() . '/partials/icons/chevron-down.svg.php'; ?>
+    </h3>
+
+    <div data-curtain-content="password-save">
+        <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+            <input type="password" class="woocommerce-Inputt woocommerce-Input--password input-text" name="password_current" id="password_current" autocomplete="off" placeholder="<?php esc_html_e( 'Current password (leave blank to leave unchanged)', 'woocommerce' ); ?>" />
+            <label for="password_current"><?php esc_html_e( 'Huidig wachtwoord', 'woocommerce' ); ?></label>
+        </p>
+
+        <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+            <input type="password" class="woocommerce-Inputt woocommerce-Input--password input-text" name="password_1" id="password_1" autocomplete="off" placeholder="<?php esc_html_e( 'New password (leave blank to leave unchanged)', 'woocommerce' ); ?>" />
+            <label for="password_1"><?php esc_html_e( 'Nieuw wachtwoord', 'woocommerce' ); ?></label>
+        </p>
+
+        <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+            <input type="password" class="woocommerce-Inputt woocommerce-Input--password input-text" name="password_2" id="password_2" autocomplete="off" placeholder="<?php esc_html_e( 'Confirm new password', 'woocommerce' ); ?>" />
+            <label for="password_2"><?php esc_html_e( 'Confirm new password', 'woocommerce' ); ?></label>
+        </p>
+    </div>
+
+    <p>
+        <?php wp_nonce_field( 'save_account_details', 'save-account-details-nonce' ); ?>
+        <button type="submit" class="woocommerce-Button button cta-button cta-button--secondary inline" name="save_account_details" value="<?php esc_attr_e( 'Save', 'woocommerce' ); ?>"><?php esc_html_e( 'Save', 'woocommerce' ); ?></button>
+        <input type="hidden" name="action" value="save_account_details" />
+    </p>
+
+	<?php do_action( 'woocommerce_edit_account_form_end' ); ?>
+</form>
+
+<?php do_action( 'woocommerce_after_edit_account_form' ); ?>
