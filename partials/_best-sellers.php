@@ -1,4 +1,5 @@
 <header>
+    <h2><?php _e('Test', 'hello-elementor-child'); ?></h2>
     <h2><?php _e('Best Sellers', 'hello-elementor-child'); ?></h2>
 </header>
 
