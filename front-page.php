@@ -1,14 +1,14 @@
 <?php get_header(); ?>
 
 <main id="main-homepage">
-    <section id="main-banner">
+    <!-- <section id="main-banner">
         <picture>
             <source media="(orientation: portrait)" type="image/jpeg" srcset="/wp-content/themes/hello-elementor-child/public/images/banners/wegwerphanddoeken-banner-mobile-414.jpg 414w, /wp-content/themes/hello-elementor-child/public/images/banners/wegwerphanddoeken-banner-mobile-720.jpg 720w, /wp-content/themes/hello-elementor-child/public/images/banners/wegwerphanddoeken-banner-mobile-768.jpg 768w, /wp-content/themes/hello-elementor-child/public/images/banners/wegwerphanddoeken-banner-mobile-1024.jpg 1024w, /wp-content/themes/hello-elementor-child/public/images/banners/wegwerphanddoeken-banner-mobile-1080.jpg 1080w, /wp-content/themes/hello-elementor-child/public/images/banners/wegwerphanddoeken-banner-mobile-1242.jpg 1242w, /wp-content/themes/hello-elementor-child/public/images/banners/wegwerphanddoeken-banner-mobile-1500.jpg 1500w">
             <source media="(orientation: landscape)" type="image/jpeg" srcset="https://mlopuc09ja9l.i.optimole.com/nHCK-M0.rYUz~5e4b8/w:auto/h:auto/q:100/https://wegwerphanddoeken.nl/wp-content/uploads/2021/01/wegwerphanddoeken-banner-scaled.jpeg">
 
             <img loading="lazy" src="https://mlopuc09ja9l.i.optimole.com/nHCK-M0.rYUz~5e4b8/w:auto/h:auto/q:100/https://wegwerphanddoeken.nl/wp-content/uploads/2021/01/wegwerphanddoeken-banner-scaled.jpeg" alt="Wegwerphanddoeken" class="" data-opt-lazy-loaded="true" data-opt-otimized-width="1920" data-opt-optimized-height="848" style="max-width: 1920px;"><noscript><img src="https://mlopuc09ja9l.i.optimole.com/nHCK-M0.rYUz~5e4b8/w:auto/h:auto/q:100/https://wegwerphanddoeken.nl/wp-content/uploads/2021/01/wegwerphanddoeken-banner-scaled.jpeg" alt="" /></noscript>
         </picture>
-    </section>
+    </section> -->
 
     <section id="best-sellers" class="ww-block hide-on-mobile">
         <?php include 'partials/_best-sellers.php'; ?>
