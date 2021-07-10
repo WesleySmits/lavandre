@@ -1,0 +1,233 @@
+@import "../variables/variables.pcss";
+@import "../components/_usp-icons-list.pcss";
+
+.products.columns-3 {
+    list-style-type: none;
+    padding: 0;
+}
+
+.products.columns-3 .attachment-woocommerce_thumbnail {
+    margin-bottom: 1rem;
+}
+
+.woocommerce-loop-product__title {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+}
+
+
+/* -------------- */
+
+.ww-block {
+    padding: 50px 0 50px;
+
+    header {
+        margin-bottom: 1.25rem;
+
+        h2 {
+            font-size: 1.25rem;
+            text-align: center;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+    }
+
+    &--accent {
+        background-color: var(--color-accent);
+    }
+}
+
+.ww-products {
+    display: grid;
+    grid-row-gap: 40px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 0;
+    border: 1px solid var(--color-border);
+
+    &--three-columns {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+.ww-products__item {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    border-right: 1px solid var(--color-border);
+}
+
+.ww-products__link {
+    display: block;
+    position: relative;
+}
+
+.ww-products__image {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+
+.ww-products__title {
+    margin: auto;
+    padding: .5rem 0;
+    font-size: 1rem;
+    font-weight: 400 !important;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+#newsletter-subscribe-home {
+    padding: 25px 15px;
+
+    @media (--tablet) {
+        padding: 50px;
+    }
+}
+
+.ww-block .newsletter-subscribe-home__left {
+    flex: 0 0 100%;
+
+    @media (--tablet) {
+        flex: 0 0 30%;
+    }
+}
+
+.ww-block .newsletter-subscribe-home__right {
+    flex: 0 0 100%;
+
+    @media (--tablet) {
+        flex: 0 0 70%;
+    }
+
+    h2 {
+        letter-spacing: initial;
+    }
+}
+
+.ww-block .newsletter-subscribe-home {
+    align-items: center;
+    padding: 10px 0;
+
+    & > header {
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        line-height: 1.6;
+        text-align: initial;
+
+        @media (--tablet) {
+            font-size: 1.875rem;
+        }
+    }
+
+
+    p {
+        max-width: 500px;
+        border-bottom: 1px solid var(--black);
+        padding-bottom: 17px;
+        overflow: hidden;
+        position: relative;
+    }
+}
+
+.ww-block .newsletter-subscribe-home__input {
+    display: block;
+    width: 80%;
+    height: 44px !important;
+    line-height: 44px!important;
+    padding: 0 !important;
+    font-size: 18px;
+    border: none !important;
+    color: var(--color-text) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    font-weight: 400;
+    appearance: none;
+
+    &::-webkit-input-placeholder {
+        text-transform: uppercase;
+        color: var(--black);
+    }
+}
+
+.ww-block .newsletter-subscribe-home__button {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+
+    width: auto;
+    background: none;
+    color: var(--color-text) !important;
+    font-size: 1.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+
+    svg {
+        width: 1.25rem;
+        height: 1.25rem;
+        transform: rotate(180deg);
+
+        path {
+            stroke: var(--black);
+        }
+    }
+}
+
+.ww-block h2.newsletter-subscribe-home__cta {
+    font-size: 5rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    font-weight: 100;
+    letter-spacing: .1px;
+    font-family: serif;
+}
+
+.ww-block .newsletter-subscribe-home__cta-sup {
+    top: -.5em;
+    left: -.25em;
+    font-size: 2.5rem;
+    line-height: 3.2;
+    vertical-align: top;
+}
+
+#instagram-feed {
+    padding-bottom: 25px;
+}
+
+#seo-content {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.ww-block .seo-content {
+    max-height: 86px;
+    font-size: 0.8125rem;
+
+    header {
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 1.375rem;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 1.125rem;
+    }
+}
+
+.ww-block .seo-content-toggle {
+    display: block;
+    margin-top: 10px;
+    font-size: .8125rem;
+    color: var(--color-text);
+    text-decoration: underline;
+}

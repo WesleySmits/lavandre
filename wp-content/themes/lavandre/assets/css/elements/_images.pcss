@@ -1,0 +1,19 @@
+img:not(.loading) {
+    border-style: none;
+    height: auto;
+    max-width: 100%;
+}
+
+img.loading {
+    transition: opacity .4s ease;
+    opacity: 0.5;
+}
+
+img.loaded {
+    transition: opacity .4s ease;
+    opacity: 1;
+}
+
+picture {
+    display: block;
+}

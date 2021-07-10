@@ -1,0 +1,20 @@
+{
+    "projectId": "",
+    "baseUrl": "https://lavandre.local/",
+    "integrationFolder": "cypress/integration/en",
+    "fixturesFolder": "cypress/fixtures",
+    "supportFile": "cypress/support/index.ts",
+    "pluginsFile": "cypress/plugins/index.ts",
+    "video": false,
+    "ignoreTestFiles": "*.hot-update.ts",
+    "numTestsKeptInMemory": 0,
+    "scrollBehavior": "center",
+    "blockHosts": [
+        "www.google-analytics.com",
+        "www.googletagmanager.com"
+    ],
+    "retries": {
+        "runMode": 2,
+        "openMode": 0
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "eslint:recommended",
+        "airbnb-base",
+        "plugin:import/errors",
+        "plugin:import/warnings"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 7,
+        "sourceType": "module"
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".ts"]
+            }
+        }
+    },
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true,
+        "jest": true
+    },
+    "ignorePatterns": [
+        "**/*.test.ts",
+        "**/*.spec.ts"
+    ],
+    "rules": {
+        "max-len": ["error", { "code": 120 }],
+        "no-console": 2,
+        "no-alert": 2,
+        "indent": ["error", 4]
+    }
+}

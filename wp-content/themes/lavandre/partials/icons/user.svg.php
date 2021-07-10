@@ -1,0 +1,2 @@
+
+<svg viewBox="0 0 140 140" height="140" width="140" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(5.833333333333333,0,0,5.833333333333333,0,0)"><path d="M7.750 7.750 A4.250 4.250 0 1 0 16.250 7.750 A4.250 4.250 0 1 0 7.750 7.750 Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5,20.5a7,7,0,0,1,14,0Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
