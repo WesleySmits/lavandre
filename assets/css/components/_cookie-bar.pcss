@@ -1,0 +1,48 @@
+.cookie-bar {
+    max-width: 1280px !important;
+    width: 95% !important;
+    position: fixed;
+    right: 0;
+    bottom: 20px;
+    left: 0;
+    margin: auto;
+    z-index: 10;
+
+    background: var(--white);
+    box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
+    padding: 0.625rem 1.25rem !important;
+
+    @media (--tablet) {
+        padding: 1.25rem 2.5rem !important;
+    }
+
+    p {
+        font-size: 0.8125rem;
+    }
+
+    .flex {
+        align-items: center;
+    }
+
+    button {
+        margin: 0 !important;
+        order: 1;
+
+        &[data-role="cookies-reject"] {
+            background: none !important;
+            color: var(--color-text) !important;
+            padding: 0 !important;
+            border: 0 !important;
+            min-width: 0 !important;
+            display: inline !important;
+            width: auto !important;
+            text-decoration: underline !important;
+            order: 2;
+        }
+
+        @media (--tablet) {
+            max-width: 200px;
+            order: 3;
+        }
+    }
+}

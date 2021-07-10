@@ -1,0 +1,45 @@
+@import "../variables/variables.pcss";
+
+// Exceptions for sample product
+body.postid-74 {
+    .dynamic-price-field,
+    .plus-amount,
+    .minus-amount,
+    .quantity {
+        display: none !important;
+    }
+}
+
+.flex-control-thumbs {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+
+    li {
+        flex: 0 0 25%;
+        @media (--tablet) {
+            flex: 0 0 auto;
+        }
+    }
+}
+
+.qty {
+    text-align: center;
+}
+
+.quantity {
+    margin-bottom: 0 !important;
+}
+
+#detailAddToCart .single_add_to_cart_button {
+    position: relative;
+}
+
+.woocommerce-product-attributes {
+    p {
+        margin: 0 !important;
+    }
+}

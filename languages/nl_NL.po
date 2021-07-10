@@ -1,0 +1,1337 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Wegwerphanddoeken.nl\n"
+"POT-Creation-Date: 2021-03-17 22:56+0100\n"
+"PO-Revision-Date: 2021-03-17 22:57+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+
+#: footer.php:7
+msgid "Free delivery from 75 euro"
+msgstr "Gratis bezorging vanaf 75 euro"
+
+#: footer.php:19
+msgid "14 day return policy"
+msgstr "Retourneren, bedenktijd van 14 dagen"
+
+#: footer.php:28
+msgid "Available every day between 08:00 - 21:00"
+msgstr "Elke dag bereikbaar tussen 08:00 - 21:00"
+
+#: footer.php:33
+msgid "Via chat"
+msgstr "Via chat"
+
+#: footer.php:33
+msgid "replies within 5 minutes"
+msgstr "antwoord binnen 5 minuten"
+
+#: footer.php:39
+msgid "Call 085 303 11 02"
+msgstr "Bel 085 303 11 02"
+
+#: footer.php:39
+msgid "available till 21:00"
+msgstr "beschikbaar tot 21:00"
+
+#: footer.php:45
+msgid "Via Facebook"
+msgstr "Via Facebook"
+
+#: footer.php:45 footer.php:51
+msgid "replies within 10 minutes"
+msgstr "antwoord binnen 5 minuten"
+
+#: footer.php:51
+msgid "Via WhatsApp"
+msgstr "Via WhatsApp"
+
+#: footer.php:63 front-page.php:44
+msgid "Please enter a valid e-mail address"
+msgstr "Vul een geldig e-mailadres in"
+
+#: footer.php:63 footer.php:64 front-page.php:44 front-page.php:45
+msgid "Your e-mail address"
+msgstr "Uw e-mailadres"
+
+#: footer.php:66
+msgid "Subscribe"
+msgstr "Aanmelden"
+
+#: footer.php:108 footer.php:112 header.php:35
+msgid "Customer service"
+msgstr "Klantenservice"
+
+#: footer.php:113 header.php:60
+msgid "Contact"
+msgstr "Contact"
+
+#: footer.php:114 footer.php:127
+msgid "Payment"
+msgstr "Betalen"
+
+#: footer.php:115 footer.php:128
+msgid "Ordering and delivery"
+msgstr "Bestellen en bezorgen"
+
+#: footer.php:116 footer.php:129
+msgid "Returns"
+msgstr "Retourneren"
+
+#: footer.php:122
+msgid "Online orders"
+msgstr "Online bestellen"
+
+#: footer.php:126 woocommerce/myaccount/navigation.php:27
+msgid "My account"
+msgstr "Mijn account"
+
+#: footer.php:135 footer.php:139
+msgid "About us"
+msgstr "Over ons"
+
+#: footer.php:145 footer.php:149 header.php:56
+msgid "Sustainability"
+msgstr "Duurzaamheid"
+
+#: footer.php:150 partials/submenus/sustainability.php:5
+#: partials/submenus/sustainability.php:6
+msgid "Acting responsibly"
+msgstr "Verantwoordelijk handelen"
+
+#: footer.php:151 partials/submenus/sustainability.php:12
+#: partials/submenus/sustainability.php:13
+msgid "Sustainable production"
+msgstr "Duurzame productie"
+
+#: footer.php:152 partials/submenus/sustainability.php:19
+#: partials/submenus/sustainability.php:20
+msgid "Derived from nature"
+msgstr "Afgeleid uit de natuur"
+
+#: footer.php:153 partials/submenus/sustainability.php:26
+#: partials/submenus/sustainability.php:27
+#: woocommerce/myaccount/dashboard.php:73
+msgid "Contributing to nature"
+msgstr "Bijdragen aan de natuur"
+
+#: footer.php:172
+msgid "Cookie information &amp; settings"
+msgstr "Cookie informatie &amp; instellingen"
+
+#: footer.php:173
+msgid "Terms of use"
+msgstr "Algemene voorwaarden"
+
+#: footer.php:174
+msgid "Privacy policy"
+msgstr "Privacy policy"
+
+#: footer.php:175
+msgid "Disclaimer"
+msgstr "Disclaimer"
+
+#: front-page.php:40
+#, php-format
+msgid "Receive a %s discount on your first online order."
+msgstr "Ontvang %s korting op uw eerste online aankoop."
+
+#: front-page.php:56
+msgid "We are on Instagram"
+msgstr "Wij zijn op Instagram​"
+
+#: front-page.php:66
+msgid "First official online store in disposable towels"
+msgstr "Eerste officiële online winkel in wegwerphanddoeken"
+
+#: front-page.php:67
+msgid ""
+"Disposable towels are the number one supplier of biodegradable disposable "
+"towels mainly to the beauty industry (hairdressers, beauty salons, "
+"pedicures, spas, massage salons and nail stylists) and healthcare. We supply "
+"quality sustainable products for the beauty industry and healthcare. In this "
+"way we contribute to a positive experience and a change of mentality. With "
+"the aim of getting people to switch to environmentally friendly products."
+msgstr ""
+"Wegwerphanddoeken.nl is dé leverancier van biologisch afbreekbare "
+"wegwerphanddoeken aan hoofdzakelijk de beauty-industrie (kapperszaken, "
+"schoonheidssalons, pedicures, spa’s, massage salons en nagelstylisten) en de "
+"zorg. Wij leveren kwalitatieve duurzame producten ten behoeve van de beauty-"
+"industrie en de zorg. Zo dragen wij bij aan een positieve ervaring en een "
+"verandering van mentaliteit. Met als doel om mensen over te laten schakelen "
+"naar milieuvriendelijke producten."
+
+#: front-page.php:69 front-page.php:88
+msgid "Ecologically sound"
+msgstr "Ecologisch verantwoord"
+
+#: front-page.php:70
+msgid ""
+"We stand for responsibility and a more sustainable lifestyle. By offering "
+"sustainable quality products, we want to make a difference in the daily "
+"lives of our customers and work towards a green future. By staying close to "
+"nature and making optimal and responsible use of what it has to offer, we "
+"are able to deliver the best products. That contribute to a better and "
+"sustainable society."
+msgstr ""
+"Wij staan voor verantwoordelijkheid en een duurzamere levensstijl. Door het "
+"bieden van duurzame kwalitatieve producten willen wij het verschil maken in "
+"het dagelijkse leven van onze klanten en werken naar een groene toekomst. "
+"Door dicht bij de natuur te blijven, optimaal en verantwoord gebruik maken "
+"van wat zij ons te bieden heeft, zijn we in staat om de beste producten te "
+"leveren. Die bijdragen aan een betere en duurzame samenleving."
+
+#: front-page.php:72 front-page.php:93
+msgid "Single use"
+msgstr "Eenmalig gebruik"
+
+#: front-page.php:73
+#, php-format
+msgid ""
+"Disposable towels are more hygienic (single use), more durable (completely "
+"biodegradable and are not washed, which is harmful to the environment), "
+"easier (absorbs better and immediately ready for use) and also cheaper (all "
+"costs added up can be between %s and %s save)."
+msgstr ""
+"Wegwerphanddoeken zijn hygiënischer (eenmalig gebruik), duurzamer (volledig "
+"afbreekbaar en worden niet gewassen, wat belastend is voor het milieu), "
+"makkelijker (absorbeert beter en direct klaar voor gebruik) en bovendien "
+"goedkoper (alle kosten opgeteld kan men tussen de %s en %s besparen)."
+
+#: front-page.php:75 front-page.php:98
+#, php-format
+msgid "%s green"
+msgstr "%s groen"
+
+#: front-page.php:76
+msgid ""
+"Our disposable products are produced in an ecologically responsible way from "
+"surplus plant fibers. As a result, we do not have to cut down trees and the "
+"production of our products does not harm the environment. By using our "
+"collection of sustainable towels you can drastically reduce your laundry. "
+"Our towels are safe to dispose of in the knowledge that they will biodegrade "
+"in as little as 8-12 weeks. By saving your laundry, you save on electricity "
+"bills and reduce your emissions of CO2 and polluted water."
+msgstr ""
+"Onze wegwerpproducten worden op een ecologisch verantwoorde manier "
+"geproduceerd van overtollige plantenvezels. Hierdoor hoeven wij geen bomen "
+"te kappen en schaadt de productie van onze producten het milieu niet. Door "
+"onze collectie duurzame handdoeken te gebruiken, kunt u uw wasgoed drastisch "
+"verminderen. Onze handdoeken kunnen veilig worden weggegooid in de "
+"wetenschap dat ze volledig biologisch worden afgebroken in slechts 8-12 "
+"weken. Door uw was te besparen, bespaart u op elektriciteitsrekeningen en "
+"vermindert u uw uitstoot van CO2 én verontreinigd water."
+
+#: front-page.php:79 front-page.php:80
+#: functions/woocommerce-custom-cart.php:247
+#: woocommerce/myaccount/dashboard.php:78
+msgid "Read more"
+msgstr "Lees meer"
+
+#: front-page.php:79
+msgid "Read less"
+msgstr "Lees minder"
+
+#: front-page.php:103
+msgid "Cost effective"
+msgstr "Kostenbesparend"
+
+#: functions.php:9
+msgid "sunday"
+msgstr "zondag"
+
+#: functions.php:10
+msgid "monday"
+msgstr "maandag"
+
+#: functions.php:11
+msgid "tuesday"
+msgstr "dinsdag"
+
+#: functions.php:12
+msgid "wednesday"
+msgstr "woensdag"
+
+#: functions.php:13
+msgid "thursday"
+msgstr "donderdag"
+
+#: functions.php:14
+msgid "friday"
+msgstr "vrijdag"
+
+#: functions.php:15
+msgid "saturday"
+msgstr "zaterdag"
+
+#: functions.php:23
+msgid "january"
+msgstr "januari"
+
+#: functions.php:24
+msgid "february"
+msgstr "februari"
+
+#: functions.php:25
+msgid "march"
+msgstr "maart"
+
+#: functions.php:26
+msgid "april"
+msgstr "april"
+
+#: functions.php:27
+msgid "may"
+msgstr "mei"
+
+#: functions.php:28
+msgid "june"
+msgstr "juni"
+
+#: functions.php:29
+msgid "july"
+msgstr "juli"
+
+#: functions.php:30
+msgid "august"
+msgstr "augustus"
+
+#: functions.php:31
+msgid "september"
+msgstr "september"
+
+#: functions.php:32
+msgid "october"
+msgstr "oktober"
+
+#: functions.php:33
+msgid "november"
+msgstr "november"
+
+#: functions.php:34
+msgid "december"
+msgstr "december"
+
+#: functions.php:59
+#, php-format
+msgid "Order now, receive it on %s"
+msgstr "Nu besteld, %s geleverd"
+
+#: functions/custom-ajax.php:47
+#, fuzzy
+msgid "Coupon code is niet toegepast in de winkelmand."
+msgstr "Couponcode \"%s\" is al toegepast."
+
+#: functions/custom-ajax.php:54
+msgid "Coupon code kon niet worden verwijderd."
+msgstr ""
+
+#: functions/custom-ajax.php:67
+#, fuzzy
+msgid "Voer alstublieft een coupon code in."
+msgstr "Voer een couponcode in."
+
+#: functions/custom-ajax.php:78 functions/custom-ajax.php:92
+#, fuzzy
+msgid "Helaas, deze code is niet geldig."
+msgstr "Helaas, deze code is niet geldig."
+
+#: functions/custom-ajax.php:85
+#, fuzzy, php-format
+msgid "Coupon code \"%s\" is al toegepast."
+msgstr "Couponcode \"%s\" is al toegepast."
+
+#: functions/custom-ajax.php:101
+#, fuzzy, php-format
+msgid ""
+"Coupon code \"%s\" is al toegepast en kan niet samen worden gebruikt met "
+"andere coupon codes."
+msgstr ""
+"Couponcode \"%s\" is al toegepast en kan niet samen worden gebruikt met "
+"andere couponcodes."
+
+#: functions/custom-ajax.php:214
+msgid "U bent al ingeschreven."
+msgstr ""
+
+#: functions/custom-ajax.php:218
+msgid "U bent aangemeld."
+msgstr ""
+
+#: functions/custom-ajax.php:227 functions/custom-ajax.php:315
+msgid "Already logged in"
+msgstr ""
+
+#: functions/custom-ajax.php:234
+msgid "Email is empty"
+msgstr ""
+
+#: functions/custom-ajax.php:239
+#, fuzzy
+msgid ""
+"Er bestaat al een account met dit e-mailadres. U kunt door middel van het "
+"inlogformulier inloggen om verder te gaan."
+msgstr ""
+"Er is al een account met dit e-mailadres. U kunt door middel van het "
+"inlogformulier inloggen om verder te gaan."
+
+#: functions/custom-ajax.php:242
+#, fuzzy
+#| msgid "Please enter a valid e-mail address"
+msgid "Invalid email address"
+msgstr "Vul een geldig e-mailadres in."
+
+#: functions/custom-ajax.php:305
+msgid "Error Occured please fill in the sign up form carefully."
+msgstr ""
+
+#: functions/custom-ajax.php:322
+#, fuzzy
+#| msgid "Username or email"
+msgid "Username is empty"
+msgstr "Gebruikersnaam of e-mailadres"
+
+#: functions/dynamic-pricing.php:9
+#, fuzzy
+msgid "Dynamic pricing"
+msgstr "Dynamische prijzen"
+
+#: functions/dynamic-pricing.php:12
+#, fuzzy
+msgid "Dynamic pricing information."
+msgstr "Dynamische prijsinformatie."
+
+#: functions/dynamic-pricing.php:76 functions/woocommerce-tweaks.php:69
+#, fuzzy
+msgid "Vanaf"
+msgstr "Vanaf"
+
+#: functions/dynamic-pricing.php:76
+#, fuzzy
+msgid "pakken"
+msgstr "pakken"
+
+#: functions/dynamic-pricing.php:77
+#, fuzzy
+msgid "per pak"
+msgstr "per pak"
+
+#: functions/woocommerce-account.php:10
+#: woocommerce/myaccount/form-edit-account.php:26
+#, fuzzy
+msgid "Mijn gegevens"
+msgstr "Mijn gegevens"
+
+#: functions/woocommerce-account.php:11
+#, fuzzy
+msgid "Mijn aankopen"
+msgstr "Mijn aankopen"
+
+#: functions/woocommerce-account.php:12
+#, fuzzy
+msgid "Mijn adressen"
+msgstr "Mijn adressen"
+
+#: functions/woocommerce-account.php:117 functions/woocommerce-tweaks.php:133
+#: functions/woocommerce-tweaks.php:250 functions/woocommerce-tweaks.php:251
+#: woocommerce/myaccount/form-edit-account.php:30
+#: woocommerce/myaccount/form-edit-account.php:31
+msgid "First name"
+msgstr "Voornaam"
+
+#: functions/woocommerce-account.php:118 functions/woocommerce-tweaks.php:134
+#: functions/woocommerce-tweaks.php:255 functions/woocommerce-tweaks.php:256
+#: woocommerce/myaccount/form-edit-account.php:35
+#: woocommerce/myaccount/form-edit-account.php:36
+msgid "Last name"
+msgstr "Achternaam"
+
+#: functions/woocommerce-account.php:119 functions/woocommerce-tweaks.php:135
+#: woocommerce/myaccount/form-edit-account.php:59
+#: woocommerce/myaccount/form-edit-account.php:60
+msgid "Company name"
+msgstr "Bedrijfsnaam"
+
+#: functions/woocommerce-account.php:120 functions/woocommerce-tweaks.php:136
+msgid "Street name"
+msgstr "Straatnaam"
+
+#: functions/woocommerce-account.php:121 functions/woocommerce-tweaks.php:137
+msgid "House number"
+msgstr "Huisnummer"
+
+#: functions/woocommerce-account.php:122 functions/woocommerce-tweaks.php:138
+msgid "Addition"
+msgstr "Toevoeging"
+
+#: functions/woocommerce-account.php:123 functions/woocommerce-tweaks.php:139
+msgid "Postal code"
+msgstr "Postcode"
+
+#: functions/woocommerce-account.php:124
+msgid "City"
+msgstr "Stad"
+
+#: functions/woocommerce-account.php:125 functions/woocommerce-tweaks.php:141
+msgid "Country"
+msgstr "Land"
+
+#: functions/woocommerce-account.php:126 functions/woocommerce-tweaks.php:142
+msgid "Phone number"
+msgstr "Telefoonnummer"
+
+#: functions/woocommerce-account.php:127 functions/woocommerce-tweaks.php:143
+msgid "E-mail address"
+msgstr "E-mailadres"
+
+#: functions/woocommerce-account.php:128
+msgid "VAT number"
+msgstr "BTW nummer"
+
+#: functions/woocommerce-checkout-login-step.php:20
+#: woocommerce/myaccount/form-login.php:40
+msgid "Login"
+msgstr "Inloggen"
+
+#: functions/woocommerce-checkout-login-step.php:27
+#: functions/woocommerce-checkout-login-step.php:28
+#: woocommerce/myaccount/form-edit-account.php:41
+#: woocommerce/myaccount/form-edit-account.php:42
+#: woocommerce/myaccount/form-login.php:47
+#: woocommerce/myaccount/form-login.php:48
+#: woocommerce/myaccount/form-login.php:94
+#: woocommerce/myaccount/form-login.php:95
+msgid "Email address"
+msgstr "E-mailadres"
+
+#: functions/woocommerce-checkout-login-step.php:32
+#: functions/woocommerce-checkout-login-step.php:33
+#: woocommerce/myaccount/form-login.php:52
+#: woocommerce/myaccount/form-login.php:53
+#: woocommerce/myaccount/form-login.php:99
+#: woocommerce/myaccount/form-login.php:100
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: functions/woocommerce-checkout-login-step.php:40
+#: woocommerce/myaccount/form-login.php:60
+msgid "Lost your password?"
+msgstr "Wachtwoord vergeten?"
+
+#: functions/woocommerce-checkout-login-step.php:44
+#: woocommerce/myaccount/form-login.php:64
+msgid "Log in"
+msgstr "Inloggen"
+
+#: functions/woocommerce-checkout-login-step.php:56
+#: functions/woocommerce-checkout-login-step.php:66
+#: woocommerce/myaccount/form-login.php:76
+#: woocommerce/myaccount/form-login.php:105
+msgid "Register"
+msgstr "Registreren"
+
+#: functions/woocommerce-checkout-login-step.php:60
+#: woocommerce/myaccount/form-login.php:80
+#, fuzzy
+msgid ""
+"Registreer u gratis om te genieten van vele voordelen. Met onderstaande "
+"gegevens kunt u in de toekomst inloggen op onze website."
+msgstr ""
+"Registreer u gratis om te genieten van vele voordelen. Met onderstaande "
+"gegevens kunt u in de toekomst inloggen op onze website."
+
+#: functions/woocommerce-checkout-login-step.php:74
+#: functions/woocommerce-checkout-login-step.php:82
+#, fuzzy
+msgid "Bestellen als gast"
+msgstr "Bestellen als gast"
+
+#: functions/woocommerce-checkout-login-step.php:78
+#, fuzzy
+msgid ""
+"Wanneer je bestelt als gast maak je geen account aan en kan je geen gebruik "
+"maken van de vele voordelen van een account."
+msgstr ""
+"Als je gast maakt je geen account aan en kan je geen gebruik maken van de "
+"vele voordelen van een account."
+
+#: functions/woocommerce-custom-cart.php:20
+#: functions/woocommerce-custom-cart.php:44
+#: functions/woocommerce-custom-cart.php:346
+msgid "Shopping bag"
+msgstr "Winkelmand"
+
+#: functions/woocommerce-custom-cart.php:22
+#: functions/woocommerce-custom-cart.php:348
+#, php-format
+msgid "%d articles - Total %s"
+msgstr "%d artikelen - Totaal %s"
+
+#: functions/woocommerce-custom-cart.php:26
+#: functions/woocommerce-custom-cart.php:352
+msgid "Your shopping bag is empty"
+msgstr "Uw winkelmand is leeg"
+
+#: functions/woocommerce-custom-cart.php:27
+#: functions/woocommerce-custom-cart.php:353
+msgid "Discover our collection and add items to your shopping cart!"
+msgstr "Ontdek ons aanbod en voeg artikelen toe aan uw winkelmand!"
+
+#: functions/woocommerce-custom-cart.php:29
+#: functions/woocommerce-custom-cart.php:41
+#: functions/woocommerce-custom-cart.php:355
+msgid "Continue shopping"
+msgstr "Verder winkelen"
+
+#: functions/woocommerce-custom-cart.php:52
+msgid "articles"
+msgstr "artikelen"
+
+#: functions/woocommerce-custom-cart.php:52
+msgid "total"
+msgstr "totaal"
+
+#: functions/woocommerce-custom-cart.php:181
+msgid "Amount"
+msgstr "Aantal"
+
+#: functions/woocommerce-custom-cart.php:251
+msgid "We plant a tree for each ordered item. With this purchase you'll plant"
+msgstr ""
+"Wij planten een boom voor ieder besteld artikel. Met deze aankoop plant u"
+
+#: functions/woocommerce-custom-cart.php:255
+msgid " trees!"
+msgstr " bomen!"
+
+#: functions/woocommerce-custom-cart.php:255
+msgid " tree!"
+msgstr " boom!"
+
+#: functions/woocommerce-custom-cart.php:261
+msgid "Enter coupon code"
+msgstr "Couponcode invoeren"
+
+#: functions/woocommerce-custom-cart.php:275
+#: functions/woocommerce-custom-cart.php:404
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: functions/woocommerce-custom-cart.php:285
+#: woocommerce/checkout/review-order.php:92
+#: woocommerce/checkout/thankyou.php:82
+msgid "Subtotal"
+msgstr "Subtotaal"
+
+#: functions/woocommerce-custom-cart.php:290
+#: woocommerce/checkout/thankyou.php:87
+msgid "Shipping"
+msgstr "Verzendkosten"
+
+#: functions/woocommerce-custom-cart.php:295
+#: woocommerce/checkout/thankyou.php:88
+msgid "Free"
+msgstr "Gratis"
+
+#: functions/woocommerce-custom-cart.php:303
+#: woocommerce/checkout/thankyou.php:92
+msgid "VAT"
+msgstr "BTW"
+
+#: functions/woocommerce-custom-cart.php:309
+msgid "Coupon discount"
+msgstr "Couponkorting"
+
+#: functions/woocommerce-custom-cart.php:315
+#: woocommerce/checkout/review-order.php:139
+#: woocommerce/checkout/thankyou.php:97
+msgid "Total"
+msgstr "Totaal"
+
+#: functions/woocommerce-custom-cart.php:323
+msgid "Proceed to checkout"
+msgstr "Doorgaan naar afrekenen"
+
+#: functions/woocommerce-custom-cart.php:447
+msgid "Order now"
+msgstr "Naar betalen"
+
+#: functions/woocommerce-tweaks.php:9
+msgid "Brand"
+msgstr "Merk"
+
+#: functions/woocommerce-tweaks.php:12
+msgid "Product brand"
+msgstr "Product merk"
+
+#: functions/woocommerce-tweaks.php:140
+msgid "Place"
+msgstr "Plaats"
+
+#: functions/woocommerce-tweaks.php:144
+msgid "VAT nummer"
+msgstr "BTW nummer"
+
+#: functions/woocommerce-tweaks.php:232
+#, php-format
+msgid "%s is a required field."
+msgstr "%s is een verplicht veld."
+
+#: functions/woocommerce-tweaks.php:272
+msgid "<strong>Error</strong>: First name is required!"
+msgstr "<strong>Fout:</strong> Voornaam is vereist!"
+
+#: functions/woocommerce-tweaks.php:275
+msgid "<strong>Error</strong>: Last name is required!."
+msgstr "<strong>Fout</strong>: Achternaam is vereist!."
+
+#: header.php:33
+msgid "Request a sample"
+msgstr "Sample aanvragen"
+
+#: header.php:52
+msgid "Branches"
+msgstr "Branches"
+
+#: header.php:59
+msgid "Shop"
+msgstr "Shop"
+
+#: partials/_best-sellers.php:2
+msgid "Best Sellers"
+msgstr "Best sellers"
+
+#: partials/_cookie-bar.php:3
+msgid ""
+"Wegwerphanddoeken.nl uses cookies and comparable techniques such as link "
+"tracking to make the visit and shopping at the wegwerphanddoeken.nl website "
+"even easier and more personal for you. With these cookies we and third "
+"parties can track your internet behavior within and possibly also outside "
+"our website and when you click through from our e-mails. This allows us and "
+"third parties to adapt advertisements and other content to your interests "
+"and you can share information via social media. If you do not agree, we only "
+"place cookies to make the website work and to perform analyzes."
+msgstr ""
+"Wegwerphanddoeken.nl gebruikt cookies en daarmee vergelijkbare technieken "
+"zoals link-tracking om het bezoek en het winkelen bij wegwerphanddoeken.nl "
+"website voor u nog makkelijker en persoonlijker te maken. Met deze cookies "
+"kunnen wij en derde partijen uw internetgedrag binnen en mogelijk ook buiten "
+"onze website en bij het doorklikken vanuit onze e-mails volgen. Hiermee "
+"kunnen wij en derde partijen advertenties en andere content aanpassen aan uw "
+"interesses en kunt u informatie delen via social media. Als u niet akkoord "
+"gaat, plaatsen wij alleen cookies om de website te laten werken en om "
+"analyses uit te voeren."
+
+#: partials/_cookie-bar.php:7
+msgid "Reject"
+msgstr "Niet akkoord"
+
+#: partials/_cookie-bar.php:8
+msgid "Agree"
+msgstr "Akkoord"
+
+#: partials/submenus/branches.php:5
+msgid "Beauty"
+msgstr "Beauty"
+
+#: partials/submenus/branches.php:8
+msgid "Hair salons"
+msgstr "Kappers"
+
+#: partials/submenus/branches.php:9
+msgid "Pedicures"
+msgstr "Pedicures"
+
+#: partials/submenus/branches.php:10
+msgid "Manicures"
+msgstr "Manicures"
+
+#: partials/submenus/branches.php:12
+msgid "Spa / Massage Salons"
+msgstr "Spa / Massage Salons"
+
+#: partials/submenus/branches.php:18
+msgid "Medical"
+msgstr "Medisch"
+
+#: partials/submenus/branches.php:21
+msgid "Healthcare"
+msgstr "Zorg"
+
+#: partials/submenus/branches.php:27
+msgid "Sport"
+msgstr "Sport"
+
+#: partials/submenus/branches.php:30
+msgid "Fitness"
+msgstr "Fitness"
+
+#: woocommerce/checkout/form-billing.php:23
+msgid "Billing &amp; Shipping"
+msgstr "Facturering en bezorging"
+
+#: woocommerce/checkout/form-billing.php:25
+msgid "Billing details"
+msgstr "Factuurgegevens"
+
+#: woocommerce/checkout/form-billing.php:28
+#, fuzzy
+msgid ""
+"Uw gegevens worden verwerkt in overeenstemming met ons <a href=\"/privacy-"
+"policy/\" target=\"_blank\" rel=\"noopener\">privacybeleid</a>."
+msgstr ""
+"Uw gegevens worden verwerkt in overeenstemming met ons <a href=\"/privacy-"
+"policy/\" target=\"_blank\" rel=\"noopener\">privacybeleid.</a>"
+
+#: woocommerce/checkout/form-billing.php:51
+msgid "Create an account?"
+msgstr "Account aanmaken?"
+
+#: woocommerce/checkout/form-checkout.php:26
+msgid "You must be logged in to checkout."
+msgstr "Je moet ingelogd zijn om af te rekenen."
+
+#: woocommerce/checkout/form-checkout.php:61
+msgid "Additional information"
+msgstr "Extra informatie"
+
+#: woocommerce/checkout/form-checkout.php:77
+msgid "Overzicht"
+msgstr "Overzicht"
+
+#: woocommerce/checkout/form-checkout.php:81
+#: woocommerce/checkout/payment.php:50
+#, fuzzy
+msgid "Betalen"
+msgstr "Betalen"
+
+#: woocommerce/checkout/form-shipping.php:28
+msgid "Afleveradres"
+msgstr "Afleveradres"
+
+#: woocommerce/checkout/form-shipping.php:42
+#, fuzzy
+msgid "Levering aan mijn factuuradres"
+msgstr "Levering aan mijn factuuradres"
+
+#: woocommerce/checkout/form-shipping.php:57
+#, fuzzy
+msgid "Nieuw afleveradres"
+msgstr "Nieuwadres"
+
+#: woocommerce/checkout/payment.php:33
+msgid ""
+"Sorry, it seems that there are no available payment methods for your state. "
+"Please contact us if you require assistance or wish to make alternate "
+"arrangements."
+msgstr ""
+"Sorry, het lijkt erop dat er geen betaalmethode is voor uw staat/regio. Neem "
+"alstublieft contact met ons op als u hulp nodig heeft of persoonlijke "
+"afspraken met ons wilt maken."
+
+#: woocommerce/checkout/payment.php:33
+msgid "Please fill in your details above to see available payment methods."
+msgstr "Vul hierboven uw gegevens in om de beschikbare betaalmethoden te zien."
+
+#. translators: $1 and $2 opening and closing emphasis tags respectively
+#: woocommerce/checkout/payment.php:42
+#, php-format
+msgid ""
+"Since your browser does not support JavaScript, or it is disabled, please "
+"ensure you click the %1$sUpdate Totals%2$s button before placing your order. "
+"You may be charged more than the amount stated above if you fail to do so."
+msgstr ""
+"Omdat je browser geen JavaScript ondersteunt of uitgeschakeld is, moet je op "
+"de knop %1$sUpdate Totals%2$s klikken voordat je je bestelling plaatst. Het "
+"is mogelijk dat er meer in rekening wordt gebracht dan het hierboven "
+"vermelde bedrag als je dit niet doet."
+
+#: woocommerce/checkout/payment.php:44
+msgid "Update totals"
+msgstr "Totalen bijwerken"
+
+#: woocommerce/checkout/thankyou.php:23
+#: woocommerce/myaccount/form-edit-address.php:20
+#: woocommerce/myaccount/my-address.php:26
+#: woocommerce/myaccount/my-address.php:35
+msgid "Billing address"
+msgstr "Factuuradres"
+
+#: woocommerce/checkout/thankyou.php:24
+#: woocommerce/myaccount/form-edit-address.php:20
+#: woocommerce/myaccount/my-address.php:27
+msgid "Shipping address"
+msgstr "Verzendadres"
+
+#: woocommerce/checkout/thankyou.php:71
+msgid "Your payment has succeeded"
+msgstr "Uw betaling is gelukt"
+
+#: woocommerce/checkout/thankyou.php:73
+#, php-format
+msgid "Your order number is: <strong>%s</strong>"
+msgstr "Uw ordernummer is: <strong>%s</strong>"
+
+#: woocommerce/checkout/thankyou.php:75
+msgid "Thank you for your order!"
+msgstr "Bedankt voor uw bestelling!"
+
+#: woocommerce/checkout/thankyou.php:103
+msgid "You will find the invoice in the confirmation email."
+msgstr "De factuur vindt u in de bevestigingsmail."
+
+#: woocommerce/checkout/thankyou.php:109
+msgid "What happens now?"
+msgstr "Wat gebeurt er nu?"
+
+#: woocommerce/checkout/thankyou.php:118
+#, php-format
+msgid ""
+"Within a few minutes you will receive a confirmation email on <strong>%s</"
+"strong>."
+msgstr ""
+"Binnen enkele minuten ontvangt u een bevestigingsmail op <strong>%s</strong>."
+
+#: woocommerce/checkout/thankyou.php:125
+msgid "In the meantime, we will ship your order as soon as possible."
+msgstr ""
+"Ondertussen gaan wij aan de slag om uw bestelling zo snel mogelijk te "
+"versturen."
+
+#: woocommerce/checkout/thankyou.php:127
+msgid "Delivery address"
+msgstr "Bezorgadres"
+
+#: woocommerce/checkout/thankyou.php:135
+msgid "Have fun with your purchase!"
+msgstr "Veel plezier met uw aankoop!"
+
+#: woocommerce/checkout/thankyou.php:145
+msgid "Overview"
+msgstr "Overzicht"
+
+#: woocommerce/checkout/thankyou.php:146
+msgid "Delivery by PostNL"
+msgstr "Bezorging door PostNL"
+
+#: woocommerce/checkout/thankyou.php:181
+msgid "Invoice"
+msgstr "Factuur"
+
+#: woocommerce/myaccount/dashboard.php:66
+msgid "Your last order"
+msgstr "Uw laatste bestelling"
+
+#: woocommerce/myaccount/dashboard.php:75
+msgid ""
+"Starting January 2021 we will automatically plant a tree for each item that "
+"we sell through our webshop in collaboration with our partner, Eden "
+"Reforestation Projects. This way, we ensure that we can enjoy the beautiful "
+"nature for years to come."
+msgstr ""
+"Vanaf januari 2021 planten wij samen met onze partner, Eden Reforestation "
+"Projects, voor ieder artikel dat wij via onze webshop verkopen automatisch "
+"een boom. Zo zorgen we er samen voor dat we nog jaren van de schitterende "
+"natuur kunnen genieten."
+
+#: woocommerce/myaccount/dashboard.php:113
+#, php-format
+msgid "%sCongratulations!%s %s You have reached a new milestone of %s trees!"
+msgstr ""
+"%sGefeliciteerd!%s %s U heeft een nieuwe mijlpaal van %s bomen bereikt!"
+
+#: woocommerce/myaccount/dashboard.php:116
+#, php-format
+msgid "You still have to plant %s trees to reach this milestone!"
+msgstr "U moet nog %s bomen planten om deze mijlpaal te bereiken!"
+
+#: woocommerce/myaccount/dashboard.php:136
+msgid "Your contribution"
+msgstr "Uw bijdrage"
+
+#: woocommerce/myaccount/dashboard.php:138
+#, php-format
+msgid ""
+"\n"
+"                With your orders you have already planted <strong>%s trees</"
+"strong>.\n"
+"                Together these trees absorb about <strong>%s kg CO<sub2</"
+"sub></strong> from our atmosphere every year.\n"
+"                You should plant another <strong>%s trees</strong> to reach "
+"the next milestone.\n"
+"            "
+msgstr ""
+"\n"
+"                Met uw aankopen heeft u al <strong>%s bomen</strong> "
+"geplant.\n"
+"                Deze bomen nemen samen ieder jaar ongeveer <strong>%s kg "
+"CO<sub>2</sub></strong> op uit onze atmosfeer.\n"
+"                Plant nog <strong>%s bomen</strong> om de volgende mijlpaal "
+"te behalen.\n"
+"            "
+
+#: woocommerce/myaccount/form-edit-account.php:52
+#: woocommerce/myaccount/form-edit-account.php:55
+msgid "Phone"
+msgstr "Telefoon"
+
+#: woocommerce/myaccount/form-edit-account.php:67
+msgid "hairdresser"
+msgstr "kapper"
+
+#: woocommerce/myaccount/form-edit-account.php:68
+msgid "pedicure"
+msgstr "pedicure"
+
+#: woocommerce/myaccount/form-edit-account.php:69
+msgid "spa"
+msgstr "spa"
+
+#: woocommerce/myaccount/form-edit-account.php:70
+msgid "massage parlor"
+msgstr "massagesalon"
+
+#: woocommerce/myaccount/form-edit-account.php:71
+msgid "nail stylist"
+msgstr "nagelstyliste"
+
+#: woocommerce/myaccount/form-edit-account.php:72
+msgid "beauty salon"
+msgstr "schoonheidssalon"
+
+#: woocommerce/myaccount/form-edit-account.php:73
+msgid "medical"
+msgstr "medisch"
+
+#: woocommerce/myaccount/form-edit-account.php:74
+msgid "travel"
+msgstr "reizen"
+
+#: woocommerce/myaccount/form-edit-account.php:75
+msgid "cleaning"
+msgstr "Schoonmaken"
+
+#: woocommerce/myaccount/form-edit-account.php:76
+msgid "other"
+msgstr "Anders"
+
+#: woocommerce/myaccount/form-edit-account.php:78
+msgid "Branche"
+msgstr "Branche"
+
+#: woocommerce/myaccount/form-edit-account.php:84
+#, fuzzy
+msgid "Wachtwoord aanpassen"
+msgstr "Wachtwoord aanpassen"
+
+#: woocommerce/myaccount/form-edit-account.php:90
+msgid "Current password (leave blank to leave unchanged)"
+msgstr "Huidig wachtwoord (laat leeg om ongewijzigd te laten)"
+
+#: woocommerce/myaccount/form-edit-account.php:91
+msgid "Huidig wachtwoord"
+msgstr "Huidig wachtwoord"
+
+#: woocommerce/myaccount/form-edit-account.php:95
+msgid "New password (leave blank to leave unchanged)"
+msgstr "Nieuw wachtwoord (laat leeg om ongewijzigd te laten)"
+
+#: woocommerce/myaccount/form-edit-account.php:96
+msgid "Nieuw wachtwoord"
+msgstr "Nieuw wachtwoord"
+
+#: woocommerce/myaccount/form-edit-account.php:100
+#: woocommerce/myaccount/form-edit-account.php:101
+msgid "Confirm new password"
+msgstr "Bevestig nieuw wachtwoord"
+
+#: woocommerce/myaccount/form-edit-account.php:107
+#: woocommerce/myaccount/form-edit-address.php:45
+#: woocommerce/myaccount/form-reset-password.php:49
+msgid "Save"
+msgstr "Opslaan"
+
+#: woocommerce/myaccount/form-login.php:30
+#, fuzzy
+msgid "Je wachtwoord is succesvol gewijzigd."
+msgstr "Je wachtwoord is succesvol."
+
+#: woocommerce/myaccount/form-login.php:47
+msgid "Fill in a valid e-mail address."
+msgstr "Vul een geldig e-mailadres in."
+
+#: woocommerce/myaccount/form-login.php:52
+msgid "Fill in the password."
+msgstr "Vul het wachtwoord in."
+
+#: woocommerce/myaccount/form-login.php:87
+#: woocommerce/myaccount/form-login.php:88
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: woocommerce/myaccount/form-lost-password.php:25
+msgid ""
+"Lost your password? Please enter your username or email address. You will "
+"receive a link to create a new password via email."
+msgstr ""
+"Wachtwoord vergeten? Voer uw gebruikersnaam of e-mailadres in. U ontvangt "
+"een link via e-mail om een nieuw wachtwoord in te stellen."
+
+#: woocommerce/myaccount/form-lost-password.php:28
+msgid "Username or email"
+msgstr "Gebruikersnaam of e-mailadres"
+
+#: woocommerce/myaccount/form-lost-password.php:38
+msgid "Reset password"
+msgstr "Wachtwoord herstellen"
+
+#: woocommerce/myaccount/form-reset-password.php:29
+#, fuzzy
+msgid ""
+"Kies een nieuw wachtwoord (advies: minimaal 12 tekens met 1 cijfer en 1 "
+"hoofdletter en kleine letter)"
+msgstr ""
+"Kies een nieuw wachtwoord (advies: minimaal 12 tekens met 1 cijfer en 1 "
+"hoofdletter en kleine letter)"
+
+#: woocommerce/myaccount/form-reset-password.php:33
+msgid "New password"
+msgstr "Nieuw wachtwoord"
+
+#: woocommerce/myaccount/form-reset-password.php:37
+msgid "Re-enter new password"
+msgstr "Herhaal nieuw wachtwoord"
+
+#: woocommerce/myaccount/my-address.php:58
+msgid "You have not set up this type of address yet."
+msgstr "Je hebt dit type adres nog niet ingesteld."
+
+#: woocommerce/myaccount/navigation.php:33
+msgid "Welcome,"
+msgstr "Welkom,"
+
+#: woocommerce/myaccount/orders.php:85
+msgid "Previous"
+msgstr "Vorige"
+
+#: woocommerce/myaccount/orders.php:89
+msgid "Next"
+msgstr "Volgende"
+
+#: woocommerce/myaccount/orders.php:97
+msgid "Completed orders"
+msgstr "Voltooide aankopen"
+
+#: woocommerce/myaccount/orders.php:102
+#, fuzzy
+msgid "U heeft nog geen aankopen gedaan"
+msgstr "U heeft nog steeds geen aankopen gedaan"
+
+#: woocommerce/myaccount/partials/_order-block.php:54
+msgid "color"
+msgstr "kleur"
+
+#: woocommerce/myaccount/partials/_order-block.php:57
+msgid "Article number"
+msgstr "Art #"
+
+#: woocommerce/myaccount/partials/_order-block.php:72
+msgid "Track & Trace"
+msgstr "Track & Trace"
+
+#: woocommerce/myaccount/view-order.php:26
+#, fuzzy
+msgid "Terug naar overzicht"
+msgstr "Terug naar overzicht"
+
+#: woocommerce/myaccount/view-order.php:34
+#, fuzzy
+msgid "Besteld op"
+msgstr "Bestellen op"
+
+#: woocommerce/myaccount/view-order.php:42
+#, fuzzy
+msgid "Ordernummer"
+msgstr "Bestelnummer"
+
+#: woocommerce/myaccount/view-order.php:49
+#, fuzzy
+msgid "Bezorgadres"
+msgstr "Bezorgadres"
+
+#: woocommerce/myaccount/view-order.php:84
+#, fuzzy
+msgid "Betaaldetails"
+msgstr "Betaaldetails"
+
+#: woocommerce/myaccount/view-order.php:89
+#, fuzzy
+msgid "Totaal artikelen"
+msgstr "Totaal artikelen"
+
+#: woocommerce/myaccount/view-order.php:94
+#, fuzzy
+msgid "Verzendkosten"
+msgstr "Verzendkosten"
+
+#: woocommerce/myaccount/view-order.php:99
+msgid "BTW"
+msgstr "BTW"
+
+#: woocommerce/myaccount/view-order.php:104
+msgid "Totaal"
+msgstr "Totaal"
+
+#: woocommerce/myaccount/view-order.php:112
+#, fuzzy
+msgid "Betaald met "
+msgstr "Betaald met "
+
+#: woocommerce/myaccount/view-order.php:123
+msgid "Factuuradres"
+msgstr "Factuuradres"
+
+#: woocommerce/myaccount/view-order.php:168
+#, fuzzy
+msgid "Factuur downloaden"
+msgstr "Factuur downloaden"
+
+#: woocommerce/pdf/custom-business/credit-note.php:42
+#: woocommerce/pdf/custom-business/invoice.php:43
+#: woocommerce/pdf/custom-business/packing-slip.php:55
+#: woocommerce/pdf/custom-business/proforma.php:42
+msgid "Billing Address:"
+msgstr "Factuuradres:"
+
+#: woocommerce/pdf/custom-business/credit-note.php:55
+#: woocommerce/pdf/custom-business/invoice.php:56
+#: woocommerce/pdf/custom-business/proforma.php:55
+msgid "Ship To:"
+msgstr "Verzenden naar:"
+
+#: woocommerce/pdf/custom-business/credit-note.php:71
+msgid "Credit Note Number:"
+msgstr "Creditfactuurnummer:"
+
+#: woocommerce/pdf/custom-business/credit-note.php:76
+#: woocommerce/pdf/custom-business/invoice.php:77
+#: woocommerce/pdf/custom-business/packing-slip.php:70
+#: woocommerce/pdf/custom-business/proforma.php:76
+msgid "Order Number:"
+msgstr "Bestelnummer:"
+
+#: woocommerce/pdf/custom-business/credit-note.php:86
+msgid "Credit Note Date:"
+msgstr "Creditfactuur datum:"
+
+#: woocommerce/pdf/custom-business/credit-note.php:91
+#: woocommerce/pdf/custom-business/invoice.php:92
+#: woocommerce/pdf/custom-business/packing-slip.php:83
+#: woocommerce/pdf/custom-business/proforma.php:91
+msgid "Order Date:"
+msgstr "Besteldatum:"
+
+#: woocommerce/pdf/custom-business/credit-note.php:139
+#: woocommerce/pdf/custom-business/invoice.php:150
+#: woocommerce/pdf/custom-business/packing-slip.php:131
+#: woocommerce/pdf/custom-business/proforma.php:139
+msgid "Customer Notes"
+msgstr "Klant notities"
+
+#: woocommerce/pdf/custom-business/invoice.php:72
+msgid "Invoice Number:"
+msgstr "Factuurnummer:"
+
+#: woocommerce/pdf/custom-business/invoice.php:87
+msgid "Invoice Date:"
+msgstr "Factuurdatum:"
+
+#: woocommerce/pdf/custom-business/invoice.php:142
+msgid "Notes"
+msgstr "Notities"
+
+#: woocommerce/pdf/custom-business/packing-slip.php:42
+msgid "Shipping Address:"
+msgstr "Verzendadres:"
+
+#: woocommerce/pdf/custom-business/packing-slip.php:74
+msgid "Shipping Method:"
+msgstr "Verzendmethode:"
+
+#: woocommerce/pdf/custom-business/proforma.php:71
+msgid "Proforma Invoice Number:"
+msgstr "Factuurnummer:"
+
+#: woocommerce/pdf/custom-business/proforma.php:86
+msgid "Proforma Invoice Date:"
+msgstr "Proforma factuur datum:"
+
+#: woocommerce/product-searchform.php:24
+msgid "Search for:"
+msgstr "Zoek naar:"
+
+#: woocommerce/product-searchform.php:25
+msgid "Search"
+msgstr "Zoeken"
+
+#: woocommerce/product-searchform.php:26
+msgctxt "submit button"
+msgid "Search"
+msgstr "Zoeken"
+
+#. Theme Name of the plugin/theme
+#, fuzzy
+msgid "Wegwerphanddoeken.nl"
+msgstr "Wegwerphanddoeken.nl"
+
+#. Theme URI of the plugin/theme
+#, fuzzy
+msgid "https://github.com/WesleySmits/wegwerphanddoeken-theme"
+msgstr "https://github.com/WesleySmits/wegwerphanddoeken-theme"
+
+#. Description of the plugin/theme
+#, fuzzy
+msgid "Theme for Wegwerphanddoeken.nl"
+msgstr "Thema voor Wegwerphanddoeken.nl"
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "Wesley Smits"
+msgstr "Wesley Smits"
+
+#. Author URI of the plugin/theme
+#, fuzzy
+msgid "https://www.wesleysmits.com/"
+msgstr "https://www.wesleysmits.com/"
+
+#~ msgid "Congratulations!"
+#~ msgstr "Gefeliciteerd!"
+
+#, php-format
+#~ msgid "You have reached a new milestone of %s trees!"
+#~ msgstr "U heeft een nieuwe mijlpaal van %s bomen bereikt!"
+
+#, fuzzy, php-format
+#~ msgid "Nu besteld, %s geleverd"
+#~ msgstr "Bestellen op"
+
+#, fuzzy
+#~ msgid "Companyname"
+#~ msgstr "Bedrijfsnaam"

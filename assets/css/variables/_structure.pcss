@@ -1,0 +1,45 @@
+:root {
+    --small-gutter: 15px;
+    --gutter: 20px;
+    --app-height: 100%;
+
+    /* Declare variables for element widths */
+    --width-wrapper: 1280px;
+    --width-wrapper-xs: 620px;
+    --width-wrapper-sm: 750px;
+    --width-wrapper-md: 1176px;
+
+    /* Declare variables for media query values */
+    --phone: (min-width: 320px);
+    --large-phone: (min-width: 480px);
+    --tablet: (min-width: 768px);
+    --tablet-landscape: (min-width: 1024px);
+    --desktop: (min-width: 1280px);
+    --large-desktop: (min-width: 1600px);
+    --only-screen: only screen;
+
+    --array-breakpoint: var(--phone), var(--large-phone), var(--tablet), var(--tablet-landscape), var(--desktop), var(--large-desktop), var(--only-screen);
+    --array-sizes: xs-, sm-, md-, lg-, xl-, xxl-, ;
+    --array-gutter: 0, 5, 10, 15, 20, 25, 50, 75;
+}
+
+/* Declare custom media queries */
+@custom-media --large-phone (min-width: 480px);
+@custom-media --tablet (min-width: 768px);
+@custom-media --tablet-landscape (min-width: 1024px);
+@custom-media --desktop (min-width: 1280px);
+@custom-media --large-desktop (min-width: 1600px);
+
+@custom-media --up-to-large-phone (max-width: 479px);
+@custom-media --up-to-tablet (max-width: 767px);
+@custom-media --up-to-tablet-landscape (max-width: 1023px);
+@custom-media --up-to-desktop (max-width: 1279px);
+@custom-media --up-to-large-desktop (max-width: 1599px);
+@custom-media --up-to-container-width (max-width: 1319px);
+
+@custom-media --mobile-only (width >= 0) and (width <= 767px);
+@custom-media --tablet-only (width >= 0) and (width <= 1023px);
+@custom-media --tablet-portrait-only (width >= 768px) and (width <= 1023px);
+@custom-media --tablet-landscape-only (width >= 1024px) and (width <= 1279px);
+@custom-media --desktop-only (width >= 1280px);
+@custom-media --small-desktop-only (width >= 1280px) and (width <= 1599px);

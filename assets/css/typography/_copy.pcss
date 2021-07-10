@@ -1,0 +1,74 @@
+p {
+    margin-top: 0;
+    margin-bottom: 0.9rem;
+
+    a {
+        text-decoration: underline;
+    }
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+    color: var(--color-text);
+
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: underline;
+    }
+
+    &.elementor-item,
+    &.cta-button {
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+
+    &:not([href]):not([tabindex]),
+    &:not([href]):not([tabindex]):hover,
+    &:not([href]):not([tabindex]):focus {
+        color: inherit;
+        text-decoration: none;
+        outline: 0;
+    }
+}
+
+abbr[title] {
+    border-bottom: none;
+    text-decoration: underline dotted;
+}
+
+b,
+strong {
+    font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1rem;
+}
+
+small {
+    font-size: 0.8rem;
+}
+
+sub,
+sup {
+    position: relative;
+    font-size: 0.75rem;
+    line-height: 0;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}

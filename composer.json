@@ -1,0 +1,6 @@
+{
+    "require": {
+        "mailchimp/marketing": "^3.0",
+        "mandrill/mandrill": "^1.0"
+    }
+}

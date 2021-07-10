@@ -1,0 +1,64 @@
+.flex {
+    /* Defaults */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @each $breakpoint, $size in (var(--array-breakpoint)), (var(--array-sizes)) {
+        @media $(breakpoint) {
+            &-$(size)row { flex-direction: row;}
+            &-$(size)column { flex-direction: column;}
+
+            &-$(size)nowrap { flex-wrap: nowrap; }
+            &-$(size)wrap { flex-wrap: wrap; }
+            &-$(size)wrap-reverse { flex-wrap: wrap-reverse; }
+
+            &-$(size)fill { flex: 1 1 auto; }
+            &-$(size)grow-0 { flex-grow: 0; }
+            &-$(size)grow-1 { flex-grow: 1; }
+            &-$(size)shrink-0 { flex-shrink: 0; }
+            &-$(size)shrink-1 { flex-shrink: 1; }
+
+            &-$(size)space-between { justify-content: space-between; }
+            &-$(size)space-around { justify-content: space-around; }
+            &-$(size)space-evenly { justify-content: space-evenly; }
+            &-$(size)start { justify-content: flex-start; }
+            &-$(size)center { justify-content: center; }
+            &-$(size)end { justify-content: flex-end; }
+
+            &-$(size)align-content-start { align-content: flex-start; }
+            &-$(size)align-content-center { align-content: center; }
+            &-$(size)align-content-end { align-content: end; }
+            &-$(size)align-content-between { align-content: space-between; }
+            &-$(size)align-content-strech { align-content: stretch; }
+            &-$(size)align-content-around { align-content: space-around; }
+
+            &-$(size)align-items-start { align-items: flex-start; }
+            &-$(size)align-items-center { align-items: center; }
+            &-$(size)align-items-end { align-items: end; }
+            &-$(size)align-items-between { align-items: space-between; }
+            &-$(size)align-items-strech { align-items: stretch; }
+            &-$(size)align-items-around { align-items: space-around; }
+
+            &-$(size)align-self-auto { align-self: auto; }
+            &-$(size)align-self-start { align-self: flex-start; }
+            &-$(size)align-self-center { align-self: center; }
+            &-$(size)align-self-end { align-self: flex-end; }
+            &-$(size)align-self-baseline { align-self: baseline; }
+            &-$(size)align-self-stretch { align-self: stretch; }
+
+            @each $num in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
+
+            &-col-$(size)$num,
+            &-col-$(size)offset-$num { flex: 0 0 auto; }
+
+            &-col-$(size)$num { flex-basis: calc((100 / 12) * $num%); max-width: calc((100 / 12) * $num%); }
+            &-col-$(size)offset-$num { margin-left: calc((100 / 12) * $num%); }
+
+            &-$(size)order-$num { order: $num; }
+
+            }
+        }
+    }
+}

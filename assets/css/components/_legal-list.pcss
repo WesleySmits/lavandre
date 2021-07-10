@@ -1,0 +1,16 @@
+.legal-list {
+    justify-content: center;
+}
+
+.legal-list__item {
+    display: flex;
+    align-items: center;
+
+    &:not(:first-child):before {
+        content: " | ";
+    }
+}
+
+.legal-list__anchor {
+    padding: 0 10px;
+}
