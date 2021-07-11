@@ -4,20 +4,16 @@ on:
   push:
     branches: [development]
 
-jobs:
-  checkout:
+jobs:    
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-    
-  setup:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
+      
       - name: Git fetch and unshallow
         run: git fetch --prune --unshallow
+      
       - name: Set-up front-end dependencies
         run: |
           # Navigate to theme folder
@@ -29,22 +25,26 @@ jobs:
           # Build production assets
           npx yarn prod
 
-          # Run JS unit tests
-          npx yarn test
-    
-  unit-tests:
-    needs: setup
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Run JS unit tests
         run: npx yarn test
 
-  build:
-    needs: unit-tests
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v2
+        with:
+          name: production-files
+          path: /
+
+  deploy:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: production-files
+          path: /
+
       - name: Push to WP Engine & Install Composer Dependencies
         run: |
           # Where we'll store our two SSH keys.
