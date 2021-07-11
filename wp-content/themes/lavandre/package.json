@@ -2,6 +2,11 @@
     "name": "lavandre",
     "version": "0.0.1",
     "description": "Website for Lavandré",
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn prod && yarn test && yarn cypress"
+        }
+    },
     "scripts": {
         "start": "npm-run-all --parallel dev:watch lint:watch",
         "dev": "./node_modules/.bin/encore dev",
