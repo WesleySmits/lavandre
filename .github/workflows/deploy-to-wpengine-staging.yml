@@ -81,7 +81,7 @@ jobs:
           git remote -v
           git branch -a
 
-          git push $WPE_ENVIRONMENT HEAD:staging --force
+          git push $WPE_ENVIRONMENT staging --force
 
           # Authenticate with WP Engine's server to install Composer dependencies.
           ssh $WPE_SITE_NAME@$WPE_SSH_HOST -i $SSH_PRIVATE_ACCOUNT_KEY_PATH -o UserKnownHostsFile=$KNOWN_HOSTS_PATH << EOF
