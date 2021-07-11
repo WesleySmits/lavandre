@@ -1,0 +1,21 @@
+name: Development WPEngine deploy
+
+on:
+  push:
+    branches: [ development ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+      - name: Git fetch and unshallow
+        run: git fetch --prune --unshallow
+      - name: Push to WP Engine
+        uses: jovrtn/github-action-wpengine-git-deploy@0.1.2
+        env:
+          LOCAL_BRANCH: development
+          WPENGINE_ENVIRONMENT_NAME: ${{ secrets.WPE_ENVIRONMENT_DEVELOPMENT }}
+          WPENGINE_SSH_KEY_PRIVATE: ${{ secrets.SSH_PRIVATE_GIT_KEY }}
+          WPENGINE_SSH_KEY_PUBLIC: ${{ secrets.SSH_PRIVATE_ACCOUNT_KEY }}
