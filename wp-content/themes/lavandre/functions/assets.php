@@ -4,6 +4,7 @@
 function my_child_theme_locale() {
     load_child_theme_textdomain( 'total', get_stylesheet_directory() . '/languages' );
     load_child_theme_textdomain( 'lavandre', get_stylesheet_directory() . '/languages' );
+    load_child_theme_textdomain( 'hello-elementor-child', get_stylesheet_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'my_child_theme_locale' );
 
@@ -127,9 +128,9 @@ function woocommerce_de_style() {
         wp_dequeue_style('wc-block-vendors-style');
         wp_dequeue_style('product-search');
         wp_dequeue_style('wcsatt-css');
-
-        wp_dequeue_style('hello-elementor-theme-style');
     }
+
+    wp_dequeue_style('hello-elementor-theme-style');
 
     // global $wp_styles;
     // foreach( $wp_styles->queue as $handle ) :
