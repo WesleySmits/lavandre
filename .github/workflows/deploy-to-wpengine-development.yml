@@ -13,7 +13,18 @@ jobs:
       - name: Git fetch and unshallow
         run: git fetch --prune --unshallow
       - name: Test
-        run: ls
+        run: |
+          # Navigate to theme folder
+          cd wp-content/themes/lavandre
+          
+          # Install dependencies
+          npx yarn
+
+          # Build production assets
+          npx yarn prod
+
+          # Run JS unit tests
+          npx yarn test
       - name: Push to WP Engine & Install Composer Dependencies
         run: |
           # Where we'll store our two SSH keys.
