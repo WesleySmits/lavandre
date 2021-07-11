@@ -15,7 +15,7 @@ jobs:
       - name: Push to WP Engine
         uses: jovrtn/github-action-wpengine-git-deploy@0.1.2
         env:
-          WPENGINE_ENVIRONMENT_NAME: development
           LOCAL_BRANCH: development
+          WPENGINE_ENVIRONMENT_NAME: ${{ secrets.WPE_ENVIRONMENT_DEVELOPMENT }}
           WPENGINE_SSH_KEY_PRIVATE: ${{ secrets.SSH_PRIVATE_GIT_KEY }}
           WPENGINE_SSH_KEY_PUBLIC: ${{ secrets.SSH_PRIVATE_ACCOUNT_KEY }}
