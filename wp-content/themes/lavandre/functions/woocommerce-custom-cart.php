@@ -401,7 +401,7 @@ function ww_custom_cart_mini() {
                             <div class="custom-cart__name flex-col-5 flex flex-column flex-align-items-start">
                                 <p class="custom-cart__product-title"><?php echo $title; ?></p>
                                 <button class="custom-cart__delete--text" data-delete-item data-product-id="<?php echo $values['data']->get_id(); ?>">
-                                    <?php _e('Delete', 'hello-elementor-child'); ?>;
+                                    <?php _e('Delete', 'hello-elementor-child'); ?>
                                 </button>
                             </div>
 

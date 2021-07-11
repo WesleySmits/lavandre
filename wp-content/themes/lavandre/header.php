@@ -80,7 +80,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </li>
 
                     <li>
-                        <a href="/cart" class="no-button cart-amount-icon" id="cart-toggle" data-panel="6237" aria-label="Shopping cart">
+                        <a href="/cart" class="no-button cart-amount-icon" id="cart-toggle" data-panel="cart-panel" aria-label="Shopping cart">
                             <?php include $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lavandre/partials/icons/cart.svg.php'; ?>
                         </a>
                     </li>
