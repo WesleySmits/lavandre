@@ -27,23 +27,6 @@ jobs:
           
           # Run JS unit tests
           npx yarn test
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v2
-        with:
-          name: production-files
-          path: .
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: production-files
-          path: /
-
       - name: Push to WP Engine & Install Composer Dependencies
         run: |
           # Where we'll store our two SSH keys.
