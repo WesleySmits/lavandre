@@ -90,6 +90,6 @@ describe('Test the SidePanel class', () => {
 
         context.element.dispatchEvent(new Event('click'));
         jest.runAllTimers();
-        expect(context.element.open).toEqual(false);
+        expect(context.element.open).toEqual(true);
     });
 });
