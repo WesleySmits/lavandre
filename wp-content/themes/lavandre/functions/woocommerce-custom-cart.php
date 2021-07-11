@@ -242,7 +242,7 @@ function ww_custom_cart() {
 
     <div class="custom-cart__actions flex">
         <div class="custom-cart_tree-planting">
-            <button id="tree-planting-button" class="cta-button alt inline">
+            <button id="tree-planting-button" class="cta-button alt inline" data-panel="tree-planting">
                 <?php include get_stylesheet_directory() . '/partials/icons/tree.svg.php'; ?>
                 <span><?php _e('Read more', 'hello-elementor-child'); ?></span>
             </button>
@@ -258,7 +258,9 @@ function ww_custom_cart() {
             </p>
         </div>
 
-        <button id="coupon-code-add" class="cta-button alt inline"><?php _e('Enter coupon code'); ?></button>
+        <button id="coupon-code-add" class="cta-button alt inline" data-panel="coupon-code-add">
+            <?php _e('Enter coupon code'); ?>
+        </button>
     </div>
 
     <?php $active_coupons = $woocommerce->cart->applied_coupons; ?>
@@ -322,6 +324,11 @@ function ww_custom_cart() {
     <aside class="custom-cart__cta-wrapper">
         <a href="/checkout" class="custom-cart__cta cta-button inline"><?php _e('Proceed to checkout'); ?></a>
     </aside>
+
+    <?php
+        include get_stylesheet_directory() . '/partials/panels/_tree-planting.php';
+        include get_stylesheet_directory() . '/partials/panels/_coupon-code.php';
+    ?>
 
     <?php
     }

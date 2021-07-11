@@ -78,40 +78,19 @@ class Cart {
             });
         }
 
-        const openCouponButton: HTMLButtonElement | null = this._cartElement.querySelector('#coupon-code-add');
-        if (openCouponButton) {
-            openCouponButton.addEventListener('click', () => {
-                // @ts-ignore
-                elementorProFrontend.modules.popup.showPopup({ id: 6235 });
-            });
+        this.eventEmitter.on('template-instantiated', (element: HTMLElement) => {
+            this.initializeCouponCodeForm();
+        });
+    }
+
+    private initializeCouponCodeForm(): void {
+        const couponForm: HTMLFormElement | null = document.getElementById('coupon-code-form') as HTMLFormElement;
+        if (couponForm === null) {
+            return;
         }
 
-        const openTreePlantingButton: HTMLButtonElement | null = this._cartElement.querySelector('#tree-planting-button');
-        if (openTreePlantingButton) {
-            openTreePlantingButton.addEventListener('click', () => {
-                // @ts-ignore
-                elementorProFrontend.modules.popup.showPopup({ id: 6311 });
-            });
-        }
-
-        let couponForm: HTMLFormElement | null = null;
-        // @ts-ignore
-        jQuery(document).on('elementor/popup/show', (event: any, id: any, instance: any) => {
-            if (id === 6235) {
-                couponForm = document.getElementById('coupon-code-form') as HTMLFormElement;
-                if (couponForm !== null) {
-                    const addCouponCode: AddCouponCode = new AddCouponCode(couponForm);
-                    addCouponCode.initialize();
-                }
-            }
-        });
-
-        // @ts-ignore
-        jQuery(document).on('elementor/popup/hide', (event: any, id: any, instance: any) => {
-            if (id === 6235) {
-                couponForm = null;
-            }
-        });
+        const addCouponCode: AddCouponCode = new AddCouponCode(couponForm);
+            addCouponCode.initialize();
     }
 
     private updateCartItem(input: HTMLInputElement): void {

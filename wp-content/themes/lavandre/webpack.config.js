@@ -6,6 +6,7 @@ Encore
     .setOutputPath('./public/')
     .setPublicPath('/')
     .addEntry('app', './assets/js/app.ts')
+    .addEntry('cart', './assets/js/cart.ts')
     .addStyleEntry('critical-styles', './assets/css/critical.pcss')
     .addStyleEntry('deferred-styles', './assets/css/deferred.pcss')
     .addStyleEntry('homepage-styles', './assets/css/pages/homepage.pcss')

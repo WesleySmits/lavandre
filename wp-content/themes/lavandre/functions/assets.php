@@ -177,6 +177,16 @@ function hello_elementor_child_enqueue_scripts() {
         true
     );
 
+    if (is_cart()) {
+        wp_enqueue_script(
+            'cart-script',
+            get_stylesheet_directory_uri() . '/public/cart.js',
+            ['application-script'],
+            '2.7.8',
+            true
+        );
+    }
+
     if (is_shop()) {
         wp_enqueue_style(
             'product-overview-styles',

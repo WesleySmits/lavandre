@@ -41,6 +41,13 @@ describe('Header tests - desktop', () => {
         const toggleSelector: string = '[data-panel="order-delivery"]';
         const panelSelector: string = '[data-panel-name="order-delivery"]';
 
+        cy.get(toggleSelector).each(($element) => {
+            cy.wrap($element).click();
+            cy.get(panelSelector).should('be.visible');
+
+            cy.get(panelSelector).find('.side-panel__close').click().should('be.visible');
+        });
+
         cy.openSidePanel({ toggle: toggleSelector, panel: panelSelector });
         cy.accordion({selector: panelSelector, height: 10});
     });
@@ -49,19 +56,22 @@ describe('Header tests - desktop', () => {
         const toggleSelector: string = '[data-panel="customer-service"]';
         const panelSelector: string = '[data-panel-name="customer-service"]';
 
-        cy.get(toggleSelector).click();
-        cy.get(panelSelector).should('be.visible');
-
-        cy.accordion({selector: panelSelector, height: 10});
+        cy.openSidePanel({ toggle: toggleSelector, panel: panelSelector });
     });
 
     it('should have a functioning my account sidepanel', () => {
-        cy.get('#my-account-toggle').click();
-        cy.url().should('contain', 'account');
+        const toggleSelector: string = '[data-panel="my-account-panel"]';
+        const panelSelector: string = '[data-panel-name="my-account-panel"]';
+
+        cy.get(toggleSelector).click();
+        cy.get(panelSelector).should('be.visible');
     });
 
     it('should have a functioning cart sidepanel', () => {
-        cy.get('#cart-toggle').click();
-        cy.url().should('contain', 'cart');
+        const toggleSelector: string = '[data-panel="cart-panel"]';
+        const panelSelector: string = '[data-panel-name="cart-panel"]';
+
+        cy.get(toggleSelector).click();
+        cy.get(panelSelector).should('be.visible');
     });
 });

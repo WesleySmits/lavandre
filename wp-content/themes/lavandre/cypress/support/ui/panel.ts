@@ -14,6 +14,6 @@ declare namespace Cypress {
 }
 
 Cypress.Commands.add('openSidePanel', (options: OpenSidePanelOptions) => {
-    cy.get(options.toggle).click();
+    cy.get(options.toggle).first().click();
     cy.get(options.panel).should('be.visible');
 });

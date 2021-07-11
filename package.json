@@ -1,0 +1,12 @@
+{
+  "name": "lavandre",
+  "version": "0.0.1",
+  "description": "Website for Lavandré",
+  "husky": {
+      "hooks": {
+          "pre-commit": "yarn prod && yarn test && yarn cypress"
+      }
+  },
+  "author": "Wesley Smits",
+  "license": "MIT"
+}
