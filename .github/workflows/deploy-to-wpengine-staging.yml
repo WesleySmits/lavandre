@@ -1,16 +1,33 @@
-name: Deploy to WP Engine Production Environment
+name: Deploy to WP Engine Staging Environment
 
 on:
   push:
-    branches: [development]
+    branches: [staging]
 
-jobs:
+jobs:    
   build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      - name: Push to WP Engine Production & Install Composer Dependencies
+      
+      - name: Git fetch and unshallow
+        run: git fetch --prune --unshallow
+      
+      - name: Set-up front-end dependencies
+        run: |
+          # Navigate to theme folder
+          cd wp-content/themes/lavandre
+          
+          # Install dependencies
+          npx yarn
+
+          # Build production assets
+          npx yarn prod
+          
+          # Run JS unit tests
+          npx yarn test
+      - name: Push to WP Engine & Install Composer Dependencies
         run: |
           # Where we'll store our two SSH keys.
           SSH_PATH="$HOME/.ssh"
@@ -19,13 +36,13 @@ jobs:
           WPE_GIT_HOST="git.wpengine.com"
 
           # WP Engine's server SSH host.
-          WPE_SSH_HOST="lavandre.ssh.wpengine.net"
+          WPE_SSH_HOST="lavandrestage.ssh.wpengine.net"
 
           # WP Engine's environment.
-          WPE_ENVIRONMENT="production"
+          WPE_ENVIRONMENT="staging"
 
           # Our site name within WP Engine.
-          WPE_SITE_NAME="lavandre"
+          WPE_SITE_NAME="lavandrestage"
 
           # The file SSH uses to verify validity of hosts.
           KNOWN_HOSTS_PATH="$SSH_PATH/known_hosts"
@@ -37,7 +54,7 @@ jobs:
           SSH_PRIVATE_ACCOUNT_KEY_PATH=$SSH_PATH/wpeaccountkey
 
           # The directory within WP Engine's server where our site files live.
-          DEPLOYMENT_DIRECTORY="sites/lavandre"
+          DEPLOYMENT_DIRECTORY="sites/lavandrestage"
 
           # Explicitly create the `known_hosts` file, since the next command
           # will assume it exists & attempt to append do it.
@@ -60,10 +77,7 @@ jobs:
           # Push code to WP Engine's Git host, which will deploy it to the server.
           git config core.sshCommand "ssh -i $SSH_PRIVATE_GIT_KEY_PATH -o UserKnownHostsFile=$KNOWN_HOSTS_PATH"
           git remote add $WPE_ENVIRONMENT git@$WPE_GIT_HOST:production/$WPE_SITE_NAME.git
-          git remote -v
-          git branch -a
-          git status
-          git push -v $WPE_ENVIRONMENT development --force
+          git push $WPE_ENVIRONMENT HEAD:staging --force
 
           # Authenticate with WP Engine's server to install Composer dependencies.
           ssh $WPE_SITE_NAME@$WPE_SSH_HOST -i $SSH_PRIVATE_ACCOUNT_KEY_PATH -o UserKnownHostsFile=$KNOWN_HOSTS_PATH << EOF
