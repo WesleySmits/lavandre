@@ -12,6 +12,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Git fetch and unshallow
         run: git fetch --prune --unshallow
+      - name: Test
+        run: ls
       - name: Push to WP Engine & Install Composer Dependencies
         run: |
           # Where we'll store our two SSH keys.
@@ -62,9 +64,6 @@ jobs:
           # Push code to WP Engine's Git host, which will deploy it to the server.
           git config core.sshCommand "ssh -i $SSH_PRIVATE_GIT_KEY_PATH -o UserKnownHostsFile=$KNOWN_HOSTS_PATH"
           git remote add $WPE_ENVIRONMENT git@$WPE_GIT_HOST:production/$WPE_SITE_NAME.git
-          git remote -v
-          git status
-          git branch -a
           git push $WPE_ENVIRONMENT HEAD:development --force
 
           # Authenticate with WP Engine's server to install Composer dependencies.
