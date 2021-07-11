@@ -24,10 +24,9 @@ jobs:
 
           # Build production assets
           npx yarn prod
-
-      - name: Run JS unit tests
-        run: npx yarn test
-
+          
+          # Run JS unit tests
+          npx yarn test
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
         with:
