@@ -5,14 +5,20 @@ on:
     branches: [development]
 
 jobs:
-  build:
+  checkout:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
       - name: Git fetch and unshallow
         run: git fetch --prune --unshallow
-      - name: Test
+    
+  setup:
+    needs: checkout
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set-up front-end dependencies
         run: |
           # Navigate to theme folder
           cd wp-content/themes/lavandre
@@ -25,6 +31,20 @@ jobs:
 
           # Run JS unit tests
           npx yarn test
+    
+  unit-tests:
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run JS unit tests
+        run: npx yarn test
+
+  build:
+    needs: unit-tests
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Push to WP Engine & Install Composer Dependencies
         run: |
           # Where we'll store our two SSH keys.
