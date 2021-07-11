@@ -66,6 +66,11 @@ export default class App {
 
         this.eventEmitter.on('template-instantiated', (element: HTMLElement) => {
             this.initializeCurtain(element);
+
+            this.initializeLoginForm();
+            this.listenToLoginCall();
+            this.listenToRegisterCall();
+            this.initializePasswordReveal();
         });
     }
 
@@ -115,7 +120,7 @@ export default class App {
                 // If already logged in follow link
                 if (
                     element instanceof HTMLAnchorElement
-                    && (panelID === '6188' && document.body.classList.contains('logged-in'))
+                    && (panelID === 'my-account-panel' && document.body.classList.contains('logged-in'))
                 ) {
                     window.location.href = element.href;
                     return;

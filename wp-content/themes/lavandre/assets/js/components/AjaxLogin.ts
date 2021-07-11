@@ -93,8 +93,10 @@ export default class AjaxLogin {
         );
         toast.initialize();
 
-        // @ts-ignore
-        elementorProFrontend.modules.popup.closePopup({}, event);
+        const panel: HTMLDialogElement | null = this.form.closest('[data-panel-name]');
+        if (panel) {
+            panel.dispatchEvent(new CustomEvent('toggle'));
+        }
 
         document.body.classList.add('logged-in');
     }

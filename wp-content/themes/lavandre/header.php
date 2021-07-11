@@ -74,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </li>
 
                     <li class="hide-on-mobile hide-on-tablet">
-                        <a href="/mijn-account" class="no-button" id="my-account-toggle" data-panel="6188" aria-label="My account">
+                        <a href="/my-account" class="no-button" id="my-account-toggle" data-panel="my-account-panel" aria-label="My account">
                             <?php include $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lavandre/partials/icons/account.svg.php'; ?>
                         </a>
                     </li>
