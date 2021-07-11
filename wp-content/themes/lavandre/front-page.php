@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main>
-    <!-- <section id="main-banner">
+    <section id="main-banner">
         <picture class="loading-spinner" data-lazyload>
             <?php $fallback = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-desktop-1920.jpg' ?>
             <source media="(orientation: portrait)" type="image/jpeg" data-srcset="/wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-mobile-414.jpg 414w, /wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-mobile-720.jpg 720w, /wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-mobile-768.jpg 768w, /wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-mobile-1024.jpg 1024w, /wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-mobile-1080.jpg 1080w, /wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-mobile-1242.jpg 1242w, /wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-mobile-1500.jpg 1500w">
@@ -17,7 +17,7 @@
                 height="848"
             >
         </picture>
-    </section> -->
+    </section>
 
     <section id="best-sellers" class="ww-block hide-on-mobile">
         <?php include get_stylesheet_directory() . '/partials/_best-sellers.php'; ?>
