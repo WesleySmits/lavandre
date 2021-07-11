@@ -76,6 +76,11 @@ jobs:
           # Push code to WP Engine's Git host, which will deploy it to the server.
           git config core.sshCommand "ssh -i $SSH_PRIVATE_GIT_KEY_PATH -o UserKnownHostsFile=$KNOWN_HOSTS_PATH"
           git remote add $WPE_ENVIRONMENT git@$WPE_GIT_HOST:production/$WPE_SITE_NAME.git
+
+          git status
+          git remote -v
+          git branch -a
+
           git push $WPE_ENVIRONMENT HEAD:staging --force
 
           # Authenticate with WP Engine's server to install Composer dependencies.
