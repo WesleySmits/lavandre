@@ -10,14 +10,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Git fetch and unshallow
-        run: git fetch --prune --unshallow
     
   setup:
-    needs: checkout
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
+      - name: Git fetch and unshallow
+        run: git fetch --prune --unshallow
       - name: Set-up front-end dependencies
         run: |
           # Navigate to theme folder
