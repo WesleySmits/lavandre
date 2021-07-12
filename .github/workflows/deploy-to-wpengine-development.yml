@@ -98,6 +98,7 @@ jobs:
     needs: build
     name: Cypress run
     runs-on: ubuntu-20.04
+    container: cypress/browsers:node12.13.0-chrome78-ff70
     steps:
       - name: Checkout
         uses: actions/checkout@v2
