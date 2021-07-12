@@ -116,4 +116,5 @@ autoupdater_maintenance_mode_enabled.tmp
 *.wmv
 *.avi
 
-# test 2
+# Custom
+/node_modules

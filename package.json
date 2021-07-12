@@ -4,9 +4,12 @@
   "description": "Website for Lavandré",
   "husky": {
       "hooks": {
-          "pre-commit": "yarn prod && yarn test && yarn cypress"
+          "pre-commit": "cd wp-content/themes/lavandre && yarn prod && yarn test && yarn cypress"
       }
   },
   "author": "Wesley Smits",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^4.3.0"
+  }
 }
