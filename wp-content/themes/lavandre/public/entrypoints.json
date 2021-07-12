@@ -1,0 +1,83 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/runtime.js",
+        "/app.js"
+      ],
+      "css": [
+        "/app.css"
+      ]
+    },
+    "cart": {
+      "js": [
+        "/runtime.js",
+        "/cart.js"
+      ]
+    },
+    "critical-styles": {
+      "js": [
+        "/runtime.js"
+      ],
+      "css": [
+        "/critical-styles.css"
+      ]
+    },
+    "deferred-styles": {
+      "js": [
+        "/runtime.js"
+      ],
+      "css": [
+        "/deferred-styles.css"
+      ]
+    },
+    "homepage-styles": {
+      "js": [
+        "/runtime.js"
+      ],
+      "css": [
+        "/homepage-styles.css"
+      ]
+    },
+    "checkout-styles": {
+      "js": [
+        "/runtime.js"
+      ],
+      "css": [
+        "/checkout-styles.css"
+      ]
+    },
+    "login-styles": {
+      "js": [
+        "/runtime.js"
+      ],
+      "css": [
+        "/login-styles.css"
+      ]
+    },
+    "product-styles": {
+      "js": [
+        "/runtime.js"
+      ],
+      "css": [
+        "/product-styles.css"
+      ]
+    },
+    "product-overview-styles": {
+      "js": [
+        "/runtime.js"
+      ],
+      "css": [
+        "/product-overview-styles.css"
+      ]
+    },
+    "account-styles": {
+      "js": [
+        "/runtime.js"
+      ],
+      "css": [
+        "/account-styles.css"
+      ]
+    }
+  }
+}

@@ -1,4 +1,7 @@
 import '../css/app.pcss';
+
+import './components/LazyLoader';
+import EventEmitter from './common/EventEmitter';
 import AjaxAddToCart from './components/AjaxAddToCart';
 import AjaxLogin from './components/AjaxLogin';
 import AjaxRegister from './components/AjaxRegister';
@@ -15,8 +18,6 @@ import InfoPopup from './components/InfoPopup';
 import CookieBar from './components/CookieBar';
 import ForgotPassword from './components/ForgotPassword';
 import SidePanel from './ui/SidePanel';
-import './components/LazyLoader';
-import EventEmitter from './common/EventEmitter';
 
 export default class App {
 
@@ -59,10 +60,6 @@ export default class App {
 
             this.listenToCheckoutCall();
         }
-
-        window.addEventListener('resize', () => {
-            this.fixSidePanelHeight();
-        });
 
         this.eventEmitter.on('template-instantiated', (element: HTMLElement) => {
             console.log('template-instantiated', element);
@@ -117,7 +114,6 @@ export default class App {
             console.log('2');
             const element = panelLinks[index];
             element.addEventListener('click', (event: Event) => {
-                console.log('3');
                 event.preventDefault();
 
                 const panelID: string = element.dataset.panel || "";
@@ -174,13 +170,6 @@ export default class App {
                 panel.dispatchEvent(toggleEvent);
             });
         }
-    }
-
-    private fixSidePanelHeight(): void {
-        const sidepanels: HTMLElement[] = Array.from(document.querySelectorAll('.dialog-widget'));
-        sidepanels.forEach((panel: HTMLElement) => {
-            panel.style.height = `${window.innerHeight}px`;
-        });
     }
 
     private listenToCartCall() {
