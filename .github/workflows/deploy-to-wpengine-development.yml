@@ -96,8 +96,12 @@ jobs:
             # Navigate to theme folder
             cd wp-content/themes/lavandre
             
+            # Install nodejs and yarn
+            apk add --update nodejs npm && \
+            apk add --update build-base openssl libffi-dev ruby ruby-dev ruby-rdoc ruby-irb && \
+            npm install -g yarn
+            
             # Install dependencies
-            npm i yarn
             yarn
 
             # Build production assets
