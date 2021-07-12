@@ -62,7 +62,6 @@ export default class App {
         }
 
         this.eventEmitter.on('template-instantiated', (element: HTMLElement) => {
-            console.log('template-instantiated', element);
             this.initializeCurtain(element);
 
             this.initializeLoginForm();
@@ -107,11 +106,9 @@ export default class App {
     }
 
     private initializeDataPanelClicks() {
-        console.log('1');
         const panelLinks: HTMLElement[] = Array.from(document.querySelectorAll('[data-panel]'));
 
         for (let index = 0; index < panelLinks.length; index++) {
-            console.log('2');
             const element = panelLinks[index];
             element.addEventListener('click', (event: Event) => {
                 event.preventDefault();
@@ -124,31 +121,24 @@ export default class App {
                     && (panelID === 'my-account-panel' && document.body.classList.contains('logged-in'))
                 ) {
 
-                    console.log('3.5');
                     window.location.href = element.href;
                     return;
                 }
-                console.log('4');
 
                 let panel: HTMLDialogElement | null = document.querySelector(`[data-panel-name="${panelID}"]`);
                 if (panel === null) {
-                    console.log('4');
                     const template: HTMLTemplateElement | null = document.querySelector(`[data-panel-template="${panelID}"]`);
 
                     if (template === null) {
                         if (element instanceof HTMLAnchorElement) {
-
-        console.log('5.5');
                             window.location.href = element.href;
                             return;
                         }
 
-                        console.log('5.55');
                         return;
                     }
 
 
-        console.log('6');
                     const clone: HTMLTemplateElement = template.cloneNode(true) as HTMLTemplateElement;
                     const content: DocumentFragment = clone.content;
 
@@ -156,7 +146,6 @@ export default class App {
                     panel = document.querySelector(`[data-panel-name="${panelID}"]`);
 
                     this.eventEmitter.emit('template-instantiated', panel);
-                    console.log('template-instantiated emit', panel);
 
                     if (panel === null) {
                         return;

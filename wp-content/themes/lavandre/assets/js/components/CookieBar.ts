@@ -39,7 +39,7 @@ export default class CookieBar {
         const clone: HTMLTemplateElement = this.templateElement.cloneNode(true) as HTMLTemplateElement;
         const content: DocumentFragment = clone.content;
         this.templateElement.parentElement!.appendChild(content);
-        return content.querySelector('[data-role="cookie-bar"]') as HTMLElement;
+        return document.querySelector('[data-role="cookie-bar"]') as HTMLElement;
     }
 
     private acceptCookies(): void {
