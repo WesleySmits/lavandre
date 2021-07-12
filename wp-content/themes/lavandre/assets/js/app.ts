@@ -148,6 +148,7 @@ export default class App {
                     panel = document.querySelector(`[data-panel-name="${panelID}"]`);
 
                     this.eventEmitter.emit('template-instantiated', panel);
+                    console.log('template-instantiated emit', panel);
 
                     if (panel === null) {
                         return;
