@@ -92,6 +92,18 @@ jobs:
 
             # Clean up.
             rm composer.phar
+
+            # Navigate to theme folder
+            cd wp-content/themes/lavandre
+            
+            # Install dependencies
+            npx yarn
+
+            # Build production assets
+            npx yarn prod
+
+            # Run 
+            # npx cypress run --config baseUrl=https://lavandredev.wpengine.com/
           EOF
   
   cypress-run:
