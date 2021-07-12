@@ -21,9 +21,6 @@ jobs:
           
           # Install dependencies
           npx yarn
-
-          # Build production assets
-          npx yarn prod
           
           # Run JS unit tests
           npx yarn test
@@ -104,5 +101,5 @@ jobs:
       - name: Navigate to theme folder
         run: |
           cd wp-content/themes/lavandre
-          npx yarn
+          npx yarn cypress
           npx cypress run --config baseUrl=https://lavandredev.wpengine.com/
