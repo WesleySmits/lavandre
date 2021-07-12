@@ -189,6 +189,7 @@
 
 <?
     $approved_cookies = isset($_COOKIE['approved_cookies']);
+    var_dump($_COOKIE);
 
     if (!$approved_cookies) {
         include 'partials/_cookie-bar.php';
