@@ -106,6 +106,7 @@ jobs:
           cd wp-content/themes/lavandre
           npx yarn
           npx cypress run --config baseUrl=https://lavandredev.wpengine.com/
+          ls
       - uses: actions/upload-artifact@v1
         if: failure()
         with:
