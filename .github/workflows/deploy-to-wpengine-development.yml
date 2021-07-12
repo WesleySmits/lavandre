@@ -23,7 +23,7 @@ jobs:
           npx yarn
           
           # Run JS unit tests
-          npx yarn test
+          npx jest --silent
       - name: Push to WP Engine & Install Composer Dependencies
         run: |
           # Where we'll store our two SSH keys.
@@ -101,5 +101,5 @@ jobs:
       - name: Navigate to theme folder
         run: |
           cd wp-content/themes/lavandre
-          npx yarn cypress
+          npx yarn
           npx cypress run --config baseUrl=https://lavandredev.wpengine.com/
