@@ -110,11 +110,14 @@ export default class App {
     }
 
     private initializeDataPanelClicks() {
+        console.log('1');
         const panelLinks: HTMLElement[] = Array.from(document.querySelectorAll('[data-panel]'));
 
         for (let index = 0; index < panelLinks.length; index++) {
+            console.log('2');
             const element = panelLinks[index];
             element.addEventListener('click', (event: Event) => {
+                console.log('3');
                 event.preventDefault();
 
                 const panelID: string = element.dataset.panel || "";
@@ -124,23 +127,32 @@ export default class App {
                     element instanceof HTMLAnchorElement
                     && (panelID === 'my-account-panel' && document.body.classList.contains('logged-in'))
                 ) {
+
+                    console.log('3.5');
                     window.location.href = element.href;
                     return;
                 }
+                console.log('4');
 
                 let panel: HTMLDialogElement | null = document.querySelector(`[data-panel-name="${panelID}"]`);
                 if (panel === null) {
+                    console.log('4');
                     const template: HTMLTemplateElement | null = document.querySelector(`[data-panel-template="${panelID}"]`);
 
                     if (template === null) {
                         if (element instanceof HTMLAnchorElement) {
+
+        console.log('5.5');
                             window.location.href = element.href;
                             return;
                         }
 
+                        console.log('5.55');
                         return;
                     }
 
+
+        console.log('6');
                     const clone: HTMLTemplateElement = template.cloneNode(true) as HTMLTemplateElement;
                     const content: DocumentFragment = clone.content;
 
