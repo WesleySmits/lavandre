@@ -97,13 +97,14 @@ jobs:
             cd wp-content/themes/lavandre
             
             # Install dependencies
-            npx yarn
+            npm i yarn
+            yarn
 
             # Build production assets
-            npx yarn prod
+            yarn prod
 
             # Run 
-            # npx cypress run --config baseUrl=https://lavandredev.wpengine.com/
+            # cypress run --config baseUrl=https://lavandredev.wpengine.com/
           EOF
   
   cypress-run:
