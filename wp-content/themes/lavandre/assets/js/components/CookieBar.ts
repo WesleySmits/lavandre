@@ -1,7 +1,10 @@
 import '../../css/components/_cookie-bar.pcss';
+import { getCookieValue } from '../util/cookies';
 
 export default class CookieBar {
     private element: HTMLElement | null = null;
+
+    private templateElement: HTMLTemplateElement;
 
     private acceptButton: HTMLButtonElement | null = null;
 
@@ -9,18 +12,34 @@ export default class CookieBar {
 
     static cookieName: string = 'approved_cookies';
 
-    public initialize(): void {
-        this.element = document.querySelector('[data-role="cookie-bar"]') as HTMLElement;
+    constructor() {
+        this.templateElement = document.getElementById('cookie-bar-template')! as HTMLTemplateElement;
+    }
 
-        if (!this.element) {
+    public initialize(): void {
+        if (this.templateElement === null) {
             return;
         }
+
+        if (getCookieValue(CookieBar.cookieName)) {
+            this.templateElement.remove();
+            return;
+        }
+
+        this.element = this.getElement();
 
         this.acceptButton = this.element.querySelector('[data-role="cookies-accept"]');
         this.rejectButton = this.element.querySelector('[data-role="cookies-reject"]');
 
         this.acceptButton?.addEventListener('click', this.acceptCookies.bind(this));
         this.rejectButton?.addEventListener('click', this.rejectCookies.bind(this));
+    }
+
+    private getElement(): HTMLElement {
+        const clone: HTMLTemplateElement = this.templateElement.cloneNode(true) as HTMLTemplateElement;
+        const content: DocumentFragment = clone.content;
+        this.templateElement.parentElement!.appendChild(content);
+        return content.querySelector('[data-role="cookie-bar"]') as HTMLElement;
     }
 
     private acceptCookies(): void {
