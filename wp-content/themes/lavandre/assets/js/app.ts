@@ -65,6 +65,7 @@ export default class App {
         });
 
         this.eventEmitter.on('template-instantiated', (element: HTMLElement) => {
+            console.log('template-instantiated', element);
             this.initializeCurtain(element);
 
             this.initializeLoginForm();
