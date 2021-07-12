@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 
-import { adminAjaxUrl, getRandomEmail } from "../../../support/form";
+import { StaticResponse } from "cypress/types/net-stubbing";
+import { adminAjaxUrl, getRandomEmail } from "../../../support/form/form";
 
 describe('Homepage tests - mobile', () => {
     beforeEach(() => {
@@ -61,7 +62,16 @@ function testNewsletterSubscribe() {
 
     cy.get('#homepage-newsletter-form-email').type(email);
 
-    cy.intercept('POST', adminAjaxUrl).as('ajaxCall');
+    const mockResponse: StaticResponse = {
+        body: {
+            "success": true,
+            "data": [
+                "U bent aangemeld."
+            ]
+        }
+    };
+
+    cy.intercept('POST', adminAjaxUrl, mockResponse).as('ajaxCall');
 
     cy.get('#homepage-newsletter-form-submit').click();
 

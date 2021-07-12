@@ -7,19 +7,19 @@
     <section class="ww-footer__top">
         <ul class="usp-list ww-container flex flex-xs-column flex-md-row">
             <li class="usp-list__item">
-                <a href="/klantenservice/bestellen-en-bezorgen/" data-panel="6150">
+                <a href="/klantenservice/bestellen-en-bezorgen/" data-panel="order-delivery">
                     <?php include get_stylesheet_directory() . '/partials/icons/check.svg.php'; ?>
                     <span><?php _e('Free delivery from 75 euros', 'hello-elementor-child'); ?></span>
                 </a>
             </li>
             <li class="usp-list__item">
-                <a href="/klantenservice/bestellen-en-bezorgen/" data-panel="6150">
+                <a href="/klantenservice/bestellen-en-bezorgen/" data-panel="order-delivery">
                     <?php include get_stylesheet_directory() . '/partials/icons/check.svg.php'; ?>
                     <span><?php echo get_first_delivery_date(); ?></span>
                 </a>
             </li>
             <li class="usp-list__item">
-                <a href="/klantenservice/bestellen-en-bezorgen/" data-panel="6150">
+                <a href="/klantenservice/bestellen-en-bezorgen/" data-panel="order-delivery">
                     <?php include get_stylesheet_directory() . '/partials/icons/check.svg.php'; ?>
                     <span><?php _e('14 day return policy', 'hello-elementor-child'); ?></span>
                 </a>
@@ -187,13 +187,7 @@
     </div>
 </footer>
 
-<?
-    $approved_cookies = isset($_COOKIE['approved_cookies']);
-
-    if (!$approved_cookies) {
-        include 'partials/_cookie-bar.php';
-    }
-?>
+<? include 'partials/_cookie-bar.php'; ?>
 
 <?php wp_footer(); ?>
 

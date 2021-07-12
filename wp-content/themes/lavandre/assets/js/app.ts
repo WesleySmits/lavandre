@@ -1,4 +1,7 @@
 import '../css/app.pcss';
+
+import './components/LazyLoader';
+import EventEmitter from './common/EventEmitter';
 import AjaxAddToCart from './components/AjaxAddToCart';
 import AjaxLogin from './components/AjaxLogin';
 import AjaxRegister from './components/AjaxRegister';
@@ -15,8 +18,6 @@ import InfoPopup from './components/InfoPopup';
 import CookieBar from './components/CookieBar';
 import ForgotPassword from './components/ForgotPassword';
 import SidePanel from './ui/SidePanel';
-import './components/LazyLoader';
-import EventEmitter from './common/EventEmitter';
 
 export default class App {
 
@@ -60,12 +61,14 @@ export default class App {
             this.listenToCheckoutCall();
         }
 
-        window.addEventListener('resize', () => {
-            this.fixSidePanelHeight();
-        });
-
         this.eventEmitter.on('template-instantiated', (element: HTMLElement) => {
             this.initializeCurtain(element);
+
+            this.initializeLoginForm();
+            this.listenToLoginCall();
+            this.listenToRegisterCall();
+            this.initializePasswordReveal();
+            this.initializePasswordForget();
         });
     }
 
@@ -115,8 +118,9 @@ export default class App {
                 // If already logged in follow link
                 if (
                     element instanceof HTMLAnchorElement
-                    && (panelID === '6188' && document.body.classList.contains('logged-in'))
+                    && (panelID === 'my-account-panel' && document.body.classList.contains('logged-in'))
                 ) {
+
                     window.location.href = element.href;
                     return;
                 }
@@ -133,6 +137,7 @@ export default class App {
 
                         return;
                     }
+
 
                     const clone: HTMLTemplateElement = template.cloneNode(true) as HTMLTemplateElement;
                     const content: DocumentFragment = clone.content;
@@ -154,13 +159,6 @@ export default class App {
                 panel.dispatchEvent(toggleEvent);
             });
         }
-    }
-
-    private fixSidePanelHeight(): void {
-        const sidepanels: HTMLElement[] = Array.from(document.querySelectorAll('.dialog-widget'));
-        sidepanels.forEach((panel: HTMLElement) => {
-            panel.style.height = `${window.innerHeight}px`;
-        });
     }
 
     private listenToCartCall() {

@@ -1,0 +1,15 @@
+{
+  "name": "lavandre",
+  "version": "0.0.1",
+  "description": "Website for Lavandré",
+  "husky": {
+      "hooks": {
+          "pre-commit": "cd wp-content/themes/lavandre && yarn prod && yarn test && yarn cypress"
+      }
+  },
+  "author": "Wesley Smits",
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^4.3.0"
+  }
+}

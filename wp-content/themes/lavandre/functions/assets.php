@@ -4,6 +4,7 @@
 function my_child_theme_locale() {
     load_child_theme_textdomain( 'total', get_stylesheet_directory() . '/languages' );
     load_child_theme_textdomain( 'lavandre', get_stylesheet_directory() . '/languages' );
+    load_child_theme_textdomain( 'hello-elementor-child', get_stylesheet_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'my_child_theme_locale' );
 
@@ -38,7 +39,7 @@ function enqueque_login_stylesheet() {
 			[
 				'hello-elementor-child-style',
 			],
-			'2.7.8'
+			'3.0.0'
 		);
     }
 }
@@ -127,9 +128,9 @@ function woocommerce_de_style() {
         wp_dequeue_style('wc-block-vendors-style');
         wp_dequeue_style('product-search');
         wp_dequeue_style('wcsatt-css');
-
-        wp_dequeue_style('hello-elementor-theme-style');
     }
+
+    wp_dequeue_style('hello-elementor-theme-style');
 
     // global $wp_styles;
     // foreach( $wp_styles->queue as $handle ) :
@@ -150,21 +151,21 @@ function hello_elementor_child_enqueue_scripts() {
 		'hello-elementor-child-style',
 		get_stylesheet_directory_uri() . '/style.css',
 		[],
-		'2.7.8'
+		'3.0.0'
 	);
 
     wp_enqueue_style(
 		'application-style',
 		get_stylesheet_directory_uri() . '/public/app.css',
 		[],
-		'2.7.8'
+		'3.0.0'
     );
 
     wp_enqueue_script(
         'webpack-runtime',
         get_stylesheet_directory_uri() . '/public/runtime.js',
 		[],
-        '2.7.8',
+        '3.0.0',
         true
     );
 
@@ -172,16 +173,26 @@ function hello_elementor_child_enqueue_scripts() {
         'application-script',
         get_stylesheet_directory_uri() . '/public/app.js',
 		['webpack-runtime'],
-        '2.7.8',
+        '3.0.0',
         true
     );
+
+    if (is_cart()) {
+        wp_enqueue_script(
+            'cart-script',
+            get_stylesheet_directory_uri() . '/public/cart.js',
+            ['application-script'],
+            '3.0.0',
+            true
+        );
+    }
 
     if (is_shop()) {
         wp_enqueue_style(
             'product-overview-styles',
             get_stylesheet_directory_uri() . '/public/product-overview-styles.css',
             [],
-            '2.7.8',
+            '3.0.0',
         );
     }
 
@@ -190,7 +201,7 @@ function hello_elementor_child_enqueue_scripts() {
             'product-styles',
             get_stylesheet_directory_uri() . '/public/product-styles.css',
             [],
-            '2.7.8',
+            '3.0.0',
         );
     }
 
@@ -199,7 +210,7 @@ function hello_elementor_child_enqueue_scripts() {
             'account-styles',
             get_stylesheet_directory_uri() . '/public/account-styles.css',
             [],
-            '2.7.8'
+            '3.0.0'
         );
     }
 
@@ -208,7 +219,7 @@ function hello_elementor_child_enqueue_scripts() {
             'homepage-styles',
             get_stylesheet_directory_uri() . '/public/homepage-styles.css',
             [],
-            '2.7.8'
+            '3.0.0'
         );
     }
 }

@@ -341,7 +341,7 @@ function ajax_forgotPassword() {
 
     if (is_email($username)) {
         if (!email_exists($username)) {
-            wp_send_json_error( array('No user with that e-mail address') );
+            wp_send_json_error( array('No user with that e-mail address'), 401 );
         }
 
         $get_by = 'email';

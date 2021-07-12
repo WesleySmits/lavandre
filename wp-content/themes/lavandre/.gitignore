@@ -13,7 +13,7 @@ vendor/
 jest
 
 # Ignore build assets
-public/
+# public/
 
 # Ignore cypress test results
 cypress/screenshots

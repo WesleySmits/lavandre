@@ -4,6 +4,7 @@
 .cvs
 *.bak
 *.swp
+*.vscode
 Thumbs.db
 
 # wordpress specific
@@ -116,4 +117,5 @@ autoupdater_maintenance_mode_enabled.tmp
 *.wmv
 *.avi
 
-# test 2
+# Custom
+/node_modules

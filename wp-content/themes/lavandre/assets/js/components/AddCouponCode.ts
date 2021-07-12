@@ -43,8 +43,10 @@ export default class AddCouponCode {
     }
 
     private onSuccess(response: ajaxResponse, event?: Event) {
-        // @ts-ignore
-        elementorProFrontend.modules.popup.closePopup({}, event);
+        const panel: HTMLDialogElement | null = this.form.closest('[data-panel-name]');
+        if (panel) {
+            panel.dispatchEvent(new CustomEvent('toggle'));
+        }
 
         cart.updateCartContent(response);
 

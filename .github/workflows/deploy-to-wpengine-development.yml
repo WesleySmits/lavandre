@@ -21,12 +21,9 @@ jobs:
           
           # Install dependencies
           npx yarn
-
-          # Build production assets
-          npx yarn prod
           
           # Run JS unit tests
-          npx yarn test
+          npx jest --silent
       - name: Push to WP Engine & Install Composer Dependencies
         run: |
           # Where we'll store our two SSH keys.
@@ -93,3 +90,16 @@ jobs:
             # Clean up.
             rm composer.phar
           EOF
+  
+  cypress-run:
+    needs: build
+    name: Cypress run
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Navigate to theme folder
+        run: |
+          cd wp-content/themes/lavandre
+          npx yarn
+          npx cypress run --config baseUrl=https://lavandredev.wpengine.com/
