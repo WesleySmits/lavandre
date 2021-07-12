@@ -39,7 +39,7 @@ function enqueque_login_stylesheet() {
 			[
 				'hello-elementor-child-style',
 			],
-			'2.7.9'
+			'2.7.10'
 		);
     }
 }
@@ -151,21 +151,21 @@ function hello_elementor_child_enqueue_scripts() {
 		'hello-elementor-child-style',
 		get_stylesheet_directory_uri() . '/style.css',
 		[],
-		'2.7.9'
+		'2.7.10'
 	);
 
     wp_enqueue_style(
 		'application-style',
 		get_stylesheet_directory_uri() . '/public/app.css',
 		[],
-		'2.7.9'
+		'2.7.10'
     );
 
     wp_enqueue_script(
         'webpack-runtime',
         get_stylesheet_directory_uri() . '/public/runtime.js',
 		[],
-        '2.7.9',
+        '2.7.10',
         true
     );
 
@@ -173,7 +173,7 @@ function hello_elementor_child_enqueue_scripts() {
         'application-script',
         get_stylesheet_directory_uri() . '/public/app.js',
 		['webpack-runtime'],
-        '2.7.9',
+        '2.7.10',
         true
     );
 
@@ -182,7 +182,7 @@ function hello_elementor_child_enqueue_scripts() {
             'cart-script',
             get_stylesheet_directory_uri() . '/public/cart.js',
             ['application-script'],
-            '2.7.9',
+            '2.7.10',
             true
         );
     }
@@ -192,7 +192,7 @@ function hello_elementor_child_enqueue_scripts() {
             'product-overview-styles',
             get_stylesheet_directory_uri() . '/public/product-overview-styles.css',
             [],
-            '2.7.9',
+            '2.7.10',
         );
     }
 
@@ -201,7 +201,7 @@ function hello_elementor_child_enqueue_scripts() {
             'product-styles',
             get_stylesheet_directory_uri() . '/public/product-styles.css',
             [],
-            '2.7.9',
+            '2.7.10',
         );
     }
 
@@ -210,7 +210,7 @@ function hello_elementor_child_enqueue_scripts() {
             'account-styles',
             get_stylesheet_directory_uri() . '/public/account-styles.css',
             [],
-            '2.7.9'
+            '2.7.10'
         );
     }
 
@@ -219,7 +219,7 @@ function hello_elementor_child_enqueue_scripts() {
             'homepage-styles',
             get_stylesheet_directory_uri() . '/public/homepage-styles.css',
             [],
-            '2.7.9'
+            '2.7.10'
         );
     }
 }
