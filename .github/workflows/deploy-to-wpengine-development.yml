@@ -106,7 +106,4 @@ jobs:
         run: |
           cd wp-content/themes/lavandre
           npx yarn
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          config: baseUrl=https://lavandredev.wpengine.com/
+          npx cypress run --config baseUrl=https://lavandredev.wpengine.com/
