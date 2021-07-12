@@ -102,7 +102,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Navigate to theme folder
-        run: cd wp-content/themes/lavandre
+        run: |
+          cd wp-content/themes/lavandre
+          npx yarn
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
