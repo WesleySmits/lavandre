@@ -71,6 +71,7 @@ export default class App {
             this.listenToLoginCall();
             this.listenToRegisterCall();
             this.initializePasswordReveal();
+            this.initializePasswordForget();
         });
     }
 

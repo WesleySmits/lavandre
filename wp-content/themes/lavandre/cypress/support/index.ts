@@ -1,4 +1,4 @@
 import './commands.ts';
 import './cookies.ts';
-import './form.ts';
+import './form/form';
 import './ui/ui.ts';

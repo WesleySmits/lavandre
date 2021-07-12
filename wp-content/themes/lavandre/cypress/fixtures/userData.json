@@ -1,0 +1,31 @@
+{
+    "firstName": {
+        "value": "John",
+        "name": "first_name",
+        "type": "input"
+    },
+
+    "lastName": {
+        "value": "Doe",
+        "name": "last_name",
+        "type": "input"
+    },
+
+    "email": {
+        "value": "automated-tester@lavandre.com",
+        "name": "email",
+        "type": "email"
+    },
+
+    "password": {
+        "value": "Johndoe_1993",
+        "name": "password",
+        "type": "input"
+    },
+
+    "passwordConfirm": {
+        "value": "Johndoe_1993",
+        "name": "confirm-password",
+        "type": "input"
+    }
+}

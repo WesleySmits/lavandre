@@ -1,16 +1,5 @@
 /// <reference types="cypress" />
 
-// describe('header tests - mobile', () => {
-//     beforeEach(() => {
-//         cy.viewport('iphone-xr');
-//         cy.visit('/');
-//     });
-
-//     it('should', () => {
-
-//     });
-// });
-
 describe('Header tests - desktop', () => {
     beforeEach(() => {
         cy.viewport('macbook-15');
@@ -63,15 +52,13 @@ describe('Header tests - desktop', () => {
         const toggleSelector: string = '[data-panel="my-account-panel"]';
         const panelSelector: string = '[data-panel-name="my-account-panel"]';
 
-        cy.get(toggleSelector).click();
-        cy.get(panelSelector).should('be.visible');
+        cy.openSidePanel({ toggle: toggleSelector, panel: panelSelector });
     });
 
     it('should have a functioning cart sidepanel', () => {
         const toggleSelector: string = '[data-panel="cart-panel"]';
         const panelSelector: string = '[data-panel-name="cart-panel"]';
 
-        cy.get(toggleSelector).click();
-        cy.get(panelSelector).should('be.visible');
+        cy.openSidePanel({ toggle: toggleSelector, panel: panelSelector });
     });
 });

@@ -1,3 +1,5 @@
+import './fillFormFromFixture.ts';
+
 export const adminAjaxUrl: string = '/wp-admin/admin-ajax.php';
 
 export function getRandomEmail(): string {

@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 import { StaticResponse } from "cypress/types/net-stubbing";
-import { adminAjaxUrl, getRandomEmail } from "../../../support/form";
+import { adminAjaxUrl, getRandomEmail } from "../../../support/form/form";
 
 describe('Homepage tests - mobile', () => {
     beforeEach(() => {
