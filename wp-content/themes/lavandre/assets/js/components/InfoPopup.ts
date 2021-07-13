@@ -1,6 +1,7 @@
 import '../../css/components/_infoPopup.pcss';
+import Component from '../common/Component';
 
-export default class InfoPopup {
+export default class InfoPopup extends Component {
     private element: HTMLElement;
 
     private event: string;
@@ -8,6 +9,7 @@ export default class InfoPopup {
     private content: string;
 
     constructor(element: HTMLElement, event: string = 'mouseover') {
+        super();
         this.element = element;
         this.event = event;
         this.content = this.element.dataset.content || '';
@@ -41,10 +43,6 @@ export default class InfoPopup {
 
         instance.show();
         instance.hideWithInteractivity(e);
-
-        // this.element.addEventListener('mouseout', () => {
-        //     instance.destroy();
-        // });
     }
 
     private isValid(): boolean {
@@ -56,5 +54,19 @@ export default class InfoPopup {
         }
 
         return true;
+    }
+
+    public static onInit(selector: Document | HTMLElement = document) {
+        const tippyElements: HTMLElement[] = Array.from(selector.querySelectorAll('[data-role="tippy"]'));
+
+        for (let index = 0; index < tippyElements.length; index++) {
+            const tippyElement = tippyElements[index];
+            if (!tippyElement) {
+                continue;
+            }
+
+            const infoPopup = new InfoPopup(tippyElement, 'mouseover');
+            infoPopup.initialize();
+        }
     }
 }

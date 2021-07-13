@@ -1,14 +1,16 @@
+import Component from '../common/Component';
 import { ToastType } from '../enums/ToastType';
 import { sendAjaxRequest } from '../util/requests';
 import { FieldValidation } from './FieldValidation';
 import Toast from './Toast';
 
-export default class AjaxLogin {
+export default class AjaxLogin extends Component {
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
 
     private form: HTMLFormElement;
 
     constructor(form: HTMLFormElement) {
+        super();
         this.form = form;
     }
 
@@ -102,10 +104,22 @@ export default class AjaxLogin {
     }
 
     private onFailure(): void {
+        // #TODO: Translate this string
         const toast: Toast = new Toast(
             'Deze combinatie van e-mail en wachtwoord is niet bekend bij ons. Probeer het nogmaals of vraag een nieuw wachtwoord aan.',
             ToastType.warning
         );
         toast.initialize();
+    }
+
+    public static onInit(selector: Document | HTMLElement = document): void {
+        const loginForm: HTMLFormElement | null = selector.querySelector('#ajax-login-form');
+
+        if (loginForm === null) {
+            return;
+        }
+
+        const ajaxLogin: AjaxLogin = new AjaxLogin(loginForm);
+        ajaxLogin.initialize();
     }
 }

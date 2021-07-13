@@ -1,4 +1,6 @@
 {
+  "0.css": "/0.css",
+  "0.js": "/0.js",
   "account-styles.css": "/account-styles.css",
   "app.css": "/app.css",
   "app.js": "/app.js",
@@ -10,6 +12,7 @@
   "login-styles.css": "/login-styles.css",
   "product-overview-styles.css": "/product-overview-styles.css",
   "product-styles.css": "/product-styles.css",
+  "productDetail.js": "/productDetail.js",
   "runtime.js": "/runtime.js",
   "images/404.jpg": "/images/404.jpg",
   "images/404@x2.jpg": "/images/404@x2.jpg",

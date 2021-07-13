@@ -3,10 +3,22 @@
     "app": {
       "js": [
         "/runtime.js",
+        "/0.js",
         "/app.js"
       ],
       "css": [
+        "/0.css",
         "/app.css"
+      ]
+    },
+    "productDetail": {
+      "js": [
+        "/runtime.js",
+        "/0.js",
+        "/productDetail.js"
+      ],
+      "css": [
+        "/0.css"
       ]
     },
     "cart": {

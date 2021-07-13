@@ -80,4 +80,37 @@ export class FieldValidation {
 
         element.remove();
     }
+
+    public static onInit(selector: Document | HTMLElement = document): void {
+        const loginForm: HTMLFormElement[] = Array.from(selector.querySelectorAll('[data-field-validation]'));
+
+        loginForm.forEach((form: HTMLFormElement) => {
+            const fields: HTMLInputElement[] = Array.from(form.querySelectorAll('input:not([type="hidden"])'));
+            for (let index = 0; index < fields.length; index++) {
+                const field = fields[index];
+                const fieldValidation: FieldValidation = new FieldValidation(field);
+                fieldValidation.initialize();
+            }
+
+            const submitButton: HTMLButtonElement = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+            submitButton.addEventListener('click', (event: Event) => {
+                event.preventDefault();
+
+                let valid: boolean = true;
+
+                for (let index = 0; index < fields.length; index++) {
+                    const field = fields[index];
+                    field.dispatchEvent(new Event('change'));
+
+                    valid = field.validity.valid;
+                }
+
+                if (!valid) {
+                    return;
+                }
+
+                form.submit();
+            });
+        });
+    }
 }

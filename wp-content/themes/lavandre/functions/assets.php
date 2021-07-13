@@ -58,10 +58,8 @@ function remove_woocommerce_generator() {
 add_action( 'wp_print_scripts', 'woocommerce_de_script', 100 );
 add_action( 'wp_enqueue_scripts', 'hello_elementor_child_enqueue_scripts', 20 );
 function woocommerce_de_script() {
-    // wp_dequeue_script('font-awesome-4-shim');
     wp_dequeue_script('bodhi_svg_inline');
     wp_dequeue_script('trp-frontend-compatibility');
-    wp_dequeue_script('wp-embed');
 
     if (function_exists( 'is_woocommerce' )) {
         if (!is_woocommerce() && !is_cart() && !is_account_page() ) {
@@ -74,6 +72,25 @@ function woocommerce_de_script() {
             wp_dequeue_script('wpm_product_gtin_frontend');
             wp_dequeue_script('mailchimp-woocommerce');
         }
+    }
+
+    if (is_shop()) {
+        wp_dequeue_script('wc-add-to-cart');
+        wp_dequeue_script('woocommerce');
+        wp_dequeue_script('wc-cart-fragments');
+    }
+
+    if (is_product()) {
+        wp_dequeue_script('wc-add-to-cart');
+        wp_dequeue_script('jquery-blockui');
+        wp_dequeue_script('jquery-placeholder');
+        wp_dequeue_script('woocommerce');
+        wp_dequeue_script('jquery-cookie');
+        wp_dequeue_script('wc-cart-fragments');
+        wp_dequeue_script('zoom');
+        wp_dequeue_script('flexslider');
+        wp_dequeue_script('photoswipe-ui-default');
+        wp_dequeue_script('wc-single-product');
     }
 
     if (is_front_page()) {
@@ -97,9 +114,9 @@ function woocommerce_de_style() {
     // wp_dequeue_style('affwp-forms');
 
     // WPForms Contact page
-    if (!is_page(11)) {
+    // if (!is_page(245)) {
         wp_dequeue_style('wpforms-full');
-    }
+    // }
 
     if (function_exists( 'is_woocommerce' )) {
         if (
@@ -120,8 +137,6 @@ function woocommerce_de_style() {
         }
     }
 
-    // wp_dequeue_style('font-awesome-5-all');
-    // wp_dequeue_style('font-awesome-4-shim');
     wp_dequeue_style('trp-language-switcher-style');
 
     if (is_front_page()) {
@@ -131,6 +146,8 @@ function woocommerce_de_style() {
     }
 
     wp_dequeue_style('hello-elementor-theme-style');
+
+    wp_dequeue_style('wp-mediaelement');
 
     // global $wp_styles;
     // foreach( $wp_styles->queue as $handle ) :
@@ -153,75 +170,6 @@ function hello_elementor_child_enqueue_scripts() {
 		[],
 		'3.0.0'
 	);
-
-    wp_enqueue_style(
-		'application-style',
-		get_stylesheet_directory_uri() . '/public/app.css',
-		[],
-		'3.0.0'
-    );
-
-    wp_enqueue_script(
-        'webpack-runtime',
-        get_stylesheet_directory_uri() . '/public/runtime.js',
-		[],
-        '3.0.0',
-        true
-    );
-
-    wp_enqueue_script(
-        'application-script',
-        get_stylesheet_directory_uri() . '/public/app.js',
-		['webpack-runtime'],
-        '3.0.0',
-        true
-    );
-
-    if (is_cart()) {
-        wp_enqueue_script(
-            'cart-script',
-            get_stylesheet_directory_uri() . '/public/cart.js',
-            ['application-script'],
-            '3.0.0',
-            true
-        );
-    }
-
-    if (is_shop()) {
-        wp_enqueue_style(
-            'product-overview-styles',
-            get_stylesheet_directory_uri() . '/public/product-overview-styles.css',
-            [],
-            '3.0.0',
-        );
-    }
-
-    if (is_product()) {
-        wp_enqueue_style(
-            'product-styles',
-            get_stylesheet_directory_uri() . '/public/product-styles.css',
-            [],
-            '3.0.0',
-        );
-    }
-
-    if (is_account_page() && is_user_logged_in()) {
-        wp_enqueue_style(
-            'account-styles',
-            get_stylesheet_directory_uri() . '/public/account-styles.css',
-            [],
-            '3.0.0'
-        );
-    }
-
-    if (is_front_page()) {
-        wp_enqueue_style(
-            'homepage-styles',
-            get_stylesheet_directory_uri() . '/public/homepage-styles.css',
-            [],
-            '3.0.0'
-        );
-    }
 }
 
 
@@ -235,6 +183,15 @@ function add_rel_preload($html, $handle, $href, $media) {
         EOT;
 }
 add_filter( 'style_loader_tag', 'add_rel_preload', 10, 4 );
+
+function add_type_module($html, $handle, $src) {
+    if (is_admin() || strpos($html, 'lavandre/') === false) {
+        return $html;
+    }
+
+    return str_replace("text/javascript", "module", $html);
+}
+add_filter( 'script_loader_tag', 'add_type_module', 10, 3 );
 
 
 /**
@@ -263,6 +220,33 @@ function disable_emojis_tinymce( $plugins ) {
 	} else {
 		return array();
 	}
+}
+
+function my_deregister_scripts(){
+    wp_deregister_script( 'wp-embed' );
+}
+add_action( 'wp_footer', 'my_deregister_scripts' );
+
+add_action('wp_enqueue_scripts', function() {
+    loadEncoreModule('app');
+
+    if (is_front_page()) loadEncoreModule('homepage-styles');
+    if (is_shop()) loadEncoreModule('product-overview-styles');
+    if (is_product()) loadEncoreModule('product-styles');
+    if (is_product()) loadEncoreModule('productDetail');
+    if (is_cart()) loadEncoreModule('cart');
+    if (is_account_page() && is_user_logged_in()) loadEncoreModule('account-styles');
+});
+
+function loadEncoreModule(string $moduleName) {
+    $webpackEncore = WebpackEncore::getInstance();
+
+    if (!$webpackEncore) {
+        return;
+    }
+
+    $webpackEncore->enqueue_entry_css($moduleName, '3.0.0');
+    $webpackEncore->enqueue_entry_js($moduleName, '3.0.0');
 }
 
 /**

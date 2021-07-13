@@ -1,6 +1,7 @@
 import '../../css/components/_curtain.pcss';
+import Component from '../common/Component';
 
-export default class Curtain {
+export default class Curtain extends Component {
     private element: HTMLElement;
 
     private foldButton: HTMLButtonElement;
@@ -10,6 +11,7 @@ export default class Curtain {
     private defaultHeight: string;
 
     constructor(element: HTMLElement, foldButton: HTMLButtonElement, onlyOnMobile: boolean = false) {
+        super();
         this.element = element;
         this.foldButton = foldButton;
         this.onlyOnMobile = onlyOnMobile;
@@ -72,5 +74,25 @@ export default class Curtain {
         }
 
         return true;
+    }
+
+    public static onInit(selector: Document | HTMLElement = document) {
+        const toggles: HTMLButtonElement[] = Array.from(selector.querySelectorAll('[data-curtain-toggle]'));
+
+        for (let index = 0; index < toggles.length; index++) {
+            const toggle = toggles[index];
+            if (!toggle) {
+                continue;
+            }
+
+            const content: HTMLElement = selector.querySelector(`[data-curtain-content="${toggle.dataset.curtainToggle}"]`) as HTMLElement;
+            if (!content) {
+                continue;
+            }
+
+            const onlyOnMobile: boolean = (content.dataset.onlyOnMobile && content.dataset.onlyOnMobile === 'true') ? true : false;
+            const curtain = new Curtain(content, toggle, onlyOnMobile);
+            curtain.initialize();
+        }
     }
 }

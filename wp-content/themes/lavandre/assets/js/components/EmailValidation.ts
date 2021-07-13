@@ -1,6 +1,7 @@
+import Component from "../common/Component";
 import { sendAjaxRequest } from "../util/requests";
 
-export default class EmailValidation {
+export default class EmailValidation extends Component {
     private form: HTMLFormElement;
 
     private emailInput: HTMLInputElement;
@@ -8,6 +9,7 @@ export default class EmailValidation {
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
 
     constructor(element: HTMLInputElement) {
+        super();
         this.emailInput = element;
         this.form = this.emailInput.closest('form') as HTMLFormElement;
     }
@@ -95,5 +97,14 @@ export default class EmailValidation {
         }
 
         return true;
+    }
+
+    public static onInit(selector: Document | HTMLElement = document): void {
+        const registerEmailInput: HTMLInputElement | null = selector.querySelector('#reg_email');
+        if (registerEmailInput === null) {
+            return;
+        }
+        const emailValidation: EmailValidation = new EmailValidation(registerEmailInput);
+        emailValidation.initialize();
     }
 }
