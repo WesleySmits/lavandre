@@ -19,6 +19,7 @@ export default class CookieBar extends Component {
     }
 
     public initialize(): void {
+        console.log('init');
         if (this.templateElement === null) {
             return;
         }
@@ -33,6 +34,8 @@ export default class CookieBar extends Component {
         this.acceptButton = this.element.querySelector('[data-role="cookies-accept"]');
         this.rejectButton = this.element.querySelector('[data-role="cookies-reject"]');
 
+        console.log(this.element, this.acceptButton, this.rejectButton);
+
         this.acceptButton?.addEventListener('click', this.acceptCookies.bind(this));
         this.rejectButton?.addEventListener('click', this.rejectCookies.bind(this));
     }
@@ -45,11 +48,13 @@ export default class CookieBar extends Component {
     }
 
     private acceptCookies(): void {
+        console.log('accept');
         CookieBar.setAcceptCookie();
         this.element?.remove();
     }
 
     private rejectCookies(): void {
+        console.log('reject');
         CookieBar.setRejectCookie();
         this.element?.remove();
     }
