@@ -104,7 +104,7 @@ export default class AjaxLogin extends Component {
     }
 
     private onFailure(): void {
-        // #TODO: Translate this string
+        // #TODO: [LC-37] Retrieve error string from back-end and display that instead of hard-coded dutch string
         const toast: Toast = new Toast(
             'Deze combinatie van e-mail en wachtwoord is niet bekend bij ons. Probeer het nogmaals of vraag een nieuw wachtwoord aan.',
             ToastType.warning

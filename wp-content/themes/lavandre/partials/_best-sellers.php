@@ -1,5 +1,5 @@
 <header>
-    <h2><?php _e('Best sellers', 'hello-elementor-child'); ?></h2>
+    <h2><?php _e('Best sellers', 'lavandre'); ?></h2>
 </header>
 
 <div class="ww-container ww-container--large">

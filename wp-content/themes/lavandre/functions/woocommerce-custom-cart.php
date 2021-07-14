@@ -17,16 +17,16 @@ function ww_custom_cart() {
     if (count($items) === 0) {
         ?>
             <div class="custom-cart--empty">
-                <h1><?php _e('Shopping bag', 'hello-elementor-child'); ?></h1>
+                <h1><?php _e('Shopping bag', 'lavandre'); ?></h1>
                 <p class="custom-cart--empty__overview">
-                    <?php echo sprintf(__('%d articles - Total %s', 'hello-elementor-child'), 0, '€0,00-'); ?>
+                    <?php echo sprintf(__('%d articles - Total %s', 'lavandre'), 0, '€0,00-'); ?>
                 </p>
                 <?php include get_stylesheet_directory() . '/partials/icons/empty-shopping-bag.svg.php'; ?>
 
-                <h2><?php _e('Your shopping bag is empty', 'hello-elementor-child'); ?></h2>
-                <p><?php _e('Discover our collection and add items to your shopping cart!', 'hello-elementor-child'); ?></p>
+                <h2><?php _e('Your shopping bag is empty', 'lavandre'); ?></h2>
+                <p><?php _e('Discover our collection and add items to your shopping cart!', 'lavandre'); ?></p>
 
-                <a href="/shop" class="cta-button cta-button--secondary"><?php _e('Continue shopping', 'hello-elementor-child'); ?></a>
+                <a href="/shop" class="cta-button cta-button--secondary"><?php _e('Continue shopping', 'lavandre'); ?></a>
             </div>
         <?php
     } else {
@@ -38,10 +38,10 @@ function ww_custom_cart() {
         <div class="custom-cart__previous flex-col-xs-12 flex-col-md-4 flex-col-lg-3">
             <a href="/shop" class="cta-button inline alt">
                 <?php include get_stylesheet_directory() . '/partials/icons/back.svg.php'; ?>
-                <span><?php _e('Continue shopping', 'hello-elementor-child'); ?></span>
+                <span><?php _e('Continue shopping', 'lavandre'); ?></span>
             </a>
         </div>
-        <div class="flex-col-xs-12 flex-col-md-4 flex-col-lg-5"><h1 class="custom-cart__heading"><?php _e('Shopping bag', 'hello-elementor-child'); ?></h1></div>
+        <div class="flex-col-xs-12 flex-col-md-4 flex-col-lg-5"><h1 class="custom-cart__heading"><?php _e('Shopping bag', 'lavandre'); ?></h1></div>
         <div class="custom-cart__overview flex-col-xs-12 flex-col-md-4">
             <p>
                 <span>
@@ -49,7 +49,7 @@ function ww_custom_cart() {
                         <?php echo $woocommerce->cart->cart_contents_count; ?>
                     </span>
 
-                    <span><?php _e('articles', 'hello-elementor-child'); ?> - <?php _e('total', 'hello-elementor-child'); ?></span>
+                    <span><?php _e('articles', 'lavandre'); ?> - <?php _e('total', 'lavandre'); ?></span>
                 </span>
                 <data value="<?php echo $woocommerce->cart->get_subtotal(); ?>" data-total-price>
                     <?php echo wc_price($woocommerce->cart->get_subtotal()); ?>
@@ -178,7 +178,7 @@ function ww_custom_cart() {
                             <div class="custom-cart__quantity flex-col-5">
                                 <form method="post">
                                     <label class="custom-cart__quantity-label" for="<?php echo $quantity_id; ?>">
-                                        <?php _e('Amount', 'hello-elementor-child'); ?>
+                                        <?php _e('Amount', 'lavandre'); ?>
                                     </label>
                                     <div class="quantity flex flex-start flex-nowrap">
                                         <button type="button" class="minus-amount">-</button>
@@ -244,7 +244,7 @@ function ww_custom_cart() {
         <div class="custom-cart_tree-planting">
             <button id="tree-planting-button" class="cta-button alt inline" data-panel="tree-planting">
                 <?php include get_stylesheet_directory() . '/partials/icons/tree.svg.php'; ?>
-                <span><?php _e('Read more', 'hello-elementor-child'); ?></span>
+                <span><?php _e('Read more', 'lavandre'); ?></span>
             </button>
 
             <p>
@@ -284,12 +284,12 @@ function ww_custom_cart() {
         <table class="custom-cart__totals">
             <tbody>
                 <tr class="custom-cart__subtotal">
-                    <th><?php _e('Subtotal', 'hello-elementor-child'); ?></th>
+                    <th><?php _e('Subtotal', 'lavandre'); ?></th>
                     <td><?php echo wc_price($woocommerce->cart->get_subtotal()); ?></td>
                 </tr>
 
                 <tr class="custom-cart__shipping">
-                    <th><?php _e('Shipping', 'hello-elementor-child'); ?></th>
+                    <th><?php _e('Shipping', 'lavandre'); ?></th>
 
                     <td><?php
                         $shipping_total = $woocommerce->cart->get_shipping_total();
@@ -350,16 +350,16 @@ function ww_custom_cart_mini() {
     if (count($items) === 0) {
         ?>
             <div id="custom-cart" class="custom-cart--empty custom-cart--mini">
-                <h1><?php _e('Shopping bag', 'hello-elementor-child'); ?></h1>
+                <h1><?php _e('Shopping bag', 'lavandre'); ?></h1>
                 <p class="custom-cart--empty__overview">
-                    <?php echo sprintf(__('%d articles - Total %s', 'hello-elementor-child'), 0, '€0,00-'); ?>
+                    <?php echo sprintf(__('%d articles - Total %s', 'lavandre'), 0, '€0,00-'); ?>
                 </p>
                 <?php include get_stylesheet_directory() . '/partials/icons/empty-shopping-bag.svg.php'; ?>
 
-                <h2><?php _e('Your shopping bag is empty', 'hello-elementor-child'); ?></h2>
-                <p><?php _e('Discover our collection and add items to your shopping cart!', 'hello-elementor-child'); ?></p>
+                <h2><?php _e('Your shopping bag is empty', 'lavandre'); ?></h2>
+                <p><?php _e('Discover our collection and add items to your shopping cart!', 'lavandre'); ?></p>
 
-                <a href="/shop" class="cta-button cta-button--secondary"><?php _e('Continue shopping', 'hello-elementor-child'); ?></a>
+                <a href="/shop" class="cta-button cta-button--secondary"><?php _e('Continue shopping', 'lavandre'); ?></a>
             </div>
         <?php
     } else {
@@ -408,7 +408,7 @@ function ww_custom_cart_mini() {
                             <div class="custom-cart__name flex-col-5 flex flex-column flex-align-items-start">
                                 <p class="custom-cart__product-title"><?php echo $title; ?></p>
                                 <button class="custom-cart__delete--text" data-delete-item data-product-id="<?php echo $values['data']->get_id(); ?>">
-                                    <?php _e('Delete', 'hello-elementor-child'); ?>
+                                    <?php _e('Delete', 'lavandre'); ?>
                                 </button>
                             </div>
 
@@ -451,7 +451,7 @@ function ww_custom_cart_mini() {
     </ul>
 
     <aside class="custom-cart__cta-wrapper">
-        <a href="/cart" class="custom-cart__cta cta-button inline"><?php _e('Order now', 'hello-elementor-child'); ?></a>
+        <a href="/cart" class="custom-cart__cta cta-button inline"><?php _e('Order now', 'lavandre'); ?></a>
     </aside>
 
     <?php

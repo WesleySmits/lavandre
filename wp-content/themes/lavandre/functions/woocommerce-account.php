@@ -114,18 +114,18 @@ add_filter( 'woocommerce_formatted_address_replacements', function( $replacement
 
 add_filter( 'woocommerce_billing_fields' , 'custom_override_billing_fields', 100, 1 );
 function custom_override_billing_fields( $fields ) {
-    $firstName = __( 'First name', 'hello-elementor-child' );
-    $lastName = __( 'Last name', 'hello-elementor-child' );
-    $companyName = __( 'Company name', 'hello-elementor-child' );
-    $streetName = __( 'Street name', 'hello-elementor-child' );
-    $houseNumber = __( 'House number', 'hello-elementor-child' );
-    $houseNumberAddition = __( 'Addition', 'hello-elementor-child' );
-    $postalCode = __( 'Postal code', 'hello-elementor-child' );
-    $city = __( 'City', 'hello-elementor-child' );
-    $country = __( 'Country', 'hello-elementor-child' );
-    $phoneNumber = __( 'Phone number', 'hello-elementor-child' );
-    $emailAddress = __( 'E-mail address', 'hello-elementor-child' );
-    $vatNumber = __( 'VAT number', 'hello-elementor-child' );
+    $firstName = __( 'First name', 'lavandre' );
+    $lastName = __( 'Last name', 'lavandre' );
+    $companyName = __( 'Company name', 'lavandre' );
+    $streetName = __( 'Street name', 'lavandre' );
+    $houseNumber = __( 'House number', 'lavandre' );
+    $houseNumberAddition = __( 'Addition', 'lavandre' );
+    $postalCode = __( 'Postal code', 'lavandre' );
+    $city = __( 'City', 'lavandre' );
+    $country = __( 'Country', 'lavandre' );
+    $phoneNumber = __( 'Phone number', 'lavandre' );
+    $emailAddress = __( 'E-mail address', 'lavandre' );
+    $vatNumber = __( 'VAT number', 'lavandre' );
 
     $fields['billing_street_name']['placeholder'] = $streetName;
     $fields['billing_street_name']['label'] = $streetName;

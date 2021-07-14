@@ -44,12 +44,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php do_action( 'woocommerce_login_form_start' ); ?>
 
 			<p class=" woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-				<input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" placeholder="<?php esc_html_e( 'Email address', 'woocommerce' ); ?>" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" title="<?php _e('Fill in a valid e-mail address.', 'hello-elementor-child'); ?>" required /><?php // @codingStandardsIgnoreLine ?>
+				<input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" placeholder="<?php esc_html_e( 'Email address', 'woocommerce' ); ?>" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" title="<?php _e('Fill in a valid e-mail address.', 'lavandre'); ?>" required /><?php // @codingStandardsIgnoreLine ?>
 				<label for="username"><?php esc_html_e( 'Email address', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
             </p>
 
 			<p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-				<input class="woocommerce-Inputt woocommerce-Input--text input-text" type="password" name="password" id="password" placeholder="<?php esc_html_e( 'Password', 'woocommerce' ); ?>" autocomplete="current-password" title="<?php _e('Fill in the password.', 'hello-elementor-child'); ?>" required />
+				<input class="woocommerce-Inputt woocommerce-Input--text input-text" type="password" name="password" id="password" placeholder="<?php esc_html_e( 'Password', 'woocommerce' ); ?>" autocomplete="current-password" title="<?php _e('Fill in the password.', 'lavandre'); ?>" required />
 				<label for="password"><?php esc_html_e( 'Password', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
 			</p>
 

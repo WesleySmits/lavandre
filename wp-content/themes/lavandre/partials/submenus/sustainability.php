@@ -7,11 +7,11 @@
                 <img
                     src=""
                     data-src="<?php echo get_image_kit_url($image); ?>"
-                    alt="<?php _e('Acting responsibly', 'hello-elementor-child'); ?>"
+                    alt="<?php _e('Acting responsibly', 'lavandre'); ?>"
                     width="396"
                     height="396"
                 >
-                <figcaption><?php _e('Acting responsibly', 'hello-elementor-child'); ?></figcaption>
+                <figcaption><?php _e('Acting responsibly', 'lavandre'); ?></figcaption>
             </a>
         </figure>
 
@@ -22,11 +22,11 @@
                 <img
                     src=""
                     data-src="<?php echo get_image_kit_url($image); ?>"
-                    alt="<?php _e('Sustainable production', 'hello-elementor-child'); ?>"
+                    alt="<?php _e('Sustainable production', 'lavandre'); ?>"
                     width="396"
                     height="396"
                 >
-                <figcaption><?php _e('Sustainable production', 'hello-elementor-child'); ?></figcaption>
+                <figcaption><?php _e('Sustainable production', 'lavandre'); ?></figcaption>
             </a>
         </figure>
 
@@ -36,11 +36,11 @@
                 <img
                     src=""
                     data-src="<?php echo get_image_kit_url($image); ?>"
-                    alt="<?php _e('Derived from nature', 'hello-elementor-child'); ?>"
+                    alt="<?php _e('Derived from nature', 'lavandre'); ?>"
                     width="396"
                     height="396"
                 >
-                <figcaption><?php _e('Derived from nature', 'hello-elementor-child'); ?></figcaption>
+                <figcaption><?php _e('Derived from nature', 'lavandre'); ?></figcaption>
             </a>
         </figure>
 
@@ -51,11 +51,11 @@
                 <img
                     src=""
                     data-src="<?php echo get_image_kit_url($image); ?>"
-                    alt="<?php _e('Contributing to nature', 'hello-elementor-child'); ?>"
+                    alt="<?php _e('Contributing to nature', 'lavandre'); ?>"
                     width="396"
                     height="396"
                 >
-                <figcaption><?php _e('Contributing to nature', 'hello-elementor-child'); ?></figcaption>
+                <figcaption><?php _e('Contributing to nature', 'lavandre'); ?></figcaption>
             </a>
         </figure>
     </div>

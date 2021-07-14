@@ -35,7 +35,7 @@ function get_month_name($month) {
 
 function get_first_delivery_date($locale = 'nl_NL') {
     $dateText = get_delivery_date_text($locale);
-    return sprintf( __( 'Order now, receive it on %s', 'hello-elementor-child' ), $dateText );
+    return sprintf( __( 'Order now, receive it on %s', 'lavandre' ), $dateText );
 }
 
 function get_delivery_date_text($locale = 'nl_NL') {
@@ -51,9 +51,9 @@ function get_delivery_date_text($locale = 'nl_NL') {
             $datetime->add(new DateInterval('P1D'));
     }
 
-    $day = get_translated_text(get_day_name($datetime->format('w')), 'hello-elementor-child', $locale);
+    $day = get_translated_text(get_day_name($datetime->format('w')), 'lavandre', $locale);
     $date = $datetime->format('d');
-    $month = get_translated_text(get_month_name($datetime->format('n')), 'hello-elementor-child', $locale);
+    $month = get_translated_text(get_month_name($datetime->format('n')), 'lavandre', $locale);
 
 
     return $dateText = $day . ' ' . $date . ' ' . $month;

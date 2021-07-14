@@ -2,7 +2,7 @@
 /**
  * The template for displaying singular post-types: posts, pages and user-defined custom post types.
  *
- * @package HelloElementor
+ * @package Lavandre
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

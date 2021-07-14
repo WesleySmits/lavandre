@@ -45,13 +45,12 @@ export default class App extends Module {
         super.initialize();
         setCurrentLinkClass();
 
-        // #TODO: Move to checkout module
+        // #TODO: [LC-36] Create checkout module and move payment failed check there
         if (document.body.classList.contains('woocommerce-checkout')) {
             const url: URL = new URL(window.location.href);
             if (url.searchParams.get('paynl_status') && url.searchParams.get('paynl_status') === 'CANCELED') {
-                // #TODO: Translate string
                 const toast: Toast = new Toast(
-                    'De betaling is mislukt, probeer het a.u.b. opnieuw.',
+                    'Payment failed, please try again.',
                     ToastType.warning,
                     undefined,
                     20000
