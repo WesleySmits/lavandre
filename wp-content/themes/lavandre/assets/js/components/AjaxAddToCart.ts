@@ -2,6 +2,7 @@ import Component from "../common/Component";
 import SidePanel from "../ui/SidePanel";
 import { addOrUpdateCartTotals } from "../util/cart";
 import { sendAjaxRequest } from "../util/requests";
+import Cart from '../cart';
 
 export default class AjaxAddToCart extends Component {
     private button: HTMLButtonElement;
@@ -38,6 +39,7 @@ export default class AjaxAddToCart extends Component {
         }
 
         SidePanel.openSidePanel('cart-panel');
+        Cart.updateCart();
 
         if (response.data.cartAmount) {
             addOrUpdateCartTotals(response.data.cartAmount);

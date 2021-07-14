@@ -1,3 +1,4 @@
+import './cart';
 import Component from "./common/Component";
 import EventEmitter from "./common/EventEmitter";
 import { iModule } from "./types/module";

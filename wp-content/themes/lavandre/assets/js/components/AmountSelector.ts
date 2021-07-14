@@ -6,7 +6,7 @@ export default class AmountSelector extends Component {
 
     private eventEmitter: EventEmitter = EventEmitter;
 
-    constructor(selector: HTMLElement = document.body) {
+    constructor(selector: Document | HTMLElement = document) {
         super();
         this.buttons = Array.from(selector.querySelectorAll('.plus-amount, .minus-amount'));
     }
@@ -73,8 +73,8 @@ export default class AmountSelector extends Component {
         input.dispatchEvent(new Event('change'));
     }
 
-    public static onInit(): void {
-        const amountSelector = new AmountSelector();
+    public static onInit(selector: Document | HTMLElement = document): void {
+        const amountSelector = new AmountSelector(selector);
         amountSelector.initialize();
     }
 }
