@@ -222,7 +222,7 @@ add_action('wp_enqueue_scripts', function() {
     if (
         (is_account_page() && !is_user_logged_in())
         || is_page(5710)
-        || is_page(18)
+        || is_page(17)
     ) {
         loadEncoreModule('login-styles');
     }
