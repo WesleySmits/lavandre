@@ -9,15 +9,23 @@ class Cart {
 
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
 
-    private _cartElement: HTMLUListElement = document.getElementById('custom-cart') as HTMLUListElement;
-
-    private cartShortCode: string = (this._cartElement && this._cartElement.classList.contains('custom-cart--mini')) ? '[ww_custom_cart_mini]' : '[ww_custom_cart]';
+    private _cartElement: HTMLElement = document.getElementById('custom-cart') as HTMLElement;
 
     private updateTimeout: number | null = null;
 
     private updateTimeoutDuration: number = 800;
 
     private amountSelector: AmountSelector | null = null;
+
+    constructor() {
+        this.eventEmitter.on('template-instantiated', (element: HTMLElement) => {
+            this.initializeCouponCodeForm();
+            if (element instanceof HTMLDialogElement && element.dataset.panelName === 'cart-panel') {
+                this.handleCartPanel(element);
+                this.initialize();
+            }
+        });
+    }
 
     public initialize(): void {
         if (!this._cartElement) {
@@ -27,8 +35,16 @@ class Cart {
         this.setEventListeners();
     }
 
-    set cartElement(element: HTMLUListElement) {
+    get cartElement() {
+        return this._cartElement;
+    }
+
+    set cartElement(element: HTMLElement) {
         this._cartElement = element;
+    }
+
+    get cartShortCode() {
+        return (this._cartElement && this._cartElement.classList.contains('custom-cart--mini')) ? '[ww_custom_cart_mini]' : '[ww_custom_cart]';
     }
 
     private setEventListeners(): void {
@@ -77,10 +93,6 @@ class Cart {
                 sendAjaxRequest(data, this.ajaxEndpoint, this._cartElement, this.updateCart.bind(this), () => { window.location.href = anchor.href; });
             });
         }
-
-        this.eventEmitter.on('template-instantiated', (element: HTMLElement) => {
-            this.initializeCouponCodeForm();
-        });
     }
 
     private initializeCouponCodeForm(): void {
@@ -157,6 +169,16 @@ class Cart {
 
         addOrUpdateCartTotals(response.data['total-cart-quantity']);
         this.setEventListeners();
+    }
+
+    private handleCartPanel(panel: HTMLDialogElement) {
+        const element: HTMLElement | null = panel.querySelector('#custom-cart');
+        if (element === null) {
+            return;
+        }
+
+        this.cartElement = element;
+        this.updateCart();
     }
 }
 
