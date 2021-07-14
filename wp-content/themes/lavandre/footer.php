@@ -187,7 +187,7 @@
     </div>
 </footer>
 
-<? include 'partials/_cookie-bar.php'; ?>
+<?php include 'partials/_cookie-bar.php'; ?>
 
 <?php wp_footer(); ?>
 
