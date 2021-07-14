@@ -262,3 +262,8 @@ function get_image_kit_placeholder($src, $width = 400, $height = 300) {
     $url = get_image_kit_url($src);
     return $url . '?tr=w-1,h-1:w-' . $width . ',h-' . $height;
 }
+
+function get_image_kit_src($src, $width = 400, $height = 300) {
+    $url = get_image_kit_url($src);
+    return $url . '?tr=w-' . $width . ',h-' . $height;
+}

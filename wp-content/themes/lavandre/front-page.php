@@ -3,14 +3,15 @@
 <main>
     <section id="main-banner">
         <picture class="loading-spinner" data-lazyload>
-            <?php $fallback = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-desktop-1920.jpg' ?>
-            <source media="(orientation: portrait)" type="image/jpeg" data-srcset="/wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-mobile-414.jpg 414w, /wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-mobile-720.jpg 720w, /wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-mobile-768.jpg 768w, /wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-mobile-1024.jpg 1024w, /wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-mobile-1080.jpg 1080w, /wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-mobile-1242.jpg 1242w, /wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-mobile-1500.jpg 1500w">
-            <source media="(orientation: landscape)" type="image/jpeg" data-srcset="/wp-content/themes/lavandre/public/images/banners/wegwerphanddoeken-banner-desktop-1920.jpg 1920w">
+            <?php $image = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/banner-spa.jpg' ?>
+            <?php $imageMobile = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/banner-spa-mobile.jpg' ?>
+            <source media="(orientation: portrait)" type="image/jpeg" data-srcset="<?php echo get_image_kit_src($imageMobile, 414, 524) ?> 414w, <?php echo get_image_kit_src($imageMobile, 720, 912) ?> 720w, <?php echo get_image_kit_src($imageMobile, 768, 973) ?> 768w, <?php echo get_image_kit_src($imageMobile, 1024, 1297) ?> 1024w, <?php echo get_image_kit_src($imageMobile, 1080, 1368) ?>g 1080w, <?php echo get_image_kit_src($imageMobile, 1242, 1573) ?> 1242w, <?php echo get_image_kit_src($imageMobile, 1500, 1900) ?> 1500w">
+            <source media="(orientation: landscape)" type="image/jpeg" data-srcset="<?php echo get_image_kit_src($image, 750, 332) ?> 750, <?php echo get_image_kit_src($image, 1024, 452) ?> 1024w, <?php echo get_image_kit_src($image, 1280, 565) ?> 1280w, <?php echo get_image_kit_src($image, 1600, 707) ?> 1600w, <?php echo get_image_kit_src($image, 1920, 848) ?> 1920w, <?php echo get_image_kit_src($image, 3840, 1696) ?> 3840w">
 
             <img
                 loading="lazy"
-                src="<?php echo get_image_kit_placeholder($fallback, 1920, 848) ?>"
-                data-src="<?php echo get_image_kit_url($fallback); ?>"
+                src="<?php echo get_image_kit_placeholder($image, 1920, 848) ?>"
+                data-src="<?php echo get_image_kit_url($image); ?>"
                 alt="Lavandré"
                 class="loading"
                 width="1920"
