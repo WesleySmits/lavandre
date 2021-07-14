@@ -27,25 +27,6 @@ function crunchify_enqueue_scripts_styles() {
 add_filter( 'jetpack_implode_frontend_css', '__return_false', 99 );
 add_filter( 'jetpack_sharing_counts', '__return_false', 99 );
 
-function enqueque_login_stylesheet() {
-    if (
-        (is_account_page() && !is_user_logged_in())
-        || is_page(5710)
-        || is_page(18)
-    ) {
-        wp_enqueue_style(
-			'login-styles',
-			get_stylesheet_directory_uri() . '/public/login-styles.css',
-			[
-				'hello-elementor-child-style',
-			],
-			'3.0.0'
-		);
-    }
-}
-add_action( 'wp_enqueue_scripts', 'enqueque_login_stylesheet' );
-
-
 add_action( 'wp_enqueue_scripts', 'remove_woocommerce_generator', 99 );
 function remove_woocommerce_generator() {
     if (function_exists( 'is_woocommerce' )) {
@@ -168,7 +149,7 @@ function hello_elementor_child_enqueue_scripts() {
 		'hello-elementor-child-style',
 		get_stylesheet_directory_uri() . '/style.css',
 		[],
-		'3.0.0'
+		false
 	);
 }
 
@@ -237,6 +218,14 @@ add_action('wp_enqueue_scripts', function() {
     if (is_cart()) loadEncoreModule('cart');
     if (is_account_page() && is_user_logged_in()) loadEncoreModule('account-styles');
     if (is_checkout()) loadEncoreModule('checkout-styles');
+
+    if (
+        (is_account_page() && !is_user_logged_in())
+        || is_page(5710)
+        || is_page(18)
+    ) {
+        loadEncoreModule('login-styles');
+    }
 });
 
 function loadEncoreModule(string $moduleName) {
@@ -246,8 +235,8 @@ function loadEncoreModule(string $moduleName) {
         return;
     }
 
-    $webpackEncore->enqueue_entry_css($moduleName, '3.0.0');
-    $webpackEncore->enqueue_entry_js($moduleName, '3.0.0');
+    $webpackEncore->enqueue_entry_css($moduleName, false);
+    $webpackEncore->enqueue_entry_js($moduleName, false);
 }
 
 /**

@@ -2,93 +2,93 @@
   "entrypoints": {
     "app": {
       "js": [
-        "/runtime.js",
-        "/0.js",
-        "/app.js"
+        "/runtime.a0037f62.js",
+        "/0.f22479f7.js",
+        "/app.47c0872d.js"
       ],
       "css": [
-        "/0.css",
-        "/app.css"
+        "/0.ea4aafa5.css",
+        "/app.a27975f5.css"
       ]
     },
     "productDetail": {
       "js": [
-        "/runtime.js",
-        "/0.js",
-        "/productDetail.js"
+        "/runtime.a0037f62.js",
+        "/0.f22479f7.js",
+        "/productDetail.21cb3214.js"
       ],
       "css": [
-        "/0.css"
+        "/0.ea4aafa5.css"
       ]
     },
     "cart": {
       "js": [
-        "/runtime.js",
-        "/cart.js"
+        "/runtime.a0037f62.js",
+        "/cart.460cda68.js"
       ]
     },
     "critical-styles": {
       "js": [
-        "/runtime.js"
+        "/runtime.a0037f62.js"
       ],
       "css": [
-        "/critical-styles.css"
+        "/critical-styles.dafd61d9.css"
       ]
     },
     "deferred-styles": {
       "js": [
-        "/runtime.js"
+        "/runtime.a0037f62.js"
       ],
       "css": [
-        "/deferred-styles.css"
+        "/deferred-styles.35a96792.css"
       ]
     },
     "homepage-styles": {
       "js": [
-        "/runtime.js"
+        "/runtime.a0037f62.js"
       ],
       "css": [
-        "/homepage-styles.css"
+        "/homepage-styles.065ce679.css"
       ]
     },
     "checkout-styles": {
       "js": [
-        "/runtime.js"
+        "/runtime.a0037f62.js"
       ],
       "css": [
-        "/checkout-styles.css"
+        "/checkout-styles.1fa0f112.css"
       ]
     },
     "login-styles": {
       "js": [
-        "/runtime.js"
+        "/runtime.a0037f62.js"
       ],
       "css": [
-        "/login-styles.css"
+        "/login-styles.991449c7.css"
       ]
     },
     "product-styles": {
       "js": [
-        "/runtime.js"
+        "/runtime.a0037f62.js"
       ],
       "css": [
-        "/product-styles.css"
+        "/product-styles.aff9093d.css"
       ]
     },
     "product-overview-styles": {
       "js": [
-        "/runtime.js"
+        "/runtime.a0037f62.js"
       ],
       "css": [
-        "/product-overview-styles.css"
+        "/product-overview-styles.d176f8f7.css"
       ]
     },
     "account-styles": {
       "js": [
-        "/runtime.js"
+        "/runtime.a0037f62.js"
       ],
       "css": [
-        "/account-styles.css"
+        "/account-styles.e81e03cf.css"
       ]
     }
   }

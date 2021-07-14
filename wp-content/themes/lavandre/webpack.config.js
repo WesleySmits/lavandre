@@ -22,6 +22,7 @@ Encore
     .enableSourceMaps(!Encore.isProduction())
     .enablePostCssLoader()
     .enableTypeScriptLoader()
+    .enableVersioning(Encore.isProduction())
     .configureTerserPlugin((options) => {
         options.cache = true;
         options.parallel = true;
