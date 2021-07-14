@@ -12,12 +12,12 @@
 >
 
 <style>
-    <?php include get_stylesheet_directory() . '/public/critical-styles.css'; ?>
+    <?php include get_stylesheet_directory() . str_replace(get_site_url() . '/wp-content/themes/lavandre', '', asset('critical-styles.css', true)); ?>
 </style>
 
 <link
     rel="preload"
-    href="/wp-content/themes/lavandre/public/deferred-styles.css"
+    href="<?php echo asset('deferred-styles.css', true); ?>"
     as="style"
     onload="this.onload=null;this.rel='stylesheet';"
 >
