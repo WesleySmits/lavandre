@@ -17,31 +17,31 @@
                 <ul class="no-list">
                     <li>
                         <a href="/">
-                            <span><?php _e('Homepage', 'hello-elementor-child'); ?></span>
+                            <span><?php _e('Homepage', 'lavandre'); ?></span>
                         </a>
                     </li>
 
                     <li>
                         <a href="/shop">
-                            <span><?php _e('Shop', 'hello-elementor-child'); ?></span>
+                            <span><?php _e('Shop', 'lavandre'); ?></span>
                         </a>
                     </li>
 
                     <li>
                         <a href="#">
-                            <span><?php _e('Branches', 'hello-elementor-child'); ?></span>
+                            <span><?php _e('Branches', 'lavandre'); ?></span>
                         </a>
                     </li>
 
                     <li>
                         <a href="/my-account">
-                            <span><?php _e('My account', 'hello-elementor-child'); ?></span>
+                            <span><?php _e('My account', 'lavandre'); ?></span>
                         </a>
                     </li>
 
                     <li>
                         <a href="/product/sample-collection/">
-                            <span><?php _e('Request sample', 'hello-elementor-child'); ?></span>
+                            <span><?php _e('Request sample', 'lavandre'); ?></span>
                         </a>
                     </li>
                 </ul>
@@ -54,21 +54,21 @@
                     <li>
                         <a href="/my-account">
                             <?php include $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lavandre/partials/icons/user.svg.php'; ?>
-                            <span><?php _e('Log in', 'hello-elementor-child'); ?></span>
+                            <span><?php _e('Log in', 'lavandre'); ?></span>
                         </a>
                     </li>
 
                     <li>
                         <a href="/my-account">
                             <?php include $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lavandre/partials/icons/user-register.svg.php'; ?>
-                            <span><?php _e('Register', 'hello-elementor-child'); ?></span>
+                            <span><?php _e('Register', 'lavandre'); ?></span>
                         </a>
                     </li>
 
                     <li>
                         <a href="/product/sample-collection/">
                             <?php include $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lavandre/partials/icons/gift.svg.php'; ?>
-                            <span><?php _e('Request sample', 'hello-elementor-child'); ?></span>
+                            <span><?php _e('Request sample', 'lavandre'); ?></span>
                         </a>
                     </li>
                 </ul>
@@ -78,19 +78,19 @@
                 <ul class="no-list">
                     <li>
                         <a href="/sustainability">
-                            <span><?php _e('Sustainability', 'hello-elementor-child'); ?></span>
+                            <span><?php _e('Sustainability', 'lavandre'); ?></span>
                         </a>
                     </li>
 
                     <li>
                         <a href="/customer-service">
-                            <span><?php _e('Customer service', 'hello-elementor-child'); ?></span>
+                            <span><?php _e('Customer service', 'lavandre'); ?></span>
                         </a>
                     </li>
 
                     <li>
                         <a href="/contact">
-                            <span><?php _e('Contact', 'hello-elementor-child'); ?></span>
+                            <span><?php _e('Contact', 'lavandre'); ?></span>
                         </a>
                     </li>
                 </ul>

@@ -2,32 +2,32 @@
     <div class="ww-container flex">
         <nav class="ww-sub-menu__nav">
             <header>
-                <h3><?php _e('Beauty', 'hello-elementor-child'); ?></h3>
+                <h3><?php _e('Beauty', 'lavandre'); ?></h3>
             </header>
             <ul class="ww-sub-menu__list">
-                <li><a href="/branches/kappers/"><?php _e('Hair salons', 'hello-elementor-child'); ?></a></li>
-                <li><a href="/branches/pedicures/"><?php _e('Pedicures', 'hello-elementor-child'); ?></a></li>
-                <li><a href="/branches/manicure/"><?php _e('Manicures', 'hello-elementor-child'); ?></a></li>
-                <li><a href="/branches/beauty-salons/"><?php _E('Beauty Salons', 'hello-elementor-child'); ?></a></li>
-                <li><a href="/branches/spa/"><?php _e('Spa / Massage Salons', 'hello-elementor-child'); ?></a></li>
+                <li><a href="/branches/kappers/"><?php _e('Hair salons', 'lavandre'); ?></a></li>
+                <li><a href="/branches/pedicures/"><?php _e('Pedicures', 'lavandre'); ?></a></li>
+                <li><a href="/branches/manicure/"><?php _e('Manicures', 'lavandre'); ?></a></li>
+                <li><a href="/branches/beauty-salons/"><?php _E('Beauty Salons', 'lavandre'); ?></a></li>
+                <li><a href="/branches/spa/"><?php _e('Spa / Massage Salons', 'lavandre'); ?></a></li>
             </ul>
         </nav>
 
         <nav class="ww-sub-menu__nav">
             <header>
-                <h3><?php _e('Medical', 'hello-elementor-child'); ?></h3>
+                <h3><?php _e('Medical', 'lavandre'); ?></h3>
             </header>
             <ul class="ww-sub-menu__list">
-                <li><a href="/branches/zorg/"><?php _e('Healthcare', 'hello-elementor-child'); ?></a></li>
+                <li><a href="/branches/zorg/"><?php _e('Healthcare', 'lavandre'); ?></a></li>
             </ul>
         </nav>
 
         <nav class="ww-sub-menu__nav">
             <header>
-                <h3><?php _e('Sport', 'hello-elementor-child'); ?></h3>
+                <h3><?php _e('Sport', 'lavandre'); ?></h3>
             </header>
             <ul class="ww-sub-menu__list">
-                <li><a href="/branches/sport-fitness/"><?php _e('Fitness', 'hello-elementor-child'); ?></a></li>
+                <li><a href="/branches/sport-fitness/"><?php _e('Fitness', 'lavandre'); ?></a></li>
             </ul>
         </nav>
 

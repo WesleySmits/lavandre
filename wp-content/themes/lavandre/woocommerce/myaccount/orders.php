@@ -94,7 +94,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 <?php else : ?>
     <section>
         <header>
-            <h1><?php _e('Completed orders', 'hello-elementor-child'); ?></h1>
+            <h1><?php _e('Completed orders', 'lavandre'); ?></h1>
         </header>
 
         <div class="woocommerce-message woocommerce-message--info woocommerce-Message woocommerce-Message--info woocommerce-info no-orders-yet">

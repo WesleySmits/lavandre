@@ -6,10 +6,10 @@
     // function create_custom_brand_field() {
     //     $args = array(
     //         'id' => 'brand_field',
-    //         'label' => __( 'Brand', 'hello-elementor-child' ),
+    //         'label' => __( 'Brand', 'lavandre' ),
     //         'class' => 'brand-field',
     //         'desc_tip' => true,
-    //         'description' => __( 'Product brand', 'hello-elementor-child' ),
+    //         'description' => __( 'Product brand', 'lavandre' ),
     //     );
     //     woocommerce_wp_text_input( $args );
     // }
@@ -130,18 +130,18 @@ add_action( 'woocommerce_checkout_order_payment_methods', 'woocommerce_checkout_
  * Add placeholders to form fields in checkout & Align address fields
  */
 function override_billing_checkout_fields( $fields ) {
-    $firstName = __( 'First name', 'hello-elementor-child' );
-    $lastName = __( 'Last name', 'hello-elementor-child' );
-    $companyName = __( 'Company name', 'hello-elementor-child' );
-    $streetName = __( 'Street name', 'hello-elementor-child' );
-    $houseNumber = __( 'House number', 'hello-elementor-child' );
-    $houseNumberAddition = __( 'Addition', 'hello-elementor-child' );
-    $postalCode = __( 'Postal code', 'hello-elementor-child' );
-    $city = __( 'Place', 'hello-elementor-child' );
-    $country = __( 'Country', 'hello-elementor-child' );
-    $phoneNumber = __( 'Phone number', 'hello-elementor-child' );
-    $emailAddress = __( 'E-mail address', 'hello-elementor-child' );
-    $vatNumber = __( 'VAT nummer', 'hello-elementor-child' );
+    $firstName = __( 'First name', 'lavandre' );
+    $lastName = __( 'Last name', 'lavandre' );
+    $companyName = __( 'Company name', 'lavandre' );
+    $streetName = __( 'Street name', 'lavandre' );
+    $houseNumber = __( 'House number', 'lavandre' );
+    $houseNumberAddition = __( 'Addition', 'lavandre' );
+    $postalCode = __( 'Postal code', 'lavandre' );
+    $city = __( 'Place', 'lavandre' );
+    $country = __( 'Country', 'lavandre' );
+    $phoneNumber = __( 'Phone number', 'lavandre' );
+    $emailAddress = __( 'E-mail address', 'lavandre' );
+    $vatNumber = __( 'VAT nummer', 'lavandre' );
 
     // Placeholders
     $fields['billing']['billing_first_name']['placeholder'] = $firstName;

@@ -1,7 +1,0 @@
-0000000000000000000000000000000000000000 4e06b59d34048436e1d26f446ec689765e99a365 wesleysmits <wesley@intermation.nl> 1625811090 +0200	branch: Created from HEAD
-4e06b59d34048436e1d26f446ec689765e99a365 780ff7e8ec08633d093ccff254f98203333dc532 wesleysmits <wesley@intermation.nl> 1625811623 +0200	commit: Add demo github actions file
-780ff7e8ec08633d093ccff254f98203333dc532 24da12bd6fdd941666ce32e1bb2ff9ab2ce1dfef wesleysmits <wesley@intermation.nl> 1625812061 +0200	rebase finished: refs/heads/test-github-actions onto 24da12bd6fdd941666ce32e1bb2ff9ab2ce1dfef
-24da12bd6fdd941666ce32e1bb2ff9ab2ce1dfef b905104286e9dc17d7251d63d561c8edccd8fdfb wesleysmits <wesley@intermation.nl> 1625812103 +0200	commit: Test
-b905104286e9dc17d7251d63d561c8edccd8fdfb 8c08d541be0ee70c411216a39fb0daf93e197034 wesleysmits <wesley@intermation.nl> 1625812290 +0200	commit: Move github demo into correct folder
-8c08d541be0ee70c411216a39fb0daf93e197034 5dbde14236bd9b635d2f081cf00c694ae95ed37d wesleysmits <wesley@intermation.nl> 1625813905 +0200	commit: Testing new wpengine deploy workflow
-5dbde14236bd9b635d2f081cf00c694ae95ed37d a7c1b89840643e403122adf94392d67541995ea6 wesleysmits <wesley@intermation.nl> 1625813926 +0200	commit: Testing new wpengine deploy workflow

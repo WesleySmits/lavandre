@@ -51,10 +51,10 @@
                     <h3><?php echo $product->get_name() ?></h3>
 
                     <dl class="order-details__kvp">
-                        <dt><?php _e('color', 'hello-elementor-child'); ?></dt>
+                        <dt><?php _e('color', 'lavandre'); ?></dt>
                         <dd><?php echo $product->get_product()->get_attribute('kleur')?></dd>
 
-                        <dt><?php _e('Article number', 'hello-elementor-child'); ?></dt>
+                        <dt><?php _e('Article number', 'lavandre'); ?></dt>
                         <dd><?php echo $product->get_product()->get_sku()?></dd>
                     </dl>
                 </div>
@@ -69,7 +69,7 @@
     <?php if ($tracking_link && $trackingCode) { ?>
         <footer class="product-information__track-trace">
             <a href="<?php echo $tracking_link?>" target="_blank" rel="noopener" class="cta-button alt">
-                <span><?php _e('Track & Trace', 'hello-elementor-child'); ?></span>
+                <span><?php _e('Track & Trace', 'lavandre'); ?></span>
             </a>
         </footer>
     <?php } ?>

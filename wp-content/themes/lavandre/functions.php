@@ -3,7 +3,7 @@
 /**
  * Theme functions and definitions
  *
- * @package HelloElementorChild
+ * @package Lavandre
  */
 
 require 'vendor/autoload.php';
@@ -20,6 +20,52 @@ include(get_stylesheet_directory() . '/functions/woocommerce-account.php');
 include(get_stylesheet_directory() . '/functions/woocommerce-checkout-login-step.php');
 include(get_stylesheet_directory() . '/functions/faq.php');
 include(get_stylesheet_directory() . '/functions/custom-ajax.php');
+
+function lavandre_setup() {
+    add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'automatic-feed-links' );
+    add_theme_support( 'title-tag' );
+    add_theme_support(
+        'html5',
+        [
+            'search-form',
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption',
+        ]
+    );
+    add_theme_support(
+        'custom-logo',
+        [
+            'height'      => 100,
+            'width'       => 350,
+            'flex-height' => true,
+            'flex-width'  => true,
+        ]
+    );
+
+    /*
+        * Editor Style.
+        */
+    add_editor_style( 'classic-editor.css' );
+
+    /*
+        * Gutenberg wide images.
+        */
+    add_theme_support( 'align-wide' );
+
+    /*
+        * Woocommerce support
+        */
+    add_theme_support( 'woocommerce' );
+
+    if ( ! isset( $content_width ) ) {
+        $content_width = 800;
+    }
+}
+add_action( 'after_setup_theme', 'lavandre_setup' );
+
 
 function getCompany() {
     $companyName = 'WesTrade Beheer B.V.';

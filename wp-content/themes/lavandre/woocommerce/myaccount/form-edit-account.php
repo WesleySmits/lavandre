@@ -64,16 +64,16 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
         <?php $selected = esc_attr( $user->billing_company_type ); ?>
         <select class="woocommerce-Input woocommerce-Input--phone input-text" name="billing_company_type" id="billing_company_type" value="<?php echo esc_attr( $user->billing_company_type ); ?>">
             <option value="0" <?php if ($selected === '0') { ?> selected <?php } ?>>Branche</option>
-                <option value="<?php _e('hairdresser', 'hello-elementor-child'); ?>" <?php if ($selected === __('hairdresser', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('hairdresser', 'hello-elementor-child')); ?></option>
-                <option value="<?php _e('pedicure', 'hello-elementor-child'); ?>" <?php if ($selected === __('pedicure', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('pedicure', 'hello-elementor-child')); ?></option>
-                <option value="<?php _e('spa', 'hello-elementor-child'); ?>" <?php if ($selected === __('spa', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('spa', 'hello-elementor-child')); ?></option>
-                <option value="<?php _e('massage parlor', 'hello-elementor-child'); ?>" <?php if ($selected === __('massage parlor', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('massage parlor', 'hello-elementor-child')); ?></option>
-                <option value="<?php _e('nail stylist', 'hello-elementor-child'); ?>" <?php if ($selected === __('nail stylist', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('nail stylist', 'hello-elementor-child')); ?></option>
-                <option value="<?php _e('beauty salon', 'hello-elementor-child'); ?>" <?php if ($selected === __('beauty salon', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('beauty salon', 'hello-elementor-child')); ?></option>
-                <option value="<?php _e('medical', 'hello-elementor-child'); ?>" <?php if ($selected === __('medical', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('medical', 'hello-elementor-child')); ?></option>
-                <option value="<?php _e('travel', 'hello-elementor-child'); ?>" <?php if ($selected === __('travel', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('travel', 'hello-elementor-child')); ?></option>
-                <option value="<?php _e('cleaning', 'hello-elementor-child'); ?>" <?php if ($selected === __('cleaning', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('cleaning', 'hello-elementor-child')); ?></option>
-                <option value="<?php _e('other', 'hello-elementor-child'); ?>" <?php if ($selected === __('other', 'hello-elementor-child')) { ?> selected <?php } ?>><?php echo ucfirst(__('other', 'hello-elementor-child')); ?></option>
+                <option value="<?php _e('hairdresser', 'lavandre'); ?>" <?php if ($selected === __('hairdresser', 'lavandre')) { ?> selected <?php } ?>><?php echo ucfirst(__('hairdresser', 'lavandre')); ?></option>
+                <option value="<?php _e('pedicure', 'lavandre'); ?>" <?php if ($selected === __('pedicure', 'lavandre')) { ?> selected <?php } ?>><?php echo ucfirst(__('pedicure', 'lavandre')); ?></option>
+                <option value="<?php _e('spa', 'lavandre'); ?>" <?php if ($selected === __('spa', 'lavandre')) { ?> selected <?php } ?>><?php echo ucfirst(__('spa', 'lavandre')); ?></option>
+                <option value="<?php _e('massage parlor', 'lavandre'); ?>" <?php if ($selected === __('massage parlor', 'lavandre')) { ?> selected <?php } ?>><?php echo ucfirst(__('massage parlor', 'lavandre')); ?></option>
+                <option value="<?php _e('nail stylist', 'lavandre'); ?>" <?php if ($selected === __('nail stylist', 'lavandre')) { ?> selected <?php } ?>><?php echo ucfirst(__('nail stylist', 'lavandre')); ?></option>
+                <option value="<?php _e('beauty salon', 'lavandre'); ?>" <?php if ($selected === __('beauty salon', 'lavandre')) { ?> selected <?php } ?>><?php echo ucfirst(__('beauty salon', 'lavandre')); ?></option>
+                <option value="<?php _e('medical', 'lavandre'); ?>" <?php if ($selected === __('medical', 'lavandre')) { ?> selected <?php } ?>><?php echo ucfirst(__('medical', 'lavandre')); ?></option>
+                <option value="<?php _e('travel', 'lavandre'); ?>" <?php if ($selected === __('travel', 'lavandre')) { ?> selected <?php } ?>><?php echo ucfirst(__('travel', 'lavandre')); ?></option>
+                <option value="<?php _e('cleaning', 'lavandre'); ?>" <?php if ($selected === __('cleaning', 'lavandre')) { ?> selected <?php } ?>><?php echo ucfirst(__('cleaning', 'lavandre')); ?></option>
+                <option value="<?php _e('other', 'lavandre'); ?>" <?php if ($selected === __('other', 'lavandre')) { ?> selected <?php } ?>><?php echo ucfirst(__('other', 'lavandre')); ?></option>
         </select>
         <label for="billing_company_type"><?php _e( 'Branche', 'woocommerce' ); ?> <span class="required">*</span></label>
     </p>

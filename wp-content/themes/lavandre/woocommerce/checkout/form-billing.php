@@ -25,7 +25,8 @@ defined( 'ABSPATH' ) || exit;
 		<h3 class="checkout-column__title"><?php esc_html_e( 'Billing details', 'woocommerce' ); ?></h3>
 	<?php endif; ?>
 
-	<p><?php echo __('Uw gegevens worden verwerkt in overeenstemming met ons <a href="/privacy-policy/" target="_blank" rel="noopener">privacybeleid</a>.', 'hello-elementor-child'); ?></p>
+    <!-- #TODO: [LC-35] Translate privacy policy string and remove HTML from translation -->
+	<p><?php echo __('Uw gegevens worden verwerkt in overeenstemming met ons <a href="/privacy-policy/" target="_blank" rel="noopener">privacybeleid</a>.', 'lavandre'); ?></p>
 
 	<?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
 

@@ -1,4 +1,0 @@
-0000000000000000000000000000000000000000 ffad840aa5f5a91cabe9a54138478f79025865bb Wesley Smits <wesleysmits@MBP-van-Wesley.fritz.box> 1617039402 +0200	commit (initial): Copy from Wegwerphanddoeken.nl
-ffad840aa5f5a91cabe9a54138478f79025865bb ffad840aa5f5a91cabe9a54138478f79025865bb Wesley Smits <wesleysmits@MBP-van-Wesley.fritz.box> 1617039419 +0200	Branch: renamed refs/heads/master to refs/heads/main
-ffad840aa5f5a91cabe9a54138478f79025865bb 3479a12e79cc12e7ec572fad533c948a161cb687 Wesley Smits <wesleysmits@MBP-van-Wesley.fritz.box> 1617044960 +0200	commit: Test branch CI
-3479a12e79cc12e7ec572fad533c948a161cb687 01b528738d02385fa621895128b919a634f5d09c wesleysmits <wesley@intermation.nl> 1625814103 +0200	rebase finished: refs/heads/main onto 01b528738d02385fa621895128b919a634f5d09c

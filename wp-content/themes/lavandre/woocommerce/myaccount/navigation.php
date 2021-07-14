@@ -24,13 +24,13 @@ do_action( 'woocommerce_before_account_navigation' );
 ?>
 
 <button type="button" class="toggle-account-menu" data-curtain-toggle="account-menu">
-    <span><?php _e('My account', 'hello-elementor-child'); ?></span>
+    <span><?php _e('My account', 'lavandre'); ?></span>
     <?php include get_stylesheet_directory() . '/partials/icons/chevron-down.svg.php'; ?>
 </button>
 <nav class="woocommerce-MyAccount-navigation" data-curtain-content="account-menu">
     <header>
         <h1>
-            <small><?php _e('Welcome,', 'hello-elementor-child'); ?></small>
+            <small><?php _e('Welcome,', 'lavandre'); ?></small>
             <?php
                 $user_info = get_userdata(get_current_user_id());
                 $first_name = $user_info->first_name;

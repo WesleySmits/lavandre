@@ -68,45 +68,45 @@ function formatted_billing_address($order)
             <header class="thank-you-section__header">
                 <h1>
                     <?php include get_stylesheet_directory() . '/partials/icons/success.svg.php'; ?>
-                    <span><?php _e('Your payment has succeeded', 'hello-elementor-child'); ?></span>
+                    <span><?php _e('Your payment has succeeded', 'lavandre'); ?></span>
                 </h1>
-                <small><?php echo sprintf(__('Your order number is: <strong>%s</strong>', 'hello-elementor-child'), $order->get_order_number()); ?></small>
+                <small><?php echo sprintf(__('Your order number is: <strong>%s</strong>', 'lavandre'), $order->get_order_number()); ?></small>
                 <br/>
-                <small><?php _e('Thank you for your order!', 'hello-elementor-child'); ?></small>
+                <small><?php _e('Thank you for your order!', 'lavandre'); ?></small>
             </header>
 
             <footer class="thank-you-section__footer">
                 <table class="order-totals">
                     <tbody>
                         <tr>
-                            <th><?php _e('Subtotal', 'hello-elementor-child'); ?></th>
+                            <th><?php _e('Subtotal', 'lavandre'); ?></th>
                             <td><?php echo $order->get_subtotal_to_display(); ?></td>
                         </tr>
 
                         <tr>
-                            <th><?php _e('Shipping', 'hello-elementor-child'); ?></th>
+                            <th><?php _e('Shipping', 'lavandre'); ?></th>
                             <td><?php echo ($order->get_shipping_total() !== '0.00') ? wc_price($order->get_shipping_total()) : __('Free'); ?></td>
                         </tr>
 
                         <tr>
-                            <th><?php _e('VAT', 'hello-elementor-child'); ?></th>
+                            <th><?php _e('VAT', 'lavandre'); ?></th>
                             <td><?php echo wc_price($order->get_total_tax()); ?></td>
                         </tr>
 
                         <tr>
-                            <th><strong><?php _e('Total', 'hello-elementor-child'); ?></strong></th>
+                            <th><strong><?php _e('Total', 'lavandre'); ?></strong></th>
                             <td><strong><?php echo $order->get_formatted_order_total(); ?></strong></td>
                         </tr>
                     </tbody>
                 </table>
 
-                <small><?php _e('You will find the invoice in the confirmation email.', 'hello-elementor-child'); ?></small>
+                <small><?php _e('You will find the invoice in the confirmation email.', 'lavandre'); ?></small>
             </footer>
         </section>
 
         <section class="ww-order-progress thank-you-section">
             <header class="thank-you-section__header">
-                <h1><?php _e('What happens now?', 'hello-elementor-child'); ?></h1>
+                <h1><?php _e('What happens now?', 'lavandre'); ?></h1>
             </header>
 
             <div class="thank-you-section__content">
@@ -115,16 +115,16 @@ function formatted_billing_address($order)
                         <div class="ww-timeline__icon">
                             <?php include get_stylesheet_directory() . '/partials/icons/delivery.svg.php'; ?>
                         </div>
-                        <p> <?php echo sprintf(__('Within a few minutes you will receive a confirmation email on <strong>%s</strong>.', 'hello-elementor-child'), $order->get_billing_email()); ?></p>
+                        <p> <?php echo sprintf(__('Within a few minutes you will receive a confirmation email on <strong>%s</strong>.', 'lavandre'), $order->get_billing_email()); ?></p>
                     </li>
 
                     <li class="ww-timeline__item">
                         <div class="ww-timeline__icon">
                             <?php include get_stylesheet_directory() . '/partials/icons/envelope.svg.php'; ?>
                         </div>
-                        <p><?php _e('In the meantime, we will ship your order as soon as possible.', 'hello-elementor-child'); ?></p>
+                        <p><?php _e('In the meantime, we will ship your order as soon as possible.', 'lavandre'); ?></p>
 
-                        <h3><?php _e('Delivery address', 'hello-elementor-child'); ?></h3>
+                        <h3><?php _e('Delivery address', 'lavandre'); ?></h3>
                         <address><?php echo wp_kses_post($shipping_address); ?></address>
                     </li>
 
@@ -132,7 +132,7 @@ function formatted_billing_address($order)
                         <div class="ww-timeline__icon">
                             <?php include get_stylesheet_directory() . '/partials/icons/gift.svg.php'; ?>
                         </div>
-                        <p><?php _e('Have fun with your purchase!', 'hello-elementor-child'); ?></p>
+                        <p><?php _e('Have fun with your purchase!', 'lavandre'); ?></p>
                     </li>
                 </ul>
             </div>
@@ -142,8 +142,8 @@ function formatted_billing_address($order)
     <div class="thank-you-column">
         <section class="ww-item-overview thank-you-section">
             <header class="thank-you-section__header">
-                <h1><?php _e('Overview', 'hello-elementor-child'); ?></h1>
-                <small><?php _e('Delivery by PostNL', 'hello-elementor-child'); ?></small>
+                <h1><?php _e('Overview', 'lavandre'); ?></h1>
+                <small><?php _e('Delivery by PostNL', 'lavandre'); ?></small>
             </header>
 
             <div class="thank-you-section__content">
@@ -178,7 +178,7 @@ function formatted_billing_address($order)
 
         <section class="ww-billing-address thank-you-section">
             <header class="thank-you-section__header thank-you-section__header--has-mini-heading">
-                <h1><?php _e('Invoice', 'hello-elementor-child'); ?></h1>
+                <h1><?php _e('Invoice', 'lavandre'); ?></h1>
                 <small class="mini-heading"><strong><?php echo esc_html( $addresses['billing'] ); ?></strong></small>
             </header>
 

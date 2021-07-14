@@ -63,19 +63,19 @@ $user_id = get_current_user_id();
 
 <?php if ($order) { ?>
     <section class="order-details__product-information">
-        <header><h1><?php _e('Your last order', 'hello-elementor-child'); ?></h1></header>
+        <header><h1><?php _e('Your last order', 'lavandre'); ?></h1></header>
         <?php include 'partials/_latest-order.php'; ?>
     </section>
 <?php } ?>
 
 <section class="tree-planting-campaign">
     <div class="tree-planting-campaign__info flex-col-xs-12 flex-col-md-5 flex-col-xl-6">
-        <h1><?php _e('Contributing to nature', 'hello-elementor-child'); ?></h1>
+        <h1><?php _e('Contributing to nature', 'lavandre'); ?></h1>
         <p>
-            <?php _e('Starting January 2021 we will automatically plant a tree for each item that we sell through our webshop in collaboration with our partner, Eden Reforestation Projects. This way, we ensure that we can enjoy the beautiful nature for years to come.', 'hello-elementor-child'); ?>
+            <?php _e('Starting January 2021 we will automatically plant a tree for each item that we sell through our webshop in collaboration with our partner, Eden Reforestation Projects. This way, we ensure that we can enjoy the beautiful nature for years to come.', 'lavandre'); ?>
         </p>
 
-        <a href="/duurzaamheid/bijdragen-aan-de-natuur/" class="cta-button cta-button--secondary"><?php _e('Read more', 'hello-elementor-child'); ?></a>
+        <a href="/duurzaamheid/bijdragen-aan-de-natuur/" class="cta-button cta-button--secondary"><?php _e('Read more', 'lavandre'); ?></a>
     </div>
 
     <div class="tree-planting-campaign__video flex-col-xs-12 flex-col-md-6">
@@ -110,10 +110,10 @@ $user_id = get_current_user_id();
                     $milestone_percent = 100/($goal/$milestone);
 
                     if ($is_completed) {
-                        $content = sprintf(esc_html__('%sCongratulations!%s %s You have reached a new milestone of %s trees!', 'hello-elementor-child'), '<strong>', '</strong>', '<br/>',$milestone);
+                        $content = sprintf(esc_html__('%sCongratulations!%s %s You have reached a new milestone of %s trees!', 'lavandre'), '<strong>', '</strong>', '<br/>',$milestone);
                     } else {
                         $trees_left = $milestone - $user_trees;
-                        $content = sprintf(__('You still have to plant %s trees to reach this milestone!', 'hello-elementor-child'), $trees_left);
+                        $content = sprintf(__('You still have to plant %s trees to reach this milestone!', 'lavandre'), $trees_left);
                     }
                 ?>
 
@@ -133,13 +133,13 @@ $user_id = get_current_user_id();
     </div>
 
     <div class="flex-col-xs-12 flex-col-lg-5 flex-xs-order-1 flex-lg-order-2">
-        <h1><?php _e('Your contribution', 'hello-elementor-child'); ?></h1>
+        <h1><?php _e('Your contribution', 'lavandre'); ?></h1>
         <p>
             <?php echo sprintf(__('
                 With your orders you have already planted <strong>%s trees</strong>.
                 Together these trees absorb about <strong>%s kg CO<sub2</sub></strong> from our atmosphere every year.
                 You should plant another <strong>%s trees</strong> to reach the next milestone.
-            ', 'hello-elementor-child'), $user_trees, $user_trees * 20, $trees_to_next_milestone); ?>
+            ', 'lavandre'), $user_trees, $user_trees * 20, $trees_to_next_milestone); ?>
         </p>
     </div>
 </section>
