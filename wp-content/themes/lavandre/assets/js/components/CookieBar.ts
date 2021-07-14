@@ -15,20 +15,16 @@ export default class CookieBar extends Component {
 
     constructor() {
         super();
-        console.log('constructor - cookiebar');
         this.templateElement = document.getElementById('cookie-bar-template')! as HTMLTemplateElement;
     }
 
     public initialize(): void {
-        console.log('init', this.templateElement);
         if (this.templateElement === null) {
-            console.log('no template');
             return;
         }
 
         if (getCookieValue(CookieBar.cookieName)) {
             this.templateElement.remove();
-            console.log('template remove');
             return;
         }
 
@@ -37,14 +33,11 @@ export default class CookieBar extends Component {
         this.acceptButton = this.element.querySelector('[data-role="cookies-accept"]');
         this.rejectButton = this.element.querySelector('[data-role="cookies-reject"]');
 
-        console.log(this.element, this.acceptButton, this.rejectButton);
-
         this.acceptButton?.addEventListener('click', this.acceptCookies.bind(this));
         this.rejectButton?.addEventListener('click', this.rejectCookies.bind(this));
     }
 
     private getElement(): HTMLElement {
-        console.log('getElement');
         const clone: HTMLTemplateElement = this.templateElement.cloneNode(true) as HTMLTemplateElement;
         const content: DocumentFragment = clone.content;
         this.templateElement.parentElement!.appendChild(content);
@@ -52,13 +45,11 @@ export default class CookieBar extends Component {
     }
 
     private acceptCookies(): void {
-        console.log('accept');
         CookieBar.setAcceptCookie();
         this.element?.remove();
     }
 
     private rejectCookies(): void {
-        console.log('reject');
         CookieBar.setRejectCookie();
         this.element?.remove();
     }
@@ -72,8 +63,6 @@ export default class CookieBar extends Component {
     }
 
     public static onInit() {
-        console.log('onInit');
-
         const cookieBar: CookieBar = new CookieBar();
         cookieBar.initialize();
     }

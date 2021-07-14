@@ -2,7 +2,7 @@
   "name": "lavandre",
   "version": "0.0.1",
   "description": "Website for Lavandré",
-  "hussky": {
+  "husky": {
       "hooks": {
           "pre-commit": "cd wp-content/themes/lavandre && yarn prod && yarn test && yarn cypress"
       }

@@ -195,7 +195,6 @@ export default class SidePanel extends Component {
 
     private static handleCreationEvent(this: HTMLElement, event: Event): void {
         event.preventDefault();
-        console.log('test');
         const panelID: string = this.dataset.panel || "";
 
         // If already logged in follow link
