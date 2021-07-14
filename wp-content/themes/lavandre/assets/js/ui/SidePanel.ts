@@ -172,24 +172,6 @@ export default class SidePanel extends Component {
 
             element.removeEventListener('click', this.handleCreationEvent);
             element.addEventListener('click', this.handleCreationEvent);
-
-            // element.addEventListener('click', (event: Event) => {
-            //     event.preventDefault();
-
-            //     const panelID: string = element.dataset.panel || "";
-
-            //     // If already logged in follow link
-            //     if (
-            //         element instanceof HTMLAnchorElement
-            //         && (panelID === 'my-account-panel' && document.body.classList.contains('logged-in'))
-            //     ) {
-
-            //         window.location.href = element.href;
-            //         return;
-            //     }
-
-            //     SidePanel.openSidePanel(panelID);
-            // });
         }
     }
 
