@@ -44,6 +44,7 @@ export default class CookieBar extends Component {
     }
 
     private getElement(): HTMLElement {
+        console.log('getElement');
         const clone: HTMLTemplateElement = this.templateElement.cloneNode(true) as HTMLTemplateElement;
         const content: DocumentFragment = clone.content;
         this.templateElement.parentElement!.appendChild(content);
@@ -71,6 +72,8 @@ export default class CookieBar extends Component {
     }
 
     public static onInit() {
+        console.log('onInit');
+
         const cookieBar: CookieBar = new CookieBar();
         cookieBar.initialize();
     }
