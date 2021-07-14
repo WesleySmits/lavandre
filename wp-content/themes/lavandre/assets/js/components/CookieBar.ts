@@ -15,6 +15,7 @@ export default class CookieBar extends Component {
 
     constructor() {
         super();
+        console.log('constructor - cookiebar');
         this.templateElement = document.getElementById('cookie-bar-template')! as HTMLTemplateElement;
     }
 
