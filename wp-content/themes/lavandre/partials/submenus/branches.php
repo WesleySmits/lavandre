@@ -34,7 +34,7 @@
         <div class="ww-sub-menu__banner">
             <?php $image = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/branches.jpg' ?>
             <img
-                src="<?php echo get_image_kit_placeholder($image, 562, 375) ?>"
+                src=""
                 data-src="<?php echo get_image_kit_url($image); ?>"
                 alt=""
                 width="562"

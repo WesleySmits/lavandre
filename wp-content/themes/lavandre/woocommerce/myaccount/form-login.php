@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <h3><?php esc_html_e( 'Login', 'woocommerce' ); ?></h3>
         </header>
 
-		<form id="login-form" class="woocommerce-form woocommerce-form-login login" method="post">
+		<form id="login-form" class="woocommerce-form woocommerce-form-login login" method="post" data-field-validation>
 			<?php do_action( 'woocommerce_login_form_start' ); ?>
 
 			<p class=" woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">

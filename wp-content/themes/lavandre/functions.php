@@ -19,7 +19,7 @@ include(get_stylesheet_directory() . '/functions/woocommerce-custom-cart.php');
 include(get_stylesheet_directory() . '/functions/woocommerce-account.php');
 include(get_stylesheet_directory() . '/functions/woocommerce-checkout-login-step.php');
 include(get_stylesheet_directory() . '/functions/faq.php');
-include(get_stylesheet_directory() . '/functions/custom-ajax.php'); // #TODO: Redo with Wordpress API?
+include(get_stylesheet_directory() . '/functions/custom-ajax.php');
 
 function getCompany() {
     $companyName = 'WesTrade Beheer B.V.';

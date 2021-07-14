@@ -1,15 +1,17 @@
+import Component from "../common/Component";
 import { ToastType } from "../enums/ToastType";
 import { sendAjaxRequest } from "../util/requests";
 import { FieldValidation } from "./FieldValidation";
 import Toast from "./Toast";
 
-export default class ForgotPassword {
+export default class ForgotPassword extends Component {
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
 
     private form: HTMLFormElement;
     private passwordForgetAnchor: HTMLAnchorElement;
 
     constructor(anchor: HTMLAnchorElement) {
+        super();
         this.passwordForgetAnchor = anchor;
         this.form = this.passwordForgetAnchor.closest('form') as HTMLFormElement;
     }
@@ -75,5 +77,14 @@ export default class ForgotPassword {
         }
 
         return true;
+    }
+
+    public static onInit(selector: Document | HTMLElement = document): void {
+        const passwordForgetLinks: HTMLAnchorElement[] = Array.from(selector.querySelectorAll('a[data-role="password-forget"]'));
+        for (let index = 0; index < passwordForgetLinks.length; index++) {
+            const link = passwordForgetLinks[index];
+            const forgotPassword: ForgotPassword = new ForgotPassword(link);
+            forgotPassword.initialize();
+        }
     }
 }

@@ -1,3 +1,4 @@
+import Component from '../common/Component';
 import { ToastType } from '../enums/ToastType';
 import { sendAjaxRequest } from '../util/requests';
 import ConfirmValidation from './ConfirmValidation';
@@ -5,12 +6,13 @@ import EmailValidation from './EmailValidation';
 import { FieldValidation } from './FieldValidation';
 import Toast from './Toast';
 
-export default class AjaxRegister {
+export default class AjaxRegister extends Component {
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
 
     private form: HTMLFormElement;
 
     constructor(form: HTMLFormElement) {
+        super();
         this.form = form;
     }
 
@@ -120,5 +122,16 @@ export default class AjaxRegister {
         }
 
         document.body.classList.add('logged-in');
+    }
+
+    public static onInit(selector: Document | HTMLElement = document): void {
+        const registerForm: HTMLFormElement | null = selector.querySelector('#ajax-register-form');
+
+        if (registerForm === null) {
+            return;
+        }
+
+        const ajaxRegister: AjaxRegister = new AjaxRegister(registerForm);
+        ajaxRegister.initialize();
     }
 }

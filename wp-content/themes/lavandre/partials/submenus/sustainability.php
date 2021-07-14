@@ -5,7 +5,7 @@
                 <?php $image = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/acting-responsibly.jpeg' ?>
 
                 <img
-                    src="<?php echo get_image_kit_placeholder($image, 396, 396) ?>"
+                    src=""
                     data-src="<?php echo get_image_kit_url($image); ?>"
                     alt="<?php _e('Acting responsibly', 'hello-elementor-child'); ?>"
                     width="396"
@@ -20,7 +20,7 @@
                 <?php $image = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/sustainable-production.jpeg' ?>
 
                 <img
-                    src="<?php echo get_image_kit_placeholder($image, 396, 396) ?>"
+                    src=""
                     data-src="<?php echo get_image_kit_url($image); ?>"
                     alt="<?php _e('Sustainable production', 'hello-elementor-child'); ?>"
                     width="396"
@@ -34,7 +34,7 @@
             <a href="/duurzaamheid/afgeleid-uit-de-natuur/">
                 <?php $image = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/derived-from-nature.jpeg' ?>
                 <img
-                    src="<?php echo get_image_kit_placeholder($image, 396, 396) ?>"
+                    src=""
                     data-src="<?php echo get_image_kit_url($image); ?>"
                     alt="<?php _e('Derived from nature', 'hello-elementor-child'); ?>"
                     width="396"
@@ -49,7 +49,7 @@
                 <?php $image = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/contributing-to-nature.jpeg' ?>
 
                 <img
-                    src="<?php echo get_image_kit_placeholder($image, 396, 396) ?>"
+                    src=""
                     data-src="<?php echo get_image_kit_url($image); ?>"
                     alt="<?php _e('Contributing to nature', 'hello-elementor-child'); ?>"
                     width="396"

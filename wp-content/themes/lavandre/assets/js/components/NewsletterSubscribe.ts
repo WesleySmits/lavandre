@@ -1,8 +1,9 @@
+import Component from "../common/Component";
 import DataLayer from "../common/DataLayer";
 import { sendAjaxRequest } from "../util/requests";
 import { FieldValidation } from "./FieldValidation";
 
-export default class NewsletterSubscribe {
+export default class NewsletterSubscribe extends Component {
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
 
     private form: HTMLFormElement;
@@ -12,6 +13,7 @@ export default class NewsletterSubscribe {
     private dataLayer: typeof DataLayer = DataLayer;
 
     constructor(form: HTMLFormElement) {
+        super();
         this.form = form;
         this.emailField = this.form.querySelector('[name="email"]');
     }
@@ -76,5 +78,15 @@ export default class NewsletterSubscribe {
     private onFailure(error: Error) {
         FieldValidation.appendErrorText(this.emailField!, error.message);
         throw error;
+    }
+
+    public static onInit(selector: Document | HTMLElement = document): void {
+        const forms: HTMLFormElement[] = Array.from(selector.querySelectorAll('#footer-newsletter-form, #homepage-newsletter-form'));
+
+        for (let index = 0; index < forms.length; index++) {
+            const form = forms[index];
+            const newsletterSubscribe: NewsletterSubscribe = new NewsletterSubscribe(form);
+            newsletterSubscribe.initialize();
+        }
     }
 }

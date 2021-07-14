@@ -683,3 +683,25 @@ function woocommerce_form_field( $key, $args, $value = null ) {
 		echo $field;
 	}
 }
+
+add_action( 'after_setup_theme', 'remove_woo_three_support', 11 );
+function remove_woo_three_support() {
+  remove_theme_support( 'wc-product-gallery-zoom' );
+  remove_theme_support( 'wc-product-gallery-slider' );
+  remove_theme_support( 'wc-product-gallery-lightbox' );
+}
+
+/**
+ * Change several of the breadcrumb defaults
+ */
+add_filter( 'woocommerce_breadcrumb_defaults', 'jk_woocommerce_breadcrumbs' );
+function jk_woocommerce_breadcrumbs() {
+    return array(
+        'delimiter'   => '&nbsp;&#47;&nbsp;',
+        'wrap_before' => '<nav class="woocommerce-breadcrumb ww-container" itemprop="breadcrumb">',
+        'wrap_after'  => '</nav>',
+        'before'      => '',
+        'after'       => '',
+        'home'        => _x( 'Home', 'breadcrumb', 'woocommerce' ),
+    );
+}

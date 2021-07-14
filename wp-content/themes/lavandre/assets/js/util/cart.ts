@@ -6,6 +6,11 @@ export function addOrUpdateCartTotals(cartAmount: string) {
 
     let cartAmountElement: HTMLElement | null = parent.querySelector('.cart-amount-counter');
 
+    if (!cartAmount || cartAmount === '0') {
+        cartAmountElement?.remove();
+        return;
+    }
+
     if (cartAmountElement === null) {
         cartAmountElement = document.createElement('SPAN');
         cartAmountElement.classList.add('cart-amount-counter');

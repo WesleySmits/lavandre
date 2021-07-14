@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
         <h3>Verander jouw wachtwoord</h3>
     </header>
 
-    <form id="password-reset-form" method="post" class="woocommerce-ResetPassword lost_reset_password ww-form">
+    <form id="password-reset-form" method="post" class="woocommerce-ResetPassword lost_reset_password ww-form" data-field-validation>
         <p><?php echo apply_filters( 'woocommerce_reset_password_message', esc_html__( 'Kies een nieuw wachtwoord (advies: minimaal 12 tekens met 1 cijfer en 1 hoofdletter en kleine letter)', 'woocommerce' ) ); ?></p><?php // @codingStandardsIgnoreLine ?>
 
         <p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
