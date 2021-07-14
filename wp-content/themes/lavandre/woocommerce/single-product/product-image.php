@@ -24,32 +24,42 @@ if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
 
 global $product;
 
-$columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
-$post_thumbnail_id = $product->get_image_id();
-$wrapper_classes   = apply_filters(
-	'woocommerce_single_product_image_gallery_classes',
-	array(
-		'woocommerce-product-gallery',
-		'woocommerce-product-gallery--' . ( $post_thumbnail_id ? 'with-images' : 'without-images' ),
-		'woocommerce-product-gallery--columns-' . absint( $columns ),
-		'images',
-	)
-);
+$attachment_ids = $product->get_gallery_image_ids();
 ?>
-<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>">
-	<figure class="woocommerce-product-gallery__wrapper">
-		<?php
-		if ( $post_thumbnail_id ) {
-			$html = wc_get_gallery_image_html( $post_thumbnail_id, true );
-		} else {
-			$html  = '<div class="woocommerce-product-gallery__image--placeholder">';
-			$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
-			$html .= '</div>';
-		}
 
-		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $post_thumbnail_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
-
-		// do_action( 'woocommerce_product_thumbnails' );
-		?>
-	</figure>
+<div class="woocommerce-product-gallery">
+    <?php
+        if ( $attachment_ids && $product->get_image_id() ) {
+            ?>
+                <ul class="product-detail__gallery__image-list">
+                    <?php
+                        foreach ( $attachment_ids as $key => $attachment_id ) { ?>
+                            <?php
+                                $active = false;
+                                if ($key === array_key_first($attachment_ids)) {
+                                    $active = true;
+                                }
+                                $width = 650;
+                                $height = 865;
+                                $image = wp_get_attachment_image_src($attachment_id, [$width,$height]);
+                                $image_alt = get_post_meta($attachment_id, '_wp_attachment_image_alt', TRUE);
+                            ?>
+                            <li class="<?php echo ($active) ? 'active' : '' ?>" data-image-id="<?php echo $attachment_id; ?>" data-lazyload>
+                                <img
+                                    src="<?php echo get_image_kit_placeholder($image[0], 1, 1) ?>"
+                                    data-src="<?php echo get_image_kit_url($image[0]); ?>"
+                                    class="ww-products__image loading"
+                                    alt="<?php echo $image_alt; ?>"
+                                    width="<?php echo $width; ?>"
+                                    height="<?php echo $height ?>"
+                                    loading="lazy"
+                                >
+                            </li>
+                            <?php
+                        }
+                    ?>
+                </ul>
+            <?php
+        }
+    ?>
 </div>

@@ -142,7 +142,6 @@ export default class SidePanel extends Component {
                 return;
             }
 
-
             const clone: HTMLTemplateElement = template.cloneNode(true) as HTMLTemplateElement;
             const content: DocumentFragment = clone.content;
 

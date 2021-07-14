@@ -29,13 +29,30 @@ $attachment_ids = $product->get_gallery_image_ids();
 if ( $attachment_ids && $product->get_image_id() ) {
 	?>
 		<ul class="product-detail__gallery__thumbnails">
-			<?php
-				foreach ( $attachment_ids as $attachment_id ) {
-					echo '<li>';
-					echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $attachment_id ), $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
-					echo '</li>';
-				}
-			?>
+            <?php
+                foreach ( $attachment_ids as $key => $attachment_id ) { ?>
+                    <?php
+                        $width = 118;
+                        $height = 158;
+                        $image = wp_get_attachment_image_src($attachment_id, [$width,$height]);
+                        $image_alt = get_post_meta($attachment_id, '_wp_attachment_image_alt', TRUE);
+                    ?>
+                    <li data-lazyload>
+                        <a href="<?php echo get_image_kit_url($image[0]); ?>" target="_blank" data-thumbnail-id="<?php echo $attachment_id; ?>"">
+                            <img
+                                src="<?php echo get_image_kit_placeholder($image[0], 1, 1) ?>"
+                                data-src="<?php echo get_image_kit_url($image[0]); ?>"
+                                class="ww-products__image loading"
+                                alt="<?php echo $image_alt; ?>"
+                                width="<?php echo $width; ?>"
+                                height="<?php echo $height ?>"
+                                loading="lazy"
+                            >
+                        </a>
+                    </li>
+                    <?php
+                }
+            ?>
 		</ul>
 	<?php
 }
