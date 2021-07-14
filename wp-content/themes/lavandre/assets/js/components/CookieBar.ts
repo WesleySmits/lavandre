@@ -19,13 +19,15 @@ export default class CookieBar extends Component {
     }
 
     public initialize(): void {
-        console.log('init');
+        console.log('init', this.templateElement);
         if (this.templateElement === null) {
+            console.log('no template');
             return;
         }
 
         if (getCookieValue(CookieBar.cookieName)) {
             this.templateElement.remove();
+            console.log('template remove');
             return;
         }
 

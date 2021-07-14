@@ -7,6 +7,9 @@
           "pre-commit": "cd wp-content/themes/lavandre && yarn prod && yarn test && yarn cypress"
       }
   },
+  "scripts": {
+      "prod": "cd wp-content/themes/lavandre && yarn prod"
+  },
   "author": "Wesley Smits",
   "license": "MIT",
   "devDependencies": {
