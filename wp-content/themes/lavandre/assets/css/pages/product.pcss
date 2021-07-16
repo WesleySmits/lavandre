@@ -311,3 +311,32 @@ form.cart {
 #detailAddToCart .single_add_to_cart_button {
     position: relative;
 }
+
+.product-detail__variations {
+    display: flex;
+    flex: 0 0 100%;
+    margin-bottom: 1.5rem;
+
+    .form-row {
+        &:not(:first-child) {
+            margin-left: 1rem;
+        }
+    }
+}
+
+.product-detail__single-variation {
+    width: 100%;
+
+    .woocommerce-variation-add-to-cart {
+        display: flex;
+        flex-flow: row wrap;
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    .reset_variations {
+        display: none;
+    }
+}
+
+
