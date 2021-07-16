@@ -7,13 +7,8 @@ describe('Header tests - desktop', () => {
     });
 
     it('should load all navigation links', () => {
-        cy.get('.ww-site-header__top a').each(($link) => {
-            cy.request($link.prop('href'));
-        });
-
-        cy.get('.ww-site-header__nav-link').each(($link) => {
-            cy.request($link.prop('href'));
-        });
+        cy.get('.ww-site-header__top a').testLinks();
+        cy.get('.ww-site-header__nav-link').testLinks();
     });
 
     it('should have a functioning search form', () => {
