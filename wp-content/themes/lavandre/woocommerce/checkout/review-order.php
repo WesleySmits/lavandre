@@ -12,7 +12,7 @@
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 3.8.0
+ * @version 5.2.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -62,8 +62,8 @@ defined( 'ABSPATH' ) || exit;
 					</div>
 
 					<div class="mini-cart__name">
-						<?php echo apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					</div>
+                        <?php echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) ) . '&nbsp;'; ?>
+                    </div>
 
 					<div class="mini-cart__price">
                         <?php
