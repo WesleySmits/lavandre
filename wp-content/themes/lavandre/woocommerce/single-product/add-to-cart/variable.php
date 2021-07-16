@@ -46,7 +46,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
                 ?>
 
                 <div class="form-row">
-                    <input id="<?php echo $id; ?>" type="radio" name="<?php echo $name; ?>" value="<?php echo $radioValue; ?>" <?php echo ($isSelected) ? 'checked' : ''; ?> data-product-id="<?php echo $product->get_id() ?>"/>
+                    <input id="<?php echo $id; ?>" type="radio" name="<?php echo $name; ?>" value="<?php echo $radioValue; ?>" <?php echo ($isSelected) ? 'checked' : ''; ?> data-product-id="<?php echo $product->get_id() ?>" required/>
                     <label for="<?php echo $id; ?>"><?php echo $value['variation_description']; ?></label>
                 </div>
             <?php endforeach ?>
