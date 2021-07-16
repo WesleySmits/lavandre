@@ -108,6 +108,7 @@ class Cart {
     private updateCartItem(input: HTMLInputElement): void {
         const item: HTMLElement | null = input.closest('.custom-cart__item');
         const productID: string | undefined = input.dataset.productId;
+        const variation_id: number = Number(input.dataset.variationId) ?? 0;
 
         if (!item || !productID) {
             throw new Error('no item found');
@@ -117,6 +118,7 @@ class Cart {
             action: 'update_cart_item',
             product_id: productID,
             quantity: input.value,
+            variation_id: variation_id.toString(),
             shortcode: this.cartShortCode
         };
 
@@ -126,6 +128,7 @@ class Cart {
     private deleteCartItem(button: HTMLButtonElement): void {
         const item: HTMLElement | null = button.closest('.custom-cart__item');
         const productID: string | undefined = button.dataset.productId;
+        const variationID: string = button.dataset.variationID || '';
         if (!item || !productID) {
             throw new Error('no item found');
         }
@@ -133,6 +136,7 @@ class Cart {
         const data = {
             action: 'delete_cart_item',
             product_id: productID,
+            variation_id: variationID,
             shortcode: this.cartShortCode
         };
 

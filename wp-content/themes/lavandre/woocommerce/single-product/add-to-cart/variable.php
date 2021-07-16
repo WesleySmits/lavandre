@@ -19,7 +19,8 @@ defined( 'ABSPATH' ) || exit;
 
 global $product;
 
-$attribute_keys  = array_keys( $attributes );
+$attribute_keys = array_keys( $attributes );
+$variations = $product->get_available_variations();
 $variations_json = wp_json_encode( $available_variations );
 $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
 
@@ -31,29 +32,27 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 	<?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
 		<p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'woocommerce' ) ) ); ?></p>
 	<?php else : ?>
-		<table class="variations" cellspacing="0">
-			<tbody>
-				<?php foreach ( $attributes as $attribute_name => $options ) : ?>
-					<tr>
-						<td class="label"><label for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>"><?php echo wc_attribute_label( $attribute_name ); // WPCS: XSS ok. ?></label></td>
-						<td class="value">
-							<?php
-								wc_dropdown_variation_attribute_options(
-									array(
-										'options'   => $options,
-										'attribute' => $attribute_name,
-										'product'   => $product,
-									)
-								);
-								echo end( $attribute_keys ) === $attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) ) : '';
-							?>
-						</td>
-					</tr>
-				<?php endforeach; ?>
-			</tbody>
-		</table>
 
-		<div class="single_variation_wrap">
+        <section class="product-detail__variations">
+            <?php foreach ( $available_variations as $key => $value ) : ?>
+                <?php
+                    $variationAttributes = $value['attributes'];
+                    $attribute = key($variationAttributes);
+                    $radioValue = $variationAttributes[$attribute];
+                    $radioValue = $value['variation_id'];
+                    $name = 'attribute_' . $attribute;
+                    $id = 'variation-' . $value['variation_id'];
+                    $isSelected = ($key === array_key_first($available_variations));
+                ?>
+
+                <div class="form-row">
+                    <input id="<?php echo $id; ?>" type="radio" name="<?php echo $name; ?>" value="<?php echo $radioValue; ?>" <?php echo ($isSelected) ? 'checked' : ''; ?> data-product-id="<?php echo $product->get_id() ?>"/>
+                    <label for="<?php echo $id; ?>"><?php echo $value['variation_description']; ?></label>
+                </div>
+            <?php endforeach ?>
+        </section>
+
+		<div class="product-detail__single-variation">
 			<?php
 				/**
 				 * Hook: woocommerce_before_single_variation.

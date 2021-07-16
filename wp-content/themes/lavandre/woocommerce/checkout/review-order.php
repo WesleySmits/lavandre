@@ -23,7 +23,9 @@ defined( 'ABSPATH' ) || exit;
 		<ul class="mini-cart">
 			<?php foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) { ?>
                 <?php
-                    $price = get_post_meta($cart_item['product_id'], '_price', true);
+                    $id = $cart_item['data']->get_id();
+
+                    $price = get_post_meta($id, '_price', true);
                     $adjusted_price = null;
                     $sale_price = null;
                     $regular_price = $price;

@@ -38,6 +38,9 @@ add_action('wp_ajax_nopriv_mailchimpsubscribe', 'ajax_MailchimpSubscribe');
 add_action( 'wp_ajax_no_priv_ajaxforgotpassword', 'ajax_forgotPassword' );
 add_action( 'wp_ajax_nopriv_ajaxforgotpassword', 'ajax_forgotPassword' );
 
+add_action( 'wp_ajax_no_priv_ajaxgetvariantprice', 'ajax_getVariantPrice' );
+add_action( 'wp_ajax_nopriv_ajaxgetvariantprice', 'ajax_getVariantPrice' );
+
 function coupon_code_remove() {
     global $woocommerce;
     $coupon_code = $_POST['code'];
@@ -135,6 +138,7 @@ function getUpdatedCart($shortcode = '[ww_custom_cart]'): array {
 
 function delete_cart_item() {
     $product_id = $_POST['product_id'];
+    $variation_id = $_POST['variation_id'] ?? 0;
     $shortcode = $_POST['shortcode'];
 
     if (!$product_id) {
@@ -142,7 +146,10 @@ function delete_cart_item() {
     }
 
     foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
-        if ( $cart_item['product_id'] == $product_id ) {
+        if (
+            $cart_item['product_id'] == $product_id
+            && $cart_item['variation_id'] == $variation_id
+        ) {
             WC()->cart->remove_cart_item( $cart_item_key );
             break;
         }
@@ -156,6 +163,7 @@ function delete_cart_item() {
 function update_cart_item() {
     global $woocommerce;
     $product_id = $_POST['product_id'];
+    $variation_id = $_POST['variation_id'];
     $quantity = (int)$_POST['quantity'];
 
     if (!$product_id || !$quantity) {
@@ -171,7 +179,7 @@ function update_cart_item() {
             }
 
             $woocommerce->cart->remove_cart_item( $cart_item_key );
-            $woocommerce->cart->add_to_cart( $product_id, $quantity );
+            $woocommerce->cart->add_to_cart( $product_id, $quantity, $variation_id );
 
             $woocommerce->cart->calculate_totals();
         }
@@ -245,6 +253,45 @@ function ajax_emailCheck() {
     wp_send_json_success();
 
     echo 'Yaay';
+    wp_die();
+}
+
+function ajax_getVariantPrice() {
+    $returnValue = array(
+        'success' => false,
+        'message' => "",
+        'regularPrice' => 0,
+        'salePrice' => 0
+    );
+
+    $product_id = $_POST['product_id'];
+    $variation_id = $_POST['variation_id'] ?? 0;
+
+    if (!$product_id || !$variation_id) {
+        $returnValue['message'] = "Invalid data sent";
+        wp_send_json_error($returnValue);
+    }
+
+    global $woocommerce;
+    $product_variation = new WC_Product_Variation($_POST['variation_id']);
+    $regular_price = $product_variation->get_regular_price();
+    $sale_price = $product_variation->get_sale_price();
+
+    if ($sale_price) {
+        $returnValue['success'] = true;
+        $returnValue['salePrice'] = $sale_price;
+    }
+    if ($regular_price) {
+        $returnValue['success'] = true;
+        $returnValue['regularPrice'] = $regular_price;
+    }
+
+    if ($returnValue['success'] === true) {
+        wp_send_json_success($returnValue);
+    } else {
+        wp_send_json_error($returnValue);
+    }
+
     wp_die();
 }
 
@@ -383,11 +430,11 @@ function ajax_forgotPassword() {
     wp_die();
 }
 
-    function ajax_addtocart() {
-        $returnValue = array(
-            'success' => false,
-            'message' => ""
-        );
+function ajax_addtocart() {
+    $returnValue = array(
+        'success' => false,
+        'message' => ""
+    );
 
 	if( empty( $_POST['product_id'] ) ) {
 		$returnValue['message'] = "no product id provided";
@@ -396,9 +443,11 @@ function ajax_forgotPassword() {
     } else {
         $product_id = $_POST['product_id'];
         $quantity = $_POST['quantity'];
+        $variation_id = $_POST['variation_id'];
+
         $cart = WC()->cart;
 
-        $returnValue['success'] = ($cart->add_to_cart( $product_id, $quantity )) ? true : false;
+        $returnValue['success'] = ($cart->add_to_cart( $product_id, $quantity, $variation_id )) ? true : false;
 
         if( !$returnValue['success'] ) {
             $returnValue['message'] = "product could not be added to cart";

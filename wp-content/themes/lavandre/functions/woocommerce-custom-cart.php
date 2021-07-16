@@ -67,12 +67,17 @@ function ww_custom_cart() {
                 }
             );
             foreach($items as $item => $values) {
-                $product =  wc_get_product( $values['data']->get_id());
+                $id = $values['data']->get_id();
+                $product =  wc_get_product( $id );
+                $id = $values['data']->get_id();
+                $productID = $values['product_id'];
+                $variationID = $values['variation_id'];
                 $title = $product->get_title();
+                $subtitle = ($variationID) ? $values['data']->get_description() : '';
                 $quantity = $values['quantity'];
-                $price = get_post_meta($values['product_id'], '_price', true);
+                $price = get_post_meta($id, '_price', true);
                 $image = $product->get_image('medium');
-                $quantity_id = 'cart__item__quantity_' . $values['data']->get_id();
+                $quantity_id = 'cart__item__quantity_' . $id;
 
                 $adjusted_price = null;
                 $sale_price = null;
@@ -94,11 +99,14 @@ function ww_custom_cart() {
 
                     <li class="flex custom-cart__item custom-cart__item--mobile">
                         <div class="custom-cart__name flex-col-8">
-                            <p><?php echo $title; ?></p>
+                            <p>
+                                <?php echo $title; ?>
+                                <?php if ($subtitle) { echo '<br/>' . $subtitle; } ?>
+                            </p>
                         </div>
 
                         <div class="custom-cart__price flex-col-4">
-                            <button class="custom-cart__delete" data-delete-item data-product-id="<?php echo $values['data']->get_id(); ?>">
+                            <button class="custom-cart__delete" data-delete-item data-product-id="<?php echo $id; ?>">
                                 <?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?>
                             </button>
                         </div>
@@ -125,7 +133,7 @@ function ww_custom_cart() {
                                         size="4"
                                         placeholder=""
                                         inputmode="numeric"
-                                        data-product-id="<?php echo $values['data']->get_id(); ?>"
+                                        data-product-id="<?php echo $id; ?>"
                                     >
                                     <button type="button" class="plus-amount">+</button>
                                 </div>
@@ -170,8 +178,11 @@ function ww_custom_cart() {
                         </div>
                         <div class="custom-cart__details flex flex-col-9">
                             <div class="custom-cart__name flex-col-5">
-                                <p><?php echo $title; ?></p>
-                                <button class="custom-cart__delete" data-delete-item data-product-id="<?php echo $values['data']->get_id(); ?>">
+                                <p>
+                                    <?php echo $title; ?>
+                                    <?php if ($subtitle) { echo '<br/>' . $subtitle; } ?>
+                                </p>
+                                <button class="custom-cart__delete" data-delete-item data-product-id="<?php echo $productID; ?>" data-variation-id="<?php echo $variationID; ?>">
                                     <?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?>
                                 </button>
                             </div>
@@ -195,7 +206,8 @@ function ww_custom_cart() {
                                             size="4"
                                             placeholder=""
                                             inputmode="numeric"
-                                            data-product-id="<?php echo $values['data']->get_id(); ?>"
+                                            data-product-id="<?php echo $productID; ?>"
+                                            data-variation-id="<?php echo $variationID; ?>"
                                         >
                                         <button type="button" class="plus-amount">+</button>
                                     </div>
@@ -376,12 +388,17 @@ function ww_custom_cart_mini() {
                 }
             );
             foreach($items as $item => $values) {
-                $product =  wc_get_product( $values['data']->get_id());
+                $id = $values['data']->get_id();
+                $productID = $values['product_id'];
+                $variationID = $values['variation_id'];
+
+                $product =  wc_get_product($id);
                 $title = $product->get_title();
+                $subtitle = ($variationID) ? $values['data']->get_description() : '';
                 $quantity = $values['quantity'];
-                $price = get_post_meta($values['product_id'], '_price', true);
+                $price = get_post_meta($id, '_price', true);
                 $image = $product->get_image('medium');
-                $quantity_id = 'cart__item__quantity_' . $values['data']->get_id();
+                $quantity_id = 'cart__item__quantity_' . $id;
 
                 $adjusted_price = null;
                 $sale_price = null;
@@ -406,8 +423,11 @@ function ww_custom_cart_mini() {
                         </div>
                         <div class="custom-cart__details flex flex-col-8">
                             <div class="custom-cart__name flex-col-5 flex flex-column flex-align-items-start">
-                                <p class="custom-cart__product-title"><?php echo $title; ?></p>
-                                <button class="custom-cart__delete--text" data-delete-item data-product-id="<?php echo $values['data']->get_id(); ?>">
+                                <p class="custom-cart__product-title">
+                                    <?php echo $title; ?>
+                                    <?php if ($subtitle) { echo '<br/>' . $subtitle; } ?>
+                                </p>
+                                <button class="custom-cart__delete--text" data-delete-item data-product-id="<?php echo $productID; ?>" data-variation-id="<?php echo $variationID; ?>">
                                     <?php _e('Delete', 'lavandre'); ?>
                                 </button>
                             </div>

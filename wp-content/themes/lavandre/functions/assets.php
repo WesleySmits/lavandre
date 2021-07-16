@@ -205,6 +205,7 @@ function disable_emojis_tinymce( $plugins ) {
 
 function my_deregister_scripts(){
     wp_deregister_script( 'wp-embed' );
+    wp_dequeue_script('wc-add-to-cart-variation');
 }
 add_action( 'wp_footer', 'my_deregister_scripts' );
 

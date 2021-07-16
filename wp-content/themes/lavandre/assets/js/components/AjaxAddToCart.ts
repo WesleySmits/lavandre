@@ -20,11 +20,14 @@ export default class AjaxAddToCart extends Component {
 
             const form: HTMLFormElement | null = this.button.closest('form');
             const quantity: number = Number((form?.querySelector('input[name="quantity"]') as HTMLInputElement)?.value) || 1;
+            // @ts-ignore
+            const variation_id: number = Number(form?.elements['attribute_attribute_pa_aantal-per-omverpakking']?.value) ?? 0;
 
             const data = {
                 action: 'ajaxaddtocart',
                 product_id: this.button.value,
-                quantity: quantity.toString()
+                quantity: quantity.toString(),
+                variation_id: variation_id.toString()
             };
 
             sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), this.onFailure.bind(this), undefined, this.button);
