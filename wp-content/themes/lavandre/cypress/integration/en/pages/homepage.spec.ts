@@ -13,10 +13,8 @@ describe('Homepage tests - mobile', () => {
         cy.get('[data-curtain-toggle="homepage-seo-text"]').should('not.be.visible')
     });
 
-    it('should be able to open all best selling products', () => {
-        cy.get('#best-sellers .ww-products__link').each(($element) => {
-            cy.request($element.prop('href'));
-        });
+    it('should not display best selling products', () => {
+        cy.get('#best-sellers').should('not.be.visible');
     });
 
     it('should display an instagram feed', () => {
@@ -41,9 +39,7 @@ describe('Homepage tests - desktop', () => {
     });
 
     it('should be able to open all best selling products', () => {
-        cy.get('#best-sellers .ww-products__link').each(($element) => {
-            cy.request($element.prop('href'));
-        });
+        cy.get('#best-sellers .ww-products__link').testLinks();
     });
 
     it('should display an instagram feed', () => {

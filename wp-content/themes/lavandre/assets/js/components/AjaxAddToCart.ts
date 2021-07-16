@@ -19,6 +19,24 @@ export default class AjaxAddToCart extends Component {
             event.preventDefault();
 
             const form: HTMLFormElement | null = this.button.closest('form');
+
+            if (!form) {
+                return;
+            }
+
+            let formIsValid = true;
+            const fields: HTMLInputElement[] = Array.from(form.querySelectorAll('input'));
+            fields.forEach((field) => {
+                field.dispatchEvent(new Event('validate'));
+                if (!field.validity.valid) {
+                    formIsValid = false;
+                }
+            });
+
+            if (!formIsValid) {
+                throw new Error('Product add form is not valid');
+            }
+
             const quantity: number = Number((form?.querySelector('input[name="quantity"]') as HTMLInputElement)?.value) || 1;
             // @ts-ignore
             const variation_id: number = Number(form?.elements['attribute_attribute_pa_aantal-per-omverpakking']?.value) ?? 0;
