@@ -128,8 +128,9 @@ class Cart {
     private deleteCartItem(button: HTMLButtonElement): void {
         const item: HTMLElement | null = button.closest('.custom-cart__item');
         const productID: string | undefined = button.dataset.productId;
-        const variationID: string = button.dataset.variationID || '';
-        if (!item || !productID) {
+        const variationID: string = button.dataset.variationId || '';
+
+        if (!item || !productID || !variationID) {
             throw new Error('no item found');
         }
 
