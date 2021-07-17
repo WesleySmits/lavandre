@@ -138,24 +138,28 @@ function getUpdatedCart($shortcode = '[ww_custom_cart]'): array {
 
 function delete_cart_item() {
     $product_id = $_POST['product_id'];
-    $variation_id = $_POST['variation_id'] ?? 0;
+    $variation_id = $_POST['variation_id'] ? $_POST['variation_id'] : 0;
     $shortcode = $_POST['shortcode'];
 
     if (!$product_id) {
-        wp_send_json_error( array('No product ID found') );
+        wp_send_json_error( array('No product ID found'), 400 );
     }
 
     foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
         if (
-            $cart_item['product_id'] == $product_id
-            && $cart_item['variation_id'] == $variation_id
+            ($variation_id === 0 && $cart_item['product_id'] == $product_id)
+            || (
+                $cart_item['product_id'] == $product_id
+                && $cart_item['variation_id'] == $variation_id
+            )
         ) {
             WC()->cart->remove_cart_item( $cart_item_key );
+            wp_send_json_success(getUpdatedCart($shortcode));
             break;
         }
     }
 
-    wp_send_json_success(getUpdatedCart($shortcode));
+    wp_send_json_error( array('No product found'), 404 );
 
     wp_die();
 }

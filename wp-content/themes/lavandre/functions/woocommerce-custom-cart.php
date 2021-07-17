@@ -106,7 +106,7 @@ function ww_custom_cart() {
                         </div>
 
                         <div class="custom-cart__price flex-col-4">
-                            <button class="custom-cart__delete" data-delete-item data-product-id="<?php echo $id; ?>">
+                            <button class="custom-cart__delete" data-delete-item data-product-id="<?php echo $id; ?>" data-variation-id="<?php echo $variationID; ?>">
                                 <?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?>
                             </button>
                         </div>

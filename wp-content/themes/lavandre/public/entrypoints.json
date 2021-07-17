@@ -3,7 +3,7 @@
     "app": {
       "js": [
         "/runtime.a0037f62.js",
-        "/0.acf8ef26.js",
+        "/0.413d5b04.js",
         "/app.fb417c73.js"
       ],
       "css": [
@@ -14,7 +14,7 @@
     "productDetail": {
       "js": [
         "/runtime.a0037f62.js",
-        "/0.acf8ef26.js",
+        "/0.413d5b04.js",
         "/productDetail.38601470.js"
       ],
       "css": [
@@ -24,7 +24,7 @@
     "cart": {
       "js": [
         "/runtime.a0037f62.js",
-        "/cart.704fc214.js"
+        "/cart.10745803.js"
       ]
     },
     "critical-styles": {
