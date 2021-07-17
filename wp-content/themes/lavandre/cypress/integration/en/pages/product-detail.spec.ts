@@ -52,7 +52,13 @@ describe("Product detail tests", () => {
     });
 
     it("should throw an error when adding to the cart without selecting options", (done) => {
-        cy.get('[name="attribute_attribute_pa_aantal-per-omverpakking"]')
+        cy.get('[name="attribute_pa_pack-size"]')
+            .should("exist")
+            .each((radio) => {
+                radio.prop("checked", false);
+            });
+
+        cy.get('[name="attribute_pa_color"]')
             .should("exist")
             .each((radio) => {
                 radio.prop("checked", false);
