@@ -34,22 +34,44 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 	<?php else : ?>
 
         <section class="product-detail__variations">
-            <?php foreach ( $available_variations as $key => $value ) : ?>
-                <?php
-                    $variationAttributes = $value['attributes'];
-                    $attribute = key($variationAttributes);
-                    $radioValue = $variationAttributes[$attribute];
-                    $radioValue = $value['variation_id'];
-                    $name = 'attribute_' . $attribute;
-                    $id = 'variation-' . $value['variation_id'];
-                    $isSelected = ($key === array_key_first($available_variations));
-                ?>
+            <?php foreach ( $attributes as $attribute_name => $options ) : ?>
+                <div class="product-detail__variation">
+                    <div class="form-row">
+                        <?php foreach ($options as $key => $value) : ?>
+                            <?php
+                                $terms = get_terms($attribute_name);
+                                $label = '';
+                                $isFirst = ($key === array_key_first($options));
 
-                <div class="form-row">
-                    <input id="<?php echo $id; ?>" type="radio" name="<?php echo $name; ?>" value="<?php echo $radioValue; ?>" <?php echo ($isSelected) ? 'checked' : ''; ?> data-product-id="<?php echo $product->get_id() ?>" required/>
-                    <label for="<?php echo $id; ?>"><?php echo $value['variation_description']; ?></label>
+                                foreach ($terms as $term) :
+                                    if ($term->slug !== $value) {
+                                        continue;
+                                    }
+
+                                    $label = $term->name;
+                                endforeach;
+
+                                $id = $attribute_name . '-' . $value;
+                            ?>
+
+                            <?php if ($isFirst) : ?>
+                                <label class="bold"><?php echo wc_attribute_label($attribute_name); ?></label><br/>
+                            <?php endif; ?>
+
+                            <input
+                                id="<?php echo $id; ?>"
+                                type="radio"
+                                name="<?php echo 'attribute_' . $attribute_name; ?>"
+                                value="<?php echo $value; ?>"
+                                <?php echo ($isFirst) ? 'checked' : '' ?>
+                                required
+                            >
+                            <label for="<?php echo $id; ?>"><?php echo $label; ?></label>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
-            <?php endforeach ?>
+
+            <?php endforeach; ?>
         </section>
 
 		<div class="product-detail__single-variation">
