@@ -3,8 +3,8 @@
     "app": {
       "js": [
         "/runtime.a0037f62.js",
-        "/0.413d5b04.js",
-        "/app.fb417c73.js"
+        "/0.7b09a70f.js",
+        "/app.6318ee7d.js"
       ],
       "css": [
         "/0.28ecc06e.css",
@@ -14,8 +14,8 @@
     "productDetail": {
       "js": [
         "/runtime.a0037f62.js",
-        "/0.413d5b04.js",
-        "/productDetail.38601470.js"
+        "/0.7b09a70f.js",
+        "/productDetail.1016789e.js"
       ],
       "css": [
         "/0.28ecc06e.css"
@@ -24,7 +24,7 @@
     "cart": {
       "js": [
         "/runtime.a0037f62.js",
-        "/cart.10745803.js"
+        "/cart.28f62e3d.js"
       ]
     },
     "critical-styles": {

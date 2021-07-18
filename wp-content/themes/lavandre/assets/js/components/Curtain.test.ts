@@ -1,3 +1,4 @@
+import { parseStringAsHtml } from "../util/dom";
 import Curtain from "./Curtain";
 
 jest.useFakeTimers();
@@ -30,6 +31,37 @@ const component = (context: any): Curtain => {
     const instance: any = new Curtain(context.element, context.foldButton, context.onlyOnMobile);
     return instance;
 }
+
+describe('Test creation', () => {
+    afterEach(() => {
+        document.body.innerHTML = '';
+    });
+
+    it('should fail because content is missing', () => {
+        const element: HTMLElement = parseStringAsHtml(`
+            <div data-curtain>
+                <button data-curtain-toggle="curtain">Toggle...</button>
+            </div>
+        `, '[data-curtain]');
+
+        document.body.appendChild(element);
+
+        Curtain.onInit();
+    });
+
+    it('should create instance', () => {
+        const element: HTMLElement = parseStringAsHtml(`
+            <div data-curtain>
+                <button data-curtain-toggle="curtain">Toggle...</button>
+                <p data-curtain-content="curtain">Content...</p>
+            </div>
+        `, '[data-curtain]');
+
+        document.body.appendChild(element);
+
+        Curtain.onInit();
+    });
+});
 
 describe('Test initialize method', () => {
     it('should do nothing if component is not valid', () => {

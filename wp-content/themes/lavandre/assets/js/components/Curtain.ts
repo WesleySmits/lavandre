@@ -81,10 +81,6 @@ export default class Curtain extends Component {
 
         for (let index = 0; index < toggles.length; index++) {
             const toggle = toggles[index];
-            if (!toggle) {
-                continue;
-            }
-
             const content: HTMLElement = selector.querySelector(`[data-curtain-content="${toggle.dataset.curtainToggle}"]`) as HTMLElement;
             if (!content) {
                 continue;

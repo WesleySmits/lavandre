@@ -43,7 +43,6 @@ export default class AjaxAddToCart extends Component {
 
         const variationID: number | null = this.findMatchingVariant(currentOptions);
         if (!variationID) {
-            console.log('nope');
             return;
         }
 

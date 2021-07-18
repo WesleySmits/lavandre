@@ -18,11 +18,6 @@ export function sendAjaxRequest(data: requestData, endpoint: string, loadingElem
     httpClient.post(endpoint, '', options).then((response: any) => new Promise(() => {
         const ajaxResponse: ajaxResponse = response as ajaxResponse;
         const data = ajaxResponse.data as unknown;
-        const error: string = data as string;
-
-        if (!ajaxResponse.success) {
-            throw new Error(`${error}`);
-        }
 
         onSuccess(ajaxResponse, event);
         if (loadingElement) removeLoadingState(loadingElement);
