@@ -109,10 +109,8 @@
         if ( ! function_exists( 'wc' ) ) return;
         if (isset($_GET['createAccount'])) return;
 
-        die('test');
-
         $redirect_page_id = 317;
-        if ( ! is_user_logged_in() && is_checkout() && is_page(17) === true ) {
+        if ( ! is_user_logged_in() && is_checkout() && is_page(16) === true ) {
             wp_safe_redirect( get_permalink( $redirect_page_id ) );
             die;
         } elseif ( is_user_logged_in() && is_page( $redirect_page_id ) ) {
