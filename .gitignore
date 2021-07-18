@@ -119,3 +119,8 @@ autoupdater_maintenance_mode_enabled.tmp
 
 # Custom
 /node_modules
+/vendor
+.wpe-devkit
+.wpe-pull-ignore
+wp-content/languages/loco
+wp-content/languages/plugins
