@@ -188,6 +188,6 @@ export default class SidePanel extends Component {
             return;
         }
 
-        SidePanel.openSidePanel(panelID);
+        SidePanel.openSidePanel(panelID, this);
     }
 }
