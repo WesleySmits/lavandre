@@ -103,14 +103,14 @@
     /**
      * Redirect to login/register pre-checkout.
      *
-     * Redirect guest users to login/register before completing a order.
+     * Redirect guest users to login/register before completing an order.
      */
     function ace_redirect_pre_checkout() {
         if ( ! function_exists( 'wc' ) ) return;
         if (isset($_GET['createAccount'])) return;
 
-        $redirect_page_id = 5710;
-        if ( ! is_user_logged_in() && is_checkout() && is_page(17) === true ) {
+        $redirect_page_id = 317;
+        if ( ! is_user_logged_in() && is_checkout() && is_page(16) === true ) {
             wp_safe_redirect( get_permalink( $redirect_page_id ) );
             die;
         } elseif ( is_user_logged_in() && is_page( $redirect_page_id ) ) {
@@ -325,7 +325,7 @@ function custom_my_account_orders( $args ) {
 }
 
 add_filter( 'woocommerce_registration_error_email_exists', function( $html ) {
-    $redirect_page_id = 5710;
+    $redirect_page_id = 317;
     $url = get_permalink( $redirect_page_id );
     $html = str_replace( '<a href="#" class="showlogin">Log in.</a>', '<a href="'.$url.'"><strong>Log in</strong></a>', $html );
 

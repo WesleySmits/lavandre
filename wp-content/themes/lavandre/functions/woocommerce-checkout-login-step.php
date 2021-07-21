@@ -88,7 +88,6 @@ function ww_wc_login_register() {
 <?php endif; ?>
 
 <?php do_action( 'woocommerce_after_customer_login_form' );
-
 	return ob_get_clean();
 }
 add_shortcode( 'wc_login_register', 'ww_wc_login_register' );

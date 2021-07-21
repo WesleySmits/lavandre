@@ -14,40 +14,6 @@ function rename_my_account_links($menu_links) {
     return $menu_links;
 }
 
-// function add_account_settings_endpoint() {
-//     add_rewrite_endpoint( 'settings', EP_ROOT | EP_PAGES );
-// }
-// add_action( 'init', 'add_account_settings_endpoint' );
-
-
-// function account_settings_query_vars( $vars ) {
-//     $vars[] = 'settings';
-//     return $vars;
-// }
-// add_filter( 'query_vars', 'account_settings_query_vars', 0 );
-
-// function add_settings_link_my_account( $items ) {
-//     $items['settings'] = __('Settings', 'woocommerce');
-//     return $items;
-// }
-// add_filter( 'woocommerce_account_menu_items', 'add_settings_link_my_account' );
-
-// function account_settings_content() {
-//     echo '<h1>' . __('Newsletter', 'woocommerce') . '</h1>';
-
-//     echo '<form data-ww-component="mailchimp-subscribe">';
-
-//     echo '<div class="form-row woocommerce-form-row">';
-//         echo '<input id="mailchimp-newsletter-subscribe" type="checkbox" name="mailchimp-newsletter-subscribe" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox">';
-//         echo '<label for="mailchimp-newsletter-subscribe">Toggle me</label>';
-//     echo '</div>';
-
-
-//     echo '</form>';
-
-// }
-// add_action( 'woocommerce_account_settings_endpoint', 'account_settings_content' );
-
 add_filter('woocommerce_save_account_details_required_fields', 'wc_save_account_details_required_fields' );
 function wc_save_account_details_required_fields( $required_fields ){
     unset( $required_fields['account_display_name'] );
