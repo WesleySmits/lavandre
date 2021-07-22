@@ -10,35 +10,36 @@ export default class ChangeVariantPrice extends Component {
 
     private salePriceElement: HTMLElement | null = null;
 
-    constructor(elements: any) {
+    constructor(elements: HTMLInputElement[]) {
         super();
-
         this.elements = elements;
     }
 
     public initialize(): void {
-        if (!this.elements.length) {
-            return;
-        }
-
         this.regularPriceElement = document.querySelector('.product-detail__price ins [data-product-price]') || document.querySelector('.product-detail__price [data-product-price]');
         this.salePriceElement = document.querySelector('.product-detail__price del [data-product-price]');
 
-        if (!this.salePriceElement || !this.regularPriceElement) {
+        if (!this.salePriceElement && !this.regularPriceElement) {
+            return;
+        }
+
+        const form: HTMLFormElement | null = this.elements[0].closest('form');
+        if (!form) {
+            return;
+        }
+
+        const product_id: string | undefined = form.dataset.product_id;
+
+        if (!product_id) {
             return;
         }
 
         this.elements.forEach((radio) => {
             radio.addEventListener('change', () => {
-                const variation_id: string | undefined = radio.value;
-                const product_id: string | undefined = radio.dataset.productId;
+                const variationIdElement: HTMLInputElement | null = form.querySelector('[name="variation_id"]');
+                const variation_id: string | undefined = variationIdElement?.value;
 
                 if (!variation_id || !product_id) {
-                    return;
-                }
-
-                const priceElement: HTMLElement | null = document.querySelector('.product-detail__price [data-product-price]');
-                if (!priceElement) {
                     return;
                 }
 
@@ -48,33 +49,30 @@ export default class ChangeVariantPrice extends Component {
                     variation_id: variation_id
                 };
 
-                sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), this.onFailure.bind(this));
+                sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this));
             });
         });
     }
 
     private onSuccess(response: any): void {
-        if (response.success === false) {
-            throw new Error('something is wrong');
-        }
-
-        if (!response.data || !response.data.salePrice || !response.data.regularPrice) {
+        if (!response.data || (!response.data.salePrice && !response.data.regularPrice)) {
             throw new Error('No data');
         }
 
         const regularPrice = Number(response.data.regularPrice).toFixed(2);
         const salePrice = Number(response.data.salePrice).toFixed(2);
 
-        this.regularPriceElement!.innerText = regularPrice;
-        this.salePriceElement!.innerText = salePrice;
+        if (this.regularPriceElement && regularPrice) {
+            this.regularPriceElement!.innerText = regularPrice;
+        }
+
+        if (this.salePriceElement && salePrice) {
+            this.salePriceElement.innerText = salePrice;
+        }
     }
 
-    private onFailure(): void {
-        return;
-    }
-
-    public static onInit(selector: Document | HTMLElement): void {
-        const radioButtons: HTMLInputElement[] = Array.from(selector.querySelectorAll('input[type="radio"][name="attribute_attribute_pa_aantal-per-omverpakking"]'));
+    public static onInit(selector: Document | HTMLElement = document): void {
+        const radioButtons: HTMLInputElement[] = Array.from(selector.querySelectorAll('.product-detail__variations input[type="radio'));
         if (!radioButtons.length) {
             return;
         }
