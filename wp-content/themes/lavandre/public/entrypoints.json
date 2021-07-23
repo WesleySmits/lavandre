@@ -3,7 +3,7 @@
     "app": {
       "js": [
         "/runtime.a0037f62.js",
-        "/0.7b09a70f.js",
+        "/0.d85b4dd3.js",
         "/app.6318ee7d.js"
       ],
       "css": [
@@ -14,8 +14,13 @@
     "productDetail": {
       "js": [
         "/runtime.a0037f62.js",
+<<<<<<< HEAD
         "/0.7b09a70f.js",
         "/productDetail.87ce3dfa.js"
+=======
+        "/0.d85b4dd3.js",
+        "/productDetail.1016789e.js"
+>>>>>>> [LC-X] Fix iOS issues
       ],
       "css": [
         "/0.28ecc06e.css"
@@ -24,7 +29,7 @@
     "cart": {
       "js": [
         "/runtime.a0037f62.js",
-        "/cart.28f62e3d.js"
+        "/cart.4dd2d2c4.js"
       ]
     },
     "critical-styles": {
@@ -32,7 +37,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/critical-styles.677cc0ab.css"
+        "/critical-styles.675a0570.css"
       ]
     },
     "deferred-styles": {
