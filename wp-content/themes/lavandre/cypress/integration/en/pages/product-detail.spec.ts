@@ -5,7 +5,7 @@ import { adminAjaxUrl } from "../../../support/form/form";
 
 describe("Product detail tests", () => {
     beforeEach(() => {
-        cy.visit("/product/organic-badhanddoek-200x100-wit/");
+        cy.visit("/product/organic-handdoek-80x40-wit/");
     });
 
     it("should display image and thumbnails", () => {
@@ -52,6 +52,27 @@ describe("Product detail tests", () => {
         cy.get('input[name="quantity"]').should("have.value", 1);
     });
 
+    it("should change the price when changing variants", () => {
+        let price: string = '';
+
+        cy.intercept('POST', adminAjaxUrl).as('ajaxCall');
+
+        cy.get('.product-detail__price [data-product-price]').first().invoke('text')
+            .then((text) => { price = text;});
+
+        cy.get('[name="attribute_pa_pack-size"][value="multi-pack-600-towels"]')
+            .should("exist")
+            .check();
+
+        cy.wait('@ajaxCall').then(({ response }) => {
+            expect(response.statusCode).to.eq(200);
+            cy.get('.product-detail__price [data-product-price]').first().invoke('text')
+                .then((text) => {
+                    expect(text).not.to.eq(price);
+                });
+        });
+    });
+
     it("should throw an error when adding to the cart without selecting options", (done) => {
         cy.get('[name="attribute_pa_pack-size"]')
             .should("exist")
@@ -83,6 +104,8 @@ describe("Product detail tests", () => {
         addProductToCart().then(() => {
             cy.get('[data-panel-name="cart-panel"] .custom-cart__item').should("exist");
             cy.intercept('POST', adminAjaxUrl).as('ajaxCall');
+
+            cy.wait(2000);
             cy.get('[data-panel-name="cart-panel"] [data-delete-item]').click();
 
             cy.wait('@ajaxCall').then(({ response }) => {
