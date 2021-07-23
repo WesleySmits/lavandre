@@ -51,6 +51,7 @@ if ( woocommerce_product_loop() ) {
 
                     <img
                         src="<?php echo get_the_post_thumbnail_url(get_the_ID(), array( 438, 584) ); ?>"
+                        srcset="<?php echo get_the_post_thumbnail_url(get_the_ID(), array( 438, 584) ); ?> 1x, <?php echo get_the_post_thumbnail_url(get_the_ID(), array( 876, 1168) ); ?> 2x, <?php echo get_the_post_thumbnail_url(get_the_ID(), array( 1314, 1752) ); ?> 3x"
                         class="ww-products__image"
                         alt="<?php the_title(); ?>"
                         width="438"
