@@ -20,7 +20,7 @@ class Cart {
     constructor() {
         this.eventEmitter.on('template-instantiated', (element: HTMLElement) => {
             this.initializeCouponCodeForm();
-            if (element instanceof HTMLDialogElement && element.dataset.panelName === 'cart-panel') {
+            if (window.HTMLDialogElement && element instanceof HTMLDialogElement && element.dataset.panelName === 'cart-panel') {
                 this.handleCartPanel(element);
                 this.initialize();
             }
