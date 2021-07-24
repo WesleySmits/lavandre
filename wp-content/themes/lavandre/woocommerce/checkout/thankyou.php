@@ -78,22 +78,22 @@ function formatted_billing_address($order)
             <footer class="thank-you-section__footer">
                 <table class="order-totals">
                     <tbody>
-                        <tr>
+                        <tr class="cart-subtotal">
                             <th><?php _e('Subtotal', 'lavandre'); ?></th>
                             <td><?php echo $order->get_subtotal_to_display(); ?></td>
                         </tr>
 
-                        <tr>
+                        <tr class="woocommerce-shipping-totals">
                             <th><?php _e('Shipping', 'lavandre'); ?></th>
                             <td><?php echo ($order->get_shipping_total() !== '0.00') ? wc_price($order->get_shipping_total()) : __('Free'); ?></td>
                         </tr>
 
-                        <tr>
+                        <tr class="tax-total">
                             <th><?php _e('VAT', 'lavandre'); ?></th>
                             <td><?php echo wc_price($order->get_total_tax()); ?></td>
                         </tr>
 
-                        <tr>
+                        <tr class="order-total">
                             <th><strong><?php _e('Total', 'lavandre'); ?></strong></th>
                             <td><strong><?php echo $order->get_formatted_order_total(); ?></strong></td>
                         </tr>
