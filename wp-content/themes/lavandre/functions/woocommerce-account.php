@@ -113,3 +113,11 @@ function custom_override_billing_fields( $fields ) {
 
     return $fields;
 }
+
+add_filter( 'woocommerce_my_account_my_orders_query', 'custom_my_account_orders', 10, 1 );
+function custom_my_account_orders( $args ) {
+    // Set the post per page
+    $args['limit'] = 25;
+
+    return $args;
+}

@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
 		<div id="ship-to-different-address" style="display: none;">
 			<input id="ship-to-different-address-checkbox" type="checkbox" name="ship_to_different_address" value="1" />
 		</div>
-		
+
 		<h3 class="checkout-column__title">
 			<?php echo __('Afleveradres', 'woocommerce'); ?>
 		</h3>
@@ -33,7 +33,7 @@ defined( 'ABSPATH' ) || exit;
 				<input
 					id="ship-to-different-address-radio-yes"
 					class="woocommerce-form__input woocommerce-form__input-radio input-radio"
-					checked
+					<?php echo get_option( 'lavandre_ship_to_different_address_by_default', false ) ? '' : 'checked'; ?>
 					type="radio"
 					name="ship_to_different_address_toggle"
 					value="0"
@@ -52,6 +52,7 @@ defined( 'ABSPATH' ) || exit;
 					type="radio"
 					name="ship_to_different_address_toggle"
 					value="1"
+					<?php echo get_option( 'lavandre_ship_to_different_address_by_default', false ) ? 'checked' : ''; ?>
 				/>
 				<span>
 					<?php esc_html_e( 'Nieuw afleveradres', 'woocommerce' ); ?>
@@ -90,13 +91,17 @@ defined( 'ABSPATH' ) || exit;
 			return;
 		}
 
+        onRadioChange();
+
 		for (let i = 0; i < shippingAddressRadio.length; i++) {
 			const radio = shippingAddressRadio[i];
-			radio.addEventListener('change', () => {
-				const formData = new FormData(form);
-				shippingAddressCheckbox.checked = Number(formData.get('ship_to_different_address_toggle'));
-				jQuery(shippingAddressCheckbox).change();
-			});
+			radio.addEventListener('change', onRadioChange);
 		}
+
+        function onRadioChange() {
+            const formData = new FormData(form);
+            shippingAddressCheckbox.checked = Number(formData.get('ship_to_different_address_toggle'));
+            jQuery(shippingAddressCheckbox).change();
+        }
 	}());
 </script>
