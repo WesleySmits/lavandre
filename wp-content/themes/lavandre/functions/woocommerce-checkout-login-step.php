@@ -87,7 +87,39 @@ function ww_wc_login_register() {
 </div>
 <?php endif; ?>
 
-<?php do_action( 'woocommerce_after_customer_login_form' );
-	return ob_get_clean();
-}
-add_shortcode( 'wc_login_register', 'ww_wc_login_register' );
+<?php
+    do_action( 'woocommerce_after_customer_login_form' );
+        return ob_get_clean();
+    }
+    add_shortcode( 'wc_login_register', 'ww_wc_login_register' );
+
+    // Pre PHP8 polyfill for str_contains
+    if (!function_exists('str_contains')) {
+        function str_contains(string $haystack, string $needle): bool
+        {
+            return '' === $needle || false !== strpos($haystack, $needle);
+        }
+    }
+
+    /**
+     * Redirect to login/register pre-checkout.
+     *
+     * Redirect guest users to login/register before completing an order.
+     */
+    function redirect_pre_checkout() {
+        if ( ! function_exists( 'wc' ) ) return;
+        if (isset($_GET['createAccount'])) return;
+
+        $path = $_SERVER['REQUEST_URI'];
+        if (str_contains($path, 'order-received')) return;
+
+        $redirect_page_id = 317; // #TODO: Retrieve ID's somehow
+        if ( ! is_user_logged_in() && is_checkout() && is_page(16) === true ) {
+            wp_safe_redirect( get_permalink( $redirect_page_id ) );
+            die;
+        } elseif ( is_user_logged_in() && is_page( $redirect_page_id ) ) {
+            wp_safe_redirect( get_permalink( wc_get_page_id( 'checkout' ) ) );
+            die;
+        }
+    }
+    add_action( 'template_redirect', 'redirect_pre_checkout' );

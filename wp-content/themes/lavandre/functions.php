@@ -14,12 +14,19 @@ require 'classes/Company.php';
 
 include(get_stylesheet_directory() . '/functions/utilities.php');
 include(get_stylesheet_directory() . '/functions/assets.php');
+include(get_stylesheet_directory() . '/functions/customizer.php');
+include(get_stylesheet_directory() . '/functions/faq.php');
+include(get_stylesheet_directory() . '/functions/custom-ajax.php');
+
 include(get_stylesheet_directory() . '/functions/woocommerce-tweaks.php');
+include(get_stylesheet_directory() . '/functions/woocommerce-breadcrumbs.php');
+include(get_stylesheet_directory() . '/functions/woocommerce-checkout-fields.php');
+include(get_stylesheet_directory() . '/functions/woocommerce-account-fields.php');
+include(get_stylesheet_directory() . '/functions/woocommerce-pricing.php');
+include(get_stylesheet_directory() . '/functions/woocommerce-track-trace.php');
 include(get_stylesheet_directory() . '/functions/woocommerce-custom-cart.php');
 include(get_stylesheet_directory() . '/functions/woocommerce-account.php');
 include(get_stylesheet_directory() . '/functions/woocommerce-checkout-login-step.php');
-include(get_stylesheet_directory() . '/functions/faq.php');
-include(get_stylesheet_directory() . '/functions/custom-ajax.php');
 
 function lavandre_setup() {
     add_theme_support( 'post-thumbnails' );

@@ -258,3 +258,26 @@ function get_image_kit_src($src, $width = 400, $height = 300) {
     $url = get_image_kit_url($src);
     return $url . '?tr=w-' . $width . ',h-' . $height;
 }
+
+function wc_disable_select2() {
+    if ( class_exists('woocommerce') ) {
+        wp_dequeue_style('select2');
+        wp_deregister_style('select2');
+
+        // WooCommerce 3.2.1.x and below
+        wp_dequeue_script('select2');
+        wp_deregister_script('select2');
+
+        // WooCommerce 3.2.1+
+        wp_dequeue_script('selectWoo');
+        wp_deregister_script('selectWoo');
+    }
+}
+add_action('wp_enqueue_scripts', 'wc_disable_select2', 100);
+
+add_action( 'after_setup_theme', 'remove_woo_three_support', 11 );
+function remove_woo_three_support() {
+  remove_theme_support( 'wc-product-gallery-zoom' );
+  remove_theme_support( 'wc-product-gallery-slider' );
+  remove_theme_support( 'wc-product-gallery-lightbox' );
+}
