@@ -189,6 +189,11 @@
 
 <?php include 'partials/_cookie-bar.php'; ?>
 
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+<script>
+    console.log(jQuery)
+</script>
+
 <?php wp_footer(); ?>
 
 <!-- #TODO: Change with new script -->
