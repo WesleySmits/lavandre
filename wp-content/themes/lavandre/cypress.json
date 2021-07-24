@@ -16,5 +16,7 @@
     "retries": {
         "runMode": 2,
         "openMode": 0
-    }
+    },
+    "experimentalStudio": true,
+    "chromeWebSecurity": false
 }

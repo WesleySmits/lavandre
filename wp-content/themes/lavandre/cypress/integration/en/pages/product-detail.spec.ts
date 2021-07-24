@@ -1,11 +1,9 @@
 /// <reference types="cypress" />
-
-import { Interception } from "cypress/types/net-stubbing";
 import { adminAjaxUrl } from "../../../support/form/form";
 
 describe("Product detail tests", () => {
     beforeEach(() => {
-        cy.visit("/product/organic-badhanddoek-200x100-wit/");
+        cy.visit("/product/organic-handdoek-80x40-wit/");
     });
 
     it("should display image and thumbnails", () => {
@@ -76,11 +74,11 @@ describe("Product detail tests", () => {
     });
 
     it("should add the product to the cart", () => {
-        addProductToCart();
+        cy.addProductToCart();
     });
 
     it('should remove product from cart side panel', () => {
-        addProductToCart().then(() => {
+        cy.addProductToCart().then(() => {
             cy.get('[data-panel-name="cart-panel"] .custom-cart__item').should("exist");
             cy.intercept('POST', adminAjaxUrl).as('ajaxCall');
             cy.get('[data-panel-name="cart-panel"] [data-delete-item]').click();
@@ -93,16 +91,3 @@ describe("Product detail tests", () => {
         });
     });
 });
-
-function addProductToCart(): Cypress.Chainable<Interception> {
-    cy.intercept('POST', adminAjaxUrl).as('ajaxCall');
-
-    cy.get('button[name="add-to-cart"]').click();
-
-    return cy.wait('@ajaxCall').then(({ response }) => {
-        expect(response.statusCode).to.eq(200);
-        expect(response.body.success).eq(true);
-        cy.get('[data-panel-name="cart-panel"]').should("be.visible");
-        cy.get('[data-panel-name="cart-panel"] .custom-cart__cta').should('exist');
-    });
-}

@@ -1,0 +1,97 @@
+{
+    "firstName": {
+        "value": "John",
+        "name": "billing_first_name",
+        "type": "input"
+    },
+
+    "lastName": {
+        "value": "Doe",
+        "name": "billing_last_name",
+        "type": "input"
+    },
+
+    "companyName": {
+        "value": "Test company",
+        "name": "billing_company",
+        "type": "input"
+    },
+
+    "streetAddress": {
+        "value": "Test street",
+        "name": "billing_address_1",
+        "type": "input"
+    },
+
+    "houseNumber": {
+        "value": "75",
+        "name": "billing_address_2",
+        "type": "input"
+    },
+
+    "postalCode": {
+        "value": "1234 AB",
+        "name": "billing_postcode",
+        "type": "input"
+    },
+
+    "city": {
+        "value": "Amsterdam",
+        "name": "billing_city",
+        "type": "input"
+    },
+
+    "email": {
+        "value": "automated-tester@lavandre.com",
+        "name": "billing_email",
+        "type": "email"
+    },
+
+    "shippingFirstName": {
+        "value": "John",
+        "name": "shipping_first_name",
+        "type": "input"
+    },
+
+    "shippingLastName": {
+        "value": "Doe",
+        "name": "shipping_last_name",
+        "type": "input"
+    },
+
+    "shippingCompanyName": {
+        "value": "Test company",
+        "name": "shipping_company",
+        "type": "input"
+    },
+
+    "shippingStreetAddress": {
+        "value": "Test street",
+        "name": "shipping_address_1",
+        "type": "input"
+    },
+
+    "shippingHouseNumber": {
+        "value": "75",
+        "name": "shipping_address_2",
+        "type": "input"
+    },
+
+    "shippingPostalCode": {
+        "value": "1234 AB",
+        "name": "shipping_postcode",
+        "type": "input"
+    },
+
+    "shippingCity": {
+        "value": "Amsterdam",
+        "name": "shipping_city",
+        "type": "input"
+    },
+
+    "shippingEmail": {
+        "value": "automated-tester@lavandre.com",
+        "name": "shipping_email",
+        "type": "email"
+    }
+}

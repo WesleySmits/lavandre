@@ -100,6 +100,14 @@
         return '<span data-product-price>'.$number_format.'</span>';
     }
 
+    // Pre PHP8 polyfill
+    if (!function_exists('str_contains')) {
+        function str_contains(string $haystack, string $needle): bool
+        {
+            return '' === $needle || false !== strpos($haystack, $needle);
+        }
+    }
+
     /**
      * Redirect to login/register pre-checkout.
      *
@@ -108,6 +116,9 @@
     function ace_redirect_pre_checkout() {
         if ( ! function_exists( 'wc' ) ) return;
         if (isset($_GET['createAccount'])) return;
+
+        $path = $_SERVER['REQUEST_URI'];
+        if (str_contains($path, 'order-received')) return;
 
         $redirect_page_id = 317;
         if ( ! is_user_logged_in() && is_checkout() && is_page(16) === true ) {
