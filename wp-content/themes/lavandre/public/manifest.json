@@ -2,8 +2,13 @@
   "0.acf17277.css": "/0.acf17277.css",
   "0.b10a4309.js": "/0.b10a4309.js",
   "account-styles.css": "/account-styles.2de6cc7f.css",
+<<<<<<< HEAD
   "app.css": "/app.30f5f65e.css",
   "app.js": "/app.b7ada8f9.js",
+=======
+  "app.css": "/app.a27975f5.css",
+  "app.js": "/app.68dc120f.js",
+>>>>>>> [LC-37] Retrieve error string from back-end and display that instead of hard-coded dutch string
   "cart.js": "/cart.4dd2d2c4.js",
   "checkout.css": "/checkout.829b027e.css",
   "checkout.js": "/checkout.c3183f52.js",

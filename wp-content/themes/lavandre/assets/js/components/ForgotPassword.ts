@@ -52,17 +52,19 @@ export default class ForgotPassword extends Component {
         });
     }
 
-    private onSuccess() {
+    private onSuccess(res: any) {
+        const response: any = res;
         const toast: Toast = new Toast(
-            'Wij hebben u een e-mail gestuurd met een link waarmee u uw wachtwoord kunt aanpassen.',
+            response.data,
             ToastType.success
         );
         toast.initialize();
     }
 
-    private onFailure() {
+    private onFailure(res: string) {
+        const response = JSON.parse(res);
         const toast: Toast = new Toast(
-            'Wij hebben geen account kunnen vinden met dit e-mailadres.',
+            response.data,
             ToastType.warning
         );
         toast.initialize();

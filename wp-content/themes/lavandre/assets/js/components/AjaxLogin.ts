@@ -87,8 +87,11 @@ export default class AjaxLogin extends Component {
             text: 'My account',
             href: '/my-account/'
         }
+
+        console.log(response);
+
         const toast: Toast = new Toast(
-            'Welkom terug!',
+            response.data,
             ToastType.success,
             ctaButton,
             20000
@@ -103,10 +106,14 @@ export default class AjaxLogin extends Component {
         document.body.classList.add('logged-in');
     }
 
-    private onFailure(): void {
-        // #TODO: [LC-37] Retrieve error string from back-end and display that instead of hard-coded dutch string
+    private onFailure(res: string): void {
+        const response = JSON.parse(res);
+        console.log(response.data);
+
+        const message: string = response.data || 'This combination of email and password is not known to us. Please try again or request a new password.';
+
         const toast: Toast = new Toast(
-            'Deze combinatie van e-mail en wachtwoord is niet bekend bij ons. Probeer het nogmaals of vraag een nieuw wachtwoord aan.',
+            message,
             ToastType.warning
         );
         toast.initialize();
