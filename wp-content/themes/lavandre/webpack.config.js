@@ -16,6 +16,7 @@ Encore
     .addStyleEntry('product-styles', './assets/css/pages/product.pcss')
     .addStyleEntry('product-overview-styles', './assets/css/pages/productOverview.pcss')
     .addStyleEntry('account-styles', './assets/css/pages/account.pcss')
+    .addStyleEntry('customerServiceStyles', './assets/css/pages/customer-service.pcss')
     .splitEntryChunks()
     .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()

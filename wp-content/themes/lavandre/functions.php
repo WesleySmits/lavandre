@@ -95,6 +95,7 @@ function getCompany() {
     return $company;
 }
 
+// #TODO: Refactor this to get FAQ accordion which calls a get_accordion function that returns an accordion without context
 function get_accordion($category, $amount = 6) {
     $args = array(
         'post_type' => 'faqs',
