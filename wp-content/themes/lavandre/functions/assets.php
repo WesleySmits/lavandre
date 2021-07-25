@@ -22,20 +22,20 @@ add_action( 'wp_enqueue_scripts', function () {
     loadWebpackModules();
 
     /* Output enqueued scripts   */
-    global $wp_scripts;
-    global $enqueued_scripts;
-    $enqueued_scripts = array();
-    foreach( $wp_scripts->queue as $handle ) {
-        $enqueued_scripts[] = $handle." | ".$wp_scripts->registered[$handle]->src;
-    }
-    var_dump($enqueued_scripts);
+    // global $wp_scripts;
+    // global $enqueued_scripts;
+    // $enqueued_scripts = array();
+    // foreach( $wp_scripts->queue as $handle ) {
+    //     $enqueued_scripts[] = $handle." | ".$wp_scripts->registered[$handle]->src;
+    // }
+    // var_dump($enqueued_scripts);
     // die;
 
     /* Output enqueued styles */
-    global $wp_styles;
-    foreach( $wp_styles->queue as $handle ) :
-        var_dump($handle);
-    endforeach;
+    // global $wp_styles;
+    // foreach( $wp_styles->queue as $handle ) :
+    //     var_dump($handle);
+    // endforeach;
     // die;
 }, 1000 );
 
