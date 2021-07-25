@@ -78,6 +78,9 @@ function wp_enqueue_scripts_lavandre() {
         }
 
         if (is_product()) {
+            // Load jquery for Woocommerce Analytics
+            wp_enqueue_script( 'jquery' );
+
             wp_dequeue_script('zoom');
             wp_dequeue_script('flexslider');
             wp_dequeue_script('photoswipe-ui-default');
