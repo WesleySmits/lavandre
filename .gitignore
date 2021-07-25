@@ -121,6 +121,7 @@ autoupdater_maintenance_mode_enabled.tmp
 /node_modules
 /vendor
 .wpe-devkit
+.lighthouseci
 .wpe-pull-ignore
 .wpe-push-ignore
 wp-content/languages/loco

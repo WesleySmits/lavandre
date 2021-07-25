@@ -33,25 +33,25 @@
                 <h3 class="footer__h3"><?php _e('Available every day between 08:00 - 21:00', 'lavandre'); ?></h3>
                 <ul class="contactoption-list no-list flex">
                     <li class="contactoption-list__item">
-                        <a class="contactoption-list__anchor" href="#" onclick="LC_API.open_chat_window();return false;">
+                        <a class="contactoption-list__anchor" href="#" onclick="LC_API.open_chat_window();return false;" aria-label="<?php _e('Open chat', 'lavandre'); ?>">
                             <?php include get_stylesheet_directory() . '/partials/icons/comment-dots.svg.php'; ?>
                             <span class="contactoption-list__text"><strong class="contactoption-list__title"><?php _e('Via chat', 'lavandre'); ?></strong> <?php _e('replies within 5 minutes', 'lavandre'); ?></span>
                         </a>
                     </li>
                     <li class="contactoption-list__item">
-                        <a class="contactoption-list__anchor" href="tel:<?php echo $contactPoint->getInternationalPhoneNumber()?>" target="_blank" rel="noopener">
+                        <a class="contactoption-list__anchor" href="tel:<?php echo $contactPoint->getInternationalPhoneNumber()?>" target="_blank" rel="noopener" aria-label="<?php _e('Call us', 'lavandre'); ?>">
                             <?php include get_stylesheet_directory() . '/partials/icons/phone.svg.php'; ?>
                             <span class="contactoption-list__text"><strong class="contactoption-list__title"><?php echo sprintf(__('Call %s', 'lavandre'), $contactPoint->getPhoneNumber()); ?></strong> <?php _e('available till 21:00', 'lavandre'); ?></span>
                         </a>
                     </li>
                     <li class="contactoption-list__item">
-                        <a class="contactoption-list__anchor" href="<?php echo $contactPoint->getFacebookMessager(); ?>" target="_blank" rel="noopener">
+                        <a class="contactoption-list__anchor" href="<?php echo $contactPoint->getFacebookMessager(); ?>" target="_blank" rel="noopener" aria-label="<?php _e('Message us on Facebook', 'lavandre'); ?>">
                             <?php include get_stylesheet_directory() . '/partials/icons/facebook-f.svg.php'; ?>
                             <span class="contactoption-list__text"><strong class="contactoption-list__title"><?php _e('Via Facebook', 'lavandre'); ?></strong> <?php _e('replies within 10 minutes', 'lavandre'); ?></span>
                         </a>
                     </li>
                     <li class="contactoption-list__item">
-                        <a class="contactoption-list__anchor" href="<?php echo $contactPoint->getWhatsapp(); ?>" target="_blank" rel="noopener">
+                        <a class="contactoption-list__anchor" href="<?php echo $contactPoint->getWhatsapp(); ?>" target="_blank" rel="noopener" aria-label="<?php _e('Message us on WhatsApp', 'lavandre'); ?>">
                             <?php include get_stylesheet_directory() . '/partials/icons/whatsapp.svg.php'; ?>
                             <span class="contactoption-list__text"><strong class="contactoption-list__title"><?php _e('Via WhatsApp', 'lavandre'); ?></strong> <?php _e('replies within 10 minutes', 'lavandre'); ?></span>
                         </a>
