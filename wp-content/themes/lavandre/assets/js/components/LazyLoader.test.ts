@@ -100,7 +100,7 @@ describe('Test the lazyloader class', () => {
         beforeEach(() => {
             context = validDivContext();
             document.body.appendChild(context.element);
-            window.dispatchEvent(new Event('load'));
+            LazyLoader.onInit();
         });
 
         it('should set image attributes within HTML container correctly 2', () => {
