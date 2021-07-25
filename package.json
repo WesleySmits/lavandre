@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "Website for Lavandré",
   "husky": {
-      "hooks": {
-          "pre-commit": "cd wp-content/themes/lavandre && yarn prod && yarn test && yarn cypress"
-      }
+    "hooks": {
+      "pre-commit": "cd wp-content/themes/lavandre && yarn prod && yarn test && yarn cypress"
+    }
   },
   "scripts": {
     "prod": "cd wp-content/themes/lavandre && yarn prod",
@@ -13,7 +13,8 @@
     "test": "cd wp-content/themes/lavandre && yarn test",
     "start": "cd wp-content/themes/lavandre && yarn start",
     "cypress": "cd wp-content/themes/lavandre && npx cypress run",
-    "cypress:open": "cd wp-content/themes/lavandre && npx cypress open"
+    "cypress:open": "cd wp-content/themes/lavandre && npx cypress open",
+    "lighthouse": "lhci autorun"
   },
   "author": "Wesley Smits",
   "license": "MIT",
