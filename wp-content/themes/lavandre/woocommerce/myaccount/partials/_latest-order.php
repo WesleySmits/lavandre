@@ -19,7 +19,7 @@
     </div>
 
     <div class="latest-order__read-more">
-        <a href="/mijn-account/view-order/<?php echo $order->id ?>/">
+        <a href="/my-account/view-order/<?php echo $order->id ?>/">
             <?php include get_stylesheet_directory() . '/partials/icons/chevron-down.svg.php'; ?>
         </a>
     </div>
