@@ -19,13 +19,13 @@
 
     "streetAddress": {
         "value": "Test street",
-        "name": "billing_address_1",
+        "name": "billing_street_name",
         "type": "input"
     },
 
     "houseNumber": {
         "value": "75",
-        "name": "billing_address_2",
+        "name": "billing_house_number",
         "type": "input"
     },
 
@@ -67,13 +67,13 @@
 
     "shippingStreetAddress": {
         "value": "Test street",
-        "name": "shipping_address_1",
+        "name": "shipping_street_name",
         "type": "input"
     },
 
     "shippingHouseNumber": {
         "value": "75",
-        "name": "shipping_address_2",
+        "name": "shipping_house_number",
         "type": "input"
     },
 

@@ -30,13 +30,13 @@
 
                 <section class="side-panel__section side-panel__section--boxed">
                     <?php $image = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/lemur.jpg'; ?>
-                    <?php var_dump($image); ?>
                     <img
                         src="<?php echo get_image_kit_placeholder($image, 562, 375) ?>"
                         data-src="<?php echo get_image_kit_url($image); ?>"
                         alt=""
                         width="768"
                         height="320"
+                        data-lazyload
                     >
                 </section>
             </div>
