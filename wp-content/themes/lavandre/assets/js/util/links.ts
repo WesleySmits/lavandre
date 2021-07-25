@@ -1,7 +1,16 @@
 export function setCurrentLinkClass() {
     const pathName: string = window.location.pathname;
     const formattedPathName: string = stripTrailingSlash(pathName);
-    const anchors: HTMLAnchorElement[] = Array.from(document.querySelectorAll(`nav a[href="${pathName}"], nav a[href="${formattedPathName}"]`));
+    const fullUrl: string = window.location.href;
+    const formattedUrl: string = stripTrailingSlash(fullUrl);
+    const anchors: HTMLAnchorElement[] = Array.from(document.querySelectorAll(`
+        nav a[href="${pathName}"],
+        nav a[href="${formattedPathName}"],
+        nav a[href="${fullUrl}"],
+        nav a[href="${formattedUrl}"]
+    `));
+
+    console.log(pathName, formattedPathName, anchors);
 
     anchors.forEach((anchor) => {
         anchor.classList.add('current-link');

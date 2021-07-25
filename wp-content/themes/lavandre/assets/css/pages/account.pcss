@@ -90,69 +90,8 @@
     }
 
     .woocommerce-MyAccount-navigation {
-        position: relative;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: flex-start;
-        flex: 0 0 20%;
-        padding: 2rem 1rem;
-        background: var(--salmon);
-
-        @media (min-width: 1024px) {
-            align-items: center;
-            max-height: none !important;
-            padding: 2rem 1rem !important;
-        }
-
-        header, ul {
-            width: 150px;
-        }
-
-        header h1 {
-            font-size: 2rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-
-            small {
-                display: block;
-                font-size: .75rem;
-                font-weight: 200;
-                line-height: 1.6;
-            }
-        }
-
         ul {
-            display: flex;
-            flex-flow: column nowrap;
-
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-
             .woocommerce-MyAccount-navigation-link {
-                margin-bottom: 20px;
-                display: flex;
-                flex-flow: row nowrap;
-                align-items: center;
-
-                a {
-                    padding: .25rem 0;
-                    font-size: .8750rem;
-                    color: #635f5c;
-                }
-
-                img,
-                svg {
-                    flex: 0 0 1.5rem;
-                    width: 1.5rem;
-                    height: 1.55rem;
-                    margin-right: 1.25rem;
-                }
-
-                path {
-                    stroke: var(--color-text);
-                }
-
                 svg#shoppingbag path {
                     fill: var(--color-text);
                 }
@@ -164,28 +103,6 @@
                 &.woocommerce-MyAccount-navigation-link--customer-logout svg {
                     position: relative;
                     left: 4px;
-                }
-
-                &.is-active {
-                    font-weight: 600;
-
-                    path {
-                        stroke: var(--color-gold);
-                    }
-
-                    svg#shoppingbag path {
-                        fill: var(--color-gold);
-                    }
-
-                    &:after {
-                        content: '';
-                        position: absolute;
-                        right: 0;
-                        width: 44px;
-                        height: 1px;
-                        z-index: 0;
-                        background-color: var(--color-gold);
-                    }
                 }
             }
         }
@@ -205,7 +122,6 @@
         }
     }
 }
-
 
 /************* Edit Account *************/
 .woocommerce-EditAddressForm,

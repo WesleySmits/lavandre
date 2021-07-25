@@ -31,11 +31,13 @@ function add_faq_post_type() {
         'show_in_admin_bar'   => true,
         'menu_position'       => 5,
         'can_export'          => true,
-        'has_archive'         => true,
+        'has_archive'         => 'customer-service',
         'exclude_from_search' => false,
         'publicly_queryable'  => true,
-        'capability_type'     => 'post',
         'show_in_rest' => true,
+        'rewrite' => [
+            'slug' => 'customer-service/%faq_category%'
+        ]
     );
 
     // Registering your Custom Post Type
@@ -60,8 +62,23 @@ function add_faq_post_type() {
         'show_in_rest' => true,
         'show_admin_column' => true,
         'query_var' => true,
-        'rewrite' => array( 'slug' => 'faq-category' ),
+        'rewrite' => array( 'slug' => 'customer-service' ),
     ));
 }
 
 add_action( 'init', 'add_faq_post_type', 0 );
+
+add_filter('post_type_link', 'update_faq_permalink_structure', 10, 2);
+function update_faq_permalink_structure( $post_link, $post )
+{
+    if ( false !== strpos( $post_link, '%faq_category%' ) ) {
+        $taxonomy_terms = get_the_terms( $post->ID, 'faq_category' );// (?)
+        foreach ( $taxonomy_terms as $term ) {
+            if ( ! $term->parent ) {
+                $post_link = str_replace( '%faq_category%', $term->slug, $post_link );
+            }
+        }
+    }
+
+    return $post_link;
+}
