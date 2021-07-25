@@ -139,7 +139,7 @@ function loadWebpackModules(): void {
     if (is_product()) loadEncoreModule('productDetail');
     if (is_cart()) loadEncoreModule('cart');
     if (is_account_page() && is_user_logged_in()) loadEncoreModule('account-styles');
-    if (is_checkout()) loadEncoreModule('checkout-styles');
+    if (is_checkout()) loadEncoreModule('checkout');
     if (get_post_type() === 'faqs') loadEncoreModule('customerServiceStyles');
 
     // #TODO: Get id's somehow

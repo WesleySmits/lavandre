@@ -10,8 +10,6 @@ export function setCurrentLinkClass() {
         nav a[href="${formattedUrl}"]
     `));
 
-    console.log(pathName, formattedPathName, anchors);
-
     anchors.forEach((anchor) => {
         anchor.classList.add('current-link');
     });
