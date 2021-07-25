@@ -83,9 +83,6 @@ function calculateVat(productPrice: string, shippingPrice: string): string {
     let price: number = Number(productPrice.replace(',', '.'));
     let shipping: number = Number(shippingPrice.replace(',', '.'));
 
-    console.log('passed in', productPrice, shippingPrice);
-    console.log('converted', price, shipping);
-
     let subTotal: number = price + shipping;
     let vatPrice: number = subTotal * 0.21;
 

@@ -1,6 +1,5 @@
 import '../css/app.pcss';
 
-import './components/LazyLoader';
 import EventEmitter from './common/EventEmitter';
 import AjaxLogin from './components/AjaxLogin';
 import AjaxRegister from './components/AjaxRegister';
@@ -20,6 +19,7 @@ import HeaderSearch from './components/HeaderSearch';
 import SubMenu from './components/SubMenu';
 import { setCurrentLinkClass } from './util/links';
 import Module from './Module';
+import LazyLoader from './components/LazyLoader';
 
 export default class App extends Module {
 
@@ -38,7 +38,8 @@ export default class App extends Module {
         AjaxRegister,
         FieldValidation,
         HeaderSearch,
-        SubMenu
+        SubMenu,
+        LazyLoader
     ];
 
     public initialize() {

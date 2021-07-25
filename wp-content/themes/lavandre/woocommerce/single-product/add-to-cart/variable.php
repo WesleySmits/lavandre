@@ -35,29 +35,29 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
         <section class="product-detail__variations">
             <?php foreach ( $attributes as $attribute_name => $options ) : ?>
-                <div class="product-detail__variation">
-                    <div class="form-row">
-                        <?php foreach ($options as $key => $value) : ?>
-                            <?php
-                                $terms = get_terms($attribute_name);
-                                $label = '';
-                                $isFirst = ($key === array_key_first($options));
+                <div class="form-row">
+                    <?php foreach ($options as $key => $value) : ?>
+                        <?php
+                            $terms = get_terms($attribute_name);
+                            $label = '';
+                            $isFirst = ($key === array_key_first($options));
 
-                                foreach ($terms as $term) :
-                                    if ($term->slug !== $value) {
-                                        continue;
-                                    }
+                            foreach ($terms as $term) :
+                                if ($term->slug !== $value) {
+                                    continue;
+                                }
 
-                                    $label = $term->name;
-                                endforeach;
+                                $label = $term->name;
+                            endforeach;
 
-                                $id = $attribute_name . '-' . $value;
-                            ?>
+                            $id = $attribute_name . '-' . $value;
+                        ?>
 
-                            <?php if ($isFirst) : ?>
-                                <label class="bold"><?php echo wc_attribute_label($attribute_name); ?></label><br/>
-                            <?php endif; ?>
+                        <?php if ($isFirst) : ?>
+                            <label class="bold"><?php echo wc_attribute_label($attribute_name); ?></label>
+                        <?php endif; ?>
 
+                        <div class="product-detail__variation">
                             <input
                                 id="<?php echo $id; ?>"
                                 type="radio"
@@ -67,10 +67,9 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
                                 required
                             >
                             <label for="<?php echo $id; ?>"><?php echo $label; ?></label>
-                        <?php endforeach; ?>
-                    </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
-
             <?php endforeach; ?>
         </section>
 

@@ -263,7 +263,7 @@
         $country = __( 'Country', 'lavandre' );
         $phoneNumber = __( 'Phone number', 'lavandre' );
         $emailAddress = __( 'E-mail address', 'lavandre' );
-        $vatNumber = __( 'VAT nummer', 'lavandre' );
+        $vatNumber = __( 'VAT number', 'lavandre' );
 
         // Placeholders
         $fields['billing']['billing_first_name']['placeholder'] = $firstName;

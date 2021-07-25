@@ -1,9 +1,12 @@
-export default class LazyLoader {
+import Component from "../common/Component";
+
+export default class LazyLoader extends Component {
     private element: HTMLElement;
 
     private elements: HTMLElement[];
 
     constructor(element: HTMLElement) {
+        super();
         this.element = element;
         this.elements = this.getElements();
 
@@ -119,12 +122,14 @@ export default class LazyLoader {
         element.classList.add('loaded');
         element.classList.remove('loading');
     }
-}
 
-window.addEventListener('load', function () {
-    const lazyloadElements: HTMLElement[] = Array.from(document.querySelectorAll('[data-lazyload]'));
-    for (let i = 0; i < lazyloadElements.length; i++) {
-        const element = lazyloadElements[i];
-        new LazyLoader(element);
+    public static onInit() {
+        super.onInit();
+
+        const lazyloadElements: HTMLElement[] = Array.from(document.querySelectorAll('[data-lazyload]'));
+        for (let i = 0; i < lazyloadElements.length; i++) {
+            const element = lazyloadElements[i];
+            new LazyLoader(element);
+        }
     }
-});
+}
