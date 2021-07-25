@@ -128,7 +128,7 @@
                     </header>
 
                     <ul class="no-list" data-curtain-content="footer-column-2" data-only-on-mobile="true">
-                        <li class="footer-links__item"><a class="footer-links__anchor" href="/mijn-account/"><?php _e('My account', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor" href="/my-account/"><?php _e('My account', 'lavandre'); ?></a></li>
                         <li class="footer-links__item"><a class="footer-links__anchor" href="/klantenservice/betalen/"><?php _e('Payment', 'lavandre'); ?></a></li>
                         <li class="footer-links__item"><a class="footer-links__anchor" href="/klantenservice/bestellen-en-bezorgen/"><?php _e('Ordering and delivery', 'lavandre'); ?></a></li>
                         <li class="footer-links__item"><a class="footer-links__anchor" href="/klantenservice/retourneren/"><?php _e('Returns', 'lavandre'); ?></a></li>

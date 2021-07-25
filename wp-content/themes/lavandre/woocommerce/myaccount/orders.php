@@ -37,7 +37,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
                 ?>
 
                 <li>
-                    <a href="/mijn-account/view-order/<?php echo $order->id ?>/" class="customer-orders--item flex">
+                    <a href="/my-account/view-order/<?php echo $order->id ?>/" class="customer-orders--item flex">
                         <div class="order-date">
                             <time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>">
                                 <?php echo $order->get_date_created()->date_i18n('d F Y'); ?>

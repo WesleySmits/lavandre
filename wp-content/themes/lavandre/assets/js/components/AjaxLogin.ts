@@ -84,8 +84,8 @@ export default class AjaxLogin extends Component {
         }
 
         const ctaButton: ctaButton = {
-            text: 'Mijn account',
-            href: '/mijn-account/'
+            text: 'My account',
+            href: '/my-account/'
         }
         const toast: Toast = new Toast(
             'Welkom terug!',
