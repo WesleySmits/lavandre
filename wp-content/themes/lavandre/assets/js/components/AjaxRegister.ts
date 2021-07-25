@@ -108,7 +108,7 @@ export default class AjaxRegister extends Component {
             href: '/my-account/'
         }
         const toast: Toast = new Toast(
-            'U bent succesvol geregistreerd!',
+            response.data,
             ToastType.success,
             ctaButton,
             20000

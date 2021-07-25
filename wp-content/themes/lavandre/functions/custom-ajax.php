@@ -309,9 +309,9 @@ function ajax_login() {
     if ( !is_wp_error($user_signon) ){
         wp_set_current_user($user_signon->ID);
         wp_set_auth_cookie($user_signon->ID);
-        wp_send_json_success();
+        wp_send_json_success(__('Welcome back!', 'lavandre'));
     } else {
-        wp_send_json_error(array(), 401);
+        wp_send_json_error(__('This combination of email and password is not known to us. Please try again or request a new password.', 'lavandre'), 401);
     }
 
     wp_die();
@@ -363,7 +363,8 @@ function ajax_register() {
         );
 
         sendMandrillMail('new-account', $_POST['email'], $name, $merge_vars);
-        wp_send_json_success(array($user_login));
+        wp_send_json_success(__('You have registered successfully!', 'lavandre'));
+        // wp_send_json_success(array($user_login));
     } else {
         if (isset($user_id->errors['empty_user_login'])) {
             wp_send_json_error(array('User Name and Email are mandatory'), 401);
@@ -380,31 +381,31 @@ function ajax_register() {
 function ajax_forgotPassword() {
     global $current_user;
     if (is_user_logged_in()) {
-        wp_send_json_error( array(__('Already logged in')) );
+        wp_send_json_error( __(__('Already logged in', 'lavandre')) );
     }
 
     global $wpdb;
 	$username = $_POST['user_login'];
 
     if (empty($username)) {
-        wp_send_json_error( array(__('Username is empty')) );
+        wp_send_json_error( __(__('Username is empty'), 'lavandre') );
     }
 
     if (is_email($username)) {
         if (!email_exists($username)) {
-            wp_send_json_error( array('No user with that e-mail address'), 401 );
+            wp_send_json_error(__('No user with that e-mail address', 'lavandre'), 401 );
         }
 
         $get_by = 'email';
     }
     else if (validate_username($username)) {
         if (!username_exists($username)) {
-            wp_send_json_error( array('No user with that username') );
+            wp_send_json_error( __('No user with that username', 'lavandre') );
         }
 
         $get_by = 'login';
     } else {
-        wp_send_json_error( array('Invalid credentials') );
+        wp_send_json_error( __('Invalid credentials', 'lavandre') );
     }
 
     $user = get_user_by('email', $username);
@@ -430,7 +431,7 @@ function ajax_forgotPassword() {
 
     sendMandrillMail('password-forget', $username, $name, $merge_vars);
 
-    wp_send_json_success($result);
+    wp_send_json_success(__('We have sent you an email with a link to change your password.', 'lavandre'));
     wp_die();
 }
 
