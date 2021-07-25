@@ -3,13 +3,8 @@
     "app": {
       "js": [
         "/runtime.a0037f62.js",
-<<<<<<< HEAD
         "/0.b10a4309.js",
-        "/app.b7ada8f9.js"
-=======
-        "/0.d85b4dd3.js",
-        "/app.68dc120f.js"
->>>>>>> [LC-37] Retrieve error string from back-end and display that instead of hard-coded dutch string
+        "/app.ddb63be9.js"
       ],
       "css": [
         "/0.acf17277.css",
