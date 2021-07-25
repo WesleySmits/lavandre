@@ -8,6 +8,7 @@ Encore
     .addEntry('app', './assets/js/app.ts')
     .addEntry('productDetail', './assets/js/productDetail.ts')
     .addEntry('cart', './assets/js/cart.ts')
+    .addEntry('checkout', './assets/js/checkout.ts')
     .addStyleEntry('critical-styles', './assets/css/critical.pcss')
     .addStyleEntry('deferred-styles', './assets/css/deferred.pcss')
     .addStyleEntry('homepage-styles', './assets/css/pages/homepage.pcss')

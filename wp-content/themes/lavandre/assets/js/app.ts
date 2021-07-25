@@ -45,20 +45,6 @@ export default class App extends Module {
     public initialize() {
         super.initialize();
         setCurrentLinkClass();
-
-        // #TODO: [LC-36] Create checkout module and move payment failed check there
-        if (document.body.classList.contains('woocommerce-checkout')) {
-            const url: URL = new URL(window.location.href);
-            if (url.searchParams.get('paynl_status') && url.searchParams.get('paynl_status') === 'CANCELED') {
-                const toast: Toast = new Toast(
-                    'Payment failed, please try again.',
-                    ToastType.warning,
-                    undefined,
-                    20000
-                );
-                toast.initialize();
-            }
-        }
     }
 }
 
