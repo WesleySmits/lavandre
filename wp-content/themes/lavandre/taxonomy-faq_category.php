@@ -35,7 +35,7 @@
            </ul>
         </nav>
 
-        <div class="page-content">
+        <div class="page-content" itemscope itemtype="https://schema.org/FAQPage">
             <?php
                 if ( have_posts() ) {
                     ?><ul class="accordion-list"><?php
@@ -44,17 +44,17 @@
 
                         ?>
                         <li>
-                            <article>
+                            <article itemprop="mainEntity" itemscope itemtype="http://schema.org/Question">
                                 <header>
-                                    <h3>
+                                    <h3 itemprop="name">
                                         <a href="<?php echo get_the_permalink();?>" data-curtain-toggle="<?php echo 'accordion-' . get_the_ID()?>">
                                             <?php echo get_the_title(); ?>
                                         </a>
                                     </h3>
                                 </header>
 
-                                <div data-curtain-content="<?php echo 'accordion-' . get_the_ID()?>">
-                                    <?php echo get_the_content(); ?>
+                                <div data-curtain-content="<?php echo 'accordion-' . get_the_ID()?>" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                    <div itemprop="text"><?php echo get_the_content(); ?></div>
                                 </div>
                             </article>
                         </li>

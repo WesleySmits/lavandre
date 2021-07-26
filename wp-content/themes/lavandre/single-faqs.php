@@ -23,7 +23,7 @@
                         $terms = get_terms( $taxonomy );
                         foreach( $terms as $term) {
                             ?>
-                                <li>
+                                <li class="side-navigation__item">
                                     <a href="<?php echo get_term_link($term, $taxonomy); ?>" class="side-navigation__link">
                                         <?php echo $term->name; ?>
                                     </a>
@@ -35,7 +35,7 @@
            </ul>
         </nav>
 
-        <div class="page-content" itemscope itemtype="https://schema.org/FAQPage" >
+        <div class="page-content" itemscope itemtype="https://schema.org/FAQPage">
             <?php
                 if ( have_posts() ) {
                     while ( have_posts() ) {
