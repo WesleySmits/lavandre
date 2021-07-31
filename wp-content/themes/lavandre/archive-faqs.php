@@ -47,7 +47,11 @@
                             <li class="customer-service__category">
                                 <header class="customer-service__category-header">
                                     <?php include $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lavandre/partials/icons/user.svg.php'; ?>
-                                    <h3><?php echo $term->name; ?></h3>
+                                    <h3>
+                                        <a href="<?php echo $term->slug; ?>">
+                                            <?php echo $term->name; ?>
+                                        </a>
+                                    </h3>
                                 </header>
                                 <ul class="customer-service__items">
                                     <?php
