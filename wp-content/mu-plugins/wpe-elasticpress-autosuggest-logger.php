@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WPE ElasticPress Autosuggest Logger
  * Plugin URI: https://wpengine.com
- * Description: Appends autosuggest search terms to the url when elasticpress plugin is enabled
+ * Description: Appends search terms to the url when elasticpress autosuggest is enabled
  * Version: 1.0.0
  * Text Domain: wpe-elasticpress-autosuggest-logger
  * Domain Path: /languages
@@ -31,12 +31,16 @@ function wpe_elasticpress_autosuggest_logger_loader() {
 
 		// Get active plugins
 		$active_plugins = get_option( 'active_plugins' );
-		// Check if elasticpress plugin is activated
-		if ( in_array( 'elasticpress/elasticpress.php', $active_plugins, true ) ) {
+		// Check if get_option returns an array
+		if ( is_array( $active_plugins ) ) {
 
-			// Enable autosuggest metrics script
-			add_action( 'wp_enqueue_scripts', 'wpe_elasticpress_autosuggest_logger_action_wp_enqueue_scripts' );
+			// Check if elasticpress plugin is activated
+			if ( in_array( 'elasticpress/elasticpress.php', $active_plugins, true ) ) {
 
+				// Enable autosuggest metrics script
+				add_action( 'wp_enqueue_scripts', 'wpe_elasticpress_autosuggest_logger_action_wp_enqueue_scripts' );
+
+			}
 		}
 	}
 }

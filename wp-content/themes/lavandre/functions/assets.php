@@ -141,6 +141,14 @@ function loadWebpackModules(): void {
     if (is_account_page() && is_user_logged_in()) loadEncoreModule('account-styles');
     if (is_checkout()) loadEncoreModule('checkout');
     if (get_post_type() === 'faqs') loadEncoreModule('customerServiceStyles');
+    if (is_page_template('template-parts/sustainability.php')) {
+        loadEncoreModule('sustainability-styles');
+        loadEncoreModule('landingspage-styles');
+    }
+
+    if (is_page_template('template-parts/landingspage.php')) {
+        loadEncoreModule('landingspage-styles');
+    }
 
     // #TODO: Get id's somehow
     if (
