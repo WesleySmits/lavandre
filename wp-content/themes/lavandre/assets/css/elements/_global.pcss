@@ -2,6 +2,10 @@ html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
     box-sizing: border-box;
+
+    &:focus-within {
+        scroll-behavior: smooth;
+    }
 }
 
 *,
@@ -11,6 +15,8 @@ html {
 }
 
 body {
+    min-height: 100vh;
+    text-rendering: optimizeLegibility;
     margin: 0;
     font-family: var(--font-family);
     font-size: 1rem;
@@ -53,6 +59,17 @@ template,
     display: none;
 }
 
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
 .sr-only {
     position: absolute;
     width: 1px;
@@ -66,4 +83,19 @@ template,
 
 .m-b-0 {
     margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
