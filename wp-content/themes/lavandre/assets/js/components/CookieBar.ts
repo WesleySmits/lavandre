@@ -1,6 +1,6 @@
 import '../../css/components/_cookie-bar.pcss';
 import Component from '../common/Component';
-import { getCookieValue } from '../util/cookies';
+import { getCookieValue, setCookieValue } from '../util/cookies';
 
 export default class CookieBar extends Component {
     private element: HTMLElement | null = null;
@@ -55,11 +55,15 @@ export default class CookieBar extends Component {
     }
 
     static setAcceptCookie(): void {
-        document.cookie = `${CookieBar.cookieName}=true;max-age=31536000`;
+        setCookieValue(CookieBar.cookieName, 'true', {
+            "max-age": 31536000
+        });
     }
 
     static setRejectCookie(): void {
-        document.cookie = `${CookieBar.cookieName}=false;max-age=31536000`;
+        setCookieValue(CookieBar.cookieName, 'false', {
+            "max-age": 31536000
+        });
     }
 
     public static onInit() {

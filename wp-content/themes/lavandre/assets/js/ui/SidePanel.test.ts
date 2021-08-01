@@ -13,7 +13,7 @@ const invalidContext = () => ({
 const validContext = () => ({
     element: parseStringAsHtml(`
     <dialog>
-        <button type="button" class="side-panel__close"></button>
+        <button type="button" data-close class="side-panel__close"></button>
     </dialog>
 `, 'dialog')
 });
@@ -151,7 +151,7 @@ describe('Test the SidePanel class', () => {
         jest.runAllTimers();
         expect(context.element.open).toEqual(true);
 
-        const button = context.element.querySelector('.side-panel__close');
+        const button = context.element.querySelector('[data-close]');
         button.dispatchEvent(new Event('click'));
         jest.runAllTimers();
         expect(context.element.open).toEqual(false);

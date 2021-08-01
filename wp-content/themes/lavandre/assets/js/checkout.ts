@@ -21,7 +21,6 @@ export default class CheckoutModule extends Module {
     private checkPayNLStatus(): void {
         const url: URL = new URL(window.location.href);
         if (url.searchParams.get('paynl_status') && url.searchParams.get('paynl_status') === 'CANCELED') {
-            console.log('yaay');
             const toast: Toast = new Toast(
                 'Payment failed, please try again.',
                 ToastType.warning,

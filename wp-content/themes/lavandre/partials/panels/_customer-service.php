@@ -9,7 +9,7 @@
                 <header class="side-panel__header">
                     <h1><?php _e('Customer service', 'lavandre'); ?></h1>
 
-                    <button type="button" class="side-panel__close">
+                    <button type="button" data-close class="side-panel__close">
                         <?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?>
                     </button>
                 </header>

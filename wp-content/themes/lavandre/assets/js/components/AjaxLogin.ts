@@ -88,8 +88,6 @@ export default class AjaxLogin extends Component {
             href: '/my-account/'
         }
 
-        console.log(response);
-
         const toast: Toast = new Toast(
             response.data,
             ToastType.success,
@@ -108,7 +106,6 @@ export default class AjaxLogin extends Component {
 
     private onFailure(res: string): void {
         const response = JSON.parse(res);
-        console.log(response.data);
 
         const message: string = response.data || 'This combination of email and password is not known to us. Please try again or request a new password.';
 

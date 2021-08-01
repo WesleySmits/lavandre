@@ -4,7 +4,7 @@
             <header class="side-panel__header">
                 <img src="/wp-content/themes/lavandre/public/images/logos/lavandre-logo-open.svg" alt="Lavandré" width="150" height="26" loading="lazy">
 
-                <button type="button" class="side-panel__close">
+                <button type="button" data-close class="side-panel__close">
                     <?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?>
                 </button>
             </header>

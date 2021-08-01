@@ -34,6 +34,8 @@ export default class NewsletterSubscribe extends Component {
             event.preventDefault();
 
             const formData: FormData = new FormData(this.form);
+            const firstName: string = formData.get('first-name')?.toString() || '';
+            const companyName: string = formData.get('company-name')?.toString() || '';
             const email: string = formData.get('email')?.toString() || '';
 
             if (!email) {
@@ -42,7 +44,9 @@ export default class NewsletterSubscribe extends Component {
 
             const data = {
                 action: 'mailchimpsubscribe',
-				'email': email
+				'email': email,
+				'firstName': firstName,
+				'companyName': companyName
             };
 
             FieldValidation.removeErrorText(this.emailField!);
@@ -81,7 +85,8 @@ export default class NewsletterSubscribe extends Component {
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {
-        const forms: HTMLFormElement[] = Array.from(selector.querySelectorAll('#footer-newsletter-form, #homepage-newsletter-form'));
+        // #TODO: Switch to common selector
+        const forms: HTMLFormElement[] = Array.from(selector.querySelectorAll('#footer-newsletter-form, #homepage-newsletter-form, #ajax-newsletter-form'));
 
         for (let index = 0; index < forms.length; index++) {
             const form = forms[index];
