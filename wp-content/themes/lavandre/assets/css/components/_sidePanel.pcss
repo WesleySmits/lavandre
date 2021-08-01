@@ -1,10 +1,5 @@
 @import "../variables/variables.pcss";
 
-dialog::backdrop,
-dialog + .backdrop {
-    background-color: rgba(0,0,0,0.6);
-}
-
 .side-panel {
     position: fixed;
     top: 0;
@@ -90,7 +85,7 @@ dialog + .backdrop {
         margin: 0;
     }
 
-    button {
+    .side-panel__close {
         display: flex;
         width: 1.5rem;
         height: 1.5rem;
@@ -123,7 +118,6 @@ dialog + .backdrop {
         padding-inline: 2rem;
     }
 }
-
 
 .side-panel .woocommerce-product-search {
     display: flex;

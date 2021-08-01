@@ -1,7 +1,16 @@
+export const cookieList = {
+    approvedCookies: 'approved_cookies',
+    newsletterPopupSeen: 'newsletter-popup-seen'
+}
+
 before(() => {
-    cy.setCookie('approved_cookies', 'true');
+    cy.setCookie(cookieList.approvedCookies, 'true');
+    cy.setCookie(cookieList.newsletterPopupSeen, 'true');
 });
 
 Cypress.Cookies.defaults({
-    preserve: ['approved_cookies']
+    preserve: [
+        cookieList.approvedCookies,
+        cookieList.newsletterPopupSeen
+    ]
 });

@@ -7,8 +7,6 @@ import Curtain from './components/Curtain';
 import EmailValidation from './components/EmailValidation';
 import PasswordReveal from './components/PasswordReveal';
 import NewsletterSubscribe from './components/NewsletterSubscribe';
-import Toast from './components/Toast';
-import { ToastType } from './enums/ToastType';
 import { FieldValidation } from './components/FieldValidation';
 import InfoPopup from './components/InfoPopup';
 import CookieBar from './components/CookieBar';
@@ -20,6 +18,8 @@ import SubMenu from './components/SubMenu';
 import { setCurrentLinkClass } from './util/links';
 import Module from './Module';
 import LazyLoader from './components/LazyLoader';
+import Popup from './ui/Popup';
+import NewsLetterPopup from './ui/NewsletterPopup';
 
 export default class App extends Module {
 
@@ -39,7 +39,9 @@ export default class App extends Module {
         FieldValidation,
         HeaderSearch,
         SubMenu,
-        LazyLoader
+        LazyLoader,
+        NewsLetterPopup,
+        Popup
     ];
 
     public initialize() {

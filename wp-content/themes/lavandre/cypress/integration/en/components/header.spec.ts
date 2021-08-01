@@ -29,7 +29,7 @@ describe('Header tests - desktop', () => {
             cy.wrap($element).click();
             cy.get(panelSelector).should('be.visible');
 
-            cy.get(panelSelector).find('.side-panel__close').click();
+            cy.get(panelSelector).find('[data-close]').click();
             cy.get(panelSelector).should('not.be.visible');
         });
 

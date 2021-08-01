@@ -20,5 +20,8 @@
   "license": "MIT",
   "devDependencies": {
     "husky": "^4.3.0"
+  },
+  "dependencies": {
+    "cypress": "8.1.0"
   }
 }

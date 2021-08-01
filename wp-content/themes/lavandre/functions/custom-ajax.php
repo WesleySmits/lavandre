@@ -196,7 +196,10 @@ function update_cart_item() {
 
 
 function ajax_MailchimpSubscribe() {
+    $firstName = $_POST['firstName'];
+    $companyName = $_POST['companyName'];
     $email = $_POST['email'];
+
     $mailchimp = new \MailchimpMarketing\ApiClient();
     $apiKey = '8ae12503b5f6c8e3d9c5fc2f8a7bbd9a-us17';
     $server = 'us17';
@@ -217,11 +220,24 @@ function ajax_MailchimpSubscribe() {
     }
 
     try {
-        $response = $mailchimp->lists->setListMember($list_id, $subscriber_hash, [
+        $mergeFields = [];
+        $data = [
             "email_address" => $email,
             "status" => "subscribed",
             "status_if_new" => "subscribed"
-        ]);
+        ];
+
+        if ($firstName) {
+            $mergeFields["FNAME"] = $firstName;
+        }
+
+        if ($companyName) {
+            $mergeFields["CNAME"] = $companyName;
+        }
+
+        $data['merge_fields'] = $mergeFields;
+
+        $response = $mailchimp->lists->setListMember($list_id, $subscriber_hash, $data);
     } catch (MailchimpMarketing\ApiException $e) {
         wp_send_json_error( [__('U bent al ingeschreven.')] );
         echo $e->getMessage();
