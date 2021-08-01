@@ -1,9 +1,10 @@
 /// <reference types="cypress" />
 import { adminAjaxUrl } from "../../../support/form/form";
+import { endpoints } from "../../../support/objects/endpoints";
 
 describe("Product detail tests", () => {
     beforeEach(() => {
-        cy.visit("/product/organic-handdoek-80x40-wit/");
+        cy.visit(endpoints.productDetail);
     });
 
     it("should display image and thumbnails", () => {

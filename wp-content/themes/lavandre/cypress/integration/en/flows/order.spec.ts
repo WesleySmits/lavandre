@@ -1,3 +1,5 @@
+import { endpoints } from "../../../support/objects/endpoints";
+
 let productPrice: string = '';
 let shippingPrice: string = '5,95';
 let vatPrice: string = '';
@@ -9,7 +11,7 @@ describe('Test the order flow', () => {
         cy.clearLocalStorage();
 
         cy.viewport('macbook-16')
-        cy.visit("/product/organic-handdoek-80x40-wit/");
+        cy.visit(endpoints.productDetail);
         cy.get('[data-product-price]').invoke('text').then((text) => {
             productPrice = text;
         });
