@@ -49,7 +49,11 @@ function ww_custom_cart() {
                         <?php echo $woocommerce->cart->cart_contents_count; ?>
                     </span>
 
-                    <span><?php _e('articles', 'lavandre'); ?> - <?php _e('total', 'lavandre'); ?></span>
+                    <?php if (count($items) === 1) { ?>
+                        <span><?php _e('article', 'lavandre'); ?> - <?php _e('total', 'lavandre'); ?></span>
+                    <?php } else { ?>
+                        <span><?php _e('articles', 'lavandre'); ?> - <?php _e('total', 'lavandre'); ?></span>
+                    <?php } ?>
                 </span>
                 <data value="<?php echo $woocommerce->cart->get_subtotal(); ?>" data-total-price>
                     <?php echo wc_price($woocommerce->cart->get_subtotal()); ?>
