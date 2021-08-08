@@ -1,7 +1,7 @@
 <div class="ww-sub-menu hidden" data-lazyload>
     <div class="ww-container flex">
         <figure class="ww-sub-menu__figure">
-            <a href="/duurzaamheid/verantwoordelijk-handelen/">
+            <a href="/sustainability/sustainable-production/">
                 <?php $image = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/acting-responsibly.jpeg' ?>
 
                 <img
@@ -16,7 +16,7 @@
         </figure>
 
         <figure class="ww-sub-menu__figure">
-            <a href="/duurzaamheid/duurzame-productie/">
+            <a href="/sustainability/sustainable-production/">
                 <?php $image = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/sustainable-production.jpeg' ?>
 
                 <img
@@ -31,7 +31,7 @@
         </figure>
 
         <figure class="ww-sub-menu__figure">
-            <a href="/duurzaamheid/afgeleid-uit-de-natuur/">
+            <a href="/sustainability/derived-from-nature/">
                 <?php $image = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/derived-from-nature.jpeg' ?>
                 <img
                     src=""
@@ -45,7 +45,7 @@
         </figure>
 
         <figure class="ww-sub-menu__figure">
-            <a href="/duurzaamheid/bijdragen-aan-de-natuur/">
+            <a href="/sustainability/contributing-to-nature/">
                 <?php $image = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/contributing-to-nature.jpeg' ?>
 
                 <img

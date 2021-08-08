@@ -7,19 +7,19 @@
     <section class="ww-footer__top">
         <ul class="usp-list ww-container flex flex-xs-column flex-md-row">
             <li class="usp-list__item">
-                <a href="/klantenservice/bestellen-en-bezorgen/" data-panel="order-delivery">
+                <a href="/customer-service/order-and-delivery/" data-panel="order-delivery">
                     <?php include get_stylesheet_directory() . '/partials/icons/check.svg.php'; ?>
                     <span><?php _e('Free delivery from 75 euros', 'lavandre'); ?></span>
                 </a>
             </li>
             <li class="usp-list__item">
-                <a href="/klantenservice/bestellen-en-bezorgen/" data-panel="order-delivery">
+                <a href="/customer-service/order-and-delivery/" data-panel="order-delivery">
                     <?php include get_stylesheet_directory() . '/partials/icons/check.svg.php'; ?>
                     <span><?php echo get_first_delivery_date(); ?></span>
                 </a>
             </li>
             <li class="usp-list__item">
-                <a href="/klantenservice/bestellen-en-bezorgen/" data-panel="order-delivery">
+                <a href="/customer-service/order-and-delivery/" data-panel="order-delivery">
                     <?php include get_stylesheet_directory() . '/partials/icons/check.svg.php'; ?>
                     <span><?php _e('14 day return policy', 'lavandre'); ?></span>
                 </a>
@@ -114,11 +114,11 @@
                     </header>
 
                     <ul class="no-list" data-curtain-content="footer-column-1" data-only-on-mobile="true">
-                        <li class="footer-links__item"><a class="footer-links__anchor" href="/klantenservice/"><?php _e('Customer service', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/"><?php _e('Customer service', 'lavandre'); ?></a></li>
                         <li class="footer-links__item"><a class="footer-links__anchor" href="/contact/"><?php _e('Contact', 'lavandre'); ?></a></li>
-                        <li class="footer-links__item"><a class="footer-links__anchor" href="/klantenservice/betalen/"><?php _e('Payment', 'lavandre'); ?></a></li>
-                        <li class="footer-links__item"><a class="footer-links__anchor" href="/klantenservice/bestellen-en-bezorgen/"><?php _e('Ordering and delivery', 'lavandre'); ?></a></li>
-                        <li class="footer-links__item"><a class="footer-links__anchor" href="/klantenservice/retourneren/"><?php _e('Returns', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/payment/"><?php _e('Payment', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/order-and-delivery/"><?php _e('Ordering and delivery', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/returns/"><?php _e('Returns', 'lavandre'); ?></a></li>
                     </ul>
                 </section>
 
@@ -129,9 +129,9 @@
 
                     <ul class="no-list" data-curtain-content="footer-column-2" data-only-on-mobile="true">
                         <li class="footer-links__item"><a class="footer-links__anchor" href="/my-account/"><?php _e('My account', 'lavandre'); ?></a></li>
-                        <li class="footer-links__item"><a class="footer-links__anchor" href="/klantenservice/betalen/"><?php _e('Payment', 'lavandre'); ?></a></li>
-                        <li class="footer-links__item"><a class="footer-links__anchor" href="/klantenservice/bestellen-en-bezorgen/"><?php _e('Ordering and delivery', 'lavandre'); ?></a></li>
-                        <li class="footer-links__item"><a class="footer-links__anchor" href="/klantenservice/retourneren/"><?php _e('Returns', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/payment/"><?php _e('Payment', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/order-and-delivery/"><?php _e('Ordering and delivery', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/returns/"><?php _e('Returns', 'lavandre'); ?></a></li>
                     </ul>
                 </section>
 
@@ -151,11 +151,11 @@
                     </header>
 
                     <ul class="no-list" data-curtain-content="footer-column-4" data-only-on-mobile="true">
-                        <li class="footer-links__item"><a class="footer-links__anchor" href="/duurzaamheid/"><?php _e('Sustainability', 'lavandre'); ?></a></li>
-                        <li class="footer-links__item"><a class="footer-links__anchor" href="/duurzaamheid/verantwoordelijk-handelen/"><?php _e('Acting responsibly', 'lavandre'); ?></a></li>
-                        <li class="footer-links__item"><a class="footer-links__anchor" href="/duurzaamheid/duurzame-productie/"><?php _e('Sustainable production', 'lavandre'); ?></a></li>
-                        <li class="footer-links__item"><a class="footer-links__anchor" href="/duurzaamheid/afgeleid uit de natuur/"><?php _e('Derived from nature', 'lavandre'); ?></a></li>
-                        <li class="footer-links__item"><a class="footer-links__anchor" href="/duurzaamheid/bijdragen-aan-de-natuur/"><?php _e('Contributing to nature', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor" href="/sustainability/"><?php _e('Sustainability', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor" href="/sustainability/acting-responsibly/"><?php _e('Acting responsibly', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor" href="/sustainability/sustainable-production/"><?php _e('Sustainable production', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor" href="/sustainability/derived-from-nature/"><?php _e('Derived from nature', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor" href="/sustainability/contributing-to-nature/"><?php _e('Contributing to nature', 'lavandre'); ?></a></li>
                     </ul>
                 </section>
             </div>
