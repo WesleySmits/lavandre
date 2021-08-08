@@ -57,7 +57,7 @@ function ww_wc_login_register() {
             </header>
 
             <p>
-                <?php esc_html_e('Registreer u gratis om te genieten van vele voordelen. Met onderstaande gegevens kunt u in de toekomst inloggen op onze website.', 'woocommerce') ?>
+                <?php esc_html_e('Register for free to enjoy many benefits. With the information below you can log in to our website in the future.', 'lavandre') ?>
             </p>
 
             <form method="post" class="woocommerce-form woocommerce-form-register register" <?php do_action( 'woocommerce_register_form_tag' ); ?> >
@@ -71,15 +71,15 @@ function ww_wc_login_register() {
 
         <section class="customer-login__guest-option">
             <header>
-                <h3><?php esc_html_e( 'Bestellen als gast', 'woocommerce' ); ?></h3>
+                <h3><?php esc_html_e( 'Order as a guest user', 'woocommerce' ); ?></h3>
             </header>
 
             <p>
-                <?php esc_html_e('Wanneer je bestelt als gast maak je geen account aan en kan je geen gebruik maken van de vele voordelen van een account.', 'woocommerce') ?>
+                <?php esc_html_e('When you order as a guest you do not create an account and you cannot use the many advantages of an account.', 'lavandre') ?>
             </p>
 
             <a href="/checkout/?createAccount=false" class="cta-button alt">
-                <?php echo __('Bestellen als gast', 'woocommerce'); ?>
+                <?php echo __('Order as a guest user', 'woocommerce'); ?>
             </a>
         </section>
 	</div>
