@@ -33,7 +33,10 @@ function get_month_name($month) {
     return $monthNames[$month - 1];
 }
 
-function get_first_delivery_date($locale = 'nl_NL') {
+function get_first_delivery_date($locale = '') {
+    if (!$locale) {
+        $locale = get_locale();
+    }
     $dateText = get_delivery_date_text($locale);
     return sprintf( __( 'Order now, receive it on %s', 'lavandre' ), $dateText );
 }

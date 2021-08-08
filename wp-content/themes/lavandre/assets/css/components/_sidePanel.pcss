@@ -168,17 +168,26 @@
 .side-panel__navigation {
     padding: 0;
 
-    li {
-        border-bottom: 1px solid var(--color-border);
+    &:not(.side-panel__navigation--no-border) {
+        li {
+            border-bottom: 1px solid var(--color-border);
 
-        &:first-child {
-            border-top: 1px solid var(--color-border);
+            &:first-child {
+                border-top: 1px solid var(--color-border);
+            }
         }
     }
 
     a {
         display: block;
         padding: 1rem 1.25rem;
+    }
+
+    &--compact {
+        a {
+            font-size: .8125rem;
+            padding-block: .5rem;
+        }
     }
 }
 

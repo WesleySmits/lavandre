@@ -75,7 +75,7 @@ $user_id = get_current_user_id();
             <?php _e('Starting January 2021 we will automatically plant a tree for each item that we sell through our webshop in collaboration with our partner, Eden Reforestation Projects. This way, we ensure that we can enjoy the beautiful nature for years to come.', 'lavandre'); ?>
         </p>
 
-        <a href="/duurzaamheid/bijdragen-aan-de-natuur/" class="cta-button cta-button--secondary"><?php _e('Read more', 'lavandre'); ?></a>
+        <a href="/sustainability/contributing-to-nature/" class="cta-button cta-button--secondary"><?php _e('Read more', 'lavandre'); ?></a>
     </div>
 
     <div class="tree-planting-campaign__video flex-col-xs-12 flex-col-md-6">

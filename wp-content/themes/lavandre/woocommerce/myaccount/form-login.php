@@ -77,7 +77,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             </header>
 
             <p>
-                <?php esc_html_e('Registreer u gratis om te genieten van vele voordelen. Met onderstaande gegevens kunt u in de toekomst inloggen op onze website.', 'woocommerce') ?>
+                <?php esc_html_e('Register for free to enjoy many benefits. With the information below you can log in to our website in the future.', 'lavandre') ?>
             </p>
 
             <form method="post" class="woocommerce-form woocommerce-form-register register" <?php do_action( 'woocommerce_register_form_tag' ); ?> >

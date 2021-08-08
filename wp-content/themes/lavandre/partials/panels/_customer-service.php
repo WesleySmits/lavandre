@@ -14,7 +14,7 @@
                     </button>
                 </header>
 
-                <nav class="side-panel__section side-panel__section--bordered side-panel__navigation">
+                <nav class="side-panel__section side-panel__section--bordered side-panel__navigation side-panel__navigation--no-border side-panel__navigation--compact">
                     <ul class="no-list">
                         <li>
                             <a href="/customer-service">
