@@ -7,14 +7,14 @@ class Address {
     private int $houseNumber;
     private int $houseNumberAddition;
     private string $city;
-    private int $postalCode;
+    private string $postalCode;
 
     public function __construct(
         string $initStreet,
         int $initHouseNumber,
         int $houseNumberAddition,
         string $initCity,
-        int $initZip
+        string $initZip
     ) {
         $this->setStreet($initStreet);
         $this->setHouseNumber($initHouseNumber);

@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <div class="ww-site-header__middle flex">
         <div class="ww-container flex flex-nowrap flex-align-items-center">
-            <button class="ww-site-header__menu-toggle no-button hide-on-desktop" class="no-button" data-panel="mobile-menu" aria-label="mobile-menu-toggle">
+            <button class="ww-site-header__menu-toggle no-button hide-on-desktop" data-panel="mobile-menu" aria-label="mobile-menu-toggle">
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lavandre/partials/icons/bars.svg.php'; ?>
             </button>
 
