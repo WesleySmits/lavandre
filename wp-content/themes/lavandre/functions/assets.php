@@ -150,6 +150,10 @@ function loadWebpackModules(): void {
         loadEncoreModule('landingspage-styles');
     }
 
+    if (is_page_template('template-parts/about.php')) {
+        loadEncoreModule('about-styles');
+    }
+
     // #TODO: Get id's somehow
     if (
         (is_account_page() && !is_user_logged_in())
