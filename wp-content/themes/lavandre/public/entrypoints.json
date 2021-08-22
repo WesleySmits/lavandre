@@ -41,7 +41,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/critical-styles.f0d24ad7.css"
+        "/critical-styles.62075d01.css"
       ]
     },
     "deferred-styles": {
@@ -60,6 +60,14 @@
         "/homepage-styles.4226c348.css"
       ]
     },
+    "about-styles": {
+      "js": [
+        "/runtime.a0037f62.js"
+      ],
+      "css": [
+        "/about-styles.0b0889d1.css"
+      ]
+    },
     "checkout-styles": {
       "js": [
         "/runtime.a0037f62.js"
@@ -73,7 +81,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/login-styles.b0bdeaff.css"
+        "/login-styles.08e02e10.css"
       ]
     },
     "product-styles": {
@@ -81,7 +89,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/product-styles.1e636ad2.css"
+        "/product-styles.27615d47.css"
       ]
     },
     "product-overview-styles": {
@@ -89,7 +97,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/product-overview-styles.d0c184b7.css"
+        "/product-overview-styles.b1c65706.css"
       ]
     },
     "account-styles": {
@@ -97,7 +105,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/account-styles.1f6612dc.css"
+        "/account-styles.6e3ea738.css"
       ]
     },
     "customerServiceStyles": {
@@ -105,7 +113,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/customerServiceStyles.b8ef88bb.css"
+        "/customerServiceStyles.15eef465.css"
       ]
     },
     "sustainability-styles": {
@@ -113,7 +121,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/sustainability-styles.b3990674.css"
+        "/sustainability-styles.42b4d72c.css"
       ]
     },
     "landingspage-styles": {
@@ -121,7 +129,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/landingspage-styles.19f29dc4.css"
+        "/landingspage-styles.556d3db4.css"
       ]
     }
   }

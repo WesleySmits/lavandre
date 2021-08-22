@@ -1,0 +1,80 @@
+@import "../variables/variables.pcss";
+
+.about__header {
+    font-size: .875rem;
+
+    &__title {
+        margin-bottom: 2rem;
+    }
+}
+
+.about__text-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+
+    @media (--tablet) {
+        flex-direction: row;
+    }
+}
+
+.about__text {
+    @media (--up-to-tablet) {
+        &:not(:first-child) {
+            margin-top: 2rem;
+        }
+    }
+
+    @media (--tablet) {
+        flex-basis: 48%;
+        max-width: 48%;
+    }
+}
+
+.about__intro__wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (--tablet) {
+        flex-direction: row;
+    }
+}
+
+.about__intro__text {
+    @media (--tablet) {
+        flex-basis: 48%;
+        max-width: 48%;
+    }
+}
+
+.about__intro__banner-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (--tablet) {
+        flex-basis: 41.66667%;
+        max-width: 41.66667%;
+    }
+
+    .about__intro__banner {
+        width: 95vw;
+        height: 95vw;
+        max-width: 528px;
+        max-height: 528px;
+        max-width: 100%;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 50%;
+
+        @media (--up-to-tablet) {
+            margin-top: 2rem;
+        }
+    }
+}
+
+.about__bottom-banner {
+    margin-top: 2rem;
+}
