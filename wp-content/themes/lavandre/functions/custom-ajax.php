@@ -316,6 +316,16 @@ function ajax_getVariantPrice() {
 }
 
 function ajax_login() {
+    $validRecaptcha = verifyRecaptchaToken($_POST['recaptchaToken']);
+
+    if ($validRecaptcha->success === false) {
+        wp_send_json_error(array('Recaptcha not valid'), 400);
+    }
+
+    if ($validRecaptcha->score <= 0.6) {
+        wp_send_json_error(array('score too low'), 400);
+    }
+
     $info = array();
     $info['user_login'] = $_POST['username'];
     $info['user_password'] = $_POST['password'];
@@ -333,7 +343,26 @@ function ajax_login() {
     wp_die();
 }
 
+function verifyRecaptchaToken(string $token) {
+    $client = new GuzzleHttp\Client();
+    $res = $client->get('https://www.google.com/recaptcha/api/siteverify?secret=6Ldv2RkcAAAAAFkr8F3X2D548m3z1X66-SA0KI60&response=' . $token);
+    $response = (string) $res->getBody();
+    $json = json_decode($response);
+
+    return $json;
+}
+
 function ajax_register() {
+    $validRecaptcha = verifyRecaptchaToken($_POST['recaptchaToken']);
+
+    if ($validRecaptcha->success === false) {
+        wp_send_json_error(array('Recaptcha not valid'), 400);
+    }
+
+    if ($validRecaptcha->score <= 0.6) {
+        wp_send_json_error(array('score too low'), 400);
+    }
+
     $user_data = array(
         'user_login' => $_POST['email'],
         'user_email' => $_POST['email'],
@@ -350,7 +379,7 @@ function ajax_register() {
     if (!is_wp_error($user_id)) {
 
         $info = array();
-        $info['user_login'] = $_POST['username'];
+        $info['user_login'] = $_POST['email'];
         $info['user_password'] = $_POST['password'];
         $info['remember'] = true;
 
@@ -385,7 +414,7 @@ function ajax_register() {
         if (isset($user_id->errors['empty_user_login'])) {
             wp_send_json_error(array('User Name and Email are mandatory'), 401);
         } elseif (isset($user_id->errors['existing_user_login'])) {
-            wp_send_json_error(array('User name already exixts.'), 500);
+            wp_send_json_error(array('User name already exists.'), 500);
         } else {
             wp_send_json_error(array(__('Error Occured please fill in the sign up form carefully.')), 500);
         }

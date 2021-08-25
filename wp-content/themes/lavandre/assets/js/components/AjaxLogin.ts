@@ -1,5 +1,6 @@
 import Component from '../common/Component';
 import { ToastType } from '../enums/ToastType';
+import { loadRecaptcha, sitekey } from '../util/loadRecaptcha';
 import { sendAjaxRequest } from '../util/requests';
 import { FieldValidation } from './FieldValidation';
 import Toast from './Toast';
@@ -24,6 +25,10 @@ export default class AjaxLogin extends Component {
 
     private setEventListeners() {
         const fields: HTMLInputElement[] = Array.from(this.form.querySelectorAll('input'));
+
+        // Load recaptcha
+        loadRecaptcha(fields);
+
         for (let index = 0; index < fields.length; index++) {
             const field = fields[index];
             const validator: FieldValidation = new FieldValidation(field);
@@ -54,14 +59,22 @@ export default class AjaxLogin extends Component {
                 return;
             }
 
-            const data = {
-                action: 'ajaxlogin',
-				'username': username,
-				'password': password,
-            };
+            // @ts-ignore
+            const grecaptcha = window.grecaptcha;
 
-            const submitButton: HTMLButtonElement | undefined = this.form.querySelector('button[type="submit"]') as HTMLButtonElement || undefined;
-            sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), this.onFailure.bind(this), event, submitButton);
+            grecaptcha.ready(() => {
+                grecaptcha.execute(sitekey, { action: 'AjaxLogin' }).then((token: string) => {
+                    const data = {
+                        'action': 'ajaxlogin',
+                        'recaptchaToken': token,
+                        'username': username,
+                        'password': password,
+                    };
+
+                    const submitButton: HTMLButtonElement | undefined = this.form.querySelector('button[type="submit"]') as HTMLButtonElement || undefined;
+                    sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), this.onFailure.bind(this), event, submitButton);
+                });
+            });
 
             return false;
         });
