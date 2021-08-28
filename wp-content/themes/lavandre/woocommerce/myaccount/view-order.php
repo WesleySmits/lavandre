@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
 <div class="back-to-section flex">
     <a href="/my-account/orders/" class="cta-button alt inline back-to-cart-button">
         <?php include get_stylesheet_directory() . '/partials/icons/back.svg.php'; ?>
-        <span><?php _e('Terug naar overzicht', 'woocommerce');?></span>
+        <span><?php _e('Back to overview', 'lavandre');?></span>
     </a>
 </div>
 

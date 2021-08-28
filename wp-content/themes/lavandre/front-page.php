@@ -61,9 +61,9 @@
             <p><?php _e('We stand for responsibility and a more sustainable lifestyle. By offering sustainable quality products, we want to make a difference in the daily lives of our customers and work towards a green future. By staying close to nature and making optimal and responsible use of what it has to offer, we are able to deliver the best products. That contribute to a better and sustainable society.', 'lavandre'); ?></p>
 
             <h2><?php _e('Single use', 'lavandre'); ?></h2>
-            <p><?php sprintf(_e('Disposable towels are more hygienic (single use), more durable (completely biodegradable and are not washed, which is harmful to the environment), easier (absorbs better and immediately ready for use) and also cheaper (all costs added up can be between %s and %s save).', 'lavandre'), '25%', '50%'); ?></p>
+            <p><?php echo sprintf(__('Disposable towels are more hygienic (single use), more durable (completely biodegradable and are not washed, which is harmful to the environment), easier (absorbs better and immediately ready for use) and also cheaper (all costs added up can be between %s and %s save).', 'lavandre'), '25%', '50%'); ?></p>
 
-            <h2><?php sprintf(_e('%s green', 'lavandre'), '100%'); ?></h2>
+            <h2><?php echo sprintf(__('%s green', 'lavandre'), '100%'); ?></h2>
             <p><?php _e('Our disposable products are produced in an ecologically responsible way from surplus plant fibers. As a result, we do not have to cut down trees and the production of our products does not harm the environment. By using our collection of sustainable towels you can drastically reduce your laundry. Our towels are safe to dispose of in the knowledge that they will biodegrade in as little as 8-12 weeks. By saving your laundry, you save on electricity bills and reduce your emissions of CO2 and polluted water.', 'lavandre'); ?></p>
          </div>
 
@@ -86,7 +86,7 @@
 
             <li class="usp-icons__item">
                 <?php include get_stylesheet_directory() . '/partials/icons/earth.svg.php'; ?>
-                <h3 class="usp-icons__title"><?php sprintf(_e('%s green', 'lavandre'), '100%'); ?></h3>
+                <h3 class="usp-icons__title"><?php echo sprintf(__('%s green', 'lavandre'), '100%'); ?></h3>
             </li>
 
             <li class="usp-icons__item">

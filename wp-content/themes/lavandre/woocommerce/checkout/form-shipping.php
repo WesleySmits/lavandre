@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
 		</div>
 
 		<h3 class="checkout-column__title">
-			<?php echo __('Afleveradres', 'woocommerce'); ?>
+			<?php echo __('Shipping address', 'lavandre'); ?>
 		</h3>
 
 		<p class="form-row form-row-wide">
@@ -39,7 +39,7 @@ defined( 'ABSPATH' ) || exit;
 					value="0"
 				/>
 				<span>
-					<?php esc_html_e( 'Levering aan mijn factuuradres', 'woocommerce' ); ?>
+					<?php esc_html_e( 'Deliver to my billing address', 'lavandre' ); ?>
 				</span>
 			</label>
 		</p>
@@ -55,7 +55,7 @@ defined( 'ABSPATH' ) || exit;
 					<?php echo get_option( 'lavandre_ship_to_different_address_by_default', false ) ? 'checked' : ''; ?>
 				/>
 				<span>
-					<?php esc_html_e( 'Nieuw afleveradres', 'woocommerce' ); ?>
+					<?php esc_html_e( 'New shipping address', 'lavandre' ); ?>
 				</span>
 			</label>
 		</p>
