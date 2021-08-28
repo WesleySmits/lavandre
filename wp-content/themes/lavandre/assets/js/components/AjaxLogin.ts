@@ -1,4 +1,5 @@
 import Component from '../common/Component';
+import DataLayer from '../common/DataLayer';
 import { ToastType } from '../enums/ToastType';
 import { loadRecaptcha, sitekey } from '../util/loadRecaptcha';
 import { sendAjaxRequest } from '../util/requests';
@@ -115,6 +116,13 @@ export default class AjaxLogin extends Component {
         }
 
         document.body.classList.add('logged-in');
+
+        const data: GoogleAnalyticsEvent = {
+            event: 'login',
+            method: 'AjaxLogin'
+        };
+
+        DataLayer.push(data);
     }
 
     private onFailure(res: string): void {
