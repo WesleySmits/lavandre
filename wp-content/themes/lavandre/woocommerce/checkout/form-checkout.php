@@ -74,11 +74,11 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 	<div id="payment-methods" class="woocommerce-checkout-payment-methods checkout-column">
 		<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
-		<h3 id="order_review_heading" class="checkout-column__title"><?php esc_html_e( 'Overzicht', 'woocommerce' ); ?></h3>
+		<h3 id="order_review_heading" class="checkout-column__title"><?php esc_html_e( 'Overview', 'lavandre' ); ?></h3>
 		<?php do_action( 'woocommerce_checkout_order_review' ); ?>
 		<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
 
-        <h3 class="checkout-column__title"><?php esc_html_e( 'Betalen', 'woocommerce' ); ?></h3>
+        <h3 class="checkout-column__title"><?php esc_html_e( 'Payment', 'lavandre' ); ?></h3>
         <?php do_action( 'woocommerce_checkout_order_payment_methods' ); ?>
     </div>
 

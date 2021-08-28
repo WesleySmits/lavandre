@@ -47,7 +47,7 @@ if ( ! is_ajax() ) {
 		<?php wc_get_template( 'checkout/terms.php' ); ?>
 
 		<?php do_action( 'woocommerce_review_order_before_submit' ); ?>
-		<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . __('Betalen', 'woocommerce') . '">' . __('Betalen', 'woocommerce') . '</button>' ); // @codingStandardsIgnoreLine ?>
+		<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . __('Checkout', 'lavandre') . '">' . __('Checkout', 'lavandre') . '</button>' ); // @codingStandardsIgnoreLine ?>
 		<?php do_action( 'woocommerce_review_order_after_submit' ); ?>
 
         <div id="woocommerce-checkout-error-wrapper"></div>

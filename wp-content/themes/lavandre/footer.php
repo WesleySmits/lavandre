@@ -141,7 +141,7 @@
                     </header>
 
                     <ul class="no-list" data-curtain-content="footer-column-3" data-only-on-mobile="true">
-                        <li class="footer-links__item"><a class="footer-links__anchor" href="/over-ons/"><?php _e('About us', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor" href="/about-us/"><?php _e('About us', 'lavandre'); ?></a></li>
                     </ul>
                 </section>
 
