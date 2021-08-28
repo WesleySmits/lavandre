@@ -17,6 +17,7 @@ include(get_stylesheet_directory() . '/functions/assets.php');
 include(get_stylesheet_directory() . '/functions/customizer.php');
 include(get_stylesheet_directory() . '/functions/faq.php');
 include(get_stylesheet_directory() . '/functions/custom-ajax.php');
+include(get_stylesheet_directory() . '/functions/pixels.php');
 
 include(get_stylesheet_directory() . '/functions/woocommerce-tweaks.php');
 include(get_stylesheet_directory() . '/functions/woocommerce-breadcrumbs.php');

@@ -1,4 +1,5 @@
 import Component from '../common/Component';
+import DataLayer from '../common/DataLayer';
 import { ToastType } from '../enums/ToastType';
 import { loadRecaptcha, sitekey } from '../util/loadRecaptcha';
 import { sendAjaxRequest } from '../util/requests';
@@ -135,6 +136,13 @@ export default class AjaxRegister extends Component {
         }
 
         document.body.classList.add('logged-in');
+
+        const data: GoogleAnalyticsEvent = {
+            event: 'sign-up',
+            method: 'AjaxRegister'
+        };
+
+        DataLayer.push(data);
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {

@@ -3,9 +3,9 @@ type dataLayer = StandardObjectInterface & {
 };
 
 type GoogleAnalyticsEvent = dataLayer & {
-    eventCategory: string,
-    eventAction: string,
-    eventLabel: string,
+    eventCategory?: string,
+    eventAction?: string,
+    eventLabel?: string,
     eventValue?: number
 };
 
