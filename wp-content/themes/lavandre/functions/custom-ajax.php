@@ -1,14 +1,10 @@
 <?php
 
 function ajax_auth_init() {
-    add_action('wp_ajax_no_priv_ajaxemailcheck', 'ajax_emailCheck');
     add_action('wp_ajax_nopriv_ajaxemailcheck', 'ajax_emailCheck');
-
-    add_action( 'wp_ajax_no_priv_ajaxlogin', 'ajax_login' );
     add_action( 'wp_ajax_nopriv_ajaxlogin', 'ajax_login' );
-
-    add_action( 'wp_ajax_no_priv_ajaxregister', 'ajax_register' );
     add_action( 'wp_ajax_nopriv_ajaxregister', 'ajax_register' );
+    add_action( 'wp_ajax_nopriv_ajaxforgotpassword', 'ajax_forgotPassword' );
 }
 
 // Execute the action only if the user isn't logged in
@@ -35,10 +31,7 @@ add_action( 'wp_ajax_nopriv_coupon_code_remove', 'coupon_code_remove' );
 add_action('wp_ajax_mailchimpsubscribe', 'ajax_MailchimpSubscribe');
 add_action('wp_ajax_nopriv_mailchimpsubscribe', 'ajax_MailchimpSubscribe');
 
-add_action( 'wp_ajax_no_priv_ajaxforgotpassword', 'ajax_forgotPassword' );
-add_action( 'wp_ajax_nopriv_ajaxforgotpassword', 'ajax_forgotPassword' );
-
-add_action( 'wp_ajax_no_priv_ajaxgetvariantprice', 'ajax_getVariantPrice' );
+add_action( 'wp_ajax_ajaxgetvariantprice', 'ajax_getVariantPrice' );
 add_action( 'wp_ajax_nopriv_ajaxgetvariantprice', 'ajax_getVariantPrice' );
 
 function coupon_code_remove() {

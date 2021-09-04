@@ -57,7 +57,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
                             <label class="bold"><?php echo wc_attribute_label($attribute_name); ?></label>
                         <?php endif; ?>
 
-                        <div class="product-detail__variation">
+                        <div class="product-detail__variation custom-radio--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>">
                             <input
                                 id="<?php echo $id; ?>"
                                 type="radio"
@@ -66,7 +66,9 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
                                 <?php echo ($isFirst) ? 'checked' : '' ?>
                                 required
                             >
-                            <label for="<?php echo $id; ?>"><?php echo $label; ?></label>
+                            <label for="<?php echo $id; ?>" data-value="<?php echo $value; ?>">
+                                <span><?php echo $label; ?></span>
+                            </label>
                         </div>
                     <?php endforeach; ?>
                 </div>

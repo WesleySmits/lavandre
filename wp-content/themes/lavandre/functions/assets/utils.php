@@ -13,6 +13,8 @@
 
     /* IMAGE KIT METHODS */
     function get_image_kit_url(string $src) {
+        return $src;
+
         $baseUrl = get_site_url();
         $newSrc = str_replace($baseUrl, 'https://ik.imagekit.io/gw83zqxvr9d/', $src);
         return $newSrc;

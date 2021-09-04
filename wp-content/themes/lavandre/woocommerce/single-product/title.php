@@ -20,3 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 the_title( '<h1 class="product-detail__title">', '</h1>' );
+?>
+
+<small class="product-detail__amount"><?php printf(__('Packed per %s pieces', 'lavandre'), 1500000); ?></small>
+
+<?php

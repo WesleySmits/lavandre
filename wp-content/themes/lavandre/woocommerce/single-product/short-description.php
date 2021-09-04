@@ -27,6 +27,5 @@ if ( ! $post->post_excerpt ) {
 
 ?>
 <div class="product-detail__size-info">
-    <?php $label = '<strong>' . __('Size', 'lavandre') . '</strong>'; ?>
-    <p><?php echo $label . ': ' . $post->post_excerpt; // WPCS: XSS ok. ?></p>
+    <?php echo $post->post_excerpt; ?>
 </div>

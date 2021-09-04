@@ -59,7 +59,7 @@ describe("Product detail tests", () => {
         cy.get('.product-detail__price [data-product-price]').first().invoke('text')
             .then((text) => { price = text;});
 
-        cy.get('[name="attribute_pa_pack-size"][value="multi-pack-600-towels"]')
+        cy.get('[name="attribute_pa_amount"][value="multi-pack-600-towels"]')
             .should("exist")
             .check();
 
@@ -73,7 +73,7 @@ describe("Product detail tests", () => {
     });
 
     it("should throw an error when adding to the cart without selecting options", (done) => {
-        cy.get('[name="attribute_pa_pack-size"]')
+        cy.get('[name="attribute_pa_amount"]')
             .should("exist")
             .each((radio) => {
                 radio.prop("checked", false);
