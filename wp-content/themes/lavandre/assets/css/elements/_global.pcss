@@ -3,6 +3,10 @@ html {
     -webkit-text-size-adjust: 100%;
     box-sizing: border-box;
 
+    &[lang] {
+        margin-top: 0 !important;
+    }
+
     &:focus-within {
         scroll-behavior: smooth;
     }
@@ -23,7 +27,8 @@ body {
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
-    background-color: var(--white);
+    background-color: var(--background-color);
+
 }
 
 hr {

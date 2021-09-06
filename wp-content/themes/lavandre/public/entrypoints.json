@@ -41,7 +41,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/critical-styles.62075d01.css"
+        "/critical-styles.2ab1be55.css"
       ]
     },
     "deferred-styles": {
@@ -49,7 +49,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/deferred-styles.68fe7af5.css"
+        "/deferred-styles.7327ec8e.css"
       ]
     },
     "homepage-styles": {
@@ -89,7 +89,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/product-styles.27615d47.css"
+        "/product-styles.7df612e4.css"
       ]
     },
     "product-overview-styles": {

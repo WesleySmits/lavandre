@@ -32,7 +32,7 @@
     margin-bottom: 2rem;
 
     @media (--tablet) {
-        flex: 0 0 55%;
+        flex: 0 0 63%;
         flex-flow: row nowrap;
         margin-bottom: 0;
     }
@@ -43,41 +43,67 @@
 }
 
 .product-detail__content {
-    flex: 0 0 40%;
-}
-
-.product-detail__title {
-    margin: 0 0 1.25rem;
-    font-size: 1.5rem;
-    line-height: 1.5rem;
-    font-weight: 300;
-    text-transform: capitalize;
-    color: var(--color-text);
+    flex: 0 0 37%;
+    padding: 2.5rem 1.25rem;
 
     @media (--tablet) {
-        font-size: 2rem;
-        line-height: 2rem;
+        padding: 5rem 8rem;
     }
 }
 
-.product-detail__price {
-    font-size: 1rem;
-    line-height: 1rem;
-    font-weight: 700;
+.product-detail__title {
+    margin: 0 0 .75rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
     color: var(--color-text);
+    text-align: center;
+
+    @media (--tablet) {
+        font-size: 2.375rem;
+        line-height: 1.6;
+    }
+}
+
+.product-detail__amount {
+    display: block;
+    margin: 0 0 .75rem;
+    text-align: center;
+    font-size: .75rem;
+}
+
+.product-detail__price {
+    margin: 0 0 .75rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    text-align: center;
 }
 
 .product-detail__size-info {
-    padding: 25px 0;
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
+    font-size: .875rem;
+    text-align: center;
+    color: #2b2b2b;
+    font-weight: 300;
 }
 
 form.cart {
     display: flex;
-    justify-content: flex-start;
-    flex-flow: row wrap;
-    margin: 1.5rem 0;
+    flex-flow: column nowrap;
+    margin: 2.5rem 0;
+    padding: 1.25rem 0;
+
+    border-top: 1px solid var(--color-border);
+
+    .product-detail__quantity-selector {
+        display: flex;
+        flex: 0 0 8rem;
+        height: 3.75rem;
+        align-items: center;
+        justify-content: space-evenly;
+        border: 1px solid #2B2B2B;
+    }
 
     .minus-amount,
     .plus-amount {
@@ -90,15 +116,12 @@ form.cart {
         outline: none;
     }
 
-    .plus-amount {
-        margin-left: 1rem;
-    }
-
     .qty {
         width: 2.625rem;
         height: 2.625rem;
         padding: 0;
-        margin-left: 1rem;
+        background: transparent;
+        border: 0 none;
         box-shadow: none;
         appearance: none;
         -moz-appearance: textfield;
@@ -111,11 +134,11 @@ form.cart {
     }
 
     button[type="submit"] {
-        margin-top: 1rem;
-        flex: 0 0 100%;
+        flex: 1 1 auto;
+        height: 3.75rem;
 
-        background: var(--color-green);
-        border-color: var(--color-green);
+        background: var(--old-burgundy);
+        border-color: var(--old-burgundy);
         color: var(--white);
     }
 }
@@ -209,56 +232,93 @@ form.cart {
     }
 } */
 
-.woocommerce-product-gallery {
-    display: flex;
-    justify-content: space-between;
-}
-
-.woocommerce-product-gallery__image {
-    & > a {
-        display: block;
-        line-height: 0;
-    }
-}
-
-.woocommerce-product-gallery__trigger {
-    display: none;
-}
-
-.product-detail__gallery__images {
-    order: 1;
-
-    @media (--tablet) {
-        order: 2;
-        flex: 0 0 82%;
-    }
-
-    .woocommerce-product-gallery__wrapper,
-    img {
-        width: 100%;
-    }
-}
-
-.product-detail__gallery__image-list {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    order: 2;
-
-    @media (--tablet) {
+.product-detail__gallery {
+    .woocommerce-product-gallery {
         display: flex;
-        flex-flow: column nowrap;
-        flex: 0 0 100%;
+        justify-content: space-between;
+
+        .woocommerce-product-gallery__image {
+            & > a {
+                display: block;
+                line-height: 0;
+            }
+        }
+
+        .woocommerce-product-gallery__trigger {
+            display: none;
+        }
+
+        .product-detail__gallery__images {
+            order: 1;
+
+            @media (--tablet) {
+                order: 2;
+                flex: 0 0 82%;
+            }
+
+            .woocommerce-product-gallery__wrapper,
+            img {
+                width: 100%;
+            }
+        }
+
+        .product-detail__gallery__image-list {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            order: 2;
+
+            @media (--tablet) {
+                display: flex;
+                flex-flow: column nowrap;
+                flex: 0 0 100%;
+            }
+
+            li {
+                position: absolute;
+                display: none;
+
+                &.active {
+                    position: static;
+                    display: initial;
+                }
+            }
+        }
     }
+}
 
-    li {
-        position: absolute;
-        display: none;
+.product-detail__gallery-grid {
+    flex: 1 1 auto;
+    border: 1px solid black;
 
-        &.active {
-            position: static;
-            display: initial;
+    .product-detail__gallery__image-list {
+        display: grid;
+        background: #000000;
+        grid-gap: 1px;
+        grid-template-columns: [column-1] 6fr [column-2] 4fr;
+        grid-template-rows: [row1-start] auto [row2-end] auto;
+
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+            position: relative;
+            grid-column: column-2;
+
+            img {
+                width: 100%;
+                height: 100%;
+                max-height: calc(100vh - 142px);
+                object-fit: cover;
+                object-position: center center;
+            }
+
+            &:first-child {
+                grid-column: column-1;
+                grid-row: span 2;
+            }
         }
     }
 }
@@ -332,10 +392,6 @@ form.cart {
             margin-left: 1rem;
         }
     }
-
-    label {
-        margin-left: .5rem;
-    }
 }
 
 .product-detail__single-variation {
@@ -343,9 +399,11 @@ form.cart {
 
     .woocommerce-variation-add-to-cart {
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: row nowrap;
+        align-items: center;
         flex: 0 0 100%;
         width: 100%;
+        gap: .5rem;
     }
 
     .reset_variations {

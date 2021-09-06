@@ -28,10 +28,11 @@ get_header( 'shop' ); ?>
 		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
 		 * @hooked woocommerce_breadcrumb - 20
 		 */
+        remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 		do_action( 'woocommerce_before_main_content' );
 	?>
 
-    <div class="ww-container ww-container--large product-detail__main">
+    <div class="product-detail__main">
         <?php while ( have_posts() ) : ?>
             <?php the_post(); ?>
 
