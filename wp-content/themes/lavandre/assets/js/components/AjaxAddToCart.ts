@@ -23,13 +23,15 @@ export default class AjaxAddToCart extends Component {
 
     public initialize(): void {
         this.variationFields.forEach((variation) => {
-            variation.addEventListener('change', this.handleChangeVariationAttribute.bind(this))
+            variation.addEventListener('change', () => {
+                this.handleChangeVariationAttribute(variation.name, variation.value);
+            })
         });
 
         this.button.addEventListener('click', this.handleAddToCartClick.bind(this));
     }
 
-    private handleChangeVariationAttribute(): void {
+    private handleChangeVariationAttribute(name = '', value = ''): void {
         const currentOptions: standardObject = {};
         for (let index = 0; index < this.variationFields.length; index++) {
             const variation = this.variationFields[index];
@@ -42,11 +44,53 @@ export default class AjaxAddToCart extends Component {
         }
 
         const variationID: number | null = this.findMatchingVariant(currentOptions);
+        this.disableNonExistingVariants(name, value);
         if (!variationID) {
+            this.setFormInvalid();
             return;
         }
 
         this.form['variation_id'].value = variationID;
+    }
+
+    private setFormInvalid(): void {
+        this.form['product_id'].value = '';
+        this.form['variation_id'].value = '';
+    }
+
+    private disableNonExistingVariants(name: string = '', value = ''): void {
+        if (name === 'attribute_pa_amount') {
+            return;
+        }
+
+        if (name && value) {
+            this.variationFields.forEach((field) => {
+                if (field.name !== name) {
+                    field.disabled = true;
+                }
+            });
+        }
+
+        this.variationData.forEach((variation) => {
+            const attributes: standardObject = variation.attributes;
+
+            if (!attributes) {
+                throw new Error('no attributes');
+            }
+
+            if (attributes[name] !== value) {
+                return;
+            }
+
+            console.log(attributes);
+
+            this.variationFields.forEach((field) => {
+                const match = attributes[field.name];
+                if (match === field.value) {
+                    field.disabled = false;
+                }
+            });
+        });
     }
 
     private findMatchingVariant(currentOptions: standardObject): number | null {
@@ -86,6 +130,7 @@ export default class AjaxAddToCart extends Component {
         event.preventDefault();
 
         let variation_id: number = 0;
+        const productIdElement: HTMLInputElement | null = this.form.querySelector('[name="variation_id"]');
         const variationIdElement: HTMLInputElement | null = this.form.querySelector('[name="variation_id"]');
         if (variationIdElement) {
             variation_id = Number(variationIdElement.value);
