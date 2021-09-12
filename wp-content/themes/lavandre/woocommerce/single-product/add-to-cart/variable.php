@@ -36,41 +36,39 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
         <section class="product-detail__variations">
             <?php foreach ( $attributes as $attribute_name => $options ) : ?>
                 <div class="form-row">
-                    <?php foreach ($options as $key => $value) : ?>
-                        <?php
-                            $terms = get_terms($attribute_name);
-                            $label = '';
-                            $isFirst = ($key === array_key_first($options));
+                    <label class="bold"><?php echo wc_attribute_label($attribute_name); ?></label>
+                    <div class="product-detail-variation-wrapper product-detail-variation-wrapper--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>">
+                        <?php foreach ($options as $key => $value) : ?>
+                            <?php
+                                $terms = get_terms($attribute_name);
+                                $label = '';
+                                $isFirst = ($key === array_key_first($options));
 
-                            foreach ($terms as $term) :
-                                if ($term->slug !== $value) {
-                                    continue;
-                                }
+                                foreach ($terms as $term) :
+                                    if ($term->slug !== $value) {
+                                        continue;
+                                    }
 
-                                $label = $term->name;
-                            endforeach;
+                                    $label = $term->name;
+                                endforeach;
 
-                            $id = $attribute_name . '-' . $value;
-                        ?>
-
-                        <?php if ($isFirst) : ?>
-                            <label class="bold"><?php echo wc_attribute_label($attribute_name); ?></label>
-                        <?php endif; ?>
-
-                        <div class="product-detail__variation custom-radio--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>">
-                            <input
-                                id="<?php echo $id; ?>"
-                                type="radio"
-                                name="<?php echo 'attribute_' . $attribute_name; ?>"
-                                value="<?php echo $value; ?>"
-                                <?php echo ($isFirst) ? 'checked' : '' ?>
-                                required
-                            >
-                            <label for="<?php echo $id; ?>" data-value="<?php echo $value; ?>">
-                                <span><?php echo $label; ?></span>
-                            </label>
-                        </div>
-                    <?php endforeach; ?>
+                                $id = $attribute_name . '-' . $value;
+                            ?>
+                                <div class="product-detail__variation custom-radio--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>">
+                                    <input
+                                        id="<?php echo $id; ?>"
+                                        type="radio"
+                                        name="<?php echo 'attribute_' . $attribute_name; ?>"
+                                        value="<?php echo $value; ?>"
+                                        <?php echo ($isFirst) ? 'checked' : '' ?>
+                                        required
+                                    >
+                                    <label for="<?php echo $id; ?>" data-value="<?php echo $value; ?>">
+                                        <span><?php echo $label; ?></span>
+                                    </label>
+                                </div>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             <?php endforeach; ?>
         </section>
