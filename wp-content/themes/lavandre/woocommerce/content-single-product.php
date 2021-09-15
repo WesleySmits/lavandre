@@ -76,67 +76,25 @@ if ( post_password_required() ) {
                 </div>
             </section> -->
 
-            <accordion-element>
-                <details is="curtain-element">
-                    <summary>
-                        <span>Key Ingredients</span>
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 15 15" xml:space="preserve" aria-hidden="true" data-acsb-hidden="true" data-acsb-force-hidden="true">
-                            <g fill="#2b2b2b">
-                                <polygon points="0.104,4.333 1.165,3.272 7.5,9.607 13.835,3.272 14.896,4.333 7.5,11.728 "></polygon>
-                            </g>
-                        </svg>
-                    </summary>
-                    <div class="curtain-content">
-                        <p>Use wet; gently massaging your skin post cleanse to remove additional oil, grit, and anything else stubbornly sticking around. While this is going on, the face towel will be limiting the reapplication of bacteria, so your skin stays clean.</p>
-                        <p>Use dry; after cleansing, gently patting your face down. You’ll be drying your face whilst stimulating blood flow, helping to trigger skin cell rejuvenation. You’ll also be breaking down any pore-clogging bacteria, dirt, and sebum that could trigger acne, inflammation, and irritation, which is much better than spreading it.</p>
-                    </div>
-                </details>
-
-                <details is="curtain-element">
-                    <summary>
-                        <span>Benefits</span>
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 15 15" xml:space="preserve" aria-hidden="true" data-acsb-hidden="true" data-acsb-force-hidden="true">
-                            <g fill="#2b2b2b">
-                                <polygon points="0.104,4.333 1.165,3.272 7.5,9.607 13.835,3.272 14.896,4.333 7.5,11.728 "></polygon>
-                            </g>
-                        </svg>
-                    </summary>
-                    <div class="curtain-content">
-                        <p>Use wet; gently massaging your skin post cleanse to remove additional oil, grit, and anything else stubbornly sticking around. While this is going on, the face towel will be limiting the reapplication of bacteria, so your skin stays clean.</p>
-                        <p>Use dry; after cleansing, gently patting your face down. You’ll be drying your face whilst stimulating blood flow, helping to trigger skin cell rejuvenation. You’ll also be breaking down any pore-clogging bacteria, dirt, and sebum that could trigger acne, inflammation, and irritation, which is much better than spreading it.</p>
-                    </div>
-                </details>
-
-                <details is="curtain-element">
-                    <summary>
-                        <span>How To Use</span>
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 15 15" xml:space="preserve" aria-hidden="true" data-acsb-hidden="true" data-acsb-force-hidden="true">
-                            <g fill="#2b2b2b">
-                                <polygon points="0.104,4.333 1.165,3.272 7.5,9.607 13.835,3.272 14.896,4.333 7.5,11.728 "></polygon>
-                            </g>
-                        </svg>
-                    </summary>
-                    <div class="curtain-content">
-                        <p>Use wet; gently massaging your skin post cleanse to remove additional oil, grit, and anything else stubbornly sticking around. While this is going on, the face towel will be limiting the reapplication of bacteria, so your skin stays clean.</p>
-                        <p>Use dry; after cleansing, gently patting your face down. You’ll be drying your face whilst stimulating blood flow, helping to trigger skin cell rejuvenation. You’ll also be breaking down any pore-clogging bacteria, dirt, and sebum that could trigger acne, inflammation, and irritation, which is much better than spreading it.</p>
-                    </div>
-                </details>
-
-                <details is="curtain-element">
-                    <summary>
-                        <span>How To Recycle</span>
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 15 15" xml:space="preserve" aria-hidden="true" data-acsb-hidden="true" data-acsb-force-hidden="true">
-                            <g fill="#2b2b2b">
-                                <polygon points="0.104,4.333 1.165,3.272 7.5,9.607 13.835,3.272 14.896,4.333 7.5,11.728 "></polygon>
-                            </g>
-                        </svg>
-                    </summary>
-                    <div class="curtain-content">
-                        <p>Use wet; gently massaging your skin post cleanse to remove additional oil, grit, and anything else stubbornly sticking around. While this is going on, the face towel will be limiting the reapplication of bacteria, so your skin stays clean.</p>
-                        <p>Use dry; after cleansing, gently patting your face down. You’ll be drying your face whilst stimulating blood flow, helping to trigger skin cell rejuvenation. You’ll also be breaking down any pore-clogging bacteria, dirt, and sebum that could trigger acne, inflammation, and irritation, which is much better than spreading it.</p>
-                    </div>
-                </details>
-            </accordion-element>
+            <?php if( have_rows('accordion') ): ?>
+                <accordion-element data-cy="product-info-accordion">
+                    <?php while( have_rows('accordion') ) : the_row(); ?>
+                        <details is="curtain-element">
+                            <summary>
+                                <span><?php echo get_sub_field('title') ?></span>
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 15 15" xml:space="preserve" aria-hidden="true" data-acsb-hidden="true" data-acsb-force-hidden="true">
+                                    <g fill="#2b2b2b">
+                                        <polygon points="0.104,4.333 1.165,3.272 7.5,9.607 13.835,3.272 14.896,4.333 7.5,11.728 "></polygon>
+                                    </g>
+                                </svg>
+                            </summary>
+                            <div class="curtain-content">
+                                <?php echo get_sub_field('description'); ?>
+                            </div>
+                        </details>
+                    <?php endwhile ?>
+                </accordion-element>
+            <?php endif ?>
         </div>
     </div>
 

@@ -19,7 +19,12 @@ class Cart {
 
     constructor() {
         this.eventEmitter.on('template-instantiated', (element: HTMLElement) => {
+            if (!element || !element.dataset.panelName) {
+                return;
+            }
+
             this.initializeCouponCodeForm();
+            console.log('TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST', element);
             if (element.dataset.panelName === 'cart-panel') {
                 this.handleCartPanel(element as InteractableHTMLDialogElement);
                 this.initialize();

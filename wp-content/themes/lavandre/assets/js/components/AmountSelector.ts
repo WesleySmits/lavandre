@@ -8,25 +8,11 @@ export default class AmountSelector extends Component {
 
     constructor(selector: Document | HTMLElement = document) {
         super();
+
         this.buttons = Array.from(selector.querySelectorAll('.plus-amount, .minus-amount'));
     }
 
-    private handleClick: EventListener = (event: Event) => {
-        const target: HTMLElement = event.target as HTMLElement;
-        if (!target || !target.parentElement) {
-            return;
-        }
-
-        const input = target.parentElement.querySelector('.qty');
-        if (!input || !(input instanceof HTMLInputElement)) {
-            return;
-        }
-
-        this.changeAmount(target, input);
-    }
-
     public initialize(): void {
-
         const eventListener: EventListener = (event: Event) => {
             const input: HTMLInputElement = event.target as HTMLInputElement
             if (!input) {
@@ -57,6 +43,25 @@ export default class AmountSelector extends Component {
             button.removeEventListener('click', this.handleClick.bind(this));
             button.addEventListener('click', this.handleClick.bind(this));
         }
+    }
+
+    private handleClick: EventListener = (event: Event) => {
+        const target: HTMLElement = event.target as HTMLElement;
+        if (!target || !target.parentElement) {
+            return;
+        }
+
+        let button = target.closest('button');
+        if (!button || !button.parentElement) {
+            return;
+        }
+
+        const input = button.parentElement.querySelector('.qty');
+        if (!input || !(input instanceof HTMLInputElement)) {
+            return;
+        }
+
+        this.changeAmount(button, input);
     }
 
     private changeAmount(target: HTMLElement, input: HTMLInputElement): void {
