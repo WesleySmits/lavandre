@@ -82,8 +82,6 @@ export default class AjaxAddToCart extends Component {
                 return;
             }
 
-            console.log(attributes);
-
             this.variationFields.forEach((field) => {
                 const match = attributes[field.name];
                 if (match === field.value) {

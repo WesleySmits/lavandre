@@ -115,7 +115,6 @@ export default abstract class Dialog extends Component {
     }
 
     protected close(): void {
-        console.log('close')
         enableBodyScroll();
 
         this.element.classList.remove(this.classes.open);

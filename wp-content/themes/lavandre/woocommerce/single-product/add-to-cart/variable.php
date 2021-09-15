@@ -36,7 +36,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
         <section class="product-detail__variations">
             <?php foreach ( $attributes as $attribute_name => $options ) : ?>
                 <div class="form-row">
-                    <label class="bold"><?php echo wc_attribute_label($attribute_name); ?></label>
+                    <label class="bold product-detail__variation__label product-detail__variation__label--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>"><?php echo wc_attribute_label($attribute_name); ?></label>
                     <div class="product-detail-variation-wrapper product-detail-variation-wrapper--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>">
                         <?php foreach ($options as $key => $value) : ?>
                             <?php
