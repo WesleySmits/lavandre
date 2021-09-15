@@ -5,7 +5,7 @@ import { iModule } from "./types/module";
 
 export default abstract class Module implements iModule {
     public eventEmitter: EventEmitter = EventEmitter;
-    public abstract components: Component[] = [];
+    public abstract components: Component[];
 
     public initialize(): void {
         this.initializeComponents();

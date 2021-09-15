@@ -20,8 +20,8 @@ class Cart {
     constructor() {
         this.eventEmitter.on('template-instantiated', (element: HTMLElement) => {
             this.initializeCouponCodeForm();
-            if (window.HTMLDialogElement && element instanceof HTMLDialogElement && element.dataset.panelName === 'cart-panel') {
-                this.handleCartPanel(element);
+            if (element.dataset.panelName === 'cart-panel') {
+                this.handleCartPanel(element as InteractableHTMLDialogElement);
                 this.initialize();
             }
         });
@@ -176,7 +176,7 @@ class Cart {
         this.setEventListeners();
     }
 
-    private handleCartPanel(panel: HTMLDialogElement) {
+    private handleCartPanel(panel: InteractableHTMLDialogElement) {
         const element: HTMLElement | null = panel.querySelector('#custom-cart');
         if (element === null) {
             return;

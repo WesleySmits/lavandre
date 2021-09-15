@@ -13,7 +13,7 @@ export default class SidePanel extends Dialog {
     }
 
     public static openSidePanel(panelID: string, element: HTMLElement | null = null):void {
-        let panel: HTMLDialogElement | null = document.querySelector(`[data-panel-name="${panelID}"]`);
+        let panel: InteractableHTMLDialogElement | null = document.querySelector(`[data-panel-name="${panelID}"]`);
         if (panel === null) {
             const template: HTMLTemplateElement | null = document.querySelector(`[data-panel-template="${panelID}"]`);
 

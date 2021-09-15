@@ -11,7 +11,7 @@ export default class Popup extends Dialog {
     }
 
     protected static openPopup(popupID: string, element: HTMLElement | null = null): void {
-        let popup: HTMLDialogElement | null = document.querySelector(`[data-popup-name="${popupID}"]`);
+        let popup: InteractableHTMLDialogElement | null = document.querySelector(`[data-popup-name="${popupID}"]`);
         if (popup === null) {
             const template: HTMLTemplateElement | null = document.querySelector(`[data-popup-template="${popupID}"]`);
 
