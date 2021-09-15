@@ -65,7 +65,8 @@ if ( post_password_required() ) {
                 do_action( 'woocommerce_single_product_summary' );
             ?>
 
-            <!-- <section id="product-detail__description">
+            <?php /*
+            <section id="product-detail__description">
                 <button class="product-detail__description-toggle" data-curtain-toggle="product-detail-content">
                     <?php _e('Specifications', 'lavandre'); ?>
                 </button>
@@ -74,7 +75,8 @@ if ( post_password_required() ) {
                     <?php woocommerce_product_additional_information_tab(); ?>
                     <?php woocommerce_product_description_tab(); ?>
                 </div>
-            </section> -->
+            </section>
+            */ ?>
 
             <?php if( have_rows('accordion') ): ?>
                 <accordion-element data-cy="product-info-accordion">
