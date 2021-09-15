@@ -11,6 +11,7 @@ declare namespace Cypress {
        * @example cy.accordion('{ selector: 'main', toggleSelector: '[data-curtain-toggle="homepage-seo-text"]' }')
        */
        accordion(optionArguments: AccordionOptions): Chainable<Element>
+       accordionElement(optionArguments: AccordionOptions): Chainable<Element>
     }
 }
 
@@ -27,5 +28,20 @@ Cypress.Commands.add('accordion', (optionArguments: AccordionOptions) => {
         cy.get(`${options.selector} [data-curtain-content="${$element.data('curtainToggle')}"]`).invoke('outerHeight').should('be.lt', options.height);
         cy.wrap($element).click();
         cy.get(`${options.selector} [data-curtain-content="${$element.data('curtainToggle')}"]`).invoke('outerHeight').should('be.gt', options.height);
+    });
+});
+
+Cypress.Commands.add('accordionElement', (optionArguments: AccordionOptions) => {
+    const defaultOptions: AccordionOptions = {
+        selector: 'body',
+        toggleSelector: 'details'
+    };
+
+    const options: AccordionOptions = { ...defaultOptions, ...optionArguments };
+
+    cy.get(`${options.selector} ${options.toggleSelector}`).each(($element) => {
+        cy.wrap($element).find('.curtain-content').should('not.be.visible');
+        cy.wrap($element).find('summary').click();
+        cy.wrap($element).find('.curtain-content').should('be.visible');
     });
 });

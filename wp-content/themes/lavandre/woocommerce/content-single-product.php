@@ -65,6 +65,7 @@ if ( post_password_required() ) {
                 do_action( 'woocommerce_single_product_summary' );
             ?>
 
+            <?php /*
             <section id="product-detail__description">
                 <button class="product-detail__description-toggle" data-curtain-toggle="product-detail-content">
                     <?php _e('Specifications', 'lavandre'); ?>
@@ -75,6 +76,27 @@ if ( post_password_required() ) {
                     <?php woocommerce_product_description_tab(); ?>
                 </div>
             </section>
+            */ ?>
+
+            <?php if( have_rows('accordion') ): ?>
+                <accordion-element data-cy="product-info-accordion">
+                    <?php while( have_rows('accordion') ) : the_row(); ?>
+                        <details is="curtain-element">
+                            <summary>
+                                <span><?php echo get_sub_field('title') ?></span>
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 15 15" xml:space="preserve" aria-hidden="true" data-acsb-hidden="true" data-acsb-force-hidden="true">
+                                    <g fill="#2b2b2b">
+                                        <polygon points="0.104,4.333 1.165,3.272 7.5,9.607 13.835,3.272 14.896,4.333 7.5,11.728 "></polygon>
+                                    </g>
+                                </svg>
+                            </summary>
+                            <div class="curtain-content">
+                                <?php echo get_sub_field('description'); ?>
+                            </div>
+                        </details>
+                    <?php endwhile ?>
+                </accordion-element>
+            <?php endif ?>
         </div>
     </div>
 

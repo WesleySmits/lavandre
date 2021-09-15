@@ -20,6 +20,7 @@ import Module from './Module';
 import LazyLoader from './components/LazyLoader';
 import Popup from './ui/Popup';
 import NewsLetterPopup from './ui/NewsletterPopup';
+import './web-components/AccordionElement';
 
 export default class App extends Module {
 
@@ -47,6 +48,7 @@ export default class App extends Module {
     public initialize() {
         super.initialize();
         setCurrentLinkClass();
+
     }
 }
 

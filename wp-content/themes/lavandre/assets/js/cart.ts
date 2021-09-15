@@ -19,9 +19,14 @@ class Cart {
 
     constructor() {
         this.eventEmitter.on('template-instantiated', (element: HTMLElement) => {
+            if (!element || !element.dataset.panelName) {
+                return;
+            }
+
             this.initializeCouponCodeForm();
-            if (window.HTMLDialogElement && element instanceof HTMLDialogElement && element.dataset.panelName === 'cart-panel') {
-                this.handleCartPanel(element);
+            console.log('TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST', element);
+            if (element.dataset.panelName === 'cart-panel') {
+                this.handleCartPanel(element as InteractableHTMLDialogElement);
                 this.initialize();
             }
         });
@@ -176,7 +181,7 @@ class Cart {
         this.setEventListeners();
     }
 
-    private handleCartPanel(panel: HTMLDialogElement) {
+    private handleCartPanel(panel: InteractableHTMLDialogElement) {
         const element: HTMLElement | null = panel.querySelector('#custom-cart');
         if (element === null) {
             return;

@@ -88,7 +88,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </li>
 
                     <li>
-                        <a href="/cart" class="no-button cart-amount-icon" id="cart-toggle" data-panel="cart-panel" aria-label="Shopping cart">
+                        <a href="/cart" class="no-button cart-amount-icon" id="cart-toggle" data-panel="cart-panel" aria-label="Shopping bag">
                             <?php include $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lavandre/partials/icons/cart.svg.php'; ?>
                             <?php
                                 global $woocommerce;

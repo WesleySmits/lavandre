@@ -4,7 +4,7 @@ import dialogPolyfill from 'dialog-polyfill';
 import { toCamelCase } from "../util/string";
 
 export default abstract class Dialog extends Component {
-    protected element: HTMLDialogElement;
+    protected element: InteractableHTMLDialogElement;
 
     protected _isOpen: boolean = false;
 
@@ -12,9 +12,9 @@ export default abstract class Dialog extends Component {
 
     protected abstract classes: standardObject;
 
-    protected abstract dataAttribute: string = 'data-popup-name';
+    protected abstract dataAttribute: string;
 
-    constructor(element: HTMLDialogElement) {
+    constructor(element: InteractableHTMLDialogElement) {
         super();
         this.element = element;
     }

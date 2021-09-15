@@ -15,7 +15,7 @@
         "prod:watch": "yarn prod --watch",
         "lint": "esw ./config/webpack.config.* app --color",
         "lint:watch": "yarn lint -- --watch",
-        "test": "jest --coverage --silent",
+        "test": "jest --coverage",
         "test:watch": "yarn test -- --watch",
         "cypress": "npx cypress run",
         "cypress:open": "npx cypress open"
@@ -64,7 +64,7 @@
         "prettier": "2.2.1",
         "ts-jest": "^26.1.0",
         "ts-loader": "^5.4.5",
-        "typescript": "^3.9.3",
+        "typescript": "^4.4.3",
         "uglifyjs-webpack-plugin": "^2.1.3",
         "webpack-cli": "^3.3.5",
         "webpack-dev-server": "^3.5.0",

@@ -7,36 +7,8 @@ describe("Product detail tests", () => {
         cy.visit(endpoints.productDetail);
     });
 
-    // it("should display image and thumbnails", () => {
-    //     cy.get("[data-thumbnail-id]")
-    //         .should("have.length.at.least", 1)
-    //         .should("be.visible");
-    //     cy.get("[data-image-id]")
-    //         .should("have.length.at.least", 1)
-    //         .each((element, index) => {
-    //             if (index === 0) {
-    //                 cy.wrap(element).should("be.visible");
-    //             } else {
-    //                 cy.wrap(element).should("not.be.visible");
-    //             }
-    //         });
-    // });
-
-    // it("should toggle main image on thumbnail clicks", () => {
-    //     cy.get("[data-thumbnail-id]").each((thumbnail) => {
-    //         const id: string = thumbnail.data("thumbnail-id");
-    //         cy.wrap(thumbnail)
-    //             .click()
-    //             .then(() => {
-    //                 cy.get(`[data-image-id="${id}"]`)
-    //                     .should("exist")
-    //                     .should("be.visible");
-    //             });
-    //     });
-    // });
-
     it("should open/close specification curtain", () => {
-        cy.accordion({ selector: "#product-detail__description", height: 10 });
+        cy.accordionElement({ selector: '[data-cy="product-info-accordion"]', height: 10 });
     });
 
     it("should have functioning +- buttons", () => {

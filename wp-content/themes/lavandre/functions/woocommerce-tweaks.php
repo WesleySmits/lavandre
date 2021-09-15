@@ -134,3 +134,8 @@
         $new_label = preg_replace( '/^.+:/', '', $label );
         return $new_label;
     }
+
+    add_filter( 'woocommerce_product_single_add_to_cart_text', 'custom_add_to_cart_text' );
+    function custom_add_to_cart_text() {
+        return __('Add to Bag', 'lavandre');
+    }
