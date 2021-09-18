@@ -32,7 +32,7 @@ if ( post_password_required() ) {
 }
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
-	<div class="product-detail__main-container">
+	<section class="product-detail__main-container ww-block ww-block--no-padding">
 
         <div class="product-detail__gallery-grid">
             <?php
@@ -98,10 +98,101 @@ if ( post_password_required() ) {
                 </accordion-element>
             <?php endif ?>
         </div>
-    </div>
+    </section>
+
+    <section class="ww-block ww-block--full-height">
+        <header>
+            <h2>Why it is important to use a clean towel</h2>
+        </header>
+
+        <div class="ww-container ww-container--small flex-grid">
+            <div>
+                <p><strong>Where does a dry face washer fit into your beauty regime and why is it important?</strong></p>
+                <p>After cleansing, it’s really important to use a gentle press and pat method to dry the skin with a soft, non-abrasive cloth and to absorb any excess liquid and product. Rubbing, buffing or tugging at the complexion with coarse fabric can cause redness, irritation and really agitate the skin, as well as encourage fine lines and laxity if done frequently enough.</p>
+            </div>
+
+            <div>
+                <p><strong>Where does a wet face washer fit into your beauty regime and why is it important?</strong></p>
+                <p>Wet cloths are a wonderful way to gently remove thicker cleansing balms for a deep and thorough cleanse and to assist in freeing the pores of impurities. They can also be used to really gently buff away dead skin on the nose and chin, by using small circular motions and can be pressed gently into the complexion for a swift and respectful removal of peels and masks after they have been left to activate and infuse into the complexion.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="ww-block ww-block--full-height">
+        <header>
+            <h2>Why it is important to use a clean towel</h2>
+        </header>
+
+        <div class="ww-container ww-container--large flex-grid">
+            <div>
+                <p><strong>Where does a dry face washer fit into your beauty regime and why is it important?</strong></p>
+                <p>After cleansing, it’s really important to use a gentle press and pat method to dry the skin with a soft, non-abrasive cloth and to absorb any excess liquid and product. Rubbing, buffing or tugging at the complexion with coarse fabric can cause redness, irritation and really agitate the skin, as well as encourage fine lines and laxity if done frequently enough.</p>
+            </div>
+
+            <div>
+                <p><strong>Where does a wet face washer fit into your beauty regime and why is it important?</strong></p>
+                <p>Wet cloths are a wonderful way to gently remove thicker cleansing balms for a deep and thorough cleanse and to assist in freeing the pores of impurities. They can also be used to really gently buff away dead skin on the nose and chin, by using small circular motions and can be pressed gently into the complexion for a swift and respectful removal of peels and masks after they have been left to activate and infuse into the complexion.</p>
+            </div>
+
+            <div>
+                <p><strong>Where does a dry face washer fit into your beauty regime and why is it important?</strong></p>
+                <p>After cleansing, it’s really important to use a gentle press and pat method to dry the skin with a soft, non-abrasive cloth and to absorb any excess liquid and product. Rubbing, buffing or tugging at the complexion with coarse fabric can cause redness, irritation and really agitate the skin, as well as encourage fine lines and laxity if done frequently enough.</p>
+            </div>
+
+            <div>
+                <p><strong>Where does a wet face washer fit into your beauty regime and why is it important?</strong></p>
+                <p>Wet cloths are a wonderful way to gently remove thicker cleansing balms for a deep and thorough cleanse and to assist in freeing the pores of impurities. They can also be used to really gently buff away dead skin on the nose and chin, by using small circular motions and can be pressed gently into the complexion for a swift and respectful removal of peels and masks after they have been left to activate and infuse into the complexion.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="ww-block flex">
+        <div class="flex-col-6">
+            <img src="https://via.placeholder.com/960x540" alt="" />
+        </div>
+
+        <div class="flex-col-6" style="display: flex; align-self: center; justify-content: center;">
+            <div>
+                <h4>Wash Less or As You Do</h4>
+                <p>You’re supposed to wash regular towels at least after three uses. That’s a lot of washing. Resore towels are designed to stay clean after several washes, meaning your protecting your skin health while reducing the amount of washing needed to keep your skin clear of bacteria.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="ww-block ww-block--full-height">
+        <header>
+            <h2>Why it is important to use a clean towel</h2>
+        </header>
+
+        <div class="ww-container ww-container--large flex-grid">
+            <div>
+                <p><strong>Where does a dry face washer fit into your beauty regime and why is it important?</strong></p>
+                <p>After cleansing, it’s really important to use a gentle press and pat method to dry the skin with a soft, non-abrasive cloth and to absorb any excess liquid and product. Rubbing, buffing or tugging at the complexion with coarse fabric can cause redness, irritation and really agitate the skin, as well as encourage fine lines and laxity if done frequently enough.</p>
+            </div>
+
+            <div>
+                <p><strong>Where does a wet face washer fit into your beauty regime and why is it important?</strong></p>
+                <p>Wet cloths are a wonderful way to gently remove thicker cleansing balms for a deep and thorough cleanse and to assist in freeing the pores of impurities. They can also be used to really gently buff away dead skin on the nose and chin, by using small circular motions and can be pressed gently into the complexion for a swift and respectful removal of peels and masks after they have been left to activate and infuse into the complexion.</p>
+            </div>
+
+            <div>
+                <p><strong>Where does a dry face washer fit into your beauty regime and why is it important?</strong></p>
+                <p>After cleansing, it’s really important to use a gentle press and pat method to dry the skin with a soft, non-abrasive cloth and to absorb any excess liquid and product. Rubbing, buffing or tugging at the complexion with coarse fabric can cause redness, irritation and really agitate the skin, as well as encourage fine lines and laxity if done frequently enough.</p>
+            </div>
+
+            <div>
+                <p><strong>Where does a wet face washer fit into your beauty regime and why is it important?</strong></p>
+                <p>Wet cloths are a wonderful way to gently remove thicker cleansing balms for a deep and thorough cleanse and to assist in freeing the pores of impurities. They can also be used to really gently buff away dead skin on the nose and chin, by using small circular motions and can be pressed gently into the complexion for a swift and respectful removal of peels and masks after they have been left to activate and infuse into the complexion.</p>
+            </div>
+        </div>
+    </section>
 
     <section id="instagram-feed" class="ww-block">
-        <?php include get_stylesheet_directory() . '/partials/_instagram-feed.php'; ?>
+        <header class="ww-container" style="align-self: flex-start;">
+            <h4>SHOP OUR INSTAGRAM</h4>
+        </header>
+
+        <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/246eb391a1e85d0db3c6d0bbb9d6d47e.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
     </section>
 </div>
 

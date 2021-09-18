@@ -1,5 +1,16 @@
 @import "../variables/variables.pcss";
 
+.type-product {
+    display: flex;
+    flex-flow: column nowrap;
+    scroll-snap-type: y mandatory;
+
+    & > * {
+        scroll-snap-align: start;
+    }
+}
+
+
 .woocommerce-breadcrumb {
     padding: 3rem 0rem;
     text-transform: uppercase;
@@ -441,3 +452,12 @@ form.cart {
 }
 
 
+#instagram-feed {
+    padding-bottom: 0;
+    line-height: 0;
+}
+
+.lightwidget-widget {
+    border-top: 1px solid #2b2b2b !important;
+    border-bottom: 1px solid #2b2b2b !important;
+}
