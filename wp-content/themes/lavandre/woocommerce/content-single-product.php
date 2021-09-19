@@ -100,6 +100,19 @@ if ( post_password_required() ) {
         </div>
     </section>
 
+    <section class="ww-banner-block ww-banner-block--alt">
+        <div class="ww-banner-block__banner">
+            <img src="https://lavandre.com/wp-content/uploads/2021/09/banner.jpg" alt="">
+        </div>
+
+        <div class="ww-banner-block__content">
+            <div class="ww-banner-block__inner-content">
+                <h4>Wash Less or As You Do</h4>
+                <p>You’re supposed to wash regular towels at least after three uses. That’s a lot of washing. Resore towels are designed to stay clean after several washes, meaning your protecting your skin health while reducing the amount of washing needed to keep your skin clear of bacteria.</p>
+            </div>
+        </div>
+    </section>
+
     <section class="ww-block ww-block--full-height">
         <header>
             <h2>Why it is important to use a clean towel</h2>
@@ -118,7 +131,7 @@ if ( post_password_required() ) {
         </div>
     </section>
 
-    <section class="ww-block ww-block--full-height">
+    <section class="ww-block ww-block--full-height bg-alabaster">
         <header>
             <h2>Why it is important to use a clean towel</h2>
         </header>
@@ -146,13 +159,13 @@ if ( post_password_required() ) {
         </div>
     </section>
 
-    <section class="ww-block flex">
-        <div class="flex-col-6">
-            <img src="https://via.placeholder.com/960x540" alt="" />
+    <section class="ww-banner-block">
+        <div class="ww-banner-block__banner">
+            <img src="https://lavandre.com/wp-content/uploads/2021/09/banner2.jpg" alt="">
         </div>
 
-        <div class="flex-col-6" style="display: flex; align-self: center; justify-content: center;">
-            <div>
+        <div class="ww-banner-block__content">
+            <div class="ww-banner-block__inner-content">
                 <h4>Wash Less or As You Do</h4>
                 <p>You’re supposed to wash regular towels at least after three uses. That’s a lot of washing. Resore towels are designed to stay clean after several washes, meaning your protecting your skin health while reducing the amount of washing needed to keep your skin clear of bacteria.</p>
             </div>
@@ -187,13 +200,7 @@ if ( post_password_required() ) {
         </div>
     </section>
 
-    <section id="instagram-feed" class="ww-block">
-        <header class="ww-container" style="align-self: flex-start;">
-            <h4>SHOP OUR INSTAGRAM</h4>
-        </header>
-
-        <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/246eb391a1e85d0db3c6d0bbb9d6d47e.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
-    </section>
+    <?php include get_stylesheet_directory() . '/partials/_instagram-feed.php'; ?>
 </div>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

@@ -2,6 +2,12 @@
 
 <main>
     <section id="main-banner">
+
+        <video autoplay muted width="1920">
+            <source src="https://lavandre.com/wp-content/uploads/2021/09/IMG_4167.mov" type="video/mp4">
+        </video>
+
+        <?php /*
         <picture class="loading-spinner" data-lazyload>
             <?php $image = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/banner-spa.jpg' ?>
             <?php $imageMobile = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/banner-spa-mobile.jpg' ?>
@@ -18,6 +24,7 @@
                 height="848"
             >
         </picture>
+        */ ?>
     </section>
 
     <section id="best-sellers" class="ww-block hide-on-mobile">
@@ -46,10 +53,6 @@
                 </form>
             </section>
         </div>
-    </section>
-
-    <section id="instagram-feed" class="ww-block">
-        <?php include get_stylesheet_directory() . '/partials/_instagram-feed.php'; ?>
     </section>
 
     <section id="seo-content" class="ww-block ww-container ww-container--large hide-on-mobile">
@@ -95,6 +98,8 @@
             </li>
         </ul>
     </section>
+
+    <?php include get_stylesheet_directory() . '/partials/_instagram-feed.php'; ?>
 </main>
 
 <?php get_footer(); ?>
