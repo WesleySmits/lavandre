@@ -2,6 +2,7 @@
     "require": {
         "mailchimp/marketing": "^3.0",
         "mandrill/mandrill": "^1.0",
-        "guzzlehttp/guzzle": "^6.5.5"
+        "guzzlehttp/guzzle": "^6.5.5",
+        "vlucas/phpdotenv": "^5.3"
     }
 }

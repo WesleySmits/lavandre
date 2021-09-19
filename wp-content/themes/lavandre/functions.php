@@ -6,7 +6,6 @@
  * @package Lavandre
  */
 
-require 'vendor/autoload.php';
 require 'classes/Founder.php';
 require 'classes/Address.php';
 require 'classes/ContactPoint.php';
