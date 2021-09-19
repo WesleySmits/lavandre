@@ -63,7 +63,7 @@ body.page-template-customer-service {
     }
 
     &--full-height {
-        min-height: 90vh;
+        min-height: calc(90vh - 142px);
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
@@ -200,4 +200,12 @@ aside {
 .ww-footer {
     content-visibility: auto;
     contain-intrinsic-size: 0 650px;
+}
+
+
+.benefit-block {
+    svg {
+        width: 75px;
+        height: 75px;
+    }
 }

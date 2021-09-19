@@ -31,6 +31,51 @@
         <?php include get_stylesheet_directory() . '/partials/_best-sellers.php'; ?>
     </section>
 
+    <section class="ww-banner-block ww-banner-block--alt">
+        <div class="ww-banner-block__banner">
+            <img src="https://lavandre.com/wp-content/uploads/2021/09/banner.jpg" alt="">
+        </div>
+
+        <div class="ww-banner-block__content">
+            <div class="ww-banner-block__inner-content">
+                <h4>Wash Less or As You Do</h4>
+                <p>You’re supposed to wash regular towels at least after three uses. That’s a lot of washing. Resore towels are designed to stay clean after several washes, meaning your protecting your skin health while reducing the amount of washing needed to keep your skin clear of bacteria.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="ww-block ww-block--full-height bg-alabaster">
+        <header>
+            <h2>Why it is important to use a clean towel</h2>
+        </header>
+
+        <div class="ww-container ww-container--large benefit-block flex-grid">
+            <div>
+                <?php include get_stylesheet_directory() . '/partials/icons/back.svg.php'; ?>
+                <h3>Where does a dry face washer fit into your beauty regime and why is it important?</h3>
+                <p>After cleansing, it’s really important to use a gentle press and pat method to dry the skin with a soft, non-abrasive cloth and to absorb any excess liquid and product. Rubbing, buffing or tugging at the complexion with coarse fabric can cause redness, irritation and really agitate the skin, as well as encourage fine lines and laxity if done frequently enough.</p>
+            </div>
+
+            <div>
+                <?php include get_stylesheet_directory() . '/partials/icons/back.svg.php'; ?>
+                <h3>Where does a wet face washer fit into your beauty regime and why is it important?</h3>
+                <p>Wet cloths are a wonderful way to gently remove thicker cleansing balms for a deep and thorough cleanse and to assist in freeing the pores of impurities. They can also be used to really gently buff away dead skin on the nose and chin, by using small circular motions and can be pressed gently into the complexion for a swift and respectful removal of peels and masks after they have been left to activate and infuse into the complexion.</p>
+            </div>
+
+            <div>
+                <?php include get_stylesheet_directory() . '/partials/icons/back.svg.php'; ?>
+                <h3>Where does a dry face washer fit into your beauty regime and why is it important?</h3>
+                <p>After cleansing, it’s really important to use a gentle press and pat method to dry the skin with a soft, non-abrasive cloth and to absorb any excess liquid and product. Rubbing, buffing or tugging at the complexion with coarse fabric can cause redness, irritation and really agitate the skin, as well as encourage fine lines and laxity if done frequently enough.</p>
+            </div>
+
+            <div>
+                <?php include get_stylesheet_directory() . '/partials/icons/back.svg.php'; ?>
+                <h3>Where does a wet face washer fit into your beauty regime and why is it important?</h3>
+                <p>Wet cloths are a wonderful way to gently remove thicker cleansing balms for a deep and thorough cleanse and to assist in freeing the pores of impurities. They can also be used to really gently buff away dead skin on the nose and chin, by using small circular motions and can be pressed gently into the complexion for a swift and respectful removal of peels and masks after they have been left to activate and infuse into the complexion.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="newsletter-subscribe-home" class="ww-block ww-block--accent">
         <div class="ww-container ww-container--large flex newsletter-subscribe-home">
             <header class="newsletter-subscribe-home__left">
