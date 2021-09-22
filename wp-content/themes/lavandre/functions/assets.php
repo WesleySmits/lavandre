@@ -134,7 +134,10 @@ function loadWebpackModules(): void {
     // Load app module
     loadEncoreModule('app');
 
-    if (is_front_page()) loadEncoreModule('homepage-styles');
+    if (is_front_page()) {
+        loadEncoreModule('homepage-styles');
+        loadEncoreModule('home');
+    }
     if (is_shop()) loadEncoreModule('product-overview-styles');
     if (is_product()) loadEncoreModule('product-styles');
     if (is_product()) loadEncoreModule('productDetail');

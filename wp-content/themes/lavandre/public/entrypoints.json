@@ -4,11 +4,20 @@
       "js": [
         "/runtime.a0037f62.js",
         "/0.84d5314d.js",
-        "/app.9247b6ad.js"
+        "/app.16da2c60.js"
       ],
       "css": [
         "/0.d659f9e7.css",
-        "/app.e35da385.css"
+        "/app.2ca602fe.css"
+      ]
+    },
+    "home": {
+      "js": [
+        "/runtime.a0037f62.js",
+        "/home.fa5e6594.js"
+      ],
+      "css": [
+        "/home.137474d9.css"
       ]
     },
     "productDetail": {
@@ -30,10 +39,10 @@
     "checkout": {
       "js": [
         "/runtime.a0037f62.js",
-        "/checkout.5aae7e5e.js"
+        "/checkout.c58be7ff.js"
       ],
       "css": [
-        "/checkout.829b027e.css"
+        "/checkout.8062aede.css"
       ]
     },
     "critical-styles": {
@@ -41,7 +50,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/critical-styles.26d1cdbd.css"
+        "/critical-styles.2828fda2.css"
       ]
     },
     "deferred-styles": {
@@ -49,7 +58,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/deferred-styles.b23c1ec5.css"
+        "/deferred-styles.a68cadb7.css"
       ]
     },
     "homepage-styles": {
@@ -57,7 +66,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/homepage-styles.ea1df0cc.css"
+        "/homepage-styles.dc2a0b74.css"
       ]
     },
     "about-styles": {
@@ -73,7 +82,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/checkout-styles.fcdbea55.css"
+        "/checkout-styles.137474d9.css"
       ]
     },
     "login-styles": {

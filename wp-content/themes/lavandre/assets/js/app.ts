@@ -21,6 +21,7 @@ import LazyLoader from './components/LazyLoader';
 import Popup from './ui/Popup';
 import NewsLetterPopup from './ui/NewsletterPopup';
 import './web-components/AccordionElement';
+import ScrollToContent from './components/ScrollToContent';
 
 export default class App extends Module {
 
@@ -42,7 +43,8 @@ export default class App extends Module {
         SubMenu,
         LazyLoader,
         NewsLetterPopup,
-        Popup
+        Popup,
+        ScrollToContent
     ];
 
     public initialize() {

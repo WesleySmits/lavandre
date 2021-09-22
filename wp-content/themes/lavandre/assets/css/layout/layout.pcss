@@ -41,6 +41,8 @@ body.page-template-customer-service {
 }
 
 .ww-block {
+    content-visibility: auto;
+    contain-intrinsic-size: 650px;
     padding: 3rem 0;
 
     header {
@@ -121,11 +123,11 @@ body.page-template-customer-service {
         align-self: center;
         justify-content: center;
         flex: 1 1 auto;
+        padding: 2rem;
 
         @media (--tablet-landscape) {
             flex: 1 1 50%;
             max-width: 50%;
-            padding: 2rem;
         }
 
         h4 {

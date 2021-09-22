@@ -1,5 +1,6 @@
 .ww-site-header {
     background-color: var(--background-color);
+    transition: background-color .4s ease;
 
     position: fixed;
     top: 0;
@@ -13,6 +14,38 @@
         width: 1.25em;
         height: 1.25em;
         fill: var(--color-text);
+    }
+
+    a,
+    path {
+        transition: color .4s ease, fill .4s ease, stroke .4s ease;
+    }
+
+    &.transparent {
+        background: transparent;
+
+        a,
+        path {
+            color: var(--white);
+            fill: var(--white);
+            stroke: var(--white);
+        }
+
+        .ww-site-header__middle {
+            box-shadow: none;
+        }
+
+        .product-search-field {
+            color: var(--white);
+
+            &::-webkit-input-placeholder {
+                color: var(--white) !important;
+            }
+
+            &::-moz-placeholder {
+                color: var(--white) !important;
+            }
+        }
     }
 }
 
