@@ -4,18 +4,27 @@
       "js": [
         "/runtime.a0037f62.js",
         "/0.84d5314d.js",
-        "/app.9247b6ad.js"
+        "/app.28cd9a1b.js"
       ],
       "css": [
         "/0.d659f9e7.css",
-        "/app.e35da385.css"
+        "/app.2ca602fe.css"
+      ]
+    },
+    "home": {
+      "js": [
+        "/runtime.a0037f62.js",
+        "/home.fa5e6594.js"
+      ],
+      "css": [
+        "/home.137474d9.css"
       ]
     },
     "productDetail": {
       "js": [
         "/runtime.a0037f62.js",
         "/0.84d5314d.js",
-        "/productDetail.0c2066c6.js"
+        "/productDetail.4678102c.js"
       ],
       "css": [
         "/0.d659f9e7.css"
@@ -30,10 +39,10 @@
     "checkout": {
       "js": [
         "/runtime.a0037f62.js",
-        "/checkout.5aae7e5e.js"
+        "/checkout.c58be7ff.js"
       ],
       "css": [
-        "/checkout.829b027e.css"
+        "/checkout.8062aede.css"
       ]
     },
     "critical-styles": {
@@ -41,7 +50,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/critical-styles.ba03cc19.css"
+        "/critical-styles.9bc5217e.css"
       ]
     },
     "deferred-styles": {
@@ -49,7 +58,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/deferred-styles.451bd8a3.css"
+        "/deferred-styles.f1a9ef8f.css"
       ]
     },
     "homepage-styles": {
@@ -57,7 +66,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/homepage-styles.60f32262.css"
+        "/homepage-styles.11bc81b4.css"
       ]
     },
     "about-styles": {
@@ -73,7 +82,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/checkout-styles.fcdbea55.css"
+        "/checkout-styles.137474d9.css"
       ]
     },
     "login-styles": {
@@ -89,7 +98,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/product-styles.e2f23593.css"
+        "/product-styles.43284efa.css"
       ]
     },
     "product-overview-styles": {
@@ -97,7 +106,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/product-overview-styles.f8e4054f.css"
+        "/product-overview-styles.6f109848.css"
       ]
     },
     "account-styles": {

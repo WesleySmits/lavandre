@@ -1,0 +1,47 @@
+.usp-slider {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row nowrap;
+
+    white-space: nowrap;
+    list-style: none;
+
+    margin: 0;
+    padding: 1rem 0;
+
+    animation-name: ticker;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    overflow: hidden;
+
+    &__item {
+        position: relative;
+        padding: 0 3rem;
+
+        font-size: 1.25rem;
+        letter-spacing: .15rem;
+        text-transform: uppercase;
+        text-align: center;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+
+            display: block;
+            height: 6px;
+            width: 6px;
+            background: #2b2b2b;
+        }
+    }
+}
+
+@keyframes ticker {
+    0% { transform: translateX(0); }
+	100% { transform: translateX(calc((3392px / 12) * -6)); }
+}

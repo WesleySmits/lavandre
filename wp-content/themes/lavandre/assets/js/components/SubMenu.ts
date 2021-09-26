@@ -3,6 +3,8 @@ import Component from "../common/Component";
 export default class SubMenu extends Component {
     private element: HTMLElement;
 
+    private header: HTMLElement = document.querySelector('.ww-site-header') as HTMLElement;
+
     constructor(element: HTMLElement) {
         super();
         this.element = element;
@@ -16,6 +18,7 @@ export default class SubMenu extends Component {
             }
             target.classList.remove('hidden');
             target.classList.add('active');
+            this.header.classList.add('ww-submenu-open');
         });
 
         this.element.addEventListener('mouseleave', () => {
@@ -24,6 +27,8 @@ export default class SubMenu extends Component {
                 return;
             }
             target.classList.remove('active');
+            this.header.classList.remove('ww-submenu-open');
+
             setTimeout(() => { target.classList.add('hidden') }, 400);
         });
     }

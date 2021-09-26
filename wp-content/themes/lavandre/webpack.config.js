@@ -6,6 +6,7 @@ Encore
     .setOutputPath('./public/')
     .setPublicPath('/')
     .addEntry('app', './assets/js/app.ts')
+    .addEntry('home', './assets/js/home.ts')
     .addEntry('productDetail', './assets/js/productDetail.ts')
     .addEntry('cart', './assets/js/cart.ts')
     .addEntry('checkout', './assets/js/checkout.ts')

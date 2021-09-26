@@ -34,6 +34,10 @@ body.page-template-customer-service {
         width: 1440px;
     }
 
+    &--extra-large {
+        width: 1750px;
+    }
+
     main&{
         padding-top: 3.125rem;
         padding-bottom: 3.125rem;
@@ -41,12 +45,14 @@ body.page-template-customer-service {
 }
 
 .ww-block {
+    content-visibility: auto;
+    contain-intrinsic-size: 650px;
     padding: 3rem 0;
 
     header {
         margin-bottom: 1.25rem;
 
-        h2 {
+        h2:not([class]) {
             font-size: 1.25rem;
             text-align: center;
             margin: 0;
@@ -60,6 +66,83 @@ body.page-template-customer-service {
 
     &--large {
         padding: 6rem 0;
+    }
+
+    &--full-height {
+        min-height: calc(90vh - 142px);
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+
+        header {
+            margin-bottom: 6.25rem;
+        }
+    }
+
+    &--no-padding {
+        padding: 0;
+    }
+
+    &--border-top {
+        border-top: 1px solid #2b2b2b;
+    }
+}
+
+.ww-banner-block {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    font-weight: 100;
+
+    background: #cfb29b;
+    color: #3d2b30;
+
+    @media (--tablet-landscape) {
+        flex-direction: row;
+
+        &--alt &__content {
+            order: 1;
+        }
+
+        &--alt &__banner {
+            order: 2;
+        }
+    }
+
+    &__banner {
+        flex: 1 1 auto;
+
+        @media (--tablet-landscape) {
+            flex: 1 1 50%;
+            max-width: 50%;
+        }
+    }
+
+    &__content {
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        flex: 1 1 auto;
+        padding: 2rem;
+
+        @media (--tablet-landscape) {
+            flex: 1 1 50%;
+            max-width: 50%;
+        }
+
+        h4 {
+            font-size: 1.5rem;
+            font-weight: inherit;
+        }
+    }
+
+    &__inner-content {
+        @media (--tablet-landscape) {
+            flex: 1 1 60%;
+            max-width: 60%;
+        }
     }
 }
 
@@ -121,4 +204,12 @@ aside {
 .ww-footer {
     content-visibility: auto;
     contain-intrinsic-size: 0 650px;
+}
+
+
+.benefit-block {
+    svg {
+        width: 75px;
+        height: 75px;
+    }
 }

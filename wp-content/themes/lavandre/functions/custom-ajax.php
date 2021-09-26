@@ -194,7 +194,7 @@ function ajax_MailchimpSubscribe() {
     $email = $_POST['email'];
 
     $mailchimp = new \MailchimpMarketing\ApiClient();
-    $apiKey = '8ae12503b5f6c8e3d9c5fc2f8a7bbd9a-us17';
+    $apikey = $_ENV['MAILCHIMP_API_KEY'];
     $server = 'us17';
     $list_id = "c06124c73b";
 

@@ -18,16 +18,55 @@
 
 /* -------------- */
 
+#main-banner {
+    position: relative;
+
+    picture,
+    video {
+        max-height: 100vh;
+        object-fit: cover;
+    }
+}
+
+.main-banner__see-more {
+    position: absolute;
+    right: 0;
+    bottom: 3.75rem;
+    left: 0;
+    width: 1.5rem;
+    margin: auto;
+    cursor: pointer;
+
+    animation: bounce 2s infinite both;
+
+    svg {
+        fill: white;
+        stroke: white;
+    }
+}
+
+.ww-products-grid {
+    display: grid;
+    grid-row-gap: 2rem;
+    grid-column-gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (--desktop) {
+        max-width: calc(100vw - 200px);
+        margin: 0 auto;
+    }
+
+    &--three-columns {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
 .ww-products {
     display: grid;
     grid-row-gap: 40px;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 0;
     border: 1px solid var(--color-border);
-
-    &--three-columns {
-        grid-template-columns: repeat(3,1fr);
-    }
 }
 
 .ww-products__item {
@@ -40,149 +79,63 @@
 .ww-products__link {
     display: block;
     position: relative;
+
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 .ww-products__image {
     width: 100%;
     max-width: 100%;
+    max-height: 500px;
+    max-height: 26.6vw;
     margin-bottom: 1rem;
+    object-fit: cover;
 }
 
 .ww-products__title {
-    margin: auto;
+    margin: auto auto 1rem;
     padding: .5rem 0;
     font-size: 1rem;
     font-weight: 400 !important;
     text-transform: uppercase;
-    text-align: center;
 }
 
-
-#newsletter-subscribe-home {
-    padding: 25px 15px;
-
-    @media (--tablet) {
-        padding: 50px;
-    }
-}
-
-.ww-block .newsletter-subscribe-home__left {
-    flex: 0 0 100%;
-
-    @media (--tablet) {
-        flex: 0 0 30%;
-    }
-}
-
-.ww-block .newsletter-subscribe-home__right {
-    flex: 0 0 100%;
-
-    @media (--tablet) {
-        flex: 0 0 70%;
-    }
-
-    h2 {
-        letter-spacing: initial;
-    }
-}
-
-.ww-block .newsletter-subscribe-home {
+.homepage-newsletter-form {
+    display: flex;
+    flex-flow: row nowrap;
     align-items: center;
-    padding: 10px 0;
-
-    & > header {
-        margin: 0;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-        line-height: 1.6;
-        text-align: initial;
-
-        @media (--tablet) {
-            font-size: 1.875rem;
-        }
-    }
-
-
-    p {
-        max-width: 500px;
-        border-bottom: 1px solid var(--black);
-        padding-bottom: 17px;
-        overflow: hidden;
-        position: relative;
-    }
 }
 
-.ww-block .newsletter-subscribe-home__input {
-    display: block;
-    width: 80%;
-    height: 44px !important;
-    line-height: 44px!important;
-    padding: 0 !important;
-    font-size: 18px;
-    border: none !important;
-    color: var(--color-text) !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    font-weight: 400;
-    appearance: none;
+input.newsletter-subscribe-home__input {
+    flex: 1 1 70%;
+    border-radius: 0;
+    height: 3.5rem;
+
+    @media (--tablet-landscape) {
+        font-size: 14px;
+        line-height: 1.5rem;
+    }
 
     &::-webkit-input-placeholder {
-        text-transform: uppercase;
-        color: var(--black);
+        color: var(--old-burgundy);
+    }
+
+    &::-moz-placeholder {
+        color: var(--old-burgundy);
     }
 }
 
-.ww-block .newsletter-subscribe-home__button {
-    position: absolute;
-    top: 6px;
-    right: 0;
-    width: 30px;
-    height: 30px;
-    padding: 0;
-
-    width: auto;
-    background: none;
-    color: var(--color-text) !important;
-    font-size: 1.25rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 0;
-
-    svg {
-        width: 1.25rem;
-        height: 1.25rem;
-        transform: rotate(180deg);
-
-        path {
-            stroke: var(--black);
-        }
-    }
-}
-
-.ww-block h2.newsletter-subscribe-home__cta {
-    font-size: 5rem;
-    line-height: 1.6;
-    color: var(--color-text);
-    font-weight: 100;
-    letter-spacing: .1px;
-    font-family: serif;
-}
-
-.ww-block .newsletter-subscribe-home__cta-sup {
-    top: -.5em;
-    left: -.25em;
-    font-size: 2.5rem;
-    line-height: 3.2;
-    vertical-align: top;
-}
-
-#instagram-feed {
-    padding-bottom: 25px;
+button.newsletter-subscribe-home__button {
+    flex: 1 1 30%;
+    height: 3.5rem;
+    border-radius: 0;
+    height: 3.5rem;
 }
 
 #seo-content {
+    margin-top: 1.5rem;
     padding-top: 0;
     padding-bottom: 0;
 }

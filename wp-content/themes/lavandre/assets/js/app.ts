@@ -21,6 +21,7 @@ import LazyLoader from './components/LazyLoader';
 import Popup from './ui/Popup';
 import NewsLetterPopup from './ui/NewsletterPopup';
 import './web-components/AccordionElement';
+import ScrollToContent from './components/ScrollToContent';
 
 export default class App extends Module {
 
@@ -42,7 +43,8 @@ export default class App extends Module {
         SubMenu,
         LazyLoader,
         NewsLetterPopup,
-        Popup
+        Popup,
+        ScrollToContent
     ];
 
     public initialize() {
@@ -55,4 +57,18 @@ export default class App extends Module {
 (function appInit() {
     const app = new App();
     app.initialize();
+
+    const list: HTMLElement | null = document.querySelector('.usp-slider');
+    if (!list) {
+        return;
+    }
+
+    const items: HTMLElement[] = Array.from(list.querySelectorAll('.usp-slider__item'));
+    let totalWidth = 0;
+
+    items.forEach((item) => {
+        totalWidth += item.clientWidth;
+    });
+
+    list.style.width = `${totalWidth}px`;
 })();

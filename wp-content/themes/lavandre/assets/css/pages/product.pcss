@@ -1,5 +1,16 @@
 @import "../variables/variables.pcss";
 
+.type-product {
+    display: flex;
+    flex-flow: column nowrap;
+    scroll-snap-type: y mandatory;
+
+    & > * {
+        scroll-snap-align: start;
+    }
+}
+
+
 .woocommerce-breadcrumb {
     padding: 3rem 0rem;
     text-transform: uppercase;
@@ -21,6 +32,10 @@
         flex-flow: row nowrap;
         justify-content: space-between;
         align-items: flex-start;
+    }
+
+    @media (--tablet-landscape) {
+        margin-bottom: 5rem;
     }
 }
 
@@ -439,5 +454,3 @@ form.cart {
         display: none;
     }
 }
-
-

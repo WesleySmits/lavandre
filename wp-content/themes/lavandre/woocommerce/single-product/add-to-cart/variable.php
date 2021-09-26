@@ -24,6 +24,46 @@ $variations = $product->get_available_variations();
 $variations_json = wp_json_encode( $available_variations );
 $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
 
+function sort_size($a, $b) {
+    if (strpos($a, 'x') === false) {
+        return;
+    }
+
+    $lengthA = explode('x', $a)[0];
+    $lengthB = explode('x', $b)[0];
+
+    if ($lengthA == $lengthB) {
+        return 0;
+    }
+
+    return ($lengthA < $lengthB) ? -1 : 1;
+}
+
+function sort_attributes($attributes) {
+    $color = $attributes['pa_color'] ?? null;
+    $size = $attributes['pa_size'] ?? null;
+    $amount = $attributes['pa_amount'] ?? null;
+
+    if ($amount) {
+        $attributes = shift_attribute($attributes, 'pa_amount', $amount);
+    }
+
+    if ($size) {
+        $attributes = shift_attribute($attributes, 'pa_size', $size);
+    }
+
+    if ($color) {
+        $attributes = shift_attribute($attributes, 'pa_color', $color);
+    }
+
+    return $attributes;
+}
+
+function shift_attribute($attributes, $key, $move) {
+    unset($attributes[$key]);
+    return array($key => $move) + $attributes;
+}
+
 do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
 <form class="variations_form cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="<?php echo $variations_attr; // WPCS: XSS ok. ?>">
@@ -34,10 +74,16 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 	<?php else : ?>
 
         <section class="product-detail__variations">
+            <?php $attributes = sort_attributes($attributes);?>
+
+
             <?php foreach ( $attributes as $attribute_name => $options ) : ?>
+                <?php usort($options, 'sort_size'); ?>
+
                 <div class="form-row">
                     <label class="bold product-detail__variation__label product-detail__variation__label--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>"><?php echo wc_attribute_label($attribute_name); ?></label>
                     <div class="product-detail-variation-wrapper product-detail-variation-wrapper--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>">
+
                         <?php foreach ($options as $key => $value) : ?>
                             <?php
                                 $terms = get_terms($attribute_name);
