@@ -4,6 +4,112 @@
 @import "../components/_social-media-list.pcss";
 @import "../components/_legal-list.pcss";
 
+.ww-footer-new {
+    background: var(--beau-blue) url("/wp-content/themes/lavandre/assets/images/footer-background.jpeg");
+
+    & > section {
+        border-top: 1px solid var(--color-text);
+    }
+
+    &__logo {
+        svg {
+            width: 20rem;
+            height: auto;
+            max-width: 90%;
+        }
+    }
+
+    &__top {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding: 5rem 0;
+    }
+
+    &__middle {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    }
+
+    &__column {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex: 1 1 50%;
+        max-width: 50%;
+        padding: 5rem 0;
+        gap: 4rem;
+
+        &:first-child {
+            border-right: 1px solid var(--color-text);
+        }
+    }
+
+    &__subscribe {
+        justify-content: initial;
+        flex: 1 1 auto;
+        max-width: 35rem;
+
+        .ww-form {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+        }
+
+        .ww-form__field {
+            flex: 1 1 70%;
+            height: 3.5rem;
+            margin: 0;
+
+            @media (--tablet-landscape) {
+                font-size: 14px;
+                line-height: 1.5rem;
+            }
+
+            input {
+                height: inherit;
+                border-radius: 0;
+                border-right: none;
+                border-color: var(--color-border-3);
+                appearance: none;
+                box-shadow: none;
+                background: transparent;
+
+                &::-webkit-input-placeholder {
+                    color: var(--old-burgundy);
+                    opacity: 1;
+                }
+
+                &::-moz-placeholder {
+                    color: var(--old-burgundy);
+                    opacity: 1;
+                }
+            }
+        }
+
+        #footer-newsletter-form-submit {
+            flex: 1 1 30%;
+            height: 3.5rem;
+            border-radius: 0;
+            height: 3.5rem;
+            background: transparent;
+            border-color: var(--color-border-3);
+            color: var(--color-text);
+
+            &:hover {
+                background: var(--old-burgundy);
+                color: var(--white);
+            }
+        }
+    }
+
+    &__bottom {
+        padding: 1rem 0;
+    }
+}
+
+
 .ww-footer {
     content-visibility: auto;
     contain-intrinsic-size: 0 650px;
@@ -89,7 +195,7 @@
     font-size: 0.8125rem;
     font-weight: 600;
     color: var(--color-text);
-    margin: 0;
+    margin: 0 0 1.625rem;
     line-height: 1.6;
 
     @media (--tablet-landscape) {

@@ -4,7 +4,7 @@
       "js": [
         "/runtime.a0037f62.js",
         "/0.84d5314d.js",
-        "/app.16da2c60.js"
+        "/app.28cd9a1b.js"
       ],
       "css": [
         "/0.d659f9e7.css",
@@ -24,7 +24,7 @@
       "js": [
         "/runtime.a0037f62.js",
         "/0.84d5314d.js",
-        "/productDetail.0c2066c6.js"
+        "/productDetail.4678102c.js"
       ],
       "css": [
         "/0.d659f9e7.css"
@@ -50,7 +50,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/critical-styles.2828fda2.css"
+        "/critical-styles.9bc5217e.css"
       ]
     },
     "deferred-styles": {
@@ -58,7 +58,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/deferred-styles.a68cadb7.css"
+        "/deferred-styles.f1a9ef8f.css"
       ]
     },
     "homepage-styles": {
@@ -66,7 +66,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/homepage-styles.dc2a0b74.css"
+        "/homepage-styles.11bc81b4.css"
       ]
     },
     "about-styles": {
@@ -106,7 +106,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/product-overview-styles.f8e4054f.css"
+        "/product-overview-styles.6f109848.css"
       ]
     },
     "account-styles": {

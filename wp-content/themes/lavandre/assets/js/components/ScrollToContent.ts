@@ -16,7 +16,9 @@ export default class ScrollToContent extends Component {
         this.#element.addEventListener('click', (event: Event) => {
             event.preventDefault();
 
-            scrollToTarget(this.#target);
+            const headerOffset = !this.#element.dataset.headerOffset;
+
+            scrollToTarget(this.#target, 0, headerOffset);
         });
     }
 

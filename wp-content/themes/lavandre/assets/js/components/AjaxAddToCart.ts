@@ -19,6 +19,11 @@ export default class AjaxAddToCart extends Component {
         this.variationFields = Array.from(this.form.querySelectorAll('.product-detail__variations input'));
 
         this.handleChangeVariationAttribute();
+
+        const currentSizeName = 'attribute_pa_size';
+        const currentSizeValue = this.form[currentSizeName].value;
+        this.handleChangeVariationAttribute(currentSizeName, currentSizeValue);
+
     }
 
     public initialize(): void {

@@ -34,6 +34,10 @@ body.page-template-customer-service {
         width: 1440px;
     }
 
+    &--extra-large {
+        width: 1750px;
+    }
+
     main&{
         padding-top: 3.125rem;
         padding-bottom: 3.125rem;
@@ -48,7 +52,7 @@ body.page-template-customer-service {
     header {
         margin-bottom: 1.25rem;
 
-        h2 {
+        h2:not([class]) {
             font-size: 1.25rem;
             text-align: center;
             margin: 0;
@@ -106,8 +110,6 @@ body.page-template-customer-service {
             order: 2;
         }
     }
-
-
 
     &__banner {
         flex: 1 1 auto;

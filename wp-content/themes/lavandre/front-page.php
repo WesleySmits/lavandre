@@ -6,32 +6,13 @@
             <source src="https://lavandre.com/wp-content/uploads/2021/09/IMG_4167.mov" type="video/mp4">
         </video>
 
-        <?php /*
-        <picture class="loading-spinner" data-lazyload>
-            <?php $image = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/banner-spa.jpg' ?>
-            <?php $imageMobile = get_site_url() . '/wp-content/themes/lavandre/public/images/banners/banner-spa-mobile.jpg' ?>
-            <source media="(orientation: portrait)" type="image/jpeg" data-srcset="<?php echo get_image_kit_src($imageMobile, 414, 524) ?> 414w, <?php echo get_image_kit_src($imageMobile, 720, 912) ?> 720w, <?php echo get_image_kit_src($imageMobile, 768, 973) ?> 768w, <?php echo get_image_kit_src($imageMobile, 1024, 1297) ?> 1024w, <?php echo get_image_kit_src($imageMobile, 1080, 1368) ?>g 1080w, <?php echo get_image_kit_src($imageMobile, 1242, 1573) ?> 1242w, <?php echo get_image_kit_src($imageMobile, 1500, 1900) ?> 1500w">
-            <source media="(orientation: landscape)" type="image/jpeg" data-srcset="<?php echo get_image_kit_src($image, 750, 332) ?> 750, <?php echo get_image_kit_src($image, 1024, 452) ?> 1024w, <?php echo get_image_kit_src($image, 1280, 565) ?> 1280w, <?php echo get_image_kit_src($image, 1600, 707) ?> 1600w, <?php echo get_image_kit_src($image, 1920, 848) ?> 1920w, <?php echo get_image_kit_src($image, 3840, 1696) ?> 3840w">
-
-            <img
-                loading="lazy"
-                src="<?php echo get_image_kit_placeholder($image, 1920, 848) ?>"
-                data-src="<?php echo get_image_kit_url($image); ?>"
-                alt="Lavandré"
-                class="loading"
-                width="1920"
-                height="848"
-            >
-        </picture>
-        */ ?>
-
-        <a class="no-button main-banner__see-more" data-scroll-to="best-sellers">
+        <a href="#shop-now" class="no-button main-banner__see-more" data-scroll-to="shop-now">
             <?php include get_stylesheet_directory() . '/partials/icons/down-arrow.svg.php'; ?>
         </a>
     </section>
 
-    <section id="best-sellers" class="ww-block hide-on-mobile">
-        <?php include get_stylesheet_directory() . '/partials/_best-sellers.php'; ?>
+    <section id="shop-now" class="ww-block ww-block--large hide-on-mobile">
+        <?php include get_stylesheet_directory() . '/partials/_shop-now.php'; ?>
     </section>
 
     <section class="ww-banner-block ww-banner-block--alt">
@@ -47,32 +28,32 @@
         </div>
     </section>
 
-    <section class="ww-block ww-block--full-height bg-alabaster">
+    <section class="ww-block ww-block--largee ww-block--full-height bg-alabaster">
         <header>
-            <h2>Why it is important to use a clean towel</h2>
+            <h2 class="sub-title">Why it is important to use a clean towel</h2>
         </header>
 
         <div class="ww-container ww-container--large benefit-block flex-grid">
             <div>
-                <?php include get_stylesheet_directory() . '/partials/icons/back.svg.php'; ?>
+                <?php include get_stylesheet_directory() . '/partials/icons/leaf.svg.php'; ?>
                 <h3>Where does a dry face washer fit into your beauty regime and why is it important?</h3>
                 <p>After cleansing, it’s really important to use a gentle press and pat method to dry the skin with a soft, non-abrasive cloth and to absorb any excess liquid and product. Rubbing, buffing or tugging at the complexion with coarse fabric can cause redness, irritation and really agitate the skin, as well as encourage fine lines and laxity if done frequently enough.</p>
             </div>
 
             <div>
-                <?php include get_stylesheet_directory() . '/partials/icons/back.svg.php'; ?>
+                <?php include get_stylesheet_directory() . '/partials/icons/drop.svg.php'; ?>
                 <h3>Where does a wet face washer fit into your beauty regime and why is it important?</h3>
                 <p>Wet cloths are a wonderful way to gently remove thicker cleansing balms for a deep and thorough cleanse and to assist in freeing the pores of impurities. They can also be used to really gently buff away dead skin on the nose and chin, by using small circular motions and can be pressed gently into the complexion for a swift and respectful removal of peels and masks after they have been left to activate and infuse into the complexion.</p>
             </div>
 
             <div>
-                <?php include get_stylesheet_directory() . '/partials/icons/back.svg.php'; ?>
+                <?php include get_stylesheet_directory() . '/partials/icons/earth.svg.php'; ?>
                 <h3>Where does a dry face washer fit into your beauty regime and why is it important?</h3>
                 <p>After cleansing, it’s really important to use a gentle press and pat method to dry the skin with a soft, non-abrasive cloth and to absorb any excess liquid and product. Rubbing, buffing or tugging at the complexion with coarse fabric can cause redness, irritation and really agitate the skin, as well as encourage fine lines and laxity if done frequently enough.</p>
             </div>
 
             <div>
-                <?php include get_stylesheet_directory() . '/partials/icons/back.svg.php'; ?>
+                <?php include get_stylesheet_directory() . '/partials/icons/euro.svg.php'; ?>
                 <h3>Where does a wet face washer fit into your beauty regime and why is it important?</h3>
                 <p>Wet cloths are a wonderful way to gently remove thicker cleansing balms for a deep and thorough cleanse and to assist in freeing the pores of impurities. They can also be used to really gently buff away dead skin on the nose and chin, by using small circular motions and can be pressed gently into the complexion for a swift and respectful removal of peels and masks after they have been left to activate and infuse into the complexion.</p>
             </div>

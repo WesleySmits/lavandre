@@ -1,5 +1,59 @@
 @import "../variables/variables.pcss";
 
+.full-width-banner-block {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    @media (--tablet-landscape) {
+        flex-flow: row wrap;
+    }
+
+    &__link {
+        flex: 1 1 100%;
+
+        @media (--tablet-landscape) {
+            flex: 1 1 50%;
+
+            .cover-image {
+                height: calc(100vh);
+            }
+
+            &:last-child {
+                flex: 1 1 100%;
+
+                .cover-image {
+                    object-position: 50% 60%;
+                }
+            }
+        }
+    }
+
+    &__see-more {
+        position: absolute;
+        top: calc(100vh - 3.75rem);
+        right: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: auto;
+
+        a {
+        }
+
+        svg {
+            width: 1.5rem;
+            cursor: pointer;
+            fill: white;
+            stroke: white;
+            animation: bounce 2s infinite both;
+        }
+    }
+}
+
 .woocommerce-breadcrumb {
     padding: 3rem 0rem;
     text-transform: uppercase;

@@ -2,11 +2,16 @@
     background-color: var(--background-color);
     transition: background-color .4s ease;
 
-    position: fixed;
+    position: sticky;
     top: 0;
     right: 0;
     left: 0;
     z-index: 2;
+
+    body.home &,
+    body.woocommerce-shop & {
+        position: fixed;
+    }
 
     svg {
         position: relative;
@@ -21,7 +26,7 @@
         transition: color .4s ease, fill .4s ease, stroke .4s ease;
     }
 
-    &.transparent {
+    &.transparent:not(.ww-submenu-open) {
         background: transparent;
 
         a,
@@ -29,6 +34,10 @@
             color: var(--white);
             fill: var(--white);
             stroke: var(--white);
+        }
+
+        .ww-sub-menu__list a {
+            color: var(--color-text);
         }
 
         .ww-site-header__middle {
@@ -125,6 +134,7 @@
 }
 
 .ww-site-header__nav-link {
+    position: relative;
     display: block;
     font-size: .75rem;
     font-weight: 400;
@@ -132,6 +142,22 @@
     padding: 40px 0px !important;
     color: var(--color-text);
     text-transform: uppercase;
+
+    &:hover {
+        text-decoration: none;
+
+        [data-sub-menu] &:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            display: block;
+            height: 1px;
+            background: var(--color-text);
+        }
+    }
 }
 
 .ww-site-header__icons {
@@ -155,7 +181,8 @@
     width: 100vw;
     margin-left: -50vw;
     padding: 2rem 0;
-    background: white;
+    background-color: var(--background-color);
+
     transition: opacity .4s ease;
     opacity: 1;
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 30%);
