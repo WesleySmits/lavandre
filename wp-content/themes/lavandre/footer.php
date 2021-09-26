@@ -3,14 +3,14 @@
     $contactPoint = $company->getContactPoint();
 ?>
 
-<footer id="footer" class="ww-footer-new">
-    <section class="ww-footer-new__top">
-        <a href="/" class="ww-footer-new__logo" aria-label="Lavandré logo">
+<footer id="footer" class="ww-footer">
+    <section class="ww-footer__top">
+        <a href="/" class="ww-footer__logo" aria-label="Lavandré logo">
             <?php include get_stylesheet_directory() . '/public/images/logos/lavandre-logo-open.svg'; ?>
         </a>
     </section>
 
-    <section class="ww-footer-new__slider">
+    <section class="ww-footer__slider">
         <ul class="usp-slider">
             <li class="usp-slider__item">Cruelty-Free</li>
             <li class="usp-slider__item">Eco-Friendly</li>
@@ -27,14 +27,40 @@
         </ul>
     </section>
 
-    <section class="ww-footer-new__middle">
-        <div class="ww-footer-new__column ww-footer-new__link">
-            <section class="ww-footer-new__links__column">
-                <header class="ww-footer-new__links__header">
-                    <h3 class="footer__h3"><?php _e('Customer service', 'lavandre'); ?></h3>
+    <section class="ww-footer__middle">
+        <div class="ww-footer__column ww-footer__social">
+            <section class="ww-footer__subscribe flex flex-column">
+                <h3 class="footer__h3"><?php _e('Stay up to date', 'lavandre'); ?></h3>
+
+                <div class="ww-footer__subscribe-form-wrapper">
+                    <form class="ww-form" id="footer-newsletter-form" action="post">
+                        <p class="ww-form__field">
+                            <input type="email" name="email" id="footer-newsletter-form-email" title="<?php _e('Please enter a valid e-mail address', 'lavandre'); ?>" placeholder="<?php _e('E-mail address', 'lavandre'); ?>">
+                        </p>
+                        <button class="ww-button alt" type="submit" id="footer-newsletter-form-submit"><?php _e('Submit', 'lavandre'); ?></button>
+                    </form>
+                </div>
+
+                <section class="ww-footer__social-links">
+                    <ul class="socialmedia-list no-list flex">
+                        <li class="socialmedia-list__item"><a class="socialmedia-list__anchor" href="mailto:<?php echo $contactPoint->getEmailAddress(); ?>" aria-label="E-mail"><?php include get_stylesheet_directory() . '/partials/icons/envelope2.svg.php'; ?></a></li>
+                        <li class="socialmedia-list__item"><a class="socialmedia-list__anchor" target="_blank" rel="noopener" href="<?php echo $contactPoint->getFacebook(); ?>" aria-label="Facebook"><?php include get_stylesheet_directory() . '/partials/icons/facebook-f.svg.php'; ?></a></li>
+                        <li class="socialmedia-list__item"><a class="socialmedia-list__anchor" target="_blank" rel="noopener" href="<?php echo $contactPoint->getInstagram(); ?>" aria-label="Instagram"><?php include get_stylesheet_directory() . '/partials/icons/instagram.svg.php'; ?></a></li>
+                        <li class="socialmedia-list__item"><a class="socialmedia-list__anchor" target="_blank" rel="noopener" href="<?php echo $contactPoint->getYoutube(); ?>" aria-label="YouTube"><?php include get_stylesheet_directory() . '/partials/icons/youtube.svg.php'; ?></a></li>
+                        <li class="socialmedia-list__item"><a class="socialmedia-list__anchor" target="_blank" rel="noopener" href="<?php echo $contactPoint->getTwitter(); ?>" aria-label="Twitter"><?php include get_stylesheet_directory() . '/partials/icons/twitter.svg.php'; ?></a></li>
+                        <li class="socialmedia-list__item"><a class="socialmedia-list__anchor" target="_blank" rel="noopener" href="<?php echo $contactPoint->getLinkedin(); ?>" aria-label="LinkedIn"><?php include get_stylesheet_directory() . '/partials/icons/linkedin.svg.php'; ?></a></li>
+                    </ul>
+                </section>
+            </section>
+        </div>
+
+        <div class="ww-footer__column ww-footer__link">
+            <section class="ww-footer__links__column">
+                <header class="ww-footer__links__header">
+                    <h3 class="footer__h3" data-curtain-toggle="footer-column-1"><?php _e('Customer service', 'lavandre'); ?></h3>
                 </header>
 
-                <ul class="no-list">
+                <ul class="no-list" data-curtain-content="footer-column-1" data-only-on-mobile="true">
                     <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/"><?php _e('Customer service', 'lavandre'); ?></a></li>
                     <li class="footer-links__item"><a class="footer-links__anchor" href="/contact/"><?php _e('Contact', 'lavandre'); ?></a></li>
                     <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/payment/"><?php _e('Payment', 'lavandre'); ?></a></li>
@@ -43,12 +69,12 @@
                 </ul>
             </section>
 
-            <section class="ww-footer-new__links__column">
-                <header class="ww-footer-new__links__header">
-                    <h3 class="footer__h3"><?php _e('Online orders', 'lavandre'); ?></h3>
+            <section class="ww-footer__links__column">
+                <header class="ww-footer__links__header">
+                    <h3 class="footer__h3" data-curtain-toggle="footer-column-2"><?php _e('Online orders', 'lavandre'); ?></h3>
                 </header>
 
-                <ul class="no-list">
+                <ul class="no-list" data-curtain-content="footer-column-2" data-only-on-mobile="true">
                     <li class="footer-links__item"><a class="footer-links__anchor" href="/my-account/"><?php _e('My account', 'lavandre'); ?></a></li>
                     <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/payment/"><?php _e('Payment', 'lavandre'); ?></a></li>
                     <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/order-and-delivery/"><?php _e('Ordering and delivery', 'lavandre'); ?></a></li>
@@ -56,12 +82,12 @@
                 </ul>
             </section>
 
-            <section class="ww-footer-new__links__column">
-                <header class="ww-footer-new__links__header">
-                    <h3 class="footer__h3"><?php _e('Sustainability', 'lavandre'); ?></h3>
+            <section class="ww-footer__links__column">
+                <header class="ww-footer__links__header">
+                    <h3 class="footer__h3" data-curtain-toggle="footer-column-3"><?php _e('Sustainability', 'lavandre'); ?></h3>
                 </header>
 
-                <ul class="no-list">
+                <ul class="no-list" data-curtain-content="footer-column-3" data-only-on-mobile="true">
                     <li class="footer-links__item"><a class="footer-links__anchor" href="/sustainability/"><?php _e('Sustainability', 'lavandre'); ?></a></li>
                     <li class="footer-links__item"><a class="footer-links__anchor" href="/sustainability/acting-responsibly/"><?php _e('Acting responsibly', 'lavandre'); ?></a></li>
                     <li class="footer-links__item"><a class="footer-links__anchor" href="/sustainability/sustainable-production/"><?php _e('Sustainable production', 'lavandre'); ?></a></li>
@@ -70,24 +96,9 @@
                 </ul>
             </section>
         </div>
-
-        <div class="ww-footer-new__column ww-footer-new__social">
-            <section class="ww-footer-new__subscribe flex flex-column">
-                <h3 class="footer__h3"><?php _e('Stay up to date', 'lavandre'); ?></h3>
-
-                <div class="ww-footer-new__subscribe-form-wrapper">
-                    <form class="ww-form" id="footer-newsletter-form" action="post">
-                        <p class="ww-form__field">
-                            <input type="email" name="email" id="footer-newsletter-form-email" title="<?php _e('Please enter a valid e-mail address', 'lavandre'); ?>" placeholder="<?php _e('E-mail address', 'lavandre'); ?>">
-                        </p>
-                        <button class="ww-button alt" type="submit" id="footer-newsletter-form-submit"><?php _e('Submit', 'lavandre'); ?></button>
-                    </form>
-                </div>
-            </section>
-        </div>
     </section>
 
-    <section class="ww-footer-new__bottom">
+    <section class="ww-footer__bottom">
         <ul class="legal-list no-list inline-list">
             <li class="legal-list__item"><a class="legal-list__anchor" data-panel="6324" href="/cookie-informatie/"><?php _e('Cookie information &amp; settings', 'lavandre'); ?></a></li>
             <li class="legal-list__item"><a class="legal-list__anchor" href="/algemene-voorwaarden/"><?php _e('Terms of use', 'lavandre'); ?></a></li>

@@ -28,7 +28,7 @@ export default class Curtain extends Component {
 
     private setEventListeners() {
         this.foldButton.addEventListener('click', (e) => {
-            if (this.onlyOnMobile && window.innerWidth >= 768) {
+            if (this.onlyOnMobile && window.innerWidth >= 1024) {
                 return;
             }
 

@@ -11,14 +11,23 @@
 .socialmedia-list__item {
     display: flex;
     align-items: center;
-    margin-right: 10px;
+    margin-right: 1.5rem;
+
+    @media (--tablet-landscape) {
+        margin-right: 1rem;
+    }
 
     svg {
-        width: .75rem;
-        height: .75rem;
+        width: 1.75rem;
+        height: 1.75rem;
         margin: 0;
         font-size: inherit;
         line-height: inherit;
+
+        @media (--tablet-landscape) {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
     }
 }
 
@@ -27,26 +36,24 @@
     justify-content: center;
     align-items: center;
     color: var(--color-text);
-    padding: 5px;
-    border: 1px solid var(--black);
-    border-radius: 50%;
+    padding: 0;
     width: 1.5rem;
     height: 1.5rem;
     transition: all .4s ease;
 
-    svg {
+    path {
         transition: all .4s ease;
+        fill: var(--color-text);
     }
 
     &:hover,
     &:focus {
         color: var(--white);
-        background-color: var(--color-text);
         text-decoration: none;
         outline: 0;
 
-        svg path {
-            fill: var(--white);
+        path {
+            fill: var(--old-burgundy);
         }
     }
 }
