@@ -5,36 +5,12 @@ describe('Lazy loading tests - mobile', () => {
         cy.viewport('iphone-xr');
         cy.visit('/');
     });
-
-    it('should load main banner', () => {
-        cy.get('#main-banner picture img', { includeShadowDom: true })
-        .filter('[src]')
-        .filter(':visible')
-            .should(($imgs) => $imgs.map((i: number, img: HTMLElement) => {
-                const image: HTMLImageElement = img as HTMLImageElement;
-                expect(image.naturalWidth).to.be.greaterThan(1)
-        }));
-    });
-
-    it('should not load dropdown banners', () => {
-
-    });
 });
 
 describe('Lazy loading tests - desktop', () => {
     beforeEach(() => {
         cy.viewport('macbook-15');
         cy.visit('/');
-    });
-
-    it('should load main banner', () => {
-        cy.get('#main-banner picture img', { includeShadowDom: true })
-        .filter('[src]')
-        .filter(':visible')
-            .should(($imgs) => $imgs.map((i: number, img: HTMLElement) => {
-                const image: HTMLImageElement = img as HTMLImageElement;
-                expect(image.naturalWidth).to.be.greaterThan(1)
-        }));
     });
 
     ['sustainability', 'branches'].forEach((menu: string) => {

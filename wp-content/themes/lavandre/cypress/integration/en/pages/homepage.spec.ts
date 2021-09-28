@@ -14,7 +14,7 @@ describe('Homepage tests - mobile', () => {
     });
 
     it('should not display best selling products', () => {
-        cy.get('#best-sellers').should('not.be.visible');
+        cy.get('#shop-now').should('not.be.visible');
     });
 
     it('should display an instagram feed', () => {
@@ -39,7 +39,7 @@ describe('Homepage tests - desktop', () => {
     });
 
     it('should be able to open all best selling products', () => {
-        cy.get('#best-sellers .ww-products__link').testLinks();
+        cy.get('#shop-now .ww-products__link').testLinks();
     });
 
     it('should display an instagram feed', () => {
