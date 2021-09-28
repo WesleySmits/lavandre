@@ -126,3 +126,4 @@ autoupdater_maintenance_mode_enabled.tmp
 .wpe-push-ignore
 wp-content/languages/loco
 wp-content/languages/plugins
+.env
