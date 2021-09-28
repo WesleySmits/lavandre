@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 class Company {
     private string $companyName;
+    private string $brandName;
     private int $foundingDate;
     private array $founders;
     private Address $address;
@@ -11,12 +12,14 @@ class Company {
 
     function __construct(
         string $companyName,
+        string $brandName,
         int $foundingDate,
         array $founders,
         Address $address,
         ContactPoint $contactPoint
     ) {
         $this->companyName = $companyName;
+        $this->brandName = $brandName;
         $this->foundingDate = $foundingDate;
         $this->founders = $founders;
         $this->address = $address;
@@ -39,6 +42,26 @@ class Company {
     public function setCompanyName($companyName)
     {
         $this->companyName = $companyName;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of brandName
+     */
+    public function getBrandName()
+    {
+        return $this->brandName;
+    }
+
+    /**
+     * Set the value of companyName
+     *
+     * @return  self
+     */
+    public function setBrandName($brandName)
+    {
+        $this->brandName = $brandName;
 
         return $this;
     }

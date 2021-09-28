@@ -76,6 +76,7 @@ add_action( 'after_setup_theme', 'lavandre_setup' );
 
 function getCompany() {
     $companyName = 'WesTrade Beheer B.V.';
+    $brandName = 'Lavandré';
     $phoneNumber = '085 303 1102';
     $emailAddress = 'info@wegwerphanddoeken.nl';
     $foundingDate = '2016';
@@ -90,7 +91,7 @@ function getCompany() {
 
     $address = new Address('Jan Valsterweg', 75, 0, 'Dordrecht', '3315 LG');
     $contactPoint = new ContactPoint($phoneNumber, $emailAddress, $facebook, $instagram, $twitter, $youtube, $linkedin, $facebookMessager, $whatsapp);
-    $company = new Company($companyName, $foundingDate, $founders, $address, $contactPoint);
+    $company = new Company($companyName, $brandName, $foundingDate, $founders, $address, $contactPoint);
 
     return $company;
 }
