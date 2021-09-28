@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.8.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-09-01 21:47:59+0000\n"
+"PO-Revision-Date: 2021-09-19 21:14:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -638,7 +638,7 @@ msgstr "Berichttitel"
 #: wp-includes/blocks/post-terms/block.json
 msgctxt "block description"
 msgid "Post terms."
-msgstr "Bericht termen"
+msgstr "Bericht termen."
 
 #: wp-includes/blocks/post-terms/block.json
 msgctxt "block title"
@@ -1405,7 +1405,7 @@ msgstr "Er bestaat geen zijbalk met dat id."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-sidebars-controller.php:63
 msgid "The id of a registered sidebar"
-msgstr "Het id van een registreerde zijbalk"
+msgstr "Het id van een geregistreerde zijbalk"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:678
 msgid "The ID for the author of the revision."
@@ -1451,7 +1451,7 @@ msgstr "Beperk de resultaten tot de resultaten die overeenkomen met een keyword 
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:324
 msgid "Limit results to those matching a category ID."
-msgstr "Beperk resultaten tot degene die overeenkomen met een categorie ID. "
+msgstr "Beperk resultaten tot degene die overeenkomen met een categorie ID."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:296
 msgid "The preferred width of the viewport when previewing a pattern, in pixels."
@@ -2120,7 +2120,7 @@ msgstr "Hoek in graden om kloksgewijs te roteren."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1346
 msgid "Rotation arguments."
-msgstr "Rotatie argumenten"
+msgstr "Rotatie argumenten."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1341
 msgid "Rotation type."
@@ -2181,7 +2181,7 @@ msgstr "Of sub-termen moeten worden opgenomen in de termen die de resultaat set 
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3032
 msgid "Term IDs."
-msgstr "Term IDs."
+msgstr "Term ID’s."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3028
 msgid "Perform an advanced term query."
@@ -2635,7 +2635,7 @@ msgstr "<a href=\"%s\">Lees meer over het updaten van PHP</a>."
 #: wp-admin/themes.php:988 wp-admin/themes.php:1037 wp-admin/themes.php:1059
 #: wp-admin/update-core.php:691 wp-admin/update-core.php:712
 msgid "<a href=\"%s\">Please update WordPress</a>."
-msgstr "<a href=\"%s\">WordPress bijwerken</a>."
+msgstr "<a href=\"%s\">Update WordPress</a>."
 
 #. translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page.
 #: wp-includes/customize/class-wp-customize-theme-control.php:122
@@ -2727,7 +2727,7 @@ msgstr "De bestands-URL is naar je klembord gekopieerd"
 
 #: wp-includes/class-wp-oembed-controller.php:215
 msgid "Embed Handler"
-msgstr "Insluiten Handler"
+msgstr "Insluiten handler"
 
 #. translators: %s: Documentation URL.
 #: wp-includes/ms-load.php:495
@@ -2942,7 +2942,7 @@ msgstr "%1$s is een vereiste eigenschap van %2$s."
 #. translators: %s: Parameter.
 #: wp-includes/rest-api.php:2406 wp-includes/rest-api.php:2708
 msgid "%s has duplicate items."
-msgstr "%s heeft dubbele artikelen."
+msgstr "%s heeft dubbele items."
 
 #. translators: 1: Parameter, 2: Number.
 #: wp-includes/rest-api.php:2393
@@ -2975,7 +2975,7 @@ msgstr "Kan geen objecten stabiliseren. Converteer eerst het object naar een arr
 #. translators: 1: Parameter, 2: List of allowed types.
 #: wp-includes/rest-api.php:1595
 msgid "The \"type\" schema keyword for %1$s can only contain the built-in types: %2$l."
-msgstr "Het \"type\" schema keyword voor %1$s kan alleen een van de ingebouwde types zijn:  %2$l."
+msgstr "Het \"type\" schema keyword voor %1$s kan alleen een van de ingebouwde types zijn: %2$l."
 
 #. translators: Developer debugging message. 1: PHP function name, 2:
 #. Explanatory message.
@@ -3075,7 +3075,7 @@ msgstr "De blok-titel, in menselijk leesbaar format."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-block-directory-controller.php:217
 msgid "The block name, in namespace/block-name format."
-msgstr "De bloknaam, in namespace/bloknaam formaat."
+msgstr "De bloknaam, in namespace/bloknaam format."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-block-directory-controller.php:58
 msgid "Sorry, you are not allowed to browse the block directory."
@@ -3143,7 +3143,7 @@ msgstr "Het pluginbestand."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-plugins-controller.php:839
 msgid "The filesystem is currently unavailable for managing plugins."
-msgstr "Het bestandssysteem is momenteel niet beschikbaar voor het beheren van plugins. "
+msgstr "Het bestandssysteem is momenteel niet beschikbaar voor het beheren van plugins."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-plugins-controller.php:721
 msgid "Network only plugin must be network activated."
@@ -3236,7 +3236,7 @@ msgstr "De thema tags, getransformeerd voor weergave."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-themes-controller.php:494
 msgid "The theme tags, as found in the theme header."
-msgstr "De thema tags, zoals te vinden in de thema-header"
+msgstr "De thema tags, zoals te vinden in de thema header."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-themes-controller.php:489
 msgid "Tags indicating styles and features of the theme."
@@ -3454,7 +3454,7 @@ msgstr "De berichttypen die thumbnails ondersteunen of waar als alle berichttype
 
 #: wp-includes/theme.php:3152
 msgid "When registering an \"object\" feature, the feature's schema must include the \"properties\" keyword."
-msgstr "Bij het registreren van een \"object\" -functie, moet het schema van de functie het keyword \"properties\" bevatten."
+msgstr "Bij het registreren van een \"object\" functie, moet het schema van de functie het keyword \"properties\" bevatten."
 
 #: wp-includes/theme.php:3145
 msgid "When registering an \"array\" feature, the feature's schema must include the \"items\" keyword."
@@ -3462,7 +3462,7 @@ msgstr "Bij het registreren van een \"array\" functie moet het schema van de fun
 
 #: wp-includes/theme.php:3138
 msgid "When registering an \"array\" or \"object\" feature to show in the REST API, the feature's schema must also be defined."
-msgstr "Bij het registreren van een \"array\" - of \"object\" functie om weer te geven in de REST API, moet ook het schema van de functie worden gedefinieerd."
+msgstr "Bij het registreren van een \"array\" of \"object\" functie om weer te geven in de REST API, moet ook het schema van de functie worden gedefinieerd."
 
 #: wp-includes/theme.php:3130
 msgid "When registering a \"variadic\" theme feature, the \"type\" must be an \"array\"."
@@ -3536,7 +3536,7 @@ msgstr "Deze XML-sitemap is gegenereerd door WordPress om je inhoud beter zichtb
 #: wp-includes/sitemaps/class-wp-sitemaps-stylesheet.php:46
 #: wp-includes/sitemaps/class-wp-sitemaps-stylesheet.php:160
 msgid "XML Sitemap"
-msgstr "XML-sitemap"
+msgstr "XML sitemap"
 
 #. translators: %s: SimpleXML
 #: wp-includes/sitemaps/class-wp-sitemaps-renderer.php:264
@@ -3584,13 +3584,13 @@ msgstr "De categorie kon niet gemaakt worden."
 #: wp-includes/class-wp-xmlrpc-server.php:1833
 #: wp-includes/class-wp-xmlrpc-server.php:5267
 msgid "Sorry, the post could not be deleted."
-msgstr "Helaas, het bericht kon niet worden verwijderd."
+msgstr "Het bericht kon niet worden verwijderd."
 
 #: wp-includes/class-wp-xmlrpc-server.php:1690
 #: wp-includes/class-wp-xmlrpc-server.php:5207
 #: wp-includes/class-wp-xmlrpc-server.php:5965
 msgid "Sorry, the post could not be updated."
-msgstr "Helaas, het bericht kon niet worden bijgewerkt."
+msgstr "Het bericht kon niet worden geüpdatet."
 
 #: wp-includes/blocks/social-links/block.json
 msgctxt "block keyword"
@@ -3797,7 +3797,7 @@ msgstr "Deze methode wordt niet ondersteund."
 #: wp-includes/class-wp-xmlrpc-server.php:5127
 #: wp-includes/class-wp-xmlrpc-server.php:5620
 msgid "Sorry, the post could not be created."
-msgstr "Helaas, het bericht kon niet gemaakt worden."
+msgstr "Het bericht kon niet gemaakt worden."
 
 #. translators: Minimum input length in characters to start searching posts in
 #. the "Insert/edit link" modal.
@@ -4051,11 +4051,11 @@ msgstr "Toegevoegd:"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-post-statuses-controller.php:344
 msgid "Whether posts of this status may have floating published dates."
-msgstr "Of berichten met deze status losse publicatie data kan hebben. "
+msgstr "Of berichten met deze status mogelijk zwevende publicatie datums hebben."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:413
 msgid "Sorry, you are not allowed to delete revisions of this post."
-msgstr "Je hebt geen toestemming om revisies van dit bericht weg te gooien."
+msgstr "Je hebt geen toestemming om revisies van dit bericht te verwijderen."
 
 #. translators: %s: Custom field key.
 #: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:330
@@ -4066,7 +4066,7 @@ msgstr "Kon de metawaarde '%s' niet updaten in de database."
 
 #: wp-includes/meta.php:1339
 msgid "When registering an \"array\" meta type to show in the REST API, you must specify the schema for each array item in \"show_in_rest.schema.items\"."
-msgstr "Wanneer je een \"array\" meta type registreert om in de REST API te tonen moet je het schema definiëren voor elk array item in \"show_in_rest.schema.items\"."
+msgstr "Wanneer je een \"array\" meta type registreert om in de REST API te tonen moet je het schema voor elk array item specificeren in \"show_in_rest.schema.items\"."
 
 #. translators: %s: taxonomy name
 #: wp-includes/blocks/tag-cloud.php:28
@@ -4408,7 +4408,7 @@ msgstr "De e-mail kon niet worden verzonden. Mogelijke reden: je host kan de %s 
 
 #: wp-includes/class-wp-recovery-mode-email-service.php:58
 msgid "Could not update the email last sent time."
-msgstr "Kon de laatst verzonden tijd van de e-mail niet bijwerken."
+msgstr "Kon de laatst verzonden tijd van de e-mail niet updaten."
 
 #: wp-includes/class-wp-recovery-mode-key-service.php:113
 msgid "Recovery key expired."
@@ -4436,7 +4436,7 @@ msgstr "Abonnee"
 #: wp-includes/capabilities.php:1088
 msgctxt "User role"
 msgid "Contributor"
-msgstr "Schrijver"
+msgstr "Bijdrager"
 
 #. translators: User role for authors.
 #: wp-includes/capabilities.php:1086
@@ -4558,7 +4558,7 @@ msgstr "Het gebruik van het 'title' attribuut op het aanmeldlogo wordt om redene
 
 #: wp-includes/functions.php:7932
 msgid "Update PHP"
-msgstr "PHP bijwerken"
+msgstr "Update PHP"
 
 #: wp-includes/ms-site.php:79
 msgid "Could not retrieve site data."
@@ -4634,7 +4634,7 @@ msgstr "Kon site niet uit de database verwijderen."
 
 #: wp-includes/ms-site.php:180
 msgid "Could not update site in the database."
-msgstr "Kon de site niet in de database bijwerken."
+msgstr "Kon de site niet in de database updaten."
 
 #: wp-includes/ms-site.php:166 wp-includes/ms-site.php:219
 msgid "Site does not exist."
@@ -4666,9 +4666,7 @@ msgstr "%1$s, %2$s"
 #. translators: %s: Default Update PHP page URL.
 #: wp-includes/functions.php:7875
 msgid "This resource is provided by your web host, and is specific to your site. For more information, <a href=\"%s\" target=\"_blank\">see the official WordPress documentation</a>."
-msgstr ""
-"Deze resource is van je webhost en is specifiek voor je site. Meer informatie, \n"
-" vind je in de<a href=\"%s\" target=\"_blank\">officiële WordPress documentatie</a>."
+msgstr "Deze gegevensbron is van je webhost en is specifiek voor je site. Meer informatie, vind je in de<a href=\"%s\" target=\"_blank\">officiële WordPress documentatie</a>."
 
 #: wp-includes/functions.php:7832
 msgctxt "localized PHP upgrade information page"
@@ -4710,24 +4708,24 @@ msgstr "Bepaal of je de taxonomy beschikbaar maakt om te kunnen selecteren in na
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-taxonomies-controller.php:386
 msgid "Whether to allow automatic creation of taxonomy columns on associated post-types table."
-msgstr "Bepaal of je automatisch taxonomy kolommen wilt tonen in de relevante post-types tabellen. "
+msgstr "Bepaal of je automatisch taxonomie kolommen wilt aanmaken in de gerelateerde berichttypes tabel."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-taxonomies-controller.php:382
 msgid "Whether to generate a default UI for managing this taxonomy."
-msgstr "Bepaal of je gebruik wilt maken van de standaard UI om deze taxonomy te beheren."
+msgstr "Bepaal of je gebruik wilt maken van de standaard UI om deze taxonomie te beheren."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-taxonomies-controller.php:378
 msgid "Whether the taxonomy is publicly queryable."
-msgstr "Bepaal of de taxonomy publicly queryable is."
+msgstr "Bepaal of de taxonomie publiek queryable is."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-taxonomies-controller.php:374
 msgid "Whether a taxonomy is intended for use publicly either via the admin interface or by front-end users."
-msgstr "Bepaal of een taxonomy publiek moet zijn via de admin interface of frontend door eindgebruikers."
+msgstr "Bepaal of een taxonomie publiek moet zijn via de beheerder interface of frontend door eindgebruikers."
 
 #: wp-includes/user.php:2518 wp-includes/user.php:2717
 #: wp-includes/user.php:2771
 msgid "<strong>Error</strong>: There is no account with that username or email address."
-msgstr "<strong>Fout</strong>: Er is geen account met die gebruikersnaam of dat e-mailadres."
+msgstr "<strong>Fout</strong>: er is geen account met die gebruikersnaam of dat e-mailadres."
 
 #: wp-includes/class-wp.php:300 wp-includes/ms-deprecated.php:275
 #: wp-includes/ms-deprecated.php:294
@@ -5825,7 +5823,7 @@ msgstr "Sla je wijzigingen op om het voorbeeld te delen."
 
 #: wp-includes/script-loader.php:1154
 msgid "Updating"
-msgstr "Bijwerken"
+msgstr "Aan het updaten"
 
 #: wp-includes/script-loader.php:1153
 msgid "Draft Saved"
@@ -7121,7 +7119,7 @@ msgstr "Fout bij aanmaken nieuwe gebruiker."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1008
 msgid "The parent term ID."
-msgstr "Het hoofd-termID."
+msgstr "Het hoofd term ID."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:978
 msgid "HTML title for the term."
@@ -7892,7 +7890,7 @@ msgstr "Beperk de resultatenset tot items behalve die met specifieke termen toeg
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2816
 msgid "Limit result set to all items except those of a particular parent ID."
-msgstr "Resultaten beperken tot alle items behalve die met een bepaalde parent ID."
+msgstr "Resultaten beperken tot alle items behalve die met een bepaald hoofd ID."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2808
 msgid "Limit result set to items with particular parent IDs."
@@ -8176,7 +8174,7 @@ msgstr "Vaststellen dat resultaten specifieke hoofd ID's uitsluiten."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1630
 msgid "Limit result set to comments of specific parent IDs."
-msgstr "Resultaten beperken tot reacties van specifieke ouder ID's."
+msgstr "Resultaten beperken tot reacties van specifieke hoofd ID's."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:797
 msgid "Sort collection by object attribute."
@@ -8310,11 +8308,11 @@ msgstr "De reactie is al weggegooid."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:876
 msgid "Updating comment failed."
-msgstr "Bijwerken van de reactie is mislukt."
+msgstr "Updaten van de reactie is mislukt."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:841
 msgid "Updating comment status failed."
-msgstr "Bijwerken van reactiestatus is mislukt."
+msgstr "Updaten van reactiestatus is mislukt."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:704
 msgid "Creating comment failed."
@@ -8412,7 +8410,7 @@ msgstr "De REST API kan niet meer volledig uitgeschakeld worden, het %s filter k
 
 #: wp-includes/post.php:1804 wp-admin/edit-form-advanced.php:419
 msgid "Page Attributes"
-msgstr "Pagina-attributen"
+msgstr "Pagina attributen"
 
 #: wp-includes/post.php:1804
 msgid "Post Attributes"
@@ -8479,7 +8477,7 @@ msgstr "Aangepaste CSS"
 
 #: wp-includes/post.php:79
 msgid "Attachment Attributes"
-msgstr "Bijlage-attributen"
+msgstr "Bijlage attributen"
 
 #. translators: Post revision title. 1: Author avatar, 2: Author name, 3: Time
 #. ago, 4: Date.
@@ -8623,7 +8621,7 @@ msgstr "Markup is niet toegestaan in CSS."
 
 #: wp-includes/class-wp-xmlrpc-server.php:3844
 msgid "Sorry, the comment could not be updated."
-msgstr "De reactie kon niet worden bewerkt."
+msgstr "De reactie kon niet worden geüpdatet."
 
 #: wp-includes/class-wp-xmlrpc-server.php:2778
 msgid "Invalid role."
@@ -8812,7 +8810,7 @@ msgstr "Weet je zeker dat je dit thema wil verwijderen?"
 
 #: wp-includes/class-wp-customize-manager.php:2352
 msgid "Unauthorized to modify setting due to capability."
-msgstr "Niet-geautoriseerd om de instelling aan te passen vanwege rechten."
+msgstr "Niet-geautoriseerd om instelling te wijzigen vanwege rechten."
 
 #: wp-includes/class-wp-customize-manager.php:2347
 msgid "Setting does not exist or is unrecognized."
@@ -11322,7 +11320,7 @@ msgstr "Aan audio-afspeellijst toevoegen"
 
 #: wp-includes/media.php:4537
 msgid "Update audio playlist"
-msgstr "Audio-afspeellijst bijwerken"
+msgstr "Update audio afspeellijst"
 
 #: wp-includes/media.php:4536
 msgid "Insert audio playlist"
@@ -17284,7 +17282,7 @@ msgstr "Link toevoegen"
 
 #: wp-includes/taxonomy.php:626
 msgid "Update Category"
-msgstr "Categorie bijwerken"
+msgstr "Update categorie"
 
 #: wp-includes/taxonomy.php:135
 msgid "Edit Link Category"
