@@ -100,10 +100,9 @@
 
     <section class="ww-footer__bottom">
         <ul class="legal-list no-list inline-list">
-            <li class="legal-list__item"><a class="legal-list__anchor" data-panel="6324" href="/cookie-informatie/"><?php _e('Cookie information &amp; settings', 'lavandre'); ?></a></li>
-            <li class="legal-list__item"><a class="legal-list__anchor" href="/algemene-voorwaarden/"><?php _e('Terms of use', 'lavandre'); ?></a></li>
+            <li class="legal-list__item"><a class="legal-list__anchor" href="/terms-and-conditions/"><?php _e('Terms of use', 'lavandre'); ?></a></li>
             <li class="legal-list__item"><a class="legal-list__anchor" href="/privacy-policy/"><?php _e('Privacy policy', 'lavandre'); ?></a></li>
-            <li class="legal-list__item"><a class="legal-list__anchor" href="/disclaimer/"><?php _e('Disclaimer', 'lavandre'); ?></a></li>
+            <li class="legal-list__item"><span>&copy; <?php echo date("Y"); ?> <?php echo $company->getBrandName(); ?>. All Rights Reserved.</span></li>
         </ul>
     </section>
 </footer>
@@ -279,10 +278,9 @@
 
                 <div class="flex-col-xs-12 flex-col-lg-5 flex-center">
                     <ul class="legal-list no-list inline-list">
-                        <li class="legal-list__item"><a class="legal-list__anchor" data-panel="6324" href="/cookie-informatie/"><?php _e('Cookie information &amp; settings', 'lavandre'); ?></a></li>
-                        <li class="legal-list__item"><a class="legal-list__anchor" href="/algemene-voorwaarden/"><?php _e('Terms of use', 'lavandre'); ?></a></li>
+                        <li class="legal-list__item"><a class="legal-list__anchor" href="/terms-and-conditions/"><?php _e('Terms of use', 'lavandre'); ?></a></li>
                         <li class="legal-list__item"><a class="legal-list__anchor" href="/privacy-policy/"><?php _e('Privacy policy', 'lavandre'); ?></a></li>
-                        <li class="legal-list__item"><a class="legal-list__anchor" href="/disclaimer/"><?php _e('Disclaimer', 'lavandre'); ?></a></li>
+                        <li class="legal-list__item"><span>&copy; <?php echo date("Y"); ?> <?php echo $company->getBrandName(); ?>. All Rights Reserved.</span></li>
                     </ul>
                 </div>
 
