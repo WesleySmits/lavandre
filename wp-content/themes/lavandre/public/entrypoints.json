@@ -3,8 +3,8 @@
     "app": {
       "js": [
         "/runtime.a0037f62.js",
-        "/0.84d5314d.js",
-        "/app.6ac1876b.js"
+        "/0.4eaf1aed.js",
+        "/app.69c62fe1.js"
       ],
       "css": [
         "/0.d659f9e7.css",
@@ -14,14 +14,14 @@
     "home": {
       "js": [
         "/runtime.a0037f62.js",
-        "/home.5bea957c.js"
+        "/home.e8b5d8c8.js"
       ]
     },
     "productDetail": {
       "js": [
         "/runtime.a0037f62.js",
-        "/0.84d5314d.js",
-        "/productDetail.4678102c.js"
+        "/0.4eaf1aed.js",
+        "/productDetail.cca726d8.js"
       ],
       "css": [
         "/0.d659f9e7.css"
@@ -30,13 +30,13 @@
     "cart": {
       "js": [
         "/runtime.a0037f62.js",
-        "/cart.b3c72ccd.js"
+        "/cart.2c37f38e.js"
       ]
     },
     "checkout": {
       "js": [
         "/runtime.a0037f62.js",
-        "/checkout.5aae7e5e.js"
+        "/checkout.52165c68.js"
       ],
       "css": [
         "/checkout.829b027e.css"
@@ -63,7 +63,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/homepage-styles.9dfa1889.css"
+        "/homepage-styles.7a0bebaf.css"
       ]
     },
     "about-styles": {
