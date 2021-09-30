@@ -194,7 +194,7 @@ function ajax_MailchimpSubscribe() {
     $email = $_POST['email'];
 
     $mailchimp = new \MailchimpMarketing\ApiClient();
-    $apikey = $_ENV['MAILCHIMP_API_KEY'];
+    $apiKey = $_ENV['MAILCHIMP_API_KEY'];
     $server = 'us17';
     $list_id = "c06124c73b";
 
@@ -206,11 +206,13 @@ function ajax_MailchimpSubscribe() {
     $exists = false;
     $response = '';
 
-    $subscribed = mc_checklist($email, false, $apiKey, $list_id, $server);
+    $subscribed = mc_checklist($email, true, $apiKey, $list_id, $server);
 
     if ($subscribed != '404') {
-        wp_send_json_error( ['U bent al ingeschreven.'] );
+        wp_send_json_error( ['You are already subscribed.'] );
     }
+
+    $errors = [];
 
     try {
         $mergeFields = [];
@@ -228,15 +230,27 @@ function ajax_MailchimpSubscribe() {
             $mergeFields["CNAME"] = $companyName;
         }
 
-        $data['merge_fields'] = $mergeFields;
+        if ($mergeFields) {
+            $data['merge_fields'] = $mergeFields;
+        }
 
         $response = $mailchimp->lists->setListMember($list_id, $subscriber_hash, $data);
     } catch (MailchimpMarketing\ApiException $e) {
-        wp_send_json_error( [__('U bent al ingeschreven.')] );
+        wp_send_json_error( [__('You are already subscribed.')] );
         echo $e->getMessage();
+    } catch (GuzzleHttp\Exception\ClientException $e) {
+        echo '<pre>' . var_export($e->getResponse()->getBody()->getContents()).'</pre>';
+        $errors[] = $e->getMessage();
+        $errorResponse = $e->getResponse();
+        $errorStatusCode = (string)$errorResponse->getStatusCode();
     }
 
-    wp_send_json_success([__('U bent aangemeld.')]);
+    if ($errors) {
+        print_r($data); die;
+        die($errors[0]);
+    }
+
+    wp_send_json_success([__('Welcome to the Lavandré family. We\'ll be in touch soon.')]);
     wp_die();
 }
 
@@ -543,30 +557,48 @@ function checkIfUserExists() {
 }
 
 function mc_checklist($email, $debug, $apikey, $listid, $server) {
-    $userid = md5($email);
+    $subscriber_hash = md5(strtolower($email));
     $auth = base64_encode( 'user:'. $apikey );
     $data = array(
         'apikey'        => $apikey,
         'email_address' => $email
         );
     $json_data = json_encode($data);
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://'.$server.'.api.mailchimp.com/3.0/lists/'.$listid.'/members/' . $userid);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json',
-        'Authorization: Basic '. $auth));
-    curl_setopt($ch, CURLOPT_USERAGENT, 'PHP-MCAPI/2.0');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
-    $result = curl_exec($ch);
-    if ($debug) {
-        var_dump($result);
+
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+    $mailchimp->setConfig([
+        'apiKey' => $apikey,
+        'server' => $server
+    ]);
+
+    $response = '';
+    $errors = [];
+    $errorStatusCode;
+
+    try {
+        $response = $mailchimp->lists->getListMember($listid, $subscriber_hash);
+    } catch (ClientException $e) {
+        var_dump('test 1 ClientException'); die;
+    } catch (RequestException $e) {
+        var_dump('test 2 RequestException'); die;
+    } catch (MailchimpMarketing\ApiException $e) {
+        var_dump('MailchimpMarketing\ApiException');
+        $errors[] = $e->getMessage();
+    } catch (ClientErrorResponseException $e) {
+        var_dump('ClientErrorResponseException');
+        $errors[] = $e->getMessage();
+    } catch (GuzzleHttp\Exception\ClientException $e) {
+        $errors[] = $e->getMessage();
+
+        $errorResponse = $e->getResponse();
+        $errorStatusCode = (string)$errorResponse->getStatusCode();
     }
-    $json = json_decode($result);
-    return $json->{'status'};
+
+    if ($errors) {
+        return $errorStatusCode;
+    }
+
+    return $response->status;
 }
 
 function sendMandrillMail($template_name, $email, $name, $merge_vars, $language = 'mailchimp') {
