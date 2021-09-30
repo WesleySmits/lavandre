@@ -124,6 +124,7 @@ autoupdater_maintenance_mode_enabled.tmp
 .lighthouseci
 .wpe-pull-ignore
 .wpe-push-ignore
+wp-content/mu-plugins
 wp-content/languages/loco
 wp-content/languages/plugins
 .env
