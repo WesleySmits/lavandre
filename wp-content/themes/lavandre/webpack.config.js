@@ -20,6 +20,7 @@ Encore
     .addStyleEntry('product-overview-styles', './assets/css/pages/productOverview.pcss')
     .addStyleEntry('account-styles', './assets/css/pages/account.pcss')
     .addStyleEntry('customerServiceStyles', './assets/css/pages/customer-service.pcss')
+    .addStyleEntry('blogOverviewStyles', './assets/css/pages/blogOverview.pcss')
     .addStyleEntry('sustainability-styles', './assets/css/pages/sustainability.pcss')
     .addStyleEntry('landingspage-styles', './assets/css/pages/landingsPage.pcss')
     .splitEntryChunks()
