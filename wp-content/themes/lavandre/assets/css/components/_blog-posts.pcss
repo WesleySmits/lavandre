@@ -17,16 +17,18 @@
     grid-template-columns: repeat(var(--grid-columns, 1), 1fr);
 
     list-style-type: none;
-    margin: 0;
+    margin: 3rem 0 0;
     padding: 0;
 
     &__item {
-        border-right: 1px solid #000000;
-        border-top: 1px solid #000000;
+        border-right: 1px solid var(--jet);
+        border-top: 1px solid var(--jet);
     }
 
     &__link {
-        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+        }
     }
 
     &__content {
@@ -36,7 +38,8 @@
 
     &__category {
         display: block;
-        font-size: .75rem;
+        font-size: .6rem;
+        font-weight: 100;
         letter-spacing: .1rem;
         margin-bottom: 1rem;
         text-transform: uppercase;
@@ -45,7 +48,33 @@
     &__title {
         margin: 0 0 1.5rem;
         font-size: 1.75rem;
-        font-weight: 400;
+        font-weight: 100;
         line-height: 1.15;
+
+        text-transform: capitalize;
+    }
+
+    &__read-more {
+        display: inline-flex;
+        align-items: center;
+
+        font-size: 1.25rem;
+        font-weight: 100;
+        font-style: italic;
+        border-bottom: 1px solid var(--jet);
+
+        svg {
+            width: 0.875rem;
+            height: 0.875rem;
+            margin-left: .5rem;
+            transition: transform .4s ease;
+        }
+
+        &:hover {
+            text-decoration: none;
+            svg {
+                transform: translateX(3px);
+            }
+        }
     }
 }

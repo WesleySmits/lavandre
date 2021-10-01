@@ -7,8 +7,8 @@
         "/app.69c62fe1.js"
       ],
       "css": [
-        "/0.d659f9e7.css",
-        "/app.8413262f.css"
+        "/0.3f31bc35.css",
+        "/app.cf33c621.css"
       ]
     },
     "home": {
@@ -24,7 +24,7 @@
         "/productDetail.cca726d8.js"
       ],
       "css": [
-        "/0.d659f9e7.css"
+        "/0.3f31bc35.css"
       ]
     },
     "cart": {
@@ -39,7 +39,7 @@
         "/checkout.52165c68.js"
       ],
       "css": [
-        "/checkout.829b027e.css"
+        "/checkout.350964a4.css"
       ]
     },
     "critical-styles": {
@@ -47,7 +47,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/critical-styles.f053b415.css"
+        "/critical-styles.2b4e36d9.css"
       ]
     },
     "deferred-styles": {
@@ -55,7 +55,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/deferred-styles.ce7c0966.css"
+        "/deferred-styles.402e3b50.css"
       ]
     },
     "homepage-styles": {
@@ -79,7 +79,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/checkout-styles.fcdbea55.css"
+        "/checkout-styles.437431a9.css"
       ]
     },
     "login-styles": {
@@ -95,7 +95,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/product-styles.43284efa.css"
+        "/product-styles.e4b665b0.css"
       ]
     },
     "product-overview-styles": {
@@ -111,7 +111,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/account-styles.582ff49a.css"
+        "/account-styles.192787a2.css"
       ]
     },
     "customerServiceStyles": {
@@ -127,7 +127,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/blogOverviewStyles.0b32ef02.css"
+        "/blogOverviewStyles.c603110c.css"
       ]
     },
     "sustainability-styles": {

@@ -26,8 +26,11 @@
 
                         <div class="ww-blog-posts__content">
                             <strong class="ww-blog-posts__category">CATEGORY</strong>
-                            <h3 class="ww-blog-posts__title"><?php echo get_the_title(); ?></h3>
-                            <em>Read more</em>
+                            <h3 class="ww-blog-posts__title" itemprop="headline"><?php echo get_the_title(); ?></h3>
+                            <a href="<?php echo get_permalink(); ?>" class="ww-blog-posts__read-more">
+                                <span>Read more</span>
+                                <?php include get_stylesheet_directory() . '/partials/icons/arrow-right.svg.php'; ?>
+                            </a>
                         </div>
                     </a>
                 </article>
