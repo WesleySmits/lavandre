@@ -139,7 +139,7 @@ function loadWebpackModules(): void {
         loadEncoreModule('home');
     }
     if (is_shop()) loadEncoreModule('product-overview-styles');
-    if ( !is_front_page() && is_home() ) loadEncoreModule('blogOverviewStyles');
+    if ( !is_front_page() && (is_home() || is_single()) ) loadEncoreModule('blogOverviewStyles');
     if (is_product()) loadEncoreModule('product-styles');
     if (is_product()) loadEncoreModule('productDetail');
     if (is_cart()) loadEncoreModule('cart');

@@ -19,13 +19,15 @@
             <li class="ww-blog-posts__item">
                 <article itemscope itemtype="http://schema.org/BlogPosting">
                     <meta itemprop="datePublished" content="<?php the_time( 'c' ); ?>">
+                    <meta itemprop="articleBody" content="<?php echo get_the_excerpt(); ?>">
+
                     <a class="ww-blog-posts__link" href="<?php echo get_permalink(); ?>" itemprop="url" title="<?php echo get_the_title(); ?>" aria-label="Read more">
                         <header class="ww-blog-posts__image-holder">
                             <img src="<?php echo get_the_post_thumbnail_url(); ?>" itemprop="image" alt="<?php echo get_the_title(); ?>">
                         </header>
 
                         <div class="ww-blog-posts__content">
-                            <strong class="ww-blog-posts__category">CATEGORY</strong>
+                            <strong class="ww-blog-posts__category"><?php echo get_the_category()[0]->name; ?></strong>
                             <h3 class="ww-blog-posts__title" itemprop="headline"><?php echo get_the_title(); ?></h3>
                             <a href="<?php echo get_permalink(); ?>" class="ww-blog-posts__read-more">
                                 <span>Read more</span>

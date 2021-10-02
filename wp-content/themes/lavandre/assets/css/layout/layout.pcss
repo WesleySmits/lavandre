@@ -213,3 +213,17 @@ aside {
         height: 75px;
     }
 }
+
+.wp-block-columns {
+    @media (--tablet-landscape) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        padding: 2.5rem 0;
+    }
+}
+
+.wp-block-column {
+    @media (--tablet-landscape) {
+        padding: 0 3.75rem;
+    }
+}
