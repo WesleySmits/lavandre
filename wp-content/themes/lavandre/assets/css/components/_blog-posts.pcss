@@ -38,7 +38,7 @@
 
     &__category {
         display: block;
-        font-size: .6rem;
+        font-size: .75rem;
         font-weight: 100;
         letter-spacing: .1rem;
         margin-bottom: 1rem;
@@ -76,5 +76,39 @@
                 transform: translateX(3px);
             }
         }
+    }
+}
+
+.ww-blog-post {
+    padding: 0 2rem;
+
+    &__header {
+        padding: 2.5rem 0;
+    }
+
+    &__header__image-column {
+        max-height: 45rem;
+    }
+
+    &__header__title-column {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    &__title {
+        font-size: 4rem;
+        font-weight: 100;
+    }
+
+    &__intro {
+        margin-top: auto;
+    }
+
+    .wp-block-columns:nth-child(odd) .wp-block-column {
+        &:first-child {
+            order: 2;
+        }
+
+        order: 1;
     }
 }

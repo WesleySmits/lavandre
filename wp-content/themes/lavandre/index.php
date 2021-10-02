@@ -14,7 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
-if ( is_singular() ) {
+if ( is_single() ) {
+    get_template_part( 'template-parts/single-post' );
+} elseif ( is_singular() ) {
     get_template_part( 'template-parts/single' );
 } elseif ( is_archive() || is_home() ) {
     get_template_part( 'template-parts/archive' );
