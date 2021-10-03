@@ -17,15 +17,7 @@ function ww_custom_cart() {
     if (count($items) === 0) {
         ?>
             <div class="custom-cart--empty">
-                <h1><?php _e('Shopping bag', 'lavandre'); ?></h1>
-                <p class="custom-cart--empty__overview">
-                    <?php echo sprintf(__('%d articles - Total %s', 'lavandre'), 0, '€0,00-'); ?>
-                </p>
-                <?php include get_stylesheet_directory() . '/partials/icons/empty-shopping-bag.svg.php'; ?>
-
-                <h2><?php _e('Your shopping bag is empty', 'lavandre'); ?></h2>
-                <p><?php _e('Discover our collection and add items to your shopping cart!', 'lavandre'); ?></p>
-
+                <p><?php _e('Your bag is currently empty.', 'lavandre'); ?></p>
                 <a href="/shop" class="cta-button cta-button--secondary"><?php _e('Continue shopping', 'lavandre'); ?></a>
             </div>
         <?php
@@ -366,16 +358,7 @@ function ww_custom_cart_mini() {
     if (count($items) === 0) {
         ?>
             <div id="custom-cart" class="custom-cart--empty custom-cart--mini">
-                <h1><?php _e('Shopping bag', 'lavandre'); ?></h1>
-                <p class="custom-cart--empty__overview">
-                    <?php echo sprintf(__('%d articles - Total %s', 'lavandre'), 0, '€0,00-'); ?>
-                </p>
-                <?php include get_stylesheet_directory() . '/partials/icons/empty-shopping-bag.svg.php'; ?>
-
-                <h2><?php _e('Your shopping bag is empty', 'lavandre'); ?></h2>
-                <p><?php _e('Discover our collection and add items to your shopping cart!', 'lavandre'); ?></p>
-
-                <a href="/shop" class="cta-button cta-button--secondary"><?php _e('Continue shopping', 'lavandre'); ?></a>
+                <p><?php _e('Your shopping bag is empty', 'lavandre'); ?></p>
             </div>
         <?php
     } else {

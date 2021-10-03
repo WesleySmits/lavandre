@@ -1,5 +1,5 @@
 <template data-panel-template="my-account-panel">
-    <dialog class="side-panel side-panel--alt side-panel--right side-panel--my-account" data-panel-name="my-account-panel">
+    <dialog class="side-panel side-panel--right side-panel--my-account" data-panel-name="my-account-panel">
         <div class="side-panel__container">
             <header class="side-panel__header">
                 <h1><?php _e('Log in', 'lavandre'); ?></h1>

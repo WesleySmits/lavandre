@@ -43,7 +43,6 @@ export default class App extends Module {
         SubMenu,
         LazyLoader,
         NewsLetterPopup,
-        Popup,
         ScrollToContent
     ];
 

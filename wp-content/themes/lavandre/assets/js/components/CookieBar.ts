@@ -13,9 +13,9 @@ export default class CookieBar extends Component {
 
     static cookieName: string = 'approved_cookies';
 
-    constructor() {
+    constructor(selector: Document | HTMLElement = document) {
         super();
-        this.templateElement = document.getElementById('cookie-bar-template')! as HTMLTemplateElement;
+        this.templateElement = selector.querySelector('#cookie-bar-template')! as HTMLTemplateElement;
     }
 
     public initialize(): void {
@@ -66,8 +66,8 @@ export default class CookieBar extends Component {
         });
     }
 
-    public static onInit() {
-        const cookieBar: CookieBar = new CookieBar();
+    public static onInit(selector: Document | HTMLElement = document): void {
+        const cookieBar: CookieBar = new CookieBar(selector);
         cookieBar.initialize();
     }
 }

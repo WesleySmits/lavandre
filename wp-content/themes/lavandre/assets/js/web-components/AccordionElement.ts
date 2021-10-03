@@ -1,4 +1,5 @@
 import "../../css/components/_accordion.pcss";
+import { getAbsoluteHeight } from "../util/dom";
 
 class AccordionElement extends HTMLElement {
     #curtains: HTMLDetailsElement[] = [];
@@ -58,8 +59,10 @@ class CurtainElement extends HTMLDetailsElement {
     #expand(): void {
         const startHeight = `${this.offsetHeight}px`;
         const endHeight = `${
-            this.#summary.offsetHeight + this.#content.offsetHeight
+            this.#summary.offsetHeight + getAbsoluteHeight(this.#content)
             }px`;
+
+        console.log(startHeight, endHeight);
 
         if (this.#animation) {
             this.#animation.cancel();
@@ -80,6 +83,7 @@ class CurtainElement extends HTMLDetailsElement {
 
     public close(): void {
         this.#isClosing = true;
+        this.classList.add('closing');
 
         const startHeight = `${this.offsetHeight}px`;
         const endHeight = `${this.#summary.offsetHeight}px`;
@@ -99,13 +103,14 @@ class CurtainElement extends HTMLDetailsElement {
         );
 
         this.#animation.onfinish = () => this.#onAnimationFinish(false);
-        this.#animation.oncancel = () => (this.#isClosing = false);
+        this.#animation.oncancel = () => { this.#isClosing = false; this.classList.remove('closing'); };
     }
 
     #onAnimationFinish(open: boolean) {
         this.open = open;
         this.#animation = null;
         this.#isClosing = false;
+        this.classList.remove('closing');
 
         this.style.height = '';
 

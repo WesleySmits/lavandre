@@ -4,11 +4,11 @@
       "js": [
         "/runtime.a0037f62.js",
         "/0.4eaf1aed.js",
-        "/app.69c62fe1.js"
+        "/app.6713137b.js"
       ],
       "css": [
-        "/0.3f31bc35.css",
-        "/app.cf33c621.css"
+        "/0.04007ac8.css",
+        "/app.545c8774.css"
       ]
     },
     "home": {
@@ -24,7 +24,7 @@
         "/productDetail.cca726d8.js"
       ],
       "css": [
-        "/0.3f31bc35.css"
+        "/0.04007ac8.css"
       ]
     },
     "cart": {
@@ -47,7 +47,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/critical-styles.bd5e778e.css"
+        "/critical-styles.d5e83d5e.css"
       ]
     },
     "deferred-styles": {
@@ -55,7 +55,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/deferred-styles.402e3b50.css"
+        "/deferred-styles.b3867258.css"
       ]
     },
     "homepage-styles": {

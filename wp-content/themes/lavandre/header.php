@@ -56,14 +56,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <nav class="ww-site-header__nav flex flex-center hide-on-mobile hide-on-tablet">
                 <ul class="no-list inline-list flex flex-center">
-                    <li class="ww-site-header__nav-item" data-sub-menu="branches">
-                        <a class="ww-site-header__nav-link" href="#"><?php _e('Branches', 'lavandre'); ?></a>
-                        <?php include $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lavandre/partials/submenus/branches.php'; ?>
+                    <li class="ww-site-header__nav-item">
+                        <a class="ww-site-header__nav-link" href="/blog/"><?php _e('Blog', 'lavandre'); ?></a>
                     </li>
+
                     <li class="ww-site-header__nav-item" data-sub-menu="sustainability">
                         <a class="ww-site-header__nav-link" href="/sustainability/"><?php _e('Sustainability', 'lavandre'); ?></a>
                         <?php include $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lavandre/partials/submenus/sustainability.php'; ?>
                     </li>
+
                     <li class="ww-site-header__nav-item"><a class="ww-site-header__nav-link" href="/shop/"><?php _e('Shop', 'lavandre'); ?></a></li>
                     <li class="ww-site-header__nav-item"><a class="ww-site-header__nav-link" href="/contact/"><?php _e('Contact', 'lavandre'); ?></a></li>
                 </ul>

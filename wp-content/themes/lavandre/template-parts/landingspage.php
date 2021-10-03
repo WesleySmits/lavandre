@@ -11,6 +11,8 @@
     $bottom_banner = get_field('bottom_banner');
 
     get_header();
+
+    $bottom_banner_cta = get_field('bottom_banner_cta');
 ?>
 <?php
 while ( have_posts() ) : the_post();
@@ -52,7 +54,8 @@ while ( have_posts() ) : the_post();
                 <div class="ww-page-banner__overlay">
                     <h2 class="ww-page-banner__title"><?php echo get_field('bottom_banner_title'); ?></h2>
                     <p><?php echo get_field('bottom_banner_description'); ?></p>
-                    <a href="<?php echo get_field('bottom_banner_cta'); ?>" class="button alt inline">
+
+                    <a href="<?php echo $bottom_banner_cta['url'] ?>" class="button alt inline">
                         <?php _e('View our collection', 'lavandre'); ?>
                     </a>
                 </div>

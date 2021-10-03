@@ -1,5 +1,5 @@
 <template data-panel-template="order-delivery">
-    <dialog class="side-panel side-panel--alt side-panel--right" data-panel-name="order-delivery">
+    <dialog class="side-panel side-panel--right" data-panel-name="order-delivery">
         <div class="side-panel__container">
                 <header class="side-panel__header">
                     <h1><?php _e('Order and delivery', 'lavandre'); ?></h1>
