@@ -61,7 +61,7 @@
 
                 </h2>
 
-                <a href="#" class="ww-button ww-button--alt">
+                <a href="<?php echo get_permalink( $product->get_id() ); ?>" class="ww-button ww-button--alt">
                     <?php _e('Shop Now', 'lavandre'); ?>
                 </a>
             </a>

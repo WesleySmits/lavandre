@@ -14,9 +14,9 @@
         "prod": "./node_modules/.bin/encore production",
         "prod:watch": "yarn prod --watch",
         "lint": "esw ./config/webpack.config.* app --color",
-        "lint:watch": "yarn lint -- --watch",
+        "lint:watch": "yarn lint --watch",
         "test": "jest --coverage",
-        "test:watch": "yarn test -- --watch",
+        "test:watch": "yarn test --watch",
         "cypress": "npx cypress run",
         "cypress:open": "npx cypress open"
     },
