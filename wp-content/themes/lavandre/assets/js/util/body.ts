@@ -7,6 +7,7 @@ export function disableBodyScroll(): void {
     bodyElement.style.position = 'fixed';
     bodyElement.style.top = `-${scrollPosition}px`;
     bodyElement.style.width = '100%';
+    document.documentElement.style.scrollBehavior = 'initial';
 }
 
 export function enableBodyScroll(): void {
@@ -14,5 +15,7 @@ export function enableBodyScroll(): void {
     bodyElement.style.removeProperty('position');
     bodyElement.style.removeProperty('top');
     bodyElement.style.removeProperty('width');
+    bodyElement.style.removeProperty('top');
+    document.documentElement.style.removeProperty('scroll-behavior');
     window.scrollTo(0, scrollPosition);
 }
