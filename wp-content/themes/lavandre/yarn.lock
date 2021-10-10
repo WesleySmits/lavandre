@@ -1866,6 +1866,19 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@lavandre/button@0.0.6", "@lavandre/button@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@lavandre/button/-/button-0.0.6.tgz#bea39b2ddbf1f60c9cd5fa99acbeb153051856c9"
+  integrity sha512-z2DioP07POL5MzJIVuHwxfVB3IzmOwatxHY6RBW3MZffqja3c+LO9HMx8Iq5VMUJWZfB28pY40bdOCYlyI1l+A==
+  dependencies:
+    "@lavandre/button" "^0.0.6"
+    lit "^2.0.0"
+
+"@lit/reactive-element@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@lit/reactive-element/-/reactive-element-1.0.1.tgz#853cacd4d78d79059f33f66f8e7b0e5c34bee294"
+  integrity sha512-nSD5AA2AZkKuXuvGs8IK7K5ZczLAogfDd26zT9l6S7WzvqALdVWcW5vMUiTnZyj5SPcNwNNANj0koeV1ieqTFQ==
+
 "@nicolo-ribaudo/chokidar-2@^2.1.8":
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/@nicolo-ribaudo/chokidar-2/-/chokidar-2-2.1.8.tgz"
@@ -2069,6 +2082,11 @@
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.6.tgz"
   integrity sha512-W+bw9ds02rAQaMvaLYxAbJ6cvguW/iJXNT6lTssS1ps6QdrMKttqEAMEG/b5CR8TZl3/L7/lH0ZV5nNR1LXikA==
+
+"@types/trusted-types@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.2.tgz#fc25ad9943bcac11cceb8168db4f275e0e72e756"
+  integrity sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==
 
 "@types/uglify-js@*":
   version "3.11.1"
@@ -7857,6 +7875,30 @@ listr2@^3.8.3:
     rxjs "^6.6.7"
     through "^2.3.8"
     wrap-ansi "^7.0.0"
+
+lit-element@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/lit-element/-/lit-element-3.0.1.tgz#3c545af17d8a46268bc1dd5623a47486e6ff76f4"
+  integrity sha512-vs9uybH9ORyK49CFjoNGN85HM9h5bmisU4TQ63phe/+GYlwvY/3SIFYKdjV6xNvzz8v2MnVC+9+QOkPqh+Q3Ew==
+  dependencies:
+    "@lit/reactive-element" "^1.0.0"
+    lit-html "^2.0.0"
+
+lit-html@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-2.0.1.tgz#63241015efa07bc9259b6f96f04abd052d2a1f95"
+  integrity sha512-KF5znvFdXbxTYM/GjpdOOnMsjgRcFGusTnB54ixnCTya5zUR0XqrDRj29ybuLS+jLXv1jji6Y8+g4W7WP8uL4w==
+  dependencies:
+    "@types/trusted-types" "^2.0.2"
+
+lit@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/lit/-/lit-2.0.2.tgz#5e6f422924e0732258629fb379556b6d23f7179c"
+  integrity sha512-hKA/1YaSB+P+DvKWuR2q1Xzy/iayhNrJ3aveD0OQ9CKn6wUjsdnF/7LavDOJsKP/K5jzW/kXsuduPgRvTFrFJw==
+  dependencies:
+    "@lit/reactive-element" "^1.0.0"
+    lit-element "^3.0.0"
+    lit-html "^2.0.0"
 
 load-json-file@^2.0.0:
   version "2.0.0"

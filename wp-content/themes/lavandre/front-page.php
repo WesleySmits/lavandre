@@ -76,7 +76,7 @@
                 <form id="homepage-newsletter-form" class="homepage-newsletter-form" action="post">
                     <label class="sr-only" for="homepage-newsletter-form-email"><?php _e('E-mail address', 'lavandre'); ?></label>
                     <input class="newsletter-subscribe-home__input" type="email" name="email" id="homepage-newsletter-form-email" title="<?php _e('Please enter a valid e-mail address', 'lavandre'); ?>" placeholder="<?php _e('Email address', 'lavandre'); ?>" required>
-                    <button type="submit" id="homepage-newsletter-form-submit" class="ww-button newsletter-subscribe-home__button" aria-label="Subscribe to newsletter button">
+                    <button is="lavandre-button" primary size="large" class="newsletter-subscribe-home__button" type="submit" id="homepage-newsletter-form-submit" aria-label="Subscribe to newsletter button">
                         <?php _e('Submit', 'lavandre'); ?>
                     </button>
                 </form>

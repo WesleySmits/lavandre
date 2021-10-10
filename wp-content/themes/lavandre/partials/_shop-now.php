@@ -58,12 +58,9 @@
                             _e('Hand / Hair Towels', 'lavandre');
                         }
                     ?>
-
                 </h2>
 
-                <a href="<?php echo get_permalink( $product->get_id() ); ?>" class="ww-button ww-button--alt">
-                    <?php _e('Shop Now', 'lavandre'); ?>
-                </a>
+                <button is="lavandre-button" href="<?php echo get_permalink( $product->get_id() ); ?>" size="large" outline full-width><?php _e('Shop Now', 'lavandre'); ?></button>
             </a>
         </li>
     <?php } ?>

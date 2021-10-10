@@ -3,43 +3,41 @@
     "app": {
       "js": [
         "/runtime.a0037f62.js",
-        "/0.4eaf1aed.js",
-        "/app.6713137b.js"
+        "/0.9ec03b21.js",
+        "/app.ec15fde0.js"
       ],
       "css": [
-        "/0.04007ac8.css",
-        "/app.545c8774.css"
+        "/app.7bf969ad.css"
       ]
     },
     "home": {
       "js": [
         "/runtime.a0037f62.js",
-        "/home.e8b5d8c8.js"
+        "/home.8d61d0a0.js"
       ]
     },
     "productDetail": {
       "js": [
         "/runtime.a0037f62.js",
-        "/0.4eaf1aed.js",
-        "/productDetail.cca726d8.js"
+        "/productDetail.0dab9afc.js"
       ],
       "css": [
-        "/0.04007ac8.css"
+        "/productDetail.29908eae.css"
       ]
     },
     "cart": {
       "js": [
         "/runtime.a0037f62.js",
-        "/cart.2c37f38e.js"
+        "/cart.ea15da47.js"
       ]
     },
     "checkout": {
       "js": [
         "/runtime.a0037f62.js",
-        "/checkout.52165c68.js"
+        "/checkout.29a73d0f.js"
       ],
       "css": [
-        "/checkout.350964a4.css"
+        "/checkout.df44ea34.css"
       ]
     },
     "critical-styles": {
@@ -47,7 +45,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/critical-styles.c5c92fb6.css"
+        "/critical-styles.4b91663d.css"
       ]
     },
     "deferred-styles": {
@@ -55,7 +53,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/deferred-styles.717f6eb2.css"
+        "/deferred-styles.39983135.css"
       ]
     },
     "homepage-styles": {
@@ -63,7 +61,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/homepage-styles.d3d48054.css"
+        "/homepage-styles.988ad3cb.css"
       ]
     },
     "about-styles": {
@@ -79,7 +77,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/checkout-styles.437431a9.css"
+        "/checkout-styles.859e3ab9.css"
       ]
     },
     "login-styles": {
@@ -95,7 +93,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/product-styles.e4b665b0.css"
+        "/product-styles.ba8343f4.css"
       ]
     },
     "product-overview-styles": {
