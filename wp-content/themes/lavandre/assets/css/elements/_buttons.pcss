@@ -18,6 +18,7 @@ button.ww-button {
     outline: 0;
     text-align: center;
     cursor: pointer;
+    transition: background-color .4s ease, color .4s ease;
 
     &:hover {
         background: var(--white);
@@ -30,7 +31,7 @@ button.ww-button {
         align-items: center;
         justify-content: center;
         height: 3.75rem;
-        background-color: var(--white);
+        background-color: transparent;
         border-color: var(--old-burgundy);
         color: var(--old-burgundy);
 
@@ -180,4 +181,9 @@ body {
     to {
         transform: rotate(1turn)
     }
+}
+
+.cta-link {
+    font-size: 0.875rem;
+    line-height: 1.6;
 }

@@ -8,7 +8,7 @@ export default class NewsLetterPopup extends Popup {
         }
 
         setTimeout(() => {
-            NewsLetterPopup.openPopup('newsletter-popup');
+            NewsLetterPopup.openPopup('newsletter-popup', null, selector);
             setCookieValue('newsletter-popup-seen', 'true', {
                 "max-age": 31536000
             });

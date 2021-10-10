@@ -1,4 +1,5 @@
 import '../css/app.pcss';
+import '@lavandre/button/dist/src/lavandre-button';
 
 import EventEmitter from './common/EventEmitter';
 import AjaxLogin from './components/AjaxLogin';
@@ -43,7 +44,6 @@ export default class App extends Module {
         SubMenu,
         LazyLoader,
         NewsLetterPopup,
-        Popup,
         ScrollToContent
     ];
 
@@ -55,6 +55,7 @@ export default class App extends Module {
 }
 
 (function appInit() {
+    console.log('component', customElements.get('lavandre-button'));
     const app = new App();
     app.initialize();
 

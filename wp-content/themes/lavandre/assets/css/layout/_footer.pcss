@@ -133,7 +133,7 @@
 
         .ww-form__field {
             flex: 1 1 70%;
-            height: 3.5rem;
+            height: 3.75rem;
             margin: 0;
 
             @media (--tablet-landscape) {
@@ -144,8 +144,8 @@
             input {
                 height: inherit;
                 border-radius: 0;
-                border-right: none;
-                border-color: var(--color-border-3);
+                border-right: none !important;
+                border-color: var(--color-text);
                 appearance: none;
                 box-shadow: none;
                 background: transparent;
@@ -164,17 +164,6 @@
 
         #footer-newsletter-form-submit {
             flex: 1 1 30%;
-            height: 3.5rem;
-            border-radius: 0;
-            height: 3.5rem;
-            background: transparent;
-            border-color: var(--color-border-3);
-            color: var(--color-text);
-
-            &:hover {
-                background: var(--old-burgundy);
-                color: var(--white);
-            }
         }
     }
 

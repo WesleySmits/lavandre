@@ -1,5 +1,5 @@
 <template data-panel-template="my-account-panel">
-    <dialog class="side-panel side-panel--alt side-panel--right side-panel--my-account" data-panel-name="my-account-panel">
+    <dialog class="side-panel side-panel--right side-panel--my-account" data-panel-name="my-account-panel">
         <div class="side-panel__container">
             <header class="side-panel__header">
                 <h1><?php _e('Log in', 'lavandre'); ?></h1>
@@ -10,10 +10,7 @@
             </header>
 
             <section class="side-panel__section side-panel__section--bordered side-panel__section--boxed">
-                <h2><?php _e('I already have an account', 'lavandre'); ?></h2>
-                <p>
-                    <?php _e('Log in here to view the status of your orders and to change your account information.', 'lavandre'); ?>
-                </p>
+                <h2><?php _e('Log In', 'lavandre'); ?></h2>
 
                 <form
                     id="ajax-login-form"
@@ -27,12 +24,12 @@
                             id="ajax-login-username"
                             class="woocommerce-Input woocommerce-Input--text input-text"
                             name="username"
-                            placeholder="<?php _e('E-mail address', 'lavandre'); ?>"
+                            placeholder="<?php _e('Email', 'lavandre'); ?>"
                             autocomplete="username"
-                            title="<?php _e('Fill in a valid e-mail address', 'lavandre'); ?>"
+                            title="<?php _e('Fill in a valid Email', 'lavandre'); ?>"
                             required
                         >
-                        <label for="ajax-login-username"><?php _e('E-mail address', 'lavandre'); ?>&nbsp;<span class="required">*</span></label>
+                        <label for="ajax-login-username"><?php _e('Email', 'lavandre'); ?>&nbsp;<span class="required">*</span></label>
                     </p>
 
                     <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
@@ -50,23 +47,20 @@
                     </p>
 
                     <p class="woocommerce-LostPassword lost_password">
-                        <a href="/my-account/lost-password/" data-role="password-forget"><?php _e('Forgot password?', 'lavandre'); ?></a>
+                        <a class="text-italic" href="/my-account/lost-password/" data-role="password-forget"><?php _e('Forgot password?', 'lavandre'); ?></a>
                     </p>
 
                     <button
                         type="submit"
-                        class="woocommerce-button button woocommerce-form-login__submit cta-button cta-button--secondary"
+                        class="ww-button ww-button--alt"
                         name="login"
                         value="<?php _e('Log in', 'lavandre'); ?>"
-                    ><?php _e('Log in', 'lavandre'); ?></button>
+                    ><?php _e('Sign in', 'lavandre'); ?></button>
                 </form>
             </section>
 
             <section class="side-panel__section side-panel__section--bordered side-panel__section--boxed">
                 <h2><?php _e('Are you new?', 'lavandre'); ?></h2>
-                <p>
-                    <?php _e('Register to enjoy many benefits on our website. With the information below you can log in to our website in the future.', 'lavandre'); ?>
-                </p>
 
                 <form
                     id="ajax-register-form"
@@ -106,12 +100,12 @@
                             class="woocommerce-Input woocommerce-Input--text input-text"
                             name="email"
                             id="user-email"
-                            placeholder="<?php _e('E-mail address', 'lavandre'); ?>"
+                            placeholder="<?php _e('Email', 'lavandre'); ?>"
                             autocomplete="email"
-                            title="<?php _e('Fill in a valid e-mail address.', 'lavandre'); ?>"
+                            title="<?php _e('Fill in a valid Email.', 'lavandre'); ?>"
                             required
                         >
-                        <label for="user-email"><?php _e('E-mail address', 'lavandre'); ?>&nbsp;<span class="required">*</span></label>
+                        <label for="user-email"><?php _e('Email', 'lavandre'); ?>&nbsp;<span class="required">*</span></label>
                     </p>
 
                     <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
@@ -147,7 +141,7 @@
                         <label for="confirm-password"><?php _e('Confirm password', 'lavandre'); ?>&nbsp;<span class="required">*</span></label>
                     </p>
 
-                    <button type="submit" class="woocommerce-button button woocommerce-form-login__submit cta-button cta-button--secondary" name="register" value="<?php _e('Register', 'lavandre'); ?>"><?php _e('Register', 'lavandre'); ?></button>
+                    <button type="submit" class="ww-button ww-button--alt" name="register" value="<?php _e('Register', 'lavandre'); ?>"><?php _e('Register', 'lavandre'); ?></button>
                 </form>
             </section>
         </div>

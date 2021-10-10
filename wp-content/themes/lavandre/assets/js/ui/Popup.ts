@@ -10,8 +10,10 @@ export default class Popup extends Dialog {
         closed: 'popup--closed'
     }
 
-    protected static openPopup(popupID: string, element: HTMLElement | null = null): void {
-        let popup: InteractableHTMLDialogElement | null = document.querySelector(`[data-popup-name="${popupID}"]`);
+    protected static openPopup(popupID: string, element: HTMLElement | null = null, selector: Document | HTMLElement = document): void {
+
+        console.log('openPopup', popupID, element, selector);
+        let popup: InteractableHTMLDialogElement | null = selector.querySelector(`[data-popup-name="${popupID}"]`);
         if (popup === null) {
             const template: HTMLTemplateElement | null = document.querySelector(`[data-popup-template="${popupID}"]`);
 
@@ -40,8 +42,10 @@ export default class Popup extends Dialog {
             popupInstance.initialize();
         }
 
-        const openEvent = new CustomEvent('open');
-        popup.dispatchEvent(openEvent);
+        if (!popup.open) {
+            const openEvent = new CustomEvent('open');
+            popup.dispatchEvent(openEvent);
+        }
     }
 
     public static onInit(): void {

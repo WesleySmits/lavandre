@@ -14,9 +14,9 @@
         "prod": "./node_modules/.bin/encore production",
         "prod:watch": "yarn prod --watch",
         "lint": "esw ./config/webpack.config.* app --color",
-        "lint:watch": "yarn lint -- --watch",
+        "lint:watch": "yarn lint --watch",
         "test": "jest --coverage",
-        "test:watch": "yarn test -- --watch",
+        "test:watch": "yarn test --watch",
         "cypress": "npx cypress run",
         "cypress:open": "npx cypress open"
     },
@@ -70,6 +70,7 @@
         "webpack-md5-hash": "0.0.6"
     },
     "dependencies": {
+        "@lavandre/button": "0.0.6",
         "dialog-polyfill": "^0.5.6",
         "request": "^2.88.2"
     }
