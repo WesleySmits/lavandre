@@ -13,7 +13,8 @@ module.exports = {
     moduleDirectories: ['node_modules', 'assets'],
     moduleNameMapper: {
         '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$': '<rootDir>/mocks/fileMock.js',
-        '\\.(css|scss|sass|pcss|less)$': '<rootDir>/mocks/styleMock.js'
+        '\\.(css|scss|sass|pcss|less)$': '<rootDir>/mocks/styleMock.js',
+        '@lavandre(.*)': '<rootDir>/mocks/styleMock.js'
     },
     testMatch: [
         '**/?(*.)+(test).[jt]s?(x)'
@@ -21,6 +22,9 @@ module.exports = {
     transform: {
         '^.+\\.ts?$': 'ts-jest'
     },
+    transformIgnorePatterns: [
+        "node_modules"
+    ],
     globals: {
         'ts-jest': {
             babelConfig: true

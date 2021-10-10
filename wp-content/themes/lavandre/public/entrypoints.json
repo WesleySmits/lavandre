@@ -4,7 +4,7 @@
       "js": [
         "/runtime.a0037f62.js",
         "/0.9ec03b21.js",
-        "/app.ec15fde0.js"
+        "/app.a1ca326d.js"
       ],
       "css": [
         "/app.7bf969ad.css"
@@ -19,7 +19,7 @@
     "productDetail": {
       "js": [
         "/runtime.a0037f62.js",
-        "/productDetail.0dab9afc.js"
+        "/productDetail.c340dd60.js"
       ],
       "css": [
         "/productDetail.29908eae.css"
@@ -45,7 +45,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/critical-styles.4b91663d.css"
+        "/critical-styles.4e77e336.css"
       ]
     },
     "deferred-styles": {
