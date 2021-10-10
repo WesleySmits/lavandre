@@ -1,5 +1,6 @@
 import App from './app';
 import EventEmitter from './common/EventEmitter';
+jest.mock('@lavandre/button/dist/src/lavandre-button');
 
 describe('Test app module', () => {
     it('should load components', () => {

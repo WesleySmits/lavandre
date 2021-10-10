@@ -49,10 +49,12 @@
                     <p class="woocommerce-LostPassword lost_password">
                         <a class="text-italic" href="/my-account/lost-password/" data-role="password-forget"><?php _e('Forgot password?', 'lavandre'); ?></a>
                     </p>
-
                     <button
                         type="submit"
-                        class="ww-button ww-button--alt"
+                        is="lavandre-button"
+                        outline
+                        full-width
+                        size="large"
                         name="login"
                         value="<?php _e('Log in', 'lavandre'); ?>"
                     ><?php _e('Sign in', 'lavandre'); ?></button>
@@ -141,7 +143,15 @@
                         <label for="confirm-password"><?php _e('Confirm password', 'lavandre'); ?>&nbsp;<span class="required">*</span></label>
                     </p>
 
-                    <button type="submit" class="ww-button ww-button--alt" name="register" value="<?php _e('Register', 'lavandre'); ?>"><?php _e('Register', 'lavandre'); ?></button>
+                    <button
+                        type="submit"
+                        is="lavandre-button"
+                        outline
+                        full-width
+                        size="large"
+                        name="register"
+                        value="<?php _e('Register', 'lavandre'); ?>"
+                    ><?php _e('Register', 'lavandre'); ?></button>
                 </form>
             </section>
         </div>
