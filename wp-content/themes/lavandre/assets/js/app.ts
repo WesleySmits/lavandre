@@ -55,7 +55,6 @@ export default class App extends Module {
 }
 
 (function appInit() {
-    console.log('component', customElements.get('lavandre-button'));
     const app = new App();
     app.initialize();
 
