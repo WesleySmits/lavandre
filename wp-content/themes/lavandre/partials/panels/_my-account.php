@@ -57,7 +57,7 @@
                         size="large"
                         name="login"
                         value="<?php _e('Log in', 'lavandre'); ?>"
-                    ><?php _e('Sign in', 'lavandre'); ?></button>
+                    ><?php _e('Sign In', 'lavandre'); ?></button>
                 </form>
             </section>
 

@@ -1866,12 +1866,12 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@lavandre/button@0.0.6", "@lavandre/button@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@lavandre/button/-/button-0.0.6.tgz#bea39b2ddbf1f60c9cd5fa99acbeb153051856c9"
-  integrity sha512-z2DioP07POL5MzJIVuHwxfVB3IzmOwatxHY6RBW3MZffqja3c+LO9HMx8Iq5VMUJWZfB28pY40bdOCYlyI1l+A==
+"@lavandre/button@0.0.12", "@lavandre/button@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@lavandre/button/-/button-0.0.12.tgz#32928edf10fa5a6e6dd9348c09de3c81d8735c27"
+  integrity sha512-SMG2vXsSc9zNQGerjNRwThow7yw/YHWia3w4IQ3xcTHDvT5CJxc2pCegaWPpF3upgnzbm5YkGwx/LT/CjycN5A==
   dependencies:
-    "@lavandre/button" "^0.0.6"
+    "@lavandre/button" "^0.0.12"
     lit "^2.0.0"
 
 "@lit/reactive-element@^1.0.0":

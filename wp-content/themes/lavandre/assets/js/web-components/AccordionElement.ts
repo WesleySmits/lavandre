@@ -62,8 +62,6 @@ class CurtainElement extends HTMLDetailsElement {
             this.#summary.offsetHeight + getAbsoluteHeight(this.#content)
             }px`;
 
-        console.log(startHeight, endHeight);
-
         if (this.#animation) {
             this.#animation.cancel();
         }

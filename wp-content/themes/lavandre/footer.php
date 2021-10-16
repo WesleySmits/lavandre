@@ -35,7 +35,7 @@
                 <div class="ww-footer__subscribe-form-wrapper">
                     <form class="ww-form" id="footer-newsletter-form" action="post">
                         <p class="ww-form__field">
-                            <input type="email" name="email" id="footer-newsletter-form-email" title="<?php _e('Please enter a valid e-mail address', 'lavandre'); ?>" placeholder="<?php _e('E-mail address', 'lavandre'); ?>">
+                            <input type="email" name="email" id="footer-newsletter-form-email" title="<?php _e('Please enter a valid e-mail address', 'lavandre'); ?>" placeholder="<?php _e('Email', 'lavandre'); ?>">
                         </p>
                         <button is="lavandre-button" outline size="large" type="submit" id="footer-newsletter-form-submit"><?php _e('Submit', 'lavandre'); ?></button>
                     </form>

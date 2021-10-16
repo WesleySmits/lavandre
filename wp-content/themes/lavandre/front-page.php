@@ -67,15 +67,15 @@
 
         <div class="ww-banner-block__content">
             <div class="ww-banner-block__inner-content">
-                <h2><?php echo sprintf(__('Sign up to enjoy an exclusive welcome offer', 'lavandre'), '10%'); ?></h2>
+                <h4><?php echo sprintf(__('Sign up to enjoy an exclusive welcome offer', 'lavandre'), '10%'); ?></h4>
 
                 <p>
                     <?php _e('Sign up to receive the Lavandré newsletter and be the first to discover new arrivals, limited editions and email-only exclusive offers.', 'lavandre'); ?>
                 </p>
 
                 <form id="homepage-newsletter-form" class="homepage-newsletter-form" action="post">
-                    <label class="sr-only" for="homepage-newsletter-form-email"><?php _e('E-mail address', 'lavandre'); ?></label>
-                    <input class="newsletter-subscribe-home__input" type="email" name="email" id="homepage-newsletter-form-email" title="<?php _e('Please enter a valid e-mail address', 'lavandre'); ?>" placeholder="<?php _e('Email address', 'lavandre'); ?>" required>
+                    <label class="sr-only" for="homepage-newsletter-form-email"><?php _e('Email', 'lavandre'); ?></label>
+                    <input class="newsletter-subscribe-home__input" type="email" name="email" id="homepage-newsletter-form-email" title="<?php _e('Please enter a valid e-mail address', 'lavandre'); ?>" placeholder="<?php _e('Email', 'lavandre'); ?>" required>
                     <button is="lavandre-button" primary size="large" class="newsletter-subscribe-home__button" type="submit" id="homepage-newsletter-form-submit" aria-label="Subscribe to newsletter button">
                         <?php _e('Submit', 'lavandre'); ?>
                     </button>

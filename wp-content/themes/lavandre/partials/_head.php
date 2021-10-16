@@ -11,6 +11,8 @@
     onload="this.onload=null;this.rel='stylesheet';"
 >
 
+<link rel="stylesheet" href="https://use.typekit.net/nck3hxz.css">
+
 <style>
     <?php include get_stylesheet_directory() . str_replace(get_site_url() . '/wp-content/themes/lavandre', '', asset('critical-styles.css', true)); ?>
 </style>
