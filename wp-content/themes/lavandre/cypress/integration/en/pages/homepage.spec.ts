@@ -9,9 +9,9 @@ describe('Homepage tests - mobile', () => {
         cy.visit('/');
     });
 
-    it('should be able to open the seo text accordion', () => {
-        cy.get('[data-curtain-toggle="homepage-seo-text"]').should('not.be.visible')
-    });
+    // it('should be able to open the seo text accordion', () => {
+    //     cy.get('[data-curtain-toggle="homepage-seo-text"]').should('not.be.visible')
+    // });
 
     it('should not display best selling products', () => {
         cy.get('#shop-now').should('not.be.visible');
@@ -34,9 +34,9 @@ describe('Homepage tests - desktop', () => {
         cy.visit('/');
     });
 
-    it('should be able to open the seo text accordion', () => {
-        cy.accordion({ selector: 'main', toggleSelector: '[data-curtain-toggle="homepage-seo-text"]' });
-    });
+    // it('should be able to open the seo text accordion', () => {
+    //     cy.accordion({ selector: 'main', toggleSelector: '[data-curtain-toggle="homepage-seo-text"]' });
+    // });
 
     it('should be able to open all best selling products', () => {
         cy.get('#shop-now .ww-products__link').testLinks();
