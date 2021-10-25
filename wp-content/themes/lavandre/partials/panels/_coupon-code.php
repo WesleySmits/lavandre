@@ -18,7 +18,7 @@
                             <label for="coupon-code"><?php _e('Coupon code', 'lavandre'); ?><span class="required">*</span></label>
                         </p>
 
-                        <button type="submit" class="woocommerce-button button cta-button cta-button--secondary">
+                        <button type="submit" is="lavandre-button" primary full-width size="large">
                             <?php _e('Activate', 'lavandre'); ?>
                         </button>
                     </form>

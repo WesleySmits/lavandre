@@ -42,9 +42,9 @@
 
     <?php if ($tracking_link && $trackingCode) { ?>
         <footer class="product-information__track-trace">
-            <a href="<?php echo $tracking_link?>" target="_blank" rel="noopener" class="cta-button alt">
+            <button is="lavandre-button" primary full-width size="large" href="<?php echo $tracking_link?>" target="_blank" rel="noopener">
                 <span><?php _e('Track & Trace', 'lavandre'); ?></span>
-            </a>
+            </button>
         </footer>
     <?php } ?>
 </div>

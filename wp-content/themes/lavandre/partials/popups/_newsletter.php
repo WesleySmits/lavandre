@@ -61,7 +61,10 @@
 
                     <button
                         type="submit"
-                        class="woocommerce-button button woocommerce-form-login__submit cta-button cta-button--secondary"
+                        is="lavandre-button"
+                        primary
+                        full-width
+                        size="large"
                         name="subscribe"
                         value="<?php _e('Subscribe now', 'lavandre'); ?>"
                     ><?php _e('Subscribe now', 'lavandre'); ?></button>

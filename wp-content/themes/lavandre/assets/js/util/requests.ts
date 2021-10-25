@@ -57,10 +57,10 @@ export function removeLoadingState(item: HTMLElement): void {
 
 export function setButtonLoadingState(button: HTMLButtonElement) {
     button.disabled = true;
-    button.classList.add('cta-button--loading');
+    button.setAttribute('loading', 'true');
 }
 
 export function removeButtonLoadingState(button: HTMLButtonElement) {
     button.disabled = false;
-    button.classList.remove('cta-button--loading');
+    button.removeAttribute('loading');
 }

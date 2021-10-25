@@ -5,8 +5,8 @@
         </p>
 
         <div class="flex">
-            <button type="button" data-role="cookies-reject" class="cta-button"><?php _e('Reject', 'lavandre'); ?></button>
-            <button type="button" data-role="cookies-accept" class="cta-button"><?php _e('Agree', 'lavandre'); ?></button>
+            <button is="lavandre-button" size="large" full-width outline type="button" data-role="cookies-reject"><?php _e('Reject', 'lavandre'); ?></button>
+            <button is="lavandre-button" size="large" full-width primary type="button" data-role="cookies-accept"><?php _e('Agree', 'lavandre'); ?></button>
         </div>
     </aside>
 </template>

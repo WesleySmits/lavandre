@@ -71,11 +71,11 @@ describe('Test loading state', () => {
         document.body.appendChild(element);
 
         setButtonLoadingState(element);
-        expect(element.classList.contains('cta-button--loading')).toBeTruthy();
+        expect(element.hasAttribute('loading')).toBeTruthy();
         expect(element.disabled).toBeTruthy();
 
         removeButtonLoadingState(element);
-        expect(element.classList.contains('cta-button--loading')).toBeFalsy();
+        expect(element.hasAttribute('loading')).toBeFalsy();
         expect(element.disabled).toBeFalsy();
     });
 });

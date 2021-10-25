@@ -13,13 +13,20 @@
 
 <link rel="stylesheet" href="https://use.typekit.net/nck3hxz.css">
 
-<style>
+<!-- <style>
     <?php include get_stylesheet_directory() . str_replace(get_site_url() . '/wp-content/themes/lavandre', '', asset('critical-styles.css', true)); ?>
-</style>
+</style> -->
 
 <link
     rel="preload"
     href="<?php echo asset('deferred-styles.css', true); ?>"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet';"
+>
+
+<link
+    rel="preload"
+    href="<?php echo asset('critical-styles.css', true); ?>"
     as="style"
     onload="this.onload=null;this.rel='stylesheet';"
 >

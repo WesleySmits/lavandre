@@ -32,7 +32,7 @@ describe('Test the order flow', () => {
 
     it("should order an item succesfully as a guest", () => {
         cy.get('#custom-cart .custom-cart__cta').click();
-        cy.get('.customer-login__guest-option > .cta-button').click();
+        cy.get('.customer-login__guest-option > [is="lavandre-button"]').click();
 
         // Toggle different shipping address
         cy.get('label[for="ship-to-different-address-radio-no"]').click();

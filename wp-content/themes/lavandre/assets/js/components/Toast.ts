@@ -1,4 +1,7 @@
 import '../../css/components/_toast.pcss';
+import '@lavandre/button/dist/src/lavandre-button';
+import { LavandreButton } from '@lavandre/button/dist/src/LavandreButton.js';
+
 import { ToastType } from "../enums/ToastType";
 
 export default class Toast {
@@ -78,9 +81,10 @@ export default class Toast {
         container.appendChild(closeButton);
 
         if (this.ctaButton) {
-            const button: HTMLAnchorElement = document.createElement('A') as HTMLAnchorElement;
+            const button = new LavandreButton();
             button.href = this.ctaButton.href;
-            button.classList.add('cta-button', 'inline');
+            button.primary = true;
+            button.size = 'large';
             button.innerText = this.ctaButton.text;
             container.appendChild(button);
         }

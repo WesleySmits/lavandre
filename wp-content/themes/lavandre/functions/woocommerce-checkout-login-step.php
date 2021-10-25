@@ -41,7 +41,9 @@ function ww_wc_login_register() {
 			</p>
 
             <?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
-            <button type="submit" class="woocommerce-button button woocommerce-form-login__submit cta-button" name="login" value="<?php esc_attr_e( 'Log in', 'woocommerce' ); ?>"><?php esc_html_e( 'Log in', 'woocommerce' ); ?></button>
+            <button is="lavandre-button" type="submit" name="login" size="large" primary full-width>
+                <?php _e('Log in', 'lavandre'); ?>
+            </button>
 
 			<?php do_action( 'woocommerce_login_form_end' ); ?>
 		</form>
@@ -63,7 +65,10 @@ function ww_wc_login_register() {
             <form method="post" class="woocommerce-form woocommerce-form-register register" <?php do_action( 'woocommerce_register_form_tag' ); ?> >
 
                 <?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
-                <a href="/checkout/?createAccount=true" class="cta-button" ><?php esc_html_e( 'Register', 'woocommerce' ); ?></a>
+                <button is="lavandre-button" href="/checkout/?createAccount=true" size="large" primary full-width>
+                    <?php _e('Register', 'lavandre'); ?>
+                </button>
+
 
                 <?php do_action( 'woocommerce_register_form_end' ); ?>
             </form>
@@ -78,9 +83,9 @@ function ww_wc_login_register() {
                 <?php esc_html_e('When you order as a guest you do not create an account and you cannot use the many advantages of an account.', 'lavandre') ?>
             </p>
 
-            <a href="/checkout/?createAccount=false" class="cta-button alt">
-                <?php echo __('Order as a guest user', 'woocommerce'); ?>
-            </a>
+            <button is="lavandre-button" href="/checkout/?createAccount=false" size="large" outline full-width>
+                <?php _e('Order as a guest user', 'lavandre'); ?>
+            </button>
         </section>
 	</div>
 

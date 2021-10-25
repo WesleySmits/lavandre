@@ -42,7 +42,7 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
                 <?php do_action( "woocommerce_after_edit_address_form_{$load_address}" ); ?>
 
                 <p>
-                    <button type="submit" class="button cta-button cta-button--secondary" name="save_address" value="<?php esc_attr_e( 'Save', 'woocommerce' ); ?>"><?php esc_html_e( 'Save', 'woocommerce' ); ?></button>
+                    <button type="submit" is="lavandre-button" primary full-width size="large" name="save_address" value="<?php esc_attr_e( 'Save', 'woocommerce' ); ?>"><?php esc_html_e( 'Save', 'woocommerce' ); ?></button>
                     <?php wp_nonce_field( 'woocommerce-edit_address', 'woocommerce-edit-address-nonce' ); ?>
                     <input type="hidden" name="action" value="edit_address" />
                 </p>

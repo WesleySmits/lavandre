@@ -104,7 +104,7 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 
     <p>
         <?php wp_nonce_field( 'save_account_details', 'save-account-details-nonce' ); ?>
-        <button type="submit" class="woocommerce-Button button cta-button cta-button--secondary inline" name="save_account_details" value="<?php esc_attr_e( 'Save', 'woocommerce' ); ?>"><?php esc_html_e( 'Save', 'woocommerce' ); ?></button>
+        <button type="submit" is="lavandre-button" primary full-width size="large" name="save_account_details" value="<?php esc_attr_e( 'Save', 'woocommerce' ); ?>"><?php esc_html_e( 'Save', 'woocommerce' ); ?></button>
         <input type="hidden" name="action" value="save_account_details" />
     </p>
 

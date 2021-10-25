@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</p>
 
             <?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
-            <button type="submit" class="woocommerce-button button woocommerce-form-login__submit cta-button cta-button--secondary" name="login" value="<?php esc_attr_e( 'Log in', 'woocommerce' ); ?>"><?php esc_html_e( 'Log in', 'woocommerce' ); ?></button>
+            <button type="submit" is="lavandre-button" primary full-width size="large" name="login" value="<?php esc_attr_e( 'Log in', 'woocommerce' ); ?>"><?php esc_html_e( 'Log in', 'woocommerce' ); ?></button>
 
 			<?php do_action( 'woocommerce_login_form_end' ); ?>
 		</form>
@@ -102,7 +102,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                 <p class="woocommerce-form-row form-row">
                     <?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
-                    <button type="submit" class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit cta-button cta-button--secondary" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>"><?php esc_html_e( 'Register', 'woocommerce' ); ?></button>
+                    <button type="submit" is="lavandre-button" primary full-width size="large" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>"><?php esc_html_e( 'Register', 'woocommerce' ); ?></button>
                 </p>
 
                 <?php do_action( 'woocommerce_register_form_end' ); ?>

@@ -19,7 +19,8 @@ module.exports = {
     moduleNameMapper: {
         '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$': '<rootDir>/mocks/fileMock.js',
         '\\.(css|scss|sass|pcss|less)$': '<rootDir>/mocks/styleMock.js',
-        '@lavandre/button/dist/src/lavandre-button': '<rootDir>/mocks/styleMock.js'
+        '@lavandre/button/dist/src/lavandre-button': '<rootDir>/mocks/styleMock.js',
+        '@lavandre/button/dist/src/LavandreButton': '<rootDir>/mocks/styleMock.js'
     },
     testMatch: [
         '**/?(*.)+(test).[jt]s?(x)'
