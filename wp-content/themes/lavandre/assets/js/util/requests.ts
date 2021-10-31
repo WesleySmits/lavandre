@@ -21,7 +21,7 @@ export function sendAjaxRequest(data: requestData, endpoint: string, loadingElem
 
         if (ajaxResponse.success === false) {
             console.log(ajaxResponse);
-            throw new Error(data);
+            throw new Error(String(data));
         }
 
         onSuccess(ajaxResponse, event);
