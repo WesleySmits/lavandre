@@ -42,6 +42,6 @@ Cypress.Commands.add('accordionElement', (optionArguments: AccordionOptions) => 
     cy.get(`${options.selector} ${options.toggleSelector}`).each(($element) => {
         cy.wrap($element).find('.curtain-content').should('not.be.visible');
         cy.wrap($element).find('summary').click();
-        cy.wrap($element).find('.curtain-content').should('be.visible');
+        cy.wrap($element).find('.curtain-content').scrollIntoView().should('be.visible');
     });
 });

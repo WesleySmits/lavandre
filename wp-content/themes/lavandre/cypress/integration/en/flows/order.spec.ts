@@ -20,7 +20,7 @@ describe('Test the order flow', () => {
         cy.wait(1000);
 
         cy.get('[data-panel-name="cart-panel"]').within(() => {
-            cy.get('.custom-cart__cta').click();
+            cy.get('[data-cy="mini-cart-button"]').click();
         });
 
         cy.url().should('contain', 'cart');

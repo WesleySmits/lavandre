@@ -29,7 +29,6 @@ $addresses = apply_filters(
 $billing_address = wc_get_account_formatted_address('billing');
 $shipping_address = wc_get_account_formatted_address('shipping');
 
-
 if (!$billing_address) {
     $billing_address = formatted_billing_address($order);
 }
@@ -37,7 +36,6 @@ if (!$billing_address) {
 if (!$shipping_address) {
     $shipping_address = formatted_shipping_address($order);
 }
-
 
 function formatted_shipping_address($order)
 {

@@ -602,19 +602,28 @@ function mc_checklist($email, $debug, $apikey, $listid, $server) {
 }
 
 function sendMandrillMail($template_name, $email, $name, $merge_vars, $language = 'mailchimp') {
-    $mandrill = new Mandrill("-sZvRMD3FMTpOKt9NCibNg");
-    $info = $mandrill->templates->info($template_name);
-    $template_content = [];
+    try {
+        $mandrill = new \MailchimpTransactional\ApiClient();
+        $apiKey = $_ENV['MANDRILL_API_KEY'];
+        $mandrill->setApiKey($apiKey);
 
-    $message = array(
-        'subject' => $info['subject'],
-        'from_email' => $info['from_email'],
-        'from_name' => $info['from_name'],
-        'html' => $info['publish_code'],
-        'to' => array(array('email' => $email, 'name' => $name)),
-        'merge_language' => $language,
-        'global_merge_vars' => $merge_vars
-    );
+        $info = $mandrill->templates->info($template_name);
+        $message = array(
+            'subject' => $info['subject'],
+            'from_email' => $info['from_email'],
+            'from_name' => $info['from_name'],
+            'html' => $info['publish_code'],
+            'to' => array(array('email' => $email, 'name' => $name)),
+            'merge_language' => $language,
+            'global_merge_vars' => $merge_vars
+        );
 
-    $result = $mandrill->messages->sendTemplate($template_name, $template_content, $message);
+        $mandrill->messages->sendTemplate([
+            "template_name" => $template_name,
+            "template_content" => [],
+            "message" => $message,
+        ]);
+    } catch (Error $e) {
+        // echo 'Error: ', $e->getMessage(), "\n";
+    }
 }

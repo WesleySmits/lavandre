@@ -2,146 +2,158 @@
   "entrypoints": {
     "app": {
       "js": [
-        "/runtime.a0037f62.js",
-        "/0.b57278cb.js",
-        "/app.1dce344e.js"
+        "/runtime.js",
+        "/vendors~app~productDetail.js",
+        "/app~cart~checkout~home~productDetail.js",
+        "/app~productDetail.js",
+        "/app.js"
       ],
       "css": [
-        "/app.d8a300b9.css"
+        "/app~productDetail.css",
+        "/app.css"
       ]
     },
     "home": {
       "js": [
-        "/runtime.a0037f62.js",
-        "/home.677bbac1.js"
+        "/runtime.js",
+        "/app~cart~checkout~home~productDetail.js",
+        "/home.js"
       ]
     },
     "productDetail": {
       "js": [
-        "/runtime.a0037f62.js",
-        "/productDetail.e65377e6.js"
+        "/runtime.js",
+        "/vendors~app~productDetail.js",
+        "/app~cart~checkout~home~productDetail.js",
+        "/app~productDetail.js",
+        "/productDetail.js"
       ],
       "css": [
-        "/productDetail.43abaa40.css"
+        "/app~productDetail.css"
       ]
     },
     "cart": {
       "js": [
-        "/runtime.a0037f62.js",
-        "/cart.4235b9d6.js"
+        "/runtime.js",
+        "/app~cart~checkout~home~productDetail.js",
+        "/cart.js"
       ]
     },
     "checkout": {
       "js": [
-        "/runtime.a0037f62.js",
-        "/checkout.772b5227.js"
+        "/runtime.js",
+        "/app~cart~checkout~home~productDetail.js",
+        "/checkout~checkout-styles.js",
+        "/checkout.js"
       ],
       "css": [
-        "/checkout.df44ea34.css"
+        "/checkout~checkout-styles.css",
+        "/checkout.css"
       ]
     },
     "critical-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/critical-styles.86ac57d9.css"
+        "/critical-styles.css"
       ]
     },
     "deferred-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/deferred-styles.952f2f0c.css"
+        "/deferred-styles.css"
       ]
     },
     "homepage-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/homepage-styles.988ad3cb.css"
+        "/homepage-styles.css"
       ]
     },
     "about-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/about-styles.2c5cb938.css"
+        "/about-styles.css"
       ]
     },
     "checkout-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js",
+        "/checkout~checkout-styles.js"
       ],
       "css": [
-        "/checkout-styles.859e3ab9.css"
+        "/checkout~checkout-styles.css"
       ]
     },
     "login-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/login-styles.a6d15d21.css"
+        "/login-styles.css"
       ]
     },
     "product-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/product-styles.7f5e41b9.css"
+        "/product-styles.css"
       ]
     },
     "product-overview-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/product-overview-styles.6f109848.css"
+        "/product-overview-styles.css"
       ]
     },
     "account-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/account-styles.b7b152b3.css"
+        "/account-styles.css"
       ]
     },
     "customerServiceStyles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/customerServiceStyles.3829d201.css"
+        "/customerServiceStyles.css"
       ]
     },
     "blogOverviewStyles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/blogOverviewStyles.72ba2689.css"
+        "/blogOverviewStyles.css"
       ]
     },
     "sustainability-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/sustainability-styles.08401d71.css"
+        "/sustainability-styles.css"
       ]
     },
     "landingspage-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/landingspage-styles.64fdea17.css"
+        "/landingspage-styles.css"
       ]
     }
   }

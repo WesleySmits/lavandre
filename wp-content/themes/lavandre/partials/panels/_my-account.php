@@ -69,6 +69,7 @@
                     class="woocommerce-form woocommerce-form-login login"
                     method="post"
                     novalidate
+                    autocomplete="off"
                 >
                     <div class="flex customer-register__name-fields">
                         <p class="form-row form-row-first customer-register__name-field">

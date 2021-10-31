@@ -19,6 +19,11 @@ export function sendAjaxRequest(data: requestData, endpoint: string, loadingElem
         const ajaxResponse: ajaxResponse = response as ajaxResponse;
         const data = ajaxResponse.data as unknown;
 
+        if (ajaxResponse.success === false) {
+            console.log(ajaxResponse);
+            throw new Error(data);
+        }
+
         onSuccess(ajaxResponse, event);
         if (loadingElement) removeLoadingState(loadingElement);
         if (button) removeButtonLoadingState(button);

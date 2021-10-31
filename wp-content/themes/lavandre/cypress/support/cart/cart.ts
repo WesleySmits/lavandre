@@ -19,6 +19,6 @@ Cypress.Commands.add("addProductToCart", () => {
         expect(response.statusCode).to.eq(200);
         expect(response.body.success).eq(true);
         cy.get('[data-panel-name="cart-panel"]').should("be.visible");
-        cy.get('[data-panel-name="cart-panel"] .custom-cart__cta').should('exist');
+        cy.get('[data-panel-name="cart-panel"] [data-cy="mini-cart-button"]').should('exist');
     });
 });
