@@ -46,7 +46,7 @@ defined( 'ABSPATH' ) || exit;
 
         <p class="woocommerce-form-row form-row">
             <input type="hidden" name="wc_reset_password" value="true" />
-            <button type="submit" class="woocommerce-button button woocommerce-form-login__submit cta-button cta-button--secondary" value="<?php esc_attr_e( 'Save', 'woocommerce' ); ?>"><?php esc_html_e( 'Save', 'woocommerce' ); ?></button>
+            <button type="submit" is="lavandre-button" primary full-width size="large" value="<?php esc_attr_e( 'Save', 'woocommerce' ); ?>"><?php esc_html_e( 'Save', 'woocommerce' ); ?></button>
         </p>
 
         <?php wp_nonce_field( 'reset_password', 'woocommerce-reset-password-nonce' ); ?>

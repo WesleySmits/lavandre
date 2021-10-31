@@ -21,10 +21,10 @@ defined( 'ABSPATH' ) || exit;
 ?>
 
 <div class="back-to-section flex">
-    <a href="/my-account/orders/" class="cta-button alt inline back-to-cart-button">
+    <button href="/my-account/orders/" is="lavandre-button" outline size="small" style="margin: 0;">
         <?php include get_stylesheet_directory() . '/partials/icons/back.svg.php'; ?>
         <span><?php _e('Back to overview', 'lavandre');?></span>
-    </a>
+    </button>
 </div>
 
 <div class="order-details">

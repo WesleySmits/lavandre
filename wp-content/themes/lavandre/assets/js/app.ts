@@ -51,6 +51,14 @@ export default class App extends Module {
         super.initialize();
         setCurrentLinkClass();
 
+        const wpFormsSubmitButtons = Array.from(document.querySelectorAll('[name="wpforms[submit]"]'));
+        wpFormsSubmitButtons.forEach((button) => {
+            button.removeAttribute('class');
+            button.setAttribute('is', 'lavandre-button');
+            button.setAttribute('size', 'large');
+            button.setAttribute('full-width', 'large');
+            button.setAttribute('outline', 'true');
+        });
     }
 }
 

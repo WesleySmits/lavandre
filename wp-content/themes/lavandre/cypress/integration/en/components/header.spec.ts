@@ -34,7 +34,7 @@ describe('Header tests - desktop', () => {
         });
 
         cy.openSidePanel({ toggle: toggleSelector, panel: panelSelector });
-        cy.accordion({selector: panelSelector, height: 10});
+        cy.accordionElement({ selector: panelSelector, height: 10 });
     });
 
     it('should have a functioning customer service sidepanel', () => {

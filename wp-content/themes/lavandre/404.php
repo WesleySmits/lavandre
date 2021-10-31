@@ -6,8 +6,9 @@ get_header(); ?>
         <h1 style="margin: 2rem auto; color: white; font-weight: 500; font-size: 1.25rem;">
             <?php _e('Sorry, the page you\'re looking for couldn\'t be found.', 'lavandre'); ?>
         </h1>
-        <a href="/shop" class="cta-button cta-button--secondary inline">
+
+        <button is="lavandre-button" href="/shop" size="large" primary>
             <?php _e('Back to the shop', 'lavandre'); ?>
-        </a>
+        </button>
     </div>
 <?php get_footer(); ?>

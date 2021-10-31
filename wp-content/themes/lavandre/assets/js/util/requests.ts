@@ -19,6 +19,11 @@ export function sendAjaxRequest(data: requestData, endpoint: string, loadingElem
         const ajaxResponse: ajaxResponse = response as ajaxResponse;
         const data = ajaxResponse.data as unknown;
 
+        if (ajaxResponse.success === false) {
+            console.log(ajaxResponse);
+            throw new Error(String(data));
+        }
+
         onSuccess(ajaxResponse, event);
         if (loadingElement) removeLoadingState(loadingElement);
         if (button) removeButtonLoadingState(button);
@@ -57,10 +62,10 @@ export function removeLoadingState(item: HTMLElement): void {
 
 export function setButtonLoadingState(button: HTMLButtonElement) {
     button.disabled = true;
-    button.classList.add('cta-button--loading');
+    button.setAttribute('loading', 'true');
 }
 
 export function removeButtonLoadingState(button: HTMLButtonElement) {
     button.disabled = false;
-    button.classList.remove('cta-button--loading');
+    button.removeAttribute('loading');
 }

@@ -1866,12 +1866,12 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@lavandre/button@0.0.12", "@lavandre/button@^0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@lavandre/button/-/button-0.0.12.tgz#32928edf10fa5a6e6dd9348c09de3c81d8735c27"
-  integrity sha512-SMG2vXsSc9zNQGerjNRwThow7yw/YHWia3w4IQ3xcTHDvT5CJxc2pCegaWPpF3upgnzbm5YkGwx/LT/CjycN5A==
+"@lavandre/button@0.0.15", "@lavandre/button@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@lavandre/button/-/button-0.0.15.tgz#f09b22b49a17ea122ff721fdc3e5298568a9bc96"
+  integrity sha512-UE/lEXjjGbOCzwgQ62CHBJLyG6V3eL98GV2obtojgfSv08ZGK8gGRoNesT9zdc4aSldD6vSOoveADdX63KX/Dw==
   dependencies:
-    "@lavandre/button" "^0.0.12"
+    "@lavandre/button" "^0.0.15"
     lit "^2.0.0"
 
 "@lit/reactive-element@^1.0.0":
@@ -4690,10 +4690,10 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
-cypress@8.5.0:
-  version "8.5.0"
-  resolved "https://registry.yarnpkg.com/cypress/-/cypress-8.5.0.tgz#5712ca170913f8344bf167301205c4217c1eb9bd"
-  integrity sha512-MMkXIS+Ro2KETn4gAlG3tIc/7FiljuuCZP0zpd9QsRG6MZSyZW/l1J3D4iQM6WHsVxuX4rFChn5jPFlC2tNSvQ==
+cypress@8.7.0:
+  version "8.7.0"
+  resolved "https://registry.yarnpkg.com/cypress/-/cypress-8.7.0.tgz#2ee371f383d8f233d3425b6cc26ddeec2668b6da"
+  integrity sha512-b1bMC3VQydC6sXzBMFnSqcvwc9dTZMgcaOzT0vpSD+Gq1yFc+72JDWi55sfUK5eIeNLAtWOGy1NNb6UlhMvB+Q==
   dependencies:
     "@cypress/request" "^2.88.6"
     "@cypress/xvfb" "^1.2.4"

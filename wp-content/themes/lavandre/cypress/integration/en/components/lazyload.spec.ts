@@ -13,7 +13,7 @@ describe('Lazy loading tests - desktop', () => {
         cy.visit('/');
     });
 
-    ['sustainability', 'branches'].forEach((menu: string) => {
+    ['sustainability'].forEach((menu: string) => {
         it(`should load ${menu} dropdown banners only on hover`, () => {
             cy.get(`[data-sub-menu="${menu}"] img`)
                 .should('not.be.visible')

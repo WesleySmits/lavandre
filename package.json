@@ -14,7 +14,8 @@
     "start": "cd wp-content/themes/lavandre && yarn start",
     "cypress": "cd wp-content/themes/lavandre && npx cypress run",
     "cypress:open": "cd wp-content/themes/lavandre && npx cypress open",
-    "lighthouse": "lhci autorun"
+    "lighthouse": "lhci autorun",
+    "yarn:update": "yarn && cd wp-content/themes/lavandre && yarn"
   },
   "author": "Wesley Smits",
   "license": "MIT",
@@ -22,6 +23,6 @@
     "husky": "4.3.8"
   },
   "dependencies": {
-    "cypress": "8.5.0"
+    "cypress": "8.7.0"
   }
 }

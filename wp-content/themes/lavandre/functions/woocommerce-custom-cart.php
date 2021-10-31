@@ -438,7 +438,7 @@ function ww_custom_cart_mini() {
                                     </p>
                                 <?php endif; ?>
 
-                                <div class="test">
+                                <div class="quantity-wrapper">
                                     <div class="product-detail__quantity-selector">
                                         <?php
                                         do_action( 'woocommerce_before_add_to_cart_quantity' );
@@ -510,7 +510,7 @@ function ww_custom_cart_mini() {
     </dl>
 
     <aside>
-        <button is="lavandre-button" primary full-width size="large" href="/cart"><?php _e('Order now', 'lavandre'); ?></button>
+        <button is="lavandre-button" primary full-width size="large" href="/cart" data-cy="mini-cart-button"><?php _e('Order now', 'lavandre'); ?></button>
     </aside>
 
     <?php

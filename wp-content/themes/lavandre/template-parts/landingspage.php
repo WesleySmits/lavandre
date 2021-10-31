@@ -55,14 +55,13 @@ while ( have_posts() ) : the_post();
                     <h2 class="ww-page-banner__title"><?php echo get_field('bottom_banner_title'); ?></h2>
                     <p><?php echo get_field('bottom_banner_description'); ?></p>
 
-                    <a href="<?php echo $bottom_banner_cta['url'] ?>" class="button alt inline">
+                    <button is="lavandre-button" primary size="large" href="<?php echo $bottom_banner_cta['url'] ?>">
                         <?php _e('View our collection', 'lavandre'); ?>
-                    </a>
+                    </button>
                 </div>
             </footer>
         </article>
     </main>
-
 	<?php
 endwhile;
 
