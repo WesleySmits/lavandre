@@ -159,11 +159,6 @@ function ww_custom_cart() {
                                         }
                                     ?>
                                 </div>
-
-                                <?php if ($quantity > 1) { ?>
-                                    <?php $unit_price = $discounted_price ? $discounted_price : $price; ?>
-                                    <div>(<?php echo $quantity ?> x <?php echo wc_price($unit_price); ?>)</div>
-                                <?php } ?>
                             </div>
                         </div>
                     </li>
@@ -432,9 +427,12 @@ function ww_custom_cart_mini() {
                                     </p>
                                 <?php endif; ?>
 
-                                <?php if ($amount): ?>
+                                <?php if ($amount && $amount !== 'single-pack'): ?>
                                     <p class="custom-cart__product-subtitle">
-                                        <?php echo $amount; ?>
+                                        <?php
+                                            $displayAmount = attribute_slug_to_title('attribute_pa_amount', $amount);
+                                            echo $displayAmount;
+                                        ?>
                                     </p>
                                 <?php endif; ?>
 
@@ -447,7 +445,7 @@ function ww_custom_cart_mini() {
                                             array(
                                                 'min_value'   => apply_filters( 'woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product ),
                                                 'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product ),
-                                                'input_value' => isset( $_POST['quantity'] ) ? wc_stock_amount( wp_unslash( $_POST['quantity'] ) ) : $product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
+                                                'input_value' => isset( $quantity ) ? wc_stock_amount( wp_unslash( $quantity ) ) : $product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
                                             ),
                                             $product
                                         );
@@ -487,11 +485,6 @@ function ww_custom_cart_mini() {
                                                 }
                                             ?>
                                         </div>
-
-                                        <?php if ($quantity > 1) { ?>
-                                            <?php $unit_price = $discounted_price ? $discounted_price : $price; ?>
-                                            <div>(<?php echo $quantity ?> x <?php echo wc_price($unit_price); ?>)</div>
-                                        <?php } ?>
                                     </div>
                             </div>
                         </li>
@@ -510,7 +503,7 @@ function ww_custom_cart_mini() {
     </dl>
 
     <aside>
-        <button is="lavandre-button" primary full-width size="large" href="/cart" data-cy="mini-cart-button"><?php _e('Order now', 'lavandre'); ?></button>
+        <button is="lavandre-button" primary full-width size="large" href="/cart" data-cy="mini-cart-button"><?php _e('Continue to Checkout', 'lavandre'); ?></button>
     </aside>
 
     <?php
