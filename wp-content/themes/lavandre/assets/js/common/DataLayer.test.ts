@@ -20,6 +20,9 @@ describe('Test the DataLayer class', () => {
 
         const value = 'test';
         instance.push({ event: 'test', value: value });
-        expect(window.dataLayer).toEqual([{ event: 'test', value: value }]);
+        expect(window.dataLayer).toEqual([
+            { ecommerce: null },
+            { event: 'test', value: value }
+        ]);
     });
 });

@@ -11,6 +11,7 @@ class DataLayer {
     }
 
     public push(data: dataLayer) {
+        this.dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
         this.dataLayer.push(data);
     }
 }
