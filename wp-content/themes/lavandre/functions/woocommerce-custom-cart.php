@@ -26,114 +26,183 @@ function ww_custom_cart() {
 
     <section id="custom-cart" class="custom-cart">
 
-    <header class="custom-cart__header flex">
-        <div class="custom-cart__previous flex-col-xs-12 flex-col-md-4 flex-col-lg-3">
-            <button is="lavandre-button" href="/shop" outline>
+    <header class="custom-cart__header">
+        <div class="custom-cart__previous">
+            <a href="/shop" class="back-link">
                 <?php include get_stylesheet_directory() . '/partials/icons/back.svg.php'; ?>
                 <span><?php _e('Continue shopping', 'lavandre'); ?></span>
-            </button>
-        </div>
-        <div class="flex-col-xs-12 flex-col-md-4 flex-col-lg-5"><h1 class="custom-cart__heading"><?php _e('Shopping bag', 'lavandre'); ?></h1></div>
-        <div class="custom-cart__overview flex-col-xs-12 flex-col-md-4">
-            <p>
-                <span>
-                    <span data-total-items>
-                        <?php echo $woocommerce->cart->cart_contents_count; ?>
-                    </span>
-
-                    <?php if (count($items) === 1) { ?>
-                        <span><?php _e('article', 'lavandre'); ?> - <?php _e('total', 'lavandre'); ?></span>
-                    <?php } else { ?>
-                        <span><?php _e('articles', 'lavandre'); ?> - <?php _e('total', 'lavandre'); ?></span>
-                    <?php } ?>
-                </span>
-                <data value="<?php echo $woocommerce->cart->get_subtotal(); ?>" data-total-price>
-                    <?php echo wc_price($woocommerce->cart->get_subtotal()); ?>
-                </data>
-            </p>
+            </a>
         </div>
     </header>
 
-    <ul class="custom-cart__items">
-        <?php
-            uasort(
-                $items,
-                function( $a, $b ) {
-                    return strnatcmp( $a['product_id'], $b['product_id'] );
-                }
-            );
-            foreach($items as $item => $values) {
-                $id = $values['data']->get_id();
-                $product =  wc_get_product( $id );
-                $id = $values['data']->get_id();
-                $productID = $values['product_id'];
-                $variationID = $values['variation_id'];
-                $title = $product->get_title();
-                $subtitle = ($variationID) ? $values['data']->get_description() : '';
-                $quantity = $values['quantity'];
-                $price = get_post_meta($id, '_price', true);
-                $image = $product->get_image('medium');
-                $quantity_id = 'cart__item__quantity_' . $id;
+    <p class="custom-cart__notification">
+        <?php _e('Your order qualifies for Free shipping', 'lavandre'); ?>
+    </p>
 
-                $adjusted_price = null;
-                $sale_price = null;
-                $regular_price = $price;
+    <div class="custom-cart__main">
+        <ul class="custom-cart__items">
+            <?php
+                uasort(
+                    $items,
+                    function( $a, $b ) {
+                        return strnatcmp( $a['product_id'], $b['product_id'] );
+                    }
+                );
+                foreach($items as $item => $values) {
+                    $id = $values['data']->get_id();
+                    $product =  wc_get_product( $id );
+                    $id = $values['data']->get_id();
+                    $productID = $values['product_id'];
+                    $variationID = $values['variation_id'];
+                    $title = $product->get_title();
+                    $subtitle = ($variationID) ? $values['data']->get_description() : '';
+                    $quantity = $values['quantity'];
+                    $price = get_post_meta($id, '_price', true);
+                    $image = $product->get_image('medium');
+                    $quantity_id = 'cart__item__quantity_' . $id;
 
-                if ($values['data']->get_sale_price()) {
-                    $regular_price = $values['data']->get_regular_price();
-                    $sale_price = $values['data']->get_sale_price();
-                }
+                    $productVariation = wc_get_product($variationID);
+                    $attributes =  $productVariation->get_variation_attributes() ;
 
-                if (
-                    array_key_exists('discounts', $values)
-                    && array_key_exists('price_adjusted', $values['discounts'])
-                    && $values['discounts']['price_adjusted'] < $price
-                ) {
-                    $adjusted_price = $values['discounts']['price_adjusted'];
-                }
-                ?>
+                    $color = (array_key_exists('attribute_pa_color', $attributes)) ? $attributes['attribute_pa_color'] : '';
+                    $amount = (array_key_exists('attribute_pa_amount', $attributes)) ? $attributes['attribute_pa_amount'] : '';
+                    $size = (array_key_exists('attribute_pa_size', $attributes)) ? $attributes['attribute_pa_size'] : '';
 
-                    <li class="flex custom-cart__item custom-cart__item--mobile">
-                        <div class="custom-cart__name flex-col-8">
-                            <p>
-                                <?php echo $title; ?>
-                                <?php if ($subtitle) { echo '<br/>' . $subtitle; } ?>
-                            </p>
-                        </div>
+                    $adjusted_price = null;
+                    $sale_price = null;
+                    $regular_price = $price;
 
-                        <div class="custom-cart__price flex-col-4">
-                            <button class="custom-cart__delete" data-delete-item data-product-id="<?php echo $id; ?>" data-variation-id="<?php echo $variationID; ?>">
-                                <?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?>
-                            </button>
-                        </div>
+                    if ($values['data']->get_sale_price()) {
+                        $regular_price = $values['data']->get_regular_price();
+                        $sale_price = $values['data']->get_sale_price();
+                    }
 
-                        <div class="custom-cart__thumbnail flex-col-6">
-                            <?php echo $image; ?>
-                        </div>
+                    if (
+                        array_key_exists('discounts', $values)
+                        && array_key_exists('price_adjusted', $values['discounts'])
+                        && $values['discounts']['price_adjusted'] < $price
+                    ) {
+                        $adjusted_price = $values['discounts']['price_adjusted'];
+                    }
+                    ?>
 
-                        <div class="custom-cart__quantity flex-col-6">
-                            <form method="post">
-                                <label class="custom-cart__quantity-label" for="<?php echo $quantity_id . '-mobile'; ?>">Aantal</label>
-                                <div class="quantity flex flex-start flex-nowrap">
-                                    <button type="button" class="minus-amount">-</button>
-                                    <input
-                                        type="number"
-                                        id="<?php echo $quantity_id . '-mobile'; ?>"
-                                        class="input-text qty text custom-cart__quantity-input"
-                                        step="1"
-                                        min="0"
-                                        max="<?php echo $product->get_stock_quantity(); ?>"
-                                        name="quantity"
-                                        value="<?php echo $quantity ?>"
-                                        title="Aantal"
-                                        size="4"
-                                        placeholder=""
-                                        inputmode="numeric"
-                                        data-product-id="<?php echo $id; ?>"
-                                    >
-                                    <button type="button" class="plus-amount">+</button>
+                        <li class="custom-cart__item custom-cart__item--mobile" data-product-id="<?php echo $productID; ?>" data-variation-id="<?php echo $variationID; ?>">
+                            <div class="custom-cart__thumbnail">
+                                <?php echo $image; ?>
+                            </div>
+
+                            <div class="custom-cart__details">
+                                <div class="custom-cart__name">
+                                    <p>
+                                        <?php echo $title; ?>
+                                        <?php if ($subtitle) { echo '<br/>' . $subtitle; } ?>
+                                    </p>
                                 </div>
-                            </form>
+
+                                <div class="custom-cart__quantity">
+                                    <form method="post">
+                                        <div class="product-detail__quantity-selector">
+                                            <?php
+                                                do_action( 'woocommerce_before_add_to_cart_quantity' );
+
+                                                woocommerce_quantity_input(
+                                                    array(
+                                                        'min_value'   => apply_filters( 'woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product ),
+                                                        'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product ),
+                                                        'input_value' => isset( $quantity ) ? wc_stock_amount( wp_unslash( $quantity ) ) : $product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
+                                                    ),
+                                                    $product
+                                                );
+
+                                                do_action( 'woocommerce_after_add_to_cart_quantity' );
+                                            ?>
+                                        </div>
+                                    </form>
+
+                                    <div class="custom-cart__delete">
+                                        <button class="custom-cart__delete--text" data-delete-item data-product-id="<?php echo $productID; ?>" data-variation-id="<?php echo $variationID; ?>">
+                                            <?php _e('Remove', 'lavandre'); ?>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="custom-cart__price">
+                                <div>
+                                    <?php
+                                    $discounted_price = null;
+
+                                    if ($sale_price && $adjusted_price) {
+                                        $discounted_price = ($sale_price < $adjusted_price) ? $sale_price : $adjusted_price;
+                                    } else if ($sale_price) {
+                                        $discounted_price = $sale_price;
+                                    } else if ($adjusted_price) {
+                                        $discounted_price = $adjusted_price;
+                                    }
+
+                                    if ($discounted_price) echo '<del>';
+                                    echo wc_price($quantity * $regular_price);
+                                    if ($discounted_price) echo '</del>';
+                                    ?>
+                                </div>
+
+                                <div>
+                                    <?php
+                                        if ($discounted_price) {
+                                            echo '<ins>' . wc_price($discounted_price * $quantity) . '</ins>';
+                                        }
+                                    ?>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="custom-cart__item custom-cart__item--desktop" data-product-id="<?php echo $productID; ?>" data-variation-id="<?php echo $variationID; ?>">
+                            <div class="custom-cart__thumbnail">
+                                <?php echo $image; ?>
+                            </div>
+
+                            <div class="custom-cart__name">
+                                <p class="custom-cart__product-title">
+                                    <span class="custom-cart__title"><?php echo $title; ?></span>
+                                    <?php if ($subtitle) { echo '<br/><span class="custom-cart__subtitle">' . $subtitle . '</span>'; } ?>
+                                </p>
+
+                                <?php if ($color || $size): ?>
+                                    <p class="custom-cart__product-subtitle">
+                                        <?php echo $color; ?> <?php echo $size; ?>
+                                    </p>
+                                <?php endif; ?>
+
+                                <?php if ($amount && $amount !== 'single-pack'): ?>
+                                    <p class="custom-cart__product-subtitle">
+                                        <?php
+                                            $displayAmount = attribute_slug_to_title('attribute_pa_amount', $amount);
+                                            echo $displayAmount;
+                                        ?>
+                                    </p>
+                                <?php endif; ?>
+                            </div>
+
+                            <div class="custom-cart__quantity">
+                                <form method="post">
+                                    <div class="product-detail__quantity-selector">
+                                        <?php
+                                            do_action( 'woocommerce_before_add_to_cart_quantity' );
+
+                                            woocommerce_quantity_input(
+                                                array(
+                                                    'min_value'   => apply_filters( 'woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product ),
+                                                    'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product ),
+                                                    'input_value' => isset( $quantity ) ? wc_stock_amount( wp_unslash( $quantity ) ) : $product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
+                                                ),
+                                                $product
+                                            );
+
+                                            do_action( 'woocommerce_after_add_to_cart_quantity' );
+                                        ?>
+                                    </div>
+                                </form>
+                            </div>
 
                             <div class="custom-cart__price">
                                 <div><?php
@@ -160,177 +229,132 @@ function ww_custom_cart() {
                                     ?>
                                 </div>
                             </div>
-                        </div>
-                    </li>
 
-                    <li class="flex custom-cart__item custom-cart__item--desktop">
-                        <div class="custom-cart__thumbnail flex-col-3">
-                            <?php echo $image; ?>
-                        </div>
-                        <div class="custom-cart__details flex flex-col-9">
-                            <div class="custom-cart__name flex-col-5">
-                                <p>
-                                    <?php echo $title; ?>
-                                    <?php if ($subtitle) { echo '<br/>' . $subtitle; } ?>
-                                </p>
-                                <button class="custom-cart__delete" data-delete-item data-product-id="<?php echo $productID; ?>" data-variation-id="<?php echo $variationID; ?>">
-                                    <?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?>
+                            <div class="custom-cart__remove">
+                                <button class="custom-cart__delete--text" data-delete-item data-product-id="<?php echo $productID; ?>" data-variation-id="<?php echo $variationID; ?>">
+                                    <?php _e('Remove', 'lavandre'); ?>
                                 </button>
                             </div>
-                            <div class="custom-cart__quantity flex-col-5">
-                                <form method="post">
-                                    <label class="custom-cart__quantity-label" for="<?php echo $quantity_id; ?>">
-                                        <?php _e('Amount', 'lavandre'); ?>
-                                    </label>
-                                    <div class="quantity flex flex-start flex-nowrap">
-                                        <button type="button" class="minus-amount">-</button>
-                                        <input
-                                            type="number"
-                                            id="<?php echo $quantity_id; ?>"
-                                            class="input-text qty text custom-cart__quantity-input"
-                                            step="1"
-                                            min="0"
-                                            max="<?php echo $product->get_stock_quantity(); ?>"
-                                            name="quantity"
-                                            value="<?php echo $quantity ?>"
-                                            title="Aantal"
-                                            size="4"
-                                            placeholder=""
-                                            inputmode="numeric"
-                                            data-product-id="<?php echo $productID; ?>"
-                                            data-variation-id="<?php echo $variationID; ?>"
-                                        >
-                                        <button type="button" class="plus-amount">+</button>
-                                    </div>
+                        </li>
 
-                                </form>
-                            </div>
-                            <div class="custom-cart__price flex-col-2">
-                                <div><?php
-                                    $discounted_price = null;
-
-                                    if ($sale_price && $adjusted_price) {
-                                        $discounted_price = ($sale_price < $adjusted_price) ? $sale_price : $adjusted_price;
-                                    } else if ($sale_price) {
-                                        $discounted_price = $sale_price;
-                                    } else if ($adjusted_price) {
-                                        $discounted_price = $adjusted_price;
-                                    }
-
-                                    if ($discounted_price) echo '<del>';
-                                    echo wc_price($quantity * $regular_price);
-                                    if ($discounted_price) echo '</del>';
-                                ?></div>
-
-                                <div>
-                                    <?php
-                                        if ($discounted_price) {
-                                            echo '<ins>' . wc_price($discounted_price * $quantity) . '</ins>';
-                                        }
-                                    ?>
-                                </div>
-
-                                <?php if ($quantity > 1) { ?>
-                                    <?php $unit_price = $discounted_price ? $discounted_price : $price; ?>
-                                    <div>(<?php echo $quantity ?> x <?php echo wc_price($unit_price); ?>)</div>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    </li>
-
-                <?
-                }
-                ?>
-    </ul>
-
-    <div class="custom-cart__actions flex">
-        <div class="custom-cart_tree-planting">
-            <button is="lavandre-button" outline size="large" id="tree-planting-button" data-panel="tree-planting">
-                <?php include get_stylesheet_directory() . '/partials/icons/tree.svg.php'; ?>
-                <span><?php _e('Read more', 'lavandre'); ?></span>
-            </button>
-
-            <p>
-                <?php _e('We plant a tree for each ordered item. With this purchase you\'ll plant'); ?>
-                <strong>
-                    <?php
-                        echo ' ' . $woocommerce->cart->cart_contents_count . '';
-                        echo ($woocommerce->cart->cart_contents_count > 1) ? _e(' trees!') : _e(' tree!')
+                    <?
+                    }
                     ?>
-                </strong>
-            </p>
-        </div>
-
-        <button is="lavandre-button" outline size="large" id="coupon-code-add" data-panel="coupon-code-add">
-            <?php _e('Enter coupon code'); ?>
-        </button>
-    </div>
-
-    <?php $active_coupons = $woocommerce->cart->applied_coupons; ?>
-    <?php $total_coupon_discount = 0; ?>
-
-    <?php foreach ($active_coupons as $active_coupon) { ?>
-        <?php $coupon = new \WC_Coupon( $active_coupon ); ?>
-        <?php $total_coupon_discount += $woocommerce->cart->get_coupon_discount_amount( $active_coupon ); ?>
-
-        <ul class="custom-cart__coupon-codes">
-            <li class="custom-cart__coupon-code">
-                <span><?php echo $active_coupon; ?>:</span>
-                <a href="?remove_coupon=<?php echo $active_coupon; ?>" data-remove-code="<?php echo $active_coupon; ?>">
-                    <?php _e('Delete'); ?>
-                </a>
-            </li>
         </ul>
-    <?php } ?>
 
-    <footer class="custom-cart__footer flex">
-        <table class="custom-cart__totals">
-            <tbody>
-                <tr class="custom-cart__subtotal">
-                    <th><?php _e('Subtotal', 'lavandre'); ?></th>
-                    <td><?php echo wc_price($woocommerce->cart->get_subtotal()); ?></td>
-                </tr>
+        <?php
+            $active_coupons = $woocommerce->cart->applied_coupons;
+            $total_coupon_discount = 0;
 
-                <tr class="custom-cart__shipping">
-                    <th><?php _e('Shipping', 'lavandre'); ?></th>
+            foreach ($active_coupons as $active_coupon) { ?>
+                <?php $coupon = new \WC_Coupon( $active_coupon ); ?>
+                <?php $total_coupon_discount += $woocommerce->cart->get_coupon_discount_amount( $active_coupon ); ?>
+            <?php }
+        ?>
 
-                    <td><?php
-                        $shipping_total = $woocommerce->cart->get_shipping_total();
-                        if ($shipping_total == 0.00) {
-                            _e('Free');
-                        } else {
-                            echo wc_price($shipping_total);
-                        }
-                    ?></td>
-                </tr>
 
-                <tr class="custom-cart__taxes">
-                    <th><?php _e('VAT'); ?></th>
-                    <td><?php echo wc_price($woocommerce->cart->get_taxes_total()); ?></td>
-                </tr>
-
-                <?php if ($total_coupon_discount !== 0) { ?>
-                    <tr class="custom-cart__discount">
-                        <th><?php _e('Coupon discount'); ?>:</th>
-                        <td><?php echo wc_price($total_coupon_discount); ?></td>
+        <aside class="custom-cart__sidebar">
+            <h1 class="sr-only"><?php _e('Order summary', 'lavandre'); ?></h1>
+            <table class="custom-cart__order-totals">
+                <tbody>
+                    <tr class="custom-cart__sidebar__row custom-cart__sidebar__row--large custom-cart__sidebar__row--large-font" data-cy="subtotal">
+                        <th><?php _e('Subtotal', 'lavandre'); ?></th>
+                        <td><?php echo wc_price($woocommerce->cart->get_subtotal()); ?></td>
                     </tr>
-                <?php } ?>
 
-                <tr class="custom-cart__total">
-                    <th><?php _e('Total'); ?></th>
-                    <td><?php echo wc_price($woocommerce->cart->total); ?></td>
-                </tr>
-            </tbody>
-        </table>
-    </footer>
+                    <tr class="custom-cart__sidebar__row">
+                        <th><?php _e('Shipping', 'lavandre'); ?></th>
 
-    <aside class="custom-cart__cta-wrapper">
-        <button is="lavandre-button" href="/checkout" class="custom-cart__cta" primary size="large"><?php _e('Proceed to checkout'); ?></a>
-    </aside>
+                        <td><?php
+                            $shipping_total = $woocommerce->cart->get_shipping_total();
+                            if ($shipping_total == 0.00) {
+                                _e('Free');
+                            } else {
+                                echo wc_price($shipping_total);
+                            }
+                        ?></td>
+                    </tr>
+
+                    <tr class="custom-cart__sidebar__row">
+                        <th><?php _e('Tax'); ?></th>
+                        <td><?php _e('TBD'); //echo wc_price($woocommerce->cart->get_taxes_total()); ?></td>
+                    </tr>
+
+                    <?php if ($total_coupon_discount !== 0) { ?>
+                        <tr class="custom-cart__sidebar__row">
+                            <th><?php _e('Discount code'); ?>:</th>
+                            <td><?php echo wc_price($total_coupon_discount); ?></td>
+                        </tr>
+                    <?php } ?>
+
+                    <tr class="custom-cart__sidebar__row custom-cart__sidebar__row--large-font">
+                        <th><?php _e('Total'); ?></th>
+                        <td><?php echo wc_price($woocommerce->cart->total); ?></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <accordion-element class="custom-cart__coupon-accordion" data-cy="coupon-accordion">
+                <details is="curtain-element">
+                    <summary>
+                        <span><?php _e('Discount code', 'lavandre'); ?></span>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 15 15" xml:space="preserve" aria-hidden="true" data-acsb-hidden="true" data-acsb-force-hidden="true">
+                            <g fill="#2b2b2b">
+                                <polygon points="0.104,4.333 1.165,3.272 7.5,9.607 13.835,3.272 14.896,4.333 7.5,11.728 "></polygon>
+                            </g>
+                        </svg>
+                    </summary>
+                    <div class="curtain-content">
+                        <form id="coupon-code-form" class="ww-form" method="post" novalidate>
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="coupon-code" id="coupon-code" placeholder="<?php _e('Coupon code', 'lavandre'); ?>" autocomplete="Coupon code" title="<?php _e('Fill in a valid coupon code', 'lavandre'); ?>" required>
+                                <label for="coupon-code"><?php _e('Discount code', 'lavandre'); ?><span class="required">*</span></label>
+                            </p>
+
+                            <button type="submit" is="lavandre-button" outline full-width size="large">
+                                <?php _e('Apply', 'lavandre'); ?>
+                            </button>
+                        </form>
+                    </div>
+                </details>
+            </accordion-element>
+
+            <?php foreach ($active_coupons as $active_coupon) { ?>
+                <?php $coupon = new \WC_Coupon( $active_coupon ); ?>
+
+                <ul class="custom-cart__coupon-codes">
+                    <li class="custom-cart__coupon-code">
+                        <span><?php echo $active_coupon; ?>:</span>
+                        <a href="?remove_coupon=<?php echo $active_coupon; ?>" data-remove-code="<?php echo $active_coupon; ?>">
+                            <?php _e('Delete'); ?>
+                        </a>
+                    </li>
+                </ul>
+            <?php } ?>
+
+            <div class="custom-cart_tree-planting">
+                <p>
+                    <?php _e('We plant a tree for each ordered item. With this purchase you\'ll plant'); ?>
+                    <span>
+                        <?php
+                            echo ' ' . $woocommerce->cart->cart_contents_count . '';
+                            echo ($woocommerce->cart->cart_contents_count > 1) ? _e(' trees!') : _e(' tree!')
+                        ?>
+                    </span>
+                    <a href="#" id="tree-planting-button" data-panel="tree-planting">
+                        <span><?php _e('Read more', 'lavandre'); ?></span>
+                    </a>
+                </p>
+            </div>
+
+            <button is="lavandre-button" href="/checkout" class="custom-cart__cta" primary size="large" full-width>
+                <?php _e('Continue to checkout'); ?>
+            </button>
+        </aside>
+    </div>
 
     <?php
         include get_stylesheet_directory() . '/partials/panels/_tree-planting.php';
-        include get_stylesheet_directory() . '/partials/panels/_coupon-code.php';
     ?>
 
     <?php
@@ -338,6 +362,11 @@ function ww_custom_cart() {
 	return ob_get_clean();
 }
 add_shortcode( 'ww_custom_cart', 'ww_custom_cart' );
+
+
+
+
+
 
 function ww_custom_cart_mini() {
     ob_start();
@@ -361,7 +390,7 @@ function ww_custom_cart_mini() {
 
     <section id="custom-cart" class="side-panel__section custom-cart custom-cart--mini">
 
-        <p class="custom-cart--mini__notification">
+        <p class="custom-cart__notification">
             <?php _e('Your order qualifies for Free shipping', 'lavandre'); ?>
         </p>
 
@@ -461,31 +490,29 @@ function ww_custom_cart_mini() {
                             </div>
 
                             <div class="custom-cart__price">
-                                <div class="custom-cart__price">
-                                        <div><?php
-                                            $discounted_price = null;
+                                <div><?php
+                                    $discounted_price = null;
 
-                                            if ($sale_price && $adjusted_price) {
-                                                $discounted_price = ($sale_price < $adjusted_price) ? $sale_price : $adjusted_price;
-                                            } else if ($sale_price) {
-                                                $discounted_price = $sale_price;
-                                            } else if ($adjusted_price) {
-                                                $discounted_price = $adjusted_price;
-                                            }
+                                    if ($sale_price && $adjusted_price) {
+                                        $discounted_price = ($sale_price < $adjusted_price) ? $sale_price : $adjusted_price;
+                                    } else if ($sale_price) {
+                                        $discounted_price = $sale_price;
+                                    } else if ($adjusted_price) {
+                                        $discounted_price = $adjusted_price;
+                                    }
 
-                                            if ($discounted_price) echo '<del>';
-                                            echo wc_price($quantity * $regular_price);
-                                            if ($discounted_price) echo '</del>';
-                                        ?></div>
+                                    if ($discounted_price) echo '<del>';
+                                    echo wc_price($quantity * $regular_price);
+                                    if ($discounted_price) echo '</del>';
+                                ?></div>
 
-                                        <div>
-                                            <?php
-                                                if ($discounted_price) {
-                                                    echo '<ins>' . wc_price($discounted_price * $quantity) . '</ins>';
-                                                }
-                                            ?>
-                                        </div>
-                                    </div>
+                                <div>
+                                    <?php
+                                        if ($discounted_price) {
+                                            echo '<ins>' . wc_price($discounted_price * $quantity) . '</ins>';
+                                        }
+                                    ?>
+                                </div>
                             </div>
                         </li>
                     <?

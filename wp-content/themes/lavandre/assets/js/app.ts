@@ -1,4 +1,5 @@
 import '../css/app.pcss';
+import '@ungap/custom-elements';
 import '@lavandre/button/dist/src/lavandre-button';
 
 import EventEmitter from './common/EventEmitter';

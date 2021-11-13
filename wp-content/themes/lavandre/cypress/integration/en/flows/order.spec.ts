@@ -25,7 +25,7 @@ describe('Test the order flow', () => {
 
         cy.url().should('contain', 'cart');
 
-        cy.get('.custom-cart__subtotal [data-product-price]').invoke('text').then((text) => {
+        cy.get('[data-cy="subtotal"] [data-product-price]').invoke('text').then((text) => {
             expect(text).to.eq(productPrice);
         });
     });

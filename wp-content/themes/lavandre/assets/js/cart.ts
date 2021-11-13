@@ -23,7 +23,7 @@ class Cart {
                 return;
             }
 
-            this.initializeCouponCodeForm();
+
             if (element.dataset.panelName === 'cart-panel') {
                 this.handleCartPanel(element as InteractableHTMLDialogElement);
                 this.initialize();
@@ -36,6 +36,7 @@ class Cart {
             return;
         }
 
+        this.initializeCouponCodeForm();
         this.setEventListeners();
     }
 
@@ -101,6 +102,7 @@ class Cart {
 
     private initializeCouponCodeForm(): void {
         const couponForm: HTMLFormElement | null = document.getElementById('coupon-code-form') as HTMLFormElement;
+        console.log(couponForm)
         if (couponForm === null) {
             return;
         }
@@ -111,8 +113,8 @@ class Cart {
 
     private updateCartItem(input: HTMLInputElement): void {
         const item: HTMLElement | null = input.closest('.custom-cart__item');
-        const productID: string | undefined = input.dataset.productId;
-        const variation_id: number = Number(input.dataset.variationId) ?? 0;
+        const productID: string | undefined = item?.dataset.productId;
+        const variation_id: number = Number(item?.dataset.variationId) ?? 0;
 
         if (!item || !productID) {
             throw new Error('no item found');
