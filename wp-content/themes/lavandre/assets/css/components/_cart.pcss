@@ -77,41 +77,30 @@
     @media (--tablet-landscape) {
         display: flex;
         justify-content: space-between;
-        gap: 5%;
+        gap: 5rem;
 
         .custom-cart__items {
-            flex: 0 0 76%;
-            max-width: 70%;
+            flex: 1 0 auto;
+            max-width: 81.25rem;
         }
 
         .custom-cart__sidebar {
-            flex: 0 0 25%;
-            max-width: 25%;
-        }
-    }
-
-    @media (--large-desktop) {
-        gap: 0;
-
-        .custom-cart__items {
-            flex: 0 0 76%;
-            max-width: 1300px;
-        }
-
-        .custom-cart__sidebar {
-            flex: 0 0 19%;
-            max-width: 340px;
+            flex: 0 0 21.25rem;
         }
     }
 }
 
 .custom-cart__coupon-accordion {
     padding: 0 1.25rem;
-    border: 1px solid var(--color-border-2);
+    border: 1px solid var(--color-border);
     margin: 1.25rem 0;
 
     details {
         border: 0 !important;
+    }
+
+    button {
+        font-size: 1.125rem !important;
     }
 }
 
@@ -138,17 +127,21 @@
                 background: none;
                 border: 0 none;
                 text-align: initial;
-                padding: 0.675rem 0;
+                padding: 0.5rem 0 0;
+                font-size: .75rem;
                 font-weight: 500;
-            }
-
-            th {
-                font-size: 1rem;
                 text-transform: uppercase;
             }
 
             td {
                 text-align: right;
+            }
+
+            &--large-font {
+                th, td {
+                    font-size: 1rem;
+                    padding: 0.675rem 0;
+                }
             }
 
             &--large {
@@ -157,6 +150,12 @@
                     border-top: 1px solid var(--color-text);
                     border-bottom: 1px solid var(--color-text);
                 }
+            }
+        }
+
+        .custom-cart__sidebar__row--large + .custom-cart__sidebar__row  {
+            th,td {
+                padding-top: 1.5rem;
             }
         }
     }
@@ -499,6 +498,13 @@
         max-height: 2rem;
         padding: 0 .5rem;
     }
+}
+
+.custom-cart {
+    .qty {
+        width: 2rem;
+        font-size: .875rem;
+    }
 
     .minus-amount,
     .plus-amount {
@@ -511,10 +517,5 @@
             height: auto;
             width: .5rem !important;
         }
-    }
-
-    .qty {
-        width: 2rem;
-        font-size: .875rem;
     }
 }

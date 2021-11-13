@@ -257,7 +257,7 @@ function ww_custom_cart() {
             <h1 class="sr-only"><?php _e('Order summary', 'lavandre'); ?></h1>
             <table class="custom-cart__order-totals">
                 <tbody>
-                    <tr class="custom-cart__sidebar__row custom-cart__sidebar__row--large" data-cy="subtotal">
+                    <tr class="custom-cart__sidebar__row custom-cart__sidebar__row--large custom-cart__sidebar__row--large-font" data-cy="subtotal">
                         <th><?php _e('Subtotal', 'lavandre'); ?></th>
                         <td><?php echo wc_price($woocommerce->cart->get_subtotal()); ?></td>
                     </tr>
@@ -276,18 +276,18 @@ function ww_custom_cart() {
                     </tr>
 
                     <tr class="custom-cart__sidebar__row">
-                        <th><?php _e('VAT'); ?></th>
-                        <td><?php echo wc_price($woocommerce->cart->get_taxes_total()); ?></td>
+                        <th><?php _e('Tax'); ?></th>
+                        <td><?php _e('TBD'); //echo wc_price($woocommerce->cart->get_taxes_total()); ?></td>
                     </tr>
 
                     <?php if ($total_coupon_discount !== 0) { ?>
                         <tr class="custom-cart__sidebar__row">
-                            <th><?php _e('Coupon discount'); ?>:</th>
+                            <th><?php _e('Discount code'); ?>:</th>
                             <td><?php echo wc_price($total_coupon_discount); ?></td>
                         </tr>
                     <?php } ?>
 
-                    <tr class="custom-cart__sidebar__row">
+                    <tr class="custom-cart__sidebar__row custom-cart__sidebar__row--large-font">
                         <th><?php _e('Total'); ?></th>
                         <td><?php echo wc_price($woocommerce->cart->total); ?></td>
                     </tr>
@@ -297,7 +297,7 @@ function ww_custom_cart() {
             <accordion-element class="custom-cart__coupon-accordion" data-cy="coupon-accordion">
                 <details is="curtain-element">
                     <summary>
-                        <span><?php _e('Coupon code?', 'lavandre'); ?></span>
+                        <span><?php _e('Discount code', 'lavandre'); ?></span>
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 15 15" xml:space="preserve" aria-hidden="true" data-acsb-hidden="true" data-acsb-force-hidden="true">
                             <g fill="#2b2b2b">
                                 <polygon points="0.104,4.333 1.165,3.272 7.5,9.607 13.835,3.272 14.896,4.333 7.5,11.728 "></polygon>
@@ -308,11 +308,11 @@ function ww_custom_cart() {
                         <form id="coupon-code-form" class="ww-form" method="post" novalidate>
                             <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                                 <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="coupon-code" id="coupon-code" placeholder="<?php _e('Coupon code', 'lavandre'); ?>" autocomplete="Coupon code" title="<?php _e('Fill in a valid coupon code', 'lavandre'); ?>" required>
-                                <label for="coupon-code"><?php _e('Coupon code', 'lavandre'); ?><span class="required">*</span></label>
+                                <label for="coupon-code"><?php _e('Discount code', 'lavandre'); ?><span class="required">*</span></label>
                             </p>
 
                             <button type="submit" is="lavandre-button" outline full-width size="large">
-                                <?php _e('Activate', 'lavandre'); ?>
+                                <?php _e('Apply', 'lavandre'); ?>
                             </button>
                         </form>
                     </div>
@@ -348,7 +348,7 @@ function ww_custom_cart() {
             </div>
 
             <button is="lavandre-button" href="/checkout" class="custom-cart__cta" primary size="large" full-width>
-                <?php _e('Proceed to checkout'); ?>
+                <?php _e('Continue to checkout'); ?>
             </button>
         </aside>
     </div>
