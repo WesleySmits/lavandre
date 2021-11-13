@@ -17,6 +17,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+$customer_id = $order->get_customer_id();
+
 $addresses = apply_filters(
     'woocommerce_my_account_get_addresses',
     array(

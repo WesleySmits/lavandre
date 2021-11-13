@@ -2195,6 +2195,11 @@
   dependencies:
     eslint-visitor-keys "^1.1.0"
 
+"@ungap/custom-elements@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@ungap/custom-elements/-/custom-elements-1.0.0.tgz#ab8cf348d4e21c99fd5f789d21e2e975160d97f5"
+  integrity sha512-zRcRmCA3HdAKVbeXP+b0/Vsp0LGitm/h1+zRx1S8TyKPFRCMxUtpRlGcS9SBN81oOwNOBUoibR6bbuoG/DiUsA==
+
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.9.0.tgz#bd850604b4042459a5a41cd7d338cbed695ed964"

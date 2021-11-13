@@ -16,10 +16,20 @@
     order: 2;
     margin-top : 2rem;
 
+    --width: 100%;
+
     @media (--tablet) {
+        --width: calc(100% / 12 * 5);
         margin-top : 0;
         order: 1;
     }
+
+    @media (--desktop) {
+        --width: calc(100% / 12 * 6);
+    }
+
+    flex: 0 0 var(--width);
+    max-width: var(--width);
 
     p {
         margin-bottom: 1rem;

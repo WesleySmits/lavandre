@@ -69,7 +69,7 @@ $user_id = get_current_user_id();
 <?php } ?>
 
 <section class="tree-planting-campaign">
-    <div class="tree-planting-campaign__info flex-col-xs-12 flex-col-md-5 flex-col-xl-6">
+    <div class="tree-planting-campaign__info">
         <h1><?php _e('Contributing to nature', 'lavandre'); ?></h1>
         <p>
             <?php _e('Starting January 2021 we will automatically plant a tree for each item that we sell through our webshop in collaboration with our partner, Eden Reforestation Projects. This way, we ensure that we can enjoy the beautiful nature for years to come.', 'lavandre'); ?>

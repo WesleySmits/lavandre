@@ -20,7 +20,6 @@ export function sendAjaxRequest(data: requestData, endpoint: string, loadingElem
         const data = ajaxResponse.data as unknown;
 
         if (ajaxResponse.success === false) {
-            console.log(ajaxResponse);
             throw new Error(String(data));
         }
 
