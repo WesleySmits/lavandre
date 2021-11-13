@@ -16,6 +16,6 @@ export function enableBodyScroll(): void {
     bodyElement.style.removeProperty('top');
     bodyElement.style.removeProperty('width');
     bodyElement.style.removeProperty('top');
-    document.documentElement.style.removeProperty('scroll-behavior');
     window.scrollTo(0, scrollPosition);
+    document.documentElement.style.removeProperty('scroll-behavior');
 }
