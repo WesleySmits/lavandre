@@ -36,49 +36,59 @@ export default class AjaxLogin extends Component {
             validator.initialize();
         }
 
-        this.form.addEventListener('submit', (event: Event) => {
-            event.preventDefault();
+        const submitButton: HTMLButtonElement | null = this.form.querySelector('[type="submit"]');
+        if (submitButton === null) {
+            return;
+        }
 
-            let valid: boolean = true;
+        submitButton.type = 'button';
 
-            for (let index = 0; index < fields.length; index++) {
-                const field = fields[index];
-                field.dispatchEvent(new Event('change'));
+        this.form.addEventListener('submit', (event: Event) => { this.onSubmit(event, fields) });
+        submitButton?.addEventListener('click', (event: Event) => { this.onSubmit(event, fields) });
+    }
 
-                valid = field.validity.valid;
-            }
+    private onSubmit(event: Event, fields: HTMLInputElement[]): boolean {
+        event.preventDefault();
 
-            if (!valid) {
-                return;
-            }
+        let valid: boolean = true;
 
-            const formData: FormData = new FormData(this.form);
-            const username: string = formData.get('username')?.toString() || '';
-            const password: string = formData.get('password')?.toString() || '';
+        for (let index = 0; index < fields.length; index++) {
+            const field = fields[index];
+            field.dispatchEvent(new Event('change'));
 
-            if (!username || !password) {
-                return;
-            }
+            valid = field.validity.valid;
+        }
 
-            // @ts-ignore
-            const grecaptcha = window.grecaptcha;
-
-            grecaptcha.ready(() => {
-                grecaptcha.execute(sitekey, { action: 'AjaxLogin' }).then((token: string) => {
-                    const data = {
-                        'action': 'ajaxlogin',
-                        'recaptchaToken': token,
-                        'username': username,
-                        'password': password,
-                    };
-
-                    const submitButton: HTMLButtonElement | undefined = this.form.querySelector('button[type="submit"]') as HTMLButtonElement || undefined;
-                    sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), this.onFailure.bind(this), event, submitButton);
-                });
-            });
-
+        if (!valid) {
             return false;
+        }
+
+        const formData: FormData = new FormData(this.form);
+        const username: string = formData.get('username')?.toString() || '';
+        const password: string = formData.get('password')?.toString() || '';
+
+        if (!username || !password) {
+            return false;
+        }
+
+        // @ts-ignore
+        const grecaptcha = window.grecaptcha;
+
+        grecaptcha.ready(() => {
+            grecaptcha.execute(sitekey, { action: 'AjaxLogin' }).then((token: string) => {
+                const data = {
+                    'action': 'ajaxlogin',
+                    'recaptchaToken': token,
+                    'username': username,
+                    'password': password,
+                };
+
+                const submitButton: HTMLButtonElement | undefined = this.form.querySelector('button[type="submit"]') as HTMLButtonElement || undefined;
+                sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), this.onFailure.bind(this), event, submitButton);
+            });
         });
+
+        return false;
     }
 
     private isValid(): boolean {
@@ -97,9 +107,14 @@ export default class AjaxLogin extends Component {
             throw new Error('something is wrong');
         }
 
+        const href: string = '/my-account/';
+        if (this.form.dataset.redirect === 'true') {
+            window.location.href = href;
+        }
+
         const ctaButton: ctaButton = {
             text: 'My account',
-            href: '/my-account/'
+            href: href
         }
 
         const toast: Toast = new Toast(
@@ -138,13 +153,15 @@ export default class AjaxLogin extends Component {
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {
-        const loginForm: HTMLFormElement | null = selector.querySelector('#ajax-login-form');
+        const loginForms: HTMLFormElement[] = Array.from(selector.querySelectorAll('#ajax-login-form'));
 
-        if (loginForm === null) {
+        if (loginForms.length === 0) {
             return;
         }
 
-        const ajaxLogin: AjaxLogin = new AjaxLogin(loginForm);
-        ajaxLogin.initialize();
+        loginForms.forEach((form) => {
+            const ajaxLogin: AjaxLogin = new AjaxLogin(form);
+            ajaxLogin.initialize();
+        });
     }
 }
