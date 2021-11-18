@@ -93,7 +93,7 @@ export class FieldValidation {
             }
 
             const submitButton: HTMLButtonElement = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-            submitButton.addEventListener('click', (event: Event) => {
+            submitButton?.addEventListener('click', (event: Event) => {
                 event.preventDefault();
 
                 let valid: boolean = true;

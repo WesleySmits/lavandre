@@ -53,7 +53,7 @@
                             name="email"
                             placeholder="<?php _e('E-mail address', 'lavandre'); ?>"
                             autocomplete="email"
-                            title="<?php _e('Fill in a valid e-mail address', 'lavandre'); ?>"
+                            title="<?php _e('Fill in a valid email address', 'lavandre'); ?>"
                             required
                         >
                         <label for="ajax-newsletter-email"><?php _e('E-mail address', 'lavandre'); ?>&nbsp;<span class="required">*</span></label>
