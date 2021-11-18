@@ -46,7 +46,7 @@ function ww_wc_login_register() {
                     <h1><?php esc_html_e( 'Login', 'woocommerce' ); ?></h1>
                 </header>
 
-                <form id="ajax-login-form" class="woocommerce-form woocommerce-form-login login" data-redirect="true" method="post" data-field-validation>
+                <form id="ajax-login-form" class="woocommerce-form woocommerce-form-login login" data-redirect="true" data-redirect-url="/checkout/" method="post" data-field-validation autocomplete="off">
                     <?php do_action( 'woocommerce_login_form_start' ); ?>
 
                     <p class=" woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
