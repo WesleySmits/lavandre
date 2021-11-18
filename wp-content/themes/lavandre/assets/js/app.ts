@@ -24,6 +24,7 @@ import Popup from './ui/Popup';
 import NewsLetterPopup from './ui/NewsletterPopup';
 import './web-components/AccordionElement';
 import ScrollToContent from './components/ScrollToContent';
+import ForgotPasswordToggle from './components/ForgotPasswordToggle';
 
 export default class App extends Module {
 
@@ -38,6 +39,7 @@ export default class App extends Module {
         EmailValidation,
         NewsletterSubscribe,
         ForgotPassword,
+        ForgotPasswordToggle,
         AjaxLogin,
         AjaxRegister,
         FieldValidation,

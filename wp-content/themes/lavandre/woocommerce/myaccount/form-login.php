@@ -20,7 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // do_action( 'woocommerce_before_customer_login_form' ); ?>
 
-
 <div class="full-width-banner-block">
     <div class="background-noise"></div>
     <div class="full-width-banner-block__link">
@@ -30,7 +29,31 @@ if ( ! defined( 'ABSPATH' ) ) {
     </div>
 
     <div class="full-width-banner-block__link">
-        <div class="customer-account-wrapper">
+        <div id="password-forget-form" class="customer-account-wrapper" hidden>
+            <section class="password-forget-wrapper">
+                <header>
+                    <h1><?php esc_html_e( 'Reset your password', 'woocommerce' ); ?></h1>
+                    <p><?php _e('We will send you an email to reset your password.', 'lavandre'); ?></p>
+                </header>
+
+                <form id="ajax-password-forget-form" method="post" data-field-validation>
+                    <p class=" woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                        <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" placeholder="<?php esc_html_e( 'Email', 'woocommerce' ); ?>" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" title="<?php _e('Fill in a valid email address.', 'lavandre'); ?>" required /><?php // @codingStandardsIgnoreLine ?>
+                        <label for="username"><?php esc_html_e( 'Email', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
+                    </p>
+
+                    <button type="submit" is="lavandre-button" data-role="password-forget" primary full-width size="large" name="password-forget" value="<?php esc_attr_e( 'Submit', 'woocommerce' ); ?>"><?php esc_html_e( 'Submit', 'woocommerce' ); ?></button>
+                </form>
+
+                <a href="#" class="back-link" style="margin-top: 1rem;" data-role="password-forget-toggle">
+                    <?php include get_stylesheet_directory() . '/partials/icons/back.svg.php'; ?>
+                    <span><?php esc_html_e( 'Back', 'woocommerce' ); ?></span>
+                </a>
+
+            </section>
+        </div>
+
+        <div id="login-register-form" class="customer-account-wrapper">
             <section class="login-wrapper">
                 <header>
                     <h1><?php esc_html_e( 'Login', 'woocommerce' ); ?></h1>
@@ -40,7 +63,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <?php do_action( 'woocommerce_login_form_start' ); ?>
 
                     <p class=" woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                        <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" placeholder="<?php esc_html_e( 'Email', 'woocommerce' ); ?>" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" title="<?php _e('Fill in a valid e-mail address.', 'lavandre'); ?>" required /><?php // @codingStandardsIgnoreLine ?>
+                        <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" placeholder="<?php esc_html_e( 'Email', 'woocommerce' ); ?>" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" title="<?php _e('Fill in a valid email address.', 'lavandre'); ?>" required /><?php // @codingStandardsIgnoreLine ?>
                         <label for="username"><?php esc_html_e( 'Email', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
                     </p>
 
@@ -53,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                     <p class="woocommerce-LostPassword lost_password form-row">
                         <?php wp_nonce_field('ajax-forgot-nonce', 'forgotsecurity'); ?>
-                        <a href="<?php echo esc_url( wp_lostpassword_url() ); ?>" class="accent-link" data-role="password-forget"><?php esc_html_e( 'Forgot your password?', 'woocommerce' ); ?></a>
+                        <a href="<?php echo esc_url( wp_lostpassword_url() ); ?>" class="accent-link" data-role="password-forget-toggle"><?php esc_html_e( 'Forgot your password?', 'woocommerce' ); ?></a>
                     </p>
 
                     <?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
@@ -66,7 +89,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <section class="register-wrapper">
                 <header>
                     <h1><?php esc_html_e( 'Register', 'woocommerce' ); ?></h1>
-                    <p>Checkout faster, view your order history and be the first to hear about new product launches!</p>
+                    <p><?php _e('Checkout faster, view your order history and be the first to hear about new product launches!','lavandre'); ?></p>
                 </header>
 
                 <form method="post" class="woocommerce-form woocommerce-form-register register" <?php do_action( 'woocommerce_register_form_tag' ); ?> >

@@ -82,7 +82,7 @@ export default class ForgotPassword extends Component {
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {
-        const passwordForgetLinks: HTMLAnchorElement[] = Array.from(selector.querySelectorAll('a[data-role="password-forget"]'));
+        const passwordForgetLinks: HTMLAnchorElement[] = Array.from(selector.querySelectorAll('[data-role="password-forget"]'));
         for (let index = 0; index < passwordForgetLinks.length; index++) {
             const link = passwordForgetLinks[index];
             const forgotPassword: ForgotPassword = new ForgotPassword(link);
