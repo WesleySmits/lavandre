@@ -15,8 +15,6 @@ export default class ForgotPasswordToggle extends Component {
 
         this.passwordForgetWrapper = document.getElementById('password-forget-form') as HTMLElement;
         this.loginWrapper = document.getElementById('login-register-form') as HTMLElement;
-
-        console.log(this.passwordForgetWrapper, this.loginWrapper);
     }
 
     public initialize(): void {
@@ -49,7 +47,6 @@ export default class ForgotPasswordToggle extends Component {
 
     public static onInit(selector: Document | HTMLElement = document): void {
         const passwordForgetLinks: HTMLAnchorElement[] = Array.from(selector.querySelectorAll('[data-role="password-forget-toggle"]'));
-        console.log(passwordForgetLinks);
         for (let index = 0; index < passwordForgetLinks.length; index++) {
             const link = passwordForgetLinks[index];
             const forgotPassword: ForgotPasswordToggle = new ForgotPasswordToggle(link);

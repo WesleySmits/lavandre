@@ -33,6 +33,14 @@ export default class AjaxLogin extends Component {
         for (let index = 0; index < fields.length; index++) {
             const field = fields[index];
             const validator: FieldValidation = new FieldValidation(field);
+
+            field.addEventListener('input', (e) => { console.log(field.name, e) });
+            setTimeout(() => {
+                if (field.matches(':-webkit-autofill')) {
+                    field.dispatchEvent(new Event('input'));
+                }
+            }, 100)
+
             validator.initialize();
         }
 
@@ -44,7 +52,7 @@ export default class AjaxLogin extends Component {
         submitButton.type = 'button';
 
         this.form.addEventListener('submit', (event: Event) => { this.onSubmit(event, fields) });
-        submitButton?.addEventListener('click', (event: Event) => { this.onSubmit(event, fields) });
+        submitButton?.addEventListener('click', (event: Event) => { submitButton.setAttribute('loading', 'true'); this.onSubmit(event, fields) });
     }
 
     private onSubmit(event: Event, fields: HTMLInputElement[]): boolean {
@@ -107,9 +115,10 @@ export default class AjaxLogin extends Component {
             throw new Error('something is wrong');
         }
 
-        const href: string = '/my-account/';
+        const href: string = this.form.dataset.redirectUrl || '/my-account/';
         if (this.form.dataset.redirect === 'true') {
             window.location.href = href;
+            return;
         }
 
         const ctaButton: ctaButton = {

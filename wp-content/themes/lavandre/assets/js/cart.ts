@@ -102,7 +102,6 @@ class Cart {
 
     private initializeCouponCodeForm(): void {
         const couponForm: HTMLFormElement | null = document.getElementById('coupon-code-form') as HTMLFormElement;
-        console.log(couponForm)
         if (couponForm === null) {
             return;
         }
