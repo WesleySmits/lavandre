@@ -172,3 +172,14 @@ function loadWebpackModules(): void {
 include(get_stylesheet_directory() . '/functions/assets/disable-emoji.php');
 include(get_stylesheet_directory() . '/functions/assets/utils.php');
 include(get_stylesheet_directory() . '/functions/assets/output.php');
+
+
+// Replace woocommerce address js file due to bug in their checkout field priority retrieval
+add_action('wp_enqueue_scripts', 'override_woo_frontend_scripts');
+function override_woo_frontend_scripts() {
+    if( is_checkout() ) {
+        global $wp_scripts;
+
+        $wp_scripts->registered[ 'wc-address-i18n' ]->src = get_template_directory_uri() . '/woocommerce/js/address-i18n.min.js';
+    }
+}

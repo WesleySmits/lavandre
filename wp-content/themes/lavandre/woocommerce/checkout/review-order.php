@@ -24,6 +24,20 @@ defined( 'ABSPATH' ) || exit;
 			<?php foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) { ?>
                 <?php
                     $id = $cart_item['data']->get_id();
+                    $productID = $cart_item['product_id'];
+                    $variationID = $cart_item['variation_id'];
+
+                    $_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+
+                    $title = $_product->get_title();
+                    $subtitle = ($variationID) ? $cart_item['data']->get_description() : '';
+
+                    $productVariation = wc_get_product($variationID);
+                    $attributes =  $productVariation->get_variation_attributes() ;
+
+                    $color = (array_key_exists('attribute_pa_color', $attributes)) ? $attributes['attribute_pa_color'] : '';
+                    $amount = (array_key_exists('attribute_pa_amount', $attributes)) ? $attributes['attribute_pa_amount'] : '';
+                    $size = (array_key_exists('attribute_pa_size', $attributes)) ? $attributes['attribute_pa_size'] : '';
 
                     $price = get_post_meta($id, '_price', true);
                     $adjusted_price = null;
@@ -54,15 +68,31 @@ defined( 'ABSPATH' ) || exit;
                     }
                 ?>
 
-
-                <?php $_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key ); ?>
 				<li class="mini-cart__item">
 					<div class="mini-cart__image">
 						<?php echo $cart_item['data']->get_image(array( 120, 120)); ?>
 					</div>
 
 					<div class="mini-cart__name">
-                        <?php echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) ) . '&nbsp;'; ?>
+                        <p class="custom-cart__product-title">
+                            <?php echo $title; ?>
+                            <?php if ($subtitle) { echo '<br/>' . $subtitle; } ?>
+                        </p>
+
+                        <?php if ($color || $size): ?>
+                            <p class="custom-cart__product-subtitle">
+                                <?php echo $color; ?> <?php echo $size; ?>
+                            </p>
+                        <?php endif; ?>
+
+                        <?php if ($amount && $amount !== 'single-pack'): ?>
+                            <p class="custom-cart__product-subtitle">
+                                <?php
+                                    $displayAmount = attribute_slug_to_title('attribute_pa_amount', $amount);
+                                    echo $displayAmount;
+                                ?>
+                            </p>
+                        <?php endif; ?>
                     </div>
 
 					<div class="mini-cart__price">
@@ -87,63 +117,53 @@ defined( 'ABSPATH' ) || exit;
 		</ul>
 	</aside>
 
-	<table class="shop_table">
-		<tbody>
+    <table class="custom-cart__order-totals">
+        <tbody>
+            <tr class="custom-cart__sidebar__row custom-cart__sidebar__row--large custom-cart__sidebar__row--large-font" data-cy="subtotal">
+                <th><?php _e('Subtotal', 'lavandre'); ?></th>
+                <td><?php wc_cart_totals_subtotal_html(); ?></td>
+            </tr>
 
-			<tr class="cart-subtotal">
-				<th><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th>
-				<td><?php wc_cart_totals_subtotal_html(); ?></td>
-			</tr>
+            <?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
+                <?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
+                <?php wc_cart_totals_shipping_html(); ?>
+                <?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
+            <?php endif; ?>
 
-			<?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
-				<tr class="cart-discount coupon-<?php echo esc_attr( sanitize_title( $code ) ); ?>">
-					<th><?php wc_cart_totals_coupon_label( $coupon ); ?></th>
-					<td><?php wc_cart_totals_coupon_html( $coupon ); ?></td>
-				</tr>
-			<?php endforeach; ?>
-
-			<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
-
-				<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
-
-				<?php wc_cart_totals_shipping_html(); ?>
-
-				<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
-
-			<?php endif; ?>
-
-			<?php foreach ( WC()->cart->get_fees() as $fee ) : ?>
-				<tr class="fee">
+            <?php foreach ( WC()->cart->get_fees() as $fee ) : ?>
+				<tr class="custom-cart__sidebar__row fee">
 					<th><?php echo esc_html( $fee->name ); ?></th>
 					<td><?php wc_cart_totals_fee_html( $fee ); ?></td>
 				</tr>
 			<?php endforeach; ?>
 
-			<?php if ( wc_tax_enabled() && ! WC()->cart->display_prices_including_tax() ) : ?>
+            <?php if ( wc_tax_enabled() && ! WC()->cart->display_prices_including_tax() ) : ?>
 				<?php if ( 'itemized' === get_option( 'woocommerce_tax_total_display' ) ) : ?>
 					<?php foreach ( WC()->cart->get_tax_totals() as $code => $tax ) : // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited ?>
-						<tr class="tax-rate tax-rate-<?php echo esc_attr( sanitize_title( $code ) ); ?>">
-							<th><?php echo esc_html( $tax->label ); ?></th>
+						<tr class="custom-cart__sidebar__row tax-rate tax-rate-<?php echo esc_attr( sanitize_title( $code ) ); ?>">
+                        <th><?php _e('Tax'); ?></th>
 							<td><?php echo wp_kses_post( $tax->formatted_amount ); ?></td>
 						</tr>
 					<?php endforeach; ?>
 				<?php else : ?>
-					<tr class="tax-total">
-						<th><?php echo esc_html( WC()->countries->tax_or_vat() ); ?></th>
+					<tr class="custom-cart__sidebar__row tax-total">
+                    <th><?php _e('Tax'); ?></th>
 						<td><?php wc_cart_totals_taxes_total_html(); ?></td>
 					</tr>
 				<?php endif; ?>
 			<?php endif; ?>
 
-			<?php do_action( 'woocommerce_review_order_before_order_total' ); ?>
+            <?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
+				<tr class="custom-cart__sidebar__row cart-discount coupon-<?php echo esc_attr( sanitize_title( $code ) ); ?>">
+					<th><?php wc_cart_totals_coupon_label( $coupon ); ?></th>
+					<td><?php wc_cart_totals_coupon_html( $coupon ); ?></td>
+				</tr>
+			<?php endforeach; ?>
 
-			<tr class="order-total">
-				<th><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
+            <tr class="custom-cart__sidebar__row custom-cart__sidebar__row--large-font order-total">
+				<th><?php esc_html_e( 'Total', 'lavandre' ); ?></th>
 				<td><?php wc_cart_totals_order_total_html(); ?></td>
 			</tr>
-
-			<?php do_action( 'woocommerce_review_order_after_order_total' ); ?>
-
-		</tbody>
-	</table>
+        </tbody>
+    </table>
 </div>

@@ -36,7 +36,7 @@
             $args['class'][] = 'validate-required';
             $required        = '&nbsp;<abbr class="required" title="' . esc_attr__( 'required', 'woocommerce' ) . '">*</abbr>';
         } else {
-            $required = '&nbsp;<span class="optional">(' . esc_html__( 'optional', 'woocommerce' ) . ')</span>';
+            $required = '';
         }
 
         if ( is_string( $args['label_class'] ) ) {
@@ -160,7 +160,6 @@
             case 'url':
             case 'tel':
                 $field .= '<input type="' . esc_attr( $args['type'] ) . '" class="input-text ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" placeholder="' . esc_attr( $args['placeholder'] ) . '"  value="' . esc_attr( $value ) . '" ' . implode( ' ', $custom_attributes ) . ' />';
-
                 break;
             case 'hidden':
                 $field .= '<input type="' . esc_attr( $args['type'] ) . '" class="input-hidden ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" value="' . esc_attr( $value ) . '" ' . implode( ' ', $custom_attributes ) . ' />';
@@ -254,15 +253,15 @@
     function override_billing_checkout_fields( $fields ) {
         $firstName = __( 'First name', 'lavandre' );
         $lastName = __( 'Last name', 'lavandre' );
-        $companyName = __( 'Company name', 'lavandre' );
-        $streetName = __( 'Street name', 'lavandre' );
+        $companyName = __( 'Company', 'lavandre' );
+        $streetName = __( 'Street', 'lavandre' );
         $houseNumber = __( 'House number', 'lavandre' );
         $houseNumberAddition = __( 'Addition', 'lavandre' );
         $postalCode = __( 'Postal code', 'lavandre' );
-        $city = __( 'Place', 'lavandre' );
+        $city = __( 'City', 'lavandre' );
         $country = __( 'Country', 'lavandre' );
         $phoneNumber = __( 'Phone number', 'lavandre' );
-        $emailAddress = __( 'E-mail address', 'lavandre' );
+        $emailAddress = __( 'Email', 'lavandre' );
         $vatNumber = __( 'VAT number', 'lavandre' );
 
         // Placeholders
@@ -281,15 +280,15 @@
         $fields['billing']['billing_company']['label'] = $companyName;
         $fields['shipping']['shipping_company']['label'] = $companyName;
 
-        $fields['billing']['billing_street_name']['placeholder'] = $streetName;
-        $fields['shipping']['shipping_street_name']['placeholder'] = $streetName;
-        $fields['billing']['billing_street_name']['label'] = $streetName;
-        $fields['shipping']['shipping_street_name']['label'] = $streetName;
+        $fields['billing']['billing_address_1']['placeholder'] = $streetName;
+        $fields['shipping']['shipping_address_1']['placeholder'] = $streetName;
+        $fields['billing']['billing_address_1']['label'] = $streetName;
+        $fields['shipping']['shipping_address_1']['label'] = $streetName;
 
-        $fields['billing']['billing_house_number']['placeholder'] = $houseNumber;
-        $fields['shipping']['shipping_house_number']['placeholder'] = $houseNumber;
-        $fields['billing']['billing_house_number']['label'] = $houseNumber;
-        $fields['shipping']['shipping_house_number']['label'] = $houseNumber;
+        $fields['billing']['billing_address_2']['placeholder'] = $houseNumber;
+        $fields['shipping']['shipping_address_2']['placeholder'] = $houseNumber;
+        $fields['billing']['billing_address_2']['label'] = $houseNumber;
+        $fields['shipping']['shipping_address_2']['label'] = $houseNumber;
 
         $fields['billing']['billing_house_number_suffix']['placeholder'] = $houseNumberAddition;
         $fields['shipping']['shipping_house_number_suffix']['placeholder'] = $houseNumberAddition;
@@ -327,15 +326,67 @@
         $fields['shipping']['shipping_vat_number']['label'] = $vatNumber;
 
         // Ordering
+        $fields['billing']['billing_email']['priority'] = 1;
+        $fields['shipping']['shipping_email']['priority'] = 1;
 
+        $fields['billing']['billing_first_name']['priority'] = 2;
+        $fields['shipping']['shipping_first_name']['priority'] = 2;
+        $fields['billing']['billing_last_name']['priority'] = 3;
+        $fields['shipping']['shipping_last_name']['priority'] = 3;
+
+        $fields['billing']['billing_company']['priority'] = 4;
+        $fields['shipping']['shipping_company']['priority'] = 4;
+
+        $fields['billing']['billing_vat_number']['priority'] = 5;
+        $fields['shipping']['shipping_vat_number']['priority'] = 5;
+
+        $fields['billing']['billing_vat_number']['priority'] = 5;
+        $fields['shipping']['shipping_vat_number']['priority'] = 5;
+
+        $fields['billing']['billing_address_1']['priority'] = 6;
+        $fields['shipping']['shipping_address_1']['priority'] = 6;
+
+        $fields['billing']['billing_address_2']['priority'] = 7;
+        $fields['shipping']['shipping_address_2']['priority'] = 7;
+
+        $fields['billing']['billing_house_number_suffix']['priority'] = 8;
+        $fields['shipping']['shipping_house_number_suffix']['priority'] = 8;
+
+        $fields['billing']['billing_country']['priority'] = 9;
+        $fields['shipping']['shipping_country']['priority'] = 9;
+
+        $fields['billing']['billing_postcode']['priority'] = 10;
+        $fields['shipping']['shipping_postcode']['priority'] = 10;
+
+        $fields['billing']['billing_city']['priority'] = 11;
+        $fields['shipping']['shipping_city']['priority'] = 11;
 
         // Alignment
-        $fields['billing']['billing_street_name']['class'] = ['form-row-wide'];
-        $fields['shipping']['shipping_street_name']['class'] = ['form-row-wide'];
-        $fields['billing']['billing_house_number']['class'] = ['form-row-first'];
-        $fields['shipping']['shipping_house_number']['class'] = ['form-row-first'];
-        $fields['billing']['billing_house_number_suffix']['class'] = ['form-row-last'];
-        $fields['shipping']['shipping_house_number_suffix']['class'] = ['form-row-last'];
+        $fields['billing']['billing_email']['class'] = ['form-row-wide'];
+        $fields['shipping']['shipping_email']['class'] = ['form-row-wide'];
+
+        $fields['billing']['billing_company']['class'] = ['form-row-first'];
+        $fields['shipping']['shipping_company']['class'] = ['form-row-first'];
+        $fields['billing']['billing_vat_number']['class'] = ['form-row-last'];
+        $fields['shipping']['shipping_vat_number']['class'] = ['form-row-last'];
+
+        $fields['billing']['billing_address_1']['class'] = ['form-row-wide'];
+        $fields['shipping']['shipping_address_1']['class'] = ['form-row-wide'];
+        $fields['billing']['billing_address_2']['class'] = ['form-row-half'];
+        $fields['shipping']['shipping_address_2']['class'] = ['form-row-half'];
+        $fields['billing']['billing_house_number_suffix']['class'] = ['form-row-half'];
+        $fields['shipping']['shipping_house_number_suffix']['class'] = ['form-row-half'];
+
+        $fields['billing']['billing_country']['class'] = ['form-row-wide'];
+        $fields['shipping']['shipping_country']['class'] = ['form-row-wide'];
+
+        $fields['billing']['billing_address_2']['label_class'] = '';
+        $fields['shipping']['shipping_address_2']['label_class'] = '';
+
+        $fields['billing']['billing_city']['class'] = ['form-row-half'];
+        $fields['shipping']['shipping_city']['class'] = ['form-row-half'];
+        $fields['billing']['billing_postcode']['class'] = ['form-row-half'];
+        $fields['shipping']['shipping_postcode']['class'] = ['form-row-half'];
 
         $fields['order']['order_comments']['placeholder'] = '';
 

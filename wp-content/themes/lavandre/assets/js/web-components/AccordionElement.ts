@@ -23,7 +23,6 @@ class AccordionElement extends HTMLElement {
         otherCurtains.forEach((curtain) => {
             const curtainElement = curtain as CurtainElement;
             curtainElement.open = false;
-
         });
     }
 }
@@ -37,17 +36,44 @@ class CurtainElement extends HTMLDetailsElement {
 
     #animation: Animation | null = null;
 
-    protected connectedCallback(): void {
-        this.#summary.addEventListener("click", (event: Event) => {
+    get open(): boolean {
+        return this.hasAttribute('open');
+    }
+
+    set open(value: boolean) {
+        this.toggleAttribute('open', value);
+    }
+
+    #handleClick = (event: Event) => {
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+
+        if (event.target instanceof HTMLAnchorElement) {
             event.preventDefault();
+        }
 
-            if (this.#isClosing || this.open === false) {
-                this.#open();
-                return;
-            }
+        if (!this.#content) {
+            this.dispatchEvent(new Event('close'));
+            return;
+        }
 
-            this.close();
+        if (this.#isClosing || this.open === false) {
+            this.#open();
+            return;
+        }
+
+        this.close();
+    };
+
+    protected connectedCallback(): void {
+        this.#summary.addEventListener("click", this.#handleClick, {
+            capture: true,
+            passive: false
         });
+    }
+
+    protected disconnectedCallback(): void {
+        this.#summary.removeEventListener("click", this.#handleClick);
     }
 
     #open(): void {

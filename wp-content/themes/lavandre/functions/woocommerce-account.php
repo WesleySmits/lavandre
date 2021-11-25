@@ -43,7 +43,6 @@ function my_account_saving_extra_fields( $user_id ) {
     wp_safe_redirect( wc_get_page_permalink( 'cart' ) );
 }
 
-
 add_filter( 'woocommerce_my_account_my_address_formatted_address', function( $args, $customer_id, $name ){
     // the phone is saved as billing_phone and shipping_phone
     $args['phone'] = get_user_meta( $customer_id, $name . '_phone', true );
@@ -72,7 +71,7 @@ add_filter( 'woocommerce_localisation_address_formats', function( $formats ) {
 // add the replacement value
 add_filter( 'woocommerce_formatted_address_replacements', function( $replacements, $args ){
     // we want to replace {phone} in the format with the data we populated
-    $replacements['{phone}'] = $args['phone'];
+    $replacements['{phone}'] = (array_key_exists('phone', $args)) ? $args['phone'] : '';
     return $replacements;
 }, 10, 2 );
 
@@ -92,15 +91,6 @@ function custom_override_billing_fields( $fields ) {
     $phoneNumber = __( 'Phone number', 'lavandre' );
     $emailAddress = __( 'E-mail address', 'lavandre' );
     $vatNumber = __( 'VAT number', 'lavandre' );
-
-    $fields['billing_street_name']['placeholder'] = $streetName;
-    $fields['billing_street_name']['label'] = $streetName;
-
-    $fields['billing_house_number']['placeholder'] = $houseNumber;
-    $fields['billing_house_number']['label'] = $houseNumber;
-
-    $fields['billing_house_number_suffix']['placeholder'] = $houseNumberAddition;
-    $fields['billing_house_number_suffix']['label'] = $houseNumberAddition;
 
     $fields['billing_postcode']['placeholder'] = $postalCode;
     $fields['billing_postcode']['label'] = $postalCode;
