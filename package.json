@@ -23,6 +23,6 @@
     "husky": "4.3.8"
   },
   "dependencies": {
-    "cypress": "8.7.0"
+    "cypress": "9.1.0"
   }
 }

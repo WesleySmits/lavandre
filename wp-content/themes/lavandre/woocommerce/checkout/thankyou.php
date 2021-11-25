@@ -78,7 +78,7 @@ function formatted_billing_address($order)
             <footer class="thank-you-section__footer">
                 <table class="order-totals">
                     <tbody>
-                        <tr class="cart-subtotal">
+                        <tr class="cart-subtotal" data-cy="subtotal">
                             <th><?php _e('Subtotal', 'lavandre'); ?></th>
                             <td><?php echo $order->get_subtotal_to_display(); ?></td>
                         </tr>

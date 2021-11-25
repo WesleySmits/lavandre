@@ -24,9 +24,9 @@ defined( 'ABSPATH' ) || exit;
 			<input id="ship-to-different-address-checkbox" type="checkbox" name="ship_to_different_address" value="1" />
 		</div>
 
-		<h3 class="checkout-column__title">
+		<h1>
 			<?php echo __('Shipping address', 'lavandre'); ?>
-		</h3>
+		</h1>
 
 		<p class="form-row form-row-wide">
 			<label for="ship-to-different-address-radio-yes" class="woocommerce-form__label woocommerce-form__label-for-radio radio">

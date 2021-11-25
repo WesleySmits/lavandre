@@ -5,6 +5,8 @@ import Toast from './components/Toast';
 import { ToastType } from './enums/ToastType';
 import Component from './common/Component';
 import Module from './Module';
+import '@ungap/custom-elements';
+import '@lavandre/button/dist/src/lavandre-button';
 
 export default class CheckoutModule extends Module {
 

@@ -60,7 +60,7 @@ function coupon_code_add() {
     $coupon_code = $_POST['code'];
     if (!isset($coupon_code) || $coupon_code === '') {
         wp_send_json_error(sprintf(
-            __('Voer alstublieft een coupon code in.', 'woocommerce'),
+            __('Please fill in a discount code.', 'lavandre'),
             esc_html( $coupon_code )
         ), $coupon);
     }
@@ -71,21 +71,21 @@ function coupon_code_add() {
 
     if ( $coupon->get_code() !== $coupon_code ) {
         wp_send_json_error(sprintf(
-            __( 'Helaas, deze code is niet geldig.', 'woocommerce' ),
+            __( 'Enter a valid discount code', 'lavandre' ),
             esc_html( $coupon_code )
         ), $coupon);
     }
 
     if (in_array($coupon_code, $applied_coupons, true)) {
         wp_send_json_error(sprintf(
-            __( 'Coupon code "%s" is al toegepast.', 'woocommerce' ),
+            __( 'Discount code "%s" has already been added.', 'lavandre' ),
             esc_html( $coupon_code )
         ), $coupon);
     }
 
     if (!$coupon->is_valid() ) {
         wp_send_json_error(sprintf(
-            __( 'Helaas, deze code is niet geldig.', 'woocommerce' ),
+            __( 'Enter a valid discount code', 'lavandre' ),
             esc_html( $coupon_code )
         ), $coupon);
     }
@@ -94,21 +94,21 @@ function coupon_code_add() {
         $applied_coupon = new \WC_Coupon( $ac );
         if ($applied_coupon->get_individual_use()) {
             wp_send_json_error(sprintf(
-                __( 'Coupon code "%s" is al toegepast en kan niet samen worden gebruikt met andere coupon codes.', 'woocommerce' ),
+                __( 'Discount code "%s" has been added already and can\'t be used in combination with other codes.', 'woocommerce' ),
                 $ac
             ));
         }
     }
 
     if ($coupon->get_individual_use() && count($applied_coupons) > 0) {
-        wp_send_json_error('Deze coupon code kan niet in combinatie met andere coupons worden gebruikt.');
+        wp_send_json_error('This discount code can not be used in combination with other codes.');
     }
 
     $success = $woocommerce->cart->add_discount( $coupon_code );
     wc_clear_notices();
 
     if (!$success) {
-        wp_send_json_error(array('De code ' . $coupon_code . ' is niet gelid'));
+        wp_send_json_error(array('The code ' . $coupon_code . ' is not valid.'));
     }
 
     wp_send_json_success(getUpdatedCart());

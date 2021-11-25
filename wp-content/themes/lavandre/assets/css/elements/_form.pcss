@@ -126,6 +126,7 @@ progress {
 textarea {
     overflow: auto;
     resize: vertical;
+    background-color: transparent;
 }
 
 [type="checkbox"],
@@ -208,7 +209,7 @@ body.page-id-6233 div.elementor-popup-modal,
         transition: inherit;
     }
 
-    input:placeholder-shown + label {
+    input:not(.radio):not(.checkbox):placeholder-shown + label {
         top: 1.25rem;
         max-width: 100%;
         overflow: hidden;
@@ -224,17 +225,17 @@ body.page-id-6233 div.elementor-popup-modal,
     }
 
     input:-webkit-autofill + label,
-    input:focus + label,
-    label {
+    input:not(.radio):not(.checkbox):focus + label,
+    label:not(.radio):not(.checkbox) {
         position: absolute;
         top: -0.5rem;
         left: 0.5rem;
 
         order: 3;
 
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        background: var(--platinum);
+        padding-left: 0.3125rem;
+        padding-right: 0.3125rem;
+        background-color: var(--platinum);
         color: var(--color-text);
         font-size: 0.8125rem;
         font-weight: 100;
@@ -242,6 +243,10 @@ body.page-id-6233 div.elementor-popup-modal,
 
         touch-action: manipulation;
         transition: all 0.2s;
+    }
+
+    .validate-required label {
+        padding-right: 1px;
     }
 
     label .required {
@@ -296,7 +301,7 @@ body.page-id-6233 div.elementor-popup-modal,
 
     .woocommerce-form__input-checkbox:checked + span:before,
     .woocommerce-form__input-checkbox:checked + label:before {
-        background: var(--color-text);
+        background-color: var(--color-text);
     }
 
     .woocommerce-form__input-checkbox:checked + span:after,
@@ -322,11 +327,21 @@ body.page-id-6233 div.elementor-popup-modal,
     .woocommerce-form__input-checkbox
         + .woocommerce-terms-and-conditions-checkbox-text {
         position: relative;
+        display: flex;
+        align-items: center;
     }
 
-    .woocommerce-form__input-checkbox
-        + .woocommerce-terms-and-conditions-checkbox-text:after {
-        top: -1px;
+    .woocommerce-checkout-review-order-table {
+        margin-bottom: 3.5rem;
+    }
+
+    a.woocommerce-privacy-policy-link, a.woocommerce-terms-and-conditions-link {
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+
+    a.woocommerce-privacy-policy-link {
+        margin-right: 0;
     }
 
     .woocommerce-form__input-radio:checked + span:after,

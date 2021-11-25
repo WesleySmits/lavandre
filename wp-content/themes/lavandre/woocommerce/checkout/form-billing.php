@@ -19,17 +19,7 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 <div class="woocommerce-billing-fields">
-	<?php if ( wc_ship_to_billing_address_only() && WC()->cart->needs_shipping() ) : ?>
-		<h3 class="checkout-column__title"><?php esc_html_e( 'Billing &amp; Shipping', 'woocommerce' ); ?></h3>
-	<?php else : ?>
-		<h3 class="checkout-column__title"><?php esc_html_e( 'Billing details', 'woocommerce' ); ?></h3>
-	<?php endif; ?>
-
-    <p>
-        <?php
-            echo sprintf(__('Your data will be processed in accordance with our %sprivacy policy%s.', 'lavandre'), '<a href="/privacy-policy/" target="_blank" rel="noopener">', '</a>');
-        ?>
-    </p>
+    <h1><?php esc_html_e( 'Billing address', 'woocommerce' ); ?></h1>
 
 	<?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
 
@@ -45,32 +35,3 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php do_action( 'woocommerce_after_checkout_billing_form', $checkout ); ?>
 </div>
-
-<?php if ( ! is_user_logged_in() && $checkout->is_registration_enabled() ) : ?>
-	<div class="woocommerce-account-fields">
-		<?php if ( ! $checkout->is_registration_required() ) : ?>
-			<?php $createAccountCheckedState = ($_GET['createAccount'] === 'true') ? true : $checkout->get_value( 'createaccount' ); ?>
-			<p class="form-row form-row-wide create-account <?php if ($createAccountCheckedState) { echo 'hide'; } ?>">
-				<label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
-					<input class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" id="createaccount" <?php if ($createAccountCheckedState) { echo 'checked'; } ?> type="checkbox" name="createaccount" value="1" /> <span><?php esc_html_e( 'Create an account?', 'woocommerce' ); ?></span>
-				</label>
-			</p>
-
-		<?php endif; ?>
-
-		<?php do_action( 'woocommerce_before_checkout_registration_form', $checkout ); ?>
-
-		<?php if ( $checkout->get_checkout_fields( 'account' ) ) : ?>
-
-			<div class="create-account">
-				<?php foreach ( $checkout->get_checkout_fields( 'account' ) as $key => $field ) : ?>
-					<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
-				<?php endforeach; ?>
-				<div class="clear"></div>
-			</div>
-
-		<?php endif; ?>
-
-		<?php do_action( 'woocommerce_after_checkout_registration_form', $checkout ); ?>
-	</div>
-<?php endif; ?>

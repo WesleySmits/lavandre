@@ -19,16 +19,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<li class="wc_payment_method payment_method_<?php echo esc_attr( $gateway->id ); ?>">
-	<input id="payment_method_<?php echo esc_attr( $gateway->id ); ?>" type="radio" class="input-radio woocommerce-form__input-radio" name="payment_method" value="<?php echo esc_attr( $gateway->id ); ?>" <?php checked( $gateway->chosen, true ); ?> data-order_button_text="<?php echo esc_attr( $gateway->order_button_text ); ?>" />
 
-	<label for="payment_method_<?php echo esc_attr( $gateway->id ); ?>">
-		<?php echo $gateway->get_title(); /* phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped */ ?> <?php echo $gateway->get_icon(); /* phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped */ ?>
-	</label>
-	
-	<?php if ( $gateway->has_fields() || ($gateway->get_description() && strlen($gateway->get_description()) > 0) ) : ?>
-		<div class="payment_box payment_method_<?php echo esc_attr( $gateway->id ); ?>" <?php if ( ! $gateway->chosen ) : /* phpcs:ignore Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace */ ?>style="display:none;"<?php endif; /* phpcs:ignore Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace */ ?>>
-			<?php $gateway->payment_fields(); ?>
-		</div>
+<details is="curtain-element" class="ww-payment-method">
+    <summary>
+        <label class="radio" for="payment_method_<?php echo esc_attr( $gateway->id ); ?>">
+            <input id="payment_method_<?php echo esc_attr( $gateway->id ); ?>" type="radio" class="input-radio woocommerce-form__input-radio" name="payment_method" value="<?php echo esc_attr( $gateway->id ); ?>" <?php checked( $gateway->chosen, true ); ?> data-order_button_text="<?php echo esc_attr( $gateway->order_button_text ); ?>" />
+            <span class="ww-payment-method__item">
+                <span class="ww-payment-method__name"><?php echo $gateway->get_title(); ?></span>
+                <span class="ww-payment-method__logo"><?php echo $gateway->get_icon(); ?></span>
+            </span>
+        </label>
+    </summary>
+
+    <?php if ($gateway->get_description() && strlen($gateway->get_description()) > 0) : ?>
+        <div class="curtain-content">
+            <?php $gateway->payment_fields(); ?>
+        </div>
 	<?php endif; ?>
-</li>
+</details>

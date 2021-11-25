@@ -153,3 +153,8 @@
             return $value;
         }
     }
+
+    add_filter( 'woocommerce_order_button_text', 'custom_order_button_text' );
+    function custom_order_button_text( $button_text ) {
+        return __('Pay now', 'lavandre');
+    }

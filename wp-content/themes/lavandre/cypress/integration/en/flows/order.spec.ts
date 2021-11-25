@@ -46,8 +46,7 @@ describe('Test the order flow', () => {
 
         checkCartPrices();
 
-        cy.get('[name="option_sub_id"]').select('1');
-
+        cy.get('#payment_method_pay_gateway_ideal').should('be.checked');
         cy.get('#terms').check({ force: true });
         cy.get('#place_order').click();
 
@@ -62,7 +61,7 @@ describe('Test the order flow', () => {
 });
 
 function checkCartPrices(): void {
-    cy.get('.cart-subtotal [data-product-price]').invoke('text').then((text) => {
+    cy.get('[data-cy="subtotal"] [data-product-price]').invoke('text').then((text) => {
         expect(text).to.eq(productPrice);
     });
 
