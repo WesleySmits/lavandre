@@ -62,7 +62,7 @@ describe('Test the order flow', () => {
 
 function checkCartPrices(): void {
     cy.get('[data-cy="subtotal"] [data-product-price]').invoke('text').then((text) => {
-        expect(text).to.eq(productPrice);
+        expect(text.replace(',', '.')).to.eq(productPrice.replace(',', '.'));
     });
 
     cy.get('.woocommerce-shipping-totals [data-product-price]').invoke('text').then((text) => {
@@ -101,5 +101,5 @@ function calculateTotal(productPrice: string, shippingPrice: string, vatPrice: s
     let shipping: number = Number(shippingPrice.replace(',', '.'));
     let vat: number = Number(vatPrice.replace(',', '.'));
 
-    return String(price + shipping + vat).replace('.', ',');
+    return String(Number(price + shipping + vat).toFixed(2)).replace('.', ',');
 }
