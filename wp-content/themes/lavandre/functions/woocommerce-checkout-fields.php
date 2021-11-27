@@ -251,69 +251,8 @@
      * Add placeholders to form fields in checkout & Align address fields
      */
     function override_billing_checkout_fields( $fields ) {
-        $firstName = __( 'First name', 'lavandre' );
-        $lastName = __( 'Last name', 'lavandre' );
-        $companyName = __( 'Company', 'lavandre' );
-        $streetName = __( 'Street', 'lavandre' );
-        $houseNumber = __( 'House number', 'lavandre' );
-        $houseNumberAddition = __( 'Addition', 'lavandre' );
-        $postalCode = __( 'Postal code', 'lavandre' );
-        $city = __( 'City', 'lavandre' );
-        $country = __( 'Country', 'lavandre' );
-        $phoneNumber = __( 'Phone number', 'lavandre' );
         $emailAddress = __( 'Email', 'lavandre' );
         $vatNumber = __( 'VAT number', 'lavandre' );
-
-        // Placeholders
-        $fields['billing']['billing_first_name']['placeholder'] = $firstName;
-        $fields['shipping']['shipping_first_name']['placeholder'] = $firstName;
-        $fields['billing']['billing_first_name']['label'] = $firstName;
-        $fields['shipping']['shipping_first_name']['label'] = $firstName;
-
-        $fields['billing']['billing_last_name']['placeholder'] = $lastName;
-        $fields['shipping']['shipping_last_name']['placeholder'] = $lastName;
-        $fields['billing']['billing_last_name']['label'] = $lastName;
-        $fields['shipping']['shipping_last_name']['label'] = $lastName;
-
-        $fields['billing']['billing_company']['placeholder'] = $companyName;
-        $fields['shipping']['shipping_company']['placeholder'] = $companyName;
-        $fields['billing']['billing_company']['label'] = $companyName;
-        $fields['shipping']['shipping_company']['label'] = $companyName;
-
-        $fields['billing']['billing_address_1']['placeholder'] = $streetName;
-        $fields['shipping']['shipping_address_1']['placeholder'] = $streetName;
-        $fields['billing']['billing_address_1']['label'] = $streetName;
-        $fields['shipping']['shipping_address_1']['label'] = $streetName;
-
-        $fields['billing']['billing_address_2']['placeholder'] = $houseNumber;
-        $fields['shipping']['shipping_address_2']['placeholder'] = $houseNumber;
-        $fields['billing']['billing_address_2']['label'] = $houseNumber;
-        $fields['shipping']['shipping_address_2']['label'] = $houseNumber;
-
-        $fields['billing']['billing_house_number_suffix']['placeholder'] = $houseNumberAddition;
-        $fields['shipping']['shipping_house_number_suffix']['placeholder'] = $houseNumberAddition;
-        $fields['billing']['billing_house_number_suffix']['label'] = $houseNumberAddition;
-        $fields['shipping']['shipping_house_number_suffix']['label'] = $houseNumberAddition;
-
-        $fields['billing']['billing_postcode']['placeholder'] = $postalCode;
-        $fields['shipping']['shipping_postcode']['placeholder'] = $postalCode;
-        $fields['billing']['billing_postcode']['label'] = $postalCode;
-        $fields['shipping']['shipping_postcode']['label'] = $postalCode;
-
-        $fields['billing']['billing_city']['placeholder'] = $city;
-        $fields['shipping']['shipping_city']['placeholder'] = $city;
-        $fields['billing']['billing_city']['label'] = $city;
-        $fields['shipping']['shipping_city']['label'] = $city;
-
-        $fields['billing']['billing_country']['placeholder'] = $country;
-        $fields['shipping']['shipping_country']['placeholder'] = $country;
-        $fields['billing']['billing_country']['label'] = $country;
-        $fields['shipping']['shipping_country']['label'] = $country;
-
-        $fields['billing']['billing_phone']['placeholder'] = $phoneNumber;
-        $fields['shipping']['shipping_phone']['placeholder'] = $phoneNumber;
-        $fields['billing']['billing_phone']['label'] = $phoneNumber;
-        $fields['shipping']['shipping_phone']['label'] = $phoneNumber;
 
         $fields['billing']['billing_email']['placeholder'] = $emailAddress;
         $fields['shipping']['shipping_email']['placeholder'] = $emailAddress;
@@ -329,64 +268,15 @@
         $fields['billing']['billing_email']['priority'] = 1;
         $fields['shipping']['shipping_email']['priority'] = 1;
 
-        $fields['billing']['billing_first_name']['priority'] = 2;
-        $fields['shipping']['shipping_first_name']['priority'] = 2;
-        $fields['billing']['billing_last_name']['priority'] = 3;
-        $fields['shipping']['shipping_last_name']['priority'] = 3;
-
-        $fields['billing']['billing_company']['priority'] = 4;
-        $fields['shipping']['shipping_company']['priority'] = 4;
-
         $fields['billing']['billing_vat_number']['priority'] = 5;
         $fields['shipping']['shipping_vat_number']['priority'] = 5;
-
-        $fields['billing']['billing_vat_number']['priority'] = 5;
-        $fields['shipping']['shipping_vat_number']['priority'] = 5;
-
-        $fields['billing']['billing_address_1']['priority'] = 6;
-        $fields['shipping']['shipping_address_1']['priority'] = 6;
-
-        $fields['billing']['billing_address_2']['priority'] = 7;
-        $fields['shipping']['shipping_address_2']['priority'] = 7;
-
-        $fields['billing']['billing_house_number_suffix']['priority'] = 8;
-        $fields['shipping']['shipping_house_number_suffix']['priority'] = 8;
-
-        $fields['billing']['billing_country']['priority'] = 9;
-        $fields['shipping']['shipping_country']['priority'] = 9;
-
-        $fields['billing']['billing_postcode']['priority'] = 10;
-        $fields['shipping']['shipping_postcode']['priority'] = 10;
-
-        $fields['billing']['billing_city']['priority'] = 11;
-        $fields['shipping']['shipping_city']['priority'] = 11;
 
         // Alignment
         $fields['billing']['billing_email']['class'] = ['form-row-wide'];
         $fields['shipping']['shipping_email']['class'] = ['form-row-wide'];
 
-        $fields['billing']['billing_company']['class'] = ['form-row-first'];
-        $fields['shipping']['shipping_company']['class'] = ['form-row-first'];
         $fields['billing']['billing_vat_number']['class'] = ['form-row-last'];
         $fields['shipping']['shipping_vat_number']['class'] = ['form-row-last'];
-
-        $fields['billing']['billing_address_1']['class'] = ['form-row-wide'];
-        $fields['shipping']['shipping_address_1']['class'] = ['form-row-wide'];
-        $fields['billing']['billing_address_2']['class'] = ['form-row-half'];
-        $fields['shipping']['shipping_address_2']['class'] = ['form-row-half'];
-        $fields['billing']['billing_house_number_suffix']['class'] = ['form-row-half'];
-        $fields['shipping']['shipping_house_number_suffix']['class'] = ['form-row-half'];
-
-        $fields['billing']['billing_country']['class'] = ['form-row-wide'];
-        $fields['shipping']['shipping_country']['class'] = ['form-row-wide'];
-
-        $fields['billing']['billing_address_2']['label_class'] = '';
-        $fields['shipping']['shipping_address_2']['label_class'] = '';
-
-        $fields['billing']['billing_city']['class'] = ['form-row-half'];
-        $fields['shipping']['shipping_city']['class'] = ['form-row-half'];
-        $fields['billing']['billing_postcode']['class'] = ['form-row-half'];
-        $fields['shipping']['shipping_postcode']['class'] = ['form-row-half'];
 
         $fields['order']['order_comments']['placeholder'] = '';
 
@@ -406,5 +296,43 @@
             $error .= '</span>';
             $field = substr_replace( $field, $error, strpos( $field, '</label>' ) + 8, 0);
         }
+        return $field;
+    }
+
+
+    // test
+    add_filter( 'woocommerce_default_address_fields' , 'custom_override_default_address_fields' );
+
+    // Our hooked in function - $address_fields is passed via the filter!
+    function custom_override_default_address_fields( $fields ) {
+        $firstName = __( 'First name', 'lavandre' );
+        $lastName = __( 'Last name', 'lavandre' );
+        $companyName = __( 'Company', 'lavandre' );
+        $streetName = __( 'Street', 'lavandre' );
+        $houseNumber = __( 'House number', 'lavandre' );
+        $houseNumberAddition = __( 'Addition', 'lavandre' );
+        $postalCode = __( 'Postal code', 'lavandre' );
+        $city = __( 'City', 'lavandre' );
+        $country = __( 'Country', 'lavandre' );
+        $phoneNumber = __( 'Phone number', 'lavandre' );
+
+        $fields['first_name'] = update_address_field_label($fields['first_name'], $firstName, 2, ['form-row-first']);
+        $fields['last_name'] = update_address_field_label($fields['last_name'], $lastName, 3, ['form-row-last']);
+        $fields['company'] = update_address_field_label($fields['company'], $companyName, 4, ['form-row-first']);
+        $fields['address_1'] = update_address_field_label($fields['address_1'], $streetName, 6, ['form-row-wide', 'address-field']);
+        $fields['address_2'] = update_address_field_label($fields['address_2'], $houseNumber, 7, ['form-row-first', 'address-field']);
+        $fields['house_number_suffix'] = update_address_field_label($fields['house_number_suffix'], $houseNumberAddition, 8, ['form-row-last', 'address-field']);
+        $fields['country'] = update_address_field_label($fields['country'], $country, 9, ['form-row-wide', 'address-field']);
+        $fields['postcode'] = update_address_field_label($fields['postcode'], $postalCode, 10, ['form-row-first', 'address-field']);
+        $fields['city'] = update_address_field_label($fields['city'], $city, 11, ['form-row-last', 'address-field']);
+
+        return $fields;
+    }
+
+    function update_address_field_label($field, $value, $priority = 10, $class = ['form-row-wide']) {
+        $field['placeholder'] = $value;
+        $field['label'] = $value;
+        $field['priority'] = $priority;
+        $field['class'] = $class;
         return $field;
     }

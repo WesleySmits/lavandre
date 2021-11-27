@@ -147,7 +147,7 @@ defined( 'ABSPATH' ) || exit;
 					<?php endforeach; ?>
 				<?php else : ?>
 					<tr class="custom-cart__sidebar__row tax-total">
-                    <th><?php _e('Tax'); ?></th>
+                        <th><?php _e('Tax'); ?></th>
 						<td><?php wc_cart_totals_taxes_total_html(); ?></td>
 					</tr>
 				<?php endif; ?>
