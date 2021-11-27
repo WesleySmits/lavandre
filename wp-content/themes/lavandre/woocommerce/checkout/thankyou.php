@@ -62,94 +62,45 @@ function formatted_billing_address($order)
 }
 ?>
 
-<div class="ww-thank-you flex ww-container ww-container--medium">
-    <div class="thank-you-column">
-        <section class="ww-order-overview thank-you-section thank-you-section--has-footer">
-            <header class="thank-you-section__header">
-                <h1>
-                    <?php include get_stylesheet_directory() . '/partials/icons/success.svg.php'; ?>
-                    <span><?php _e('Your payment has succeeded', 'lavandre'); ?></span>
-                </h1>
-                <small><?php echo sprintf(__('Your order number is: <strong>%s</strong>', 'lavandre'), $order->get_order_number()); ?></small>
-                <br/>
-                <small><?php _e('Thank you for your order!', 'lavandre'); ?></small>
-            </header>
+<div class="full-width-banner-block ww-thank-you">
+    <div class="full-width-banner-block__link">
+        <div class="ww-order-overview">
+            <section>
+                <header>
+                    <a href="/" class="ww-site-header__logo" aria-label="Lavandré logo">
+                        <?php include get_stylesheet_directory() . '/public/images/logos/lavandre-logo-open.svg'; ?>
+                    </a>
 
-            <footer class="thank-you-section__footer">
-                <table class="order-totals">
-                    <tbody>
-                        <tr class="cart-subtotal" data-cy="subtotal">
-                            <th><?php _e('Subtotal', 'lavandre'); ?></th>
-                            <td><?php echo $order->get_subtotal_to_display(); ?></td>
-                        </tr>
+                    <h1><?php _e('Thank you for your purchase!', 'lavandre'); ?></h1>
+                    <p>
+                        <?php _e('Within a few minutes you will receive an e-mail with your order details.', 'lavandre'); ?>
+                        <br/>
+                    </p>
+                </header>
+            </section>
 
-                        <tr class="woocommerce-shipping-totals">
-                            <th><?php _e('Shipping', 'lavandre'); ?></th>
-                            <td><?php echo ($order->get_shipping_total() !== '0.00') ? wc_price($order->get_shipping_total()) : __('Free'); ?></td>
-                        </tr>
-
-                        <tr class="tax-total">
-                            <th><?php _e('VAT', 'lavandre'); ?></th>
-                            <td><?php echo wc_price($order->get_total_tax()); ?></td>
-                        </tr>
-
-                        <tr class="order-total">
-                            <th><strong><?php _e('Total', 'lavandre'); ?></strong></th>
-                            <td><strong><?php echo $order->get_formatted_order_total(); ?></strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <small><?php _e('You will find the invoice in the confirmation email.', 'lavandre'); ?></small>
-            </footer>
-        </section>
-
-        <section class="ww-order-progress thank-you-section">
-            <header class="thank-you-section__header">
-                <h1><?php _e('What happens now?', 'lavandre'); ?></h1>
-            </header>
-
-            <div class="thank-you-section__content">
-                <ul class="ww-timeline no-list">
-                    <li class="ww-timeline__item">
-                        <div class="ww-timeline__icon">
-                            <?php include get_stylesheet_directory() . '/partials/icons/delivery.svg.php'; ?>
-                        </div>
-                        <p> <?php echo sprintf(__('Within a few minutes you will receive a confirmation email on <strong>%s</strong>.', 'lavandre'), $order->get_billing_email()); ?></p>
-                    </li>
-
-                    <li class="ww-timeline__item">
-                        <div class="ww-timeline__icon">
-                            <?php include get_stylesheet_directory() . '/partials/icons/envelope.svg.php'; ?>
-                        </div>
-                        <p><?php _e('In the meantime, we will ship your order as soon as possible.', 'lavandre'); ?></p>
-
-                        <h3><?php _e('Delivery address', 'lavandre'); ?></h3>
-                        <address><?php echo wp_kses_post($shipping_address); ?></address>
-                    </li>
-
-                    <li class="ww-timeline__item">
-                        <div class="ww-timeline__icon">
-                            <?php include get_stylesheet_directory() . '/partials/icons/gift.svg.php'; ?>
-                        </div>
-                        <p><?php _e('Have fun with your purchase!', 'lavandre'); ?></p>
-                    </li>
-                </ul>
-            </div>
-        </section>
-    </div>
-
-    <div class="thank-you-column">
-        <section class="ww-item-overview thank-you-section">
-            <header class="thank-you-section__header">
-                <h1><?php _e('Overview', 'lavandre'); ?></h1>
-                <small><?php _e('Delivery by PostNL', 'lavandre'); ?></small>
-            </header>
-
-            <div class="thank-you-section__content">
+            <section>
+                <header>
+                    <h6><?php echo sprintf(__('Order number: %s', 'lavandre'), $order->get_order_number()); ?></h6>
+                    <h1><?php esc_html_e( 'Overview', 'lavandre' ); ?></h1>
+                </header>
                 <ul class="mini-cart mini-cart--thank-you">
                     <?php foreach ($order->get_items() as $item_id => $item ) { ?>
-                        <?php $product = $item->get_product(); ?>
+                        <?php
+                            $product = $item->get_product();
+                            $productID = $item['product_id'];
+                            $variationID = $item['variation_id'];
+
+                            $title = $product->get_title();
+                            $subtitle = ($variationID) ? $product->get_description() : '';
+
+                            $productVariation = wc_get_product($variationID);
+                            $attributes =  $productVariation->get_variation_attributes() ;
+
+                            $color = (array_key_exists('attribute_pa_color', $attributes)) ? $attributes['attribute_pa_color'] : '';
+                            $amount = (array_key_exists('attribute_pa_amount', $attributes)) ? $attributes['attribute_pa_amount'] : '';
+                            $size = (array_key_exists('attribute_pa_size', $attributes)) ? $attributes['attribute_pa_size'] : '';
+                        ?>
 
                         <li class="mini-cart__item">
                             <div class="mini-cart__image">
@@ -157,7 +108,25 @@ function formatted_billing_address($order)
                             </div>
 
                             <div class="mini-cart__name">
-                                <?php echo $product->get_name() ?>
+                                <p class="custom-cart__product-title">
+                                    <?php echo $title; ?>
+                                    <?php if ($subtitle) { echo '<br/>' . $subtitle; } ?>
+                                </p>
+
+                                <?php if ($color || $size): ?>
+                                    <p class="custom-cart__product-subtitle">
+                                        <?php echo $color; ?> <?php echo $size; ?>
+                                    </p>
+                                <?php endif; ?>
+
+                                <?php if ($amount && $amount !== 'single-pack'): ?>
+                                    <p class="custom-cart__product-subtitle">
+                                        <?php
+                                            $displayAmount = attribute_slug_to_title('attribute_pa_amount', $amount);
+                                            echo $displayAmount;
+                                        ?>
+                                    </p>
+                                <?php endif; ?>
                             </div>
 
                             <div class="mini-cart__price">
@@ -173,18 +142,37 @@ function formatted_billing_address($order)
                         </li>
                     <?php } ?>
                 </ul>
-            </div>
-        </section>
 
-        <section class="ww-billing-address thank-you-section">
-            <header class="thank-you-section__header thank-you-section__header--has-mini-heading">
-                <h1><?php _e('Invoice', 'lavandre'); ?></h1>
-                <small class="mini-heading"><strong><?php echo esc_html( $addresses['billing'] ); ?></strong></small>
-            </header>
+                <table class="custom-cart__order-totals">
+                    <tbody>
+                        <tr class="cart-subtotal custom-cart__sidebar__row custom-cart__sidebar__row--large custom-cart__sidebar__row--large-font" data-cy="subtotal">
+                            <th><?php _e('Subtotal', 'lavandre'); ?></th>
+                            <td><?php echo $order->get_subtotal_to_display(); ?></td>
+                        </tr>
 
-            <div class="thank-you-section__content">
-                <address><?php echo wp_kses_post($billing_address); ?></address>
-            </div>
-        </section>
+                        <tr class="woocommerce-shipping-totals custom-cart__sidebar__row">
+                            <th><?php _e('Shipping', 'lavandre'); ?></th>
+                            <td><?php echo ($order->get_shipping_total() !== '0.00') ? wc_price($order->get_shipping_total()) : __('Free'); ?></td>
+                        </tr>
+
+                        <tr class="tax-total custom-cart__sidebar__row">
+                            <th><?php _e('VAT', 'lavandre'); ?></th>
+                            <td><?php echo wc_price($order->get_total_tax()); ?></td>
+                        </tr>
+
+                        <tr class="order-total custom-cart__sidebar__row custom-cart__sidebar__row--large-font">
+                            <th><?php _e('Total', 'lavandre'); ?></th>
+                            <td><?php echo $order->get_formatted_order_total(); ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+
+    <div class="full-width-banner-block__link">
+        <figure class="overlay-text">
+            <img class="cover-image" src="https://lavandre.com/wp-content/uploads/2021/11/mathilde-langevin-dCX6Z0xjAPM-unsplash-scaled.jpeg" alt="">
+        </figure>
     </div>
 </div>

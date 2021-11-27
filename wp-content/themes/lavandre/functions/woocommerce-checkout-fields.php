@@ -299,8 +299,6 @@
         return $field;
     }
 
-
-    // test
     add_filter( 'woocommerce_default_address_fields' , 'custom_override_default_address_fields' );
 
     // Our hooked in function - $address_fields is passed via the filter!
@@ -334,5 +332,6 @@
         $field['label'] = $value;
         $field['priority'] = $priority;
         $field['class'] = $class;
+        $field['label_class'] = [];
         return $field;
     }

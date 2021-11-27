@@ -33,7 +33,7 @@ defined( 'ABSPATH' ) || exit;
                     $subtitle = ($variationID) ? $cart_item['data']->get_description() : '';
 
                     $productVariation = wc_get_product($variationID);
-                    $attributes =  $productVariation->get_variation_attributes() ;
+                    $attributes = $productVariation->get_variation_attributes();
 
                     $color = (array_key_exists('attribute_pa_color', $attributes)) ? $attributes['attribute_pa_color'] : '';
                     $amount = (array_key_exists('attribute_pa_amount', $attributes)) ? $attributes['attribute_pa_amount'] : '';
