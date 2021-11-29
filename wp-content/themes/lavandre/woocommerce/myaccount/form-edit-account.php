@@ -23,7 +23,7 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 
     <?php do_action( 'woocommerce_edit_account_form_start' ); ?>
 
-    <h1><?php _e('Mijn gegevens', 'woocommerce'); ?></h1>
+    <h1><?php _e('Account details', 'lavandre'); ?></h1>
 
 	<div class="flex">
         <p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first flex-col-xs-12 flex-col-md-6">
@@ -38,8 +38,8 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
     </div>
 
 	<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-		<input type="email" class="woocommerce-Input woocommerce-Input--email input-text" name="account_email" id="account_email" autocomplete="email" value="<?php echo esc_attr( $user->user_email ); ?>" placeholder="<?php esc_html_e( 'Email address', 'woocommerce' ); ?>" />
-		<label for="account_email"><?php esc_html_e( 'Email address', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
+		<input type="email" class="woocommerce-Input woocommerce-Input--email input-text" name="account_email" id="account_email" autocomplete="email" value="<?php echo esc_attr( $user->user_email ); ?>" placeholder="<?php esc_html_e( 'Email', 'lavandre' ); ?>" />
+		<label for="account_email"><?php esc_html_e( 'Email', 'lavandre' ); ?>&nbsp;<span class="required">*</span></label>
     </p>
 
     <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
@@ -56,14 +56,14 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
     </p>
 
     <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-        <input type="text" class="woocommerce-Input woocommerce-Input--phone input-text" name="billing_company" id="billing_company" value="<?php echo esc_attr( $user->billing_company ); ?>" placeholder="<?php _e( 'Company name', 'woocommerce' ); ?>" />
-        <label for="billing_company"><?php _e( 'Company name', 'woocommerce' ); ?> <span class="required">*</span></label>
+        <input type="text" class="woocommerce-Input woocommerce-Input--phone input-text" name="billing_company" id="billing_company" value="<?php echo esc_attr( $user->billing_company ); ?>" placeholder="<?php _e( 'Company', 'lavandre' ); ?>" />
+        <label for="billing_company"><?php _e( 'Company', 'lavandre' ); ?> <span class="required">*</span></label>
     </p>
 
     <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
         <?php $selected = esc_attr( $user->billing_company_type ); ?>
         <select class="woocommerce-Input woocommerce-Input--phone input-text" name="billing_company_type" id="billing_company_type" value="<?php echo esc_attr( $user->billing_company_type ); ?>">
-            <option value="0" <?php if ($selected === '0') { ?> selected <?php } ?>>Branche</option>
+            <option value="0" <?php if ($selected === '0') { ?> selected <?php } ?>><?php _e( 'Choose a branch', 'lavandre' ); ?></option>
                 <option value="<?php _e('hairdresser', 'lavandre'); ?>" <?php if ($selected === __('hairdresser', 'lavandre')) { ?> selected <?php } ?>><?php echo ucfirst(__('hairdresser', 'lavandre')); ?></option>
                 <option value="<?php _e('pedicure', 'lavandre'); ?>" <?php if ($selected === __('pedicure', 'lavandre')) { ?> selected <?php } ?>><?php echo ucfirst(__('pedicure', 'lavandre')); ?></option>
                 <option value="<?php _e('spa', 'lavandre'); ?>" <?php if ($selected === __('spa', 'lavandre')) { ?> selected <?php } ?>><?php echo ucfirst(__('spa', 'lavandre')); ?></option>
@@ -75,30 +75,30 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
                 <option value="<?php _e('cleaning', 'lavandre'); ?>" <?php if ($selected === __('cleaning', 'lavandre')) { ?> selected <?php } ?>><?php echo ucfirst(__('cleaning', 'lavandre')); ?></option>
                 <option value="<?php _e('other', 'lavandre'); ?>" <?php if ($selected === __('other', 'lavandre')) { ?> selected <?php } ?>><?php echo ucfirst(__('other', 'lavandre')); ?></option>
         </select>
-        <label for="billing_company_type"><?php _e( 'Branche', 'woocommerce' ); ?> <span class="required">*</span></label>
+        <label for="billing_company_type"><?php _e( 'Branch', 'lavandre' ); ?> <span class="required">*</span></label>
     </p>
 
     <?php do_action( 'woocommerce_edit_account_form' ); ?>
 
     <h3 data-curtain-toggle="password-save">
-        <span><?php esc_html_e( 'Wachtwoord aanpassen', 'woocommerce' ); ?></span>
+        <span><?php esc_html_e( 'Change password', 'lavandre' ); ?></span>
         <?php include get_stylesheet_directory() . '/partials/icons/chevron-down.svg.php'; ?>
     </h3>
 
-    <div data-curtain-content="password-save">
+    <div class="password-save" data-curtain-content="password-save">
         <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
             <input type="password" class="woocommerce-Inputt woocommerce-Input--password input-text" name="password_current" id="password_current" autocomplete="off" placeholder="<?php esc_html_e( 'Current password (leave blank to leave unchanged)', 'woocommerce' ); ?>" />
-            <label for="password_current"><?php esc_html_e( 'Huidig wachtwoord', 'woocommerce' ); ?></label>
+            <label for="password_current"><?php esc_html_e( 'Current password', 'lavandre' ); ?></label>
         </p>
 
         <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
             <input type="password" class="woocommerce-Inputt woocommerce-Input--password input-text" name="password_1" id="password_1" autocomplete="off" placeholder="<?php esc_html_e( 'New password (leave blank to leave unchanged)', 'woocommerce' ); ?>" />
-            <label for="password_1"><?php esc_html_e( 'Nieuw wachtwoord', 'woocommerce' ); ?></label>
+            <label for="password_1"><?php esc_html_e( 'New password', 'lavandre' ); ?></label>
         </p>
 
         <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
             <input type="password" class="woocommerce-Inputt woocommerce-Input--password input-text" name="password_2" id="password_2" autocomplete="off" placeholder="<?php esc_html_e( 'Confirm new password', 'woocommerce' ); ?>" />
-            <label for="password_2"><?php esc_html_e( 'Confirm new password', 'woocommerce' ); ?></label>
+            <label for="password_2"><?php esc_html_e( 'Confirm new password', 'lavandre' ); ?></label>
         </p>
     </div>
 

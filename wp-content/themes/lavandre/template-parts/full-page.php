@@ -11,9 +11,7 @@ while ( have_posts() ) : the_post();
 	?>
 
     <main <?php post_class( 'site-main' ); ?> role="main">
-        <div class="page-content">
-            <?php the_content(); ?>
-        </div>
+        <?php the_content(); ?>
     </main>
 
 	<?php

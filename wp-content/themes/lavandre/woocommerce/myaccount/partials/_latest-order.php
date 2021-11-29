@@ -4,7 +4,7 @@
     $order = $customer->get_last_order();
 ?>
 
-<article class="latest-order panel">
+<article class="latest-order panel customer-orders--item">
     <div class="latest-order__image">
         <?php
             $first_product = $order->items[array_key_first($order->items)];
@@ -20,7 +20,7 @@
 
     <div class="latest-order__read-more">
         <a href="/my-account/view-order/<?php echo $order->id ?>/">
-            <?php include get_stylesheet_directory() . '/partials/icons/chevron-down.svg.php'; ?>
+            <?php include get_stylesheet_directory() . '/partials/icons/chevron-right.svg.php'; ?>
         </a>
     </div>
 </article>

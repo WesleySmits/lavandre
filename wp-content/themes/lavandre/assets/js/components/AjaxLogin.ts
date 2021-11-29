@@ -28,13 +28,15 @@ export default class AjaxLogin extends Component {
         const fields: HTMLInputElement[] = Array.from(this.form.querySelectorAll('input'));
 
         // Load recaptcha
-        loadRecaptcha(fields);
+        // @ts-ignore
+        if (!window.Cypress) {
+            loadRecaptcha(fields);
+        }
 
         for (let index = 0; index < fields.length; index++) {
             const field = fields[index];
             const validator: FieldValidation = new FieldValidation(field);
 
-            field.addEventListener('input', (e) => { console.log(field.name, e) });
             setTimeout(() => {
                 if (field.matches(':-webkit-autofill')) {
                     field.dispatchEvent(new Event('input'));
@@ -81,20 +83,30 @@ export default class AjaxLogin extends Component {
 
         // @ts-ignore
         const grecaptcha = window.grecaptcha;
+        //@ts-ignore
 
-        grecaptcha.ready(() => {
-            grecaptcha.execute(sitekey, { action: 'AjaxLogin' }).then((token: string) => {
-                const data = {
-                    'action': 'ajaxlogin',
-                    'recaptchaToken': token,
-                    'username': username,
-                    'password': password,
-                };
+        const data = {
+            'action': 'ajaxlogin',
+            'recaptchaToken': '',
+            'username': username,
+            'password': password,
+        };
 
-                const submitButton: HTMLButtonElement | undefined = this.form.querySelector('button[type="submit"]') as HTMLButtonElement || undefined;
-                sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), this.onFailure.bind(this), event, submitButton);
+        const submitButton: HTMLButtonElement | undefined = this.form.querySelector('button[type="submit"]') as HTMLButtonElement || undefined;
+
+        // @ts-ignore
+        if (!window.Cypress) {
+            grecaptcha.ready(() => {
+                grecaptcha.execute(sitekey, { action: 'AjaxLogin' }).then((token: string) => {
+                    data.recaptchaToken = token;
+
+                    const submitButton: HTMLButtonElement | undefined = this.form.querySelector('button[type="submit"]') as HTMLButtonElement || undefined;
+                    sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), this.onFailure.bind(this), event, submitButton);
+                });
             });
-        });
+        } else {
+            sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), this.onFailure.bind(this), event, submitButton);
+        }
 
         return false;
     }

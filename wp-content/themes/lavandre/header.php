@@ -36,7 +36,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <?php
-    if (is_checkout()) {
+    if (is_wc_endpoint_url('order-received')) {
+        return;
+    } else if (is_checkout()) {
         include '_header-checkout.php';
     } else {
         include '_header-site.php';

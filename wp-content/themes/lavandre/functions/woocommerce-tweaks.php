@@ -18,14 +18,6 @@
         return $html;
     } );
 
-    // debug code -> delete
-
-    // add_action( 'woocommerce_after_register_post_type', function () {
-    //     $order = wc_get_order( 355 );
-    //     var_dump($order); die;
-    //     action_woocommerce_order_status_changed(355, 'processing', 'completed', 'test');
-    // }, 10 );
-
     function action_woocommerce_order_status_changed( $this_get_id, $this_status_transition_from, $this_status_transition_to, $instance ) {
         $template_name = '';
         if ($this_status_transition_to !== 'processing' && $this_status_transition_to !== 'completed') {
@@ -120,9 +112,6 @@
             )
         );
 
-        // var_dump($order->get_shipping_to_display());
-
-        // die;
         sendMandrillMail($template_name, $username, $name, $merge_vars, 'handlebars');
     };
 

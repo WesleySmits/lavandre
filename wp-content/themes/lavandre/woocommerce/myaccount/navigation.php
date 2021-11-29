@@ -23,14 +23,17 @@ do_action( 'woocommerce_before_account_navigation' );
 
 ?>
 
+<div class="background-noise"></div>
+
 <button type="button" class="toggle-account-menu" data-curtain-toggle="account-menu">
     <span><?php _e('My account', 'lavandre'); ?></span>
     <?php include get_stylesheet_directory() . '/partials/icons/chevron-down.svg.php'; ?>
 </button>
+
 <nav class="woocommerce-MyAccount-navigation side-navigation" data-curtain-content="account-menu">
     <header>
         <h1>
-            <small><?php _e('Welcome,', 'lavandre'); ?></small>
+            <span><?php _e('Welcome,', 'lavandre'); ?></span>
             <?php
                 $user_info = get_userdata(get_current_user_id());
                 $first_name = $user_info->first_name;
@@ -42,7 +45,6 @@ do_action( 'woocommerce_before_account_navigation' );
     <ul>
 		<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
             <li class="side-navigation__item <?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
-                <?php include get_stylesheet_directory() . '/partials/icons/' . $endpoint . '.svg.php'; ?>
                 <a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>" class="side-navigation__link"><?php echo esc_html( $label ); ?></a>
 			</li>
 		<?php endforeach; ?>

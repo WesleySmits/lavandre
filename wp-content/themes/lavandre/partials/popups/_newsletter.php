@@ -37,12 +37,12 @@
                             id="ajax-newsletter-company-name"
                             class="woocommerce-Input woocommerce-Input--text input-text"
                             name="company-name"
-                            placeholder="<?php _e('Company name', 'lavandre'); ?>"
+                            placeholder="<?php _e('Company', 'lavandre'); ?>"
                             autocomplete="company-name"
                             title="<?php _e('Fill in a valid company name', 'lavandre'); ?>"
                             required
                         >
-                        <label for="ajax-newsletter-company-name"><?php _e('Company name', 'lavandre'); ?>&nbsp;<span class="required">*</span></label>
+                        <label for="ajax-newsletter-company-name"><?php _e('Company', 'lavandre'); ?>&nbsp;<span class="required">*</span></label>
                     </p>
 
                     <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">

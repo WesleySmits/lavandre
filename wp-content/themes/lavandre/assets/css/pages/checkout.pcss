@@ -1,6 +1,7 @@
 @import "../variables/variables.pcss";
-@import "../components/_timeline.pcss";
+@import "../components/_full-width-banner-block.pcss";
 @import "../components/_cart-order-totals.pcss";
+@import "../components/_mini-cart-account.pcss";
 
 html body.woocommerce-checkout {
     &:before{
@@ -28,12 +29,12 @@ html body.woocommerce-checkout {
 }
 
 .ww-checkout-header {
-    padding: 3.5rem 8%;
+    padding: 3.5rem 8vw;
+}
 
-    .ww-site-header__logo svg {
-        width: 17rem;
-        height: auto;
-    }
+.ww-site-header__logo svg {
+    width: 17rem;
+    height: auto;
 }
 
 .ww-checkout-footer {
@@ -96,98 +97,21 @@ form.woocommerce-checkout {
 }
 
 .ww-thank-you {
-    padding-top: 2vw;
-
-    h1 svg {
-        width: 1rem;
-        height: 1rem;
-
-        path {
-            stroke: var(--color-green);
-        }
-    }
-}
-
-.thank-you-column {
-    @media (--tablet) {
-        flex: 0 0 49%;
-    }
-}
-
-.thank-you-section {
-    padding: 1rem;
-    background: var(--white);
-    border: 1px solid var(--color-border);
-    overflow: hidden;
-    font-size: 13px;
-    margin: 1rem 0;
-
-    @media (--tablet-landscape) {
-        margin: 0 auto 1rem;
-        padding: 2vw;
+    section + section {
+        margin-top: 3.5rem;
     }
 
-    &--has-footer {
-        padding-bottom: 1rem;
+    .ww-order-overview {
+        padding: 3.5rem 8vw;
+        min-height: 100vh;
     }
 
-    &__header {
-        padding-bottom: 1rem;
-
-        &--has-mini-heading {
-            padding-bottom: .5rem;
-        }
-    }
-
-    &__footer {
-        position: relative;
-        left: -1rem;
-        width: calc(100% + 2rem);
-        padding: 1rem;
-        background: var(--color-shadow);
-
-        @media (--tablet-landscape) {
-            width: calc(100% + 4vw);
-            left: -2vw;
-            padding: 1vw 2vw;
-        }
+    .ww-site-header__logo {
+        margin-bottom: 3.5rem;
     }
 
     h1 {
-        margin: 0;
-        text-transform: uppercase;
-        font-size: 0.75rem;
-
-        @media (--tablet-landscape) {
-            font-size: 0.875rem;
-        }
-    }
-
-    h3 {
-        font-size: 0.75rem;
-        margin: 0 0 10px;
-        text-transform: initial;
-    }
-
-    address {
-        font-style: normal;
-        font-size: 0.75rem;
-    }
-
-    small {
-        font-size: .75rem;
-
-        &.mini-heading {
-            display: inline-block;
-            margin-top: .4rem;
-        }
-    }
-
-    h1,
-    h2,
-    h3,
-    strong {
-        font-weight: 600 !important;
+        margin-bottom: 1.5rem;
     }
 }
 
@@ -195,33 +119,6 @@ form.woocommerce-checkout {
 
 option[value="default"] {
     display: none;
-}
-
-.custom-field-wrapper {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-}
-
-.required {
-    text-decoration: none !important;
-    display: none;
-}
-
-.form-row-wide,
-#order_comments_field {
-    flex: 0 0 100%;
-}
-
-.form-row-first,
-.form-row-last,
-.form-row-half {
-    flex: 0 0 48%;
-}
-
-.form-row-third,
-.form-row- {
-    flex: 0 0 30%;
 }
 
 .wc_payment_method {
@@ -344,60 +241,6 @@ ul {
     text-align: right;
 }
 
-.mini-cart {
-    list-style-type: none;
-    margin: 0 0 2rem;
-    padding: 0;
-
-    &--thank-you {
-        margin-bottom: 0;
-    }
-}
-
-.mini-cart__item {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    margin-bottom: 2rem;
-    font-size: .8125rem;
-
-    &:not(:last-child) {
-        padding: 0 0 2rem;
-        border-bottom: 1px solid var(--color-border-2);
-    }
-}
-
-.mini-cart__image {
-    flex: 0 0 25%;
-    max-width: 7rem;
-    margin-right: 1rem;
-}
-
-.mini-cart__image img {
-    width: 100%;
-    height: auto;
-}
-
-.mini-cart__name {
-    font-weight: 400;
-    text-transform: uppercase;
-}
-
-.mini-cart__price {
-    font-weight: 600;
-    text-align: right;
-    margin-left: auto;
-
-    del {
-        color: var(--color-text);
-    }
-
-    ins {
-        color: var(--color-danger);
-        text-decoration: none;
-    }
-}
-
 .payment_method_pay_gateway_mistercash .payment_box {
     display: none !important;
 }
@@ -440,12 +283,17 @@ ul {
 }
 
 #place_order {
-    margin: 1.5rem 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.form-row.place-order {
+    flex-flow: column;
+    margin-top: 1.5rem;
 }
 
 #payment .woocommerce-error {
     display: block;
-    margin: 1rem 0;
+    margin: 0 0 1rem 0;
     padding: 0.75rem 1.25rem;
     border: none;
     background: #FEECEC;
@@ -583,4 +431,16 @@ table.order-totals {
         width: auto;
         height: inherit;
     }
+}
+
+.full-width-banner-block__link .cover-image {
+    position: absolute;
+    height: auto;
+    bottom: 0;
+    height: 100%;
+}
+
+.woocommerce .blockUI.blockOverlay {
+    position: relative! important;
+    display: none! important;
 }

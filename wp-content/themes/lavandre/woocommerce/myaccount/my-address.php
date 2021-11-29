@@ -51,7 +51,7 @@ $col    = 1;
 
 	<div class="account-address">
 		<header class="account-address__header">
-			<h3><?php echo esc_html( $address_title ); ?></h3>
+			<h1><?php echo esc_html( $address_title ); ?></h1>
 		</header>
 		<address>
             <a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="account-address__address">

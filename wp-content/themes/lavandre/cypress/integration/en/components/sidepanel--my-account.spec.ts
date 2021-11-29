@@ -62,7 +62,7 @@ describe('My account sidepanel tests', () => {
         });
     });
 
-    it.only('should create a new account', () => {
+    it('should create a new account', () => {
         const formId: string = '#ajax-register-form'
         cy.openSidePanel({ toggle: toggleSelector, panel: panelSelector });
 

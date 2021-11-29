@@ -7,9 +7,9 @@ function remove_my_account_links( $menu_links ){
 }
 
 function rename_my_account_links($menu_links) {
-    $menu_links['edit-account'] = __('Mijn gegevens', 'woocommerce');
-    $menu_links['orders'] = __('Mijn aankopen', 'woocommerce');
-    $menu_links['edit-address'] = __('Mijn adressen', 'woocommerce');
+    $menu_links['edit-account'] = __('Account details', 'lavandre');
+    $menu_links['orders'] = __('My orders', 'lavandre');
+    $menu_links['edit-address'] = __('My address book', 'lavandre');
 
     return $menu_links;
 }
@@ -54,8 +54,9 @@ add_filter( 'woocommerce_localisation_address_formats', function( $formats ) {
     $preferredFormat = '
         {name}
         {company}
-        {address_1}
-        {postcode} {city} {country}
+        {address_1} {address_2}
+        {postcode} {city}
+        {country}
         {vat_id}
         {phone}
     ';
@@ -72,6 +73,7 @@ add_filter( 'woocommerce_localisation_address_formats', function( $formats ) {
 add_filter( 'woocommerce_formatted_address_replacements', function( $replacements, $args ){
     // we want to replace {phone} in the format with the data we populated
     $replacements['{phone}'] = (array_key_exists('phone', $args)) ? $args['phone'] : '';
+    $replacements['{country}'] = (array_key_exists('country', $args)) ? $args['country'] : '';
     return $replacements;
 }, 10, 2 );
 
@@ -79,18 +81,14 @@ add_filter( 'woocommerce_formatted_address_replacements', function( $replacement
 
 add_filter( 'woocommerce_billing_fields' , 'custom_override_billing_fields', 100, 1 );
 function custom_override_billing_fields( $fields ) {
-    $firstName = __( 'First name', 'lavandre' );
-    $lastName = __( 'Last name', 'lavandre' );
-    $companyName = __( 'Company name', 'lavandre' );
-    $streetName = __( 'Street name', 'lavandre' );
-    $houseNumber = __( 'House number', 'lavandre' );
-    $houseNumberAddition = __( 'Addition', 'lavandre' );
     $postalCode = __( 'Postal code', 'lavandre' );
     $city = __( 'City', 'lavandre' );
+    $companyName = __( 'Company', 'lavandre' );
     $country = __( 'Country', 'lavandre' );
-    $phoneNumber = __( 'Phone number', 'lavandre' );
-    $emailAddress = __( 'E-mail address', 'lavandre' );
-    $vatNumber = __( 'VAT number', 'lavandre' );
+    $emailAddress = __( 'Email', 'lavandre' );
+    $phoneNumber = __( 'Phone', 'lavandre' );
+
+    $companyClass = (is_checkout()) ? 'form-row-first' : 'form-row-wide';
 
     $fields['billing_postcode']['placeholder'] = $postalCode;
     $fields['billing_postcode']['label'] = $postalCode;
@@ -100,6 +98,29 @@ function custom_override_billing_fields( $fields ) {
 
     $fields['billing_country']['placeholder'] = $country;
     $fields['billing_country']['label'] = $country;
+
+    $fields['billing_email']['placeholder'] = $emailAddress;
+    $fields['billing_email']['label'] = $emailAddress;
+
+    $fields['billing_phone']['placeholder'] = $phoneNumber;
+    $fields['billing_phone']['label'] = $phoneNumber;
+
+    $fields['billing_email'] = update_address_field_label($fields['billing_email'], $emailAddress, 3, ['form-row-wide']);
+    $fields['billing_phone'] = update_address_field_label($fields['billing_phone'], $phoneNumber, 4, ['form-row-wide']);
+    $fields['billing_company'] = update_address_field_label($fields['billing_company'], $companyName, 5, [$companyClass]);
+    $fields['billing_postcode'] = update_address_field_label($fields['billing_postcode'], $postalCode, 11, ['form-row-first']);
+    $fields['billing_city'] = update_address_field_label($fields['billing_city'], $city, 11, ['form-row-last']);
+    $fields['billing_country'] = update_address_field_label($fields['billing_country'], $country, 11, ['form-row-wide']);
+
+    return $fields;
+}
+
+add_filter( 'woocommerce_shipping_fields' , 'custom_override_shipping_fields', 100, 1 );
+function custom_override_shipping_fields( $fields ) {
+    $companyName = __( 'Company', 'lavandre' );
+
+    $companyClass = (is_checkout()) ? 'form-row-first' : 'form-row-wide';
+    $fields['shipping_company'] = update_address_field_label($fields['shipping_company'], $companyName, 5, [$companyClass]);
 
     return $fields;
 }

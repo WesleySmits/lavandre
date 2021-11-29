@@ -4,10 +4,10 @@
       "js": [
         "/runtime.a0037f62.js",
         "/0.437d4d8a.js",
-        "/app.e2ebbe86.js"
+        "/app.52db97d8.js"
       ],
       "css": [
-        "/app.d8a300b9.css"
+        "/app.7395da9e.css"
       ]
     },
     "home": {
@@ -22,7 +22,7 @@
         "/productDetail.d1c08976.js"
       ],
       "css": [
-        "/productDetail.43abaa40.css"
+        "/productDetail.afdacc75.css"
       ]
     },
     "cart": {
@@ -37,7 +37,7 @@
         "/checkout.e14e7dd9.js"
       ],
       "css": [
-        "/checkout.7a93e922.css"
+        "/checkout.8111f8fc.css"
       ]
     },
     "critical-styles": {
@@ -45,7 +45,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/critical-styles.d28878b5.css"
+        "/critical-styles.85fc30b8.css"
       ]
     },
     "deferred-styles": {
@@ -53,7 +53,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/deferred-styles.5c38f19f.css"
+        "/deferred-styles.d16a055f.css"
       ]
     },
     "homepage-styles": {
@@ -61,7 +61,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/homepage-styles.988ad3cb.css"
+        "/homepage-styles.79cdca8c.css"
       ]
     },
     "about-styles": {
@@ -77,7 +77,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/checkout-styles.f9e8d886.css"
+        "/checkout-styles.cc650069.css"
       ]
     },
     "login-styles": {
@@ -85,7 +85,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/login-styles.c0bd1da3.css"
+        "/login-styles.93addec0.css"
       ]
     },
     "product-styles": {
@@ -93,7 +93,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/product-styles.7f5e41b9.css"
+        "/product-styles.f1ea0ca2.css"
       ]
     },
     "product-overview-styles": {
@@ -101,7 +101,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/product-overview-styles.b76d5880.css"
+        "/product-overview-styles.f05bd86b.css"
       ]
     },
     "account-styles": {
@@ -109,7 +109,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/account-styles.b7b152b3.css"
+        "/account-styles.83b20919.css"
       ]
     },
     "customerServiceStyles": {
