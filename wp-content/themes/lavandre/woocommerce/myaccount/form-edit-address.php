@@ -25,13 +25,13 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 	<?php wc_get_template( 'myaccount/my-address.php' ); ?>
 <?php else : ?>
     <div class="woocommerce-EditAddressForm">
-        <form method="post">
-            <h3><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title, $load_address ); ?></h3><?php // @codingStandardsIgnoreLine ?>
+        <form class="ww-form" method="post">
+            <h1><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title, $load_address ); ?></h1><?php // @codingStandardsIgnoreLine ?>
 
             <div class="woocommerce-address-fields">
                 <?php do_action( "woocommerce_before_edit_address_form_{$load_address}" ); ?>
 
-                <div class="woocommerce-address-fields__field-wrapper">
+                <div class="woocommerce-address-fields__field-wrapper custom-field-wrapper">
                     <?php
                     foreach ( $address as $key => $field ) {
                         woocommerce_form_field( $key, $field, wc_get_post_data_by_key( $key, $field['value'] ) );

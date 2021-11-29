@@ -1,10 +1,4 @@
-<?php
-    $user_id = get_current_user_id();
-    $customer = new WC_Customer( $user_id );
-    $order = $customer->get_last_order();
-?>
-
-<article class="latest-order panel customer-orders--item">
+<a href="/my-account/view-order/<?php echo $order->id ?>/" class="latest-order panel">
     <div class="latest-order__image">
         <?php
             $first_product = $order->items[array_key_first($order->items)];
@@ -19,8 +13,6 @@
     </div>
 
     <div class="latest-order__read-more">
-        <a href="/my-account/view-order/<?php echo $order->id ?>/">
-            <?php include get_stylesheet_directory() . '/partials/icons/chevron-right.svg.php'; ?>
-        </a>
+        <?php include get_stylesheet_directory() . '/partials/icons/chevron-right.svg.php'; ?>
     </div>
-</article>
+</a>

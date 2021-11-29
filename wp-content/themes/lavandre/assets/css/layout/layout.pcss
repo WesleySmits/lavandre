@@ -5,6 +5,23 @@ body.page-template-customer-service {
     background: var(--color-bg-gray);
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 142px);
+    justify-content: space-between;
+
+    &:after {
+        content: "";
+        display: block;
+        width: 1px;
+    }
+
+    .woocommerce {
+        flex: 1;
+    }
+}
+
 .ww-container {
     width: 1840px;
     max-width: 95%;

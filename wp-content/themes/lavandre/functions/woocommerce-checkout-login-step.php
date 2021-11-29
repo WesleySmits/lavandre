@@ -33,7 +33,7 @@ function ww_wc_login_register() {
                 </form>
 
                 <a href="#" class="back-link" style="margin-top: 1rem;" data-role="password-forget-toggle">
-                    <?php include get_stylesheet_directory() . '/partials/icons/back.svg.php'; ?>
+                    <?php include get_stylesheet_directory() . '/partials/icons/back-arrow.svg.php'; ?>
                     <span><?php esc_html_e( 'Back', 'woocommerce' ); ?></span>
                 </a>
 

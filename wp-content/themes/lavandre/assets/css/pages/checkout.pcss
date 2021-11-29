@@ -1,8 +1,7 @@
 @import "../variables/variables.pcss";
-@import "../components/_timeline.pcss";
-@import "../components/_cart-order-totals.pcss";
 @import "../components/_full-width-banner-block.pcss";
-
+@import "../components/_cart-order-totals.pcss";
+@import "../components/_mini-cart-account.pcss";
 
 html body.woocommerce-checkout {
     &:before{
@@ -120,33 +119,6 @@ form.woocommerce-checkout {
 
 option[value="default"] {
     display: none;
-}
-
-.custom-field-wrapper {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-}
-
-.required {
-    text-decoration: none !important;
-    display: none;
-}
-
-.form-row-wide,
-#order_comments_field {
-    flex: 0 0 100%;
-}
-
-.form-row-first,
-.form-row-last,
-.form-row-half {
-    flex: 0 0 48%;
-}
-
-.form-row-third,
-.form-row- {
-    flex: 0 0 30%;
 }
 
 .wc_payment_method {
@@ -267,60 +239,6 @@ ul {
 
 .woocommerce table.shop_table td {
     text-align: right;
-}
-
-.mini-cart {
-    list-style-type: none;
-    margin: 0 0 2rem;
-    padding: 0;
-
-    &--thank-you {
-        margin-bottom: 0;
-    }
-}
-
-.mini-cart__item {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    margin-bottom: 2rem;
-    font-size: .8125rem;
-
-    &:not(:last-child) {
-        padding: 0 0 2rem;
-        border-bottom: 1px solid var(--color-border-2);
-    }
-}
-
-.mini-cart__image {
-    flex: 0 0 25%;
-    max-width: 7rem;
-    margin-right: 1rem;
-}
-
-.mini-cart__image img {
-    width: 100%;
-    height: auto;
-}
-
-.mini-cart__name {
-    font-weight: 400;
-    text-transform: uppercase;
-}
-
-.mini-cart__price {
-    font-weight: 600;
-    text-align: right;
-    margin-left: auto;
-
-    del {
-        color: var(--color-text);
-    }
-
-    ins {
-        color: var(--color-danger);
-        text-decoration: none;
-    }
 }
 
 .payment_method_pay_gateway_mistercash .payment_box {
@@ -515,26 +433,11 @@ table.order-totals {
     }
 }
 
-.background-noise {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    mix-blend-mode: darken;
-    opacity: 0.075;
-    background: url('/wp-content/themes/lavandre/assets/images/backgrounds/bg-noise.jpeg');
-}
-
 .full-width-banner-block__link .cover-image {
     position: absolute;
     height: auto;
     bottom: 0;
     height: 100%;
-}
-
-label .optional {
-    display: none;
 }
 
 .woocommerce .blockUI.blockOverlay {

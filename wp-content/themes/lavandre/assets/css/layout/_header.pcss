@@ -13,12 +13,6 @@
         position: fixed;
     }
 
-    @media (--tablet-landscape) {
-        body.admin-bar & {
-            top: 2rem;
-        }
-    }
-
     svg {
         position: relative;
         display: block;
@@ -294,4 +288,11 @@
     min-width: 1.125rem;
     font-size: .75rem;
     line-height: 1.125rem;
+}
+
+@media (--tablet-landscape) {
+    body.admin-bar {
+        position: relative;
+        top: 2rem;
+    }
 }

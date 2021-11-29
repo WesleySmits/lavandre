@@ -323,14 +323,18 @@ function ajax_getVariantPrice() {
 }
 
 function ajax_login() {
-    $validRecaptcha = verifyRecaptchaToken($_POST['recaptchaToken']);
+    $recaptchaToken = $_POST['recaptchaToken'];
 
-    if ($validRecaptcha->success === false) {
-        wp_send_json_error(array('Recaptcha not valid'), 400);
-    }
+    if ($recaptchaToken) {
+        $validRecaptcha = verifyRecaptchaToken($_POST['recaptchaToken']);
 
-    if ($validRecaptcha->score <= 0.6) {
-        wp_send_json_error(array('score too low'), 400);
+        if ($validRecaptcha->success === false) {
+            wp_send_json_error(array('Recaptcha not valid'), 400);
+        }
+
+        if ($validRecaptcha->score <= 0.6) {
+            wp_send_json_error(array('score too low'), 400);
+        }
     }
 
     $info = array();
@@ -360,14 +364,18 @@ function verifyRecaptchaToken(string $token) {
 }
 
 function ajax_register() {
-    $validRecaptcha = verifyRecaptchaToken($_POST['recaptchaToken']);
+    $recaptchaToken = $_POST['recaptchaToken'];
 
-    if ($validRecaptcha->success === false) {
-        wp_send_json_error(array('Recaptcha not valid'), 400);
-    }
+    if ($recaptchaToken) {
+        $validRecaptcha = verifyRecaptchaToken($_POST['recaptchaToken']);
 
-    if ($validRecaptcha->score <= 0.6) {
-        wp_send_json_error(array('score too low'), 400);
+        if ($validRecaptcha->success === false) {
+            wp_send_json_error(array('Recaptcha not valid'), 400);
+        }
+
+        if ($validRecaptcha->score <= 0.6) {
+            wp_send_json_error(array('score too low'), 400);
+        }
     }
 
     $user_data = array(
@@ -416,7 +424,6 @@ function ajax_register() {
 
         sendMandrillMail('new-account', $_POST['email'], $name, $merge_vars);
         wp_send_json_success(__('You have registered successfully!', 'lavandre'));
-        // wp_send_json_success(array($user_login));
     } else {
         if (isset($user_id->errors['empty_user_login'])) {
             wp_send_json_error(array('User Name and Email are mandatory'), 401);

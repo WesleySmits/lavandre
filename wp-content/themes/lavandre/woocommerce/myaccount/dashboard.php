@@ -28,7 +28,6 @@ $allowed_html = array(
 );
 
 $user_id = get_current_user_id();
-
     function get_user_trees_planted($user_id = 0) {
         global $wpdb;
         $tomorrow = new DateTime('tomorrow');
@@ -68,78 +67,13 @@ $user_id = get_current_user_id();
     </section>
 <?php } ?>
 
-<section class="tree-planting-campaign">
-    <div class="tree-planting-campaign__info">
-        <h1><?php _e('Contributing to nature', 'lavandre'); ?></h1>
-        <p>
-            <?php _e('Starting January 2021 we will automatically plant a tree for each item that we sell through our webshop in collaboration with our partner, Eden Reforestation Projects. This way, we ensure that we can enjoy the beautiful nature for years to come.', 'lavandre'); ?>
-        </p>
-
-        <button href="/sustainability/contributing-to-nature/" is="lavandre-button" primary full-width size="large"><?php _e('Read more', 'lavandre'); ?></a>
-    </div>
-
-    <div class="tree-planting-campaign__video flex-col-xs-12 flex-col-md-6">
-        <iframe width="500" height="270" src="https://www.youtube.com/embed/CD7HI2H2PKU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-</section>
-
 <section id="milestones" class="flex">
-    <?php
-        $goal = 1000;
-        $milestones = [100, 250, 500, 1000];
-        $trees_to_next_milestone = get_trees_to_next_milestone($milestones, $user_trees);
-
-        function get_trees_to_next_milestone($milestones, $user_trees) {
-            foreach ($milestones as $milestone) {
-                if ($milestone > $user_trees) {
-                    return $milestone - $user_trees;
-                }
-            }
-
-            return 0;
-        }
-    ?>
-
-    <div class="flex-col-xs-12 flex-col-lg-6 flex-xs-order-2 flex-lg-order-1">
-        <progress max="<?php echo $goal; ?>" value="<?php echo $user_trees; ?>"></progress>
-        <ul class="planting-milestones">
-            <?php foreach ($milestones as $milestone) { ?>
-                <?php
-                    $is_completed = ($user_trees >= $milestone) ? true: false;
-                    $content = '';
-                    $milestone_percent = 100/($goal/$milestone);
-
-                    if ($is_completed) {
-                        $content = sprintf(esc_html__('%sCongratulations!%s %s You have reached a new milestone of %s trees!', 'lavandre'), '<strong>', '</strong>', '<br/>',$milestone);
-                    } else {
-                        $trees_left = $milestone - $user_trees;
-                        $content = sprintf(__('You still have to plant %s trees to reach this milestone!', 'lavandre'), $trees_left);
-                    }
-                ?>
-
-                <li
-                    class="planting-milestones__item planting-milestones__item--<?php echo $milestone_percent ?> <?php if ($is_completed) { echo 'planting-milestones__item--completed'; } ?>"
-                    data-role="tippy"
-                    data-content="<?php echo $content; ?>"
-                >
-                    <?php if ($milestone_percent === 100) { ?>
-                        <?php include get_stylesheet_directory() . '/partials/icons/milestone-big.svg.php'; ?>
-                    <?php } else { ?>
-                        <?php include get_stylesheet_directory() . '/partials/icons/milestone.svg.php'; ?>
-                    <?php } ?>
-                </li>
-            <?php } ?>
-        </ul>
-    </div>
-
     <div class="flex-col-xs-12 flex-col-lg-5 flex-xs-order-1 flex-lg-order-2">
         <h1><?php _e('Your contribution', 'lavandre'); ?></h1>
         <p>
             <?php echo sprintf(__('
-                With your orders you have already planted <strong>%s trees</strong>.
-                Together these trees absorb about <strong>%s kg CO<sub2</sub></strong> from our atmosphere every year.
-                You should plant another <strong>%s trees</strong> to reach the next milestone.
-            ', 'lavandre'), $user_trees, $user_trees * 20, $trees_to_next_milestone); ?>
+                You have planted <strong>%s trees</strong>.
+            ', 'lavandre'), $user_trees); ?>
         </p>
     </div>
 </section>

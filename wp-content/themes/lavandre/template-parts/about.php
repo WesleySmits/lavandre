@@ -16,7 +16,7 @@ while ( have_posts() ) : the_post();
 
     <main <?php post_class( 'site-main' ); ?> role="main">
         <article class="about-us-page">
-            <header class="ww-block ww-block--large about__header bg-salmon">
+            <header class="ww-block ww-block--large about__header bg-saltpan">
                 <div class="ww-container ww-container--mid">
                     <h1 class="about__header__title text-center h2"><?php echo get_field('intro_title'); ?></h1>
 

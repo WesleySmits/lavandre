@@ -14,13 +14,17 @@
     flex-flow: column nowrap;
     justify-content: flex-start;
     flex: 0 0 20%;
-    padding: 2rem 1rem;
-    background: var(--salmon);
+    margin: 3.5rem 0;
+    padding: 0rem 1rem;
+    border-right: 1px solid var(--color-border-3);
 
     @media (min-width: 1024px) {
         align-items: center;
         max-height: none !important;
-        padding: 2rem 1rem !important;
+
+        &[data-curtain-content="account-menu"]:not(.active) {
+            padding: 0rem 1rem !important;
+        }
     }
 
     header, ul {
@@ -28,7 +32,10 @@
     }
 
     header h1 {
-        font-size: 2rem;
+        display: flex;
+        align-items: center;
+
+        font-size: 1.5rem;
         font-weight: 400;
         margin-bottom: 1.5rem;
 
@@ -53,42 +60,16 @@
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
+            text-transform: capitalize;
 
             a {
                 padding: .25rem 0;
                 font-size: .8750rem;
-                color: #635f5c;
-            }
-
-            img,
-            svg {
-                flex: 0 0 1.5rem;
-                width: 1.5rem;
-                height: 1.55rem;
-                margin-right: 1.25rem;
-            }
-
-            path {
-                stroke: var(--color-text);
             }
 
             &.is-active,,
             &.current-link {
                 font-weight: 600;
-
-                path {
-                    stroke: var(--color-gold);
-                }
-
-                &:after {
-                    content: '';
-                    position: absolute;
-                    right: 0;
-                    width: 44px;
-                    height: 1px;
-                    z-index: 0;
-                    background-color: var(--color-gold);
-                }
             }
         }
     }

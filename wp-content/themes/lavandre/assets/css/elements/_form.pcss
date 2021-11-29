@@ -5,6 +5,14 @@ label {
     &.bold {
         font-weight: bold;
     }
+
+    .optional {
+        display: none;
+    }
+
+    .required {
+        display: none;
+    }
 }
 
 button,
@@ -162,7 +170,6 @@ body.woocommerce-account .site-main,
 .side-panel--my-account,
 .popup,
 body.page-id-317 .site-main,
-body.page-id-6233 div.elementor-popup-modal,
 .ww-form {
     input,
     select {
@@ -639,4 +646,26 @@ body.page-id-6233 div.elementor-popup-modal,
     input:disabled + label {
         cursor: not-allowed;
     }
+}
+
+.form-row-wide,
+#order_comments_field {
+    flex: 0 0 100%;
+}
+
+.form-row-first,
+.form-row-last,
+.form-row-half {
+    flex: 0 0 48%;
+}
+
+.form-row-third,
+.form-row- {
+    flex: 0 0 30%;
+}
+
+.custom-field-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
 }

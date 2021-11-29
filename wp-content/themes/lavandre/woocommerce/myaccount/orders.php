@@ -25,58 +25,10 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
     <section id="completed-orders">
         <header>
-            <h1>Voltooide aankopen</h1>
+            <h1><?php _e('Order history', 'lavandre'); ?></h1>
         </header>
 
-        <ol class="customer-orders">
-            <?php
-            foreach ( $customer_orders->orders as $order ) {
-                if ($order->status !== 'completed') {
-                    continue;
-                }
-                ?>
-
-                <li>
-                    <a href="/my-account/view-order/<?php echo $order->id ?>/" class="customer-orders--item flex">
-                        <div class="order-date">
-                            <time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>">
-                                <?php echo $order->get_date_created()->date_i18n('d F Y'); ?>
-                            </time>
-                        </div>
-
-                        <div class="order-image">
-                            <?php
-
-                            $image_url = '';
-
-                            foreach ( $order->get_items() as $item_id => $item ) {
-                                $product = $item->get_product();
-                                $image_id  = $product->get_image_id();
-                                $image_url = wp_get_attachment_image_url( $image_id, 'full' );
-
-                                if ($image_url !== '') {
-                                    break;
-                                }
-                            }
-
-                            ?>
-                            <img src="<?php echo $image_url ?>" alt="" width="100" height="100" />
-                        </div>
-
-                        <div class="order-price">
-                            <?php echo $order->get_formatted_order_total(); ?>
-                        </div>
-
-                        <div class="order-button">
-                            <?php include get_stylesheet_directory() . '/partials/icons/chevron-right.svg.php'; ?>
-                        </div>
-                    </a>
-                </li>
-
-                <?php
-
-            } ?>
-        </ol>
+        <?php include 'partials/_orders.php'; ?>
     </section>
 
 	<?php if ( 1 < $customer_orders->max_num_pages ) : ?>
@@ -93,13 +45,9 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
 <?php else : ?>
     <section>
-        <header>
-            <h1><?php _e('Completed orders', 'lavandre'); ?></h1>
-        </header>
-
         <div class="woocommerce-message woocommerce-message--info woocommerce-Message woocommerce-Message--info woocommerce-info no-orders-yet">
-            <?php include get_stylesheet_directory() . '/partials/icons/empty-shopping-bag.svg.php'; ?>
-            <p><?php esc_html_e( 'U heeft nog geen aankopen gedaan', 'woocommerce' ); ?></p>
+            <p><?php esc_html_e( 'You haven\'t placed any orders yet.', 'lavandre' ); ?></p>
+            <button is="lavandre-button" href="/shop" primary full-width size="large"><?php _e('Continue shopping', 'lavandre'); ?></button>
         </div>
     </section>
 <?php endif; ?>

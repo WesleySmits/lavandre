@@ -29,8 +29,8 @@ function ww_custom_cart() {
     <header class="custom-cart__header">
         <div class="custom-cart__previous">
             <a href="/shop" class="back-link">
-                <?php include get_stylesheet_directory() . '/partials/icons/back.svg.php'; ?>
-                <span><?php _e('Continue shopping', 'lavandre'); ?></span>
+                <?php include get_stylesheet_directory() . '/partials/icons/back-arrow.svg.php'; ?>
+                <span><?php _e('Continue Shopping', 'lavandre'); ?></span>
             </a>
         </div>
     </header>

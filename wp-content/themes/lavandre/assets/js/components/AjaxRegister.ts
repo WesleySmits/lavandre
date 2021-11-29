@@ -44,7 +44,10 @@ export default class AjaxRegister extends Component {
         const fields: HTMLInputElement[] = Array.from(this.form.querySelectorAll('input'));
 
         // Load recaptcha
-        loadRecaptcha(fields);
+        // @ts-ignore
+        if (!window.Cypress) {
+            loadRecaptcha(fields);
+        }
 
         for (let index = 0; index < fields.length; index++) {
             const field = fields[index];
@@ -80,22 +83,28 @@ export default class AjaxRegister extends Component {
 
             // @ts-ignore
             const grecaptcha = window.grecaptcha;
+            const data = {
+                'action': 'ajaxregister',
+                'recaptchaToken': '',
+                'email': email,
+                'password': password,
+                'first_name': firstName,
+                'last_name': lastName
+            };
 
-            grecaptcha.ready(() => {
-                grecaptcha.execute(sitekey, { action: 'AjaxRegister' }).then((token: string) => {
-                    const data = {
-                        'action': 'ajaxregister',
-                        'recaptchaToken': token,
-                        'email': email,
-                        'password': password,
-                        'first_name': firstName,
-                        'last_name': lastName
-                    };
+            const submitButton: HTMLButtonElement | undefined = this.form.querySelector('button[type="submit"]') as HTMLButtonElement || undefined;
 
-                    const submitButton: HTMLButtonElement | undefined = this.form.querySelector('button[type="submit"]') as HTMLButtonElement || undefined;
-                    sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), undefined, event, submitButton);
+            //@ts-ignore
+            if (!window.Cypress) {
+                grecaptcha.ready(() => {
+                    grecaptcha.execute(sitekey, { action: 'AjaxRegister' }).then((token: string) => {
+                        data.recaptchaToken = token;
+                        sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), undefined, event, submitButton);
+                    });
                 });
-            });
+            } else {
+                sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), undefined, event, submitButton);
+            }
 
             return false;
         });
