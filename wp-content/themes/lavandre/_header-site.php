@@ -1,4 +1,4 @@
-<header id="header" class="ww-site-header <?php if (is_front_page() || is_shop()) { echo 'transparent'; } ?>">
+<header id="header" class="ww-site-header <?php if (is_front_page() || (is_shop() && !is_search())) { echo 'transparent'; } ?>">
     <div class="ww-site-header__top">
         <div class="ww-container flex flex-xs-center flex-md-space-between">
             <a class="hide-on-mobile" href="/product/sample-collection/"><?php _e('Request a sample', 'lavandre'); ?></a>
