@@ -143,6 +143,14 @@
       "css": [
         "/landingspage-styles.64fdea17.css"
       ]
+    },
+    "404-styles": {
+      "js": [
+        "/runtime.a0037f62.js"
+      ],
+      "css": [
+        "/404-styles.8abf0c46.css"
+      ]
     }
   }
 }

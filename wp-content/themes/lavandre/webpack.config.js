@@ -23,6 +23,7 @@ Encore
     .addStyleEntry('blogOverviewStyles', './assets/css/pages/blogOverview.pcss')
     .addStyleEntry('sustainability-styles', './assets/css/pages/sustainability.pcss')
     .addStyleEntry('landingspage-styles', './assets/css/pages/landingsPage.pcss')
+    .addStyleEntry('404-styles', './assets/css/pages/404.pcss')
     .splitEntryChunks()
     .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()
