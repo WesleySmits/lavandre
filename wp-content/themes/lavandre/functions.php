@@ -138,3 +138,15 @@ function get_accordion($category, $amount = 6) {
         wp_reset_postdata();
     }
 }
+
+function redirect_customer_service() {
+    $path = $_SERVER['REQUEST_URI'];
+    $post = get_post();
+    $id = !empty( $post ) ? $post->ID : 0;
+
+    if ($id !== 294) return;
+
+    $url = site_url( '/customer-service/top-questions' );
+    wp_safe_redirect($url, 301);
+}
+add_action( 'template_redirect', 'redirect_customer_service' );

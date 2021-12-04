@@ -26,7 +26,7 @@ describe('Test the order flow', () => {
         cy.url().should('contain', 'cart');
 
         cy.get('[data-cy="subtotal"] [data-product-price]').invoke('text').then((text) => {
-            expect(text).to.eq(productPrice);
+            expect(text.replace(',', '.')).to.eq(productPrice.replace(',', '.'));
         });
     });
 
