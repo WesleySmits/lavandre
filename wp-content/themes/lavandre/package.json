@@ -4,7 +4,7 @@
     "description": "Website for Lavandré",
     "husky": {
         "hooks": {
-            "pre-commit": "yarn prod && yarn test && yarn cypress"
+            "pre-commit": "yarn prod && yarn cypress && yarn test"
         }
     },
     "scripts": {
