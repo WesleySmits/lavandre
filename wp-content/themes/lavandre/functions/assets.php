@@ -143,6 +143,7 @@ function loadWebpackModules(): void {
     if (is_product()) loadEncoreModule('product-styles');
     if (is_product()) loadEncoreModule('productDetail');
     if (is_cart()) loadEncoreModule('cart');
+    if (is_404()) loadEncoreModule('404-styles');
     if (is_account_page() && is_user_logged_in()) loadEncoreModule('account-styles');
     if (is_checkout()) loadEncoreModule('checkout');
     if (get_post_type() === 'faqs') loadEncoreModule('customerServiceStyles');
