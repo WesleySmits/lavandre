@@ -1,12 +1,10 @@
 import Component from '../common/Component';
 import DataLayer from '../common/DataLayer';
-import { ToastType } from '../enums/ToastType';
 import { loadRecaptcha, sitekey } from '../util/loadRecaptcha';
 import { sendAjaxRequest } from '../util/requests';
 import ConfirmValidation from './ConfirmValidation';
 import EmailValidation from './EmailValidation';
 import { FieldValidation } from './FieldValidation';
-import Toast from './Toast';
 
 export default class AjaxRegister extends Component {
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
@@ -126,32 +124,15 @@ export default class AjaxRegister extends Component {
             throw new Error('something is wrong');
         }
 
-        const ctaButton: ctaButton = {
-            text: 'My account',
-            href: '/my-account/'
-        }
-        const toast: Toast = new Toast(
-            response.data,
-            ToastType.success,
-            ctaButton,
-            20000
-        );
-
-        toast.initialize();
-
-        const panel: HTMLDialogElement | null = this.form.closest('[data-panel-name]');
-        if (panel) {
-            panel.dispatchEvent(new CustomEvent('toggle'));
-        }
-
-        document.body.classList.add('logged-in');
-
         const data: GoogleAnalyticsEvent = {
             event: 'sign-up',
             method: 'AjaxRegister'
         };
 
         DataLayer.push(data);
+
+        const href: string = this.form.dataset.redirectUrl || '/my-account/';
+        window.location.href = href;
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {
