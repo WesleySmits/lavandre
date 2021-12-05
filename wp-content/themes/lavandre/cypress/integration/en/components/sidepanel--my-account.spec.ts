@@ -102,22 +102,22 @@ describe('My account sidepanel tests', () => {
         });
     });
 
-    it('should log in to new account', () => {
-        const formId: string = '#ajax-login-form'
-        cy.openSidePanel({ toggle: toggleSelector, panel: panelSelector });
+    // it('should log in to new account', () => {
+    //     const formId: string = '#ajax-login-form'
+    //     cy.openSidePanel({ toggle: toggleSelector, panel: panelSelector });
 
-        cy.get(`${formId} [name="username"]`).type(userEmail);
-        cy.get(`${formId} [name="password"]`).type('Johndoe_1993');
+    //     cy.get(`${formId} [name="username"]`).type(userEmail);
+    //     cy.get(`${formId} [name="password"]`).type('Johndoe_1993');
 
-        cy.intercept('POST', adminAjaxUrl).as('ajaxCall');
-        cy.get(formId).submit();
+    //     cy.intercept('POST', adminAjaxUrl).as('ajaxCall');
+    //     cy.get(formId).submit();
 
-        cy.wait('@ajaxCall').then(({ response }) => {
-            expect(response.statusCode).to.eq(200);
-            expect(response.body.success).eq(true);
-            cy.get('.toast').should('be.visible');
-            cy.get(panelSelector).should('not.be.visible');
-            cy.get('body').should('have.class', 'logged-in');
-        });
-    });
+    //     cy.wait('@ajaxCall').then(({ response }) => {
+    //         expect(response.statusCode).to.eq(200);
+    //         expect(response.body.success).eq(true);
+    //         cy.get('.toast').should('be.visible');
+    //         cy.get(panelSelector).should('not.be.visible');
+    //         cy.get('body').should('have.class', 'logged-in');
+    //     });
+    // });
 });
