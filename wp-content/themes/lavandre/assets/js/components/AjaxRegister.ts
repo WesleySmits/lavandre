@@ -132,10 +132,7 @@ export default class AjaxRegister extends Component {
         DataLayer.push(data);
 
         const href: string = this.form.dataset.redirectUrl || '/my-account/';
-        if (this.form.dataset.redirect === 'true') {
-            window.location.href = href;
-            return;
-        }
+        window.location.href = href;
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {
