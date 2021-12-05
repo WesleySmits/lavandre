@@ -21,7 +21,7 @@ function add_faq_post_type() {
         'label'               => __( 'faqs', 'twentytwenty' ),
         'description'         => __( 'FAQs', 'twentytwenty' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', ),
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes' ),
         'taxonomies'          => array( 'faq-categories' ),
         'hierarchical'        => false,
         'public'              => true,

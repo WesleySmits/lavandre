@@ -30,11 +30,11 @@
                     $taxonomies = get_object_taxonomies( (object) array( 'post_type' => $post_type ) );
                     foreach( $taxonomies as $taxonomy ) {
                         $terms = get_terms( $taxonomy );
-                        foreach( $terms as $term) {
+                        foreach( $terms as $loop_term) {
                             ?>
                                 <li class="side-navigation__item">
-                                    <a href="<?php echo get_term_link($term, $taxonomy); ?>" class="side-navigation__link">
-                                        <?php echo $term->name; ?>
+                                    <a href="<?php echo get_term_link($loop_term, $taxonomy); ?>" class="side-navigation__link">
+                                        <?php echo $loop_term->name; ?>
                                     </a>
                                 </li>
                             <?php
@@ -45,9 +45,21 @@
         </nav>
 
         <div class="page-content" itemscope itemtype="https://schema.org/FAQPage">
-            <?php if ( have_posts() ) { ?>
-                <?php while ( have_posts() ) { ?>
-                    <?php the_post(); ?>
+            <?php
+                $args = array(
+                    'post_type' => 'faqs',
+                    'posts_per_page' => -1,
+                    'taxonomy' => 'faq_category',
+                    'term' => $term->slug,
+                    'orderby' => 'menu_order',
+                    'order' => 'ASC',
+                );
+                $faqs = new WP_Query( $args );
+            ?>
+
+            <?php if ( $faqs->have_posts() ) { ?>
+                <?php while ( $faqs->have_posts() ) { ?>
+                    <?php $faqs->the_post(); ?>
                     <div class="question">
                         <h2 itemprop="name"><?php echo get_the_title(); ?></h2>
 
