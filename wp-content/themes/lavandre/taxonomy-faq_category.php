@@ -19,7 +19,7 @@
 <main <?php post_class( 'site-main' ); ?> role="main">
     <div class="page-wrapper">
         <header class="ww-page-banner">
-            <img src="<?php echo $top_banner ?>" alt="" />
+            <img src="<?php echo $top_banner['url'] ?>" srcset="<?php echo $top_banner['sizes']['medium_large'] ?> 768w, <?php echo $top_banner['sizes']['1536x1536'] ?> 1536w, <?php echo $top_banner['url'] ?> 2560w" alt="" />
             <h1 class="ww-page-banner__overlay ww-page-banner__title ww-page-banner__title--large"><?php echo $top_banner_title; ?></h1>
         </header>
 
