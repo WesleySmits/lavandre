@@ -27,9 +27,15 @@
            <ul>
             <?php
                     $post_type = 'faqs';
-                    $taxonomies = get_object_taxonomies( (object) array( 'post_type' => $post_type ) );
+                    $taxonomies = get_object_taxonomies( (object) array(
+                        'post_type' => $post_type,
+                    ) );
                     foreach( $taxonomies as $taxonomy ) {
-                        $terms = get_terms( $taxonomy );
+                        $terms = get_terms([
+                            'taxonomy' => $taxonomy,
+                            'order' => 'ASC',
+                            'orderby' => 'term_order'
+                        ]);
                         foreach( $terms as $loop_term) {
                             ?>
                                 <li class="side-navigation__item">
