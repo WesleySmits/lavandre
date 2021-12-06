@@ -23,8 +23,8 @@
                         </li>
 
                         <li>
-                            <a href="/customer-service/payment">
-                                <span><?php _e('Payment', 'lavandre'); ?></span>
+                            <a href="/customer-service/account/">
+                                <span><?php _e('Account', 'lavandre'); ?></span>
                             </a>
                         </li>
 
@@ -35,8 +35,21 @@
                         </li>
 
                         <li>
+                            <a href="/customer-service/payment/">
+                                <span><?php _e('Payment', 'lavandre'); ?></span>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="/customer-service/shipping/">
+                                <span><?php _e('Shipping', 'lavandre'); ?></span>
+                            </a>
+                        </li>
+
+                        <li>
                             <a href="/customer-service/returns/">
-                                <span><?php _e('Return Policy', 'lavandre'); ?></span>
+                                <span><?php _e('Returns', 'lavandre'); ?></span>
                             </a>
                         </li>
                     </ul>
@@ -45,7 +58,6 @@
                 <section class="side-panel__section">
                     <h2><?php _e('Frequently asked questions', 'lavandre'); ?></h2>
                     <?php get_accordion('faq', 10); ?>
-                    <a class="cta-link" href="/customer-service"><?php _e('All FAQ\'s', 'lavandre'); ?></a>
                 </section>
             </div>
     </dialog>

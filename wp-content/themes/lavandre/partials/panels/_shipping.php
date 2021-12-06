@@ -11,7 +11,7 @@
 
                 <section class="side-panel__section">
                     <p>
-                        <?php _e('Free shipping on orders over €75', 'lavandre'); ?>
+                        <?php _e('Free shipping on orders over €75.', 'lavandre'); ?>
                     </p>
                 </section>
 
