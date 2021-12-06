@@ -2,8 +2,8 @@
     <div class="ww-site-header__top">
         <div class="ww-container flex flex-xs-center flex-md-space-between">
             <a class="hide-on-mobile" href="/product/sample-collection/"><?php _e('Request a sample', 'lavandre'); ?></a>
-            <a href="/customer-service/order-and-delivery/" id="delivery-info-toggle" data-panel="order-delivery"><?php echo get_first_delivery_date(); ?></a>
-            <a class="hide-on-mobile" href="/customer-service/" id="customer-service-toggle" data-panel="customer-service"><?php _e('Customer service', 'lavandre'); ?></a>
+            <a href="/customer-service/shipping/" id="delivery-info-toggle" data-panel="shipping"><?php echo get_first_delivery_date(); ?></a>
+            <a class="hide-on-mobile" href="/customer-service/faq" id="customer-service-toggle" data-panel="customer-service"><?php _e('Customer service', 'lavandre'); ?></a>
         </div>
     </div>
 
