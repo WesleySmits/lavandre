@@ -17,12 +17,6 @@
                 <nav class="side-panel__section side-panel__section--bordered side-panel__navigation side-panel__navigation--no-border side-panel__navigation--compact">
                     <ul class="no-list">
                         <li>
-                            <a href="/customer-service">
-                                <span><?php _e('Customer Service', 'lavandre'); ?></span>
-                            </a>
-                        </li>
-
-                        <li>
                             <a href="/contact">
                                 <span><?php _e('Contact', 'lavandre'); ?></span>
                             </a>
@@ -35,8 +29,8 @@
                         </li>
 
                         <li>
-                            <a href="/customer-service/order-and-delivery/">
-                                <span><?php _e('Order and Delivery', 'lavandre'); ?></span>
+                            <a href="/customer-service/orders/">
+                                <span><?php _e('Orders', 'lavandre'); ?></span>
                             </a>
                         </li>
 
@@ -50,7 +44,7 @@
 
                 <section class="side-panel__section">
                     <h2><?php _e('Frequently asked questions', 'lavandre'); ?></h2>
-                    <?php get_accordion('top-questions', 10); ?>
+                    <?php get_accordion('faq', 10); ?>
                     <a class="cta-link" href="/customer-service"><?php _e('All FAQ\'s', 'lavandre'); ?></a>
                 </section>
             </div>

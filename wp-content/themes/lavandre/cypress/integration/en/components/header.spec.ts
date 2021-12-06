@@ -22,8 +22,8 @@ describe('Header tests - desktop', () => {
     });
 
     it('should have a functioning delivery info sidepanel', () => {
-        const toggleSelector: string = '[data-panel="order-delivery"]';
-        const panelSelector: string = '[data-panel-name="order-delivery"]';
+        const toggleSelector: string = '[data-panel="shipping"]';
+        const panelSelector: string = '[data-panel-name="shipping"]';
 
         cy.get(toggleSelector).each(($element) => {
             cy.wrap($element).click();

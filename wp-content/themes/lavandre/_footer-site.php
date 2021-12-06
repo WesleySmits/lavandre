@@ -56,10 +56,10 @@
                 </header>
 
                 <ul class="no-list" data-curtain-content="footer-column-1" data-only-on-mobile="true">
-                    <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/"><?php _e('Customer service', 'lavandre'); ?></a></li>
                     <li class="footer-links__item"><a class="footer-links__anchor" href="/contact/"><?php _e('Contact', 'lavandre'); ?></a></li>
                     <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/payment/"><?php _e('Payment', 'lavandre'); ?></a></li>
-                    <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/order-and-delivery/"><?php _e('Ordering and delivery', 'lavandre'); ?></a></li>
+                    <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/orders/"><?php _e('Orders', 'lavandre'); ?></a></li>
+                    <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/shipping/"><?php _e('Shipping', 'lavandre'); ?></a></li>
                     <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/returns/"><?php _e('Returns', 'lavandre'); ?></a></li>
                 </ul>
             </section>
@@ -72,7 +72,8 @@
                 <ul class="no-list" data-curtain-content="footer-column-2" data-only-on-mobile="true">
                     <li class="footer-links__item"><a class="footer-links__anchor" href="/my-account/"><?php _e('My account', 'lavandre'); ?></a></li>
                     <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/payment/"><?php _e('Payment', 'lavandre'); ?></a></li>
-                    <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/order-and-delivery/"><?php _e('Ordering and delivery', 'lavandre'); ?></a></li>
+                    <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/orders/"><?php _e('Orders', 'lavandre'); ?></a></li>
+                    <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/shipping/"><?php _e('Shipping', 'lavandre'); ?></a></li>
                     <li class="footer-links__item"><a class="footer-links__anchor" href="/customer-service/returns/"><?php _e('Returns', 'lavandre'); ?></a></li>
                 </ul>
             </section>

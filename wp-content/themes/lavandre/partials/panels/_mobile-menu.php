@@ -83,12 +83,6 @@
                     </li>
 
                     <li>
-                        <a href="/customer-service">
-                            <span><?php _e('Customer service', 'lavandre'); ?></span>
-                        </a>
-                    </li>
-
-                    <li>
                         <a href="/contact">
                             <span><?php _e('Contact', 'lavandre'); ?></span>
                         </a>

@@ -9,7 +9,6 @@ const navigationPages: string[] = [
     'My account',
     'Request sample',
     'Sustainability',
-    'Customer service',
     'Contact',
     'Log in',
     'Register'

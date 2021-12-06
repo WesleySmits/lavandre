@@ -142,7 +142,7 @@ function get_accordion($category, $amount = 6) {
 function redirect_customer_service() {
     if ($_SERVER['REQUEST_URI'] !== "/customer-service/") return;
 
-    $url = site_url( '/customer-service/top-questions' );
+    $url = site_url( '/customer-service/faq' );
     wp_safe_redirect($url, 301);
 }
 add_action( 'template_redirect', 'redirect_customer_service' );
