@@ -8,7 +8,7 @@
         "/app.26294b60.js"
       ],
       "css": [
-        "/0.b01ea60b.css",
+        "/0.a002d640.css",
         "/app.179bf872.css"
       ]
     },
@@ -28,7 +28,7 @@
         "/productDetail.e4b084dc.js"
       ],
       "css": [
-        "/0.b01ea60b.css"
+        "/0.a002d640.css"
       ]
     },
     "cart": {
@@ -54,7 +54,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/critical-styles.a8616c7b.css"
+        "/critical-styles.729baec9.css"
       ]
     },
     "deferred-styles": {
@@ -89,6 +89,14 @@
         "/contact-styles.5f533488.css"
       ]
     },
+    "legal-styles": {
+      "js": [
+        "/runtime.a0037f62.js"
+      ],
+      "css": [
+        "/legal-styles.d75c3926.css"
+      ]
+    },
     "checkout-styles": {
       "js": [
         "/runtime.a0037f62.js"
@@ -102,7 +110,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/login-styles.0a69e747.css"
+        "/login-styles.b0dacfd1.css"
       ]
     },
     "product-styles": {
@@ -110,7 +118,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/product-styles.b7c66d9a.css"
+        "/product-styles.749b7f47.css"
       ]
     },
     "product-overview-styles": {
@@ -118,7 +126,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/product-overview-styles.778c4aa1.css"
+        "/product-overview-styles.8b7a7e11.css"
       ]
     },
     "account-styles": {
@@ -126,7 +134,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/account-styles.f6fc92b3.css"
+        "/account-styles.4a205fcd.css"
       ]
     },
     "customerServiceStyles": {
@@ -134,7 +142,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/customerServiceStyles.0372c94f.css"
+        "/customerServiceStyles.6466a49b.css"
       ]
     },
     "blogOverviewStyles": {
@@ -142,7 +150,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/blogOverviewStyles.5d7304b9.css"
+        "/blogOverviewStyles.63f8a3a0.css"
       ]
     },
     "sustainability-styles": {
@@ -150,7 +158,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/sustainability-styles.59de07a6.css"
+        "/sustainability-styles.373d8674.css"
       ]
     },
     "landingspage-styles": {
@@ -158,7 +166,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/landingspage-styles.cd6c9c12.css"
+        "/landingspage-styles.2cad8b65.css"
       ]
     },
     "404-styles": {
@@ -166,7 +174,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/404-styles.6b159aee.css"
+        "/404-styles.4f5322cc.css"
       ]
     }
   }
