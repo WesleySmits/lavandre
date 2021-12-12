@@ -24,7 +24,7 @@ if ( ! is_ajax() ) {
 <div id="payment" class="woocommerce-checkout-payment">
 	<?php if ( WC()->cart->needs_payment() ) : ?>
         <fieldset class="ww-payment-methods">
-            <legend class="screen-reader-text">
+            <legend class="sr-only">
                 <?php _e('Choose a payment method', 'lavandre'); ?>
             </legend>
 

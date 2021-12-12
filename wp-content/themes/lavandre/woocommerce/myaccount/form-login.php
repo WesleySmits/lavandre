@@ -45,11 +45,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <button type="submit" is="lavandre-button" data-role="password-forget" primary full-width size="large" name="password-forget" value="<?php esc_attr_e( 'Submit', 'woocommerce' ); ?>"><?php esc_html_e( 'Submit', 'woocommerce' ); ?></button>
                 </form>
 
-                <a href="#" class="back-link" style="margin-top: 1rem;" data-role="password-forget-toggle">
+                <a href="#" class="back-link" data-role="password-forget-toggle">
                     <?php include get_stylesheet_directory() . '/partials/icons/back-arrow.svg.php'; ?>
                     <span><?php esc_html_e( 'Back', 'woocommerce' ); ?></span>
                 </a>
-
             </section>
         </div>
 

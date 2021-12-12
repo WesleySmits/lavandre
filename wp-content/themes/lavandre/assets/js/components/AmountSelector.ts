@@ -1,3 +1,4 @@
+import '../../css/components/_quantity.pcss';
 import Component from "../common/Component";
 import EventEmitter from "../common/EventEmitter";
 

@@ -17,11 +17,11 @@
     <ul class="product-information__items">
         <?php foreach ($order->items as $id => $product) { ?>
             <li class="product-information__item">
-                <div class="product-image flex-col-2">
+                <div class="product-image">
                     <?php echo $product->get_product()->get_image(); ?>
                 </div>
 
-                <div class="product-details flex-col-7">
+                <div class="product-details">
                     <h3><?php echo $product->get_name() ?></h3>
 
                     <dl class="order-details__kvp">
@@ -33,7 +33,7 @@
                     </dl>
                 </div>
 
-                <div class="product-price flex-col-2">
+                <div class="product-price">
                     <span><?php echo $product->get_quantity() . ' x ' . wc_price($product->get_total()); ?></span>
                 </div>
             </li>

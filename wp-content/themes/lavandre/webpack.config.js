@@ -14,6 +14,7 @@ Encore
     .addStyleEntry('deferred-styles', './assets/css/deferred.pcss')
     .addStyleEntry('homepage-styles', './assets/css/pages/homepage.pcss')
     .addStyleEntry('about-styles', './assets/css/pages/about.pcss')
+    .addStyleEntry('contact-styles', './assets/css/pages/contact.pcss')
     .addStyleEntry('checkout-styles', './assets/css/pages/checkout.pcss')
     .addStyleEntry('login-styles', './assets/css/pages/login.pcss')
     .addStyleEntry('product-styles', './assets/css/pages/product.pcss')

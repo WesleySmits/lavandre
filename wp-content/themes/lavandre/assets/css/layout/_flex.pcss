@@ -1,35 +1,7 @@
 .flex {
-    /* Defaults */
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
     flex-wrap: wrap;
-
-    @each $breakpoint, $size in (var(--array-breakpoint)), (var(--array-sizes)) {
-        @media $(breakpoint) {
-            &-$(size)row { flex-direction: row;}
-            &-$(size)column { flex-direction: column;}
-
-            &-$(size)nowrap { flex-wrap: nowrap; }
-
-            &-$(size)space-between { justify-content: space-between; }
-
-            &-$(size)start { justify-content: flex-start; }
-            &-$(size)center { justify-content: center; }
-            &-$(size)end { justify-content: flex-end; }
-
-            &-$(size)align-items-center { align-items: center; }
-
-            &-$(size)half { flex-basis: 48%; max-width: 48%; }
-
-            @each $num in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
-                &-col-$(size)$num,
-                &-col-$(size)$num { flex-basis: calc((100 / 12) * $num%); max-width: calc((100 / 12) * $num%); }
-                &-$(size)order-$num { order: $num; }
-
-            }
-        }
-    }
 }
 
 .flex-grid {

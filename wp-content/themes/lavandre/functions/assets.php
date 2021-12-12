@@ -160,6 +160,10 @@ function loadWebpackModules(): void {
         loadEncoreModule('about-styles');
     }
 
+    if (is_page_template('template-parts/contact.php')) {
+        loadEncoreModule('contact-styles');
+    }
+
     // #TODO: Get id's somehow
     if (
         (is_account_page() && !is_user_logged_in())

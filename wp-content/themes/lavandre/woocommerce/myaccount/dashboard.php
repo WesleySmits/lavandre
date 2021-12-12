@@ -67,15 +67,13 @@ $user_id = get_current_user_id();
     </section>
 <?php } ?>
 
-<section id="milestones" class="flex">
-    <div class="flex-col-xs-12 flex-col-lg-5 flex-xs-order-1 flex-lg-order-2">
-        <h1><?php _e('Your contribution', 'lavandre'); ?></h1>
-        <p>
-            <?php echo sprintf(__('
-                You have planted <strong>%s trees</strong>.
-            ', 'lavandre'), $user_trees); ?>
-        </p>
-    </div>
+<section id="milestones">
+    <h1><?php _e('Your contribution', 'lavandre'); ?></h1>
+    <p>
+        <?php echo sprintf(__('
+            You have planted <strong>%s trees</strong>.
+        ', 'lavandre'), $user_trees); ?>
+    </p>
 </section>
 
 <script src="https://unpkg.com/@popperjs/core@2"></script>
