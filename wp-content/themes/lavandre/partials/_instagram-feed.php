@@ -1,6 +1,6 @@
 <section id="instagram-feed" class="ww-block ww-block--border-top">
-    <header class="ww-container" style="align-self: flex-start;">
-        <h4>SHOP OUR INSTAGRAM</h4>
+    <header class="ww-container">
+        <h4><?php _e('SHOP OUR INSTAGRAM', 'lavandre'); ?></h4>
         <h2>@lavandrebeauty</h2>
     </header>
 

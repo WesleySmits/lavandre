@@ -47,7 +47,7 @@
                     </p>
 
                     <p class="woocommerce-LostPassword lost_password">
-                        <a class="text-italic" href="/my-account/lost-password/" data-role="password-forget"><?php _e('Forgot password?', 'lavandre'); ?></a>
+                        <a class="accent-link" href="/my-account/lost-password/" data-role="password-forget"><?php _e('Forgot password?', 'lavandre'); ?></a>
                     </p>
                     <button
                         type="submit"

@@ -24,7 +24,7 @@
 
     <section class="ww-footer__middle">
         <div class="ww-footer__column ww-footer__social">
-            <section class="ww-footer__subscribe flex flex-column">
+            <section class="ww-footer__subscribe flex">
                 <h3 class="footer__h3"><?php _e('Stay up to date', 'lavandre'); ?></h3>
 
                 <div class="ww-footer__subscribe-form-wrapper">

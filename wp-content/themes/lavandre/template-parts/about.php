@@ -7,6 +7,7 @@
 
     $about_banner = get_field('introduction_photo');
     $bottom_banner = get_field('section_1_image');
+    $company = getCompany();
 
     get_header();
 ?>
@@ -15,45 +16,34 @@ while ( have_posts() ) : the_post();
 	?>
 
     <main <?php post_class( 'site-main' ); ?> role="main">
-        <article class="about-us-page">
-            <header class="ww-block ww-block--large about__header bg-saltpan">
-                <div class="ww-container ww-container--mid">
-                    <h1 class="about__header__title text-center h2"><?php echo get_field('intro_title'); ?></h1>
+        <section class="full-width-banner-block full-width-banner-block--bordered">
+            <div class="full-width-banner-block__link full-width-banner-block__half-photo full-width-banner-block__half-photo--alt">
+                <div class="background-noise"></div>
+                <img src="/wp-content/themes/lavandre/public/images/wesley-maria.jpeg" alt="Lavandré Founders - Wesley & Maria">
+            </div>
 
-                    <div class="about__text-wrapper">
-                        <div class="about__text"><?php echo get_field('intro_paragraph_1'); ?></div>
-                        <div class="about__text"><?php echo get_field('intro_paragraph_2'); ?></div>
-                    </div>
-                </div>
-            </header>
+            <div class="full-width-banner-block__link full-width-banner-block__text">
+                <h1><?php echo __('Meet the Founders', 'lavandre'); ?></h1>
+                <p><?php echo sprintf(__('The founders of %s, Annemarie, Maria and Wesley set out in %s to create an online beauty brand. They didn’t want to create just another product to a saturated market. Their creation had to have a purpose. They created a line of products that ticks all the boxes: easy-to-use, clean ingredients, immediately satisfying and so pretty you’d want them on display.', 'lavandre'), $company->getBrandName(), $company->getFoundingDate()); ?></p>
+                <p><?php echo __('Every day towels are used in the beauty industry and they are so important to the well-being of healthy skin. With connections to the leading fibre houses with the latest technology, they were able to develop a product that adhered to this philosophy and reimagined the beauty segment as we know it. Creating the most advanced medically graded body, hair, and face towels has allowed the brand to position these products as mush-haves in the beauty industry.', 'lavandre'); ?></p>
+            </div>
+        </section>
 
-            <section class="ww-block about__intro">
-                <div class="ww-container ww-container--large">
-                    <div class="about__intro__wrapper">
-                        <div class="about__intro__text"><?php echo get_field('introduction_paragraph'); ?></div>
-                        <div class="about__intro__banner-wrapper"><img class="about__intro__banner" src="<?php echo $about_banner; ?>" alt="" width="528" height="528"></div>
-                    </div>
-                </div>
-            </section>
+        <section class="full-width-banner-block full-width-banner-block--alt">
+            <div class="background-noise"></div>
+            <div class="full-width-banner-block__link full-width-banner-block__text">
 
-            <section class="ww-block ww-block--large bg-saltpan">
-                <div class="ww-container ww-container--small">
-                    <h2 class="text-center"><?php echo get_field('section_1_title'); ?></h2>
-                    <div class="text-center"><?php echo get_field('section_1__intro'); ?></div>
-                </div>
-            </section>
+                <h1><?php echo __('Can upgrading your towel really transform your skin?', 'lavandre'); ?></h1>
+                <p><?php echo __('The towel you use matters as much as the treatment you perform. Washing your towel in a standard washing machine does not remove all bacteria, mildew, mould, and other highly potent skin irritants that not only collect on the skin, but clog the pores, flare up acne and trigger infection.', 'lavandre'); ?></p>
+                <p><?php echo __('It’s why we did this: A naturally hygienic and hypoallergenic towel that is fresh and clean so the skin stays that way too. Unlike standard cotton towels, our towel doesn’t breed or harbour bacteria, so you can spend less time washing your towel and more time enjoying your laundry free day.', 'lavandre'); ?></p>
+            </div>
 
-            <section class="ww-block ww-block--large">
-                <div class="ww-container ww-container--medium">
-                    <div class="about__text-wrapper">
-                        <div class="about__text"><?php echo get_field('section_1_paragraph_1'); ?></div>
-                        <div class="about__text"><?php echo get_field('section_1_paragraph_2'); ?></div>
-                    </div>
+            <div class="full-width-banner-block__link full-width-banner-block__half-photo">
+                <img src="/wp-content/themes/lavandre/public/images/banners/about.jpeg" alt="Lavandré">
+            </div>
+        </section>
 
-                    <img class="about__bottom-banner" src="<?php echo $bottom_banner; ?>" alt="">
-                </div>
-            </section>
-        </article>
+        <?php include get_stylesheet_directory() . '/partials/_instagram-feed.php'; ?>
     </main>
 
 	<?php

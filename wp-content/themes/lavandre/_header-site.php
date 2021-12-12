@@ -1,6 +1,6 @@
 <header id="header" class="ww-site-header <?php if (is_front_page() || (is_shop() && !is_search())) { echo 'transparent'; } ?>">
     <div class="ww-site-header__top">
-        <div class="ww-container flex flex-xs-center flex-md-space-between">
+        <div class="ww-container ww-site-header__top__container flex">
             <a class="hide-on-mobile" href="/product/sample-collection/"><?php _e('Request a sample', 'lavandre'); ?></a>
             <a href="/customer-service/shipping/" id="delivery-info-toggle" data-panel="shipping"><?php echo get_first_delivery_date(); ?></a>
             <a class="hide-on-mobile" href="/customer-service/faq" id="customer-service-toggle" data-panel="customer-service"><?php _e('Customer service', 'lavandre'); ?></a>
@@ -8,7 +8,7 @@
     </div>
 
     <div class="ww-site-header__middle flex">
-        <div class="ww-container flex flex-nowrap flex-align-items-center">
+        <div class="ww-container ww-site-header__middle__container flex">
             <button class="ww-site-header__menu-toggle no-button hide-on-desktop" data-panel="mobile-menu" aria-label="mobile-menu-toggle">
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lavandre/partials/icons/bars.svg.php'; ?>
             </button>
@@ -17,8 +17,8 @@
                 <?php include get_stylesheet_directory() . '/public/images/logos/lavandre-logo-open.svg'; ?>
             </a>
 
-            <nav class="ww-site-header__nav flex flex-center hide-on-mobile hide-on-tablet">
-                <ul class="no-list inline-list flex flex-center">
+            <nav class="ww-site-header__nav flex hide-on-mobile hide-on-tablet">
+                <ul class="no-list inline-list flex">
                     <li class="ww-site-header__nav-item">
                         <a class="ww-site-header__nav-link" href="/blog/"><?php _e('Blog', 'lavandre'); ?></a>
                     </li>
@@ -33,10 +33,10 @@
                 </ul>
             </nav>
 
-            <nav class="ww-site-header__icons flex flex-end">
-                <ul class="no-list inline-list flex-nowrap">
+            <nav class="ww-site-header__icons flex">
+                <ul class="no-list inline-list">
                     <li class="header__search hide-on-mobile hide-on-tablet">
-                        <div class="flex flex-nowrap">
+                        <div class="flex">
                             <button type="button" class="no-button" aria-label="Search button">
                                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lavandre/partials/icons/search.svg.php'; ?>
                             </button>

@@ -13,9 +13,9 @@
 
 <link rel="stylesheet" href="https://use.typekit.net/nck3hxz.css">
 
-<!-- <style>
-    <?php include get_stylesheet_directory() . str_replace(get_site_url() . '/wp-content/themes/lavandre', '', asset('critical-styles.css', true)); ?>
-</style> -->
+<?php //<style> ?>
+    <?php //include get_stylesheet_directory() . str_replace(get_site_url() . '/wp-content/themes/lavandre', '', asset('critical-styles.css', true)); ?>
+<?php // </style> ?>
 
 <link
     rel="preload"
