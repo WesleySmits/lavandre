@@ -1,0 +1,31 @@
+.full-video {
+    position: relative;
+
+    picture,
+    video {
+        width: 100%;
+        max-height: 100vh;
+        object-fit: cover;
+
+        @media (orientation: landscape) {
+            height: 100vh;
+        }
+    }
+}
+
+.full-video__see-more {
+    position: absolute;
+    right: 0;
+    bottom: 3.75rem;
+    left: 0;
+    width: 1.5rem;
+    margin: auto;
+    cursor: pointer;
+
+    animation: bounce 2s infinite both;
+
+    svg {
+        fill: white;
+        stroke: white;
+    }
+}

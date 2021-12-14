@@ -15,10 +15,19 @@
     "home": {
       "js": [
         "/runtime.a0037f62.js",
-        "/home.5517a2a0.js"
+        "/home.4e6cff8d.js"
       ],
       "css": [
         "/home.461f3a88.css"
+      ]
+    },
+    "sustainability": {
+      "js": [
+        "/runtime.a0037f62.js",
+        "/sustainability.dee8ffd6.js"
+      ],
+      "css": [
+        "/sustainability.461f3a88.css"
       ]
     },
     "productDetail": {
@@ -54,7 +63,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/critical-styles.729baec9.css"
+        "/critical-styles.0ab7a736.css"
       ]
     },
     "deferred-styles": {
@@ -70,7 +79,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/homepage-styles.c40483d4.css"
+        "/homepage-styles.70d39804.css"
       ]
     },
     "about-styles": {
@@ -158,7 +167,7 @@
         "/runtime.a0037f62.js"
       ],
       "css": [
-        "/sustainability-styles.373d8674.css"
+        "/sustainability-styles.db5e6df2.css"
       ]
     },
     "landingspage-styles": {
