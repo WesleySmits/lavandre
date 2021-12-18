@@ -63,7 +63,7 @@
         "prettier": "2.5.1",
         "ts-jest": "^27.1.2",
         "ts-loader": "^5.4.5",
-        "typescript": "^4.4.3"
+        "typescript": "^4.5.4"
     },
     "dependencies": {
         "@lavandre/button": "0.0.15",
