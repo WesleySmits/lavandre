@@ -1,4 +1,4 @@
-<header id="header" class="ww-site-header <?php if (is_front_page() || (is_shop() && !is_search())) { echo 'transparent'; } ?>">
+<header id="header" class="ww-site-header <?php if (is_front_page() || is_page_template('template-parts/sustainability.php') || (is_shop() && !is_search())) { echo 'transparent'; } ?>">
     <div class="ww-site-header__top">
         <div class="ww-container ww-site-header__top__container flex">
             <a class="hide-on-mobile" href="/product/sample-collection/"><?php _e('Request a sample', 'lavandre'); ?></a>
@@ -25,7 +25,6 @@
 
                     <li class="ww-site-header__nav-item" data-sub-menu="sustainability">
                         <a class="ww-site-header__nav-link" href="/sustainability/"><?php _e('Sustainability', 'lavandre'); ?></a>
-                        <?php include $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lavandre/partials/submenus/sustainability.php'; ?>
                     </li>
 
                     <li class="ww-site-header__nav-item"><a class="ww-site-header__nav-link" href="/shop/"><?php _e('Shop', 'lavandre'); ?></a></li>

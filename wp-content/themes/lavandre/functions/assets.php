@@ -148,8 +148,8 @@ function loadWebpackModules(): void {
     if (is_checkout()) loadEncoreModule('checkout');
     if (get_post_type() === 'faqs') loadEncoreModule('customerServiceStyles');
     if (is_page_template('template-parts/sustainability.php')) {
+        loadEncoreModule('sustainability');
         loadEncoreModule('sustainability-styles');
-        loadEncoreModule('landingspage-styles');
     }
 
     if (is_page_template('template-parts/landingspage.php')) {

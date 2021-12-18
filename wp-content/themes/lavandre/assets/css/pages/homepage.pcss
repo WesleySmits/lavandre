@@ -1,37 +1,6 @@
 @import "../variables/variables.pcss";
 @import "../components/_usp-icons-list.pcss";
-
-#main-banner {
-    position: relative;
-
-    picture,
-    video {
-        width: 100%;
-        max-height: 100vh;
-        object-fit: cover;
-
-        @media (orientation: landscape) {
-            height: 100vh;
-        }
-    }
-}
-
-.main-banner__see-more {
-    position: absolute;
-    right: 0;
-    bottom: 3.75rem;
-    left: 0;
-    width: 1.5rem;
-    margin: auto;
-    cursor: pointer;
-
-    animation: bounce 2s infinite both;
-
-    svg {
-        fill: white;
-        stroke: white;
-    }
-}
+@import "../components/_full-video.pcss";
 
 .ww-products-grid {
     display: grid;

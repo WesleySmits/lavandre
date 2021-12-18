@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 
 <main>
-    <section id="main-banner">
+    <section id="main-banner" class="full-video">
         <video width="1920" autoplay muted loop>
             <source src="https://lavandre.com/wp-content/uploads/2021/09/IMG_4167.mov" type="video/mp4">
         </video>
 
-        <a href="#shop-now" class="no-button main-banner__see-more" data-scroll-to="shop-now">
+        <a href="#shop-now" class="no-button full-video__see-more" data-scroll-to="shop-now">
             <?php include get_stylesheet_directory() . '/partials/icons/down-arrow.svg.php'; ?>
         </a>
     </section>
