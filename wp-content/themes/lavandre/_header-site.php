@@ -23,7 +23,7 @@
                         <a class="ww-site-header__nav-link" href="/blog/"><?php _e('Blog', 'lavandre'); ?></a>
                     </li>
 
-                    <li class="ww-site-header__nav-item" data-sub-menu="sustainability">
+                    <li class="ww-site-header__nav-item">
                         <a class="ww-site-header__nav-link" href="/sustainability/"><?php _e('Sustainability', 'lavandre'); ?></a>
                     </li>
 
