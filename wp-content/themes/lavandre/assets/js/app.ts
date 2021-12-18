@@ -16,7 +16,6 @@ import ForgotPassword from './components/ForgotPassword';
 import SidePanel from './ui/SidePanel';
 import Component from './common/Component';
 import HeaderSearch from './components/HeaderSearch';
-import SubMenu from './components/SubMenu';
 import { setCurrentLinkClass } from './util/links';
 import Module from './Module';
 import LazyLoader from './components/LazyLoader';
@@ -44,7 +43,6 @@ export default class App extends Module {
         AjaxRegister,
         FieldValidation,
         HeaderSearch,
-        SubMenu,
         LazyLoader,
         NewsLetterPopup,
         ScrollToContent

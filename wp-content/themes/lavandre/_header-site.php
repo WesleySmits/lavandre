@@ -25,7 +25,6 @@
 
                     <li class="ww-site-header__nav-item" data-sub-menu="sustainability">
                         <a class="ww-site-header__nav-link" href="/sustainability/"><?php _e('Sustainability', 'lavandre'); ?></a>
-                        <?php include $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lavandre/partials/submenus/sustainability.php'; ?>
                     </li>
 
                     <li class="ww-site-header__nav-item"><a class="ww-site-header__nav-link" href="/shop/"><?php _e('Shop', 'lavandre'); ?></a></li>
