@@ -27,7 +27,7 @@ export function sendAjaxRequest(data: requestData, endpoint: string, loadingElem
         if (loadingElement) removeLoadingState(loadingElement);
         if (button) removeButtonLoadingState(button);
     })).catch((error: Error) => {
-        console.error(error);
+        // console.error(error);
         if (loadingElement) removeLoadingState(loadingElement);
         if (button) removeButtonLoadingState(button);
         if (onFailure) onFailure(error);

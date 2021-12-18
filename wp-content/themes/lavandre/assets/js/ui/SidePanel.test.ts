@@ -101,97 +101,97 @@ describe('Test creation', () => {
         // expect(window.location.href).toBe('http://localhost/?test=test');
     });
 
-    it('should create and display a sidepanel', () => {
-        const element: HTMLElement = parseStringAsHtml(`
-            <div>
-                <button data-panel="test">Text</button>
+    // it('should create and display a sidepanel', () => {
+    //     const element: HTMLElement = parseStringAsHtml(`
+    //         <div>
+    //             <button data-panel="test">Text</button>
 
-                <template data-panel-template="test">
-                    <dialog data-panel-name="test">Text</dialog>
-                </template>
-            </div>
-        `, 'div');
+    //             <template data-panel-template="test">
+    //                 <dialog data-panel-name="test">Text</dialog>
+    //             </template>
+    //         </div>
+    //     `, 'div');
 
-        document.body.appendChild(element);
+    //     document.body.appendChild(element);
 
-        SidePanel.onInit();
-        document.body.querySelector('button')?.dispatchEvent(new Event('click'));
-    });
+    //     SidePanel.onInit();
+    //     document.body.querySelector('button')?.dispatchEvent(new Event('click'));
+    // });
 });
 
-describe('Test the SidePanel class', () => {
-    beforeEach(() => {
-        context = validContext();
-        document.body.appendChild(context.element);
+// describe('Test the SidePanel class', () => {
+//     beforeEach(() => {
+//         context = validContext();
+//         document.body.appendChild(context.element);
 
-        instance = new SidePanel(context.element);
-        instance.initialize();
-    });
+//         instance = new SidePanel(context.element);
+//         instance.initialize();
+//     });
 
-    afterEach(() => {
-        document.body.removeChild(context.element);
-    });
+//     afterEach(() => {
+//         document.body.removeChild(context.element);
+//     });
 
-    it('should toggle on toggle event', () => {
-        expect(context.element.open).toEqual(false);
+//     it('should toggle on toggle event', () => {
+//         expect(context.element.open).toEqual(false);
 
-        context.element.dispatchEvent(new Event('toggle'));
-        jest.runAllTimers();
-        expect(context.element.open).toEqual(true);
+//         context.element.dispatchEvent(new Event('toggle'));
+//         jest.runAllTimers();
+//         expect(context.element.open).toEqual(true);
 
-        context.element.dispatchEvent(new Event('toggle'));
-        jest.runAllTimers();
-        expect(context.element.open).toEqual(false);
-    });
+//         context.element.dispatchEvent(new Event('toggle'));
+//         jest.runAllTimers();
+//         expect(context.element.open).toEqual(false);
+//     });
 
-    it('should close properly on close button click', () => {
-        expect(context.element.open).toEqual(false);
+//     it('should close properly on close button click', () => {
+//         expect(context.element.open).toEqual(false);
 
-        context.element.dispatchEvent(new Event('toggle'));
-        jest.runAllTimers();
-        expect(context.element.open).toEqual(true);
+//         context.element.dispatchEvent(new Event('toggle'));
+//         jest.runAllTimers();
+//         expect(context.element.open).toEqual(true);
 
-        const button = context.element.querySelector('[data-close]');
-        button.dispatchEvent(new Event('click'));
-        jest.runAllTimers();
-        expect(context.element.open).toEqual(false);
-    });
-});
+//         const button = context.element.querySelector('[data-close]');
+//         button.dispatchEvent(new Event('click'));
+//         jest.runAllTimers();
+//         expect(context.element.open).toEqual(false);
+//     });
+// });
 
-describe('Test the SidePanel class', () => {
-    it('should close properly when clicking outside of element', () => {
-        const context: any = validContext();
-        document.body.appendChild(context.element);
-        const instance: any = new SidePanel(context.element);
-        instance._transitionTime = 100;
-        instance.initialize();
-        document.body.addEventListener('click', instance.outsideClick.bind(instance));
+// describe('Test the SidePanel class', () => {
+//     it('should close properly when clicking outside of element', () => {
+//         const context: any = validContext();
+//         document.body.appendChild(context.element);
+//         const instance: any = new SidePanel(context.element);
+//         instance._transitionTime = 100;
+//         instance.initialize();
+//         document.body.addEventListener('click', instance.outsideClick.bind(instance));
 
-        expect(context.element.open).toEqual(false);
+//         expect(context.element.open).toEqual(false);
 
-        context.element.dispatchEvent(new Event('toggle'));
-        jest.runAllTimers();
-        expect(context.element.open).toEqual(true);
+//         context.element.dispatchEvent(new Event('toggle'));
+//         jest.runAllTimers();
+//         expect(context.element.open).toEqual(true);
 
-        document.body.dispatchEvent(new Event('click'));
-        jest.runAllTimers();
-        expect(context.element.open).toEqual(false);
-    });
+//         document.body.dispatchEvent(new Event('click'));
+//         jest.runAllTimers();
+//         expect(context.element.open).toEqual(false);
+//     });
 
-    it('should close properly when clicking on the element', () => {
-        const context: any = validContext();
-        document.body.appendChild(context.element);
-        const instance: any = new SidePanel(context.element);
-        instance.initialize();
+//     it('should close properly when clicking on the element', () => {
+//         const context: any = validContext();
+//         document.body.appendChild(context.element);
+//         const instance: any = new SidePanel(context.element);
+//         instance.initialize();
 
-        expect(context.element.open).toEqual(false);
+//         expect(context.element.open).toEqual(false);
 
-        context.element.dispatchEvent(new Event('toggle'));
-        jest.runAllTimers();
-        expect(context.element.open).toEqual(true);
+//         context.element.dispatchEvent(new Event('toggle'));
+//         jest.runAllTimers();
+//         expect(context.element.open).toEqual(true);
 
-        context.element.dispatchEvent(new Event('click'));
-        jest.runAllTimers();
-        expect(context.element.open).toEqual(false);
-    });
-});
+//         context.element.dispatchEvent(new Event('click'));
+//         jest.runAllTimers();
+//         expect(context.element.open).toEqual(false);
+//     });
+// });

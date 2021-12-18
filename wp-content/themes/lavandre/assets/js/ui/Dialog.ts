@@ -134,6 +134,6 @@ export default abstract class Dialog extends Component {
     }
 
     private polyfillDialog() {
-        dialogPolyfill.registerDialog(this.element);
+        dialogPolyfill?.registerDialog(this.element);
     }
 }

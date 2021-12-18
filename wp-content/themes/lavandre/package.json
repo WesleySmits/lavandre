@@ -15,7 +15,8 @@
         "prod:watch": "yarn prod --watch",
         "lint": "esw ./config/webpack.config.* app --color",
         "lint:watch": "yarn lint --watch",
-        "test": "jest --coverage",
+        "test": "jest",
+        "test:coverage": "jest --coverage",
         "test:watch": "yarn test --watch",
         "cypress": "npx cypress run",
         "cypress:open": "npx cypress open"
@@ -32,10 +33,10 @@
         "@babel/preset-env": "^7.16.5",
         "@babel/register": "^7.16.5",
         "@symfony/webpack-encore": "^0.31.0",
-        "@types/jest": "^27.4.5",
+        "@types/jest": "^27.0.3",
         "@typescript-eslint/eslint-plugin": "^3.0.1",
         "@typescript-eslint/parser": "^3.0.1",
-        "babel-jest": ">=26.0.0 <27.0.0-0",
+        "babel-jest": "27.4.5",
         "babel-loader": "^8.2.3",
         "cssnano": "^4.1.10",
         "cypress": "9.1.1",
@@ -43,8 +44,8 @@
         "eslint-config-airbnb-base": "^14.2.0",
         "eslint-plugin-import": "^2.22.0",
         "eslint-watch": "^7.0.0",
-        "jest": ">=26.0.0 <27.0.0-0",
-        "jest-fetch-mock": "^3.0.1",
+        "jest": ">=27.4.5",
+        "jest-fetch-mock": "^3.0.3",
         "npm-run-all": "^4.1.5",
         "postcss-at-rules-variables": "^0.1.7",
         "postcss-calc": "^7.0.1",
@@ -58,19 +59,14 @@
         "postcss-preset-env": "^6.6.0",
         "postcss-scss": "^2.0.0",
         "postcss-simple-vars": "^4.0.0",
-        "prettier": "2.2.1",
-        "ts-jest": "^26.1.0",
+        "prettier": "2.5.1",
+        "ts-jest": "^27.1.2",
         "ts-loader": "^5.4.5",
-        "typescript": "^4.4.3",
-        "uglifyjs-webpack-plugin": "^2.1.3",
-        "webpack-cli": "^3.3.5",
-        "webpack-dev-server": "^3.5.0",
-        "webpack-md5-hash": "0.0.6"
+        "typescript": "^4.4.3"
     },
     "dependencies": {
         "@lavandre/button": "0.0.15",
         "@ungap/custom-elements": "^1.0.0",
-        "dialog-polyfill": "^0.5.6",
-        "request": "^2.88.2"
+        "dialog-polyfill": "^0.5.6"
     }
 }
