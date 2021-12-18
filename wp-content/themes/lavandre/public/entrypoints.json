@@ -2,188 +2,203 @@
   "entrypoints": {
     "app": {
       "js": [
-        "/runtime.a0037f62.js",
-        "/1.b8e373af.js",
-        "/0.7d3e675c.js",
-        "/app.3a202a09.js"
+        "/runtime.js",
+        "/vendors~app~productDetail.js",
+        "/vendors~app~checkout.js",
+        "/app~cart~checkout~home~productDetail~sustainability.js",
+        "/app~productDetail.js",
+        "/app.js"
       ],
       "css": [
-        "/0.a002d640.css",
-        "/app.179bf872.css"
+        "/app~cart~checkout~home~productDetail~sustainability.css",
+        "/app~productDetail.css",
+        "/app.css"
       ]
     },
     "home": {
       "js": [
-        "/runtime.a0037f62.js",
-        "/home.c1caecdc.js"
+        "/runtime.js",
+        "/app~cart~checkout~home~productDetail~sustainability.js",
+        "/home.js"
       ],
       "css": [
-        "/home.461f3a88.css"
+        "/app~cart~checkout~home~productDetail~sustainability.css"
       ]
     },
     "sustainability": {
       "js": [
-        "/runtime.a0037f62.js",
-        "/sustainability.8fd4015b.js"
+        "/runtime.js",
+        "/app~cart~checkout~home~productDetail~sustainability.js",
+        "/sustainability.js"
       ],
       "css": [
-        "/sustainability.461f3a88.css"
+        "/app~cart~checkout~home~productDetail~sustainability.css"
       ]
     },
     "productDetail": {
       "js": [
-        "/runtime.a0037f62.js",
-        "/0.7d3e675c.js",
-        "/productDetail.baa60890.js"
+        "/runtime.js",
+        "/vendors~app~productDetail.js",
+        "/app~cart~checkout~home~productDetail~sustainability.js",
+        "/app~productDetail.js",
+        "/productDetail.js"
       ],
       "css": [
-        "/0.a002d640.css"
+        "/app~cart~checkout~home~productDetail~sustainability.css",
+        "/app~productDetail.css"
       ]
     },
     "cart": {
       "js": [
-        "/runtime.a0037f62.js",
-        "/cart.e80e0f7e.js"
+        "/runtime.js",
+        "/app~cart~checkout~home~productDetail~sustainability.js",
+        "/cart.js"
       ],
       "css": [
-        "/cart.461f3a88.css"
+        "/app~cart~checkout~home~productDetail~sustainability.css"
       ]
     },
     "checkout": {
       "js": [
-        "/runtime.a0037f62.js",
-        "/checkout.08e41722.js"
+        "/runtime.js",
+        "/vendors~app~checkout.js",
+        "/app~cart~checkout~home~productDetail~sustainability.js",
+        "/checkout~checkout-styles.js",
+        "/checkout.js"
       ],
       "css": [
-        "/checkout.b354b544.css"
+        "/app~cart~checkout~home~productDetail~sustainability.css",
+        "/checkout~checkout-styles.css",
+        "/checkout.css"
       ]
     },
     "critical-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/critical-styles.f5b5de6d.css"
+        "/critical-styles.css"
       ]
     },
     "deferred-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/deferred-styles.b93ecb59.css"
+        "/deferred-styles.css"
       ]
     },
     "homepage-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/homepage-styles.70d39804.css"
+        "/homepage-styles.css"
       ]
     },
     "about-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/about-styles.722794d8.css"
+        "/about-styles.css"
       ]
     },
     "contact-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/contact-styles.5f533488.css"
+        "/contact-styles.css"
       ]
     },
     "legal-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/legal-styles.d75c3926.css"
+        "/legal-styles.css"
       ]
     },
     "checkout-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js",
+        "/checkout~checkout-styles.js"
       ],
       "css": [
-        "/checkout-styles.7367e2b9.css"
+        "/checkout~checkout-styles.css"
       ]
     },
     "login-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/login-styles.b0dacfd1.css"
+        "/login-styles.css"
       ]
     },
     "product-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/product-styles.749b7f47.css"
+        "/product-styles.css"
       ]
     },
     "product-overview-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/product-overview-styles.8b7a7e11.css"
+        "/product-overview-styles.css"
       ]
     },
     "account-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/account-styles.4a205fcd.css"
+        "/account-styles.css"
       ]
     },
     "customerServiceStyles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/customerServiceStyles.6466a49b.css"
+        "/customerServiceStyles.css"
       ]
     },
     "blogOverviewStyles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/blogOverviewStyles.63f8a3a0.css"
+        "/blogOverviewStyles.css"
       ]
     },
     "sustainability-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/sustainability-styles.db5e6df2.css"
+        "/sustainability-styles.css"
       ]
     },
     "landingspage-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/landingspage-styles.2cad8b65.css"
+        "/landingspage-styles.css"
       ]
     },
     "404-styles": {
       "js": [
-        "/runtime.a0037f62.js"
+        "/runtime.js"
       ],
       "css": [
-        "/404-styles.4f5322cc.css"
+        "/404-styles.css"
       ]
     }
   }
