@@ -35,7 +35,7 @@ Encore
     .enableTypeScriptLoader()
     .enableVersioning(Encore.isProduction())
     .configureTerserPlugin((options) => {
-        options.cache = true;
+        // options.cache = true;
         options.parallel = true;
         options.terserOptions = {
             "keep_classnames": true,
@@ -46,6 +46,7 @@ Encore
         from: './assets/images',
         to: 'images/[path][name].[ext]'
     })
+    .addLoader({ test: /\.(png|jpg|jpeg|webp|gif)$/, loader: 'url-loader' })
 ;
 
 module.exports = Encore.getWebpackConfig();

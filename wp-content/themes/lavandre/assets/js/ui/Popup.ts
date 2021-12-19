@@ -1,6 +1,6 @@
 import '../../css/components/_popup.pcss';
-import EventEmitter from "../common/EventEmitter";
-import Dialog from "./Dialog";
+import EventEmitter from '../common/EventEmitter';
+import Dialog from './Dialog';
 
 export default class Popup extends Dialog {
     protected dataAttribute: string = 'data-popup-name';
@@ -8,12 +8,20 @@ export default class Popup extends Dialog {
     protected classes: standardObject = {
         open: 'popup--opened',
         closed: 'popup--closed'
-    }
+    };
 
-    protected static openPopup(popupID: string, element: HTMLElement | null = null, selector: Document | HTMLElement = document): void {
-        let popup: InteractableHTMLDialogElement | null = selector.querySelector(`[data-popup-name="${popupID}"]`);
+    protected static openPopup(
+        popupID: string,
+        element: HTMLElement | null = null,
+        selector: Document | HTMLElement = document
+    ): void {
+        let popup: InteractableHTMLDialogElement | null = selector.querySelector(
+            `[data-popup-name="${popupID}"]`
+        );
         if (popup === null) {
-            const template: HTMLTemplateElement | null = document.querySelector(`[data-popup-template="${popupID}"]`);
+            const template: HTMLTemplateElement | null = document.querySelector(
+                `[data-popup-template="${popupID}"]`
+            );
 
             if (template === null) {
                 if (element && element instanceof HTMLAnchorElement) {
@@ -25,7 +33,7 @@ export default class Popup extends Dialog {
             }
 
             const clone: HTMLTemplateElement = template.cloneNode(true) as HTMLTemplateElement;
-            const content: DocumentFragment = clone.content;
+            const { content } = clone;
 
             template.parentElement?.appendChild(content);
             popup = document.querySelector(`[data-popup-name="${popupID}"]`);
@@ -60,7 +68,7 @@ export default class Popup extends Dialog {
 
     private static handleCreationEvent(this: HTMLElement, event: Event): void {
         event.preventDefault();
-        const popupID: string = this.dataset.popup || "";
+        const popupID: string = this.dataset.popup || '';
 
         Popup.openPopup(popupID, this);
     }

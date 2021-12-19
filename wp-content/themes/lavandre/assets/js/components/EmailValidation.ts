@@ -1,5 +1,5 @@
-import Component from "../common/Component";
-import { sendAjaxRequest } from "../util/requests";
+import Component from '../common/Component';
+import { sendAjaxRequest } from '../util/requests';
 
 export default class EmailValidation extends Component {
     private form: HTMLFormElement;
@@ -29,7 +29,6 @@ export default class EmailValidation extends Component {
                 window.clearTimeout(blurTimeout);
             }
 
-
             blurTimeout = window.setTimeout(() => {
                 this.handleBlurEvent();
             }, 500);
@@ -38,7 +37,7 @@ export default class EmailValidation extends Component {
 
     private handleBlurEvent() {
         const formData: FormData = new FormData(this.form);
-        const value = this.emailInput.value;
+        const { value } = this.emailInput;
         const security = formData.get('woocommerce-email-check-nonce')?.toString() || '';
 
         if (!value) {
@@ -47,11 +46,17 @@ export default class EmailValidation extends Component {
 
         const data = {
             action: 'ajaxemailcheck',
-            'email': value,
-            'security': security,
+            email: value,
+            security
         };
 
-        sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), this.onFailure.bind(this));
+        sendAjaxRequest(
+            data,
+            this.ajaxEndpoint,
+            null,
+            this.onSuccess.bind(this),
+            this.onFailure.bind(this)
+        );
     }
 
     private onSuccess(): void {
@@ -79,20 +84,22 @@ export default class EmailValidation extends Component {
     }
 
     private removeExistingMessages(selector?: HTMLElement) {
-        const grandparent: HTMLElement | null | undefined = selector || this.emailInput.parentElement?.parentElement;
+        const grandparent: HTMLElement | null | undefined =
+            selector || this.emailInput.parentElement?.parentElement;
         if (!grandparent) {
             return;
         }
 
-        const existingValidations: HTMLElement[] = Array.from(grandparent.querySelectorAll('.alert--warning'));
-        existingValidations.forEach((v) => { v.remove(); });
+        const existingValidations: HTMLElement[] = Array.from(
+            grandparent.querySelectorAll('.alert--warning')
+        );
+        existingValidations.forEach((v) => {
+            v.remove();
+        });
     }
 
     private isValid(): boolean {
-        if (
-            !this.emailInput
-            || !this.form
-        ) {
+        if (!this.emailInput || !this.form) {
             return false;
         }
 

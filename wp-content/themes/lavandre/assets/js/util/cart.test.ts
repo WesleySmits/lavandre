@@ -1,4 +1,4 @@
-import { addOrUpdateCartTotals } from "./cart";
+import addOrUpdateCartTotals from "./cart";
 import { parseStringAsHtml } from "./dom";
 
 describe('Test cart utils', () => {

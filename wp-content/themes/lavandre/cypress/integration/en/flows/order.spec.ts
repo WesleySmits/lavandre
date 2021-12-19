@@ -1,4 +1,4 @@
-import { endpoints } from "../../../support/objects/endpoints";
+import endpoints from "../../../support/objects/endpoints";
 
 let productPrice: string = '';
 let shippingPrice: string = '5,95';

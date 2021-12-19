@@ -1,4 +1,4 @@
 type ctaButton = {
-    text: string,
-    href: string
-}
+    text: string;
+    href: string;
+};

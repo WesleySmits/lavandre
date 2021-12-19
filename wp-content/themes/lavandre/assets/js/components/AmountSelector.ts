@@ -1,6 +1,6 @@
 import '../../css/components/_quantity.pcss';
-import Component from "../common/Component";
-import EventEmitter from "../common/EventEmitter";
+import Component from '../common/Component';
+import EventEmitter from '../common/EventEmitter';
 
 export default class AmountSelector extends Component {
     private buttons: HTMLButtonElement[] = [];
@@ -15,7 +15,7 @@ export default class AmountSelector extends Component {
 
     public initialize(): void {
         const eventListener: EventListener = (event: Event) => {
-            const input: HTMLInputElement = event.target as HTMLInputElement
+            const input: HTMLInputElement = event.target as HTMLInputElement;
             if (!input) {
                 return;
             }
@@ -52,7 +52,7 @@ export default class AmountSelector extends Component {
             return;
         }
 
-        let button = target.closest('button');
+        const button = target.closest('button');
         if (!button || !button.parentElement) {
             return;
         }
@@ -63,7 +63,7 @@ export default class AmountSelector extends Component {
         }
 
         this.changeAmount(button, input);
-    }
+    };
 
     private changeAmount(target: HTMLElement, input: HTMLInputElement): void {
         let value = Number(input.value);

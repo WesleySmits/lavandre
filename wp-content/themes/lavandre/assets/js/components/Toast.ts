@@ -1,8 +1,8 @@
 import '../../css/components/_toast.pcss';
 import '@lavandre/button/dist/src/lavandre-button';
-import { LavandreButton } from '@lavandre/button/dist/src/LavandreButton.js';
+import { LavandreButton } from '@lavandre/button/dist/src/LavandreButton';
 
-import { ToastType } from "../enums/ToastType";
+import { ToastType } from '../enums/ToastType';
 
 export default class Toast {
     private message: string;
@@ -71,10 +71,14 @@ export default class Toast {
         message.innerText = this.message;
         paragraph.appendChild(message);
 
-        const closeButton: HTMLButtonElement = document.createElement('BUTTON') as HTMLButtonElement;
+        const closeButton: HTMLButtonElement = document.createElement(
+            'BUTTON'
+        ) as HTMLButtonElement;
         closeButton.classList.add('eicon-close', 'toast__close');
 
-        closeButton.addEventListener('click', () => { this.remove(); });
+        closeButton.addEventListener('click', () => {
+            this.remove();
+        });
 
         container.appendChild(icon);
         container.appendChild(paragraph);
@@ -95,10 +99,7 @@ export default class Toast {
     }
 
     private isValid(): boolean {
-        if (
-            !this.message
-            || !this.type
-        ) {
+        if (!this.message || !this.type) {
             return false;
         }
 

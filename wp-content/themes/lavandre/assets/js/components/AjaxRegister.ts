@@ -4,7 +4,7 @@ import { loadRecaptcha, sitekey } from '../util/loadRecaptcha';
 import { sendAjaxRequest } from '../util/requests';
 import ConfirmValidation from './ConfirmValidation';
 import EmailValidation from './EmailValidation';
-import { FieldValidation } from './FieldValidation';
+import FieldValidation from './FieldValidation';
 
 export default class AjaxRegister extends Component {
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
@@ -25,17 +25,21 @@ export default class AjaxRegister extends Component {
     }
 
     private setEventListeners() {
-
         const emailField: HTMLInputElement | null = this.form.querySelector('input[type="email"]');
         if (emailField !== null) {
             const emailValidation: EmailValidation = new EmailValidation(emailField);
             emailValidation.initialize();
         }
 
-        const passwordField: HTMLInputElement | null = this.form.querySelector('#register-password');
-        const confirmPasswordField: HTMLInputElement | null = this.form.querySelector('#confirm-password');
+        const passwordField: HTMLInputElement | null =
+            this.form.querySelector('#register-password');
+        const confirmPasswordField: HTMLInputElement | null =
+            this.form.querySelector('#confirm-password');
         if (passwordField && confirmPasswordField) {
-            const confirmValidation: ConfirmValidation = new ConfirmValidation(passwordField, confirmPasswordField);
+            const confirmValidation: ConfirmValidation = new ConfirmValidation(
+                passwordField,
+                confirmPasswordField
+            );
             confirmValidation.initialize();
         }
 
@@ -53,7 +57,7 @@ export default class AjaxRegister extends Component {
             validator.initialize();
         }
 
-        this.form.addEventListener('submit', (event: Event) => {
+        this.form.addEventListener('submit', (event: Event): boolean => {
             event.preventDefault();
 
             let valid: boolean = true;
@@ -66,7 +70,7 @@ export default class AjaxRegister extends Component {
             }
 
             if (!valid) {
-                return;
+                return false;
             }
 
             const formData: FormData = new FormData(this.form);
@@ -76,32 +80,52 @@ export default class AjaxRegister extends Component {
             const password: string = formData.get('password')?.toString() || '';
 
             if (!email || !password) {
-                return;
+                return false;
             }
 
             // @ts-ignore
-            const grecaptcha = window.grecaptcha;
+            const { grecaptcha } = window;
             const data = {
-                'action': 'ajaxregister',
-                'recaptchaToken': '',
-                'email': email,
-                'password': password,
-                'first_name': firstName,
-                'last_name': lastName
+                action: 'ajaxregister',
+                recaptchaToken: '',
+                email,
+                password,
+                first_name: firstName,
+                last_name: lastName
             };
 
-            const submitButton: HTMLButtonElement | undefined = this.form.querySelector('button[type="submit"]') as HTMLButtonElement || undefined;
+            const submitButton: HTMLButtonElement | undefined =
+                (this.form.querySelector('button[type="submit"]') as HTMLButtonElement) ||
+                undefined;
 
-            //@ts-ignore
+            // @ts-ignore
             if (!window.Cypress) {
                 grecaptcha.ready(() => {
-                    grecaptcha.execute(sitekey, { action: 'AjaxRegister' }).then((token: string) => {
-                        data.recaptchaToken = token;
-                        sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), undefined, event, submitButton);
-                    });
+                    grecaptcha
+                        .execute(sitekey, { action: 'AjaxRegister' })
+                        .then((token: string) => {
+                            data.recaptchaToken = token;
+                            sendAjaxRequest(
+                                data,
+                                this.ajaxEndpoint,
+                                null,
+                                this.onSuccess.bind(this),
+                                undefined,
+                                event,
+                                submitButton
+                            );
+                        });
                 });
             } else {
-                sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), undefined, event, submitButton);
+                sendAjaxRequest(
+                    data,
+                    this.ajaxEndpoint,
+                    null,
+                    this.onSuccess.bind(this),
+                    undefined,
+                    event,
+                    submitButton
+                );
             }
 
             return false;
@@ -109,9 +133,7 @@ export default class AjaxRegister extends Component {
     }
 
     private isValid(): boolean {
-        if (
-            !this.form
-        ) {
+        if (!this.form) {
             return false;
         }
 

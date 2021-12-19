@@ -1,9 +1,9 @@
-import Component from "../common/Component";
+import Component from '../common/Component';
 
 export default class StickyHeader extends Component {
     private header: HTMLElement;
 
-    private className = "transparent";
+    private className = 'transparent';
 
     constructor(header: HTMLElement) {
         super();
@@ -36,7 +36,6 @@ export default class StickyHeader extends Component {
                 this.removeClass();
             }
         });
-
     }
 
     private getHeaderHeight(): number {
@@ -52,9 +51,7 @@ export default class StickyHeader extends Component {
     }
 
     public static onInit() {
-        const header: HTMLElement | null = document.querySelector(
-            ".ww-site-header"
-        );
+        const header: HTMLElement | null = document.querySelector('.ww-site-header');
         if (!header) {
             return;
         }

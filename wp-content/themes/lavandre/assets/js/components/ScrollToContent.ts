@@ -1,5 +1,5 @@
-import Component from "../common/Component";
-import scrollToTarget from "../util/scrollToTarget";
+import Component from '../common/Component';
+import scrollToTarget from '../util/scrollToTarget';
 
 export default class ScrollToContent extends Component {
     #element: HTMLButtonElement;
@@ -23,7 +23,9 @@ export default class ScrollToContent extends Component {
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {
-        const elements: HTMLButtonElement[] = Array.from(selector.querySelectorAll('[data-scroll-to]'));
+        const elements: HTMLButtonElement[] = Array.from(
+            selector.querySelectorAll('[data-scroll-to]')
+        );
 
         elements.forEach((element) => {
             const targetId = element.dataset.scrollTo || '';

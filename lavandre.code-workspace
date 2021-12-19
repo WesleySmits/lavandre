@@ -1,0 +1,71 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "prettier.requireConfig": true,
+        "prettier.configPath": "wp-content/themes/lavandre/.prettierignore",
+        "prettier.ignorePath": "wp-content/themes/lavandre/.prettierignore",
+
+        "jest.autoRun": {
+            "watch": true,
+            "onStartup": ["all-tests"]
+        },
+
+        "workbench.iconTheme": "vscode-icons",
+
+        "emmet.includeLanguages": { "twig": "html" },
+
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+            "source.fixAll": true
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.linkedEditing": true,
+        "editor.inlineSuggest.enabled": true,
+        "editor.rulers": [120],
+
+        "javascript.preferences.quoteStyle": "single",
+        "typescript.preferences.quoteStyle": "single",
+
+        "javascript.updateImportsOnFileMove.enabled": "always",
+        "typescript.updateImportsOnFileMove.enabled": "always",
+
+        "files.watcherExclude": {
+            "**/.git/objects/**": true,
+            "**/.git/subtree-cache/**": true,
+            "**/node_modules/*/**": true,
+            "**/.hg/store/**": true,
+            "**/vendor/*/**": true,
+            "**/var/*/**": true,
+            "**/translations/*/**": true,
+            "**/public/*/**": true,
+            "**/src/*/**": true,
+            "**/jest/*/**": true
+        },
+
+        "git.autofetch": true,
+        "git.enableSmartCommit": true,
+        "git.confirmSync": false
+    },
+    "extensions": {
+        "recommendations": [
+            "editorconfig.editorconfig",
+            "dbaeumer.vscode-eslint",
+            "eamodio.gitlens",
+            "csstools.postcss",
+            "esbenp.prettier-vscode",
+            "gruntfuggly.todo-tree",
+            "bmewburn.vscode-intelephense-client",
+            "orta.vscode-jest",
+            "atlassian.atlascode",
+            "vscode-icons-team.vscode-icons",
+            "redhat.vscode-yaml",
+            "mikestead.dotenv",
+            "silvenon.mdx"
+        ]
+    }
+}

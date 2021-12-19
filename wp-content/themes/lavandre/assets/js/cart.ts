@@ -1,8 +1,9 @@
-import EventEmitter from "./common/EventEmitter";
-import AddCouponCode from "./components/AddCouponCode";
-import AmountSelector from "./components/AmountSelector";
-import { addOrUpdateCartTotals } from "./util/cart";
-import { sendAjaxRequest } from "./util/requests";
+/* eslint-disable camelcase */
+import EventEmitter from './common/EventEmitter';
+import AddCouponCode from './components/AddCouponCode';
+import AmountSelector from './components/AmountSelector';
+import addOrUpdateCartTotals from './util/cart';
+import { sendAjaxRequest } from './util/requests';
 
 class Cart {
     private eventEmitter: EventEmitter = EventEmitter;
@@ -22,7 +23,6 @@ class Cart {
             if (!element || !element.dataset.panelName) {
                 return;
             }
-
 
             if (element.dataset.panelName === 'cart-panel') {
                 this.handleCartPanel(element as InteractableHTMLDialogElement);
@@ -49,17 +49,23 @@ class Cart {
     }
 
     get cartShortCode() {
-        return (this._cartElement && this._cartElement.classList.contains('custom-cart--mini')) ? '[ww_custom_cart_mini]' : '[ww_custom_cart]';
+        return this._cartElement && this._cartElement.classList.contains('custom-cart--mini')
+            ? '[ww_custom_cart_mini]'
+            : '[ww_custom_cart]';
     }
 
     private setEventListeners(): void {
         this.amountSelector = new AmountSelector(this._cartElement);
         this.amountSelector.initialize();
 
-        const deleteCartItemButtons: HTMLButtonElement[] = Array.from(document.querySelectorAll('[data-delete-item]'));
+        const deleteCartItemButtons: HTMLButtonElement[] = Array.from(
+            document.querySelectorAll('[data-delete-item]')
+        );
         for (let i = 0; i < deleteCartItemButtons.length; i++) {
             const button = deleteCartItemButtons[i];
-            button.addEventListener('click', () => { this.deleteCartItem(button); });
+            button.addEventListener('click', () => {
+                this.deleteCartItem(button);
+            });
         }
 
         this.eventEmitter.on('amount-changed', (input: HTMLInputElement) => {
@@ -76,9 +82,12 @@ class Cart {
             }, this.updateTimeoutDuration);
         });
 
-        const removeCouponCodeLinks: HTMLAnchorElement[] = Array.from(document.querySelectorAll('[data-remove-code]'));
+        const removeCouponCodeLinks: HTMLAnchorElement[] = Array.from(
+            document.querySelectorAll('[data-remove-code]')
+        );
         for (let index = 0; index < removeCouponCodeLinks.length; index++) {
             const anchor: HTMLAnchorElement = removeCouponCodeLinks[index];
+            // eslint-disable-next-line no-loop-func
             anchor.addEventListener('click', (event: Event) => {
                 event.preventDefault();
 
@@ -91,23 +100,33 @@ class Cart {
 
                 const data: requestData = {
                     action: 'coupon_code_remove',
-                    code: code,
+                    code,
                     shortcode: this.cartShortCode
                 };
 
-                sendAjaxRequest(data, this.ajaxEndpoint, this._cartElement, this.updateCart.bind(this), () => { window.location.href = anchor.href; });
+                sendAjaxRequest(
+                    data,
+                    this.ajaxEndpoint,
+                    this._cartElement,
+                    this.updateCart.bind(this),
+                    () => {
+                        window.location.href = anchor.href;
+                    }
+                );
             });
         }
     }
 
     private initializeCouponCodeForm(): void {
-        const couponForm: HTMLFormElement | null = document.getElementById('coupon-code-form') as HTMLFormElement;
+        const couponForm: HTMLFormElement | null = document.getElementById(
+            'coupon-code-form'
+        ) as HTMLFormElement;
         if (couponForm === null) {
             return;
         }
 
         const addCouponCode: AddCouponCode = new AddCouponCode(couponForm);
-            addCouponCode.initialize();
+        addCouponCode.initialize();
     }
 
     private updateCartItem(input: HTMLInputElement): void {
@@ -164,15 +183,20 @@ class Cart {
             shortcode: this.cartShortCode
         };
 
-        sendAjaxRequest(data, this.ajaxEndpoint, this._cartElement, this.updateCartContent.bind(this));
+        sendAjaxRequest(
+            data,
+            this.ajaxEndpoint,
+            this._cartElement,
+            this.updateCartContent.bind(this)
+        );
     }
 
     public updateCartContent(response: ajaxResponse): void {
-        if (!response || !response.data || !response.data['content']) {
+        if (!response || !response.data || !response.data.content) {
             return;
         }
 
-        const content: string = response.data['content'];
+        const { content } = response.data;
 
         this._cartElement.outerHTML = content;
         this._cartElement = document.getElementById('custom-cart') as HTMLUListElement;

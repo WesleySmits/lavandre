@@ -1,5 +1,5 @@
-import { getCookieValue, setCookieValue } from "../util/cookies";
-import Popup from "./Popup"
+import { getCookieValue, setCookieValue } from '../util/cookies';
+import Popup from './Popup';
 
 export default class NewsLetterPopup extends Popup {
     public static onInit(selector: Document | HTMLElement = document): void {
@@ -10,7 +10,7 @@ export default class NewsLetterPopup extends Popup {
         setTimeout(() => {
             NewsLetterPopup.openPopup('newsletter-popup', null, selector);
             setCookieValue('newsletter-popup-seen', 'true', {
-                "max-age": 31536000
+                'max-age': 31536000
             });
         }, 3000);
     }

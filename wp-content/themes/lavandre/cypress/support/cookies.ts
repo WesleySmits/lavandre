@@ -1,7 +1,9 @@
-export const cookieList = {
+const cookieList = {
     approvedCookies: 'approved_cookies',
     newsletterPopupSeen: 'newsletter-popup-seen'
-}
+};
+
+export default cookieList;
 
 before(() => {
     cy.setCookie(cookieList.approvedCookies, 'true');
@@ -9,8 +11,5 @@ before(() => {
 });
 
 Cypress.Cookies.defaults({
-    preserve: [
-        cookieList.approvedCookies,
-        cookieList.newsletterPopupSeen
-    ]
+    preserve: [cookieList.approvedCookies, cookieList.newsletterPopupSeen]
 });

@@ -10,12 +10,16 @@ export default class SidePanel extends Dialog {
         closed: 'side-panel--closed',
         left: 'side-panel--left',
         right: 'side-panel--right'
-    }
+    };
 
-    public static openSidePanel(panelID: string, element: HTMLElement | null = null):void {
-        let panel: InteractableHTMLDialogElement | null = document.querySelector(`[data-panel-name="${panelID}"]`);
+    public static openSidePanel(panelID: string, element: HTMLElement | null = null): void {
+        let panel: InteractableHTMLDialogElement | null = document.querySelector(
+            `[data-panel-name="${panelID}"]`
+        );
         if (panel === null) {
-            const template: HTMLTemplateElement | null = document.querySelector(`[data-panel-template="${panelID}"]`);
+            const template: HTMLTemplateElement | null = document.querySelector(
+                `[data-panel-template="${panelID}"]`
+            );
 
             if (template === null) {
                 if (element && element instanceof HTMLAnchorElement) {
@@ -27,7 +31,7 @@ export default class SidePanel extends Dialog {
             }
 
             const clone: HTMLTemplateElement = template.cloneNode(true) as HTMLTemplateElement;
-            const content: DocumentFragment = clone.content;
+            const { content } = clone;
 
             template.parentElement?.appendChild(content);
             panel = document.querySelector(`[data-panel-name="${panelID}"]`);
@@ -60,14 +64,14 @@ export default class SidePanel extends Dialog {
 
     private static handleCreationEvent(this: HTMLElement, event: Event): void {
         event.preventDefault();
-        const panelID: string = this.dataset.panel || "";
+        const panelID: string = this.dataset.panel || '';
 
         // If already logged in follow link
         if (
-            this instanceof HTMLAnchorElement
-            && (panelID === 'my-account-panel' && document.body.classList.contains('logged-in'))
+            this instanceof HTMLAnchorElement &&
+            panelID === 'my-account-panel' &&
+            document.body.classList.contains('logged-in')
         ) {
-
             window.location.href = this.href;
             return;
         }

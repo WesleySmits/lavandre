@@ -1,36 +1,10 @@
-import "../../css/components/_accordion.pcss";
-import { getAbsoluteHeight } from "../util/dom";
-
-class AccordionElement extends HTMLElement {
-    #curtains: HTMLDetailsElement[] = [];
-
-    protected connectedCallback() {
-        this.#curtains = Array.from(this.querySelectorAll("details"));
-
-        this.#curtains.forEach((curtain) => {
-            curtain.addEventListener("toggle", () => {
-                if (!curtain.open) {
-                    return;
-                }
-
-                this.#closeOtherCurtains(curtain);
-            });
-        });
-    }
-
-    #closeOtherCurtains(curtain: HTMLDetailsElement): void {
-        const otherCurtains = this.#curtains.filter((c) => curtain !== c);
-        otherCurtains.forEach((curtain) => {
-            const curtainElement = curtain as CurtainElement;
-            curtainElement.open = false;
-        });
-    }
-}
+import '../../css/components/_accordion.pcss';
+import { getAbsoluteHeight } from '../util/dom';
 
 class CurtainElement extends HTMLDetailsElement {
-    #summary = this.querySelector("summary") as HTMLElement;
+    #summary = this.querySelector('summary') as HTMLElement;
 
-    #content = this.querySelector(".curtain-content") as HTMLElement;
+    #content = this.querySelector('.curtain-content') as HTMLElement;
 
     #isClosing = false;
 
@@ -66,14 +40,14 @@ class CurtainElement extends HTMLDetailsElement {
     };
 
     protected connectedCallback(): void {
-        this.#summary.addEventListener("click", this.#handleClick, {
+        this.#summary.addEventListener('click', this.#handleClick, {
             capture: true,
             passive: false
         });
     }
 
     protected disconnectedCallback(): void {
-        this.#summary.removeEventListener("click", this.#handleClick);
+        this.#summary.removeEventListener('click', this.#handleClick);
     }
 
     #open(): void {
@@ -84,9 +58,7 @@ class CurtainElement extends HTMLDetailsElement {
 
     #expand(): void {
         const startHeight = `${this.offsetHeight}px`;
-        const endHeight = `${
-            this.#summary.offsetHeight + getAbsoluteHeight(this.#content)
-            }px`;
+        const endHeight = `${this.#summary.offsetHeight + getAbsoluteHeight(this.#content)}px`;
 
         if (this.#animation) {
             this.#animation.cancel();
@@ -94,11 +66,11 @@ class CurtainElement extends HTMLDetailsElement {
 
         this.#animation = this.animate(
             {
-                height: [startHeight, endHeight],
+                height: [startHeight, endHeight]
             },
             {
                 duration: 400,
-                easing: "ease-out",
+                easing: 'ease-out'
             }
         );
 
@@ -118,16 +90,19 @@ class CurtainElement extends HTMLDetailsElement {
 
         this.#animation = this.animate(
             {
-                height: [startHeight, endHeight],
+                height: [startHeight, endHeight]
             },
             {
                 duration: 400,
-                easing: "ease-out",
+                easing: 'ease-out'
             }
         );
 
         this.#animation.onfinish = () => this.#onAnimationFinish(false);
-        this.#animation.oncancel = () => { this.#isClosing = false; this.classList.remove('closing'); };
+        this.#animation.oncancel = () => {
+            this.#isClosing = false;
+            this.classList.remove('closing');
+        };
     }
 
     #onAnimationFinish(open: boolean) {
@@ -141,6 +116,31 @@ class CurtainElement extends HTMLDetailsElement {
         this.dispatchEvent(new Event('toggle'));
     }
 }
+class AccordionElement extends HTMLElement {
+    #curtains: HTMLDetailsElement[] = [];
 
-customElements.define("accordion-element", AccordionElement);
-customElements.define("curtain-element", CurtainElement, { extends: 'details' });
+    protected connectedCallback() {
+        this.#curtains = Array.from(this.querySelectorAll('details'));
+
+        this.#curtains.forEach((curtain) => {
+            curtain.addEventListener('toggle', () => {
+                if (!curtain.open) {
+                    return;
+                }
+
+                this.#closeOtherCurtains(curtain);
+            });
+        });
+    }
+
+    #closeOtherCurtains(curtain: HTMLDetailsElement): void {
+        const otherCurtains = this.#curtains.filter((c) => curtain !== c);
+        otherCurtains.forEach((otherCurtain) => {
+            const curtainElement = otherCurtain as CurtainElement;
+            curtainElement.open = false;
+        });
+    }
+}
+
+customElements.define('accordion-element', AccordionElement);
+customElements.define('curtain-element', CurtainElement, { extends: 'details' });

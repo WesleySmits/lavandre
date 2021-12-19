@@ -1,5 +1,5 @@
-import Component from "../common/Component";
-import { toTitleCase } from "../util/string";
+import Component from '../common/Component';
+import { toTitleCase } from '../util/string';
 
 export default class ChangeVariantColor extends Component {
     private elements: HTMLInputElement[];
@@ -10,7 +10,9 @@ export default class ChangeVariantColor extends Component {
     }
 
     public initialize(): void {
-        const label: HTMLElement | null = document.querySelector('.product-detail__variation__label--color');
+        const label: HTMLElement | null = document.querySelector(
+            '.product-detail__variation__label--color'
+        );
 
         if (!this.elements.length || !label) {
             return;
@@ -35,7 +37,9 @@ export default class ChangeVariantColor extends Component {
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {
-        const radioButtons: HTMLInputElement[] = Array.from(selector.querySelectorAll('[name="attribute_pa_color"]'));
+        const radioButtons: HTMLInputElement[] = Array.from(
+            selector.querySelectorAll('[name="attribute_pa_color"]')
+        );
         if (!radioButtons.length) {
             return;
         }

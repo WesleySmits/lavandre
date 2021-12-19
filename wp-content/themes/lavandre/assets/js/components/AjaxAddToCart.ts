@@ -1,13 +1,17 @@
-import Component from "../common/Component";
-import SidePanel from "../ui/SidePanel";
-import { addOrUpdateCartTotals } from "../util/cart";
-import { sendAjaxRequest } from "../util/requests";
+/* eslint-disable camelcase */
 import Cart from '../cart';
+import Component from '../common/Component';
+import SidePanel from '../ui/SidePanel';
+import addOrUpdateCartTotals from '../util/cart';
+import { sendAjaxRequest } from '../util/requests';
 
 export default class AjaxAddToCart extends Component {
     private form: HTMLFormElement;
+
     private variationFields: HTMLInputElement[];
+
     private button: HTMLButtonElement;
+
     private variationData: any[] = [];
 
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
@@ -15,22 +19,23 @@ export default class AjaxAddToCart extends Component {
     constructor(form: HTMLFormElement) {
         super();
         this.form = form;
-        this.button = this.form.querySelector(`button[name="add-to-cart"]`) as HTMLButtonElement;
-        this.variationFields = Array.from(this.form.querySelectorAll('.product-detail__variations input'));
+        this.button = this.form.querySelector('button[name="add-to-cart"]') as HTMLButtonElement;
+        this.variationFields = Array.from(
+            this.form.querySelectorAll('.product-detail__variations input')
+        );
 
         this.handleChangeVariationAttribute();
 
         const currentSizeName = 'attribute_pa_size';
         const currentSizeValue = this.form[currentSizeName].value;
         this.handleChangeVariationAttribute(currentSizeName, currentSizeValue);
-
     }
 
     public initialize(): void {
         this.variationFields.forEach((variation) => {
             variation.addEventListener('change', () => {
                 this.handleChangeVariationAttribute(variation.name, variation.value);
-            })
+            });
         });
 
         this.button.addEventListener('click', this.handleAddToCartClick.bind(this));
@@ -40,7 +45,7 @@ export default class AjaxAddToCart extends Component {
         const currentOptions: standardObject = {};
         for (let index = 0; index < this.variationFields.length; index++) {
             const variation = this.variationFields[index];
-            const name: string = variation.name;
+            const { name } = variation;
             if (!this.form[name].value) {
                 return;
             }
@@ -55,12 +60,12 @@ export default class AjaxAddToCart extends Component {
             return;
         }
 
-        this.form['variation_id'].value = variationID;
+        this.form.variation_id.value = variationID;
     }
 
     private setFormInvalid(): void {
-        this.form['product_id'].value = '';
-        this.form['variation_id'].value = '';
+        this.form.product_id.value = '';
+        this.form.variation_id.value = '';
     }
 
     private disableNonExistingVariants(name: string = '', value = ''): void {
@@ -77,7 +82,7 @@ export default class AjaxAddToCart extends Component {
         }
 
         this.variationData.forEach((variation) => {
-            const attributes: standardObject = variation.attributes;
+            const { attributes } = variation;
 
             if (!attributes) {
                 throw new Error('no attributes');
@@ -111,7 +116,7 @@ export default class AjaxAddToCart extends Component {
         }
 
         this.variationData.forEach((variation) => {
-            const attributes: standardObject = variation.attributes;
+            const { attributes } = variation;
 
             if (!attributes) {
                 throw new Error('no attributes');
@@ -123,7 +128,7 @@ export default class AjaxAddToCart extends Component {
                 }
             }
 
-            variationID = variation['variation_id'];
+            variationID = variation.variation_id;
         });
 
         return variationID;
@@ -133,8 +138,10 @@ export default class AjaxAddToCart extends Component {
         event.preventDefault();
 
         let variation_id: number = 0;
-        const productIdElement: HTMLInputElement | null = this.form.querySelector('[name="variation_id"]');
-        const variationIdElement: HTMLInputElement | null = this.form.querySelector('[name="variation_id"]');
+        const productIdElement: HTMLInputElement | null =
+            this.form.querySelector('[name="variation_id"]');
+        const variationIdElement: HTMLInputElement | null =
+            this.form.querySelector('[name="variation_id"]');
         if (variationIdElement) {
             variation_id = Number(variationIdElement.value);
         }
@@ -152,7 +159,10 @@ export default class AjaxAddToCart extends Component {
             throw new Error('Product add form is not valid');
         }
 
-        const quantity: number = Number((this.form.querySelector('input[name="quantity"]') as HTMLInputElement)?.value) || 1;
+        const quantity: number =
+            Number(
+                (this.form.querySelector('input[name="quantity"]') as HTMLInputElement)?.value
+            ) || 1;
 
         const data = {
             action: 'ajaxaddtocart',
@@ -161,7 +171,15 @@ export default class AjaxAddToCart extends Component {
             variation_id: variation_id.toString()
         };
 
-        sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), this.onFailure.bind(this), undefined, this.button);
+        sendAjaxRequest(
+            data,
+            this.ajaxEndpoint,
+            null,
+            this.onSuccess.bind(this),
+            this.onFailure.bind(this),
+            undefined,
+            this.button
+        );
 
         return false;
     }

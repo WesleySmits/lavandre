@@ -7,11 +7,11 @@ class DataLayer {
     private dataLayer: dataLayer[];
 
     constructor() {
-        this.dataLayer = (window.dataLayer) ? window.dataLayer : [];
+        this.dataLayer = window.dataLayer ? window.dataLayer : [];
     }
 
     public push(data: dataLayer) {
-        this.dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+        this.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object.
         this.dataLayer.push(data);
     }
 }

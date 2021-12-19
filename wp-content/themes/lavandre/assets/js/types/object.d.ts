@@ -1,1 +1,3 @@
-interface StandardObjectInterface { [key: string]: any }
+interface StandardObjectInterface {
+    [key: string]: any;
+}
