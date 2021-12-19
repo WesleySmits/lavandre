@@ -3,16 +3,8 @@ module.exports = {
     verbose: true,
     collectCoverage: true,
     coverageDirectory: './jest/coverage',
-    testPathIgnorePatterns: [
-        '(.*).spec.js',
-        '(.*)/plugins/editors/(.*)',
-        '(.*)vendor/(.*)'
-    ],
-    transformIgnorePatterns: [
-        "/node_modules/",
-        "/@lavandre/button/",
-        "\\.pnp\\.[^\\\/]+$"
-    ],
+    testPathIgnorePatterns: ['(.*).spec.js', '(.*)/plugins/editors/(.*)', '(.*)vendor/(.*)'],
+    transformIgnorePatterns: ['/node_modules/', '/@lavandre/button/', '\\.pnp\\.[^\\/]+$'],
     automock: false,
     setupFiles: ['<rootDir>/setupJest.js'],
     moduleDirectories: ['node_modules', 'assets'],
@@ -23,19 +15,15 @@ module.exports = {
         '@lavandre/button/dist/src/LavandreButton': '<rootDir>/mocks/styleMock.js'
     },
     testEnvironment: 'jsdom',
-    testMatch: [
-        '**/?(*.)+(test).[jt]s?(x)'
-    ],
+    testMatch: ['**/?(*.)+(test).[jt]s?(x)'],
     transform: {
         '^.+\\.ts?$': 'ts-jest'
     },
-    transformIgnorePatterns: [
-        "node_modules"
-    ],
+    transformIgnorePatterns: ['node_modules'],
     globals: {
         'ts-jest': {
             babelConfig: true
         },
-        "window": {}
+        'window': {}
     }
 };

@@ -1,4 +1,4 @@
-import { DataLayer } from "./DataLayer";
+import { DataLayer } from './DataLayer';
 
 describe('Test the DataLayer class', () => {
     it('should fallback to an empty array', () => {
@@ -20,9 +20,6 @@ describe('Test the DataLayer class', () => {
 
         const value = 'test';
         instance.push({ event: 'test', value: value });
-        expect(window.dataLayer).toEqual([
-            { ecommerce: null },
-            { event: 'test', value: value }
-        ]);
+        expect(window.dataLayer).toEqual([{ ecommerce: null }, { event: 'test', value: value }]);
     });
 });

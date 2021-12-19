@@ -1,5 +1,5 @@
-import { parseStringAsHtml } from "../util/dom";
-import Curtain from "./Curtain";
+import { parseStringAsHtml } from '../util/dom';
+import Curtain from './Curtain';
 
 jest.useFakeTimers();
 
@@ -13,7 +13,7 @@ beforeEach(() => {
 
 const invalidContext = () => ({
     element: '',
-    foldButton: '',
+    foldButton: ''
 });
 
 const validContext = () => ({
@@ -30,7 +30,7 @@ const mobileValidContext = () => ({
 const component = (context: any): Curtain => {
     const instance: any = new Curtain(context.element, context.foldButton, context.onlyOnMobile);
     return instance;
-}
+};
 
 describe('Test creation', () => {
     afterEach(() => {
@@ -38,11 +38,14 @@ describe('Test creation', () => {
     });
 
     it('should fail because content is missing', () => {
-        const element: HTMLElement = parseStringAsHtml(`
+        const element: HTMLElement = parseStringAsHtml(
+            `
             <div data-curtain>
                 <button data-curtain-toggle="curtain">Toggle...</button>
             </div>
-        `, '[data-curtain]');
+        `,
+            '[data-curtain]'
+        );
 
         document.body.appendChild(element);
 
@@ -50,12 +53,15 @@ describe('Test creation', () => {
     });
 
     it('should create instance', () => {
-        const element: HTMLElement = parseStringAsHtml(`
+        const element: HTMLElement = parseStringAsHtml(
+            `
             <div data-curtain>
                 <button data-curtain-toggle="curtain">Toggle...</button>
                 <p data-curtain-content="curtain">Content...</p>
             </div>
-        `, '[data-curtain]');
+        `,
+            '[data-curtain]'
+        );
 
         document.body.appendChild(element);
 
@@ -81,7 +87,11 @@ describe('Test initialize method', () => {
     });
 
     it('should not set a click listener if onlyOnMobile is set on a larger screen', () => {
-        Object.defineProperty(window, 'innerWidth', { writable: true, configurable: true, value: 1920 });
+        Object.defineProperty(window, 'innerWidth', {
+            writable: true,
+            configurable: true,
+            value: 1920
+        });
 
         const context = mobileValidContext();
         const element = context.foldButton;
@@ -96,7 +106,11 @@ describe('Test initialize method', () => {
     });
 
     it('should not set a click listener if onlyOnMobile is set on a larger screen', () => {
-        Object.defineProperty(window, 'innerWidth', { writable: true, configurable: true, value: 414 });
+        Object.defineProperty(window, 'innerWidth', {
+            writable: true,
+            configurable: true,
+            value: 414
+        });
 
         const context = mobileValidContext();
         const element = context.foldButton;

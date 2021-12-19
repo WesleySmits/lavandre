@@ -35,12 +35,14 @@ describe('Mobile menu tests - mobile', () => {
 
     navigationPages.forEach((page: string) => {
         it(`should link to a valid page for: ${page}`, () => {
-            cy.get(mobileMenuSelector).contains(page).then((link) => {
-                if (!link) {
-                    return;
-                }
-                cy.request(link.prop('href'));
-            });
+            cy.get(mobileMenuSelector)
+                .contains(page)
+                .then((link) => {
+                    if (!link) {
+                        return;
+                    }
+                    cy.request(link.prop('href'));
+                });
         });
     });
 });

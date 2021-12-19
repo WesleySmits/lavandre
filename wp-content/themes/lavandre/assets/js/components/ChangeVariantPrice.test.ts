@@ -1,5 +1,5 @@
-import { parseStringAsHtml } from "../util/dom";
-import ChangeVariantPrice from "./ChangeVariantPrice";
+import { parseStringAsHtml } from '../util/dom';
+import ChangeVariantPrice from './ChangeVariantPrice';
 import HttpClient from '../common/HttpClient';
 
 jest.useFakeTimers();
@@ -10,9 +10,12 @@ describe('Test creation', () => {
     });
 
     it('should fail because content is missing', () => {
-        const element: HTMLElement = parseStringAsHtml(`
+        const element: HTMLElement = parseStringAsHtml(
+            `
             <form></form>
-        `, 'form');
+        `,
+            'form'
+        );
 
         document.body.appendChild(element);
 
@@ -20,14 +23,17 @@ describe('Test creation', () => {
     });
 
     it('should create instance', () => {
-        const element: HTMLElement = parseStringAsHtml(`
+        const element: HTMLElement = parseStringAsHtml(
+            `
             <form data-product_id="123">
                 <div class="product-detail__variations">
                     <input id="pa_color-white" type="radio" name="attribute_pa_color" value="white" checked required>
                     <input id="pa_color-black" type="radio" name="attribute_pa_color" value="black" required>
                 </div>
             </form>
-        `, 'form');
+        `,
+            'form'
+        );
 
         document.body.appendChild(element);
 
@@ -41,7 +47,8 @@ describe('Test sending request', () => {
     });
 
     it('should fail on lack of price elements', async () => {
-        const element: HTMLElement = parseStringAsHtml(`
+        const element: HTMLElement = parseStringAsHtml(
+            `
             <form data-product_id="123">
                 <div class="product-detail__variations">
                     <input id="pa_color-white" type="radio" name="attribute_pa_color" value="white" checked required>
@@ -50,13 +57,17 @@ describe('Test sending request', () => {
 
                 <input type="hidden" name="variation_id" value="123">
             </form>
-        `, 'form');
+        `,
+            'form'
+        );
 
         document.body.appendChild(element);
 
         ChangeVariantPrice.onInit();
 
-        const radios: HTMLInputElement[] = Array.from(document.querySelectorAll('input[type="radio"]'));
+        const radios: HTMLInputElement[] = Array.from(
+            document.querySelectorAll('input[type="radio"]')
+        );
         const radio = radios[radios.length - 1];
 
         const responseInit: ResponseInit = {
@@ -66,13 +77,13 @@ describe('Test sending request', () => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
-        }
+        };
 
         const mockReturn: StandardObjectInterface = {
             data: {
-                message: "",
-                regularPrice: "20",
-                salePrice: "10"
+                message: '',
+                regularPrice: '20',
+                salePrice: '10'
             },
             success: true
         };
@@ -82,10 +93,13 @@ describe('Test sending request', () => {
         // @ts-ignore
         const mockResponse: Response = new Response(bodyInit, responseInit);
         const mockPromise: Promise<Response> = Promise.resolve(mockResponse);
-        HttpClient.post = jest.fn().mockResolvedValue(mockPromise
-            .then((response) => Promise.resolve(response))
-            .then((response) => response.json()));
-
+        HttpClient.post = jest
+            .fn()
+            .mockResolvedValue(
+                mockPromise
+                    .then((response) => Promise.resolve(response))
+                    .then((response) => response.json())
+            );
 
         radio!.dispatchEvent(new Event('change'));
 
@@ -93,7 +107,8 @@ describe('Test sending request', () => {
     });
 
     it('should fail on lack of form element', async () => {
-        const element: HTMLElement = parseStringAsHtml(`
+        const element: HTMLElement = parseStringAsHtml(
+            `
             <div data-product_id="123">
                 <div class="product-detail__price">
                     <del><span data-product-price>21.50</span></del>
@@ -107,13 +122,17 @@ describe('Test sending request', () => {
 
                 <input type="hidden" name="variation_id" value="123">
             </div>
-        `, 'div');
+        `,
+            'div'
+        );
 
         document.body.appendChild(element);
 
         ChangeVariantPrice.onInit();
 
-        const radios: HTMLInputElement[] = Array.from(document.querySelectorAll('input[type="radio"]'));
+        const radios: HTMLInputElement[] = Array.from(
+            document.querySelectorAll('input[type="radio"]')
+        );
         const radio = radios[radios.length - 1];
 
         const responseInit: ResponseInit = {
@@ -123,13 +142,13 @@ describe('Test sending request', () => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
-        }
+        };
 
         const mockReturn: StandardObjectInterface = {
             data: {
-                message: "",
-                regularPrice: "20",
-                salePrice: "10"
+                message: '',
+                regularPrice: '20',
+                salePrice: '10'
             },
             success: true
         };
@@ -139,10 +158,13 @@ describe('Test sending request', () => {
         // @ts-ignore
         const mockResponse: Response = new Response(bodyInit, responseInit);
         const mockPromise: Promise<Response> = Promise.resolve(mockResponse);
-        HttpClient.post = jest.fn().mockResolvedValue(mockPromise
-            .then((response) => Promise.resolve(response))
-            .then((response) => response.json()));
-
+        HttpClient.post = jest
+            .fn()
+            .mockResolvedValue(
+                mockPromise
+                    .then((response) => Promise.resolve(response))
+                    .then((response) => response.json())
+            );
 
         radio!.dispatchEvent(new Event('change'));
 
@@ -150,7 +172,8 @@ describe('Test sending request', () => {
     });
 
     it('should fail on lack of product id value', async () => {
-        const element: HTMLElement = parseStringAsHtml(`
+        const element: HTMLElement = parseStringAsHtml(
+            `
             <form>
                 <div class="product-detail__price">
                     <del><span data-product-price>21.50</span></del>
@@ -164,13 +187,17 @@ describe('Test sending request', () => {
 
                 <input type="hidden" name="variation_id" value="123">
             </form>
-        `, 'form');
+        `,
+            'form'
+        );
 
         document.body.appendChild(element);
 
         ChangeVariantPrice.onInit();
 
-        const radios: HTMLInputElement[] = Array.from(document.querySelectorAll('input[type="radio"]'));
+        const radios: HTMLInputElement[] = Array.from(
+            document.querySelectorAll('input[type="radio"]')
+        );
         const radio = radios[radios.length - 1];
 
         const responseInit: ResponseInit = {
@@ -180,13 +207,13 @@ describe('Test sending request', () => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
-        }
+        };
 
         const mockReturn: StandardObjectInterface = {
             data: {
-                message: "",
-                regularPrice: "20",
-                salePrice: "10"
+                message: '',
+                regularPrice: '20',
+                salePrice: '10'
             },
             success: true
         };
@@ -196,10 +223,13 @@ describe('Test sending request', () => {
         // @ts-ignore
         const mockResponse: Response = new Response(bodyInit, responseInit);
         const mockPromise: Promise<Response> = Promise.resolve(mockResponse);
-        HttpClient.post = jest.fn().mockResolvedValue(mockPromise
-            .then((response) => Promise.resolve(response))
-            .then((response) => response.json()));
-
+        HttpClient.post = jest
+            .fn()
+            .mockResolvedValue(
+                mockPromise
+                    .then((response) => Promise.resolve(response))
+                    .then((response) => response.json())
+            );
 
         radio!.dispatchEvent(new Event('change'));
 
@@ -207,7 +237,8 @@ describe('Test sending request', () => {
     });
 
     it('should fail on lack of variation id value', async () => {
-        const element: HTMLElement = parseStringAsHtml(`
+        const element: HTMLElement = parseStringAsHtml(
+            `
             <form data-product_id="123">
                 <div class="product-detail__price">
                     <del><span data-product-price>21.50</span></del>
@@ -219,13 +250,17 @@ describe('Test sending request', () => {
                     <input id="pa_color-black" type="radio" name="attribute_pa_color" value="black" required>
                 </div>
             </form>
-        `, 'form');
+        `,
+            'form'
+        );
 
         document.body.appendChild(element);
 
         ChangeVariantPrice.onInit();
 
-        const radios: HTMLInputElement[] = Array.from(document.querySelectorAll('input[type="radio"]'));
+        const radios: HTMLInputElement[] = Array.from(
+            document.querySelectorAll('input[type="radio"]')
+        );
         const radio = radios[radios.length - 1];
 
         const responseInit: ResponseInit = {
@@ -235,13 +270,13 @@ describe('Test sending request', () => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
-        }
+        };
 
         const mockReturn: StandardObjectInterface = {
             data: {
-                message: "",
-                regularPrice: "20",
-                salePrice: "10"
+                message: '',
+                regularPrice: '20',
+                salePrice: '10'
             },
             success: true
         };
@@ -251,10 +286,13 @@ describe('Test sending request', () => {
         // @ts-ignore
         const mockResponse: Response = new Response(bodyInit, responseInit);
         const mockPromise: Promise<Response> = Promise.resolve(mockResponse);
-        HttpClient.post = jest.fn().mockResolvedValue(mockPromise
-            .then((response) => Promise.resolve(response))
-            .then((response) => response.json()));
-
+        HttpClient.post = jest
+            .fn()
+            .mockResolvedValue(
+                mockPromise
+                    .then((response) => Promise.resolve(response))
+                    .then((response) => response.json())
+            );
 
         radio!.dispatchEvent(new Event('change'));
 
@@ -262,7 +300,8 @@ describe('Test sending request', () => {
     });
 
     it('should throw error is call succeeds but no price was given', () => {
-        const element: HTMLElement = parseStringAsHtml(`
+        const element: HTMLElement = parseStringAsHtml(
+            `
             <form data-product_id="123">
                 <div class="product-detail__price">
                     <del><span data-product-price>21.50</span></del>
@@ -276,11 +315,15 @@ describe('Test sending request', () => {
 
                 <input type="hidden" name="variation_id" value="123">
             </form>
-        `, 'form');
+        `,
+            'form'
+        );
 
         document.body.appendChild(element);
 
-        const radios: HTMLInputElement[] = Array.from(document.querySelectorAll('input[type="radio"]'));
+        const radios: HTMLInputElement[] = Array.from(
+            document.querySelectorAll('input[type="radio"]')
+        );
 
         const responseInit: ResponseInit = {
             status: 200,
@@ -289,11 +332,11 @@ describe('Test sending request', () => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
-        }
+        };
 
         const mockReturn: StandardObjectInterface = {
             data: {
-                message: "no prices",
+                message: 'no prices'
             },
             success: true
         };
@@ -304,11 +347,14 @@ describe('Test sending request', () => {
         const mockResponse: Response = new Response(bodyInit, responseInit);
 
         const instance: any = new ChangeVariantPrice(radios);
-        expect(() => { instance.onSuccess(mockResponse); }).toThrow('No data');
+        expect(() => {
+            instance.onSuccess(mockResponse);
+        }).toThrow('No data');
     });
 
     it('should change the price', async () => {
-        const element: HTMLElement = parseStringAsHtml(`
+        const element: HTMLElement = parseStringAsHtml(
+            `
             <form data-product_id="123">
                 <div class="product-detail__price">
                     <del><span data-product-price>21.50</span></del>
@@ -322,13 +368,17 @@ describe('Test sending request', () => {
 
                 <input type="hidden" name="variation_id" value="123">
             </form>
-        `, 'form');
+        `,
+            'form'
+        );
 
         document.body.appendChild(element);
 
         ChangeVariantPrice.onInit();
 
-        const radios: HTMLInputElement[] = Array.from(document.querySelectorAll('input[type="radio"]'));
+        const radios: HTMLInputElement[] = Array.from(
+            document.querySelectorAll('input[type="radio"]')
+        );
         const radio = radios[radios.length - 1];
 
         const responseInit: ResponseInit = {
@@ -338,13 +388,13 @@ describe('Test sending request', () => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
-        }
+        };
 
         const mockReturn: StandardObjectInterface = {
             data: {
-                message: "",
-                regularPrice: "20",
-                salePrice: "10"
+                message: '',
+                regularPrice: '20',
+                salePrice: '10'
             },
             success: true
         };
@@ -354,23 +404,28 @@ describe('Test sending request', () => {
         // @ts-ignore
         const mockResponse: Response = new Response(bodyInit, responseInit);
         const mockPromise: Promise<Response> = Promise.resolve(mockResponse);
-        HttpClient.post = jest.fn().mockResolvedValue(mockPromise
-            .then((response) => Promise.resolve(response))
-            .then((response) => response.json()));
-
+        HttpClient.post = jest
+            .fn()
+            .mockResolvedValue(
+                mockPromise
+                    .then((response) => Promise.resolve(response))
+                    .then((response) => response.json())
+            );
 
         radio!.dispatchEvent(new Event('change'));
 
         expect(HttpClient.post).toHaveBeenCalledTimes(1);
 
         setTimeout(() => {
-            const saleElement: HTMLElement | null = document.querySelector('.product-detail__price del [data-product-price]');
+            const saleElement: HTMLElement | null = document.querySelector(
+                '.product-detail__price del [data-product-price]'
+            );
             expect(saleElement!.innerText).toEqual(Number(10).toFixed(2));
 
-            const regularPriceElement: HTMLElement | null = document.querySelector('.product-detail__price ins [data-product-price]');
+            const regularPriceElement: HTMLElement | null = document.querySelector(
+                '.product-detail__price ins [data-product-price]'
+            );
             expect(regularPriceElement!.innerText).toEqual(Number(20).toFixed(2));
         }, 100);
     });
 });
-
-

@@ -2,8 +2,7 @@
 
 const Encore = require('@symfony/webpack-encore');
 
-Encore
-    .setOutputPath('./public/')
+Encore.setOutputPath('./public/')
     .setPublicPath('/')
     .addEntry('app', './assets/js/app.ts')
     .addEntry('home', './assets/js/home.ts')
@@ -38,15 +37,14 @@ Encore
         // options.cache = true;
         options.parallel = true;
         options.terserOptions = {
-            "keep_classnames": true,
-            "keep_fnames": true
-        }
+            keep_classnames: true,
+            keep_fnames: true
+        };
     })
     .copyFiles({
         from: './assets/images',
         to: 'images/[path][name].[ext]'
     })
-    .addLoader({ test: /\.(png|jpg|jpeg|webp|gif)$/, loader: 'url-loader' })
-;
+    .addLoader({ test: /\.(png|jpg|jpeg|webp|gif)$/, loader: 'url-loader' });
 
 module.exports = Encore.getWebpackConfig();
