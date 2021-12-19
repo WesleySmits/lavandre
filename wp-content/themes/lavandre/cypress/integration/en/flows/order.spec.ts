@@ -1,4 +1,4 @@
-import endpoints from "../../../support/objects/endpoints";
+import endpoints from '../../../support/objects/endpoints';
 
 let productPrice: string = '';
 let shippingPrice: string = '5,95';
@@ -10,11 +10,13 @@ describe('Test the order flow', () => {
         cy.clearCookies();
         cy.clearLocalStorage();
 
-        cy.viewport('macbook-16')
+        cy.viewport('macbook-16');
         cy.visit(endpoints.productDetail);
-        cy.get('[data-product-price]').invoke('text').then((text) => {
-            productPrice = text;
-        });
+        cy.get('[data-product-price]')
+            .invoke('text')
+            .then((text) => {
+                productPrice = text;
+            });
 
         cy.addProductToCart();
         cy.wait(1000);
@@ -25,12 +27,14 @@ describe('Test the order flow', () => {
 
         cy.url().should('contain', 'cart');
 
-        cy.get('[data-cy="subtotal"] [data-product-price]').invoke('text').then((text) => {
-            expect(text.replace(',', '.')).to.eq(productPrice.replace(',', '.'));
-        });
+        cy.get('[data-cy="subtotal"] [data-product-price]')
+            .invoke('text')
+            .then((text) => {
+                expect(text.replace(',', '.')).to.eq(productPrice.replace(',', '.'));
+            });
     });
 
-    it("should order an item succesfully as a guest", () => {
+    it('should order an item succesfully as a guest', () => {
         cy.get('#custom-cart .custom-cart__cta').click();
         cy.get('[data-cy="order-guest-button"]').click();
 
@@ -61,23 +65,31 @@ describe('Test the order flow', () => {
 });
 
 function checkCartPrices(): void {
-    cy.get('[data-cy="subtotal"] [data-product-price]').invoke('text').then((text) => {
-        expect(text.replace(',', '.')).to.eq(productPrice.replace(',', '.'));
-    });
+    cy.get('[data-cy="subtotal"] [data-product-price]')
+        .invoke('text')
+        .then((text) => {
+            expect(text.replace(',', '.')).to.eq(productPrice.replace(',', '.'));
+        });
 
-    cy.get('.woocommerce-shipping-totals [data-product-price]').invoke('text').then((text) => {
-        expect(text).to.eq(shippingPrice);
-    });
+    cy.get('.woocommerce-shipping-totals [data-product-price]')
+        .invoke('text')
+        .then((text) => {
+            expect(text).to.eq(shippingPrice);
+        });
 
-    cy.get('.tax-total [data-product-price]').invoke('text').then((text) => {
-        vatPrice = calculateVat(productPrice, shippingPrice);
-        expect(text).to.eq(vatPrice);
-    });
+    cy.get('.tax-total [data-product-price]')
+        .invoke('text')
+        .then((text) => {
+            vatPrice = calculateVat(productPrice, shippingPrice);
+            expect(text).to.eq(vatPrice);
+        });
 
-    cy.get('.order-total [data-product-price]').invoke('text').then((text) => {
-        orderPrice = calculateTotal(productPrice, shippingPrice, vatPrice);
-        expect(text).to.eq(orderPrice);
-    });
+    cy.get('.order-total [data-product-price]')
+        .invoke('text')
+        .then((text) => {
+            orderPrice = calculateTotal(productPrice, shippingPrice, vatPrice);
+            expect(text).to.eq(orderPrice);
+        });
 }
 
 function calculateVat(productPrice: string, shippingPrice: string): string {

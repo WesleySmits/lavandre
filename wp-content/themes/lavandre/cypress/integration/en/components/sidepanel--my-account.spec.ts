@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-import { StaticResponse } from "cypress/types/net-stubbing";
-import { adminAjaxUrl } from "../../../support/form/form";
+import { StaticResponse } from 'cypress/types/net-stubbing';
+import { adminAjaxUrl } from '../../../support/form/form';
 
 let userEmail: string;
 const toggleSelector: string = '[data-panel="my-account-panel"]';
@@ -14,20 +14,20 @@ describe('My account sidepanel tests', () => {
     });
 
     it('should fail sending a password forget without a username', (done) => {
-        const formId: string = '#ajax-login-form'
+        const formId: string = '#ajax-login-form';
         cy.openSidePanel({ toggle: toggleSelector, panel: panelSelector });
 
         cy.on('uncaught:exception', (err) => {
             expect(err.message).to.include('Username not set');
             done();
-            return false
+            return false;
         });
 
         cy.get(`${formId} [data-role="password-forget"]`).click();
     });
 
     it('should fail sending a password forget with bad credentials', () => {
-        const formId: string = '#ajax-login-form'
+        const formId: string = '#ajax-login-form';
         cy.openSidePanel({ toggle: toggleSelector, panel: panelSelector });
 
         cy.get(`${formId} [name="username"]`).type('testuser@lavandre.com');
@@ -42,14 +42,14 @@ describe('My account sidepanel tests', () => {
     });
 
     it('should fail sending a password forget with bad credentials', () => {
-        const formId: string = '#ajax-login-form'
+        const formId: string = '#ajax-login-form';
         cy.openSidePanel({ toggle: toggleSelector, panel: panelSelector });
 
         cy.get(`${formId} [name="username"]`).type('testuser@lavandre.com');
 
         const mockResponse: StaticResponse = {
             body: {
-                "success": true
+                success: true
             }
         };
 
@@ -63,11 +63,12 @@ describe('My account sidepanel tests', () => {
     });
 
     it('should create a new account', () => {
-        const formId: string = '#ajax-register-form'
+        const formId: string = '#ajax-register-form';
         cy.openSidePanel({ toggle: toggleSelector, panel: panelSelector });
 
         cy.fillFormFromFixture('userData', 'user', formId);
-        cy.get(`${formId} [name="email"]`).invoke('val')
+        cy.get(`${formId} [name="email"]`)
+            .invoke('val')
             .then((value) => {
                 userEmail = value.toString();
 
@@ -84,7 +85,7 @@ describe('My account sidepanel tests', () => {
     });
 
     it('should fail to log in to new account with bad credentials', () => {
-        const formId: string = '#ajax-login-form'
+        const formId: string = '#ajax-login-form';
         cy.openSidePanel({ toggle: toggleSelector, panel: panelSelector });
 
         cy.get(`${formId} [name="username"]`).type('testuser@lavandre.com');
@@ -103,7 +104,7 @@ describe('My account sidepanel tests', () => {
     });
 
     it('should log in to new account', () => {
-        const formId: string = '#ajax-login-form'
+        const formId: string = '#ajax-login-form';
         cy.openSidePanel({ toggle: toggleSelector, panel: panelSelector });
 
         cy.get(`${formId} [name="username"]`).type(userEmail);

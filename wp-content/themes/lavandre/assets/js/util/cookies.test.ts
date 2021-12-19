@@ -3,7 +3,7 @@ import { getCookieValue, setCookieValue } from './cookies';
 beforeEach(() => {
     Object.defineProperty(window.document, 'cookie', {
         writable: true,
-        value: '',
+        value: ''
     });
 });
 
@@ -11,7 +11,7 @@ describe('Test the getCookieValue() method', () => {
     it('should get a existing cookie by its value', () => {
         Object.defineProperty(window.document, 'cookie', {
             writable: true,
-            value: '_searchPageFilters=adults%3D2',
+            value: '_searchPageFilters=adults%3D2'
         });
 
         expect(getCookieValue('_searchPageFilters')).toBe('adults%3D2');
@@ -38,7 +38,7 @@ describe('Test the setCookieValue() method', () => {
     it('should update an existing cookie with name and value', () => {
         Object.defineProperty(window.document, 'cookie', {
             writable: true,
-            value: '_searchPageFilters=adults%3D2',
+            value: '_searchPageFilters=adults%3D2'
         });
 
         expect(getCookieValue('_searchPageFilters')).toBe('adults%3D2');

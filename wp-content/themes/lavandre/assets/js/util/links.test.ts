@@ -1,5 +1,5 @@
-import { parseStringAsHtml } from "./dom";
-import { setCurrentLinkClass } from "./links";
+import { parseStringAsHtml } from './dom';
+import { setCurrentLinkClass } from './links';
 
 describe('Test link utils', () => {
     afterEach(() => {
@@ -7,11 +7,14 @@ describe('Test link utils', () => {
     });
 
     it('should set current link on homepage link', () => {
-        const element = parseStringAsHtml(`
+        const element = parseStringAsHtml(
+            `
             <nav>
                 <a href="/">test</a>
             </nav>
-        `, 'nav');
+        `,
+            'nav'
+        );
 
         document.body.appendChild(element);
 
@@ -20,11 +23,14 @@ describe('Test link utils', () => {
     });
 
     it('should not set current link on other links', () => {
-        const element = parseStringAsHtml(`
+        const element = parseStringAsHtml(
+            `
             <nav>
                 <a href="/test">test</a>
             </nav>
-        `, 'nav');
+        `,
+            'nav'
+        );
 
         document.body.appendChild(element);
 

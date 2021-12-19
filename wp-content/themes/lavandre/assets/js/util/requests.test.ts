@@ -1,14 +1,20 @@
-import fetchMock, { MockResponseInitFunction } from "jest-fetch-mock";
+import fetchMock, { MockResponseInitFunction } from 'jest-fetch-mock';
 import HttpClient from '../common/HttpClient';
-import { parseStringAsHtml } from "./dom";
-import { addLoadingState, removeButtonLoadingState, removeLoadingState, sendAjaxRequest, setButtonLoadingState } from "./requests";
+import { parseStringAsHtml } from './dom';
+import {
+    addLoadingState,
+    removeButtonLoadingState,
+    removeLoadingState,
+    sendAjaxRequest,
+    setButtonLoadingState
+} from './requests';
 
 describe('Test sendAjaxRequest', () => {
     it('should fail request', () => {
         const responseInit: ResponseInit = {
             status: 200,
-            statusText: 'ok',
-        }
+            statusText: 'ok'
+        };
 
         const loadingElement = document.createElement('div');
         const buttonElement = document.createElement('button');
@@ -22,20 +28,30 @@ describe('Test sendAjaxRequest', () => {
         mockPost.mockResolvedValue(mockResponse);
 
         // @ts-ignore
-        fetchMock.mockResponse(() => { return Promise.reject(mockResponse); });
+        fetchMock.mockResponse(() => {
+            return Promise.reject(mockResponse);
+        });
 
         const data = {
-            action: 'action',
+            action: 'action'
         };
 
-        sendAjaxRequest(data, '/', loadingElement, () => {}, () => {}, undefined, buttonElement);
+        sendAjaxRequest(
+            data,
+            '/',
+            loadingElement,
+            () => {},
+            () => {},
+            undefined,
+            buttonElement
+        );
     });
 
     it('should succeed in request', () => {
         const responseInit: ResponseInit = {
             status: 200,
-            statusText: 'ok',
-        }
+            statusText: 'ok'
+        };
         const loadingElement = document.createElement('div');
         const buttonElement = document.createElement('button');
 
@@ -48,13 +64,23 @@ describe('Test sendAjaxRequest', () => {
         mockPost.mockResolvedValue(mockResponse);
 
         // @ts-ignore
-        fetchMock.mockResponse(() => { return Promise.resolve(mockResponse); });
+        fetchMock.mockResponse(() => {
+            return Promise.resolve(mockResponse);
+        });
 
         const data = {
-            action: 'action',
+            action: 'action'
         };
 
-        sendAjaxRequest(data, '/', loadingElement, () => {}, () => {}, undefined, buttonElement);
+        sendAjaxRequest(
+            data,
+            '/',
+            loadingElement,
+            () => {},
+            () => {},
+            undefined,
+            buttonElement
+        );
     });
 });
 
@@ -64,9 +90,12 @@ describe('Test loading state', () => {
     });
 
     it('should fail to set and remove loading state', () => {
-        const element: HTMLButtonElement = parseStringAsHtml(`
+        const element: HTMLButtonElement = parseStringAsHtml(
+            `
             <button></button>
-        `, 'button') as HTMLButtonElement;
+        `,
+            'button'
+        ) as HTMLButtonElement;
 
         document.body.appendChild(element);
 
@@ -86,9 +115,12 @@ describe('Test loading state', () => {
     });
 
     it('should fail to set and remove loading state', () => {
-        const element = parseStringAsHtml(`
+        const element = parseStringAsHtml(
+            `
             <div></div>
-        `, 'div');
+        `,
+            'div'
+        );
 
         document.body.appendChild(element);
 
@@ -100,9 +132,12 @@ describe('Test loading state', () => {
     });
 
     it('should set loading state', () => {
-        const element = parseStringAsHtml(`
+        const element = parseStringAsHtml(
+            `
             <div></div>
-        `, 'div');
+        `,
+            'div'
+        );
 
         document.body.appendChild(element);
 
@@ -110,9 +145,12 @@ describe('Test loading state', () => {
         expect(element.classList.contains('custom-cart__item--loading')).toBeTruthy();
     });
     it('should remove loading state', () => {
-        const element = parseStringAsHtml(`
+        const element = parseStringAsHtml(
+            `
             <div></div>
-        `, 'div');
+        `,
+            'div'
+        );
 
         document.body.appendChild(element);
 

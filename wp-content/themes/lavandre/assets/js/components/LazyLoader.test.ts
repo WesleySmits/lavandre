@@ -1,5 +1,5 @@
-import { parseStringAsHtml } from "../util/dom";
-import LazyLoader from "./LazyLoader";
+import { parseStringAsHtml } from '../util/dom';
+import LazyLoader from './LazyLoader';
 
 let instance: LazyLoader;
 let context: any;
@@ -17,38 +17,49 @@ const invalidContext = () => ({
 });
 
 const validImgContext = () => ({
-    element: parseStringAsHtml(`
+    element: parseStringAsHtml(
+        `
         <img data-src="${mockSrc}" data-srcset="${mockSrcSet}" data-sizes="${mockSizes}" data-lazyload/>
-`, 'img')
+`,
+        'img'
+    )
 });
 
 const invalidPictureContext = () => ({
-    element: parseStringAsHtml(`
+    element: parseStringAsHtml(
+        `
         <picture class="loading-spinner" data-lazyload>
             <source type="image/jpeg" data-srcset="${mockSrcSet}">
         </picture>
-`, 'picture')
+`,
+        'picture'
+    )
 });
 
 const validPictureContext = () => ({
-    element: parseStringAsHtml(`
+    element: parseStringAsHtml(
+        `
         <picture class="loading-spinner" data-lazyload>
             <source type="image/jpeg" data-srcset="${mockSrcSet}">
             <img data-src="${mockSrc}" data-srcset="${mockSrcSet}" data-sizes="${mockSizes}"/>
         </picture>
-`, 'picture')
+`,
+        'picture'
+    )
 });
 
 const validDivContext = () => ({
-    element: parseStringAsHtml(`
+    element: parseStringAsHtml(
+        `
         <div data-lazyload>
             <img data-src="${mockSrc}" data-srcset="${mockSrcSet}" data-sizes="${mockSizes}" data-lazyload/>
         </div>
-`, 'div')
+`,
+        'div'
+    )
 });
 
 describe('Test the lazyloader class', () => {
-
     describe('Test that image elements are lazyloaded correctly', () => {
         beforeEach(() => {
             context = invalidContext();
@@ -70,7 +81,9 @@ describe('Test the lazyloader class', () => {
         });
 
         it('should set image attributes correctly', () => {
-            const imgElement: HTMLImageElement = document.querySelector('img[data-lazyload]')! as HTMLImageElement;
+            const imgElement: HTMLImageElement = document.querySelector(
+                'img[data-lazyload]'
+            )! as HTMLImageElement;
             expect(imgElement.src).toEqual(mockSrc);
             expect(imgElement.srcset).toEqual(mockSrcSet);
             expect(imgElement.sizes).toEqual(mockSizes);
@@ -87,7 +100,9 @@ describe('Test the lazyloader class', () => {
         });
 
         it('should set image attributes within HTML container correctly', () => {
-            const imgElement: HTMLImageElement = document.querySelector('img[data-lazyload]')! as HTMLImageElement;
+            const imgElement: HTMLImageElement = document.querySelector(
+                'img[data-lazyload]'
+            )! as HTMLImageElement;
             expect(imgElement.src).toEqual(mockSrc);
             expect(imgElement.srcset).toEqual(mockSrcSet);
             expect(imgElement.sizes).toEqual(mockSizes);
@@ -104,7 +119,9 @@ describe('Test the lazyloader class', () => {
         });
 
         it('should set image attributes within HTML container correctly 2', () => {
-            const imgElement: HTMLImageElement = document.querySelector('img[data-lazyload]')! as HTMLImageElement;
+            const imgElement: HTMLImageElement = document.querySelector(
+                'img[data-lazyload]'
+            )! as HTMLImageElement;
             expect(imgElement.src).toEqual(mockSrc);
             expect(imgElement.srcset).toEqual(mockSrcSet);
             expect(imgElement.sizes).toEqual(mockSizes);
@@ -122,9 +139,15 @@ describe('Test the lazyloader class', () => {
         });
 
         it('should set picture attributes correctly', () => {
-            const pictureElement: HTMLPictureElement = document.querySelector('picture[data-lazyload]')! as HTMLPictureElement;
-            const sourceElement: HTMLSourceElement = pictureElement.querySelector('source')! as HTMLSourceElement;
-            const imgElement: HTMLImageElement = pictureElement.querySelector('img')! as HTMLImageElement;
+            const pictureElement: HTMLPictureElement = document.querySelector(
+                'picture[data-lazyload]'
+            )! as HTMLPictureElement;
+            const sourceElement: HTMLSourceElement = pictureElement.querySelector(
+                'source'
+            )! as HTMLSourceElement;
+            const imgElement: HTMLImageElement = pictureElement.querySelector(
+                'img'
+            )! as HTMLImageElement;
 
             // Test picture element
             expect(pictureElement.classList.contains('loading-spinner')).toBeFalsy();
@@ -150,9 +173,15 @@ describe('Test the lazyloader class', () => {
         });
 
         it('should failt due to the missing img tag', () => {
-            const pictureElement: HTMLPictureElement = document.querySelector('picture[data-lazyload]')! as HTMLPictureElement;
-            const sourceElement: HTMLSourceElement = pictureElement.querySelector('source')! as HTMLSourceElement;
-            const imgElement: HTMLImageElement = pictureElement.querySelector('img')! as HTMLImageElement;
+            const pictureElement: HTMLPictureElement = document.querySelector(
+                'picture[data-lazyload]'
+            )! as HTMLPictureElement;
+            const sourceElement: HTMLSourceElement = pictureElement.querySelector(
+                'source'
+            )! as HTMLSourceElement;
+            const imgElement: HTMLImageElement = pictureElement.querySelector(
+                'img'
+            )! as HTMLImageElement;
 
             // Test picture element
             expect(pictureElement.classList.contains('loading-spinner')).toBeTruthy();
@@ -180,14 +209,18 @@ describe('Test the lazyloader class', () => {
                         intersectionRect: context.element.getBoundingClientRect(),
                         rootBounds: null,
                         time: 0
-                    }
+                    };
 
                     entries.push(entry);
                     fn(entries, this);
                 }
 
-                observe(element: HTMLElement) { observe(element) }
-                unobserve(element: HTMLElement) { unobserve(element) }
+                observe(element: HTMLElement) {
+                    observe(element);
+                }
+                unobserve(element: HTMLElement) {
+                    unobserve(element);
+                }
                 disconnect() {}
             }
 

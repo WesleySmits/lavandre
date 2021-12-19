@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-import { StaticResponse } from "cypress/types/net-stubbing";
-import { adminAjaxUrl, getRandomEmail } from "../../../support/form/form";
+import { StaticResponse } from 'cypress/types/net-stubbing';
+import { adminAjaxUrl, getRandomEmail } from '../../../support/form/form';
 
 describe('Homepage tests - mobile', () => {
     beforeEach(() => {
@@ -60,10 +60,8 @@ function testNewsletterSubscribe() {
 
     const mockResponse: StaticResponse = {
         body: {
-            "success": true,
-            "data": [
-                "U bent aangemeld."
-            ]
+            success: true,
+            data: ['U bent aangemeld.']
         }
     };
 

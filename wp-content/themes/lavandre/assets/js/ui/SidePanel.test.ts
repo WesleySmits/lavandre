@@ -1,5 +1,5 @@
-import { parseStringAsHtml } from "../util/dom";
-import SidePanel from "./SidePanel";
+import { parseStringAsHtml } from '../util/dom';
+import SidePanel from './SidePanel';
 
 jest.useFakeTimers();
 
@@ -11,11 +11,14 @@ const invalidContext = () => ({
 });
 
 const validContext = () => ({
-    element: parseStringAsHtml(`
+    element: parseStringAsHtml(
+        `
     <dialog>
         <button type="button" data-close class="side-panel__close"></button>
     </dialog>
-`, 'dialog')
+`,
+        'dialog'
+    )
 });
 
 describe('Test creation', () => {
@@ -31,11 +34,14 @@ describe('Test creation', () => {
     });
 
     it('should redirect on my account panel link', () => {
-    const element: HTMLElement = parseStringAsHtml(`
+        const element: HTMLElement = parseStringAsHtml(
+            `
             <div>
                 <a href="/?test=test" data-panel="my-account-panel">Text</button>
             </div>
-        `, 'div');
+        `,
+            'div'
+        );
 
         document.body.appendChild(element);
 
@@ -43,15 +49,17 @@ describe('Test creation', () => {
         document.body.classList.add('logged-in');
         document.body.querySelector('a')?.dispatchEvent(new Event('click'));
         // expect(window.location.href).toBe('http://localhost/?test=test');
-
     });
 
     it('should fail without a template', () => {
-        const element: HTMLElement = parseStringAsHtml(`
+        const element: HTMLElement = parseStringAsHtml(
+            `
             <div>
                 <button data-panel="test">Text</button>
             </div>
-        `, 'div');
+        `,
+            'div'
+        );
 
         document.body.appendChild(element);
 
@@ -60,11 +68,14 @@ describe('Test creation', () => {
     });
 
     it('should fail without a dialog', () => {
-        const element: HTMLElement = parseStringAsHtml(`
+        const element: HTMLElement = parseStringAsHtml(
+            `
             <div>
                 <button data-panel="test">Text</button>
             </div>
-        `, 'div');
+        `,
+            'div'
+        );
 
         document.body.appendChild(element);
 
@@ -73,13 +84,16 @@ describe('Test creation', () => {
     });
 
     it('should fail without a dialog', () => {
-        const element: HTMLElement = parseStringAsHtml(`
+        const element: HTMLElement = parseStringAsHtml(
+            `
             <div>
                 <button data-panel="test">Text</button>
 
                 <template data-panel-template="test"></template>
             </div>
-        `, 'div');
+        `,
+            'div'
+        );
 
         document.body.appendChild(element);
 
@@ -88,11 +102,14 @@ describe('Test creation', () => {
     });
 
     it('should redirect to link if template is missing', () => {
-        const element: HTMLElement = parseStringAsHtml(`
+        const element: HTMLElement = parseStringAsHtml(
+            `
             <div>
                 <a href="/?test=test" data-panel="test">Text</button>
             </div>
-        `, 'div');
+        `,
+            'div'
+        );
 
         document.body.appendChild(element);
 
