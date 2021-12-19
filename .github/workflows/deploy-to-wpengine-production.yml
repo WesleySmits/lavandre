@@ -23,7 +23,7 @@ jobs:
           npx yarn
 
           # Build production assets
-          npx yarn prod
+          npx yarn build
           
           # Run JS unit tests
           npx yarn test
