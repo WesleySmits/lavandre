@@ -6,7 +6,7 @@
             <source src="https://lavandre.com/wp-content/uploads/2021/09/IMG_4167.mov" type="video/mp4">
         </video>
 
-        <a href="#shop-now" class="no-button full-video__see-more" data-scroll-to="shop-now">
+        <a href="#shop-now" class="no-button full-video__see-more" aria-label="See more" data-scroll-to="shop-now">
             <?php include get_stylesheet_directory() . '/partials/icons/down-arrow.svg.php'; ?>
         </a>
     </section>
@@ -23,7 +23,9 @@
         <div class="ww-banner-block__content">
             <div class="ww-banner-block__inner-content">
                 <h4>Wash Less or As You Do</h4>
-                <p>You’re supposed to wash regular towels at least after three uses. That’s a lot of washing. Resore towels are designed to stay clean after several washes, meaning your protecting your skin health while reducing the amount of washing needed to keep your skin clear of bacteria.</p>
+                <p>You’re supposed to wash regular towels at least after three uses. That’s a lot of washing. Resore
+                    towels are designed to stay clean after several washes, meaning your protecting your skin health
+                    while reducing the amount of washing needed to keep your skin clear of bacteria.</p>
             </div>
         </div>
     </section>
@@ -37,25 +39,39 @@
             <div>
                 <?php include get_stylesheet_directory() . '/partials/icons/leaf.svg.php'; ?>
                 <h3>Where does a dry face washer fit into your beauty regime and why is it important?</h3>
-                <p>After cleansing, it’s really important to use a gentle press and pat method to dry the skin with a soft, non-abrasive cloth and to absorb any excess liquid and product. Rubbing, buffing or tugging at the complexion with coarse fabric can cause redness, irritation and really agitate the skin, as well as encourage fine lines and laxity if done frequently enough.</p>
+                <p>After cleansing, it’s really important to use a gentle press and pat method to dry the skin with a
+                    soft, non-abrasive cloth and to absorb any excess liquid and product. Rubbing, buffing or tugging at
+                    the complexion with coarse fabric can cause redness, irritation and really agitate the skin, as well
+                    as encourage fine lines and laxity if done frequently enough.</p>
             </div>
 
             <div>
                 <?php include get_stylesheet_directory() . '/partials/icons/drop.svg.php'; ?>
                 <h3>Where does a wet face washer fit into your beauty regime and why is it important?</h3>
-                <p>Wet cloths are a wonderful way to gently remove thicker cleansing balms for a deep and thorough cleanse and to assist in freeing the pores of impurities. They can also be used to really gently buff away dead skin on the nose and chin, by using small circular motions and can be pressed gently into the complexion for a swift and respectful removal of peels and masks after they have been left to activate and infuse into the complexion.</p>
+                <p>Wet cloths are a wonderful way to gently remove thicker cleansing balms for a deep and thorough
+                    cleanse and to assist in freeing the pores of impurities. They can also be used to really gently
+                    buff away dead skin on the nose and chin, by using small circular motions and can be pressed gently
+                    into the complexion for a swift and respectful removal of peels and masks after they have been left
+                    to activate and infuse into the complexion.</p>
             </div>
 
             <div>
                 <?php include get_stylesheet_directory() . '/partials/icons/earth.svg.php'; ?>
                 <h3>Where does a dry face washer fit into your beauty regime and why is it important?</h3>
-                <p>After cleansing, it’s really important to use a gentle press and pat method to dry the skin with a soft, non-abrasive cloth and to absorb any excess liquid and product. Rubbing, buffing or tugging at the complexion with coarse fabric can cause redness, irritation and really agitate the skin, as well as encourage fine lines and laxity if done frequently enough.</p>
+                <p>After cleansing, it’s really important to use a gentle press and pat method to dry the skin with a
+                    soft, non-abrasive cloth and to absorb any excess liquid and product. Rubbing, buffing or tugging at
+                    the complexion with coarse fabric can cause redness, irritation and really agitate the skin, as well
+                    as encourage fine lines and laxity if done frequently enough.</p>
             </div>
 
             <div>
                 <?php include get_stylesheet_directory() . '/partials/icons/euro.svg.php'; ?>
                 <h3>Where does a wet face washer fit into your beauty regime and why is it important?</h3>
-                <p>Wet cloths are a wonderful way to gently remove thicker cleansing balms for a deep and thorough cleanse and to assist in freeing the pores of impurities. They can also be used to really gently buff away dead skin on the nose and chin, by using small circular motions and can be pressed gently into the complexion for a swift and respectful removal of peels and masks after they have been left to activate and infuse into the complexion.</p>
+                <p>Wet cloths are a wonderful way to gently remove thicker cleansing balms for a deep and thorough
+                    cleanse and to assist in freeing the pores of impurities. They can also be used to really gently
+                    buff away dead skin on the nose and chin, by using small circular motions and can be pressed gently
+                    into the complexion for a swift and respectful removal of peels and masks after they have been left
+                    to activate and infuse into the complexion.</p>
             </div>
         </div>
     </section>
@@ -74,9 +90,14 @@
                 </p>
 
                 <form id="homepage-newsletter-form" class="homepage-newsletter-form" action="post">
-                    <label class="sr-only" for="homepage-newsletter-form-email"><?php _e('Email', 'lavandre'); ?></label>
-                    <input class="newsletter-subscribe-home__input" type="email" name="email" id="homepage-newsletter-form-email" title="<?php _e('Please enter a valid e-mail address', 'lavandre'); ?>" placeholder="<?php _e('Email', 'lavandre'); ?>" required>
-                    <button is="lavandre-button" primary size="large" class="newsletter-subscribe-home__button" type="submit" id="homepage-newsletter-form-submit" aria-label="Subscribe to newsletter button">
+                    <label class="sr-only"
+                        for="homepage-newsletter-form-email"><?php _e('Email', 'lavandre'); ?></label>
+                    <input class="newsletter-subscribe-home__input" type="email" name="email"
+                        id="homepage-newsletter-form-email"
+                        title="<?php _e('Please enter a valid e-mail address', 'lavandre'); ?>"
+                        placeholder="<?php _e('Email', 'lavandre'); ?>" required>
+                    <button is="lavandre-button" primary size="large" class="newsletter-subscribe-home__button"
+                        type="submit" id="homepage-newsletter-form-submit" aria-label="Subscribe to newsletter button">
                         <?php _e('Submit', 'lavandre'); ?>
                     </button>
                 </form>
