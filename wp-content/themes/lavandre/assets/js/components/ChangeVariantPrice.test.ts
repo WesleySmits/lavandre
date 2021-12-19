@@ -2,8 +2,7 @@ import { parseStringAsHtml } from "../util/dom";
 import ChangeVariantPrice from "./ChangeVariantPrice";
 import HttpClient from '../common/HttpClient';
 
-let element: HTMLElement;
-const flushPromises = () => new Promise(setImmediate);
+jest.useFakeTimers();
 
 describe('Test creation', () => {
     afterEach(() => {
@@ -364,13 +363,13 @@ describe('Test sending request', () => {
 
         expect(HttpClient.post).toHaveBeenCalledTimes(1);
 
-        await flushPromises();
+        setTimeout(() => {
+            const saleElement: HTMLElement | null = document.querySelector('.product-detail__price del [data-product-price]');
+            expect(saleElement!.innerText).toEqual(Number(10).toFixed(2));
 
-        const saleElement: HTMLElement | null = document.querySelector('.product-detail__price del [data-product-price]');
-        expect(saleElement!.innerText).toEqual(Number(10).toFixed(2));
-
-        const regularPriceElement: HTMLElement | null = document.querySelector('.product-detail__price ins [data-product-price]');
-        expect(regularPriceElement!.innerText).toEqual(Number(20).toFixed(2));
+            const regularPriceElement: HTMLElement | null = document.querySelector('.product-detail__price ins [data-product-price]');
+            expect(regularPriceElement!.innerText).toEqual(Number(20).toFixed(2));
+        }, 100);
     });
 });
 

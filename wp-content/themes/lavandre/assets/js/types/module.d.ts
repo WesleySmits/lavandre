@@ -1,7 +1,7 @@
-import Component from "../common/Component";
+import Component from '../common/Component';
 
 interface iModule {
-    components: Component[],
-    eventEmitter: EventEmitter,
-    initialize(): void
+    components: Component[];
+    eventEmitter: EventEmitter;
+    initialize(): void;
 }

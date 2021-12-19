@@ -1,11 +1,17 @@
 {
     "root": true,
     "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint",
+        "prettier"
+    ],
+
     "extends": [
         "eslint:recommended",
         "airbnb-base",
         "plugin:import/errors",
-        "plugin:import/warnings"
+        "plugin:import/warnings",
+        "prettier"
     ],
     "parserOptions": {
         "ecmaVersion": 7,
@@ -32,6 +38,39 @@
         "max-len": ["error", { "code": 120 }],
         "no-console": 2,
         "no-alert": 2,
-        "indent": ["error", 4]
+        "no-shadow": "off",
+        "max-classes-per-file": [
+            "error",
+            { "ignoreExpressions": true, "max": 2 }
+        ],
+        "comma-dangle": ["error", "never"],
+        "indent": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+              "js": "never",
+              "jsx": "never",
+              "ts": "never",
+              "tsx": "never"
+            }
+        ],
+        "no-param-reassign": [2, {
+            "props": false
+        }],
+        "no-unused-vars": "off",
+        "object-shorthand": 0,
+        "no-plusplus": "off",
+        "no-cond-assign": ["error", "except-parens"],
+        "class-methods-use-this": 0,
+        "prefer-destructuring": 0,
+        "no-continue": 0,
+        "quote-props": [2, "consistent-as-needed"],
+        "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+        "import/no-unresolved": [2, { "ignore": ["\\?lit$"] }],
+        "no-restricted-syntax": "off",
+        "no-use-before-define": "off",
+        "prettier/prettier": "error",
+        "no-undef": "off"
     }
 }

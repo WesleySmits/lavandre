@@ -1,4 +1,4 @@
-import Component from "../common/Component";
+import Component from '../common/Component';
 
 export default class HeaderSearch extends Component {
     private element: HTMLElement;
@@ -15,21 +15,22 @@ export default class HeaderSearch extends Component {
                 return;
             }
 
-            const withinHeader: boolean = (eventTarget.closest('.header__search') !== null) ? true : false;
+            const withinHeader: boolean = eventTarget.closest('.header__search') !== null;
             if (withinHeader) {
                 return;
             }
 
             this.element.classList.remove('active');
             document.body.removeEventListener('click', documentClickHandler);
-        }
+        };
 
         this.element.addEventListener('click', (event: Event) => {
             event.stopImmediatePropagation();
 
             this.element.classList.add('active');
 
-            const searchInputElement: HTMLInputElement | null = this.element.querySelector('.product-search-field');
+            const searchInputElement: HTMLInputElement | null =
+                this.element.querySelector('.product-search-field');
             if (searchInputElement !== null) {
                 searchInputElement.focus();
             }

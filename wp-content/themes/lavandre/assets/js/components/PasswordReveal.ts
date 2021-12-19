@@ -1,4 +1,4 @@
-import Component from "../common/Component";
+import Component from '../common/Component';
 
 export default class PasswordReveal extends Component {
     private element: HTMLElement;
@@ -8,7 +8,9 @@ export default class PasswordReveal extends Component {
     constructor(element: HTMLElement) {
         super();
         this.element = element;
-        this.passwordInput = this.element.querySelector('input[type="password"]') as HTMLInputElement;
+        this.passwordInput = this.element.querySelector(
+            'input[type="password"]'
+        ) as HTMLInputElement;
     }
 
     public initialize() {

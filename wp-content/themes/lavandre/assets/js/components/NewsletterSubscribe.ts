@@ -1,7 +1,7 @@
-import Component from "../common/Component";
-import DataLayer from "../common/DataLayer";
-import { sendAjaxRequest } from "../util/requests";
-import { FieldValidation } from "./FieldValidation";
+import Component from '../common/Component';
+import DataLayer from '../common/DataLayer';
+import { sendAjaxRequest } from '../util/requests';
+import FieldValidation from './FieldValidation';
 
 export default class NewsletterSubscribe extends Component {
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
@@ -44,21 +44,24 @@ export default class NewsletterSubscribe extends Component {
 
             const data = {
                 action: 'mailchimpsubscribe',
-				'email': email,
-				'firstName': firstName,
-				'companyName': companyName
+                email,
+                firstName,
+                companyName
             };
 
             FieldValidation.removeErrorText(this.emailField!);
-            sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), this.onFailure.bind(this));
+            sendAjaxRequest(
+                data,
+                this.ajaxEndpoint,
+                null,
+                this.onSuccess.bind(this),
+                this.onFailure.bind(this)
+            );
         });
     }
 
     private isValid(): boolean {
-        if (
-            !this.form
-            || !this.emailField
-        ) {
+        if (!this.form || !this.emailField) {
             return false;
         }
 
@@ -86,7 +89,11 @@ export default class NewsletterSubscribe extends Component {
 
     public static onInit(selector: Document | HTMLElement = document): void {
         // #TODO: Switch to common selector
-        const forms: HTMLFormElement[] = Array.from(selector.querySelectorAll('#footer-newsletter-form, #homepage-newsletter-form, #ajax-newsletter-form'));
+        const forms: HTMLFormElement[] = Array.from(
+            selector.querySelectorAll(
+                '#footer-newsletter-form, #homepage-newsletter-form, #ajax-newsletter-form'
+            )
+        );
 
         for (let index = 0; index < forms.length; index++) {
             const form = forms[index];

@@ -1,13 +1,14 @@
-import Component from "../common/Component";
-import { ToastType } from "../enums/ToastType";
-import { sendAjaxRequest } from "../util/requests";
-import { FieldValidation } from "./FieldValidation";
-import Toast from "./Toast";
+import Component from '../common/Component';
+import { ToastType } from '../enums/ToastType';
+import { sendAjaxRequest } from '../util/requests';
+import FieldValidation from './FieldValidation';
+import Toast from './Toast';
 
 export default class ForgotPassword extends Component {
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
 
     private form: HTMLFormElement;
+
     private passwordForgetAnchor: HTMLAnchorElement;
 
     constructor(anchor: HTMLAnchorElement) {
@@ -40,41 +41,37 @@ export default class ForgotPassword extends Component {
 
             if (!username) {
                 throw new Error('Username not set');
-                return;
             }
 
             const data = {
                 action: 'ajaxforgotpassword',
-				'user_login': username
+                user_login: username
             };
 
-            sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), this.onFailure.bind(this));
+            sendAjaxRequest(
+                data,
+                this.ajaxEndpoint,
+                null,
+                this.onSuccess.bind(this),
+                this.onFailure.bind(this)
+            );
         });
     }
 
     private onSuccess(res: any) {
         const response: any = res;
-        const toast: Toast = new Toast(
-            response.data,
-            ToastType.success
-        );
+        const toast: Toast = new Toast(response.data, ToastType.success);
         toast.initialize();
     }
 
     private onFailure(res: string) {
         const response = JSON.parse(res);
-        const toast: Toast = new Toast(
-            response.data,
-            ToastType.warning
-        );
+        const toast: Toast = new Toast(response.data, ToastType.warning);
         toast.initialize();
     }
 
     private isValid(): boolean {
-        if (
-            !this.passwordForgetAnchor
-            || !this.form
-        ) {
+        if (!this.passwordForgetAnchor || !this.form) {
             return false;
         }
 
@@ -82,7 +79,9 @@ export default class ForgotPassword extends Component {
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {
-        const passwordForgetLinks: HTMLAnchorElement[] = Array.from(selector.querySelectorAll('[data-role="password-forget"]'));
+        const passwordForgetLinks: HTMLAnchorElement[] = Array.from(
+            selector.querySelectorAll('[data-role="password-forget"]')
+        );
         for (let index = 0; index < passwordForgetLinks.length; index++) {
             const link = passwordForgetLinks[index];
             const forgotPassword: ForgotPassword = new ForgotPassword(link);

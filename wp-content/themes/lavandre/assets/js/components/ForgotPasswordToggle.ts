@@ -1,12 +1,10 @@
-import Component from "../common/Component";
-import { ToastType } from "../enums/ToastType";
-import { sendAjaxRequest } from "../util/requests";
-import { FieldValidation } from "./FieldValidation";
-import Toast from "./Toast";
+import Component from '../common/Component';
 
 export default class ForgotPasswordToggle extends Component {
     private passwordForgetWrapper: HTMLElement;
+
     private loginWrapper: HTMLElement;
+
     private toggle: HTMLAnchorElement;
 
     constructor(toggle: HTMLAnchorElement) {
@@ -35,10 +33,7 @@ export default class ForgotPasswordToggle extends Component {
     }
 
     private isValid(): boolean {
-        if (
-            !this.passwordForgetWrapper
-            || !this.loginWrapper
-        ) {
+        if (!this.passwordForgetWrapper || !this.loginWrapper) {
             return false;
         }
 
@@ -46,7 +41,9 @@ export default class ForgotPasswordToggle extends Component {
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {
-        const passwordForgetLinks: HTMLAnchorElement[] = Array.from(selector.querySelectorAll('[data-role="password-forget-toggle"]'));
+        const passwordForgetLinks: HTMLAnchorElement[] = Array.from(
+            selector.querySelectorAll('[data-role="password-forget-toggle"]')
+        );
         for (let index = 0; index < passwordForgetLinks.length; index++) {
             const link = passwordForgetLinks[index];
             const forgotPassword: ForgotPasswordToggle = new ForgotPasswordToggle(link);

@@ -1,4 +1,4 @@
-type EventEmitterEvent = { [key: string]: Function[] }
+type EventEmitterEvent = { [key: string]: Function[] };
 
 class EventEmitterClass {
     private events: EventEmitterEvent = {};

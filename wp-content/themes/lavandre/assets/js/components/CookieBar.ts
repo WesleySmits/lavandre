@@ -15,7 +15,9 @@ export default class CookieBar extends Component {
 
     constructor(selector: Document | HTMLElement = document) {
         super();
-        this.templateElement = selector.querySelector('#cookie-bar-template')! as HTMLTemplateElement;
+        this.templateElement = selector.querySelector(
+            '#cookie-bar-template'
+        )! as HTMLTemplateElement;
     }
 
     public initialize(): void {
@@ -38,8 +40,10 @@ export default class CookieBar extends Component {
     }
 
     private getElement(): HTMLElement {
-        const clone: HTMLTemplateElement = this.templateElement.cloneNode(true) as HTMLTemplateElement;
-        const content: DocumentFragment = clone.content;
+        const clone: HTMLTemplateElement = this.templateElement.cloneNode(
+            true
+        ) as HTMLTemplateElement;
+        const { content } = clone;
         this.templateElement.parentElement!.appendChild(content);
         return document.querySelector('[data-role="cookie-bar"]') as HTMLElement;
     }
@@ -56,13 +60,13 @@ export default class CookieBar extends Component {
 
     static setAcceptCookie(): void {
         setCookieValue(CookieBar.cookieName, 'true', {
-            "max-age": 31536000
+            'max-age': 31536000
         });
     }
 
     static setRejectCookie(): void {
         setCookieValue(CookieBar.cookieName, 'false', {
-            "max-age": 31536000
+            'max-age': 31536000
         });
     }
 

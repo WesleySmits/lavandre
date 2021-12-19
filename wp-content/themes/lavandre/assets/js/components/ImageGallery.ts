@@ -1,4 +1,4 @@
-import Component from "../common/Component"
+import Component from '../common/Component';
 
 export default class ImageGallery extends Component {
     private element: HTMLElement;
@@ -9,14 +9,18 @@ export default class ImageGallery extends Component {
     }
 
     public initialize(): void {
-        const thumbnailAnchors: HTMLAnchorElement[] = Array.from(this.element.querySelectorAll('.product-detail__gallery__thumbnails a'));
+        const thumbnailAnchors: HTMLAnchorElement[] = Array.from(
+            this.element.querySelectorAll('.product-detail__gallery__thumbnails a')
+        );
 
         thumbnailAnchors.forEach((anchor) => {
             anchor.addEventListener('click', (event: Event) => {
                 event.preventDefault();
                 const id: string | undefined = anchor.dataset.thumbnailId;
 
-                const image: HTMLElement | null = this.element.querySelector(`[data-image-id="${id}"]`);
+                const image: HTMLElement | null = this.element.querySelector(
+                    `[data-image-id="${id}"]`
+                );
                 if (image === null) {
                     return;
                 }
@@ -26,7 +30,7 @@ export default class ImageGallery extends Component {
                     element.classList.remove('active');
                 });
 
-                image.classList.add('active')
+                image.classList.add('active');
             });
         });
     }

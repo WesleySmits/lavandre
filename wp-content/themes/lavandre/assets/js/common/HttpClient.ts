@@ -33,7 +33,6 @@ class HttpClient {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             }
-
         };
 
         const requestOptions: RequestInit = { ...defaultOptions, ...options };
@@ -70,9 +69,7 @@ class HttpClient {
 
         const requestOptions: RequestInit = { ...defaultOptions, ...options };
 
-        return fetch(url, requestOptions)
-            .then(this.requestStatus)
-            .then(this.responseType);
+        return fetch(url, requestOptions).then(this.requestStatus).then(this.responseType);
     }
 
     /**

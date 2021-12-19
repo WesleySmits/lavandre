@@ -1,4 +1,8 @@
- export default function scrollToTarget(target: HTMLElement, defaultOffset: number = 0, headerOffset: boolean = true):void {
+export default function scrollToTarget(
+    target: HTMLElement,
+    defaultOffset: number = 0,
+    headerOffset: boolean = true
+): void {
     const bodyTopPosition: number = document.body.getBoundingClientRect().top;
     const elementPosition: number = target.getBoundingClientRect().top - bodyTopPosition;
     let offset: number = defaultOffset;

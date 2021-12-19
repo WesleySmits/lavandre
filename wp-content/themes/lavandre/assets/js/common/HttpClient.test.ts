@@ -4,7 +4,8 @@ import { parseStringAsHtml } from '../util/dom';
 const httpClient: typeof HttpClient = HttpClient;
 
 beforeEach(() => {
-    global.fetch.resetMocks();
+    //@ts-ignore
+    global.fetchMock.resetMocks();
 });
 
 describe('Test the get() method', () => {

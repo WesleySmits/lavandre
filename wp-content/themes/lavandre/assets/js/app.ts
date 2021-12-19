@@ -1,32 +1,29 @@
-import '../css/app.pcss';
-import '@ungap/custom-elements';
 import '@lavandre/button/dist/src/lavandre-button';
-
+import '@ungap/custom-elements';
+import '../css/app.pcss';
+import Component from './common/Component';
 import EventEmitter from './common/EventEmitter';
 import AjaxLogin from './components/AjaxLogin';
 import AjaxRegister from './components/AjaxRegister';
+import CookieBar from './components/CookieBar';
 import Curtain from './components/Curtain';
 import EmailValidation from './components/EmailValidation';
-import PasswordReveal from './components/PasswordReveal';
-import NewsletterSubscribe from './components/NewsletterSubscribe';
-import { FieldValidation } from './components/FieldValidation';
-import InfoPopup from './components/InfoPopup';
-import CookieBar from './components/CookieBar';
+import FieldValidation from './components/FieldValidation';
 import ForgotPassword from './components/ForgotPassword';
-import SidePanel from './ui/SidePanel';
-import Component from './common/Component';
-import HeaderSearch from './components/HeaderSearch';
-import { setCurrentLinkClass } from './util/links';
-import Module from './Module';
-import LazyLoader from './components/LazyLoader';
-import Popup from './ui/Popup';
-import NewsLetterPopup from './ui/NewsletterPopup';
-import './web-components/AccordionElement';
-import ScrollToContent from './components/ScrollToContent';
 import ForgotPasswordToggle from './components/ForgotPasswordToggle';
+import HeaderSearch from './components/HeaderSearch';
+import InfoPopup from './components/InfoPopup';
+import LazyLoader from './components/LazyLoader';
+import NewsletterSubscribe from './components/NewsletterSubscribe';
+import PasswordReveal from './components/PasswordReveal';
+import ScrollToContent from './components/ScrollToContent';
+import Module from './Module';
+import NewsLetterPopup from './ui/NewsletterPopup';
+import SidePanel from './ui/SidePanel';
+import { setCurrentLinkClass } from './util/links';
+import './web-components/AccordionElement';
 
 export default class App extends Module {
-
     public eventEmitter: EventEmitter = EventEmitter;
 
     public components: Component[] = [
@@ -52,7 +49,9 @@ export default class App extends Module {
         super.initialize();
         setCurrentLinkClass();
 
-        const wpFormsSubmitButtons = Array.from(document.querySelectorAll('[name="wpforms[submit]"]'));
+        const wpFormsSubmitButtons = Array.from(
+            document.querySelectorAll('[name="wpforms[submit]"]')
+        );
         wpFormsSubmitButtons.forEach((button) => {
             button.removeAttribute('class');
             button.setAttribute('is', 'lavandre-button');

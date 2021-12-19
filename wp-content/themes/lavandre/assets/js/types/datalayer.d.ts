@@ -1,13 +1,13 @@
 type dataLayer = StandardObjectInterface & {
-    event?: string
+    event?: string;
 };
 
 type GoogleAnalyticsEvent = dataLayer & {
-    eventCategory?: string,
-    eventAction?: string,
-    eventLabel?: string,
-    eventValue?: number,
-    method?: string,
+    eventCategory?: string;
+    eventAction?: string;
+    eventLabel?: string;
+    eventValue?: number;
+    method?: string;
 };
 
 type GoogleAnalyticsProduct = {
@@ -24,9 +24,8 @@ type GoogleAnalyticsProduct = {
 };
 
 type GoogleAnalyticsProductDetailViewEvent = {
-    event: string,
+    event: string;
     ecommerce: {
-        items: GoogleAnalyticsProduct[]
-    }
-}
-
+        items: GoogleAnalyticsProduct[];
+    };
+};

@@ -1,4 +1,4 @@
-import Component from "../common/Component";
+import Component from '../common/Component';
 
 export default class LazyLoader extends Component {
     private element: HTMLElement;
@@ -40,7 +40,9 @@ export default class LazyLoader extends Component {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     if (this.element instanceof HTMLPictureElement) {
-                        this.elements.forEach((lazy) => { this.lazyload(lazy); });
+                        this.elements.forEach((lazy) => {
+                            this.lazyload(lazy);
+                        });
                     } else {
                         this.lazyload(entry.target as HTMLElement);
                     }
@@ -55,7 +57,9 @@ export default class LazyLoader extends Component {
             return;
         }
 
-        this.elements.forEach((lazyImage) => { lazyImageObserver.observe(lazyImage); });
+        this.elements.forEach((lazyImage) => {
+            lazyImageObserver.observe(lazyImage);
+        });
     }
 
     private lazyload(el: HTMLElement): void {
@@ -77,24 +81,24 @@ export default class LazyLoader extends Component {
         }
 
         if (
-            (element instanceof HTMLImageElement || element instanceof HTMLSourceElement)
-            && element.dataset.sizes
+            (element instanceof HTMLImageElement || element instanceof HTMLSourceElement) &&
+            element.dataset.sizes
         ) {
             element.sizes = element.dataset.sizes;
             element.removeAttribute('data-sizes');
         }
 
         if (
-            (element instanceof HTMLImageElement || element instanceof HTMLSourceElement)
-            && element.dataset.srcset
+            (element instanceof HTMLImageElement || element instanceof HTMLSourceElement) &&
+            element.dataset.srcset
         ) {
             element.srcset = element.dataset.srcset;
             element.removeAttribute('data-srcset');
         }
 
         if (
-            (element instanceof HTMLImageElement || element instanceof HTMLSourceElement)
-            && element.dataset.src
+            (element instanceof HTMLImageElement || element instanceof HTMLSourceElement) &&
+            element.dataset.src
         ) {
             element.src = element.dataset.src;
             element.removeAttribute('data-src');
@@ -107,15 +111,17 @@ export default class LazyLoader extends Component {
         }
 
         if (
-            this.element instanceof HTMLImageElement
-            && (this.element.dataset.src || this.element.dataset.srcset)
+            this.element instanceof HTMLImageElement &&
+            (this.element.dataset.src || this.element.dataset.srcset)
         ) {
-            return [this.element]
-        } else if (window.HTMLPictureElement && this.element instanceof HTMLPictureElement) {
-            return Array.from(this.element.querySelectorAll('img[data-src], source[data-srcset]')) as HTMLElement[];
-        } else {
-            return Array.from(this.element.querySelectorAll('img[data-src]'));
+            return [this.element];
         }
+        if (window.HTMLPictureElement && this.element instanceof HTMLPictureElement) {
+            return Array.from(
+                this.element.querySelectorAll('img[data-src], source[data-srcset]')
+            ) as HTMLElement[];
+        }
+        return Array.from(this.element.querySelectorAll('img[data-src]'));
     }
 
     private manageCssClasses(element: HTMLElement): void {
@@ -126,9 +132,12 @@ export default class LazyLoader extends Component {
     public static onInit() {
         super.onInit();
 
-        const lazyloadElements: HTMLElement[] = Array.from(document.querySelectorAll('[data-lazyload]'));
+        const lazyloadElements: HTMLElement[] = Array.from(
+            document.querySelectorAll('[data-lazyload]')
+        );
         for (let i = 0; i < lazyloadElements.length; i++) {
             const element = lazyloadElements[i];
+            // eslint-disable-next-line no-new
             new LazyLoader(element);
         }
     }

@@ -1,4 +1,4 @@
-export class FieldValidation {
+export default class FieldValidation {
     private field: HTMLInputElement;
 
     constructor(field: HTMLInputElement) {
@@ -13,7 +13,9 @@ export class FieldValidation {
         const events: string[] = ['change', 'validate'];
         for (let index = 0; index < events.length; index++) {
             const event = events[index];
-            this.field.addEventListener(event, (e: Event) => { this.onChange(e.target as HTMLInputElement, e) });
+            this.field.addEventListener(event, (e: Event) => {
+                this.onChange(e.target as HTMLInputElement, e);
+            });
         }
 
         this.field.addEventListener('invalid', (e) => {
@@ -35,7 +37,7 @@ export class FieldValidation {
     }
 
     private getValidationMessage(validity: ValidityState, field: HTMLInputElement): string {
-        let defaultValidationMessage: string = 'Vul een geldige waarde in.';
+        const defaultValidationMessage: string = 'Vul een geldige waarde in.';
 
         if (validity.valueMissing === true) {
             return field.dataset.valueMissing || field.title || 'Dit veld is verplicht.';
@@ -73,7 +75,8 @@ export class FieldValidation {
     }
 
     static removeErrorText(field: HTMLInputElement): void {
-        const element: HTMLSpanElement | null = field.parentElement?.querySelector('.validation-message') || null;
+        const element: HTMLSpanElement | null =
+            field.parentElement?.querySelector('.validation-message') || null;
         if (!element) {
             return;
         }
@@ -82,17 +85,23 @@ export class FieldValidation {
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {
-        const loginForm: HTMLFormElement[] = Array.from(selector.querySelectorAll('[data-field-validation]'));
+        const loginForm: HTMLFormElement[] = Array.from(
+            selector.querySelectorAll('[data-field-validation]')
+        );
 
         loginForm.forEach((form: HTMLFormElement) => {
-            const fields: HTMLInputElement[] = Array.from(form.querySelectorAll('input:not([type="hidden"])'));
+            const fields: HTMLInputElement[] = Array.from(
+                form.querySelectorAll('input:not([type="hidden"])')
+            );
             for (let index = 0; index < fields.length; index++) {
                 const field = fields[index];
                 const fieldValidation: FieldValidation = new FieldValidation(field);
                 fieldValidation.initialize();
             }
 
-            const submitButton: HTMLButtonElement = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+            const submitButton: HTMLButtonElement = form.querySelector(
+                'button[type="submit"]'
+            ) as HTMLButtonElement;
             submitButton?.addEventListener('click', (event: Event) => {
                 event.preventDefault();
 

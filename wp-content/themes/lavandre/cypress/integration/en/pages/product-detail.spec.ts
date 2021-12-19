@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 import { adminAjaxUrl } from "../../../support/form/form";
-import { endpoints } from "../../../support/objects/endpoints";
+import endpoints from "../../../support/objects/endpoints";
 
 describe("Product detail tests", () => {
     beforeEach(() => {

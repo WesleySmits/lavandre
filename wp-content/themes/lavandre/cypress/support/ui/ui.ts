@@ -1,4 +1,2 @@
-import './accordion.ts';
+import './accordion';
 import './panel';
-
-

@@ -1,5 +1,6 @@
-import Component from "../common/Component";
-import { sendAjaxRequest } from "../util/requests";
+/* eslint-disable camelcase */
+import Component from '../common/Component';
+import { sendAjaxRequest } from '../util/requests';
 
 export default class ChangeVariantPrice extends Component {
     private elements: HTMLInputElement[];
@@ -16,8 +17,12 @@ export default class ChangeVariantPrice extends Component {
     }
 
     public initialize(): void {
-        this.regularPriceElement = document.querySelector('.product-detail__price ins [data-product-price]') || document.querySelector('.product-detail__price [data-product-price]');
-        this.salePriceElement = document.querySelector('.product-detail__price del [data-product-price]');
+        this.regularPriceElement =
+            document.querySelector('.product-detail__price ins [data-product-price]') ||
+            document.querySelector('.product-detail__price [data-product-price]');
+        this.salePriceElement = document.querySelector(
+            '.product-detail__price del [data-product-price]'
+        );
 
         if (!this.salePriceElement && !this.regularPriceElement) {
             return;
@@ -28,7 +33,7 @@ export default class ChangeVariantPrice extends Component {
             return;
         }
 
-        const product_id: string | undefined = form.dataset.product_id;
+        const { product_id } = form.dataset;
 
         if (!product_id) {
             return;
@@ -36,7 +41,8 @@ export default class ChangeVariantPrice extends Component {
 
         this.elements.forEach((radio) => {
             radio.addEventListener('change', () => {
-                const variationIdElement: HTMLInputElement | null = form.querySelector('[name="variation_id"]');
+                const variationIdElement: HTMLInputElement | null =
+                    form.querySelector('[name="variation_id"]');
                 const variation_id: string | undefined = variationIdElement?.value;
 
                 if (!variation_id || !product_id) {
@@ -45,8 +51,8 @@ export default class ChangeVariantPrice extends Component {
 
                 const data = {
                     action: 'ajaxgetvariantprice',
-                    product_id: product_id,
-                    variation_id: variation_id
+                    product_id,
+                    variation_id
                 };
 
                 sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this));
@@ -72,7 +78,9 @@ export default class ChangeVariantPrice extends Component {
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {
-        const radioButtons: HTMLInputElement[] = Array.from(selector.querySelectorAll('.product-detail__variations input[type="radio'));
+        const radioButtons: HTMLInputElement[] = Array.from(
+            selector.querySelectorAll('.product-detail__variations input[type="radio')
+        );
         if (!radioButtons.length) {
             return;
         }

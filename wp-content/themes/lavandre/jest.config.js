@@ -22,6 +22,7 @@ module.exports = {
         '@lavandre/button/dist/src/lavandre-button': '<rootDir>/mocks/styleMock.js',
         '@lavandre/button/dist/src/LavandreButton': '<rootDir>/mocks/styleMock.js'
     },
+    testEnvironment: 'jsdom',
     testMatch: [
         '**/?(*.)+(test).[jt]s?(x)'
     ],
@@ -34,6 +35,7 @@ module.exports = {
     globals: {
         'ts-jest': {
             babelConfig: true
-        }
+        },
+        "window": {}
     }
 };

@@ -10,12 +10,20 @@ export default class Curtain extends Component {
 
     private defaultHeight: string;
 
-    constructor(element: HTMLElement, foldButton: HTMLButtonElement, onlyOnMobile: boolean = false) {
+    constructor(
+        element: HTMLElement,
+        foldButton: HTMLButtonElement,
+        onlyOnMobile: boolean = false
+    ) {
         super();
         this.element = element;
         this.foldButton = foldButton;
         this.onlyOnMobile = onlyOnMobile;
-        this.defaultHeight = (getComputedStyle(this.element).maxHeight !== undefined && getComputedStyle(this.element).maxHeight !== 'none') ? getComputedStyle(this.element).maxHeight : '0px';
+        this.defaultHeight =
+            getComputedStyle(this.element).maxHeight !== undefined &&
+            getComputedStyle(this.element).maxHeight !== 'none'
+                ? getComputedStyle(this.element).maxHeight
+                : '0px';
     }
 
     public initialize(): void {
@@ -66,10 +74,7 @@ export default class Curtain extends Component {
     }
 
     private isValid(): boolean {
-        if (
-            !this.element
-            || !this.foldButton
-        ) {
+        if (!this.element || !this.foldButton) {
             return false;
         }
 
@@ -77,16 +82,22 @@ export default class Curtain extends Component {
     }
 
     public static onInit(selector: Document | HTMLElement = document) {
-        const toggles: HTMLButtonElement[] = Array.from(selector.querySelectorAll('[data-curtain-toggle]'));
+        const toggles: HTMLButtonElement[] = Array.from(
+            selector.querySelectorAll('[data-curtain-toggle]')
+        );
 
         for (let index = 0; index < toggles.length; index++) {
             const toggle = toggles[index];
-            const content: HTMLElement = selector.querySelector(`[data-curtain-content="${toggle.dataset.curtainToggle}"]`) as HTMLElement;
+            const content: HTMLElement = selector.querySelector(
+                `[data-curtain-content="${toggle.dataset.curtainToggle}"]`
+            ) as HTMLElement;
             if (!content) {
                 continue;
             }
 
-            const onlyOnMobile: boolean = (content.dataset.onlyOnMobile && content.dataset.onlyOnMobile === 'true') ? true : false;
+            const onlyOnMobile: boolean = !!(
+                content.dataset.onlyOnMobile && content.dataset.onlyOnMobile === 'true'
+            );
             const curtain = new Curtain(content, toggle, onlyOnMobile);
             curtain.initialize();
         }

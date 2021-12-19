@@ -1,6 +1,14 @@
-import httpClientInstance from "../common/HttpClient";
+import httpClientInstance from '../common/HttpClient';
 
-export function sendAjaxRequest(data: requestData, endpoint: string, loadingElement: HTMLElement | null, onSuccess: Function, onFailure?: Function, event?: Event, button?: HTMLButtonElement) {
+export function sendAjaxRequest(
+    data: requestData,
+    endpoint: string,
+    loadingElement: HTMLElement | null,
+    onSuccess: Function,
+    onFailure?: Function,
+    event?: Event,
+    button?: HTMLButtonElement
+) {
     const httpClient: typeof httpClientInstance = httpClientInstance;
 
     const options: RequestInit = {
@@ -15,23 +23,29 @@ export function sendAjaxRequest(data: requestData, endpoint: string, loadingElem
     if (loadingElement) addLoadingState(loadingElement);
     if (button) setButtonLoadingState(button);
 
-    httpClient.post(endpoint, '', options).then((response: any) => new Promise(() => {
-        const ajaxResponse: ajaxResponse = response as ajaxResponse;
-        const data = ajaxResponse.data as unknown;
+    httpClient
+        .post(endpoint, '', options)
+        .then(
+            (response: any) =>
+                new Promise(() => {
+                    const ajaxResponse: ajaxResponse = response as ajaxResponse;
+                    const data = ajaxResponse.data as unknown;
 
-        if (ajaxResponse.success === false) {
-            throw new Error(String(data));
-        }
+                    if (ajaxResponse.success === false) {
+                        throw new Error(String(data));
+                    }
 
-        onSuccess(ajaxResponse, event);
-        if (loadingElement) removeLoadingState(loadingElement);
-        if (button) removeButtonLoadingState(button);
-    })).catch((error: Error) => {
-        console.error(error);
-        if (loadingElement) removeLoadingState(loadingElement);
-        if (button) removeButtonLoadingState(button);
-        if (onFailure) onFailure(error);
-    });
+                    onSuccess(ajaxResponse, event);
+                    if (loadingElement) removeLoadingState(loadingElement);
+                    if (button) removeButtonLoadingState(button);
+                })
+        )
+        .catch((error: Error) => {
+            // console.error(error);
+            if (loadingElement) removeLoadingState(loadingElement);
+            if (button) removeButtonLoadingState(button);
+            if (onFailure) onFailure(error);
+        });
 }
 
 export function addLoadingState(item: HTMLElement): void {

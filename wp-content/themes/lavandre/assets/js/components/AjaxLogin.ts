@@ -3,7 +3,7 @@ import DataLayer from '../common/DataLayer';
 import { ToastType } from '../enums/ToastType';
 import { loadRecaptcha, sitekey } from '../util/loadRecaptcha';
 import { sendAjaxRequest } from '../util/requests';
-import { FieldValidation } from './FieldValidation';
+import FieldValidation from './FieldValidation';
 import Toast from './Toast';
 
 export default class AjaxLogin extends Component {
@@ -41,7 +41,7 @@ export default class AjaxLogin extends Component {
                 if (field.matches(':-webkit-autofill')) {
                     field.dispatchEvent(new Event('input'));
                 }
-            }, 100)
+            }, 100);
 
             validator.initialize();
         }
@@ -53,8 +53,13 @@ export default class AjaxLogin extends Component {
 
         submitButton.type = 'button';
 
-        this.form.addEventListener('submit', (event: Event) => { this.onSubmit(event, fields) });
-        submitButton?.addEventListener('click', (event: Event) => { submitButton.setAttribute('loading', 'true'); this.onSubmit(event, fields) });
+        this.form.addEventListener('submit', (event: Event) => {
+            this.onSubmit(event, fields);
+        });
+        submitButton?.addEventListener('click', (event: Event) => {
+            submitButton.setAttribute('loading', 'true');
+            this.onSubmit(event, fields);
+        });
     }
 
     private onSubmit(event: Event, fields: HTMLInputElement[]): boolean {
@@ -82,17 +87,18 @@ export default class AjaxLogin extends Component {
         }
 
         // @ts-ignore
-        const grecaptcha = window.grecaptcha;
-        //@ts-ignore
+        const { grecaptcha } = window;
+        // @ts-ignore
 
         const data = {
-            'action': 'ajaxlogin',
-            'recaptchaToken': '',
-            'username': username,
-            'password': password,
+            action: 'ajaxlogin',
+            recaptchaToken: '',
+            username,
+            password
         };
 
-        const submitButton: HTMLButtonElement | undefined = this.form.querySelector('button[type="submit"]') as HTMLButtonElement || undefined;
+        const submitButton: HTMLButtonElement | undefined =
+            (this.form.querySelector('button[type="submit"]') as HTMLButtonElement) || undefined;
 
         // @ts-ignore
         if (!window.Cypress) {
@@ -100,21 +106,37 @@ export default class AjaxLogin extends Component {
                 grecaptcha.execute(sitekey, { action: 'AjaxLogin' }).then((token: string) => {
                     data.recaptchaToken = token;
 
-                    const submitButton: HTMLButtonElement | undefined = this.form.querySelector('button[type="submit"]') as HTMLButtonElement || undefined;
-                    sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), this.onFailure.bind(this), event, submitButton);
+                    const submitButton: HTMLButtonElement | undefined =
+                        (this.form.querySelector('button[type="submit"]') as HTMLButtonElement) ||
+                        undefined;
+                    sendAjaxRequest(
+                        data,
+                        this.ajaxEndpoint,
+                        null,
+                        this.onSuccess.bind(this),
+                        this.onFailure.bind(this),
+                        event,
+                        submitButton
+                    );
                 });
             });
         } else {
-            sendAjaxRequest(data, this.ajaxEndpoint, null, this.onSuccess.bind(this), this.onFailure.bind(this), event, submitButton);
+            sendAjaxRequest(
+                data,
+                this.ajaxEndpoint,
+                null,
+                this.onSuccess.bind(this),
+                this.onFailure.bind(this),
+                event,
+                submitButton
+            );
         }
 
         return false;
     }
 
     private isValid(): boolean {
-        if (
-            !this.form
-        ) {
+        if (!this.form) {
             return false;
         }
 
@@ -135,15 +157,10 @@ export default class AjaxLogin extends Component {
 
         const ctaButton: ctaButton = {
             text: 'My account',
-            href: href
-        }
+            href
+        };
 
-        const toast: Toast = new Toast(
-            response.data,
-            ToastType.success,
-            ctaButton,
-            20000
-        );
+        const toast: Toast = new Toast(response.data, ToastType.success, ctaButton, 20000);
         toast.initialize();
 
         const panel: HTMLDialogElement | null = this.form.closest('[data-panel-name]');
@@ -164,17 +181,18 @@ export default class AjaxLogin extends Component {
     private onFailure(res: string): void {
         const response = JSON.parse(res);
 
-        const message: string = response.data || 'This combination of email and password is not known to us. Please try again or request a new password.';
+        const message: string =
+            response.data ||
+            'This combination of email and password is not known to us. Please try again or request a new password.';
 
-        const toast: Toast = new Toast(
-            message,
-            ToastType.warning
-        );
+        const toast: Toast = new Toast(message, ToastType.warning);
         toast.initialize();
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {
-        const loginForms: HTMLFormElement[] = Array.from(selector.querySelectorAll('#ajax-login-form'));
+        const loginForms: HTMLFormElement[] = Array.from(
+            selector.querySelectorAll('#ajax-login-form')
+        );
 
         if (loginForms.length === 0) {
             return;

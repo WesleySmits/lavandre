@@ -1,6 +1,6 @@
-import cart from "../cart";
-import { sendAjaxRequest } from "../util/requests";
-import { FieldValidation } from "./FieldValidation";
+import cart from '../cart';
+import { sendAjaxRequest } from '../util/requests';
+import FieldValidation from './FieldValidation';
 
 export default class AddCouponCode {
     private form: HTMLFormElement;
@@ -11,7 +11,9 @@ export default class AddCouponCode {
 
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
 
-    private cartElement: HTMLTableElement = document.getElementById('custom-cart') as HTMLTableElement;
+    private cartElement: HTMLTableElement = document.getElementById(
+        'custom-cart'
+    ) as HTMLTableElement;
 
     constructor(form: HTMLFormElement) {
         this.form = form;
@@ -19,7 +21,7 @@ export default class AddCouponCode {
         this.submitButton = this.form.querySelector('[type="submit"]') as HTMLButtonElement;
     }
 
-    public initialize():void {
+    public initialize(): void {
         this.form.addEventListener('submit', (event: Event) => {
             event.preventDefault();
 
@@ -33,13 +35,21 @@ export default class AddCouponCode {
             const data: requestData = {
                 action: 'coupon_code_add',
                 code: couponCode.toLowerCase()
-            }
+            };
 
             FieldValidation.removeErrorText(this.couponField);
-            sendAjaxRequest(data, this.ajaxEndpoint, this.cartElement, this.onSuccess.bind(this), this.onFailure.bind(this), event, this.submitButton);
+            sendAjaxRequest(
+                data,
+                this.ajaxEndpoint,
+                this.cartElement,
+                this.onSuccess.bind(this),
+                this.onFailure.bind(this),
+                event,
+                this.submitButton
+            );
 
             return false;
-        })
+        });
     }
 
     private onSuccess(response: ajaxResponse, event?: Event) {
@@ -49,7 +59,6 @@ export default class AddCouponCode {
         }
 
         cart.updateCartContent(response);
-
     }
 
     private onFailure(error: Error) {

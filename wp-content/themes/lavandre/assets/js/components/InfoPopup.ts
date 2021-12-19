@@ -25,7 +25,7 @@ export default class InfoPopup extends Component {
 
     private showTippy(e: Event): void {
         // @ts-ignore
-        let instance = window.tippy(this.element, {
+        const instance = window.tippy(this.element, {
             content: this.content,
             theme: 'light',
             allowHTML: true,
@@ -46,10 +46,7 @@ export default class InfoPopup extends Component {
     }
 
     private isValid(): boolean {
-        if (
-            !this.element
-            || !this.content
-        ) {
+        if (!this.element || !this.content) {
             return false;
         }
 
@@ -57,7 +54,9 @@ export default class InfoPopup extends Component {
     }
 
     public static onInit(selector: Document | HTMLElement = document) {
-        const tippyElements: HTMLElement[] = Array.from(selector.querySelectorAll('[data-role="tippy"]'));
+        const tippyElements: HTMLElement[] = Array.from(
+            selector.querySelectorAll('[data-role="tippy"]')
+        );
 
         for (let index = 0; index < tippyElements.length; index++) {
             const tippyElement = tippyElements[index];

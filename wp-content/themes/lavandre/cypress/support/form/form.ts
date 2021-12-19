@@ -1,4 +1,4 @@
-import './fillFormFromFixture.ts';
+import './fillFormFromFixture';
 
 export const adminAjaxUrl: string = '/wp-admin/admin-ajax.php';
 
@@ -10,5 +10,5 @@ export function getRandomEmail(): string {
         string += chars[Math.floor(Math.random() * chars.length)];
     }
 
-    return string + '@lavandre.com';
+    return `${string}@lavandre.com`;
 }

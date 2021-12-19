@@ -9,10 +9,7 @@ export default class ConfirmValidation {
     }
 
     initialize() {
-        if (
-            !this.field
-            || !this.confirmField
-        ) {
+        if (!this.field || !this.confirmField) {
             throw new Error('Missing fields');
         }
 

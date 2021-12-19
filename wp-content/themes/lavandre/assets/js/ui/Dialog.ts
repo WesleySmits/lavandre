@@ -1,7 +1,7 @@
-import Component from "../common/Component";
-import { disableBodyScroll, enableBodyScroll } from "../util/body";
 import dialogPolyfill from 'dialog-polyfill';
-import { toCamelCase } from "../util/string";
+import Component from '../common/Component';
+import { disableBodyScroll, enableBodyScroll } from '../util/body';
+import { toCamelCase } from '../util/string';
 
 export default abstract class Dialog extends Component {
     protected element: InteractableHTMLDialogElement;
@@ -24,7 +24,7 @@ export default abstract class Dialog extends Component {
     }
 
     set isOpen(value: boolean) {
-        this._isOpen = value
+        this._isOpen = value;
     }
 
     get camelDataAttribute() {
@@ -55,11 +55,13 @@ export default abstract class Dialog extends Component {
             this.toggle();
         });
 
-        const closeButtons: HTMLButtonElement[] = Array.from(document.querySelectorAll('[data-close]'));
+        const closeButtons: HTMLButtonElement[] = Array.from(
+            document.querySelectorAll('[data-close]')
+        );
         closeButtons.forEach((button: HTMLButtonElement) => {
             button.addEventListener('click', () => {
                 this.close();
-            })
+            });
         });
 
         this.element.addEventListener('click', (e: MouseEvent) => {
@@ -71,12 +73,11 @@ export default abstract class Dialog extends Component {
         const target: HTMLElement = event.target as HTMLElement;
         if (target === this.element) {
             const rect = target.getBoundingClientRect();
-            const clickedInDialog = (
+            const clickedInDialog =
                 rect.top <= event.clientY &&
                 event.clientY <= rect.top + rect.height &&
                 rect.left <= event.clientX &&
-                event.clientX <= rect.left + rect.width
-            );
+                event.clientX <= rect.left + rect.width;
 
             if (!clickedInDialog) {
                 this.close();
@@ -85,7 +86,11 @@ export default abstract class Dialog extends Component {
             return;
         }
 
-        if (!target.closest(`[${this.dataAttribute}="${this.element.dataset[`${this.camelDataAttribute}`]}"]`)) {
+        if (
+            !target.closest(
+                `[${this.dataAttribute}="${this.element.dataset[`${this.camelDataAttribute}`]}"]`
+            )
+        ) {
             this.close();
         }
     }
@@ -127,13 +132,16 @@ export default abstract class Dialog extends Component {
     }
 
     private getTransitionTime(): number {
-        const styles = getComputedStyle(this.element)
-        let transitionDuration: string = styles.transitionDuration ?? '';
-        let duration: number = (transitionDuration.indexOf("ms") > -1) ? parseFloat(transitionDuration) : parseFloat(transitionDuration) * 1000;
+        const styles = getComputedStyle(this.element);
+        const transitionDuration: string = styles.transitionDuration ?? '';
+        const duration: number =
+            transitionDuration.indexOf('ms') > -1
+                ? parseFloat(transitionDuration)
+                : parseFloat(transitionDuration) * 1000;
         return duration || 400;
     }
 
     private polyfillDialog() {
-        dialogPolyfill.registerDialog(this.element);
+        dialogPolyfill?.registerDialog(this.element);
     }
 }
