@@ -18,7 +18,6 @@ import NewsletterSubscribe from './components/NewsletterSubscribe';
 import PasswordReveal from './components/PasswordReveal';
 import ScrollToContent from './components/ScrollToContent';
 import Module from './Module';
-import NewsLetterPopup from './ui/NewsletterPopup';
 import SidePanel from './ui/SidePanel';
 import { setCurrentLinkClass } from './util/links';
 import './web-components/AccordionElement';
@@ -41,7 +40,6 @@ export default class App extends Module {
         FieldValidation,
         HeaderSearch,
         LazyLoader,
-        NewsLetterPopup,
         ScrollToContent
     ];
 

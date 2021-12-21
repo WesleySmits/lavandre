@@ -5,11 +5,11 @@
         "/runtime.8f675b1f.js",
         "/908.eff23dbb.js",
         "/100.673c4d52.js",
-        "/104.8900b83c.js",
-        "/app.6a29e5d9.js"
+        "/644.c4411f19.js",
+        "/app.e5b23a2c.js"
       ],
       "css": [
-        "/app.75f71546.css"
+        "/app.d0197431.css"
       ]
     },
     "home": {
@@ -36,8 +36,8 @@
       "js": [
         "/runtime.8f675b1f.js",
         "/908.eff23dbb.js",
-        "/104.8900b83c.js",
-        "/productDetail.217c20aa.js"
+        "/644.c4411f19.js",
+        "/productDetail.22a0cc6b.js"
       ],
       "css": [
         "/productDetail.22ebd423.css"
