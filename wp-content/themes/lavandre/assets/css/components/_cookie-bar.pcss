@@ -1,50 +1,36 @@
 @import "../variables/variables.pcss";
 
 .cookie-bar {
-    max-width: 1280px !important;
-    width: 95% !important;
+    width: 100vw !important;
+    max-width: none !important;
     position: fixed;
     right: 0;
-    bottom: 20px;
+    bottom: 0;
     left: 0;
     margin: auto;
     z-index: 10;
 
-    background: var(--white);
-    box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
+    background-color: var(--khaki-web);
     padding: 0.625rem 1.25rem !important;
 
     @media (--tablet) {
-        padding: 1.25rem 2.5rem !important;
+        padding: 1rem 2.5rem !important;
     }
 
     p {
         font-size: 0.8125rem;
+        margin: 0;
     }
 
-    .flex {
-        align-items: center;
-    }
-
-    button {
-        margin: 0 !important;
-        order: 1;
-
-        &[data-role="cookies-reject"] {
-            background: none !important;
-            color: var(--color-text) !important;
-            padding: 0 !important;
-            border: 0 !important;
-            min-width: 0 !important;
-            display: inline !important;
-            width: auto !important;
-            text-decoration: underline !important;
-            order: 2;
-        }
+    .cookie-bar__close {
+        position: absolute;
+        top: 0;
+        right: 1.25rem;
+        bottom: 0;
+        margin: auto;
 
         @media (--tablet) {
-            max-width: 200px;
-            order: 3;
+            right: 2.5rem;
         }
     }
 }

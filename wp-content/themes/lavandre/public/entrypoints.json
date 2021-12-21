@@ -6,10 +6,10 @@
         "/908.eff23dbb.js",
         "/100.673c4d52.js",
         "/104.8900b83c.js",
-        "/app.e276036e.js"
+        "/app.6a29e5d9.js"
       ],
       "css": [
-        "/app.228266c9.css"
+        "/app.75f71546.css"
       ]
     },
     "home": {
@@ -67,7 +67,7 @@
         "/runtime.8f675b1f.js"
       ],
       "css": [
-        "/critical-styles.850e7f11.css"
+        "/critical-styles.62c5e53e.css"
       ]
     },
     "deferred-styles": {
