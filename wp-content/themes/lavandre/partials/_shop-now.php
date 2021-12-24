@@ -13,22 +13,17 @@
 
 <header>
     <h2 class="large-title"><?php _e('Daily Rituals', 'lavandre'); ?></h2>
-    <span class="sub-title" role="heading" aria-level="5">Shop our best sellers that will leave your skin feeling soft and hydrated all day long.</span>
+    <span class="sub-title" role="heading" aria-level="5">
+        <?php _e('If your skin is important. Then so is your towel.', 'lavandre'); ?>
+    </span>
 </header>
 
 <ol class="ww-products-grid no-list" data-lazyload>
-    <li>
-        <figure class="overlay-text">
-            <img class="cover-image" src="https://lavandre.com/wp-content/uploads/2021/09/pexels-olya-kobruseva-6794054-scaled.jpeg" alt="">
-            <figcaption><?php _e('Collections', 'lavandre'); ?></figcaption>
-        </figure>
-    </li>
-
     <?php foreach($products as $product) { ?>
-        <li>
-            <a href="<?php echo get_permalink( $product->get_id() ); ?>" class="ww-products__link">
-                <?php $image = wp_get_attachment_image_src($product->get_image_id(), [438,584]); ?>
-                <?php
+    <li>
+        <a href="<?php echo get_permalink( $product->get_id() ); ?>" class="ww-products__link">
+            <?php $image = wp_get_attachment_image_src($product->get_image_id(), [438,584]); ?>
+            <?php
                     if (strpos(strtolower($product->get_name()), 'facial') !== false) {
                         $image[0] = 'https://lavandre.com/wp-content/uploads/2021/09/mauro-lima-nfqDGE2WVGs-unsplash-scaled.jpeg';
                     } else if (strpos(strtolower($product->get_name()), 'bath') !== false) {
@@ -38,30 +33,23 @@
                     }
                 ?>
 
-                <img
-                    src="<?php echo get_image_kit_placeholder($image[0], 438, 584) ?>"
-                    data-src="<?php echo get_image_kit_url($image[0]); ?>"
-                    class="ww-products__image"
-                    alt="<?php echo $product->get_name(); ?>"
-                    width="438"
-                    height="584"
-                    loading="lazy"
-                >
+            <img src="<?php echo get_image_kit_placeholder($image[0], 438, 584) ?>"
+                data-src="<?php echo get_image_kit_url($image[0]); ?>" class="ww-products__image"
+                alt="<?php echo $product->get_name(); ?>" width="438" height="584" loading="lazy">
 
-                <h2 class="ww-products__title">
-                    <?php
-                        if (strpos(strtolower($product->get_name()), 'facial') !== false) {
-                            _e('Face Towels', 'lavandre');
-                        } else if (strpos(strtolower($product->get_name()), 'bath') !== false) {
-                            _e('Body Towels', 'lavandre');
-                        } else {
-                            _e('Hand / Hair Towels', 'lavandre');
-                        }
-                    ?>
-                </h2>
-
-                <button is="lavandre-button" href="<?php echo get_permalink( $product->get_id() ); ?>" size="large" outline full-width><?php _e('Shop Now', 'lavandre'); ?></button>
-            </a>
-        </li>
+            <strong class="ww-products__title">
+                <?php
+                    if (strpos(strtolower($product->get_name()), 'facial') !== false) {
+                        _e('Face towels', 'lavandre');
+                    } else if (strpos(strtolower($product->get_name()), 'bath') !== false) {
+                        _e('Body towels', 'lavandre');
+                    } else {
+                        _e('Hand / Hair towels', 'lavandre');
+                    }
+                ?>
+                <?php include get_stylesheet_directory() . '/partials/icons/forward-arrow.svg.php'; ?>
+            </strong>
+        </a>
+    </li>
     <?php } ?>
 </ol>

@@ -23,6 +23,13 @@ get_header( 'shop' );
 
 <?php if (!is_search()) { ?>
 <div class="full-width-banner-block">
+    <div class="full-width-banner-block__see-more">
+        <a href="#shop-now" class="no-button" data-scroll-to="bath-towel" aria-label="See more"
+            data-header-offset="false">
+            <?php include get_stylesheet_directory() . '/partials/icons/down-arrow.svg.php'; ?>
+        </a>
+    </div>
+
     <a class="full-width-banner-block__link" href="/product/organic-facial/">
         <figure class="overlay-text">
             <img class="cover-image"
@@ -47,13 +54,6 @@ get_header( 'shop' );
             <figcaption><?php _e('Shop body towels', 'lavandre'); ?></figcaption>
         </figure>
     </a>
-
-    <div class="full-width-banner-block__see-more">
-        <a href="#shop-now" class="no-button" data-scroll-to="bath-towel" aria-label="See more"
-            data-header-offset="false">
-            <?php include get_stylesheet_directory() . '/partials/icons/down-arrow.svg.php'; ?>
-        </a>
-    </div>
 </div>
 <?php } else {
     /**
