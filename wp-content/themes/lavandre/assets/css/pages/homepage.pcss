@@ -4,12 +4,13 @@
 
 .ww-products-grid {
     display: grid;
-    grid-row-gap: 2rem;
-    grid-column-gap: 2rem;
-    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 1.25rem;
+    grid-column-gap: 1.25rem;
+    grid-template-columns: repeat(3, 1fr);
 
     @media (--desktop) {
-        max-width: calc(100vw - 200px);
+        max-width: 90rem;
+        max-width: 75vw;
         margin: 0 auto;
     }
 }
@@ -25,19 +26,27 @@
 
 .ww-products__image {
     width: 100%;
-    max-width: 100%;
-    max-height: 500px;
-    max-height: 26.6vw;
-    margin-bottom: 1rem;
+    max-height: calc(100 / 3 * 2)vh;
+    margin: 0;
     object-fit: cover;
+    aspect-ratio: 16 / 20;
 }
 
 .ww-products__title {
-    margin: auto auto 1rem;
-    padding: .5rem 0;
-    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    margin: .5rem auto 1rem;
+    font-family: var(--font-family-accent);
+    font-size: 1.125rem;
+    font-size: clamp(12px, calc(1.125 * 16 / 19.2)vw, 16px);
     font-weight: 400 !important;
-    text-transform: uppercase;
+
+    svg {
+        font-size: inherit;
+        width: clamp(12px, calc(1 * 16 / 19.2)vw, 14px);
+        height: clamp(12px, calc(1 * 16 / 19.2)vw, 14px);
+        margin-left: .5rem;
+    }
 }
 
 .homepage-newsletter-form {

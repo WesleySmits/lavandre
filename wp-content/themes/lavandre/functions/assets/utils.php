@@ -13,10 +13,10 @@
 
     /* IMAGE KIT METHODS */
     function get_image_kit_url(string $src) {
-        return $src;
-
         $baseUrl = get_site_url();
+        $baseUrl2 = 'https://lavandre.com';
         $newSrc = str_replace($baseUrl, 'https://ik.imagekit.io/gw83zqxvr9d/', $src);
+        $newSrc = str_replace($baseUrl2, 'https://ik.imagekit.io/gw83zqxvr9d/', $src);
         return $newSrc;
     }
 

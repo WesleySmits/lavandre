@@ -65,6 +65,7 @@ main {
     content-visibility: auto;
     contain-intrinsic-size: 650px;
     padding: 3rem 0;
+    padding: calc(3 * 16 / 19.2)vw 0;
 
     header {
         margin-bottom: 1.25rem;
@@ -76,12 +77,21 @@ main {
         }
     }
 
+    h3 {
+        font-weight: 400;
+        font-size: 1.25rem;
+        font-style: italic;
+        text-transform: initial;
+        margin: 1.75rem 0;
+    }
+
     &--accent {
         background-color: var(--color-accent);
     }
 
     &--large {
         padding: 6rem 0;
+        padding: calc(6 * 16 / 19.2)vw 0;
     }
 
     &--full-height {
@@ -109,7 +119,7 @@ main {
 .ww-banner-block {
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
+    min-height: calc(105vh - 142px);
 
     font-weight: 100;
 
@@ -209,7 +219,8 @@ aside {
 
 .benefit-block {
     svg {
-        width: 75px;
-        height: 75px;
+        --size: 3.5rem;
+        width: var(--size);
+        height: var(--size);
     }
 }
