@@ -49,7 +49,7 @@
 
         ?>
 <section class="ww-block <?php echo implode(' ', $classes); ?>">
-    <header>
+    <header class="ww-container ww-container--small">
         <h2 class="sub-title"><?php echo $heading; ?></h2>
     </header>
 
@@ -62,7 +62,7 @@
                 $text = $column['text'];
             ?>
 
-            <?php include get_stylesheet_directory() . $icon; ?>
+            <?php if ($icon) { include get_stylesheet_directory() . $icon; } ?>
             <h3><?php echo $subheading; ?></h3>
             <p><?php echo $text; ?></p>
         </div>
