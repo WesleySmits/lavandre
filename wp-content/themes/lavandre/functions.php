@@ -15,6 +15,7 @@ include(get_stylesheet_directory() . '/functions/utilities.php');
 include(get_stylesheet_directory() . '/functions/assets.php');
 include(get_stylesheet_directory() . '/functions/customizer.php');
 include(get_stylesheet_directory() . '/functions/faq.php');
+include(get_stylesheet_directory() . '/functions/templates.php');
 include(get_stylesheet_directory() . '/functions/custom-ajax.php');
 
 include(get_stylesheet_directory() . '/functions/woocommerce-tweaks.php');
@@ -112,29 +113,31 @@ function get_accordion($category, $amount = 6) {
 
     if ($the_query->have_posts()) {
         ?>
-        <accordion-element>
-            <?php
+<accordion-element>
+    <?php
             while ( $the_query->have_posts() ) { $the_query->the_post(); ?>
-                <details is="curtain-element">
-                        <summary>
-                            <a href="<?php echo get_the_permalink();?>">
-                                <?php echo get_the_title(); ?>
-                            </a>
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 15 15" xml:space="preserve" aria-hidden="true" data-acsb-hidden="true" data-acsb-force-hidden="true">
-                                <g fill="#2b2b2b">
-                                    <polygon points="0.104,4.333 1.165,3.272 7.5,9.607 13.835,3.272 14.896,4.333 7.5,11.728 "></polygon>
-                                </g>
-                            </svg>
-                        </summary>
-                        <div class="curtain-content">
-                            <?php echo get_the_content(); ?>
-                        </div>
-                    </article>
-                </details>
-            <?php }
+    <details is="curtain-element">
+        <summary>
+            <a href="<?php echo get_the_permalink();?>">
+                <?php echo get_the_title(); ?>
+            </a>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                y="0px" width="15px" height="15px" viewBox="0 0 15 15" xml:space="preserve" aria-hidden="true"
+                data-acsb-hidden="true" data-acsb-force-hidden="true">
+                <g fill="#2b2b2b">
+                    <polygon points="0.104,4.333 1.165,3.272 7.5,9.607 13.835,3.272 14.896,4.333 7.5,11.728 "></polygon>
+                </g>
+            </svg>
+        </summary>
+        <div class="curtain-content">
+            <?php echo get_the_content(); ?>
+        </div>
+        </article>
+    </details>
+    <?php }
             ?>
-        </accordion-element>
-        <?php
+</accordion-element>
+<?php
         wp_reset_postdata();
     }
 }

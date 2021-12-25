@@ -26,6 +26,6 @@ if ( ! $post->post_excerpt ) {
 }
 
 ?>
-<div class="product-detail__size-info">
+<div class="product-detail__excerpt">
     <?php echo $post->post_excerpt; ?>
 </div>
