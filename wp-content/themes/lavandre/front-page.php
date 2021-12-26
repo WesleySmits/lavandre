@@ -113,7 +113,7 @@
 
         <div class="ww-banner-block__content">
             <div class="ww-banner-block__inner-content">
-                <h2><?php echo sprintf(__('Sign up to enjoy an exclusive welcome offer', 'lavandre'), '10%'); ?>
+                <h2><?php echo sprintf(__('Sign Up To Enjoy an Exclusive Welcome Offer', 'lavandre'), '10%'); ?>
                 </h2>
 
                 <p>
