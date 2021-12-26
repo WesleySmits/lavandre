@@ -1,0 +1,56 @@
+.ww-banner-block {
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: calc(105vh - 142px);
+
+    font-weight: 100;
+
+    background: #cfb29b;
+    color: #3d2b30;
+
+    @media (--tablet-landscape) {
+        flex-direction: row;
+
+        &--alt &__content {
+            order: 1;
+        }
+
+        &--alt &__banner {
+            order: 2;
+        }
+    }
+
+    &__banner {
+        flex: 1 1 auto;
+
+        @media (--tablet-landscape) {
+            flex: 1 1 50%;
+            max-width: 50%;
+        }
+    }
+
+    &__content {
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        flex: 1 1 auto;
+        padding: 2rem;
+
+        @media (--tablet-landscape) {
+            flex: 1 1 50%;
+            max-width: 50%;
+        }
+
+        h4 {
+            font-size: 1.5rem;
+            font-weight: inherit;
+        }
+    }
+
+    &__inner-content {
+        @media (--tablet-landscape) {
+            flex: 1 1 60%;
+            max-width: 60%;
+        }
+    }
+}
