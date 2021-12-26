@@ -1,4 +1,29 @@
 <?php
+    function main_banner($block): void
+    {
+        if (!$block) {
+            return;
+        }
+
+        $file = $block['file'];
+        $see_more = $block['see_more'];
+
+        ?>
+<section id="main-banner" class="full-video">
+    <video width="1920" autoplay muted loop>
+        <source src="<?php echo $file; ?>" type="video/mp4">
+    </video>
+
+    <?php if ($see_more) { ?>
+    <a href="#<?php echo $see_more; ?>" class="no-button full-video__see-more" aria-label="See more"
+        data-scroll-to="<?php echo $see_more; ?>">
+        <?php include get_stylesheet_directory() . '/partials/icons/down-arrow.svg.php'; ?>
+    </a>
+    <?php } ?>
+</section>
+<?php
+    }
+
     function ww_banner_block($block, $classes = []): void
     {
         if (!$block) {
