@@ -28,7 +28,7 @@
 
     <div class="ww-banner-block__content">
         <div class="ww-banner-block__inner-content">
-            <h4><?php echo $heading; ?></h4>
+            <h2><?php echo $heading; ?></h2>
             <div>
                 <?php echo $text; ?>
             </div>

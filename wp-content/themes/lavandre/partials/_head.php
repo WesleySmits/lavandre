@@ -7,18 +7,16 @@
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;600&display=swap" as="style"
     onload="this.onload=null;this.rel='stylesheet';">
 
-<link rel="preload" href="https://use.typekit.net/nck3hxz.css" as="style"
-    onload="this.onload=null;this.rel='stylesheet';">
-
-<?php //<style> ?>
-<?php //include get_stylesheet_directory() . str_replace(get_site_url() . '/wp-content/themes/lavandre', '', asset('critical-styles.css', true)); ?>
-<?php // </style> ?>
+<style>
+<?php include get_stylesheet_directory() . str_replace(get_site_url() . '/wp-content/themes/lavandre', '', asset('critical-styles.css', true));
+?>
+</style>
 
 <link rel="preload" href="<?php echo asset('deferred-styles.css', true); ?>" as="style"
     onload="this.onload=null;this.rel='stylesheet';">
 
-<link rel="preload" href="<?php echo asset('critical-styles.css', true); ?>" as="style"
-    onload="this.onload=null;this.rel='stylesheet';">
+<?php /*<link rel="preload" href="<?php echo asset('criticall-styles.css', true); ?>" as="style"
+onload="this.onload=null;this.rel='stylesheet';">*/ ?>
 
 <link rel="apple-touch-icon" sizes="180x180"
     href="/wp-content/themes/lavandre/public/images/favicon/apple-touch-icon.png">
