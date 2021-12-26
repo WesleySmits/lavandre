@@ -36,7 +36,6 @@ get_header();
     </section>
 
     <section class="full-width-banner-block full-width-banner-block--alt">
-        <div class="background-noise"></div>
         <div class="full-width-banner-block__link full-width-banner-block__text">
             <header>
                 <h2><?php echo get_field('block_2_heading'); ?></h2>
@@ -47,6 +46,7 @@ get_header();
         <div class="full-width-banner-block__link">
             <img class="cover-image" src="/wp-content/themes/lavandre/public/images/banners/about.jpeg" alt="Lavandré">
         </div>
+        <div class="background-noise"></div>
     </section>
 
     <section class="ww-block ww-block--full-height">
@@ -76,8 +76,6 @@ get_header();
     </section>
 
     <section class="full-width-banner-block full-width-banner-block--alt">
-        <div class="background-noise"></div>
-
         <div class="full-width-banner-block__link">
             <img class="cover-image" src="/wp-content/themes/lavandre/public/images/banners/about.jpeg" alt="Lavandré">
         </div>
@@ -88,6 +86,8 @@ get_header();
             </header>
             <p><?php echo get_field('block_4_paragraph_1'); ?></p>
         </div>
+
+        <div class="background-noise"></div>
     </section>
 </main>
 

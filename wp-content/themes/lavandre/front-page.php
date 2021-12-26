@@ -35,7 +35,7 @@
 
         <div class="ww-banner-block__content">
             <div class="ww-banner-block__inner-content">
-                <h4><?php _e('A Cleaner Towel', 'lavandre'); ?></h4>
+                <h2><?php _e('A Cleaner Towel', 'lavandre'); ?></h2>
                 <p>
                     <?php _e('Botanical, hypoallergenic and eco-friendly mean you not only get a clean, healthy towel that fights bacteria, is good for nature, and rejuvenates the skin, it\'s also incredibly soft, absorbent, and hygienic. A towel you can use in so many ways while spending less time washing your towels and more time enjoying your laundry free day.', 'lavandre'); ?>
                 </p>
@@ -113,8 +113,8 @@
 
         <div class="ww-banner-block__content">
             <div class="ww-banner-block__inner-content">
-                <h4><?php echo sprintf(__('Sign up to enjoy an exclusive welcome offer', 'lavandre'), '10%'); ?>
-                </h4>
+                <h2><?php echo sprintf(__('Sign up to enjoy an exclusive welcome offer', 'lavandre'), '10%'); ?>
+                </h2>
 
                 <p>
                     <?php _e('Sign up to receive the Lavandré newsletter and be the first to discover new arrivals, limited editions and email-only exclusive offers.', 'lavandre'); ?>
