@@ -65,51 +65,39 @@ if ( post_password_required() ) {
                 do_action( 'woocommerce_single_product_summary' );
             ?>
 
-            <?php /*
-            <section id="product-detail__description">
-                <button class="product-detail__description-toggle" data-curtain-toggle="product-detail-content">
-                    <?php _e('Specifications', 'lavandre'); ?>
-            </button>
-
-            <div class="product-detail__description-content" data-curtain-content="product-detail-content">
-                <?php woocommerce_product_additional_information_tab(); ?>
-                <?php woocommerce_product_description_tab(); ?>
-            </div>
+            <?php if( have_rows('accordion') ): ?>
+            <accordion-element data-cy="product-info-accordion">
+                <?php while( have_rows('accordion') ) : the_row(); ?>
+                <details is="curtain-element">
+                    <summary>
+                        <span><?php echo get_sub_field('title') ?></span>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0px" y="0px" width="15px" height="15px" viewBox="0 0 15 15" xml:space="preserve"
+                            aria-hidden="true" data-acsb-hidden="true" data-acsb-force-hidden="true">
+                            <g fill="#2b2b2b">
+                                <polygon
+                                    points="0.104,4.333 1.165,3.272 7.5,9.607 13.835,3.272 14.896,4.333 7.5,11.728 ">
+                                </polygon>
+                            </g>
+                        </svg>
+                    </summary>
+                    <div class="curtain-content">
+                        <?php echo get_sub_field('description'); ?>
+                    </div>
+                </details>
+                <?php endwhile ?>
+            </accordion-element>
+            <?php endif ?>
+        </div>
     </section>
-    */ ?>
 
-    <?php if( have_rows('accordion') ): ?>
-    <accordion-element data-cy="product-info-accordion">
-        <?php while( have_rows('accordion') ) : the_row(); ?>
-        <details is="curtain-element">
-            <summary>
-                <span><?php echo get_sub_field('title') ?></span>
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                    y="0px" width="15px" height="15px" viewBox="0 0 15 15" xml:space="preserve" aria-hidden="true"
-                    data-acsb-hidden="true" data-acsb-force-hidden="true">
-                    <g fill="#2b2b2b">
-                        <polygon points="0.104,4.333 1.165,3.272 7.5,9.607 13.835,3.272 14.896,4.333 7.5,11.728 ">
-                        </polygon>
-                    </g>
-                </svg>
-            </summary>
-            <div class="curtain-content">
-                <?php echo get_sub_field('description'); ?>
-            </div>
-        </details>
-        <?php endwhile ?>
-    </accordion-element>
-    <?php endif ?>
-</div>
-</section>
+    <?php ww_banner_block(get_field('block_1'), ['ww-banner-block--alt']); ?>
+    <?php ww_benefit_block(get_field('block_2'), ['ww-block--full-height'], 'small'); ?>
+    <?php ww_benefit_block(get_field('block_3'), ['ww-block--full-height']); ?>
+    <?php ww_banner_block(get_field('block_4')); ?>
+    <?php ww_benefit_block(get_field('block_5'), ['ww-block--full-height']); ?>
 
-<?php ww_banner_block(get_field('block_1'), ['ww-banner-block--alt']); ?>
-<?php ww_benefit_block(get_field('block_2'), ['ww-block--full-height'], 'small'); ?>
-<?php ww_benefit_block(get_field('block_3'), ['ww-block--full-height']); ?>
-<?php ww_banner_block(get_field('block_4')); ?>
-<?php ww_benefit_block(get_field('block_5'), ['ww-block--full-height'], 'small'); ?>
-
-<?php include get_stylesheet_directory() . '/partials/_instagram-feed.php'; ?>
+    <?php include get_stylesheet_directory() . '/partials/_instagram-feed.php'; ?>
 </div>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
