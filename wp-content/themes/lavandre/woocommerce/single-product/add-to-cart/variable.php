@@ -66,26 +66,33 @@ function shift_attribute($attributes, $key, $move) {
 
 do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
-<form class="variations_form cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="<?php echo $variations_attr; // WPCS: XSS ok. ?>">
-	<?php do_action( 'woocommerce_before_variations_form' ); ?>
+<form class="variations_form cart"
+    action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>"
+    method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>"
+    data-product_variations="<?php echo $variations_attr; // WPCS: XSS ok. ?>">
+    <?php do_action( 'woocommerce_before_variations_form' ); ?>
 
-	<?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
-		<p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'woocommerce' ) ) ); ?></p>
-	<?php else : ?>
+    <?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
+    <p class="stock out-of-stock">
+        <?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'woocommerce' ) ) ); ?>
+    </p>
+    <?php else : ?>
 
-        <section class="product-detail__variations">
-            <?php $attributes = sort_attributes($attributes);?>
+    <section class="product-detail__variations">
+        <?php $attributes = sort_attributes($attributes);?>
 
 
-            <?php foreach ( $attributes as $attribute_name => $options ) : ?>
-                <?php usort($options, 'sort_size'); ?>
+        <?php foreach ( $attributes as $attribute_name => $options ) : ?>
+        <?php usort($options, 'sort_size'); ?>
 
-                <div class="form-row">
-                    <label class="bold product-detail__variation__label product-detail__variation__label--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>"><?php echo wc_attribute_label($attribute_name); ?></label>
-                    <div class="product-detail-variation-wrapper product-detail-variation-wrapper--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>">
+        <div class="form-row">
+            <label
+                class="bold product-detail__variation__label product-detail__variation__label--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>"><?php echo wc_attribute_label($attribute_name); ?></label>
+            <div
+                class="product-detail-variation-wrapper product-detail-variation-wrapper--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>">
 
-                        <?php foreach ($options as $key => $value) : ?>
-                            <?php
+                <?php foreach ($options as $key => $value) : ?>
+                <?php
                                 $terms = get_terms($attribute_name);
                                 $label = '';
                                 $isFirst = ($key === array_key_first($options));
@@ -100,27 +107,22 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
                                 $id = $attribute_name . '-' . $value;
                             ?>
-                                <div class="product-detail__variation custom-radio--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>">
-                                    <input
-                                        id="<?php echo $id; ?>"
-                                        type="radio"
-                                        name="<?php echo 'attribute_' . $attribute_name; ?>"
-                                        value="<?php echo $value; ?>"
-                                        <?php echo ($isFirst) ? 'checked' : '' ?>
-                                        required
-                                    >
-                                    <label for="<?php echo $id; ?>" data-value="<?php echo $value; ?>">
-                                        <span><?php echo $label; ?></span>
-                                    </label>
-                                </div>
-                        <?php endforeach; ?>
-                    </div>
+                <div
+                    class="product-detail__variation custom-radio--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>">
+                    <input id="<?php echo $id; ?>" type="radio" name="<?php echo 'attribute_' . $attribute_name; ?>"
+                        value="<?php echo $value; ?>" <?php echo ($isFirst) ? 'checked' : '' ?> required>
+                    <label for="<?php echo $id; ?>" data-value="<?php echo $value; ?>">
+                        <span><?php echo $label; ?></span>
+                    </label>
                 </div>
-            <?php endforeach; ?>
-        </section>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </section>
 
-		<div class="product-detail__single-variation">
-			<?php
+    <div class="product-detail__single-variation">
+        <?php
 				/**
 				 * Hook: woocommerce_before_single_variation.
 				 */
@@ -140,10 +142,10 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 				 */
 				do_action( 'woocommerce_after_single_variation' );
 			?>
-		</div>
-	<?php endif; ?>
+    </div>
+    <?php endif; ?>
 
-	<?php do_action( 'woocommerce_after_variations_form' ); ?>
+    <?php do_action( 'woocommerce_after_variations_form' ); ?>
 </form>
 
 <?php
