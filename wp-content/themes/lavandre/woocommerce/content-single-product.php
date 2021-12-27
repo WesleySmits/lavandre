@@ -92,7 +92,7 @@ if ( post_password_required() ) {
     </section>
 
     <?php ww_banner_block(get_field('block_1'), ['ww-banner-block--alt']); ?>
-    <?php ww_benefit_block(get_field('block_2'), ['ww-block--full-height']); ?>
+    <?php ww_benefit_block(get_field('block_2'), ['ww-block--full-height', 'bg-alabaster']); ?>
     <?php ww_benefit_block(get_field('block_3'), ['ww-block--full-height']); ?>
     <?php ww_banner_block(get_field('block_4')); ?>
     <?php ww_benefit_block(get_field('block_5'), ['ww-block--full-height']); ?>

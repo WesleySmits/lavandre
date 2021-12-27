@@ -20,8 +20,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 the_title( '<h1 class="product-detail__title">', '</h1>' );
+
+global $product;
+$perPack = intval($product->get_attribute('pa_aantal-per-pak'));
 ?>
 
-<small class="product-detail__amount"><?php printf(__('Packed per %s pieces', 'lavandre'), 1500000); ?></small>
+<small class="product-detail__amount"><?php printf(__('Packed per %s pieces', 'lavandre'), $perPack); ?></small>
 
 <?php
