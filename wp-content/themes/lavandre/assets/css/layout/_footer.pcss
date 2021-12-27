@@ -5,7 +5,11 @@
 .ww-footer {
     content-visibility: auto;
     contain-intrinsic-size: 0 650px;
-    background: var(--beau-blue) url("https://www.lavandre.com/wp-content/themes/lavandre/assets/images/footer-background.jpeg");
+    background-color: var(--beau-blue);
+
+    &.visible {
+        background-image: url("https://www.lavandre.com/wp-content/themes/lavandre/assets/images/footer-background.jpeg");
+    }
 
     & > section {
         border-top: 1px solid var(--color-text);

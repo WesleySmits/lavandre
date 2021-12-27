@@ -37,7 +37,7 @@
         ?>
 <section class="ww-banner-block <?php echo implode(' ', $classes); ?>">
     <div class="ww-banner-block__banner">
-        <img class="cover-image" src="<?php echo get_image_kit_src($imageUrl, 960, 1015); ?>" srcset="
+        <img loading="lazy" class="cover-image" src="<?php echo get_image_kit_src($imageUrl, 960, 1015); ?>" srcset="
                     <?php echo get_image_kit_src($imageUrl, 360, 380); ?> 414w,
                     <?php echo get_image_kit_src($imageUrl, 414, 437); ?> 414w,
                     <?php echo get_image_kit_src($imageUrl, 600, 634); ?> 600w,
