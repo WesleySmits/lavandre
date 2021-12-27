@@ -73,7 +73,7 @@
         <div class="ww-footer__column ww-footer__link">
             <section class="ww-footer__links__column">
                 <header class="ww-footer__links__header">
-                    <h3 class="footer__h3" data-curtain-toggle="footer-column-1">
+                    <h3 class="footer__h3" data-only-on-mobile="true" data-curtain-toggle="footer-column-1">
                         <?php _e('Customer service', 'lavandre'); ?></h3>
                 </header>
 
@@ -93,7 +93,7 @@
 
             <section class="ww-footer__links__column">
                 <header class="ww-footer__links__header">
-                    <h3 class="footer__h3" data-curtain-toggle="footer-column-2">
+                    <h3 class="footer__h3" data-only-on-mobile="true" data-curtain-toggle="footer-column-2">
                         <?php _e('About Lavandré', 'lavandre'); ?></h3>
                 </header>
 
@@ -115,7 +115,7 @@
 
             <section class="ww-footer__links__column">
                 <header class="ww-footer__links__header">
-                    <h3 class="footer__h3" data-curtain-toggle="footer-column-3">
+                    <h3 class="footer__h3" data-only-on-mobile="true" data-curtain-toggle="footer-column-3">
                         <?php _e('Information', 'lavandre'); ?></h3>
                 </header>
 
