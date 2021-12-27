@@ -12,7 +12,7 @@
 
     <section class="ww-banner-block ww-banner-block">
         <div class="ww-banner-block__banner">
-            <img class="cover-image"
+            <img loading="lazy" class="cover-image"
                 src="<?php echo get_image_kit_src('https://lavandre.com/wp-content/uploads/2021/12/newsletter-signup.jpeg', 960, 1015); ?>"
                 srcset="
                         <?php echo get_image_kit_src('https://lavandre.com/wp-content/uploads/2021/12/newsletter-signup.jpeg', 360, 380); ?> 414w,

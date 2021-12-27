@@ -64,6 +64,11 @@ export default class App extends Module {
     const app = new App();
     app.initialize();
 
+    footerUspSlider();
+    lazyBackgrounds();
+})();
+
+function footerUspSlider(): void {
     const list: HTMLElement | null = document.querySelector('.usp-slider');
     if (!list) {
         return;
@@ -77,4 +82,25 @@ export default class App extends Module {
     });
 
     list.style.width = `${totalWidth}px`;
-})();
+}
+
+function lazyBackgrounds(): void {
+    document.addEventListener('DOMContentLoaded', () => {
+        const lazyBackgrounds = [].slice.call(document.querySelectorAll('.lazy-background'));
+
+        if ('IntersectionObserver' in window) {
+            const lazyBackgroundObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        lazyBackgroundObserver.unobserve(entry.target);
+                    }
+                });
+            });
+
+            lazyBackgrounds.forEach((lazyBackground) => {
+                lazyBackgroundObserver.observe(lazyBackground);
+            });
+        }
+    });
+}

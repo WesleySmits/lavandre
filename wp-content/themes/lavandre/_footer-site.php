@@ -1,4 +1,4 @@
-<footer id="footer" class="ww-footer">
+<footer id="footer" class="ww-footer lazy-background">
     <section class="ww-footer__top">
         <a href="/" class="ww-footer__logo" aria-label="Lavandré logo">
             <?php include get_stylesheet_directory() . '/public/images/logos/lavandre-logo-open.svg'; ?>
