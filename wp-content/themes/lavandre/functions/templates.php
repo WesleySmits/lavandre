@@ -35,9 +35,10 @@
         $imageUrl = $block['image'];
 
         ?>
-<section class="ww-banner-block <?php echo implode(' ', $classes); ?>">
+<section class="ww-banner-block <?php echo implode(' ', $classes); ?>" data-lazyload>
     <div class="ww-banner-block__banner">
-        <img loading="lazy" class="cover-image" src="<?php echo get_image_kit_src($imageUrl, 960, 1015); ?>" srcset="
+        <img loading="lazy" class="cover-image" src="<?php echo get_image_kit_placeholder($imageUrl, 960, 1015) ?>"
+            data-src="<?php echo get_image_kit_src($imageUrl, 960, 1015); ?>" data-srcset="
                     <?php echo get_image_kit_src($imageUrl, 360, 380); ?> 414w,
                     <?php echo get_image_kit_src($imageUrl, 414, 437); ?> 414w,
                     <?php echo get_image_kit_src($imageUrl, 600, 634); ?> 600w,
@@ -48,7 +49,7 @@
                     <?php echo get_image_kit_src($imageUrl, 1242, 1313); ?> 1242w,
                     <?php echo get_image_kit_src($imageUrl, 1536, 1624); ?> 1536w,
                     <?php echo get_image_kit_src($imageUrl, 1920, 2030); ?> 1920w
-                " sizes="(min-width: 1024px) 50vw, 100vw" alt="">
+                " data-sizes="(min-width: 1024px) 50vw, 100vw" alt="">
     </div>
 
     <div class="ww-banner-block__content">
