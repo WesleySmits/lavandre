@@ -87,7 +87,7 @@
                 $text = $column['text'];
             ?>
 
-            <?php if ($icon) { include get_stylesheet_directory() . $icon; } ?>
+            <?php if ($column['icon']) { include get_stylesheet_directory() . $icon; } ?>
             <h3><?php echo $subheading; ?></h3>
             <p><?php echo $text; ?></p>
         </div>
