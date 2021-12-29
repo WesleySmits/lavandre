@@ -67,9 +67,15 @@
 
     <li>
         <a href="<?php echo $link; ?>" class="ww-products__link">
-            <img src="<?php echo get_image_kit_placeholder($image, 438, 584) ?>"
-                data-src="<?php echo get_image_kit_url($image); ?>" class="ww-products__image"
-                alt="<?php echo $name; ?>" width="438" height="584" loading="lazy">
+            <img src="<?php echo get_image_kit_placeholder($image, 387, 581) ?>"
+                data-src="<?php echo get_image_kit_url($image); ?>"
+                data-sizes="(min-width: 1024px) 20.17vw, (min-width: 768px) 46.5vw, 95vw" data-srcset="
+                    <?php echo get_image_kit_src($image, 342, 513); ?> 342w,
+                    <?php echo get_image_kit_src($image, 387, 581); ?> 387w,
+                    <?php echo get_image_kit_src($image, 684, 1026); ?> 684w,
+                    <?php echo get_image_kit_src($image, 773, 1160); ?> 773w,
+                    <?php echo get_image_kit_src($image, 1026, 1539); ?> 1026w,
+                " class="ww-products__image" alt="<?php echo $name; ?>" width="438" height="584" loading="lazy">
 
             <strong class="ww-products__title">
                 <?php echo $name; ?>
