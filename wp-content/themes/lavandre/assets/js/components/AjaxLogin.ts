@@ -57,7 +57,6 @@ export default class AjaxLogin extends Component {
             this.onSubmit(event, fields);
         });
         submitButton?.addEventListener('click', (event: Event) => {
-            submitButton.setAttribute('loading', 'true');
             this.onSubmit(event, fields);
         });
     }

@@ -38,12 +38,11 @@ function ww_custom_cart() {
 
     <p class="custom-cart__notification">
         <?php
-            var_dump($woocommerce->cart->total);
-            if ($woocommerce->cart->get_shipping_total() == 0.00) {
+            if (intval($woocommerce->cart->total) >= 75) {
                 _e('Your order qualifies for Free shipping', 'lavandre');
             } else {
-
-                sprintf(__('You are %s away from free shipping.', 'lavandre'), '123');
+                $remaining = wc_price(75.00 - $woocommerce->cart->total);
+                echo sprintf(__('You are %s away from free shipping.', 'lavandre'), $remaining);
             }
         ?>
     </p>
