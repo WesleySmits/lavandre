@@ -364,9 +364,6 @@ function ww_custom_cart() {
                             echo ($woocommerce->cart->cart_contents_count > 1) ? _e(' trees!') : _e(' tree!')
                         ?>
                     </span>
-                    <a href="#" id="tree-planting-button" data-panel="tree-planting">
-                        <span><?php _e('Read more', 'lavandre'); ?></span>
-                    </a>
                 </p>
             </div>
 
@@ -375,10 +372,6 @@ function ww_custom_cart() {
             </button>
         </aside>
     </div>
-
-    <?php
-        include get_stylesheet_directory() . '/partials/panels/_tree-planting.php';
-    ?>
 
     <?php
     }
