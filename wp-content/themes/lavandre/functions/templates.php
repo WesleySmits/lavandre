@@ -24,6 +24,64 @@
 <?php
     }
 
+    function ww_shop_now($block, $id = ''): void
+    {
+        if (!$block) {
+            return;
+        }
+
+        $title = $block['title'];
+        $subtitle = $block['subtitle'];
+        $products = $block['products'];
+
+        ?>
+<section id="<?php echo $id; ?>" class="ww-block">
+    <?php if($title) { ?>
+    <header>
+        <h2 class="large-title"><?php echo $title ?></h2>
+        <?php if ($subtitle) { ?>
+        <span class="sub-title" role="heading" aria-level="5">
+            <?php echo $subtitle; ?>
+        </span>
+        <?php } ?>
+    </header>
+    <?php } ?>
+
+    <?php product_list($products); ?>
+</section>
+
+<?php
+    }
+
+    function product_list($products): void
+    {
+        ?>
+<ol class="ww-products-grid" data-lazyload>
+    <?php foreach($products as $product) { ?>
+    <?php
+
+                        $link = $product['link'];
+                        $image = $product['image'];
+                        $name = $product['title'];
+                    ?>
+
+    <li>
+        <a href="<?php echo $link; ?>" class="ww-products__link">
+            <img src="<?php echo get_image_kit_placeholder($image, 438, 584) ?>"
+                data-src="<?php echo get_image_kit_url($image); ?>" class="ww-products__image"
+                alt="<?php echo $name; ?>" width="438" height="584" loading="lazy">
+
+            <strong class="ww-products__title">
+                <?php echo $name; ?>
+                <?php include get_stylesheet_directory() . '/partials/icons/forward-arrow.svg.php'; ?>
+            </strong>
+        </a>
+    </li>
+    <?php } ?>
+</ol>
+<?php
+    }
+
     function ww_banner_block($block, $classes = []): void
     {
         if (!$block) {

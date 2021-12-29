@@ -3,9 +3,7 @@
 <main class="front-page">
     <?php main_banner(get_field('main_banner')); ?>
 
-    <section id="shop-now" class="ww-block ww-block--large hide-on-mobile">
-        <?php include get_stylesheet_directory() . '/partials/_shop-now.php'; ?>
-    </section>
+    <?php ww_shop_now(get_field('block_2'), 'shop-now'); ?>
 
     <?php ww_banner_block(get_field('block_3'), ['ww-banner-block--alt']); ?>
     <?php ww_benefit_block(get_field('block_4'), ['ww-block--full-height']); ?>

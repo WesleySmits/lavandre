@@ -1,5 +1,5 @@
 <header id="header"
-    class="ww-site-header <?php if (is_front_page() || is_page_template('template-parts/sustainability.php') || (is_shop() && !is_search())) { echo 'transparent'; } ?>">
+    class="ww-site-header <?php if (is_front_page() || is_page_template('template-parts/sustainability.php')) { echo 'transparent'; } ?>">
     <div class="ww-site-header__top">
         <div class="ww-container ww-site-header__top__container flex">
             <a class="hide-on-mobile"

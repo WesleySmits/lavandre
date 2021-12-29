@@ -1,52 +1,17 @@
 @import "../variables/variables.pcss";
 @import "../components/_usp-icons-list.pcss";
 @import "../components/_full-video.pcss";
+@import "../components/_product-grid.pcss";
 
 .ww-products-grid {
-    display: grid;
-    grid-row-gap: 1.25rem;
-    grid-column-gap: 1.25rem;
-    grid-template-columns: repeat(3, 1fr);
-
     @media (--desktop) {
-        max-width: 90rem;
         max-width: 75vw;
-        margin: 0 auto;
-    }
-}
-
-.ww-products__link {
-    display: block;
-    position: relative;
-
-    &:hover {
-        text-decoration: none;
     }
 }
 
 .ww-products__image {
-    width: 100%;
     max-height: calc(100 / 3 * 2)vh;
-    margin: 0;
-    object-fit: cover;
     aspect-ratio: 16 / 20;
-}
-
-.ww-products__title {
-    display: flex;
-    align-items: center;
-    margin: .5rem auto 1rem;
-    font-family: var(--font-family-accent);
-    font-size: 1.125rem;
-    font-size: clamp(12px, calc(1.125 * 16 / 19.2)vw, 16px);
-    font-weight: 400 !important;
-
-    svg {
-        font-size: inherit;
-        width: clamp(12px, calc(1 * 16 / 19.2)vw, 14px);
-        height: clamp(12px, calc(1 * 16 / 19.2)vw, 14px);
-        margin-left: .5rem;
-    }
 }
 
 .homepage-newsletter-form {
