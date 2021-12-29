@@ -2,8 +2,9 @@
     class="ww-site-header <?php if (is_front_page() || is_page_template('template-parts/sustainability.php')) { echo 'transparent'; } ?>">
     <div class="ww-site-header__top">
         <div class="ww-container ww-site-header__top__container flex">
-            <a class="hide-on-mobile"
-                href="/product/sample-collection/"><?php _e('Request a sample', 'lavandre'); ?></a>
+            <!-- <a class="hide-on-mobile"
+                href="/product/sample-collection/"><?php //_e('Request a sample', 'lavandre'); ?></a> -->
+            <span></span>
             <a href="/customer-service/shipping/" id="delivery-info-toggle"
                 data-panel="shipping"><?php echo get_first_delivery_date(); ?></a>
             <a class="hide-on-mobile" href="/customer-service/faq" id="customer-service-toggle"
