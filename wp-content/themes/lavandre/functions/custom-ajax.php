@@ -271,7 +271,7 @@ function ajax_emailCheck() {
 
     if (is_email($email)) {
         if (email_exists($email)) {
-            wp_send_json_error(__('Er bestaat al een account met dit e-mailadres. U kunt door middel van het inlogformulier inloggen om verder te gaan.', 'woocommerce'));
+            wp_send_json_error(__('This email address is already associated with an account. If this account is yours, you can reset your password', 'lavandre'));
         }
     } else {
         wp_send_json_error(__('Invalid email address'));

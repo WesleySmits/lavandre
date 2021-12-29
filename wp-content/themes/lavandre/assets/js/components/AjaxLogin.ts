@@ -98,7 +98,8 @@ export default class AjaxLogin extends Component {
         };
 
         const submitButton: HTMLButtonElement | undefined =
-            (this.form.querySelector('button[type="submit"]') as HTMLButtonElement) || undefined;
+            (this.form.querySelector('button[type="button"][name="login"]') as HTMLButtonElement) ||
+            undefined;
 
         // @ts-ignore
         if (!window.Cypress) {
@@ -107,8 +108,9 @@ export default class AjaxLogin extends Component {
                     data.recaptchaToken = token;
 
                     const submitButton: HTMLButtonElement | undefined =
-                        (this.form.querySelector('button[type="submit"]') as HTMLButtonElement) ||
-                        undefined;
+                        (this.form.querySelector(
+                            'button[type="button"][name="login"]'
+                        ) as HTMLButtonElement) || undefined;
                     sendAjaxRequest(
                         data,
                         this.ajaxEndpoint,
@@ -149,33 +151,15 @@ export default class AjaxLogin extends Component {
             throw new Error('something is wrong');
         }
 
-        const href: string = this.form.dataset.redirectUrl || '/my-account/';
-        if (this.form.dataset.redirect === 'true') {
-            window.location.href = href;
-            return;
-        }
-
-        const ctaButton: ctaButton = {
-            text: 'My account',
-            href
-        };
-
-        const toast: Toast = new Toast(response.data, ToastType.success, ctaButton, 20000);
-        toast.initialize();
-
-        const panel: HTMLDialogElement | null = this.form.closest('[data-panel-name]');
-        if (panel) {
-            panel.dispatchEvent(new CustomEvent('toggle'));
-        }
-
-        document.body.classList.add('logged-in');
-
         const data: GoogleAnalyticsEvent = {
             event: 'login',
             method: 'AjaxLogin'
         };
 
         DataLayer.push(data);
+
+        const href: string = this.form.dataset.redirectUrl || '/my-account/';
+        window.location.href = href;
     }
 
     private onFailure(res: string): void {
