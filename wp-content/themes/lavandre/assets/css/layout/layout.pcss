@@ -62,25 +62,25 @@ main {
 }
 
 .hide-on-mobile {
-    display: none;
+    display: none  !important;
     content-visibility: hidden;
 
     @media (--tablet) {
-        display: block;
+        display: block !important;
         content-visibility: visible;
     }
 }
 
 .hide-on-tablet {
     @media (--tablet-portrait-only) {
-        display: none;
+        display: none !important;
         content-visibility: hidden;
     }
 }
 
 .hide-on-desktop {
     @media (--tablet-landscape) {
-        display: none;
+        display: none !important;
         content-visibility: hidden;
     }
 }

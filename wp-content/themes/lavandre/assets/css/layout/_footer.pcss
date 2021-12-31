@@ -22,7 +22,7 @@
         svg {
             width: 20rem;
             height: auto;
-            max-width: 90%;
+            max-width: 50vw;
         }
     }
 
@@ -30,7 +30,11 @@
         display: flex;
         justify-content: center;
         align-content: center;
-        padding: 5rem 0;
+        padding: 3.5rem 0;
+
+        @media (--tablet-landscape) {
+            padding: 5rem 0;
+        }
     }
 
     &__middle {
@@ -56,6 +60,10 @@
             padding: 5rem 0;
             gap: 4rem;
         }
+    }
+
+    &__link {
+        font-family: var(--font-family-accent);
     }
 
     &__links__column {
@@ -123,10 +131,8 @@
         max-width: 35rem;
         margin: auto;
         width: 100%;
-        text-align: center;
 
         @media (--tablet-landscape) {
-            text-align: unset;
             order: 1;
         }
 

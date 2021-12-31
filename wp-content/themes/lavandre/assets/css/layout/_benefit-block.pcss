@@ -1,13 +1,109 @@
 .benefit-block {
     justify-content: center;
 
-    & > * {
-        max-width: 25%;
+    &__items {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item {
+        text-align: center;
+
+        @media (--tablet-landscape) {
+            text-align: initial;
+            max-width: 25%;
+        }
+    }
+
+    .benefit-block__prev,
+    .benefit-block__next {
+        display: none;
     }
 
     svg {
         --size: 3.5rem;
         width: var(--size);
         height: var(--size);
+    }
+
+    @media (--up-to-tablet-landscape) {
+        position: relative;
+        max-width: 80vw;
+        margin: auto;
+
+        &__items-wrapper {
+            overflow: hidden;
+        }
+
+        &__items {
+            position: relative;
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 0;
+            transition: transform .4s ease;
+        }
+
+        &__item {
+            flex: 0 0 100%;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 3.5rem;
+            min-height: 3.5rem;
+        }
+
+        p {
+            text-align: left;
+            font-size: 15px;
+            line-height: 1.25rem;
+            font-weight: 400;
+        }
+
+        .benefit-block__prev,
+        .benefit-block__next {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            display: block;
+            margin: auto;
+            width: 10vw;
+            height: 10vw;
+            font-size: 0;
+
+            background: none;
+            appearance: none;
+            border: 0 none;
+            outline: 0;
+
+            svg {
+                width: 1rem;
+                height: 1rem;
+            }
+        }
+
+        &__prev svg {
+            transform: rotate(180deg);
+        }
+
+        &__prev {
+            left: -10vw;
+        }
+
+        &__next {
+            right: -10vw;
+        }
+    }
+
+    @media (--large-phone) {
+        &__items {
+            gap: 1rem;
+        }
+
+        &__item {
+            flex: 0 0 calc(50% - 1rem);
+            max-width: calc(50% - 1rem);
+        }
     }
 }

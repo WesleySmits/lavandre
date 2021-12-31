@@ -17,10 +17,12 @@ import LazyLoader from './components/LazyLoader';
 import NewsletterSubscribe from './components/NewsletterSubscribe';
 import PasswordReveal from './components/PasswordReveal';
 import ScrollToContent from './components/ScrollToContent';
+import VideoMediaResolver from './components/VideoMediaResolver';
 import Module from './Module';
 import SidePanel from './ui/SidePanel';
 import { setCurrentLinkClass } from './util/links';
 import './web-components/AccordionElement';
+import './web-components/CarouselElement';
 
 export default class App extends Module {
     public eventEmitter: EventEmitter = EventEmitter;
@@ -40,7 +42,8 @@ export default class App extends Module {
         FieldValidation,
         HeaderSearch,
         LazyLoader,
-        ScrollToContent
+        ScrollToContent,
+        VideoMediaResolver
     ];
 
     public initialize() {

@@ -6,12 +6,19 @@
         }
 
         $file = $block['file'];
+        $file_mobile = $block['file_portrait_mobile'] ?? 'https://lavandre.com/wp-content/uploads/2021/12/lavandre-portrait-video.m4v';
+        $file_tablet = $block['file_portrait_tablet'] ?? 'https://lavandre.com/wp-content/uploads/2021/12/lavandre-video-portrait-ipad.m4v';
         $see_more = $block['see_more'];
 
         ?>
 <section id="main-banner" class="full-video">
-    <video width="1920" autoplay muted loop>
-        <source src="<?php echo $file; ?>" type="video/mp4">
+    <video width="1920" data-resolve autoplay muted loop>
+        <source data-src="<?php echo $file_mobile; ?>" type="video/mp4" media="(max-width: 767px)"
+            data-orientation="portrait" data-max-width="767">
+        <source data-src="<?php echo $file_tablet; ?>" type="video/mp4" media="(min-width: 768px)"
+            data-orientation="portrait" data-max-width="1024">
+        <source data-src="<?php echo $file; ?>" type="video/mp4" data-orientation="landscape">
+
     </video>
 
     <?php if ($see_more) { ?>
@@ -57,6 +64,9 @@
     {
         ?>
 <ol class="ww-products-grid" data-lazyload>
+    <li class="ww-products-grid__fill hide-on-tablet hide-on-desktop">
+        <span><?php _e('Collections', 'lavandre'); ?></span>
+    </li>
     <?php foreach($products as $product) { ?>
     <?php
 
@@ -143,21 +153,30 @@
         <h2 class="sub-title"><?php echo $heading; ?></h2>
     </header>
 
-    <div class="ww-container ww-container--<?php echo $container; ?> benefit-block flex-grid">
-        <?php foreach($content as $column) { ?>
-        <div>
-            <?php
-                $icon = '/partials/icons/' . $column['icon'] . '.svg.php';
-                $subheading = $column['heading'];
-                $text = $column['text'];
-            ?>
-
-            <?php if ($column['icon']) { include get_stylesheet_directory() . $icon; } ?>
-            <h3><?php echo $subheading; ?></h3>
-            <p><?php echo $text; ?></p>
+    <carousel-element class="ww-container ww-container--<?php echo $container; ?> benefit-block">
+        <div class="benefit-block__items-wrapper">
+            <ol class="benefit-block__items flex-grid" data-items>
+                <?php foreach($content as $column) { ?>
+                <li class="benefit-block__item" data-item>
+                    <?php
+                    $icon = '/partials/icons/' . $column['icon'] . '.svg.php';
+                    $subheading = $column['heading'];
+                    $text = $column['text'];
+                ?>
+                    <?php if ($column['icon']) { include get_stylesheet_directory() . $icon; } ?>
+                    <h3><?php echo $subheading; ?></h3>
+                    <p><?php echo $text; ?></p>
+                </li>
+                <?php } ?>
+            </ol>
         </div>
-        <?php } ?>
-    </div>
+        <button type="button" class="benefit-block__prev" data-prev>
+            <?php include get_stylesheet_directory() . '/partials/icons/chevron-right.svg.php'; ?>
+        </button>
+        <button type="button" class="benefit-block__next" data-next>
+            <?php include get_stylesheet_directory() . '/partials/icons/chevron-right.svg.php'; ?>
+        </button>
+    </carousel-element>
 </section>
 <?php
     }
