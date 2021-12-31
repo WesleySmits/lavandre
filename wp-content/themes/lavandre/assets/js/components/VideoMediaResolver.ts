@@ -1,4 +1,5 @@
 import Component from '../common/Component';
+import { matchMediaAddEventListener } from '../polyfills/matchMedia';
 
 export default class VideoMediaResolver extends Component {
     #element: HTMLVideoElement;
@@ -16,16 +17,29 @@ export default class VideoMediaResolver extends Component {
     public initialize(): void {
         this.#handleResize();
 
-        window.addEventListener('resize', () => {
-            if (this.#timeout) {
-                window.clearTimeout(this.#timeout);
-            }
+        const mq: MediaQueryList = window.matchMedia('(max-width: 767px)');
+        const mq2: MediaQueryList = window.matchMedia('(orientation: portrait)');
 
-            this.#timeout = window.setTimeout(this.#handleResize.bind(this), 100);
-        });
+        matchMediaAddEventListener(
+            mq,
+            (event) => {
+                this.#handleResize();
+            },
+            false
+        );
+
+        matchMediaAddEventListener(
+            mq2,
+            (event) => {
+                this.#handleResize();
+            },
+            false
+        );
     }
 
     #handleResize(): void {
+        // eslint-disable-next-line no-console
+        console.log('handle resize');
         this.#sources.forEach((source) => {
             const orientation = source.dataset.orientation || '';
             const maxWidth = Number(source.dataset.maxWidth) || 0;

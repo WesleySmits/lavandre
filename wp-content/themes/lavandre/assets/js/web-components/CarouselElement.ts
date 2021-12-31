@@ -33,7 +33,7 @@ class CarouselElement extends HTMLElement {
 
         this.#navigate(0);
 
-        const mq: MediaQueryList = window.matchMedia('(max-width: 768px)');
+        const mq: MediaQueryList = window.matchMedia('(max-width: 479px)');
         this.#setCurrent(mq);
 
         matchMediaAddEventListener(
