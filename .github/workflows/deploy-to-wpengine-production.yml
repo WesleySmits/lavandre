@@ -3,6 +3,8 @@ name: Deploy to WP Engine Production Environment
 on:
   release:
     types: [published]
+  push:
+    branches: [main]
 
 jobs:    
   build:
