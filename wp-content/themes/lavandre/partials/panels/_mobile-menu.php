@@ -31,7 +31,7 @@
 
                     <li>
                         <a href="/my-account">
-                            <span><?php _e('My account', 'lavandre'); ?></span>
+                            <span><?php _e('Sign in', 'lavandre'); ?></span>
                         </a>
                     </li>
 

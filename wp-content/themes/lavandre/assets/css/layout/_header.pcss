@@ -78,13 +78,20 @@
 
         &.delivery-info-toggle {
             display: flex;
-            flex: 0 0 50%;
+            flex: 1;
             justify-content: center;
         }
 
-        &.sign-in-link {
-            display: flex !important;
-            justify-content: flex-end;
+        @media (--tablet) {
+
+            &.delivery-info-toggle {
+                flex: 0 0 50%;
+            }
+
+            &.sign-in-link {
+                display: flex !important;
+                justify-content: flex-end;
+            }
         }
     }
 }

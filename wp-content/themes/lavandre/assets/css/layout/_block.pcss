@@ -2,7 +2,10 @@
     content-visibility: auto;
     contain-intrinsic-size: 650px;
     padding: 4.5rem 1.25rem;
-    border-top: 1px solid var(--jet);
+
+    &:not(:first-child) {
+        border-top: 1px solid var(--jet);
+    }
 
     @media (--tablet-landscape) {
         padding: 3rem 0;
@@ -60,8 +63,4 @@
     &--no-padding {
         padding: 0;
     }
-
-    /* &--border-top {
-        border-top: 1px solid var(--jet);
-    } */
 }
