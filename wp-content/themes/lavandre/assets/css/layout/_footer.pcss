@@ -20,9 +20,13 @@
         justify-content: center;
 
         svg {
-            width: 20rem;
+            width: 15rem;
             height: auto;
             max-width: 50vw;
+
+            @media (--tablet-landscape) {
+                width: 20rem;
+            }
         }
     }
 
@@ -57,12 +61,18 @@
         justify-content: center;
         align-content: center;
 
-        @media (--tablet-landscape) {
+        @media (--tablet) {
             flex-direction: row;
+            padding: 3.5rem 0;
+            gap: 4rem;
+            border-top: 1px solid var(--jet);
+        }
+
+        @media (--tablet-landscape) {
             flex: 1 1 50%;
             max-width: 50%;
             padding: 5rem 0;
-            gap: 4rem;
+            border: none;
         }
     }
 
@@ -71,7 +81,7 @@
     }
 
     &__links__column {
-        @media (--up-to-tablet-landscape) {
+        @media (--up-to-tablet) {
             padding: 0 2rem;
             border-top: 1px solid var(--jet);
 

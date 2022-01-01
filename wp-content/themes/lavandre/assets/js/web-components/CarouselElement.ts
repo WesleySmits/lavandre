@@ -34,17 +34,17 @@ class CarouselElement extends HTMLElement {
         });
 
         const componentCheck: MediaQueryList = window.matchMedia('(max-width: 1023px)');
-        matchMediaAddEventListener(
-            componentCheck,
-            () => {
-                if (componentCheck.matches === false) {
-                    this.deinitialize();
-                    return;
-                }
-                this.initialize();
-            },
-            false
-        );
+        const setup = () => {
+            if (componentCheck.matches === false) {
+                this.deinitialize();
+                return;
+            }
+            this.initialize();
+        };
+
+        setup();
+
+        matchMediaAddEventListener(componentCheck, setup, false);
     }
 
     public deinitialize(): void {
