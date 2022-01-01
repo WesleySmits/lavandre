@@ -57,6 +57,11 @@
     }
 }
 
+.side-panel--mobile-menu {
+    font-family: var(--font-family-accent);
+    font-size: 1.25rem;
+}
+
 .side-panel__container {
     margin-bottom: 5rem;
 }
@@ -78,7 +83,7 @@
     padding: 2.1875rem;
     padding-bottom: 1rem;
 
-    &:after {
+    &:not(.side-panel__header--no-border):after {
         content: "";
         position: absolute;
         right: 0;
@@ -105,7 +110,6 @@
 
     .side-panel__close {
         display: flex;
-        justify-content: flex-end;
         align-items: center;
         width: 3rem;
         height: 2.5rem;
@@ -114,6 +118,10 @@
         border: 0 none;
         outline: none;
         cursor: pointer;
+
+        &:not(:first-child) {
+            justify-content: flex-end;
+        }
     }
 
     svg {
