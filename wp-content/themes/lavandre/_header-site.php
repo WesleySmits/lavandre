@@ -2,11 +2,11 @@
     class="ww-site-header <?php if (is_front_page() || is_page_template('template-parts/sustainability.php')) { echo 'transparent'; } ?>">
     <div class="ww-site-header__top">
         <div class="ww-container ww-site-header__top__container flex">
-            <span class="hide-on-mobile"></span>
-            <a href="/customer-service/shipping/" id="delivery-info-toggle"
-                data-panel="shipping"><?php echo get_first_delivery_date(); ?></a>
-            <a class="hide-on-mobile" href="/customer-service/faq" id="customer-service-toggle"
+            <a class="hide-on-mobile customer-service-toggle" href="/customer-service/faq" id="customer-service-toggle"
                 data-panel="customer-service"><?php _e('Customer service', 'lavandre'); ?></a>
+            <a href="/customer-service/shipping/" id="delivery-info-toggle" class="delivery-info-toggle"
+                data-panel="shipping"><?php echo get_first_delivery_date(); ?></a>
+            <a href="/my-account" class="hide-on-mobile sign-in-link"><?php _e('Sign-in', 'lavandre'); ?></a>
         </div>
     </div>
 
