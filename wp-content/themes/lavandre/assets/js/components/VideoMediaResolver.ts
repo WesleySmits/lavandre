@@ -38,8 +38,6 @@ export default class VideoMediaResolver extends Component {
     }
 
     #handleResize(): void {
-        // eslint-disable-next-line no-console
-        console.log('handle resize');
         this.#sources.forEach((source) => {
             const orientation = source.dataset.orientation || '';
             const maxWidth = Number(source.dataset.maxWidth) || 0;

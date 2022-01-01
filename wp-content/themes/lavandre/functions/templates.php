@@ -12,7 +12,7 @@
 
         ?>
 <section id="main-banner" class="full-video">
-    <video width="1920" data-resolve autoplay muted loop>
+    <video width="1920" data-resolve autoplay playsinline muted loop>
         <source data-src="<?php echo $file_mobile; ?>" type="video/mp4" media="(max-width: 767px)"
             data-orientation="portrait" data-max-width="767">
         <source data-src="<?php echo $file_tablet; ?>" type="video/mp4" media="(min-width: 768px)"

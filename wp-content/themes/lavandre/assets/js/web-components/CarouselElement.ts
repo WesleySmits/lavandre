@@ -13,6 +13,8 @@ class CarouselElement extends HTMLElement {
 
     #counter: number = 3;
 
+    #interval: number = 0;
+
     protected connectedCallback() {
         this.#items = Array.from(this.querySelectorAll('[data-item]'));
         this.#list = this.querySelector('[data-items]');
@@ -31,6 +33,26 @@ class CarouselElement extends HTMLElement {
             this.#navigate(1);
         });
 
+        const componentCheck: MediaQueryList = window.matchMedia('(max-width: 1023px)');
+        matchMediaAddEventListener(
+            componentCheck,
+            () => {
+                if (componentCheck.matches === false) {
+                    this.deinitialize();
+                    return;
+                }
+                this.initialize();
+            },
+            false
+        );
+    }
+
+    public deinitialize(): void {
+        window.clearInterval(this.#interval);
+        this.#list?.style.removeProperty('transform');
+    }
+
+    public initialize(): void {
         this.#navigate(0);
 
         const mq: MediaQueryList = window.matchMedia('(max-width: 479px)');
@@ -38,13 +60,13 @@ class CarouselElement extends HTMLElement {
 
         matchMediaAddEventListener(
             mq,
-            (event) => {
+            () => {
                 this.#setCurrent(mq);
             },
             false
         );
 
-        window.setInterval(() => {
+        this.#interval = window.setInterval(() => {
             if (this.matches(':hover') || this.matches(':focus-within')) {
                 return;
             }
@@ -54,12 +76,7 @@ class CarouselElement extends HTMLElement {
     }
 
     #setCurrent(mq: MediaQueryList): void {
-        let itemsShown = 1;
-
-        if (mq.matches) {
-            itemsShown = 2;
-        }
-
+        const itemsShown = mq.matches ? 1 : 2;
         this.#counter = this.#items.length - itemsShown;
     }
 
