@@ -44,7 +44,9 @@ get_header();
         </div>
 
         <div class="full-width-banner-block__link">
-            <img class="cover-image" src="/wp-content/themes/lavandre/public/images/banners/about.jpeg" alt="Lavandré">
+            <img class="cover-image"
+                src="https://lavandre.com/wp-content/uploads/2022/01/jasmin-chew-oEOrwT16VUo-unsplash.jpeg"
+                alt="Lavandré">
         </div>
         <div class="background-noise"></div>
     </section>
@@ -77,7 +79,9 @@ get_header();
 
     <section class="full-width-banner-block full-width-banner-block--alt">
         <div class="full-width-banner-block__link">
-            <img class="cover-image" src="/wp-content/themes/lavandre/public/images/banners/about.jpeg" alt="Lavandré">
+            <img class="cover-image"
+                src="https://lavandre.com/wp-content/uploads/2022/01/liubov-ilchuk-XnpusY0QSAM-unsplash.jpeg"
+                alt="Lavandré">
         </div>
 
         <div class="full-width-banner-block__link full-width-banner-block__text">
@@ -89,7 +93,8 @@ get_header();
 
         <div class="background-noise"></div>
     </section>
-</main>
+</
+main>
 
 <?php
     get_footer();
