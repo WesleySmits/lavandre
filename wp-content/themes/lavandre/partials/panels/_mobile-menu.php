@@ -31,7 +31,8 @@
 
                     <li>
                         <a href="/my-account">
-                            <span><?php _e('Sign in', 'lavandre'); ?></span>
+                            <span><?php is_user_logged_in() ? _e('My account', 'lavandre') : _e('Sign-in', 'lavandre'); ?></span>
+
                         </a>
                     </li>
 
