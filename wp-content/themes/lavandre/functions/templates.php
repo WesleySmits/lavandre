@@ -63,7 +63,7 @@
     function product_list($products): void
     {
         ?>
-<ol class="ww-products-grid" data-lazyload>
+<ol class="ww-products-grid">
     <li class="ww-products-grid__fill hide-on-tablet hide-on-desktop">
         <span><?php _e('Collections', 'lavandre'); ?></span>
     </li>
@@ -75,7 +75,7 @@
                         $name = $product['title'];
                     ?>
 
-    <li>
+    <li data-lazyload>
         <a href="<?php echo $link; ?>" class="ww-products__link">
             <img src="<?php echo get_image_kit_placeholder($image, 387, 581) ?>"
                 data-src="<?php echo get_image_kit_url($image); ?>"
