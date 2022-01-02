@@ -19,13 +19,21 @@
 <main <?php post_class( 'site-main' ); ?> role="main">
     <div class="page-wrapper">
         <header class="ww-page-banner">
-            <img src="<?php echo $top_banner['url'] ?>" srcset="<?php echo $top_banner['sizes']['medium_large'] ?> 768w, <?php echo $top_banner['sizes']['1536x1536'] ?> 1536w, <?php echo $top_banner['url'] ?> 2560w" alt="" />
-            <h1 class="ww-page-banner__overlay ww-page-banner__title ww-page-banner__title--large"><?php echo $top_banner_title; ?></h1>
+            <img src="<?php echo $top_banner['url'] ?>"
+                srcset="<?php echo $top_banner['sizes']['medium_large'] ?> 768w, <?php echo $top_banner['sizes']['1536x1536'] ?> 1536w, <?php echo $top_banner['url'] ?> 2560w"
+                alt="" />
+            <h1 class="ww-page-banner__overlay ww-page-banner__title ww-page-banner__title--large">
+                <?php echo $top_banner_title; ?></h1>
         </header>
 
-        <nav class="side-navigation">
-           <ul>
-            <?php
+        <button type="button" class="toggle-side-navigation" data-curtain-toggle="account-menu">
+            <span><?php _e('My account', 'lavandre'); ?></span>
+            <?php include get_stylesheet_directory() . '/partials/icons/chevron-down.svg.php'; ?>
+        </button>
+
+        <nav class="side-navigation" data-curtain-content="account-menu">
+            <ul>
+                <?php
                     $post_type = 'faqs';
                     $taxonomies = get_object_taxonomies( (object) array(
                         'post_type' => $post_type,
@@ -38,16 +46,16 @@
                         ]);
                         foreach( $terms as $loop_term) {
                             ?>
-                                <li class="side-navigation__item">
-                                    <a href="<?php echo get_term_link($loop_term, $taxonomy); ?>" class="side-navigation__link">
-                                        <?php echo $loop_term->name; ?>
-                                    </a>
-                                </li>
-                            <?php
+                <li class="side-navigation__item">
+                    <a href="<?php echo get_term_link($loop_term, $taxonomy); ?>" class="side-navigation__link">
+                        <?php echo $loop_term->name; ?>
+                    </a>
+                </li>
+                <?php
                         }
                     }
                 ?>
-           </ul>
+            </ul>
         </nav>
 
         <div class="page-content" itemscope itemtype="https://schema.org/FAQPage">
@@ -64,16 +72,16 @@
             ?>
 
             <?php if ( $faqs->have_posts() ) { ?>
-                <?php while ( $faqs->have_posts() ) { ?>
-                    <?php $faqs->the_post(); ?>
-                    <div class="question">
-                        <h2 itemprop="name"><?php echo get_the_title(); ?></h2>
+            <?php while ( $faqs->have_posts() ) { ?>
+            <?php $faqs->the_post(); ?>
+            <div class="question">
+                <h2 itemprop="name"><?php echo get_the_title(); ?></h2>
 
-                        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                            <div itemprop="text"><?php echo get_the_content(); ?></div>
-                        </div>
-                    </div>
-                <?php } ?>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <div itemprop="text"><?php echo get_the_content(); ?></div>
+                </div>
+            </div>
+            <?php } ?>
             <?php } ?>
         </div>
     </div>

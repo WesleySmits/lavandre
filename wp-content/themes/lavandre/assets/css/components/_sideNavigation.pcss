@@ -8,7 +8,34 @@
     @media (--tablet-landscape) {
         flex-flow: row wrap;
     }
+
+    .toggle-side-navigation {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: .75rem 1.25rem;
+        border: none;
+        border-radius: 0;
+        background-color: var(--jet);
+        color: var(--white);
+        font-family: var(--font-family-accent);
+        font-weight: 600;
+        text-transform: capitalize;
+        outline: 0;
+
+        &.active svg {
+            transform: rotate(180deg);
+        }
+
+        @media (--tablet-landscape) {
+            display: none;
+        }
+    }
 }
+
+
 
 .side-navigation {
     position: relative;
