@@ -10,6 +10,10 @@ export default class Curtain extends Component {
 
     private defaultHeight: string;
 
+    #transitionListener = (): void => {
+        this.#handleTransition();
+    };
+
     constructor(
         element: HTMLElement,
         foldButton: HTMLButtonElement,
@@ -71,6 +75,9 @@ export default class Curtain extends Component {
 
             this.foldButton.innerText = this.foldButton.dataset.readMore;
         });
+
+        this.element.removeEventListener('transitionend', this.#transitionListener);
+        this.element.addEventListener('transitionend', this.#transitionListener);
     }
 
     private isValid(): boolean {
@@ -79,6 +86,15 @@ export default class Curtain extends Component {
         }
 
         return true;
+    }
+
+    #handleTransition(): void {
+        if (this.element.classList.contains('active')) {
+            this.element.style.maxHeight = 'none';
+            return;
+        }
+
+        this.element.style.removeProperty('maxHeight');
     }
 
     public static onInit(selector: Document | HTMLElement = document) {

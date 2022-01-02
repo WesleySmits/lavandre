@@ -1,9 +1,11 @@
+@import "../variables/variables.pcss";
+
 .page-wrapper {
     display: flex;
     flex-flow: column nowrap;
     border-bottom: 1px solid var(--color-border);
 
-    @media (min-width: 1024px) {
+    @media (--tablet-landscape) {
         flex-flow: row wrap;
     }
 }
@@ -14,13 +16,29 @@
     flex-flow: column nowrap;
     justify-content: flex-start;
     flex: 0 0 20%;
-    margin: 3.5rem 0;
-    padding: 0rem 1rem;
-    border-right: 1px solid var(--color-border-3);
+    padding: 1.25rem;
 
-    @media (min-width: 1024px) {
+    @media (--up-to-tablet-landscape) {
+        background-color: var(--jet);
+        color: var(--white);
+        border-top: 1px solid rgba(238, 235, 232, .333);
+
+        header {
+            display: none;
+        }
+
+        a {
+            color: inherit;
+            font-family: var(--font-family-accent);
+        }
+    }
+
+    @media (--tablet-landscape) {
         align-items: center;
         max-height: none !important;
+        margin: 3.5rem 0;
+        padding: 0rem 1rem;
+        border-right: 1px solid var(--color-border-3);
 
         &[data-curtain-content="account-menu"]:not(.active) {
             padding: 0rem 1rem !important;

@@ -61,14 +61,26 @@
     }
 
     .toggle-account-menu {
-        background-color: #fff0e6;
-        color: var(--color-text);
-        font-weight: 600;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: .75rem 1.25rem;
         border: none;
-        padding: .75rem 0;
+        border-radius: 0;
+        background-color: var(--jet);
+        color: var(--white);
+        font-family: var(--font-family-accent);
+        font-weight: 600;
+        text-transform: capitalize;
         outline: 0;
 
-        &.active i {
+        svg {
+            transition: transform .4s ease;
+        }
+
+        &.active svg {
             transform: rotate(180deg);
         }
 
@@ -130,7 +142,7 @@
             max-width: 100%;
             margin-top: 3.5rem;
 
-            @media (--tablet-landscape) {
+            @media (--tablet) {
                 flex-basis: 48%;
                 max-width: 50%;
             }

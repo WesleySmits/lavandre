@@ -13,13 +13,27 @@
 }
 
 [data-curtain-content] {
-    transition: max-height .4s, padding .4s;
+    transition: max-height .4s;
     overflow: hidden;
+    padding-block: 0 !important;
+
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        flex: 0 0 1rem;
+        width: 100%;
+        height: 1rem;
+    }
 }
 
 [data-curtain-content]:not(.active) {
     max-height: 0;
-    padding: 0 !important;
+
+    &:before.
+    &:after {
+        display: none;
+    }
 }
 
 @media (--tablet) {
