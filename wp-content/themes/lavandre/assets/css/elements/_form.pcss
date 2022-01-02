@@ -300,38 +300,25 @@ body.page-id-317 .site-main,
         min-width: 1rem;
         width: 1rem;
         height: 1rem;
-        border: 1px solid var(--color-text);
         margin-right: 0.5rem;
+
+        background-image: url('https://lavandre.local/wp-content/themes/lavandre/public/images/icons/radio-button.svg');
+        background-size: cover;
     }
 
-    .woocommerce-form__input-radio + label:before,
-    .woocommerce-form__input-radio + span:before {
-        border-radius: 50%;
+    .woocommerce-form__input-checkbox + label:before,
+    .woocommerce-form__input-checkbox + span:before {
+        background-image: url('https://lavandre.local/wp-content/themes/lavandre/public/images/icons/checkbox.svg');
     }
 
-    .woocommerce-form__input-checkbox:checked + span:before,
-    .woocommerce-form__input-checkbox:checked + label:before {
-        background-color: var(--color-text);
+    .woocommerce-form__input-checkbox:checked + label:before,
+    .woocommerce-form__input-checkbox:checked + span:before {
+        background-image: url('https://lavandre.local/wp-content/themes/lavandre/public/images/icons/checkbox-checked.svg');
     }
 
-    .woocommerce-form__input-checkbox:checked + span:after,
-    .woocommerce-form__input-checkbox:checked + label:after {
-        --borderWidth: 2.625px;
-        --height: 9px;
-        --width: 4.5px;
-        --borderColor: #ffffff;
-
-        content: "";
-        position: absolute;
-        top: 7px;
-        left: 6px;
-
-        display: inline-block;
-        transform: rotate(45deg);
-        height: var(--height);
-        width: var(--width);
-        border-bottom: var(--borderWidth) solid var(--borderColor);
-        border-right: var(--borderWidth) solid var(--borderColor);
+    .woocommerce-form__input-radio:checked + label:before,
+    .woocommerce-form__input-radio:checked + span:before {
+        background-image: url('https://lavandre.local/wp-content/themes/lavandre/public/images/icons/radio-button-checked.svg');
     }
 
     .woocommerce-form__input-checkbox
@@ -352,19 +339,6 @@ body.page-id-317 .site-main,
 
     a.woocommerce-privacy-policy-link {
         margin-right: 0;
-    }
-
-    .woocommerce-form__input-radio:checked + span:after,
-    .woocommerce-form__input-radio:checked + label:after {
-        content: "";
-        position: absolute;
-        left: 0.25rem;
-
-        display: block;
-        width: 0.5rem;
-        height: 0.5rem;
-        border-radius: 50%;
-        background: var(--color-text);
     }
 
     .woocommerce-validated {
