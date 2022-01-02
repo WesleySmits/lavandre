@@ -28,5 +28,6 @@ onload="this.onload=null;this.rel='stylesheet';">*/ ?>
 <link rel="mask-icon" href="/wp-content/themes/lavandre/public/images/favicon/safari-pinned-tab.svg" color="#3d2b30">
 <link rel="shortcut icon" href="/wp-content/themes/lavandre/public/images/favicon/favicon.ico">
 <meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-config" content="/wp-content/themes/lavandre/public/images/favicon/browserconfig.xml">
+<meta name="msapplication-config" content="
+/wp-content/themes/lavandre/public/images/favicon/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">

@@ -54,16 +54,16 @@ form.woocommerce-checkout {
     color: var(--color-text);
 
     @media (--tablet) {
-        display: flex;
-        flex-flow: row wrap;
-        flex-wrap: wrap !important;
-        justify-content: space-between;
         margin-right: 3vw;
         margin-left: 3vw;
-        align-items: flex-start;
     }
 
     @media (--tablet-landscape) {
+        display: flex;
+        flex-flow: row wrap;
+        flex-wrap: wrap !important;
+        align-items: flex-start;
+        justify-content: space-between;
         margin-left: auto;
         margin-right: auto;
     }
@@ -74,7 +74,7 @@ form.woocommerce-checkout {
     border: 0;
     overflow: hidden;
     font-size: 13px;
-    margin: 1rem 0;
+    margin: 1rem 0 0;
 
     h1 {
         margin-bottom: 1.5rem;

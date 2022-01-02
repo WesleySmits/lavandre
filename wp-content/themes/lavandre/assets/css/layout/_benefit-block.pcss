@@ -31,10 +31,18 @@
         height: var(--size);
     }
 
+    h3 {
+        margin-top: 0;
+    }
+
+    svg + h3 {
+        margin-top: 3.5rem;
+    }
+
     @media (--up-to-tablet-landscape) {
         position: relative;
         max-width: 80vw;
-        margin: auto;
+        margin: 0 auto;
 
         &__items-wrapper {
             overflow: hidden;
@@ -54,8 +62,8 @@
 
         h3 {
             font-size: 1.5rem;
-            margin-top: 3.5rem;
             min-height: 3.5rem;
+            margin-top: 0;
         }
 
         p {

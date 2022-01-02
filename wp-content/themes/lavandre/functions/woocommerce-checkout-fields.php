@@ -314,6 +314,13 @@
         $country = __( 'Country', 'lavandre' );
         $phoneNumber = __( 'Phone number', 'lavandre' );
 
+        $fields['house_number_suffix'] = [
+            'class' => array( 'form-row-last' ),
+            'label' => $houseNumberAddition,
+            'placeholder' => '',
+            'required' => false,
+        ];
+
         $fields['first_name'] = update_address_field_label($fields['first_name'], $firstName, 2, ['form-row-first']);
         $fields['last_name'] = update_address_field_label($fields['last_name'], $lastName, 3, ['form-row-last']);
         $fields['company'] = update_address_field_label($fields['company'], $companyName, 4, ['form-row-first']);
