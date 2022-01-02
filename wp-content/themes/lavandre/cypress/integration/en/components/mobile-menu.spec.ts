@@ -8,7 +8,7 @@ const navigationPages: string[] = [
     'Sustainability',
     'Blog',
     'Contact',
-    'My account',
+    'Sign-in',
 ];
 
 describe('Mobile menu tests - mobile', () => {

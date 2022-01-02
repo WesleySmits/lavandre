@@ -76,7 +76,10 @@
 
     &__link {
         font-family: var(--font-family-accent);
-        border-top: 1px solid var(--jet);
+
+        @media (--tablet) {
+            border-top: 1px solid var(--jet);
+        }
 
         @media (--tablet-landscape) {
             border: none;

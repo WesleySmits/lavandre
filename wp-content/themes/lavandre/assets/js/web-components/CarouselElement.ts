@@ -15,6 +15,14 @@ class CarouselElement extends HTMLElement {
 
     #interval: number = 0;
 
+    get active(): boolean {
+        return this.hasAttribute('active');
+    }
+
+    set active(value: boolean) {
+        this.toggleAttribute('active', value);
+    }
+
     protected connectedCallback() {
         this.#items = Array.from(this.querySelectorAll('[data-item]'));
         this.#list = this.querySelector('[data-items]');
@@ -48,6 +56,7 @@ class CarouselElement extends HTMLElement {
     }
 
     public deinitialize(): void {
+        this.active = false;
         window.clearInterval(this.#interval);
         this.#list?.style.removeProperty('transform');
     }
@@ -77,6 +86,11 @@ class CarouselElement extends HTMLElement {
 
     #setCurrent(mq: MediaQueryList): void {
         const itemsShown = mq.matches ? 1 : 2;
+
+        if (itemsShown < this.#items.length) {
+            this.active = true;
+        }
+
         this.#counter = this.#items.length - itemsShown;
     }
 

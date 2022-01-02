@@ -12,9 +12,18 @@ accordion-element {
         }
     }
 
+    details > summary {
+        list-style: none;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+
     summary {
         position: relative;
         display: flex;
+        flex-flow: row nowrap;
         justify-content: space-between;
         align-content: center;
         align-items: center;
@@ -30,6 +39,14 @@ accordion-element {
         line-height: 3.125rem;
         font-weight: 400;
         cursor: pointer;
+
+        & > svg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
 
         a:hover {
             text-decoration: none;
