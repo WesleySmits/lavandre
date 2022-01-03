@@ -180,3 +180,25 @@
 </section>
 <?php
     }
+
+    function ww_main_top_banner($block): void
+    {
+        if (!$block) {
+            return;
+        }
+
+        $file = $block['file'];
+        $title = $block['title'];
+        $subtitle = $block['subtitle'];
+        ?>
+<section class="main-top-banner">
+    <figure class="main-top-banner__figure">
+        <img src="<?php echo $file; ?>" alt="" width="1920" height="612" srcset="" sizes="100vw">
+        <figcaption class="main-top-banner__overlay">
+            <h1 class="main-top-banner__title"><?php echo $title; ?></h1>
+            <p class="main-top-banner__subtitle"><?php echo $subtitle; ?></p>
+        </figcaption>
+    </figure>
+</section>
+<?php
+}
