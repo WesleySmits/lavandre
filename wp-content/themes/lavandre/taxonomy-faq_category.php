@@ -27,7 +27,7 @@
         </header>
 
         <button type="button" class="toggle-side-navigation" data-curtain-toggle="account-menu">
-            <span><?php _e('My account', 'lavandre'); ?></span>
+            <span><?php _e('Customer service', 'lavandre'); ?></span>
             <?php include get_stylesheet_directory() . '/partials/icons/chevron-down.svg.php'; ?>
         </button>
 

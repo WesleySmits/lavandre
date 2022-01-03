@@ -74,7 +74,7 @@ function formatted_billing_address($order)
                     <h1><?php _e('Thank you for your purchase!', 'lavandre'); ?></h1>
                     <p>
                         <?php _e('Within a few minutes you will receive an e-mail with your order details.', 'lavandre'); ?>
-                        <br/>
+                        <br />
                     </p>
                 </header>
             </section>
@@ -85,7 +85,10 @@ function formatted_billing_address($order)
 
     <div class="full-width-banner-block__link">
         <figure class="overlay-text">
-            <img class="cover-image" src="https://lavandre.com/wp-content/uploads/2021/11/mathilde-langevin-dCX6Z0xjAPM-unsplash-scaled.jpeg" alt="">
+            <img class="cover-image"
+                src="https://lavandre.com/wp-content/uploads/2021/11/mathilde-langevin-dCX6Z0xjAPM-unsplash-scaled.jpeg"
+                loading="lazy" alt="">
         </figure>
     </div>
+    <div></div>
 </div>
