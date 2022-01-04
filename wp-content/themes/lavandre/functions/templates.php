@@ -201,4 +201,36 @@
     </figure>
 </section>
 <?php
-}
+    }
+
+    function ww_step_list($block): void
+    {
+        if (!$block) {
+            return;
+        }
+
+        $steps = $block['steps'];
+        ?>
+
+<section class="ww-steps">
+    <ul class="step-list">
+        <?php foreach($steps as $step) { ?>
+        <?php $icon = '/partials/icons/' . $step['icon'] . '.svg.php'; ?>
+
+        <li class="step-list__item">
+            <header class="step-list__header">
+                <h2 class="step-list__title"><?php echo $step['title']; ?></h2>
+            </header>
+
+            <?php if ($step['icon']) { include get_stylesheet_directory() . $icon; } ?>
+
+            <div class="step-list__description">
+                <?php echo $step['description']; ?>
+            </div>
+        </li>
+        <?php } ?>
+    </ul>
+</section>
+
+<?php
+    }
