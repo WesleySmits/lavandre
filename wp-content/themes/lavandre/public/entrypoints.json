@@ -22,6 +22,16 @@
         "/home.a1d87184.css"
       ]
     },
+    "rewards": {
+      "js": [
+        "/runtime.7af1df8f.js",
+        "/650.035e12ab.js",
+        "/rewards.6b7b9fbb.js"
+      ],
+      "css": [
+        "/rewards.a1d87184.css"
+      ]
+    },
     "sustainability": {
       "js": [
         "/runtime.7af1df8f.js",

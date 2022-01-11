@@ -169,6 +169,7 @@ function loadWebpackModules(): void {
     }
 
     if (is_page_template('template-parts/rewards.php')) {
+        loadEncoreModule('rewards');
         loadEncoreModule('rewards-styles');
     }
 
