@@ -192,9 +192,11 @@
         $subtitle = $block['subtitle'];
         $button = $block['button'];
         ?>
-<section class="main-top-banner">
+<section class="main-top-banner full-video">
     <figure class="main-top-banner__figure">
-        <img src="<?php echo $file; ?>" alt="" width="1920" height="612" srcset="" sizes="100vw">
+        <picture>
+            <img src="<?php echo $file; ?>" alt="" width="1920" height="612" srcset="" sizes="100vw">
+        </picture>
         <figcaption class="main-top-banner__overlay">
             <h1 class="main-top-banner__title"><?php echo $title; ?></h1>
             <p class="main-top-banner__subtitle"><?php echo $subtitle; ?></p>

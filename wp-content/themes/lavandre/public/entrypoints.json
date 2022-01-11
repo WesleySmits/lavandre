@@ -67,7 +67,7 @@
         "/runtime.7af1df8f.js"
       ],
       "css": [
-        "/critical-styles.0b6a9906.css"
+        "/critical-styles.f7c3cf30.css"
       ]
     },
     "deferred-styles": {
@@ -83,7 +83,7 @@
         "/runtime.7af1df8f.js"
       ],
       "css": [
-        "/homepage-styles.73cd71e5.css"
+        "/homepage-styles.d036a4ac.css"
       ]
     },
     "about-styles": {
@@ -92,6 +92,14 @@
       ],
       "css": [
         "/about-styles.e3f18e34.css"
+      ]
+    },
+    "rewards-styles": {
+      "js": [
+        "/runtime.7af1df8f.js"
+      ],
+      "css": [
+        "/rewards-styles.d5be2ede.css"
       ]
     },
     "contact-styles": {
@@ -171,7 +179,7 @@
         "/runtime.7af1df8f.js"
       ],
       "css": [
-        "/sustainability-styles.93f6a970.css"
+        "/sustainability-styles.75dff8ba.css"
       ]
     },
     "landingspage-styles": {

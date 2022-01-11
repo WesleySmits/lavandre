@@ -168,6 +168,10 @@ function loadWebpackModules(): void {
         loadEncoreModule('legal-styles');
     }
 
+    if (is_page_template('template-parts/rewards.php')) {
+        loadEncoreModule('rewards-styles');
+    }
+
     // #TODO: Get id's somehow
     if (
         (is_account_page() && !is_user_logged_in())
