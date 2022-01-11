@@ -200,7 +200,8 @@
             <p class="main-top-banner__subtitle"><?php echo $subtitle; ?></p>
 
             <?php if ($button) { ?>
-            <button is="lavandre-button" href="<?php echo $button[0]['link']['url']; ?>" primary size="large">
+            <button is="lavandre-button" href="<?php echo $button[0]['link']['url']; ?>" primary size="large"
+                full-width>
                 <?php echo $button[0]['text']; ?>
             </button>
             <?php } ?>
