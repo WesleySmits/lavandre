@@ -190,6 +190,7 @@
         $file = $block['file'];
         $title = $block['title'];
         $subtitle = $block['subtitle'];
+        $button = $block['button'];
         ?>
 <section class="main-top-banner">
     <figure class="main-top-banner__figure">
@@ -197,6 +198,12 @@
         <figcaption class="main-top-banner__overlay">
             <h1 class="main-top-banner__title"><?php echo $title; ?></h1>
             <p class="main-top-banner__subtitle"><?php echo $subtitle; ?></p>
+
+            <?php if ($button) { ?>
+            <button is="lavandre-button" href="<?php echo $button[0]['link']['url']; ?>" primary size="large">
+                <?php echo $button[0]['text']; ?>
+            </button>
+            <?php } ?>
         </figcaption>
     </figure>
 </section>
@@ -232,5 +239,75 @@
     </ul>
 </section>
 
+<?php
+    }
+
+    function ww_how_it_works($block): void
+    {
+        if (!$block) {
+            return;
+        }
+
+        $title = $block['title'];
+        $steps = $block['steps'];
+        ?>
+
+<section class="ww-how-it-works">
+    <header class="ww-how-it-works__header">
+        <h2><?php echo $title; ?></h2>
+    </header>
+
+    <ul class="how-it-works-list">
+        <?php foreach($steps as $step) { ?>
+        <li class="how-it-works-list__item">
+            <header class="how-it-works-list__header">
+                <h2 class="how-it-works-list__title"><?php echo $step['title']; ?></h2>
+            </header>
+
+            <div class="how-it-works-list__description">
+                <?php echo $step['description']; ?>
+            </div>
+        </li>
+        <?php } ?>
+    </ul>
+</section>
+<?php
+}
+
+    function ww_points_grid($block): void
+    {
+        if (!$block) {
+            return;
+        }
+
+        $title = $block['title'];
+        $list = $block['list'];
+
+        ?>
+<section class="ww-block">
+    <div class="ww-container points-grid-wrapper">
+        <header>
+            <h2>Ways to earn points</h2>
+        </header>
+
+        <ul class="points-grid">
+            <?php foreach($list as $column) { ?>
+            <?php $icon = '/partials/icons/' . $column['icon'] . '.svg.php'; ?>
+
+            <li is="signup-block" class="points-grid__item">
+                <?php if ($column['icon']) { include get_stylesheet_directory() . $icon; } ?>
+
+                <h2 class="points-grid__title">
+                    <?php echo $column['title']; ?>
+                </h2>
+
+                <div class="points-grid__description">
+                    <?php echo $column['description']; ?>
+                </div>
+            </li>
+            <?php } ?>
+        </ul>
+    </div>
+</section>
 <?php
     }

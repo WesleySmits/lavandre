@@ -23,6 +23,7 @@ import SidePanel from './ui/SidePanel';
 import { setCurrentLinkClass } from './util/links';
 import './web-components/AccordionElement';
 import './web-components/CarouselElement';
+import './web-components/SignupBlock';
 
 export default class App extends Module {
     public eventEmitter: EventEmitter = EventEmitter;
