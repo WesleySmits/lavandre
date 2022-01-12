@@ -15,7 +15,53 @@
     <?php ww_how_it_works(get_field('how_it_works')); ?>
     <?php ww_points_grid(get_field('points'), ['ww-block--no-border']); ?>
     <?php ww_banner_block(get_field('banner_block_1')); ?>
-    <?php ww_banner_block(get_field('banner_block_2'), ['ww-banner-block--alt']); ?>
+
+    <?php
+        $bannerBlock = get_field('banner_block_2');
+        $heading = $bannerBlock['heading'];
+        $text = $bannerBlock['text'];
+        $imageUrl = $bannerBlock['image'];
+    ?>
+    <section class="ww-banner-block ww-banner-block--alt" data-lazyload>
+        <div class="ww-banner-block__banner">
+            <img loading="lazy" class="cover-image" src="<?php echo get_image_kit_placeholder($imageUrl, 960, 1015) ?>"
+                data-src="<?php echo get_image_kit_src($imageUrl, 960, 1015); ?>" data-srcset="
+                        <?php echo get_image_kit_src($imageUrl, 360, 380); ?> 414w,
+                        <?php echo get_image_kit_src($imageUrl, 414, 437); ?> 414w,
+                        <?php echo get_image_kit_src($imageUrl, 600, 634); ?> 600w,
+                        <?php echo get_image_kit_src($imageUrl, 720, 761); ?> 720w,
+                        <?php echo get_image_kit_src($imageUrl, 768, 812); ?> 768w,
+                        <?php echo get_image_kit_src($imageUrl, 828, 875); ?> 828w,
+                        <?php echo get_image_kit_src($imageUrl, 960, 1015); ?> 960w,
+                        <?php echo get_image_kit_src($imageUrl, 1242, 1313); ?> 1242w,
+                        <?php echo get_image_kit_src($imageUrl, 1536, 1624); ?> 1536w,
+                        <?php echo get_image_kit_src($imageUrl, 1920, 2030); ?> 1920w
+                    " data-sizes="(min-width: 1024px) 50vw, 100vw" alt="">
+        </div>
+
+        <div class="ww-banner-block__content">
+            <div class="ww-banner-block__inner-content">
+                <h2><?php echo $heading; ?></h2>
+                <div>
+                    <?php echo $text; ?>
+                </div>
+
+                <form id="refer-a-friend-form" class="refer-a-friend-form" action="post">
+                    <label class="sr-only" for="refer-a-friend-form-email"><?php _e('Email', 'lavandre'); ?></label>
+                    <input class="newsletter-subscribe-home__input" type="email" name="email"
+                        id="refer-a-friend-form-email"
+                        title="<?php _e('Please enter a valid e-mail address', 'lavandre'); ?>"
+                        placeholder="<?php _e('Email', 'lavandre'); ?>" required>
+
+                    <button is="lavandre-button" size="large" full-width class="newsletter-subscribe-home__button"
+                        type="submit" id="refer-a-friend-form-submit" aria-label="Subscribe to newsletter button">
+                        <?php _e('Submit', 'lavandre'); ?>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
 </main>
 
 <?php
