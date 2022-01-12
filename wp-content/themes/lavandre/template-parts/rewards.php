@@ -48,12 +48,11 @@
 
                 <form id="refer-a-friend-form" class="refer-a-friend-form" action="post">
                     <label class="sr-only" for="refer-a-friend-form-email"><?php _e('Email', 'lavandre'); ?></label>
-                    <input class="newsletter-subscribe-home__input" type="email" name="email"
-                        id="refer-a-friend-form-email"
+                    <input class="refer-a-friend-form__input" type="email" name="email" id="refer-a-friend-form-email"
                         title="<?php _e('Please enter a valid e-mail address', 'lavandre'); ?>"
                         placeholder="<?php _e('Email', 'lavandre'); ?>" required>
 
-                    <button is="lavandre-button" size="large" full-width class="newsletter-subscribe-home__button"
+                    <button is="lavandre-button" size="large" full-width class="refer-a-friend-form__button"
                         type="submit" id="refer-a-friend-form-submit" aria-label="Subscribe to newsletter button">
                         <?php _e('Submit', 'lavandre'); ?>
                     </button>
