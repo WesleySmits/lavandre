@@ -267,9 +267,9 @@
                 <h2 class="how-it-works-list__title"><?php echo $step['title']; ?></h2>
             </header>
 
-            <div class="how-it-works-list__description">
+            <p class="how-it-works-list__description">
                 <?php echo $step['description']; ?>
-            </div>
+            </p>
         </li>
         <?php } ?>
     </ul>
@@ -277,7 +277,7 @@
 <?php
 }
 
-    function ww_points_grid($block): void
+    function ww_points_grid($block, $classes = []): void
     {
         if (!$block) {
             return;
@@ -287,7 +287,7 @@
         $list = $block['list'];
 
         ?>
-<section class="ww-block">
+<section class="ww-block <?php echo implode(' ', $classes); ?>">
     <div class="ww-container points-grid-wrapper">
         <header>
             <h2>Ways to earn points</h2>
