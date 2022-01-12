@@ -27,6 +27,14 @@
         @media (--tablet-landscape) {
             flex: 1 1 50%;
             max-width: 50%;
+
+            .ww-banner-block--border & {
+                border-right: 1px solid var(--jet);
+            }
+
+            .ww-banner-block--border.ww-banner-block--alt & {
+                border-left: 1px solid var(--jet);
+            }
         }
     }
 
