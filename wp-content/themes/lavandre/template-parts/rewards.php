@@ -14,7 +14,7 @@
     <?php ww_main_top_banner(get_field('main_top_banner')); ?>
     <?php ww_how_it_works(get_field('how_it_works')); ?>
     <?php ww_points_grid(get_field('points'), ['ww-block--no-border']); ?>
-    <?php ww_banner_block(get_field('banner_block_1'), ['ww-banner-block--border'], 'h1'); ?>
+    <?php ww_banner_block(get_field('banner_block_1'), ['ww-banner-block--border', 'ww-banner-block--transparent'], 'h1'); ?>
 
     <?php
         $bannerBlock = get_field('banner_block_2');
@@ -22,7 +22,8 @@
         $text = $bannerBlock['text'];
         $imageUrl = $bannerBlock['image'];
     ?>
-    <section class="ww-banner-block ww-banner-block--border ww-banner-block--alt" data-lazyload>
+    <section class="ww-banner-block ww-banner-block--border ww-banner-block--alt ww-banner-block--transparent"
+        data-lazyload>
         <div class="ww-banner-block__banner">
             <img loading="lazy" class="cover-image" src="<?php echo get_image_kit_placeholder($imageUrl, 960, 1015) ?>"
                 data-src="<?php echo get_image_kit_src($imageUrl, 960, 1015); ?>" data-srcset="
@@ -41,7 +42,7 @@
 
         <div class="ww-banner-block__content">
             <div class="ww-banner-block__inner-content">
-                <h2><?php echo $heading; ?></h2>
+                <h1><?php echo $heading; ?></h1>
                 <div>
                     <?php echo $text; ?>
                 </div>
