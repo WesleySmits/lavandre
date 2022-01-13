@@ -71,7 +71,7 @@ get_footer();
 ?>
 <template id="points-grid-overlay">
     <div class="points-grid__overlay">
-        <button href="/my-account/" is="lavandre-button" primary size="large">
+        <button href="/my-account/" is="lavandre-button" primary outline size="large">
             Sign up
         </button>
 
