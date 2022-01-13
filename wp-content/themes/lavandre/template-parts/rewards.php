@@ -43,6 +43,7 @@
         <div class="ww-banner-block__content">
             <div class="ww-banner-block__inner-content">
                 <h1><?php echo $heading; ?></h1>
+                <br />
                 <div>
                     <?php echo $text; ?>
                 </div>
