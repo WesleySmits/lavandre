@@ -14,7 +14,7 @@
     <?php ww_main_top_banner(get_field('main_top_banner')); ?>
     <?php ww_how_it_works(get_field('how_it_works')); ?>
     <?php ww_points_grid(get_field('points'), ['ww-block--no-border']); ?>
-    <?php ww_banner_block(get_field('banner_block_1'), ['ww-banner-block--border']); ?>
+    <?php ww_banner_block(get_field('banner_block_1'), ['ww-banner-block--border'], 'h1'); ?>
 
     <?php
         $bannerBlock = get_field('banner_block_2');
@@ -60,7 +60,6 @@
             </div>
         </div>
     </section>
-
 </main>
 
 <?php

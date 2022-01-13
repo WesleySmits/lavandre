@@ -98,7 +98,7 @@
 <?php
     }
 
-    function ww_banner_block($block, $classes = []): void
+    function ww_banner_block($block, $classes = [], $headingTag = 'h2'): void
     {
         if (!$block) {
             return;
@@ -128,7 +128,8 @@
 
     <div class="ww-banner-block__content">
         <div class="ww-banner-block__inner-content">
-            <h2><?php echo $heading; ?></h2>
+            <<?php echo $headingTag; ?>><?php echo $heading; ?></<?php echo $headingTag; ?>>
+
             <div>
                 <?php echo $text; ?>
             </div>
@@ -290,7 +291,7 @@
 <section class="ww-block <?php echo implode(' ', $classes); ?>">
     <div class="ww-container points-grid-wrapper">
         <header>
-            <h2 class="a">Ways to earn points</h2>
+            <h2 class="">Ways to earn points</h2>
         </header>
 
         <ul class="points-grid">
