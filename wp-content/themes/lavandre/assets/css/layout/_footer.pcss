@@ -148,12 +148,16 @@
         justify-content: center;
         flex: 1 1 100%;
         flex-direction: column;
-        max-width: 35rem;
+        max-width: 25rem;
         margin: auto;
         width: 100%;
 
         @media (--tablet-landscape) {
             order: 1;
+        }
+
+        @media (--desktop) {
+            max-width: 35rem;
         }
 
         .ww-form {
