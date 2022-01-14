@@ -13,7 +13,7 @@
 <main <?php post_class( 'site-main' ); ?> role="main">
     <?php ww_main_top_banner(get_field('main_top_banner')); ?>
     <?php ww_how_it_works(get_field('how_it_works')); ?>
-    <?php ww_points_grid(get_field('points'), ['ww-block--no-border']); ?>
+    <?php ww_points_grid(get_field('points'), ['ww-block--no-border', 'points-grid-wrapper']); ?>
     <?php ww_banner_block(get_field('banner_block_1'), ['ww-banner-block--border', 'ww-banner-block--transparent'], 'h1'); ?>
 
     <?php

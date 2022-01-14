@@ -1,9 +1,9 @@
 .ww-how-it-works {
-    padding: 2.5vw 0 0;
+    padding: clamp(2rem, 2.5vw, 4rem) 0 0;
     text-align: center;
 
     &__header {
-        margin: 0 0 2.5vw;
+        margin: 0 0 clamp(2rem, 2.5vw, 4rem);
     }
 }
 
@@ -31,10 +31,17 @@
         padding: 3.5rem 2rem;
         text-align: center;
         border-top: 1px solid var(--jet);
-        border-bottom: 1px solid var(--jet);
         border-left: 1px solid var(--jet);
         counter-increment: how-it-works;
         font-family: var(--font-family-accent);
+
+        &:last-child {
+            border-bottom: 1px solid var(--jet);
+        }
+
+        @media (--tablet-landscape) {
+            border-bottom: 1px solid var(--jet);
+        }
 
         &:before {
             content: counter(how-it-works);

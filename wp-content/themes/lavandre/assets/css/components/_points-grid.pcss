@@ -1,17 +1,17 @@
 .points-grid-wrapper {
-    width: 73.75rem;
+    padding: clamp(2rem, 2.5vw, 4rem) 0;
+    text-align: center;
 
     header {
-        margin-bottom: 2.5vw;
-        text-align: center;
+        margin: 0 0 clamp(2rem, 2.5vw, 4rem);
     }
 }
 
-.points-grid {
-    @media (--tablet) {
-        --grid-columns: 2;
-    }
+.points-grid-container {
+    width: 73.75rem;
+}
 
+.points-grid {
     @media (--tablet-landscape) {
         --grid-columns: 3;
     }
@@ -22,11 +22,11 @@
 
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(var(--grid-columns, 1), 1fr);
+    grid-template-columns: repeat(var(--grid-columns, 2), 1fr);
 
     &__item {
         position: relative;
-        padding: 3.5rem;
+        padding: 0.5rem;
         text-align: center;
         border: 1px solid var(--jet);
         aspect-ratio: 1;
@@ -35,6 +35,10 @@
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
+
+        @media (--tablet-landscape) {
+            padding: 3.5rem;
+        }
 
         @supports not (aspect-ratio: 1 / 1) {
             &:before {
@@ -59,6 +63,11 @@
 
     &__title {
         margin: 0 0 1rem;
+
+        @media (--up-to-tablet-landscape) {
+            font-size: 1rem;
+            margin: 0;
+        }
     }
 
     &__overlay {

@@ -289,7 +289,7 @@
 
         ?>
 <section class="ww-block <?php echo implode(' ', $classes); ?>">
-    <div class="ww-container points-grid-wrapper">
+    <div class="ww-container points-grid-container">
         <header>
             <h2 class="">Ways to earn points</h2>
         </header>
