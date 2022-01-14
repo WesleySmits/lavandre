@@ -23,6 +23,14 @@
 
     @media (--tablet-landscape) {
         flex-direction: row;
+
+        &--alt-desktop &__content {
+            order: 1;
+        }
+
+        &--alt-desktop &__banner {
+            order: 2;
+        }
     }
 
     &__banner {

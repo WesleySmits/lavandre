@@ -22,7 +22,7 @@
         $text = $bannerBlock['text'];
         $imageUrl = $bannerBlock['image'];
     ?>
-    <section class="ww-banner-block ww-banner-block--border ww-banner-block--alt ww-banner-block--transparent"
+    <section class="ww-banner-block ww-banner-block--border ww-banner-block--alt-desktop ww-banner-block--transparent"
         data-lazyload>
         <div class="ww-banner-block__banner">
             <img loading="lazy" class="cover-image" src="<?php echo get_image_kit_placeholder($imageUrl, 960, 1015) ?>"
