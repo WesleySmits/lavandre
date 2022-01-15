@@ -1,12 +1,21 @@
 @import "../variables/variables.pcss";
 @import "../components/_full-video.pcss";
 
+#welcome {
+    border-bottom: 1px solid var(--jet);
+
+    header {
+        margin-bottom: 3.5rem;
+    }
+}
+
 .refer-a-friend-form {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     margin-top: 3rem;
 }
+
 input.refer-a-friend-form__input {
     flex: 1 1 70%;
     border-radius: 0;
@@ -34,3 +43,4 @@ input.refer-a-friend-form__input {
 button.refer-a-friend-form__button {
     flex: 1 1 30%;
 }
+

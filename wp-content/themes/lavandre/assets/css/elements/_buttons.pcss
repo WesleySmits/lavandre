@@ -13,6 +13,28 @@ a.no-button,
     padding: 0;
 }
 
+.buttons {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 2rem;
+
+    button {
+        flex: 0 0 auto;
+        margin: 0;
+        width: 100%;
+    }
+
+    @media (--tablet) {
+        flex-direction: row;
+        justify-content: center;
+
+        button {
+            width: auto;
+        }
+    }
+}
+
 .back-link {
     display: inline-flex;
     flex-flow: row nowrap;

@@ -182,7 +182,7 @@
 <?php
     }
 
-    function ww_main_top_banner($block): void
+    function ww_main_top_banner($block, $showButton = false): void
     {
         if (!$block) {
             return;
@@ -202,7 +202,7 @@
             <h1 class="main-top-banner__title"><?php echo $title; ?></h1>
             <p class="main-top-banner__subtitle"><?php echo $subtitle; ?></p>
 
-            <?php if ($button) { ?>
+            <?php if ($showButton && $button) { ?>
             <button is="lavandre-button" class="main-top-banner__button" href="<?php echo $button[0]['link']['url']; ?>"
                 primary size="large" full-width outline>
                 <?php echo $button[0]['text']; ?>

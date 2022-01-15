@@ -68,24 +68,26 @@ export default class App extends Module {
     const app = new App();
     app.initialize();
 
-    footerUspSlider();
     lazyBackgrounds();
+    footerUspSlider();
 })();
 
 function footerUspSlider(): void {
-    const list: HTMLElement | null = document.querySelector('.usp-slider');
-    if (!list) {
-        return;
-    }
+    setTimeout(() => {
+        const list: HTMLElement | null = document.querySelector('.usp-slider');
+        if (!list) {
+            return;
+        }
 
-    const items: HTMLElement[] = Array.from(list.querySelectorAll('.usp-slider__item'));
-    let totalWidth = 0;
+        const items: HTMLElement[] = Array.from(list.querySelectorAll('.usp-slider__item'));
+        let totalWidth = 0;
 
-    items.forEach((item) => {
-        totalWidth += item.clientWidth;
-    });
+        items.forEach((item) => {
+            totalWidth += item.clientWidth;
+        });
 
-    list.style.width = `${totalWidth}px`;
+        list.style.width = `${totalWidth}px`;
+    }, 300);
 }
 
 function lazyBackgrounds(): void {

@@ -7,12 +7,46 @@
 
     get_header();
 
+    $loggedIn = is_user_logged_in();
+    $user_info = get_userdata(get_current_user_id());
+    $firstName = $user_info->first_name;
+    $points = 666;
+
+    // var_dump(wp_get_current_user()); die;
+
     while ( have_posts() ) : the_post();
 ?>
 
 <main <?php post_class( 'site-main' ); ?> role="main">
-    <?php ww_main_top_banner(get_field('main_top_banner')); ?>
-    <?php ww_how_it_works(get_field('how_it_works')); ?>
+    <?php ww_main_top_banner(get_field('main_top_banner'), !$loggedIn); ?>
+    <?php
+        if ($loggedIn) {
+            ?>
+    <section id="welcome" class="ww-block">
+        <header>
+            <h2>
+                <?php echo do_shortcode('[wr_simple_points system="system_name"]') ?>
+                <span><?php echo sprintf(__('Hi %s!'), $firstName); ?></span>
+                <br>
+                <span><?php echo sprintf(__('You have %d points'), $points); ?></span>
+            </h2>
+        </header>
+
+        <div class="buttons">
+            <button is="lavandre-button" primary size="large">
+                Redeem Now
+            </button>
+
+            <button is="lavandre-button" primary size="large">
+                Rewards History
+            </button>
+        </div>
+    </section>
+    <?php
+        } else {
+            ww_how_it_works(get_field('how_it_works'));
+        }
+    ?>
     <?php ww_points_grid(get_field('points'), ['ww-block--no-border', 'points-grid-wrapper']); ?>
     <?php ww_banner_block(get_field('banner_block_1'), ['ww-banner-block--border', 'ww-banner-block--transparent'], 'h1'); ?>
 
