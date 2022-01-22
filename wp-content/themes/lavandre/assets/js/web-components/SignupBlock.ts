@@ -97,6 +97,10 @@ export default class SignupBlock extends HTMLLIElement {
     #getTemplate(): HTMLTemplateElement {
         const template = document.getElementById('points-grid-overlay') as HTMLTemplateElement;
 
+        if (!document.body.classList.contains('logged-in')) {
+            return template;
+        }
+
         if (this.#completed) {
             return (
                 (document.getElementById(

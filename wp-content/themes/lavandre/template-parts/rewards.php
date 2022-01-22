@@ -117,7 +117,7 @@ get_footer();
 
 <template id="points-grid-overlay--completed">
     <div class="points-grid__overlay">
-        <p>You already completed this campaign.</p>
+        <p>You already completed this campaign</p>
     </div>
 </template>
 
@@ -129,7 +129,7 @@ get_footer();
 
 <template id="points-grid-overlay--default">
     <div class="points-grid__overlay">
-        <p>Earn 1 point for every €1 you spend in our store.</p>
+        <p>Earn 1 point for every €1 you spend in our store</p>
     </div>
 </template>
 
