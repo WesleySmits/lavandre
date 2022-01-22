@@ -58,9 +58,26 @@ function ajax_dateOfBirth() {
 
     update_user_meta($userId, 'billing_birth_date', $dateOfBirth);
 
+    $points = 15;
+    $pool_id = 'default';
+    $email = $user->user_email;
+
+    $url = get_site_url() . "/wp-json/woorewards/v1/points/$email/$pool_id/$points";
+
+    $request = WP_REST_Request::from_url( $url );
+    $request->set_method( 'PUT' );
+
+    $response = rest_do_request( $request );
+
+    $server = rest_get_server();
+    $data = $server->response_to_data( $response, false );
+    $json = wp_json_encode( $data );
+
+
     wp_send_json_success([
         $dateOfBirth,
-        get_user_meta($userId, 'billing_birth_date', false )
+        get_user_meta($userId, 'billing_birth_date', false ),
+        $data
     ]);
 
     wp_die();

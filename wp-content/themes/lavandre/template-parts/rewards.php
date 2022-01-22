@@ -121,6 +121,12 @@ get_footer();
     </div>
 </template>
 
+<template id="points-grid-overlay--completed--woorewards_birthday">
+    <div class="points-grid__overlay">
+        <p>Thanks! We're looking forward to helping you celebrate :)</p>
+    </div>
+</template>
+
 <template id="points-grid-overlay--default">
     <div class="points-grid__overlay">
         <p>Earn 1 point for every €1 you spend in our store.</p>
@@ -129,14 +135,14 @@ get_footer();
 
 <template id="points-grid-overlay--woorewards_liked_on_facebook">
     <div class="points-grid__overlay">
-        <p>Earn 5 points when you like our Facebook page.</p>
+        <p>Earn 5 points when you like our Facebook page</p>
         <button is="lavandre-button" primary outline size="large" full-width>Like on Facebook</button>
     </div>
 </template>
 
 <template id="points-grid-overlay--woorewards_shared_on_facebook">
     <div class="points-grid__overlay">
-        <p>Earn 5 points when you share us on Facebook.</p>
+        <p>Earn 5 points when you share us on Facebook</p>
         <button is="lavandre-button" primary outline size="large" full-width>Share on Facebook</button>
     </div>
 </template>
@@ -162,6 +168,7 @@ get_footer();
 
 <template id="points-grid-overlay--woorewards_followed_on_instagram">
     <div class="points-grid__overlay">
-        <p>Earn 5 points when you follow us on Instagram.</p>
+        <p>Earn 5 points when you follow us on Instagram</p>
+        <button is="lavandre-button" primary outline size="large" full-width>Follow Us</button>
     </div>
 </template>

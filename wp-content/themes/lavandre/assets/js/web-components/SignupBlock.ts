@@ -95,14 +95,15 @@ export default class SignupBlock extends HTMLLIElement {
     }
 
     #getTemplate(): HTMLTemplateElement {
-        let template = document.getElementById('points-grid-overlay') as HTMLTemplateElement;
+        const template = document.getElementById('points-grid-overlay') as HTMLTemplateElement;
 
         if (this.#completed) {
-            template = document.getElementById(
-                'points-grid-overlay--completed'
-            ) as HTMLTemplateElement;
-
-            return template;
+            return (
+                (document.getElementById(
+                    `points-grid-overlay--completed--${this.#type}`
+                ) as HTMLTemplateElement) ||
+                (document.getElementById('points-grid-overlay--completed') as HTMLTemplateElement)
+            );
         }
 
         const typeTemplate = document.getElementById(

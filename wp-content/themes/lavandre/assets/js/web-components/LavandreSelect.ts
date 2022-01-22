@@ -88,6 +88,13 @@ export default class LavandreSelect extends HTMLElement {
             option.innerText = value;
             this.#dropdownField.appendChild(option);
         });
+
+        const firstOption = this.querySelector('.lavandre-select__dropdown__item');
+        if (!firstOption) {
+            return;
+        }
+
+        firstOption.dispatchEvent(new Event('click'));
     }
 
     #selectOption(event: Event): void {
