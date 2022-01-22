@@ -68,6 +68,20 @@
             font-size: 1rem;
             margin: 0;
         }
+
+        svg {
+            width: auto;
+            height: auto;
+            margin-bottom: 0;
+        }
+    }
+
+    &__title-content {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: .5rem;
     }
 
     &__description {
@@ -82,9 +96,14 @@
         z-index: 2;
         background: var(--platinum);
         display: flex;
+        padding: 0.5rem;
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
+
+        @media (--tablet-landscape) {
+            padding: 3.5rem;
+        }
 
         background-color: var(--beau-blue);
 

@@ -17,6 +17,8 @@ add_action( 'wp_footer', function() {
 } );
 
 add_action( 'wp_enqueue_scripts', function () {
+    wp_enqueue_script( 'wp-api' );
+
     wp_enqueue_scripts_lavandre();
     wp_enqueue_styles_lavandre();
     loadWebpackModules();

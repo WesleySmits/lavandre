@@ -8,11 +8,8 @@
     get_header();
 
     $loggedIn = is_user_logged_in();
-    $user_info = get_userdata(get_current_user_id());
-    $firstName = $user_info->first_name;
-    $points = 666;
-
-    // var_dump(wp_get_current_user()); die;
+    $company = getCompany();
+    $contactPoint = $company->getContactPoint();
 
     while ( have_posts() ) : the_post();
 ?>
@@ -21,11 +18,15 @@
     <?php ww_main_top_banner(get_field('main_top_banner'), !$loggedIn); ?>
     <?php
         if ($loggedIn) {
+
+            $user_info = get_userdata(get_current_user_id());
+            $firstName = $user_info->first_name;
+            $points = do_shortcode('[wr_simple_points raw="true"]');
+
             ?>
     <section id="welcome" class="ww-block">
         <header>
             <h2>
-                <?php echo do_shortcode('[wr_simple_points system="system_name"]') ?>
                 <span><?php echo sprintf(__('Hi %s!'), $firstName); ?></span>
                 <br>
                 <span><?php echo sprintf(__('You have %d points'), $points); ?></span>
@@ -33,11 +34,11 @@
         </header>
 
         <div class="buttons">
-            <button is="lavandre-button" primary size="large">
+            <button is="lavandre-button" href="/my-account/lws_woorewards/" primary size="large">
                 Redeem Now
             </button>
 
-            <button is="lavandre-button" primary size="large">
+            <button is="lavandre-button" href="/my-account/lws_woorewards/" primary size="large">
                 Rewards History
             </button>
         </div>
@@ -106,10 +107,53 @@ get_footer();
 ?>
 <template id="points-grid-overlay">
     <div class="points-grid__overlay">
-        <button href="/my-account/" is="lavandre-button" primary outline size="large">
+        <button href="/my-account/" is="lavandre-button" primary outline size="large" full-width>
             Sign up
         </button>
 
         <p>Already a member? <a href="/my-account/">Log in</a></p>
+    </div>
+</template>
+
+<template id="points-grid-overlay--completed">
+    <div class="points-grid__overlay">
+        <p>You already completed this campaign.</p>
+    </div>
+</template>
+
+<template id="points-grid-overlay--default">
+    <div class="points-grid__overlay">
+        <p>Earn 1 point for every €1 you spend in our store.</p>
+    </div>
+</template>
+
+<template id="points-grid-overlay--woorewards_liked_on_facebook">
+    <div class="points-grid__overlay">
+        <p>Earn 5 points when you like our Facebook page.</p>
+        <button is="lavandre-button" primary outline size="large" full-width>Like on Facebook</button>
+    </div>
+</template>
+
+<template id="points-grid-overlay--woorewards_shared_on_facebook">
+    <div class="points-grid__overlay">
+        <p>Earn 5 points when you share us on Facebook.</p>
+        <button is="lavandre-button" primary outline size="large" full-width>Share on Facebook</button>
+    </div>
+</template>
+
+<template id="points-grid-overlay--woorewards_birthday">
+    <div class="points-grid__overlay">
+        <p>Earn 15 points on your birthday</p>
+
+        <form is="birthday-form">
+            <input type="date" name="dob" placeholder="Date of birth" />
+            <button is="lavandre-button" type="submit" primary outline size="large" full-width>Add my Birthday</button>
+        </form>
+    </div>
+</template>
+
+<template id="points-grid-overlay--woorewards_followed_on_instagram">
+    <div class="points-grid__overlay">
+        <p>Earn 5 points when you follow us on Instagram.</p>
     </div>
 </template>

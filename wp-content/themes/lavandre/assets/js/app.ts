@@ -22,6 +22,7 @@ import Module from './Module';
 import SidePanel from './ui/SidePanel';
 import { setCurrentLinkClass } from './util/links';
 import './web-components/AccordionElement';
+import './web-components/BirthdayForm';
 import './web-components/CarouselElement';
 import './web-components/SignupBlock';
 

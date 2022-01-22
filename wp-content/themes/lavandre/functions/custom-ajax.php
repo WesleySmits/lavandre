@@ -34,6 +34,38 @@ add_action('wp_ajax_nopriv_mailchimpsubscribe', 'ajax_MailchimpSubscribe');
 add_action( 'wp_ajax_ajaxgetvariantprice', 'ajax_getVariantPrice' );
 add_action( 'wp_ajax_nopriv_ajaxgetvariantprice', 'ajax_getVariantPrice' );
 
+add_action( 'wp_ajax_ajaxaddloyaltypoints', 'ajax_addLoyaltyPoints' );
+add_action( 'wp_ajax_nopriv_ajaxaddloyaltypoints', 'ajax_addLoyaltyPoints' );
+
+add_action( 'wp_ajax_ajaxdateofbirth', 'ajax_dateOfBirth' );
+
+function ajax_dateOfBirth() {
+    $user = wp_get_current_user();
+    $userId = $user->ID;
+
+    if ($userId === 0) {
+        return;
+    }
+
+    $dateOfBirth = $_POST['date'];
+
+    if (!$dateOfBirth) {
+        wp_send_json_error( array(
+            'message' => 'Incorrect data submitted',
+            'dateOfBirth' => $dateOfBirth
+        ) );
+    }
+
+    update_user_meta($userId, 'billing_birth_date', $dateOfBirth);
+
+    wp_send_json_success([
+        $dateOfBirth,
+        get_user_meta($userId, 'billing_birth_date', false )
+    ]);
+
+    wp_die();
+}
+
 function coupon_code_remove() {
     global $woocommerce;
     $coupon_code = $_POST['code'];
@@ -633,4 +665,58 @@ function sendMandrillMail($template_name, $email, $name, $merge_vars, $language 
     } catch (Error $e) {
         // echo 'Error: ', $e->getMessage(), "\n";
     }
+}
+
+function ajax_addLoyaltyPoints(): void
+{
+    $user = wp_get_current_user();
+    $userId = $user->ID;
+
+    if ($userId === 0) {
+        return;
+    }
+
+    $email = $user->user_email;
+    $points = (int) $_POST['points'];
+    $pool_id = $_POST['pool'] ?? 'default';
+    $type = $_POST['type'] ?? null;
+
+    if (!$email || !$points || !$pool_id || !$type) {
+        wp_send_json_error( array(
+            'message' => 'Incorrect data submitted',
+            'email' => $email,
+            'pool' => $pool_id,
+            'points' => $points,
+            'type' => $type
+        ) );
+    }
+
+    $isCompleted = (bool) get_user_meta($userId, $type, true );
+
+    if ($isCompleted) {
+        wp_send_json_error( array(
+            'message' => 'Already completed this action',
+            'email' => $email,
+            'pool' => $pool_id,
+            'points' => $points,
+            'type' => $type
+        ) );
+    }
+
+    update_user_meta($userId, $type, true);
+
+    $url = get_site_url() . "/wp-json/woorewards/v1/points/$email/$pool_id/$points";
+
+    $request = WP_REST_Request::from_url( $url );
+    $request->set_method( 'PUT' );
+
+    $response = rest_do_request( $request );
+
+    $server = rest_get_server();
+    $data = $server->response_to_data( $response, false );
+    $json = wp_json_encode( $data );
+
+    wp_send_json_success($data);
+
+    wp_die();
 }

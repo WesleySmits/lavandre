@@ -18,7 +18,6 @@
         <source data-src="<?php echo $file_tablet; ?>" type="video/mp4" media="(min-width: 768px)"
             data-orientation="portrait" data-max-width="1024">
         <source data-src="<?php echo $file; ?>" type="video/mp4" data-orientation="landscape">
-
     </video>
 
     <?php if ($see_more) { ?>
@@ -129,7 +128,6 @@
     <div class="ww-banner-block__content">
         <div class="ww-banner-block__inner-content">
             <<?php echo $headingTag; ?>><?php echo $heading; ?></<?php echo $headingTag; ?>>
-
             <div>
                 <?php echo $text; ?>
             </div>
@@ -287,6 +285,10 @@
         $title = $block['title'];
         $list = $block['list'];
 
+        $completed = true;
+        $points = (array_key_exists('points', $block)) ? $block['points'] : 5;
+        $href = (array_key_exists('href', $block)) ? $block['href'] : '';
+
         ?>
 <section class="ww-block <?php echo implode(' ', $classes); ?>">
     <div class="ww-container points-grid-container">
@@ -296,13 +298,44 @@
 
         <ul class="points-grid">
             <?php foreach($list as $column) { ?>
-            <?php $icon = '/partials/icons/' . $column['icon'] . '.svg.php'; ?>
+            <?php
+                    $icon = '/partials/icons/' . $column['icon'] . '.svg.php';
+                    $check = '/partials/icons/check.svg.php';
+                    $type = $column['type'];
+                    $completed = false;
 
-            <li is="signup-block" class="points-grid__item">
+                    $user = wp_get_current_user();
+                    $userId = $user->ID;
+
+                    if ($userId) {
+                        if ($type === 'woorewards_signup') {
+                            $completed = true;
+                        } else if ($type === 'woorewards_birthday') {
+                            $completed = (bool) get_user_meta($userId, 'billing_birth_date', true );
+                        } else if ($type === 'default') {
+                            $completed = false;
+                        } else {
+                            $completed = (bool) get_user_meta($userId, $type, true );
+                        }
+                    }
+                ?>
+
+            <li is="signup-block" class="points-grid__item" type="<?php echo $type; ?>"
+                <?php if ($completed) { echo 'completed';} ?>
+                <?php if ($points) { echo 'data-points="' . $points . '"';} ?>
+                <?php if ($href) { echo 'data-href="' . $href . '"';} ?>>
+
                 <?php if ($column['icon']) { include get_stylesheet_directory() . $icon; } ?>
 
                 <h2 class="points-grid__title">
-                    <?php echo $column['title']; ?>
+                    <div class="points-grid__title-content" <?php echo ($completed) ? 'hidden' : ''; ?>>
+                        <span><?php echo $column['title']; ?></span>
+                    </div>
+
+                    <div class="points-grid__title-content" <?php echo (!$completed) ? 'hidden' : ''; ?>>
+                        <?php include get_stylesheet_directory() . $check; ?>
+                        <span><?php _e('Completed', 'lavandre') ?></span>
+                    </div>
                 </h2>
 
                 <div class="points-grid__description">
