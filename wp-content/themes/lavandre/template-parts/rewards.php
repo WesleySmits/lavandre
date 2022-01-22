@@ -153,7 +153,7 @@ get_footer();
 
         <form is="birthday-form">
 
-            <div class="custom-field-wrapper">
+            <div class="custom-date-wrapper">
                 <lavandre-select id="birthday-day" name="day"></lavandre-select>
 
                 <lavandre-select id="birthday-month" name="month"></lavandre-select>

@@ -648,13 +648,24 @@ body.page-id-317 .site-main,
     justify-content: space-between;
 }
 
+.custom-date-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
 
 lavandre-select {
     position: relative;
     display: block;
     height: 44px;
-    flex: 0 0 48%;
+    min-width: 4rem;
+    flex: 1 1 auto;
     font-family: var(--font-family-accent);
+
+    &[name="day"] {
+        flex: 0 0 4rem;
+    }
 
     &:after {
         content: "";
@@ -686,6 +697,7 @@ lavandre-select {
 
     &.active .lavandre-select__input {
         border-bottom: 0;
+        color: gray;
     }
 
     .lavandre-select__dropdown {

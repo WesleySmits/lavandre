@@ -25,7 +25,7 @@ export default class LavandreSelect extends HTMLElement {
 
     set selectedValue(value: string) {
         this.#selectedValue = value;
-        this.#searchField.value = value;
+        this.#searchField.value = value.replace(/^0+/, '');
     }
 
     get optionValues(): StandardObjectInterface {
@@ -85,7 +85,7 @@ export default class LavandreSelect extends HTMLElement {
 
             const value = formatNumberWithLeadingZero(this.#optionValues[key]).toString();
             option.dataset.value = value;
-            option.innerText = value;
+            option.innerText = value.replace(/^0+/, '');
             this.#dropdownField.appendChild(option);
         });
 
