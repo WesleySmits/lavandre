@@ -655,6 +655,24 @@ lavandre-select {
     height: 44px;
     flex: 0 0 48%;
     font-family: var(--font-family-accent);
+    /* background: url('https://www.lavandre.local/wp-content/themes/lavandre/public/images/icons/caret.svg') no-repeat right .5rem center; */
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: .5rem;
+        bottom: 0;
+        margin: auto;
+        width: .5rem;
+        height: .5rem;
+
+        background: url('https://www.lavandre.local/wp-content/themes/lavandre/public/images/icons/caret.svg') no-repeat center;
+    }
+
+    &.active:after {
+        transform: scaleY(-1);
+    }
 
     .lavandre-select__input {
         width: 100%;
