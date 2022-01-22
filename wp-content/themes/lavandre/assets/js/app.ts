@@ -24,6 +24,7 @@ import { setCurrentLinkClass } from './util/links';
 import './web-components/AccordionElement';
 import './web-components/BirthdayForm';
 import './web-components/CarouselElement';
+import './web-components/LavandreSelect';
 import './web-components/SignupBlock';
 
 export default class App extends Module {

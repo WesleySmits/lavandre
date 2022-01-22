@@ -78,7 +78,7 @@ export default class SignupBlock extends HTMLLIElement {
 
     protected connectedCallback(): void {
         this.addEventListener('mouseenter', this.#mouseenterHandler);
-        this.addEventListener('mouseleave', this.#mouseLeaveHandler);
+        // this.addEventListener('mouseleave', this.#mouseLeaveHandler);
 
         if (this.#href) {
             this.addEventListener('click', this.#clickHandler);

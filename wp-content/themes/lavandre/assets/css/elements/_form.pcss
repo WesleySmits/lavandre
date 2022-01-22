@@ -648,3 +648,45 @@ body.page-id-317 .site-main,
     flex-flow: row wrap;
     justify-content: space-between;
 }
+
+
+lavandre-select {
+    position: relative;
+    display: block;
+    height: 44px;
+    flex: 0 0 48%;
+
+    .lavandre-select__input {
+        width: 100%;
+        height: 100%;
+    }
+
+    .lavandre-select__dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        border: 1px solid var(--jet);
+        text-align: left;
+        list-style: none;
+        max-height: 160px;
+        overflow-y: scroll;
+        z-index: 10;
+    }
+
+    .lavandre-select__dropdown__item {
+        padding: .5rem 1rem;
+        background-color: var(--beau-blue);
+        color: var(--color-text);
+        cursor: pointer;
+
+        transition: background-color .2s ease, color .2s ease;
+
+        &:hover {
+            background-color: var(--jet);
+            color: var(--white);
+        }
+    }
+}

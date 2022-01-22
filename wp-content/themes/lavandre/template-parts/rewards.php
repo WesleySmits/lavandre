@@ -146,6 +146,15 @@ get_footer();
         <p>Earn 15 points on your birthday</p>
 
         <form is="birthday-form">
+
+            <div class="custom-field-wrapper">
+                <lavandre-select id="birthday-day"></lavandre-select>
+
+                <lavandre-select id="birthday-month"></lavandre-select>
+            </div>
+
+            <br>
+
             <input type="date" name="dob" placeholder="Date of birth" />
             <button is="lavandre-button" type="submit" primary outline size="large" full-width>Add my Birthday</button>
         </form>

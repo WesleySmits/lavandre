@@ -11,3 +11,7 @@ export function formatDate(date: Date): string {
 export function formatNumberWithLeadingZero(number: number): string {
     return String(number).padStart(2, '0');
 }
+
+export function getFullMonthName(month: Date, locale = 'default'): string {
+    return month.toLocaleString(locale, { month: 'long' });
+}
