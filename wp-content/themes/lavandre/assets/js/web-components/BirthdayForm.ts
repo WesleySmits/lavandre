@@ -1,9 +1,4 @@
-import {
-    formatDate,
-    formatNumberWithLeadingZero,
-    getFullMonthName,
-    isDateValid
-} from '../util/dateHelper';
+import { formatDate, formatNumberWithLeadingZero, getFullMonthName } from '../util/dateHelper';
 import endpoints from '../util/endpoints';
 import { sendAjaxRequest } from '../util/requests';
 import LavandreSelect from './LavandreSelect';
@@ -11,8 +6,6 @@ import SignupBlock from './SignupBlock';
 
 class BirthdayForm extends HTMLFormElement {
     #submitButton = this.querySelector('[type="submit"]') as HTMLButtonElement;
-
-    #dateField = this.querySelector('[type="date"]') as HTMLInputElement;
 
     #dayField: LavandreSelect | null = this.querySelector('#birthday-day');
 
@@ -62,12 +55,17 @@ class BirthdayForm extends HTMLFormElement {
 
     #onSubmit(event: Event): boolean {
         event.preventDefault();
+        const formData = new FormData(this);
 
-        const date = new Date(this.#dateField.value);
+        const day = formData.get('day');
+        const month = formData.get('month');
+        const year = '1970';
 
-        if (isDateValid(date) === false) {
+        if (!day || !month) {
             return false;
         }
+
+        const date = new Date(`${year}-${month}-${day}`);
 
         const data: requestData = {
             action: 'ajaxdateofbirth',

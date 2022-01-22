@@ -1,6 +1,5 @@
 import { formatNumberWithLeadingZero } from '../util/dateHelper';
 
-/* eslint-disable no-console */
 export default class LavandreSelect extends HTMLElement {
     #searchField: HTMLInputElement;
 
@@ -9,6 +8,16 @@ export default class LavandreSelect extends HTMLElement {
     #optionValues: StandardObjectInterface = {};
 
     #selectedValue = '';
+
+    #name = this.getAttribute('name') || '';
+
+    get name(): string {
+        return this.#name;
+    }
+
+    set name(value: string) {
+        this.#name = value;
+    }
 
     get selectedValue(): string {
         return this.#selectedValue;
@@ -28,11 +37,26 @@ export default class LavandreSelect extends HTMLElement {
         this.#update();
     }
 
+    #outsideClickListener = (event: Event): void => {
+        const target: HTMLElement | null = event.target as HTMLElement;
+
+        if (!target.closest) {
+            this.#hideDropdown();
+            return;
+        }
+
+        const closest = target.closest('lavandre-select');
+        if (!target || closest === null || closest !== this) {
+            this.#hideDropdown();
+        }
+    };
+
     constructor() {
         super();
 
         this.#searchField = document.createElement('INPUT') as HTMLInputElement;
         this.#searchField.classList.add('lavandre-select__input');
+        this.#searchField.name = this.name;
         this.#searchField.autocapitalize = 'off';
         this.#searchField.autocomplete = 'off';
         this.appendChild(this.#searchField);
@@ -46,20 +70,14 @@ export default class LavandreSelect extends HTMLElement {
     protected connectedCallback(): void {
         this.#searchField.addEventListener('input', this.#filter.bind(this));
         this.#searchField.addEventListener('focus', this.#showDropdown.bind(this));
-        // this.#searchField.addEventListener('blur', this.#hideDropdown.bind(this));
     }
 
     protected disconnectedCallback(): void {
         this.#searchField.removeEventListener('input', this.#filter.bind(this));
         this.#searchField.removeEventListener('focus', this.#showDropdown.bind(this));
-        // this.#searchField.removeEventListener('blur', this.#hideDropdown.bind(this));
     }
 
     #update(): void {
-        for (const [key, value] of Object.entries(this.#optionValues)) {
-            console.log(`${key}: ${value}`);
-        }
-
         Object.keys(this.#optionValues).forEach((key) => {
             const option = document.createElement('li');
             option.addEventListener('click', this.#selectOption.bind(this));
@@ -88,7 +106,8 @@ export default class LavandreSelect extends HTMLElement {
         const options: HTMLLIElement[] = Array.from(
             this.querySelectorAll('.lavandre-select__dropdown__item')
         );
-        const value = this.#searchField.value;
+
+        const value = this.#searchField.value.toLowerCase();
 
         if (!value) {
             options.forEach((option) => {
@@ -98,10 +117,8 @@ export default class LavandreSelect extends HTMLElement {
             return;
         }
 
-        console.log(options, value);
-
         options.forEach((option) => {
-            const text = option.innerText;
+            const text = option.innerText.toLowerCase();
             if (text.indexOf(value) !== -1) {
                 option.hidden = false;
             } else {
@@ -112,10 +129,14 @@ export default class LavandreSelect extends HTMLElement {
 
     #showDropdown(): void {
         this.#dropdownField.hidden = false;
+        document.addEventListener('click', this.#outsideClickListener);
+        this.classList.add('active');
     }
 
     #hideDropdown(): void {
         this.#dropdownField.hidden = true;
+        document.removeEventListener('click', this.#outsideClickListener);
+        this.classList.remove('active');
     }
 }
 

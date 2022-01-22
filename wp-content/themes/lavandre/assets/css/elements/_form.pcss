@@ -182,7 +182,6 @@ body.page-id-317 .site-main,
         padding: 0.75rem;
 
         border-radius: 0;
-        box-shadow: inset 0 0 0 1px #e6e6e6;
         outline: 0;
 
         background-color: transparent;
@@ -655,10 +654,21 @@ lavandre-select {
     display: block;
     height: 44px;
     flex: 0 0 48%;
+    font-family: var(--font-family-accent);
 
     .lavandre-select__input {
         width: 100%;
         height: 100%;
+        padding: .5rem 1rem;
+        background-color: transparent;
+        appearance: none;
+        box-shadow: none;
+        border: 1px solid var(--jet);
+        outline: none;
+    }
+
+    &.active .lavandre-select__input {
+        border-bottom: 0;
     }
 
     .lavandre-select__dropdown {
@@ -669,6 +679,7 @@ lavandre-select {
         margin: 0;
         padding: 0;
         border: 1px solid var(--jet);
+        border-top: 0;
         text-align: left;
         list-style: none;
         max-height: 160px;
