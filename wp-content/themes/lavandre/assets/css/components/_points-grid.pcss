@@ -138,8 +138,9 @@
         background-color: var(--beau-blue);
 
         button[is="lavandre-button"] {
-            margin-bottom: 1rem;
-            color: var(--old-burgundy);
+            &:not(:last-child) {
+                margin-bottom: 1rem;
+            }
         }
 
         & &__close {
@@ -148,6 +149,7 @@
             right: .75rem;
             color: var(--white);
             padding: 0 !important;
+            border: none;
 
             svg {
                 width: 1.5rem;
