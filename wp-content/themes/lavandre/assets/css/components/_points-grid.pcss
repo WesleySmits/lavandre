@@ -1,6 +1,8 @@
 .points-grid-wrapper {
     padding: clamp(2rem, 2.5vw, 4rem) 0 4rem;
     text-align: center;
+    contain: none;
+    content-visibility: initial;2
 
     header {
         margin: 0 0 clamp(2rem, 2.5vw, 4rem);
@@ -56,9 +58,18 @@
     }
 
     svg {
-        width: 3.5rem;
-        height: 3.5rem;
+        width: 2.4rem;
+        height: 2.4rem;
         margin-bottom: 1rem;
+
+        @media (--tablet-landscape) {
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+    }
+
+    button {
+        max-width: 80%;
     }
 
     &__title {
@@ -82,17 +93,24 @@
         justify-content: space-between;
         align-items: center;
         gap: .5rem;
+
+        svg {
+            width: 1rem;
+            height: 1rem;
+
+            @media (--tablet-landscape) {
+                width: auto;
+                height: auto;
+            }
+        }
     }
 
     &__description {
-        font-size: .75rem;
+        font-size: .70rem;
         font-weight: 400;
         letter-spacing: 0.1rem;
         text-transform: uppercase;
-
-        @media (--up-to-tablet-landscape) {
-            font-size: 0.875rem;
-        }
+        height: 2rem;
     }
 
     &__overlay {
@@ -106,15 +124,36 @@
         justify-content: center;
         align-items: center;
 
+        @media (--up-to-tablet) {
+            position: fixed;
+            inset: 0;
+            margin: auto;
+            z-index: 99999;
+        }
+
         @media (--tablet-landscape) {
             padding: 3.5rem;
         }
 
         background-color: var(--beau-blue);
 
-        button {
+        button[is="lavandre-button"] {
             margin-bottom: 1rem;
             color: var(--old-burgundy);
+        }
+
+        & &__close {
+            position: absolute;
+            top: .75rem;
+            right: .75rem;
+            color: var(--white);
+            padding: 0 !important;
+
+            svg {
+                width: 1.5rem;
+                height: 1.5rem;
+                margin: 0;
+            }
         }
 
         a {

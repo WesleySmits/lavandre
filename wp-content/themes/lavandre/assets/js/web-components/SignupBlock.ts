@@ -1,3 +1,4 @@
+import { matchMediaAddEventListener, matchMediaRemoveEventListener } from '../polyfills/matchMedia';
 import endpoints from '../util/endpoints';
 import { sendAjaxRequest } from '../util/requests';
 
@@ -13,6 +14,14 @@ export default class SignupBlock extends HTMLLIElement {
     #type: string = this.getAttribute('type') || '';
 
     #completed: boolean = this.hasAttribute('completed') || false;
+
+    #mediaQuery: string = getComputedStyle(document.documentElement).getPropertyValue(
+        '--tablet-landscape'
+    );
+
+    #mq: MediaQueryList = matchMedia(this.#mediaQuery);
+
+    #isMobile: boolean = false;
 
     get completed(): boolean {
         return this.#completed;
@@ -35,6 +44,11 @@ export default class SignupBlock extends HTMLLIElement {
         });
     }
 
+    #checkIsMobile(): boolean {
+        this.#isMobile = !this.#mq.matches;
+        return this.#isMobile;
+    }
+
     #setTemplate(): void {
         if (!this.#template) {
             this.#template = this.#getTemplate();
@@ -42,6 +56,12 @@ export default class SignupBlock extends HTMLLIElement {
 
         this.appendChild(this.#template?.content.cloneNode(true) as HTMLElement);
         this.#overlay = this.querySelector('.points-grid__overlay');
+        const closeOverlayButton: HTMLButtonElement | null = this.querySelector('[data-close]');
+        if (!closeOverlayButton) {
+            return;
+        }
+
+        closeOverlayButton.addEventListener('click', this.#mouseLeaveHandler.bind(this), false);
     }
 
     #mouseenterHandler = () => {
@@ -53,7 +73,11 @@ export default class SignupBlock extends HTMLLIElement {
         this.#setTemplate();
     };
 
-    #mouseLeaveHandler = () => {
+    #mouseLeaveHandler = (event: Event) => {
+        if (event) {
+            event.stopPropagation();
+        }
+
         this.#overlay?.toggleAttribute('hidden', true);
     };
 
@@ -77,17 +101,38 @@ export default class SignupBlock extends HTMLLIElement {
     };
 
     protected connectedCallback(): void {
-        this.addEventListener('mouseenter', this.#mouseenterHandler);
-        this.addEventListener('mouseleave', this.#mouseLeaveHandler);
+        this.#checkIsMobile();
+
+        if (this.#isMobile) {
+            this.removeEventListener('mouseenter', this.#mouseenterHandler);
+            this.removeEventListener('mouseleave', this.#mouseLeaveHandler);
+            this.addEventListener('click', this.#mouseenterHandler);
+        } else {
+            this.addEventListener('mouseenter', this.#mouseenterHandler);
+            this.addEventListener('mouseleave', this.#mouseLeaveHandler);
+            this.removeEventListener('click', this.#mouseenterHandler);
+        }
+        matchMediaAddEventListener(this.#mq, this.#checkIsMobile);
 
         if (this.#href) {
-            this.addEventListener('click', this.#clickHandler);
+            const button: HTMLButtonElement | null = this.querySelector(
+                'button[is="lavandre-button"]'
+            );
+
+            if (!button) {
+                return;
+            }
+
+            button.addEventListener('click', this.#clickHandler);
         }
     }
 
     protected disconnectedCallback(): void {
         this.removeEventListener('mouseenter', this.#mouseenterHandler);
         this.removeEventListener('mouseleave', this.#mouseLeaveHandler);
+        this.removeEventListener('click', this.#mouseenterHandler);
+
+        matchMediaRemoveEventListener(this.#mq, this.#checkIsMobile);
 
         if (this.#href) {
             this.removeEventListener('click', this.#clickHandler);
