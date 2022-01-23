@@ -34,21 +34,34 @@ while ( have_posts() ) : the_post();
         <div></div>
     </section>
 
-    <section class="full-width-banner-block full-width-banner-block--alt">
-        <div class="background-noise"></div>
-        <div class="full-width-banner-block__link full-width-banner-block__text">
-
-            <h1><?php echo __('Can upgrading your towel really transform your skin?', 'lavandre'); ?></h1>
-            <p><?php echo __('The towel you use matters as much as the treatment you perform. Washing your towel in a standard washing machine does not remove all bacteria, mildew, mould, and other highly potent skin irritants that not only collect on the skin, but clog the pores, flare up acne and trigger infection.', 'lavandre'); ?>
-            </p>
-            <p><?php echo __('It’s why we did this: A naturally hygienic and hypoallergenic towel that is fresh and clean so the skin stays that way too. Unlike standard cotton towels, our towel doesn’t breed or harbour bacteria, so you can spend less time washing your towel and more time enjoying your laundry free day.', 'lavandre'); ?>
-            </p>
+    <section class="ww-banner-block ww-banner-block--alt ww-banner-block--transparent">
+        <div class="ww-banner-block__banner">
+            <img loading="lazy" class="cover-image"
+                src="<?php echo get_image_kit_src('https://lavandre.com/wp-content/themes/lavandre/public/images/banners/about.jpeg', 960, 1015); ?>"
+                srcset="
+                        <?php echo get_image_kit_src('https://lavandre.com/wp-content/themes/lavandre/public/images/banners/about.jpeg', 360, 380); ?> 414w,
+                        <?php echo get_image_kit_src('https://lavandre.com/wp-content/themes/lavandre/public/images/banners/about.jpeg', 414, 437); ?> 414w,
+                        <?php echo get_image_kit_src('https://lavandre.com/wp-content/themes/lavandre/public/images/banners/about.jpeg', 600, 634); ?> 600w,
+                        <?php echo get_image_kit_src('https://lavandre.com/wp-content/themes/lavandre/public/images/banners/about.jpeg', 720, 761); ?> 720w,
+                        <?php echo get_image_kit_src('https://lavandre.com/wp-content/themes/lavandre/public/images/banners/about.jpeg', 768, 812); ?> 768w,
+                        <?php echo get_image_kit_src('https://lavandre.com/wp-content/themes/lavandre/public/images/banners/about.jpeg', 828, 875); ?> 828w,
+                        <?php echo get_image_kit_src('https://lavandre.com/wp-content/themes/lavandre/public/images/banners/about.jpeg', 960, 1015); ?> 960w,
+                        <?php echo get_image_kit_src('https://lavandre.com/wp-content/themes/lavandre/public/images/banners/about.jpeg', 1242, 1313); ?> 1242w,
+                        <?php echo get_image_kit_src('https://lavandre.com/wp-content/themes/lavandre/public/images/banners/about.jpeg', 1536, 1624); ?> 1536w,
+                        <?php echo get_image_kit_src('https://lavandre.com/wp-content/themes/lavandre/public/images/banners/about.jpeg', 1920, 2030); ?> 1920w
+                    " sizes="(min-width: 1024px) 50vw, 100vw" alt="">
         </div>
 
-        <div class="full-width-banner-block__link full-width-banner-block__half-photo">
-            <img src="/wp-content/themes/lavandre/public/images/banners/about.jpeg" alt="Lavandré">
+        <div class="ww-banner-block__content">
+            <div class="ww-banner-block__inner-content">
+                <h2><?php echo __('Can upgrading your towel really transform your skin?', 'lavandre'); ?></h2>
+
+                <p><?php echo __('The towel you use matters as much as the treatment you perform. Washing your towel in a standard washing machine does not remove all bacteria, mildew, mould, and other highly potent skin irritants that not only collect on the skin, but clog the pores, flare up acne and trigger infection.', 'lavandre'); ?>
+                </p>
+                <p><?php echo __('It’s why we did this: A naturally hygienic and hypoallergenic towel that is fresh and clean so the skin stays that way too. Unlike standard cotton towels, our towel doesn’t breed or harbour bacteria, so you can spend less time washing your towel and more time enjoying your laundry free day.', 'lavandre'); ?>
+                </p>
+            </div>
         </div>
-        <div></div>
     </section>
 
     <?php include get_stylesheet_directory() . '/partials/_instagram-feed.php'; ?>
