@@ -1,5 +1,7 @@
 <?php
 
+use Automattic\WooCommerce\Client;
+
 function ajax_auth_init() {
     add_action('wp_ajax_nopriv_ajaxemailcheck', 'ajax_emailCheck');
     add_action( 'wp_ajax_nopriv_ajaxlogin', 'ajax_login' );
@@ -62,22 +64,12 @@ function ajax_dateOfBirth() {
     $pool_id = 'default';
     $email = $user->user_email;
 
-    $url = get_site_url() . "/wp-json/woorewards/v1/points/$email/$pool_id/$points";
-
-    $request = WP_REST_Request::from_url( $url );
-    $request->set_method( 'PUT' );
-
-    $response = rest_do_request( $request );
-
-    $server = rest_get_server();
-    $data = $server->response_to_data( $response, false );
-    $json = wp_json_encode( $data );
-
+    $updatePoints = addLoyaltyPoints($email, $pool_id, $points);
 
     wp_send_json_success([
         $dateOfBirth,
         get_user_meta($userId, 'billing_birth_date', false ),
-        $data
+        $updatePoints
     ]);
 
     wp_die();
@@ -684,6 +676,18 @@ function sendMandrillMail($template_name, $email, $name, $merge_vars, $language 
     }
 }
 
+function getWoocommerceClient() {
+    return new Client(
+        $_ENV['WOOCOMMERCE_API_URL'],
+        $_ENV['WOOCOMMERCE_API_KEY'],
+        $_ENV['WOOCOMMERCE_API_SECRET'],
+        [
+            'version' => 'woorewards/v1',
+            'verify_ssl' => false
+        ]
+    );
+}
+
 function ajax_addLoyaltyPoints(): void
 {
     $user = wp_get_current_user();
@@ -722,18 +726,14 @@ function ajax_addLoyaltyPoints(): void
 
     update_user_meta($userId, $type, true);
 
-    $url = get_site_url() . "/wp-json/woorewards/v1/points/$email/$pool_id/$points";
-
-    $request = WP_REST_Request::from_url( $url );
-    $request->set_method( 'PUT' );
-
-    $response = rest_do_request( $request );
-
-    $server = rest_get_server();
-    $data = $server->response_to_data( $response, false );
-    $json = wp_json_encode( $data );
-
-    wp_send_json_success($data);
+    $updatePoints = addLoyaltyPoints($email, $pool_id, $points);
+    wp_send_json_success($updatePoints);
 
     wp_die();
+}
+
+function addLoyaltyPoints($email, $pool_id, $points) {
+    $woocommerce = getWoocommerceClient();
+    $endpoint = "points/$email/$pool_id/$points";
+    return $woocommerce->put($endpoint, []);
 }

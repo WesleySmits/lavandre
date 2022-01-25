@@ -1,6 +1,39 @@
 <?php
-add_filter ( 'woocommerce_account_menu_items', 'remove_my_account_links' );
-add_filter ( 'woocommerce_account_menu_items', 'rename_my_account_links' );
+
+function createLoyaltyEndpoint( $query_vars ) {
+    $query_vars['loyalty']   = 'loyalty';
+    return $query_vars;
+}
+add_filter( 'woocommerce_get_query_vars', 'createLoyaltyEndpoint' );
+
+add_action( 'init', 'account_setup', 0 );
+function account_setup(): void
+{
+    add_filter ( 'woocommerce_account_menu_items', 'remove_my_account_links' );
+    add_filter ( 'woocommerce_account_menu_items', 'rename_my_account_links' );
+    add_filter ( 'woocommerce_account_menu_items', 'add_my_account_links' );
+}
+add_action ( 'woocommerce_account_loyalty_endpoint', 'loyalty_page');
+
+function loyalty_page() {
+    $unlockableCoupons = [];
+    $coupons = [];
+    $unlockables = [];
+
+    $pool = \LWS\WOOREWARDS\Collections\Pools::instanciate()->load(array('name'=>'default', 'deep'=>true))->last();
+    if ($pool) {
+        $unlockables = $pool->getUnlockables();
+        $unlockableCoupons = $unlockables->filterByType('lws_woorewards_unlockables_coupon')->asArray();
+    }
+
+    $coupons = \LWS\WOOREWARDS\PRO\Conveniences::instance()->getCoupons(get_current_user_id());
+
+	wc_get_template('myaccount/loyalty.php', [
+		'unlockableCoupons' => $unlockableCoupons,
+        'coupons' => $coupons
+	]);
+}
+
 function remove_my_account_links( $menu_links ){
     unset( $menu_links['vat-number'] );
 	return $menu_links;
@@ -12,6 +45,16 @@ function rename_my_account_links($menu_links) {
     $menu_links['edit-address'] = __('My address book', 'lavandre');
 
     return $menu_links;
+}
+
+function add_my_account_links($items) {
+	$logout = $items['customer-logout'];
+	unset($items['customer-logout']);
+	$items['loyalty'] = __('Loyalty', 'lavandre');
+	$items['test'] = __('test', 'lavandre');
+	$items['customer-logout'] = $logout;
+
+	return $items;
 }
 
 add_filter('woocommerce_save_account_details_required_fields', 'wc_save_account_details_required_fields' );

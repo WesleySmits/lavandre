@@ -71,6 +71,7 @@ export default class SignupBlock extends HTMLLIElement {
         }
 
         this.#setTemplate();
+        this.#setOverlayEventListeners();
     };
 
     #mouseLeaveHandler = (event: Event) => {
@@ -113,9 +114,11 @@ export default class SignupBlock extends HTMLLIElement {
             this.removeEventListener('click', this.#mouseenterHandler);
         }
         matchMediaAddEventListener(this.#mq, this.#checkIsMobile);
+    }
 
+    #setOverlayEventListeners(): void {
         if (this.#href) {
-            const button: HTMLButtonElement | null = this.querySelector(
+            const button: HTMLButtonElement | null | undefined = this.#overlay?.querySelector(
                 'button[is="lavandre-button"]'
             );
 
