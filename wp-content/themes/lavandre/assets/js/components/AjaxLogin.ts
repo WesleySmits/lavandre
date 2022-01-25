@@ -1,10 +1,9 @@
 import Component from '../common/Component';
 import DataLayer from '../common/DataLayer';
-import { ToastType } from '../enums/ToastType';
 import { loadRecaptcha, sitekey } from '../util/loadRecaptcha';
 import { sendAjaxRequest } from '../util/requests';
+import { setValidationMessage } from '../util/validation';
 import FieldValidation from './FieldValidation';
-import Toast from './Toast';
 
 export default class AjaxLogin extends Component {
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
@@ -168,8 +167,7 @@ export default class AjaxLogin extends Component {
             response.data ||
             'This combination of email and password is not known to us. Please try again or request a new password.';
 
-        const toast: Toast = new Toast(message, ToastType.warning);
-        toast.initialize();
+        setValidationMessage(message, this.form);
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {

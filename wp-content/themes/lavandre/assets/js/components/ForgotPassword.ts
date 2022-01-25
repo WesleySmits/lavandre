@@ -1,8 +1,7 @@
 import Component from '../common/Component';
-import { ToastType } from '../enums/ToastType';
 import { sendAjaxRequest } from '../util/requests';
+import { setValidationMessage } from '../util/validation';
 import FieldValidation from './FieldValidation';
-import Toast from './Toast';
 
 export default class ForgotPassword extends Component {
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
@@ -60,14 +59,12 @@ export default class ForgotPassword extends Component {
 
     private onSuccess(res: any) {
         const response: any = res;
-        const toast: Toast = new Toast(response.data, ToastType.success);
-        toast.initialize();
+        setValidationMessage(response.data, this.form);
     }
 
     private onFailure(res: string) {
         const response = JSON.parse(res);
-        const toast: Toast = new Toast(response.data, ToastType.warning);
-        toast.initialize();
+        setValidationMessage(response.data, this.form);
     }
 
     private isValid(): boolean {

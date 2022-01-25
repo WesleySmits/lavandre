@@ -1,5 +1,6 @@
 import Component from '../common/Component';
 import { sendAjaxRequest } from '../util/requests';
+import { removeExistingValidationMessages, setValidationMessage } from '../util/validation';
 
 export default class EmailValidation extends Component {
     private form: HTMLFormElement;
@@ -60,42 +61,11 @@ export default class EmailValidation extends Component {
     }
 
     private onSuccess(): void {
-        this.removeExistingMessages();
+        removeExistingValidationMessages(this.emailInput);
     }
 
     private onFailure(error: Error): void {
-        this.setValidationMessage(error.message);
-    }
-
-    private setValidationMessage(message: string) {
-        const formRow: HTMLElement | null = this.emailInput.parentElement;
-        const formRowParent: HTMLElement | null | undefined = formRow?.parentElement;
-        if (formRow === null || !formRowParent) {
-            return;
-        }
-
-        this.removeExistingMessages(formRowParent);
-
-        const validationElement: HTMLElement = document.createElement('div');
-        validationElement.className = 'alert alert--warning inline-form-error';
-        validationElement.textContent = message;
-
-        formRowParent.insertBefore(validationElement, formRow);
-    }
-
-    private removeExistingMessages(selector?: HTMLElement) {
-        const grandparent: HTMLElement | null | undefined =
-            selector || this.emailInput.parentElement?.parentElement;
-        if (!grandparent) {
-            return;
-        }
-
-        const existingValidations: HTMLElement[] = Array.from(
-            grandparent.querySelectorAll('.alert--warning')
-        );
-        existingValidations.forEach((v) => {
-            v.remove();
-        });
+        setValidationMessage(error.message, this.emailInput);
     }
 
     private isValid(): boolean {
