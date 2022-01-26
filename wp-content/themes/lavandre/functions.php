@@ -1,5 +1,7 @@
 <?php
 
+use Lavandre\Loyalty\LavandreLoyalty;
+
 /**
  * Theme functions and definitions
  *
@@ -16,6 +18,8 @@ include(get_stylesheet_directory() . '/functions/assets.php');
 include(get_stylesheet_directory() . '/functions/customizer.php');
 include(get_stylesheet_directory() . '/functions/faq.php');
 include(get_stylesheet_directory() . '/functions/templates.php');
+include(get_stylesheet_directory() . '/functions/loyalty.php');
+
 include(get_stylesheet_directory() . '/functions/custom-ajax.php');
 
 include(get_stylesheet_directory() . '/functions/woocommerce-tweaks.php');
@@ -72,7 +76,6 @@ function lavandre_setup() {
     }
 }
 add_action( 'after_setup_theme', 'lavandre_setup' );
-
 
 function getCompany() {
     $companyName = 'WesTrade Beheer B.V.';

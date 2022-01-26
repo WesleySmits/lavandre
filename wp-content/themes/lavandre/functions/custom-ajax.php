@@ -1,44 +1,34 @@
 <?php
 
-use Automattic\WooCommerce\Client;
+use Lavandre\Loyalty\LavandreLoyalty;
 
 function ajax_auth_init() {
     add_action('wp_ajax_nopriv_ajaxemailcheck', 'ajax_emailCheck');
     add_action( 'wp_ajax_nopriv_ajaxlogin', 'ajax_login' );
     add_action( 'wp_ajax_nopriv_ajaxregister', 'ajax_register' );
     add_action( 'wp_ajax_nopriv_ajaxforgotpassword', 'ajax_forgotPassword' );
+    add_action( 'wp_ajax_nopriv_ajaxaddtocart', 'ajax_addtocart' );
+    add_action( 'wp_ajax_nopriv_update_cart', 'update_cart' );
+    add_action( 'wp_ajax_nopriv_delete_cart_item', 'delete_cart_item' );
+    add_action( 'wp_ajax_nopriv_update_cart_item', 'update_cart_item' );
+    add_action( 'wp_ajax_nopriv_coupon_code_add', 'coupon_code_add' );
+    add_action( 'wp_ajax_nopriv_coupon_code_remove', 'coupon_code_remove' );
+    add_action('wp_ajax_nopriv_mailchimpsubscribe', 'ajax_MailchimpSubscribe');
+    add_action( 'wp_ajax_nopriv_ajaxgetvariantprice', 'ajax_getVariantPrice' );
 }
 
 // Execute the action only if the user isn't logged in
 add_action('init', 'ajax_auth_init');
 
 add_action( 'wp_ajax_ajaxaddtocart', 'ajax_addtocart' );
-add_action( 'wp_ajax_nopriv_ajaxaddtocart', 'ajax_addtocart' );
-
 add_action( 'wp_ajax_update_cart', 'update_cart' );
-add_action( 'wp_ajax_nopriv_update_cart', 'update_cart' );
-
 add_action( 'wp_ajax_delete_cart_item', 'delete_cart_item' );
-add_action( 'wp_ajax_nopriv_delete_cart_item', 'delete_cart_item' );
-
 add_action( 'wp_ajax_update_cart_item', 'update_cart_item' );
-add_action( 'wp_ajax_nopriv_update_cart_item', 'update_cart_item' );
-
 add_action( 'wp_ajax_coupon_code_add', 'coupon_code_add' );
-add_action( 'wp_ajax_nopriv_coupon_code_add', 'coupon_code_add' );
-
 add_action( 'wp_ajax_coupon_code_remove', 'coupon_code_remove' );
-add_action( 'wp_ajax_nopriv_coupon_code_remove', 'coupon_code_remove' );
-
-add_action('wp_ajax_mailchimpsubscribe', 'ajax_MailchimpSubscribe');
-add_action('wp_ajax_nopriv_mailchimpsubscribe', 'ajax_MailchimpSubscribe');
-
+add_action( 'wp_ajax_mailchimpsubscribe', 'ajax_MailchimpSubscribe' );
 add_action( 'wp_ajax_ajaxgetvariantprice', 'ajax_getVariantPrice' );
-add_action( 'wp_ajax_nopriv_ajaxgetvariantprice', 'ajax_getVariantPrice' );
-
 add_action( 'wp_ajax_ajaxaddloyaltypoints', 'ajax_addLoyaltyPoints' );
-add_action( 'wp_ajax_nopriv_ajaxaddloyaltypoints', 'ajax_addLoyaltyPoints' );
-
 add_action( 'wp_ajax_ajaxdateofbirth', 'ajax_dateOfBirth' );
 
 function ajax_dateOfBirth() {
@@ -64,7 +54,8 @@ function ajax_dateOfBirth() {
     $pool_id = 'default';
     $email = $user->user_email;
 
-    $updatePoints = addLoyaltyPoints($email, $pool_id, $points);
+    $LavandreLoyalty = LavandreLoyalty::getInstance();
+    $updatePoints = $LavandreLoyalty->addPoints($email, $pool_id, $points);
 
     wp_send_json_success([
         $dateOfBirth,
@@ -227,7 +218,6 @@ function update_cart_item() {
 
     wp_die();
 }
-
 
 function ajax_MailchimpSubscribe() {
     $firstName = $_POST['firstName'];
@@ -626,14 +616,10 @@ function mc_checklist($email, $debug, $apikey, $listid, $server) {
     try {
         $response = $mailchimp->lists->getListMember($listid, $subscriber_hash);
     } catch (ClientException $e) {
-        var_dump('test 1 ClientException'); die;
     } catch (RequestException $e) {
-        var_dump('test 2 RequestException'); die;
     } catch (MailchimpMarketing\ApiException $e) {
-        var_dump('MailchimpMarketing\ApiException');
         $errors[] = $e->getMessage();
     } catch (ClientErrorResponseException $e) {
-        var_dump('ClientErrorResponseException');
         $errors[] = $e->getMessage();
     } catch (GuzzleHttp\Exception\ClientException $e) {
         $errors[] = $e->getMessage();
@@ -655,7 +641,7 @@ function sendMandrillMail($template_name, $email, $name, $merge_vars, $language 
         $apiKey = $_ENV['MANDRILL_API_KEY'];
         $mandrill->setApiKey($apiKey);
 
-        $info = $mandrill->templates->info($template_name);
+        $info = $mandrill->templates->info(["name" => $template_name]);
         $message = array(
             'subject' => $info['subject'],
             'from_email' => $info['from_email'],
@@ -665,7 +651,6 @@ function sendMandrillMail($template_name, $email, $name, $merge_vars, $language 
             'merge_language' => $language,
             'global_merge_vars' => $merge_vars
         );
-
         $mandrill->messages->sendTemplate([
             "template_name" => $template_name,
             "template_content" => [],
@@ -676,20 +661,10 @@ function sendMandrillMail($template_name, $email, $name, $merge_vars, $language 
     }
 }
 
-function getWoocommerceClient() {
-    return new Client(
-        $_ENV['WOOCOMMERCE_API_URL'],
-        $_ENV['WOOCOMMERCE_API_KEY'],
-        $_ENV['WOOCOMMERCE_API_SECRET'],
-        [
-            'version' => 'woorewards/v1',
-            'verify_ssl' => false
-        ]
-    );
-}
-
 function ajax_addLoyaltyPoints(): void
 {
+    $LavandreLoyalty = LavandreLoyalty::getInstance();
+
     $user = wp_get_current_user();
     $userId = $user->ID;
 
@@ -726,14 +701,8 @@ function ajax_addLoyaltyPoints(): void
 
     update_user_meta($userId, $type, true);
 
-    $updatePoints = addLoyaltyPoints($email, $pool_id, $points);
+    $updatePoints = $LavandreLoyalty->addPoints($email, $pool_id, $points);
     wp_send_json_success($updatePoints);
 
     wp_die();
-}
-
-function addLoyaltyPoints($email, $pool_id, $points) {
-    $woocommerce = getWoocommerceClient();
-    $endpoint = "points/$email/$pool_id/$points";
-    return $woocommerce->put($endpoint, []);
 }
