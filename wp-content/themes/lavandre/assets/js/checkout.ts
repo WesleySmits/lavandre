@@ -1,12 +1,10 @@
-import '../css/pages/checkout.pcss';
-
-import EventEmitter from './common/EventEmitter';
-import Toast from './components/Toast';
-import { ToastType } from './enums/ToastType';
-import Component from './common/Component';
-import Module from './Module';
-import '@ungap/custom-elements';
 import '@lavandre/button/dist/src/lavandre-button';
+import '@ungap/custom-elements';
+import '../css/pages/checkout.pcss';
+import Component from './common/Component';
+import EventEmitter from './common/EventEmitter';
+import Module from './Module';
+import { setValidationMessage } from './util/validation';
 
 export default class CheckoutModule extends Module {
     public eventEmitter: EventEmitter = EventEmitter;
@@ -25,13 +23,11 @@ export default class CheckoutModule extends Module {
             url.searchParams.get('paynl_status') &&
             url.searchParams.get('paynl_status') === 'CANCELED'
         ) {
-            const toast: Toast = new Toast(
-                'Payment failed, please try again.',
-                ToastType.warning,
-                undefined,
-                20000
-            );
-            toast.initialize();
+            const paymentElement = document.getElementById('checkout-errors');
+            if (!paymentElement) {
+                return;
+            }
+            setValidationMessage('Payment failed, please try again.', paymentElement);
         }
     }
 }

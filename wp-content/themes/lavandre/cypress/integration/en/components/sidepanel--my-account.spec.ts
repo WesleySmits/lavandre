@@ -97,7 +97,6 @@ describe('My account sidepanel tests', () => {
         cy.wait('@ajaxCall').then(({ response }) => {
             expect(response.statusCode).to.eq(401);
             expect(response.body.success).eq(false);
-            cy.get('.toast').should('not.be.visible');
             cy.get(panelSelector).should('be.visible');
             cy.get('body').should('not.have.class', 'logged-in');
         });
