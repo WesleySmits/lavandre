@@ -3,7 +3,7 @@
         "mailchimp/marketing": "^3.0.66",
         "guzzlehttp/guzzle": "^7.2",
         "vlucas/phpdotenv": "^5.3",
-        "mailchimp/transactional": "^1.0.40",
+        "mailchimp/transactional": "^1.0.47",
         "automattic/woocommerce": "^3.0"
     }
 }
