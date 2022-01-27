@@ -321,3 +321,33 @@ address {
 .password-save {
     padding: .5rem 0;
 }
+
+.ww-redeem-points {
+    &__list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        max-width: 50rem;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: bottom;
+        gap: 1rem;
+    }
+
+    &__list__item {
+        flex: 0 0 calc((100% - 2rem) / 2);
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid var(--jet);
+        padding: 0.5rem;
+        aspect-ratio: 1;
+
+        @media (--tablet-landscape) {
+            padding: 3.5rem;
+        }
+    }
+}
