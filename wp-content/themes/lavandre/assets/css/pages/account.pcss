@@ -322,8 +322,10 @@ address {
     padding: .5rem 0;
 }
 
-.ww-redeem-points {
+.ww-redeem-points,
+.ww-loyalty-coupons {
     display: flex;
+    margin-bottom: 3.5rem;
     flex-flow: column nowrap;
     align-items: center;
     text-align: center;
@@ -337,7 +339,45 @@ address {
         font-weight: 600;
         font-size: 1.25rem;
     }
+}
 
+.ww-loyalty-coupons {
+    &__list {
+        list-style-type: none;
+        margin: 3.5rem 0 0;
+        padding: 0;
+
+        display: flex;
+        width: 100%;
+        max-width: 50rem;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    &__list__item {
+        flex: 1;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid var(--jet);
+        padding: 0.5rem;
+        text-align: initial;
+
+        @media (--tablet-landscape) {
+            padding: 3.5rem;
+        }
+
+        h3 {
+            font-size: 1.875rem;
+            font-weight: 400;
+            text-transform: initial;
+        }
+    }
+}
+
+.ww-redeem-points {
     &__list {
         list-style-type: none;
         margin: 3.5rem 0 0;

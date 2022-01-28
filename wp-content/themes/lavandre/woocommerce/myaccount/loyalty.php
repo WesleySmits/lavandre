@@ -8,20 +8,29 @@
 
 ?>
 
-<section>
+<section class="ww-loyalty-coupons">
     <header>
         <h2><?php _e('Your current coupons', 'lavandre'); ?></h2>
     </header>
 
-    <ul>
-
+    <ul class="ww-loyalty-coupons__list">
         <?php foreach ($coupons as $coupon) { ?>
         <?php
                 $code = $coupon->post_title;
                 $discount = $coupon->coupon_amount;
             ?>
-        <li>
-            <?php echo sprintf(__('You can use the coupon <strong>%s</strong> for a €%s,- discount', 'lavandre'), $code, $discount); ?>
+        <li class="ww-loyalty-coupons__list__item">
+            <div>
+                <h3><?php echo sprintf(__('€%d Off', 'lavandre'), $discount); ?></h3>
+                <p><?php _e('You have a coupon available', 'lavandre'); ?></p>
+            </div>
+
+            <div>
+                <button is="lavandre-button" data-role="copy-coupon" data-code="<?php echo $code; ?>"
+                    data-text="<?php _e('Copy code', 'lavandre'); ?>"
+                    data-copied-text="<?php _e('Copied', 'lavandre'); ?>" size="large" outline
+                    full-width><?php _e('Copy code', 'lavandre'); ?></redeem>
+            </div>
         </li>
 
         <?php } ?>

@@ -6,6 +6,7 @@ import EventEmitter from './common/EventEmitter';
 import AjaxLogin from './components/AjaxLogin';
 import AjaxRegister from './components/AjaxRegister';
 import CookieBar from './components/CookieBar';
+import CopyCoupon from './components/CopyCoupon';
 import Curtain from './components/Curtain';
 import EmailValidation from './components/EmailValidation';
 import FieldValidation from './components/FieldValidation';
@@ -48,7 +49,8 @@ export default class App extends Module {
         LazyLoader,
         ScrollToContent,
         VideoMediaResolver,
-        RedeemPointsForCoupon
+        RedeemPointsForCoupon,
+        CopyCoupon
     ];
 
     public initialize() {
