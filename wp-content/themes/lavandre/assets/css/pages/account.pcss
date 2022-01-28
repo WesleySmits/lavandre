@@ -323,21 +323,36 @@ address {
 }
 
 .ww-redeem-points {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center;
+    font-family: var(--font-family-accent);
+
+    h1, h2 {
+        margin-bottom: 1.5rem;
+    }
+
+    strong {
+        font-weight: 600;
+        font-size: 1.25rem;
+    }
+
     &__list {
         list-style-type: none;
-        margin: 0;
+        margin: 3.5rem 0 0;
         padding: 0;
 
         display: flex;
         max-width: 50rem;
         flex-flow: row wrap;
         justify-content: space-between;
-        align-items: bottom;
+        align-items: flex-end;
         gap: 1rem;
     }
 
     &__list__item {
-        flex: 0 0 calc((100% - 2rem) / 2);
+        flex: 0 0 calc((100% - 1rem) / 2);
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
@@ -348,6 +363,12 @@ address {
 
         @media (--tablet-landscape) {
             padding: 3.5rem;
+        }
+
+        h3 {
+            font-size: 1.875rem;
+            font-weight: 400;
+            text-transform: initial;
         }
     }
 }

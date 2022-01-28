@@ -16,6 +16,7 @@ import InfoPopup from './components/InfoPopup';
 import LazyLoader from './components/LazyLoader';
 import NewsletterSubscribe from './components/NewsletterSubscribe';
 import PasswordReveal from './components/PasswordReveal';
+import RedeemPointsForCoupon from './components/RedeemPointsForCoupon';
 import ScrollToContent from './components/ScrollToContent';
 import VideoMediaResolver from './components/VideoMediaResolver';
 import Module from './Module';
@@ -46,7 +47,8 @@ export default class App extends Module {
         HeaderSearch,
         LazyLoader,
         ScrollToContent,
-        VideoMediaResolver
+        VideoMediaResolver,
+        RedeemPointsForCoupon
     ];
 
     public initialize() {

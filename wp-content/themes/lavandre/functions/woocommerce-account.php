@@ -1,5 +1,7 @@
 <?php
 
+use Lavandre\Loyalty\LavandreLoyalty;
+
 function createLoyaltyEndpoint( $query_vars ) {
     $query_vars['loyalty']   = 'loyalty';
     return $query_vars;
@@ -16,21 +18,12 @@ function account_setup(): void
 add_action ( 'woocommerce_account_loyalty_endpoint', 'loyalty_page');
 
 function loyalty_page() {
-    $unlockableCoupons = [];
-    $coupons = [];
-    $unlockables = [];
-
-    $pool = \LWS\WOOREWARDS\Collections\Pools::instanciate()->load(array('name'=>'default', 'deep'=>true))->last();
-    if ($pool) {
-        $unlockables = $pool->getUnlockables();
-        $unlockableCoupons = $unlockables->filterByType('lws_woorewards_unlockables_coupon')->asArray();
-    }
-
-    $coupons = \LWS\WOOREWARDS\PRO\Conveniences::instance()->getCoupons(get_current_user_id());
+    $LavandreLoyalty = LavandreLoyalty::getInstance();
 
 	wc_get_template('myaccount/loyalty.php', [
-		'unlockableCoupons' => $unlockableCoupons,
-        'coupons' => $coupons
+		'unlockableCoupons' => $LavandreLoyalty->unlockableCoupons,
+        'coupons' => $LavandreLoyalty->userCoupons,
+        'userPoints' => $LavandreLoyalty->getUserPoints(get_current_user_id())
 	]);
 }
 

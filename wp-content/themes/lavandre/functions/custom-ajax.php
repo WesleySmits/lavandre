@@ -30,6 +30,60 @@ add_action( 'wp_ajax_mailchimpsubscribe', 'ajax_MailchimpSubscribe' );
 add_action( 'wp_ajax_ajaxgetvariantprice', 'ajax_getVariantPrice' );
 add_action( 'wp_ajax_ajaxaddloyaltypoints', 'ajax_addLoyaltyPoints' );
 add_action( 'wp_ajax_ajaxdateofbirth', 'ajax_dateOfBirth' );
+add_action( 'wp_ajax_ajaxredeemcoupon', 'ajax_redeemCoupon' );
+
+function ajax_redeemCoupon() {
+    $user = wp_get_current_user();
+    $userId = $user->ID;
+
+    if ($userId === 0) {
+        return;
+    }
+
+    $pool_id = 'default';
+    $email = $user->user_email;
+
+    $couponId = $_POST['id'];
+
+    if (!$couponId) {
+        wp_send_json_error( array(
+            'message' => 'Incorrect data submitted',
+            'id' => $couponId
+        ) );
+    }
+
+    $LavandreLoyalty = LavandreLoyalty::getInstance();
+    $couponToRedeem = $LavandreLoyalty->unlockables->find($couponId);
+
+    if (!$couponToRedeem) {
+        wp_send_json_error( array(
+            'message' => 'Can\'t find coupon',
+            'id' => $couponId
+        ) );
+    }
+
+    $cost = $couponToRedeem->cost;
+    $points = '-' . $cost;
+    $reward = $couponToRedeem->createReward($user);
+    $userPoints = $LavandreLoyalty->getUserPoints($userId);
+
+    if ($userPoints < $cost) {
+        wp_send_json_error( array(
+            'message' => 'Not enough points',
+            'userPoints' => $userPoints,
+            'cost' => $cost
+        ) );
+    }
+
+    $updatePoints = $LavandreLoyalty->addPoints($email, $pool_id, $points);
+
+    wp_send_json_success([
+        $updatePoints,
+        $reward
+    ]);
+
+    wp_die();
+}
 
 function ajax_dateOfBirth() {
     $user = wp_get_current_user();
