@@ -10,7 +10,7 @@
 
 <section class="ww-loyalty-coupons">
     <header>
-        <h2><?php _e('Your current coupons', 'lavandre'); ?></h2>
+        <h2><?php _e('My current coupons', 'lavandre'); ?></h2>
     </header>
 
     <ul class="ww-loyalty-coupons__list">
@@ -28,7 +28,7 @@
             <div>
                 <button is="lavandre-button" data-role="copy-coupon" data-code="<?php echo $code; ?>"
                     data-text="<?php _e('Copy code', 'lavandre'); ?>"
-                    data-copied-text="<?php _e('Copied', 'lavandre'); ?>" size="large" outline
+                    data-copied-text="<?php _e('Copied code', 'lavandre'); ?>" size="large" outline
                     full-width><?php _e('Copy code', 'lavandre'); ?></redeem>
             </div>
         </li>

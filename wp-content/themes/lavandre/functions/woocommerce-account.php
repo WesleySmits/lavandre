@@ -44,7 +44,6 @@ function add_my_account_links($items) {
 	$logout = $items['customer-logout'];
 	unset($items['customer-logout']);
 	$items['loyalty'] = __('Loyalty', 'lavandre');
-	$items['test'] = __('test', 'lavandre');
 	$items['customer-logout'] = $logout;
 
 	return $items;
