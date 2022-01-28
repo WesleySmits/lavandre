@@ -73,7 +73,7 @@
         "url-loader": "^4.1.1"
     },
     "dependencies": {
-        "@lavandre/button": "0.0.22",
+        "@lavandre/button": "0.0.23",
         "@ungap/custom-elements": "^1.0.0",
         "dialog-polyfill": "^0.5.6"
     }

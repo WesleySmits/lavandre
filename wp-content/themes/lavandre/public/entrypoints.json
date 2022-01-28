@@ -4,7 +4,7 @@
       "js": [
         "/runtime.8f675b1f.js",
         "/908.eff23dbb.js",
-        "/822.01176902.js",
+        "/822.0e17dcd7.js",
         "/644.c4411f19.js",
         "/app.a42bcb47.js"
       ],
@@ -65,7 +65,7 @@
     "checkout": {
       "js": [
         "/runtime.8f675b1f.js",
-        "/822.01176902.js",
+        "/822.0e17dcd7.js",
         "/checkout.4c470ed1.js"
       ],
       "css": [
