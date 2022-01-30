@@ -19,11 +19,13 @@ add_action ( 'woocommerce_account_loyalty_endpoint', 'loyalty_page');
 
 function loyalty_page() {
     $LavandreLoyalty = LavandreLoyalty::getInstance();
+    $userId = get_current_user_id();
 
 	wc_get_template('myaccount/loyalty.php', [
 		'unlockableCoupons' => $LavandreLoyalty->unlockableCoupons,
         'coupons' => $LavandreLoyalty->userCoupons,
-        'userPoints' => $LavandreLoyalty->getUserPoints(get_current_user_id())
+        'userPoints' => $LavandreLoyalty->getUserPoints($userId),
+        'userHistory' => $LavandreLoyalty->getUserHistory($userId)
 	]);
 }
 

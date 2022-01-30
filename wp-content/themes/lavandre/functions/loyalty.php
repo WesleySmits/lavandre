@@ -87,6 +87,14 @@ Class LavandreLoyalty
         return $this->pool->getPoints($userId);
     }
 
+    public function getUserHistory($userId)
+    {
+        $stack = $this->pool->getStack($userId);
+        $history = $stack->getHistory(false, true, 0, false);
+
+        return $history;
+    }
+
     private function getClient(): Client
     {
         if (isset($this->client)) {
