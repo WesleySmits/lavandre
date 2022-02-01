@@ -57,6 +57,7 @@ function ww_custom_cart() {
                     }
                 );
                 foreach($items as $item => $values) {
+                    var_dump($values);
                     $id = $values['data']->get_id();
                     $product =  wc_get_product( $id );
                     $id = $values['data']->get_id();

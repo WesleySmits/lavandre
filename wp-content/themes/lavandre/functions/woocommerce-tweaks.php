@@ -147,3 +147,5 @@
     function custom_order_button_text( $button_text ) {
         return __('Pay now', 'lavandre');
     }
+
+    add_filter( 'wcsatt_modify_variation_data_price_html', function() { return false; } );

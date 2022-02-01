@@ -585,6 +585,9 @@ function ajax_addtocart() {
         'message' => ""
     );
 
+    var_dump('DIE');
+    var_dump('DIE'); die;
+
 	if( empty( $_POST['product_id'] ) ) {
 		$returnValue['message'] = "no product id provided";
 	} elseif (empty( $_POST['quantity'] )) {
