@@ -75,7 +75,8 @@ function ajax_redeemCoupon() {
         ) );
     }
 
-    $updatePoints = $LavandreLoyalty->addPoints($email, $pool_id, $points);
+    $reason = 'This is a test';
+    $updatePoints = $LavandreLoyalty->addPoints($email, $pool_id, $points, $reason);
 
     wp_send_json_success([
         $updatePoints,
@@ -109,7 +110,7 @@ function ajax_dateOfBirth() {
     $email = $user->user_email;
 
     $LavandreLoyalty = LavandreLoyalty::getInstance();
-    $updatePoints = $LavandreLoyalty->addPoints($email, $pool_id, $points);
+    $updatePoints = $LavandreLoyalty->addPoints($email, $pool_id, $points, 'Birthday');
 
     wp_send_json_success([
         $dateOfBirth,
@@ -755,7 +756,7 @@ function ajax_addLoyaltyPoints(): void
 
     update_user_meta($userId, $type, true);
 
-    $updatePoints = $LavandreLoyalty->addPoints($email, $pool_id, $points);
+    $updatePoints = $LavandreLoyalty->addPoints($email, $pool_id, $points, $type);
     wp_send_json_success($updatePoints);
 
     wp_die();
