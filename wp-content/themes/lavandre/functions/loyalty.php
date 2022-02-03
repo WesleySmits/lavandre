@@ -30,7 +30,7 @@ Class LavandreLoyalty
         $this->getUserCoupons();
     }
 
-    public function addPoints($email, $pool_id, $points, $reason = 'Maria') {
+    public function addPoints($email, $pool_id, $points, $reason) {
         $woocommerce = $this->getClient();
         $endpoint = "points/$email/$pool_id/$points";
 
