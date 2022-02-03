@@ -62,22 +62,44 @@ if ( ! defined( 'ABSPATH' ) ) {
                                     }
 
                                     $interval = $option['data']['subscription_scheme']['interval'];
+                                    $period = $option['data']['subscription_scheme']['period'];
+                                    $periodTitle = $period;
+
+                                    if ($interval > 1) {
+                                        if ($period === 'month') {
+                                            $periodTitle = 'months';
+                                        }
+
+                                        if ($period === 'week') {
+                                            $periodTitle = 'weeks';
+                                        }
+
+                                        if ($period === 'day') {
+                                            $periodTitle = 'days';
+                                        }
+
+                                        if ($period === 'year') {
+                                            $periodTitle = 'years';
+                                        }
+                                    }
+
                                 ?>
                                 <div
                                     class="product-detail__variation custom-radio--variation custom-radio--subscription-option">
 
-                                    <input id="<?php echo sprintf('subscription-%s-month', $interval); ?>" type="radio"
-                                        name="subscription-term" value="<?php echo esc_attr( $option[ 'value' ] ); ?>"
+                                    <input id="<?php echo sprintf('subscription-%s-%s', $interval, $period); ?>"
+                                        type="radio" name="subscription-term"
+                                        value="<?php echo esc_attr( $option[ 'value' ] ); ?>"
                                         data-custom_data="<?php echo esc_attr( json_encode( $option[ 'data' ] ) ); ?>"
                                         <?php checked( $option[ 'selected' ], true, true ); ?> />
 
-                                    <label for="<?php echo sprintf('subscription-%s-month', $interval); ?>">
+                                    <label for="<?php echo sprintf('subscription-%s-%s', $interval, $period); ?>">
                                         <span>
                                             <?php
                                             if ($interval === 1) {
-                                                echo sprintf(__('%s month'), $interval);
+                                                echo sprintf(__('%s %s'), $interval, $periodTitle);
                                             } else {
-                                                echo sprintf(__('%s months'), $interval);
+                                                echo sprintf(__('%s %s'), $interval, $periodTitle);
                                             }
                                         ?></span>
                                     </label>

@@ -585,21 +585,32 @@ function ajax_addtocart() {
         'message' => ""
     );
 
-    var_dump('DIE');
-    var_dump('DIE'); die;
-
 	if( empty( $_POST['product_id'] ) ) {
 		$returnValue['message'] = "no product id provided";
 	} elseif (empty( $_POST['quantity'] )) {
 		$returnValue['message'] = "no quantity provided";
     } else {
         $product_id = $_POST['product_id'];
-        $quantity = $_POST['quantity'];
         $variation_id = $_POST['variation_id'];
+        $quantity = $_POST['quantity'];
+
+        $product = wc_get_product( $product_id );
+        $subscriptionType = $_POST['subscription'];
+        $hasSchemes = WCS_ATT_Product_Schemes::has_subscription_schemes($product);
+        $extraCartData = [];
+
+        if ($hasSchemes) {
+            $scheme = WCS_ATT_Product_Schemes::set_subscription_scheme($product, $subscriptionType);
+            $extraCartData = [ 'wcsatt_data' => array(
+                'active_subscription_scheme' => $subscriptionType,
+            ) ];
+        }
 
         $cart = WC()->cart;
+        $cartItemKey = $cart->add_to_cart( $product_id, $quantity, $variation_id, [], $extraCartData );
+        $cartItem = $cart->get_cart_item( $cartItemKey );
 
-        $returnValue['success'] = ($cart->add_to_cart( $product_id, $quantity, $variation_id )) ? true : false;
+        $returnValue['success'] = ($cartItemKey) ? true : false;
 
         if( !$returnValue['success'] ) {
             $returnValue['message'] = "product could not be added to cart";
