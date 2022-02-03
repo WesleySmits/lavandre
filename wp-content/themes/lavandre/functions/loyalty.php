@@ -30,9 +30,13 @@ Class LavandreLoyalty
         $this->getUserCoupons();
     }
 
-    public function addPoints($email, $pool_id, $points) {
+    public function addPoints($email, $pool_id, $points, $reason) {
         $woocommerce = $this->getClient();
         $endpoint = "points/$email/$pool_id/$points";
+
+        if ($reason) {
+            $endpoint = $endpoint . "/" . rawurlencode($reason);
+        }
 
         return $woocommerce->put($endpoint, []);
     }
@@ -85,6 +89,14 @@ Class LavandreLoyalty
     public function getUserPoints($userId): int
     {
         return $this->pool->getPoints($userId);
+    }
+
+    public function getUserHistory($userId)
+    {
+        $stack = $this->pool->getStack($userId);
+        $history = $stack->getHistory(false, true, 0, false);
+
+        return $history;
     }
 
     private function getClient(): Client

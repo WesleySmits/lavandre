@@ -2,11 +2,11 @@
 
 use Lavandre\Loyalty\LavandreLoyalty;
 
-function createLoyaltyEndpoint( $query_vars ) {
-    $query_vars['loyalty']   = 'loyalty';
+function createRewardsEndpoint( $query_vars ) {
+    $query_vars['rewards'] = 'rewards';
     return $query_vars;
 }
-add_filter( 'woocommerce_get_query_vars', 'createLoyaltyEndpoint' );
+add_filter( 'woocommerce_get_query_vars', 'createRewardsEndpoint' );
 
 add_action( 'init', 'account_setup', 0 );
 function account_setup(): void
@@ -15,15 +15,17 @@ function account_setup(): void
     add_filter ( 'woocommerce_account_menu_items', 'rename_my_account_links' );
     add_filter ( 'woocommerce_account_menu_items', 'add_my_account_links' );
 }
-add_action ( 'woocommerce_account_loyalty_endpoint', 'loyalty_page');
+add_action ( 'woocommerce_account_rewards_endpoint', 'rewards_page');
 
-function loyalty_page() {
+function rewards_page() {
     $LavandreLoyalty = LavandreLoyalty::getInstance();
+    $userId = get_current_user_id();
 
 	wc_get_template('myaccount/loyalty.php', [
 		'unlockableCoupons' => $LavandreLoyalty->unlockableCoupons,
         'coupons' => $LavandreLoyalty->userCoupons,
-        'userPoints' => $LavandreLoyalty->getUserPoints(get_current_user_id())
+        'userPoints' => $LavandreLoyalty->getUserPoints($userId),
+        'userHistory' => $LavandreLoyalty->getUserHistory($userId)
 	]);
 }
 
@@ -43,7 +45,7 @@ function rename_my_account_links($menu_links) {
 function add_my_account_links($items) {
 	$logout = $items['customer-logout'];
 	unset($items['customer-logout']);
-	$items['loyalty'] = __('Loyalty', 'lavandre');
+	$items['rewards'] = __('My Rewards', 'lavandre');
 	$items['customer-logout'] = $logout;
 
 	return $items;

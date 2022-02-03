@@ -755,7 +755,7 @@ function ajax_addLoyaltyPoints(): void
 
     update_user_meta($userId, $type, true);
 
-    $updatePoints = $LavandreLoyalty->addPoints($email, $pool_id, $points);
+    $updatePoints = $LavandreLoyalty->addPoints($email, $pool_id, $points, $type);
     wp_send_json_success($updatePoints);
 
     wp_die();

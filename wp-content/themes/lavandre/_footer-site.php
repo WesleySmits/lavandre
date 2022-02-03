@@ -123,6 +123,12 @@
                     <li class="footer-links__item">
                         <a class="footer-links__anchor" href="/my-account/"><?php _e('My account', 'lavandre'); ?></a>
                     </li>
+
+                    <li>
+                        <a href="/rewards" class="hide-on-mobile sign-in-link">
+                            <?php _e('Rewards', 'lavandre'); ?>
+                        </a>
+                    </li>
                 </ul>
             </section>
         </div>

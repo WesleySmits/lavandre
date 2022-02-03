@@ -6,10 +6,8 @@
                 data-panel="customer-service"><?php _e('Customer service', 'lavandre'); ?></a>
             <a href="/customer-service/shipping/" id="delivery-info-toggle" class="delivery-info-toggle"
                 data-panel="shipping"><?php echo get_first_delivery_date(); ?></a>
-            <a href="/my-account" class="hide-on-mobile sign-in-link">
-                <?php
-                     is_user_logged_in() ? _e('My account', 'lavandre') : _e('Sign-in', 'lavandre');
-                ?>
+            <a href="/rewards" class="hide-on-mobile sign-in-link">
+                <?php _e('Rewards', 'lavandre'); ?>
             </a>
         </div>
     </div>

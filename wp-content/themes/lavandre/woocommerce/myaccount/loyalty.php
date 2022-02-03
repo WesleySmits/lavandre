@@ -32,7 +32,6 @@
                     full-width><?php _e('Copy code', 'lavandre'); ?></redeem>
             </div>
         </li>
-
         <?php } ?>
     </ul>
 </section>
@@ -64,3 +63,47 @@
         <?php } ?>
     </ul>
 </section>
+
+<?php
+// <section class="ww-rewards-history">
+//     <header>
+//         <h2><?php _e('Reward History', 'lavandre'); ? ></h2>
+// </header>
+
+// <?php //echo do_shortcode('[wr_show_history]'); ? >
+
+
+// <table class="ww-reward-history__table">
+    // <thead>
+        // <tr>
+            // <th><?php _e('Date', 'lavandre'); ? ></th>
+            // <th><?php _e('Action', 'lavandre'); ? ></th>
+            // <th><?php _e('Points', 'lavandre'); ? ></th>
+            // <th><?php _e('Status', 'lavandre'); ? ></th>
+            // </tr>
+        // </thead>
+
+    // <tbody>
+        // <?php foreach($userHistory as $row) { ? >
+        // <tr>
+            // <td>
+                // <?php
+//                     $date = new DateTime($row['op_date']);
+//                     echo $date->format('d-m-Y');
+//                     ? >
+                // </td>
+            // <td>
+                // <?php echo $row['op_reason']; ? >
+                // </td>
+            // <td>
+                // <?php echo $row['op_value']; ? >
+                // </td>
+            // <td>
+                // <?php echo _e('Approved', 'lavandre'); ? >
+                // </td>
+            // </tr>
+        // <?php } ? >
+        // </tbody>
+    // </table>
+// </section>
+?>
