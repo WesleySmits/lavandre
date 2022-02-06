@@ -1,4 +1,3 @@
-import '@lavandre/button/dist/src/lavandre-button';
 import '@ungap/custom-elements';
 import '../css/app.pcss';
 import Component from './common/Component';
@@ -25,6 +24,7 @@ import SidePanel from './ui/SidePanel';
 import { setCurrentLinkClass } from './util/links';
 import './web-components/AccordionElement';
 import './web-components/BirthdayForm';
+import LavandreButton from './web-components/button/LavandreButton';
 import './web-components/CarouselElement';
 import './web-components/LavandreSelect';
 import './web-components/SignupBlock';
@@ -116,3 +116,5 @@ function lazyBackgrounds(): void {
         }
     });
 }
+
+window.customElements.define('lavandre-button', LavandreButton, { extends: 'button' });

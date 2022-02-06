@@ -1,0 +1,117 @@
+[is="lavandre-button"] {
+    --button-background-color: transparent;
+    --button-border-color: var(--old-burgundy);
+    --button-text-color: var(--old-burgundy);
+
+    --button-font-size: calc(13rem / 16);
+
+    --button-width: auto;
+    --button-min-width: 2.25rem;
+    --button-min-height: 2.25rem;
+    --button-padding: .5rem 1.5rem;
+
+    position: relative;
+    z-index: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--button-width);
+    min-width: var(--button-min-width);
+    min-height: var(--button-min-height);
+    margin: 0 auto;
+    padding: var(--button-padding);
+
+    background: var(--button-background-color);
+    border: 1px solid var(--button-border-color);
+    border-radius: 0;
+    outline: 0;
+
+    color: var(--button-text-color);
+    font-family: var(--font-family-accent);
+    font-weight: 100;
+    font-style: italic;
+    font-size: var(--button-font-size);
+    line-height: 1;
+    text-transform: initial;
+    text-align: center;
+
+    cursor: pointer;
+    transition: all .4s ease;
+
+    &[primary] {
+        --button-background-color: var(--old-burgundy);
+        --button-border-color: var(--old-burgundy);
+        --button-text-color: var(--white);
+
+        &:hover {
+            --button-background-color: transparent;
+            --button-border-color: var(--old-burgundy);
+            --button-text-color: var(--old-burgundy);
+        }
+    }
+
+    &[outline] {
+        --button-background-color: transparent;
+    }
+
+    &[size="small"] {
+        --button-min-height: 1.75rem;
+        --button-padding: .3rem .75rem;
+    }
+
+    &[size="large"] {
+        --button-min-width: 3.75rem;
+        --button-min-height: 3.75rem;
+        --button-padding: .75rem 1.5rem;
+        --button-font-size: 1.5rem;
+    }
+
+    &[full-width] {
+        --button-width: 100%;
+    }
+
+    & svg {
+        margin-right: .5rem;
+    }
+
+    & svg,
+    & path {
+        fill: var(--button-text-color);
+        stroke: var(--button-text-color);
+    }
+
+    &:hover:not(:disabled) {
+        text-decoration: none;
+
+        svg,
+        path {
+            fill: var(--button-text-color);
+            stroke: var(--button-text-color);
+        }
+    }
+
+    &[loading] {
+        color: transparent !important;
+
+        &:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            margin: auto;
+
+            width: .75em;
+            height: .75em;
+            border-color: transparent transparent var(--button-border-color) var(--button-border-color);
+            border-style: solid;
+            border-width: 3px;
+            border-radius: 50%;
+            transform: translateZ(0);
+            animation: rotate 1s linear infinite;
+        }
+
+        &[primary]:after {
+            border-color: transparent transparent #FFFFFF #FFFFFF;
+        }
+    }
+}

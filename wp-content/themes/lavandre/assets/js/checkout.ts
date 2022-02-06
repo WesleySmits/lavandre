@@ -1,4 +1,3 @@
-import '@lavandre/button/dist/src/lavandre-button';
 import '@ungap/custom-elements';
 import '../css/pages/checkout.pcss';
 import Component from './common/Component';

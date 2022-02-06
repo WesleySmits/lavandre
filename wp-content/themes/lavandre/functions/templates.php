@@ -202,7 +202,7 @@
 
             <?php if ($showButton && $button) { ?>
             <button is="lavandre-button" class="main-top-banner__button" href="<?php echo $button[0]['link']['url']; ?>"
-                size="large" full-width outline>
+                size="large" full-width primary outline>
                 <?php echo $button[0]['text']; ?>
             </button>
             <?php } ?>
