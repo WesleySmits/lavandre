@@ -117,4 +117,6 @@ function lazyBackgrounds(): void {
     });
 }
 
-window.customElements.define('lavandre-button', LavandreButton, { extends: 'button' });
+if (LavandreButton) {
+    window.customElements.define('lavandre-button', LavandreButton, { extends: 'button' });
+}
