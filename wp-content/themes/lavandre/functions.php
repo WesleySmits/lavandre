@@ -19,6 +19,7 @@ include(get_stylesheet_directory() . '/functions/customizer.php');
 include(get_stylesheet_directory() . '/functions/faq.php');
 include(get_stylesheet_directory() . '/functions/templates.php');
 include(get_stylesheet_directory() . '/functions/loyalty.php');
+include(get_stylesheet_directory() . '/functions/accountHandler.php');
 
 include(get_stylesheet_directory() . '/functions/custom-ajax.php');
 

@@ -1,54 +1,18 @@
 <?php
 
 use Lavandre\Loyalty\LavandreLoyalty;
-
-function createRewardsEndpoint( $query_vars ) {
-    $query_vars['rewards'] = 'rewards';
-    return $query_vars;
-}
-add_filter( 'woocommerce_get_query_vars', 'createRewardsEndpoint' );
+use Lavandre\Account\LavandreAccountPages;
 
 add_action( 'init', 'account_setup', 0 );
 function account_setup(): void
 {
-    add_filter ( 'woocommerce_account_menu_items', 'remove_my_account_links' );
-    add_filter ( 'woocommerce_account_menu_items', 'rename_my_account_links' );
-    add_filter ( 'woocommerce_account_menu_items', 'add_my_account_links' );
-}
-add_action ( 'woocommerce_account_rewards_endpoint', 'rewards_page');
-
-function rewards_page() {
-    $LavandreLoyalty = LavandreLoyalty::getInstance();
-    $userId = get_current_user_id();
-
-	wc_get_template('myaccount/loyalty.php', [
-		'unlockableCoupons' => $LavandreLoyalty->unlockableCoupons,
-        'coupons' => $LavandreLoyalty->userCoupons,
-        'userPoints' => $LavandreLoyalty->getUserPoints($userId),
-        'userHistory' => $LavandreLoyalty->getUserHistory($userId)
-	]);
-}
-
-function remove_my_account_links( $menu_links ){
-    unset( $menu_links['vat-number'] );
-	return $menu_links;
-}
-
-function rename_my_account_links($menu_links) {
-    $menu_links['edit-account'] = __('Account details', 'lavandre');
-    $menu_links['orders'] = __('My orders', 'lavandre');
-    $menu_links['edit-address'] = __('My address book', 'lavandre');
-
-    return $menu_links;
-}
-
-function add_my_account_links($items) {
-	$logout = $items['customer-logout'];
-	unset($items['customer-logout']);
-	$items['rewards'] = __('My Rewards', 'lavandre');
-	$items['customer-logout'] = $logout;
-
-	return $items;
+    $accountHandler = LavandreAccountPages::getInstance();
+    add_filter ( 'woocommerce_account_menu_items', [$accountHandler, 'removeLinks'] );
+    add_filter ( 'woocommerce_account_menu_items', [$accountHandler, 'renameLinks'] );
+    add_filter ( 'woocommerce_account_menu_items', [$accountHandler, 'addLinks'] );
+    add_filter ( 'woocommerce_account_menu_items', [$accountHandler, 'reorderLinks'] );
+    add_filter( 'woocommerce_get_query_vars', [$accountHandler, 'createRewardsEndpoint'] );
+    add_action ( 'woocommerce_account_rewards_endpoint', [$accountHandler, 'setupRewardsPage']);
 }
 
 add_filter('woocommerce_save_account_details_required_fields', 'wc_save_account_details_required_fields' );
