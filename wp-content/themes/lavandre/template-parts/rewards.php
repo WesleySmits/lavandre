@@ -90,7 +90,8 @@
                         placeholder="<?php _e('Email', 'lavandre'); ?>" required>
 
                     <button is="lavandre-button" size="large" full-width class="refer-a-friend-form__button"
-                        type="submit" id="refer-a-friend-form-submit" aria-label="Subscribe to newsletter button">
+                        type="submit" id="refer-a-friend-form-submit" aria-label="Subscribe to newsletter button"
+                        outline>
                         <?php _e('Submit', 'lavandre'); ?>
                     </button>
                 </form>
