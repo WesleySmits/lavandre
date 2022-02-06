@@ -23,11 +23,16 @@
                     </li>
 
                     <li>
+                        <a href="/rewards">
+                            <?php _e('Rewards', 'lavandre'); ?>
+                        </a>
+                    </li>
+
+                    <li>
                         <a href="/blog">
                             <span><?php _e('Blog', 'lavandre'); ?></span>
                         </a>
                     </li>
-
 
                     <li>
                         <a href="/my-account">

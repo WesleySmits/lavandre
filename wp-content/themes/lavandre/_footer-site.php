@@ -125,7 +125,7 @@
                     </li>
 
                     <li>
-                        <a href="/rewards" class="hide-on-mobile sign-in-link">
+                        <a href="/rewards">
                             <?php _e('Rewards', 'lavandre'); ?>
                         </a>
                     </li>
