@@ -7,7 +7,7 @@ export default class ChangeVariantPrice extends Component {
 
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
 
-    private regularPriceElement: HTMLElement | null = null;
+    private regularPriceElements: HTMLElement[] = [];
 
     private salePriceElement: HTMLElement | null = null;
 
@@ -17,14 +17,21 @@ export default class ChangeVariantPrice extends Component {
     }
 
     public initialize(): void {
-        this.regularPriceElement =
-            document.querySelector('.product-detail__price ins [data-product-price]') ||
-            document.querySelector('.product-detail__price [data-product-price]');
+        this.regularPriceElements = Array.from(
+            document.querySelectorAll('.product-detail__price ins [data-product-price]')
+        );
+
+        if (!this.regularPriceElements.length) {
+            this.regularPriceElements = Array.from(
+                document.querySelectorAll('.product-detail__price [data-product-price]')
+            );
+        }
+
         this.salePriceElement = document.querySelector(
             '.product-detail__price del [data-product-price]'
         );
 
-        if (!this.salePriceElement && !this.regularPriceElement) {
+        if (!this.salePriceElement && !this.regularPriceElements.length) {
             return;
         }
 
@@ -68,8 +75,10 @@ export default class ChangeVariantPrice extends Component {
         const regularPrice = Number(response.data.regularPrice).toFixed(2);
         const salePrice = Number(response.data.salePrice).toFixed(2);
 
-        if (this.regularPriceElement && regularPrice) {
-            this.regularPriceElement!.innerText = regularPrice;
+        if (this.regularPriceElements.length && regularPrice) {
+            this.regularPriceElements.forEach((el) => {
+                el!.innerText = regularPrice;
+            });
         }
 
         if (this.salePriceElement && salePrice) {

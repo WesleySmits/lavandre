@@ -32,13 +32,16 @@ function sort_size($a, $b) {
     }
 
     $lengthA = explode('x', $a)[0];
-    $lengthB = explode('x', $b)[0];
+    $lengthA2 = explode('x', $a)[1];
 
-    if ($lengthA == $lengthB) {
-        return 0;
+    $lengthB = explode('x', $b)[0];
+    $lengthB2= explode('x', $b)[1];
+
+    if ($lengthA !== $lengthB) {
+        return ($lengthA < $lengthB) ? -1 : 1;
     }
 
-    return ($lengthA < $lengthB) ? -1 : 1;
+    return ($lengthA2 < $lengthB2) ? -1 : 1;
 }
 
 function sort_attributes($attributes) {
@@ -83,9 +86,11 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
     <section class="product-detail__variations">
         <?php $attributes = sort_attributes($attributes);?>
 
-
         <?php foreach ( $attributes as $attribute_name => $options ) : ?>
-        <?php usort($options, 'sort_size'); ?>
+
+        <?php if ($attribute_name === 'pa_size') {
+            usort($options, 'sort_size');
+         }; ?>
 
         <div class="form-row">
             <label

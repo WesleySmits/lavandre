@@ -68,6 +68,8 @@ function ww_custom_cart() {
                     $price = get_post_meta($id, '_price', true);
                     $image = $product->get_image('medium');
                     $quantity_id = 'cart__item__quantity_' . $id;
+                    $isSubscriptionProduct = ($values['wcsatt_data']['active_subscription_scheme']) ? true : false;
+                    $href = $product->get_permalink();
 
                     $productVariation = wc_get_product($variationID);
                     $attributes =  $productVariation->get_variation_attributes() ;
@@ -103,10 +105,27 @@ function ww_custom_cart() {
                 <div class="custom-cart__details">
                     <div class="custom-cart__name">
                         <p>
-                            <?php echo $title; ?>
-                            <?php if ($subtitle) { echo '<br/>' . $subtitle; } ?>
+                            <a href="<?php echo $href; ?>">
+                                <?php echo $title; ?>
+                                <?php if ($subtitle) { echo '<br/>' . $subtitle; } ?>
+                            </a>
                         </p>
                     </div>
+
+                    <?php if ($isSubscriptionProduct): ?>
+                    <?php
+                        $activeSchemeKey = WCS_ATT_Cart::get_subscription_scheme( $values );
+                        $schemes = WCS_ATT_Product_Schemes::get_subscription_schemes( $product );
+
+                        $period = $schemes[$activeSchemeKey]->get_period();
+                        $interval = $schemes[$activeSchemeKey]->get_interval();
+                        $periodTitle = getPeriodTitle($period, $interval);
+                    ?>
+                    <p class="custom-cart__product-subtitle">
+                        <span
+                            class="custom-cart__product-subtitle"><?php echo sprintf(__('Delivery every %s %s', 'lavandre'), $interval, $periodTitle); ?></span>
+                    </p>
+                    <?php endif; ?>
 
                     <div class="custom-cart__quantity">
                         <form method="post">
@@ -151,17 +170,22 @@ function ww_custom_cart() {
                                         $discounted_price = $adjusted_price;
                                     }
 
-                                    if ($discounted_price) echo '<del>';
+                                    if ($isSubscriptionProduct) {
+                                        $priceToShow = $discounted_price ?? $regular_price;
+                                        echo wc_price($quantity * $priceToShow);
+                                    } else {
+                                        if ($discounted_price) echo '<del>';
                                     echo wc_price($quantity * $regular_price);
                                     if ($discounted_price) echo '</del>';
-                                    ?>
-                    </div>
+                                ?></div>
 
                     <div>
                         <?php
                                         if ($discounted_price) {
                                             echo '<ins>' . wc_price($discounted_price * $quantity) . '</ins>';
                                         }
+                                    }
+
                                     ?>
                     </div>
                 </div>
@@ -175,8 +199,10 @@ function ww_custom_cart() {
 
                 <div class="custom-cart__name">
                     <p class="custom-cart__product-title">
-                        <span class="custom-cart__title"><?php echo $title; ?></span>
-                        <?php if ($subtitle) { echo '<br/><span class="custom-cart__subtitle">' . $subtitle . '</span>'; } ?>
+                        <a href="<?php echo $href; ?>">
+                            <span class="custom-cart__title"><?php echo $title; ?></span>
+                            <?php if ($subtitle) { echo '<br/><span class="custom-cart__subtitle">' . $subtitle . '</span>'; } ?>
+                        </a>
                     </p>
 
                     <?php if ($color || $size): ?>
@@ -185,12 +211,27 @@ function ww_custom_cart() {
                     </p>
                     <?php endif; ?>
 
+                    <?php if ($isSubscriptionProduct): ?>
+                    <?php
+                        $activeSchemeKey = WCS_ATT_Cart::get_subscription_scheme( $values );
+                        $schemes = WCS_ATT_Product_Schemes::get_subscription_schemes( $product );
+
+                        $period = $schemes[$activeSchemeKey]->get_period();
+                        $interval = $schemes[$activeSchemeKey]->get_interval();
+                        $periodTitle = getPeriodTitle($period, $interval);
+                    ?>
+                    <p class="custom-cart__product-subtitle">
+                        <span
+                            class="custom-cart__product-subtitle"><?php echo sprintf(__('Delivery every %s %s', 'lavandre'), $interval, $periodTitle); ?></span>
+                    </p>
+                    <?php endif; ?>
+
                     <?php if ($amount && $amount !== 'single-pack'): ?>
                     <p class="custom-cart__product-subtitle">
                         <?php
-                                            $displayAmount = attribute_slug_to_title('attribute_pa_amount', $amount);
-                                            echo $displayAmount;
-                                        ?>
+                            $displayAmount = attribute_slug_to_title('attribute_pa_amount', $amount);
+                            echo $displayAmount;
+                        ?>
                     </p>
                     <?php endif; ?>
                 </div>
@@ -228,7 +269,12 @@ function ww_custom_cart() {
                                         $discounted_price = $adjusted_price;
                                     }
 
-                                    if ($discounted_price) echo '<del>';
+
+                                    if ($isSubscriptionProduct) {
+                                        $priceToShow = $discounted_price ?? $regular_price;
+                                        echo wc_price($quantity * $priceToShow);
+                                    } else {
+                                        if ($discounted_price) echo '<del>';
                                     echo wc_price($quantity * $regular_price);
                                     if ($discounted_price) echo '</del>';
                                 ?></div>
@@ -238,6 +284,8 @@ function ww_custom_cart() {
                                         if ($discounted_price) {
                                             echo '<ins>' . wc_price($discounted_price * $quantity) . '</ins>';
                                         }
+                                    }
+
                                     ?>
                     </div>
                 </div>
@@ -431,6 +479,8 @@ function ww_custom_cart_mini() {
                     $price = get_post_meta($id, '_price', true);
                     $image = $product->get_image('medium');
                     $quantity_id = 'cart__item__quantity_' . $id;
+                    $isSubscriptionProduct = ($values['wcsatt_data']['active_subscription_scheme']) ? true : false;
+                    $href = $product->get_permalink();
 
                     $productVariation = wc_get_product($variationID);
                     $attributes =  $productVariation->get_variation_attributes() ;
@@ -463,13 +513,30 @@ function ww_custom_cart_mini() {
 
                 <div class="custom-cart__details">
                     <p class="custom-cart__product-title">
-                        <?php echo $title; ?>
-                        <?php if ($subtitle) { echo '<br/>' . $subtitle; } ?>
+                        <a href="<?php echo $href; ?>">
+                            <?php echo $title; ?>
+                            <?php if ($subtitle) { echo '<br/>' . $subtitle; } ?>
+                        </a>
                     </p>
 
                     <?php if ($color || $size): ?>
                     <p class="custom-cart__product-subtitle">
                         <?php echo $color; ?> <?php echo $size; ?>
+                    </p>
+                    <?php endif; ?>
+
+                    <?php if ($isSubscriptionProduct): ?>
+                    <?php
+                        $activeSchemeKey = WCS_ATT_Cart::get_subscription_scheme( $values );
+                        $schemes = WCS_ATT_Product_Schemes::get_subscription_schemes( $product );
+
+                        $period = $schemes[$activeSchemeKey]->get_period();
+                        $interval = $schemes[$activeSchemeKey]->get_interval();
+                        $periodTitle = getPeriodTitle($period, $interval);
+                    ?>
+                    <p class="custom-cart__product-subtitle">
+                        <span
+                            class="custom-cart__product-subtitle"><?php echo sprintf(__('Delivery every %s %s', 'lavandre'), $interval, $periodTitle); ?></span>
                     </p>
                     <?php endif; ?>
 
@@ -519,7 +586,11 @@ function ww_custom_cart_mini() {
                                         $discounted_price = $adjusted_price;
                                     }
 
-                                    if ($discounted_price) echo '<del>';
+                                    if ($isSubscriptionProduct) {
+                                        $priceToShow = $discounted_price ?? $regular_price;
+                                        echo wc_price($quantity * $priceToShow);
+                                    } else {
+                                        if ($discounted_price) echo '<del>';
                                     echo wc_price($quantity * $regular_price);
                                     if ($discounted_price) echo '</del>';
                                 ?></div>
@@ -529,6 +600,8 @@ function ww_custom_cart_mini() {
                                         if ($discounted_price) {
                                             echo '<ins>' . wc_price($discounted_price * $quantity) . '</ins>';
                                         }
+                                    }
+
                                     ?>
                     </div>
                 </div>

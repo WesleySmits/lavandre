@@ -29,18 +29,16 @@ if ( ! defined( 'ABSPATH' ) ) {
         <?php echo in_array( 'closed', $wrapper_classes ) ? 'style="display:none;"' : '' ?>>
 
         <div class="form-row">
-            <label
-                class="wcsatt-options-product-prompt product-detail__variation__label product-detail__variation__label--subscription <?php echo esc_attr( implode( ' ', $prompt_classes ) ); ?>"
-                data-prompt_type="<?php echo esc_attr( $prompt_type ); ?>"><?php echo $prompt; ?>
-            </label>
-
             <div class="product-detail-variation-wrapper product-detail-variation-wrapper--subscription">
                 <div class="product-detail__variation custom-radio--variation custom-radio--subscription">
                     <input type="radio" id="one_time_purchase" name="<?php echo $input_name; ?>" data-custom_data="[]"
                         value="0" checked="checked" required>
 
                     <label for="one_time_purchase">
-                        <span><?php echo $options[0]['description']; ?></span>
+                        <span>
+                            <?php echo _e('One time purchase', 'lavandre'); ?>
+                            <?php echo $product->get_price_html(); ?>
+                        </span>
                     </label>
                 </div>
             </div>
@@ -50,63 +48,29 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <input type="radio" name="<?php echo $input_name; ?>" id="subscription_plan" value="0">
 
                     <label for="subscription_plan">
-                        <span>Something</span>
+                        <span>
+                            <?php _e('Subscribe and save 10%', 'lavandre'); ?>
+                            <?php echo wc_price($product->get_price() * 0.9); ?>
+                        </span>
 
-                        <ul class="custom-radio--variation__content">
-                            <li class="product-detail-variation-wrapper product-detail-variation-wrapper--amount">
-
+                        <div class="custom-radio--variation__content ww-form">
+                            <select name="subscription-term" id="">
                                 <?php
-                                foreach ( $options as $option ) {
-                                    if ( ! $option[ 'value' ] ) {
-                                        continue;
-                                    }
-
-                                    $interval = $option['data']['subscription_scheme']['interval'];
-                                    $period = $option['data']['subscription_scheme']['period'];
-                                    $periodTitle = $period;
-
-                                    if ($interval > 1) {
-                                        if ($period === 'month') {
-                                            $periodTitle = 'months';
+                                    foreach ($options as $option) {
+                                        if ( ! $option[ 'value' ] ) {
+                                            continue;
                                         }
 
-                                        if ($period === 'week') {
-                                            $periodTitle = 'weeks';
-                                        }
-
-                                        if ($period === 'day') {
-                                            $periodTitle = 'days';
-                                        }
-
-                                        if ($period === 'year') {
-                                            $periodTitle = 'years';
-                                        }
-                                    }
-
+                                        $interval = $option['data']['subscription_scheme']['interval'];
+                                        $period = $option['data']['subscription_scheme']['period'];
+                                        $periodTitle = getSubscriptionIntervalPeriod($option['data']);
                                 ?>
-                                <div
-                                    class="product-detail__variation custom-radio--variation custom-radio--subscription-option">
-
-                                    <input id="<?php echo sprintf('subscription-%s-%s', $interval, $period); ?>"
-                                        type="radio" name="subscription-term"
-                                        value="<?php echo esc_attr( $option[ 'value' ] ); ?>"
-                                        data-custom_data="<?php echo esc_attr( json_encode( $option[ 'data' ] ) ); ?>"
-                                        <?php checked( $option[ 'selected' ], true, true ); ?> />
-
-                                    <label for="<?php echo sprintf('subscription-%s-%s', $interval, $period); ?>">
-                                        <span>
-                                            <?php
-                                            if ($interval === 1) {
-                                                echo sprintf(__('%s %s'), $interval, $periodTitle);
-                                            } else {
-                                                echo sprintf(__('%s %s'), $interval, $periodTitle);
-                                            }
-                                        ?></span>
-                                    </label>
-                                </div>
+                                <option value="<?php echo esc_attr( $option[ 'value' ] ); ?>">
+                                    <?php echo sprintf(__('Delivery every %s %s', 'lavandre'), $interval, $periodTitle); ?>
+                                </option>
                                 <?php } ?>
-                            </li>
-                        </ul>
+                            </select>
+                        </div>
                     </label>
                 </div>
             </div>
