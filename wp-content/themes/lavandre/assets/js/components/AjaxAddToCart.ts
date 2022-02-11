@@ -61,6 +61,13 @@ export default class AjaxAddToCart extends Component {
         }
 
         this.form.variation_id.value = variationID;
+        // @ts-ignore
+        if (window.jQuery) {
+            window
+                // @ts-ignore
+                .jQuery(this.form)
+                .trigger('show_variation', [this.findMatchingVariantData(currentOptions)]);
+        }
     }
 
     private setFormInvalid(): void {
@@ -134,6 +141,41 @@ export default class AjaxAddToCart extends Component {
         return variationID;
     }
 
+    private findMatchingVariantData(
+        currentOptions: standardObject
+    ): StandardObjectInterface | undefined {
+        let returnValue;
+        if (!this.variationData.length) {
+            const data = this.form.dataset.product_variations;
+            if (!data) {
+                return undefined;
+            }
+
+            this.variationData = JSON.parse(data);
+            if (!this.variationData) {
+                return undefined;
+            }
+        }
+
+        this.variationData.forEach((variation) => {
+            const { attributes } = variation;
+
+            if (!attributes) {
+                throw new Error('no attributes');
+            }
+
+            for (const [key, value] of Object.entries(attributes)) {
+                if (currentOptions[key] !== value) {
+                    return;
+                }
+            }
+
+            returnValue = variation;
+        });
+
+        return returnValue;
+    }
+
     private handleAddToCartClick(event: Event): boolean {
         event.preventDefault();
 
@@ -168,8 +210,19 @@ export default class AjaxAddToCart extends Component {
             action: 'ajaxaddtocart',
             product_id: this.button.value,
             quantity: quantity.toString(),
-            variation_id: variation_id.toString()
+            variation_id: variation_id.toString(),
+            subscription: ''
         };
+
+        const formData = new FormData(this.form);
+        const nameField = this.form.querySelector('#one_time_purchase') as HTMLInputElement;
+        const name = nameField?.name;
+        const subscription: boolean = !nameField?.checked;
+        const subscriptionTerm: string = formData.get('subscription-term')?.toString() || '';
+
+        if (subscription) {
+            data.subscription = subscriptionTerm;
+        }
 
         sendAjaxRequest(
             data,
@@ -198,12 +251,11 @@ export default class AjaxAddToCart extends Component {
     }
 
     private onFailure() {
-        const form: HTMLFormElement | null = this.button.closest('form');
-        if (form === null) {
-            return;
-        }
-
-        form.submit();
+        // const form: HTMLFormElement | null = this.button.closest('form');
+        // if (form === null) {
+        //     return;
+        // }
+        // form.submit();
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {

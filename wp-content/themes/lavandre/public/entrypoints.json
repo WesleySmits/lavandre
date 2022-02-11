@@ -45,7 +45,7 @@
       "js": [
         "/runtime.8f675b1f.js",
         "/908.eff23dbb.js",
-        "/productDetail.3978af73.js"
+        "/productDetail.090f1307.js"
       ],
       "css": [
         "/productDetail.34951795.css"
@@ -83,7 +83,7 @@
         "/runtime.8f675b1f.js"
       ],
       "css": [
-        "/deferred-styles.d04a1e3c.css"
+        "/deferred-styles.82f0ed5e.css"
       ]
     },
     "homepage-styles": {
@@ -147,7 +147,7 @@
         "/runtime.8f675b1f.js"
       ],
       "css": [
-        "/product-styles.8d19e633.css"
+        "/product-styles.3bccfe77.css"
       ]
     },
     "product-overview-styles": {

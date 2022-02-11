@@ -24,19 +24,24 @@ $variations = $product->get_available_variations();
 $variations_json = wp_json_encode( $available_variations );
 $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
 
+// var_dump($variations_json); die;
+
 function sort_size($a, $b) {
     if (strpos($a, 'x') === false) {
         return;
     }
 
     $lengthA = explode('x', $a)[0];
-    $lengthB = explode('x', $b)[0];
+    $lengthA2 = explode('x', $a)[1];
 
-    if ($lengthA == $lengthB) {
-        return 0;
+    $lengthB = explode('x', $b)[0];
+    $lengthB2= explode('x', $b)[1];
+
+    if ($lengthA !== $lengthB) {
+        return ($lengthA < $lengthB) ? -1 : 1;
     }
 
-    return ($lengthA < $lengthB) ? -1 : 1;
+    return ($lengthA2 < $lengthB2) ? -1 : 1;
 }
 
 function sort_attributes($attributes) {
@@ -81,13 +86,15 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
     <section class="product-detail__variations">
         <?php $attributes = sort_attributes($attributes);?>
 
-
         <?php foreach ( $attributes as $attribute_name => $options ) : ?>
-        <?php usort($options, 'sort_size'); ?>
+
+        <?php if ($attribute_name === 'pa_size') {
+            usort($options, 'sort_size');
+         }; ?>
 
         <div class="form-row">
             <label
-                class="bold product-detail__variation__label product-detail__variation__label--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>"><?php echo wc_attribute_label($attribute_name); ?></label>
+                class="product-detail__variation__label product-detail__variation__label--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>"><?php echo wc_attribute_label($attribute_name); ?></label>
             <div
                 class="product-detail-variation-wrapper product-detail-variation-wrapper--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>">
 
@@ -108,7 +115,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
                                 $id = $attribute_name . '-' . $value;
                             ?>
                 <div
-                    class="product-detail__variation custom-radio--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>">
+                    class="product-detail__variation custom-radio--variation custom-radio--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>">
                     <input id="<?php echo $id; ?>" type="radio" name="<?php echo 'attribute_' . $attribute_name; ?>"
                         value="<?php echo $value; ?>" <?php echo ($isFirst) ? 'checked' : '' ?> required>
                     <label for="<?php echo $id; ?>" data-value="<?php echo $value; ?>">
