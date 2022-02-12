@@ -61,18 +61,20 @@ $user_id = get_current_user_id();
 ?>
 
 <?php if ($order) { ?>
-    <section class="order-details__product-information">
-        <header><h1><?php _e('Your last order', 'lavandre'); ?></h1></header>
-        <?php include 'partials/_latest-order.php'; ?>
-    </section>
+<section class="order-details__product-information">
+    <header>
+        <h1><?php _e('Your last order', 'lavandre'); ?></h1>
+    </header>
+    <?php include 'partials/_latest-order.php'; ?>
+</section>
 <?php } ?>
 
 <section id="milestones">
     <h1><?php _e('Your contribution', 'lavandre'); ?></h1>
     <p>
         <?php echo sprintf(__('
-            You have planted <strong>%s trees</strong>.
-        ', 'lavandre'), $user_trees); ?>
+            You have planted %s %s.
+        ', 'lavandre'), $user_trees, __('trees', 'lavandre')); ?>
     </p>
 </section>
 
