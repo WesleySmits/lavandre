@@ -425,7 +425,6 @@ function ww_custom_cart() {
     }
 	return ob_get_clean();
 }
-add_shortcode( 'ww_custom_cart', 'ww_custom_cart' );
 
 function ww_custom_cart_mini() {
     ob_start();
@@ -629,4 +628,6 @@ function ww_custom_cart_mini() {
     }
 	return ob_get_clean();
 }
+
+add_shortcode( 'ww_custom_cart', 'ww_custom_cart' );
 add_shortcode( 'ww_custom_cart_mini', 'ww_custom_cart_mini' );

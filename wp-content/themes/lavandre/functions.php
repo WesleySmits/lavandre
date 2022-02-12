@@ -34,6 +34,8 @@ include(get_stylesheet_directory() . '/functions/woocommerce-account.php');
 include(get_stylesheet_directory() . '/functions/woocommerce-checkout-login-step.php');
 
 function lavandre_setup() {
+    load_theme_textdomain('lavandre', get_template_directory() . '/languages');
+
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'automatic-feed-links' );
     add_theme_support( 'title-tag' );
