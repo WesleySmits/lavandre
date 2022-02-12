@@ -407,8 +407,8 @@ function ww_custom_cart() {
                 <p>
                     <?php
                         $treeAmount = $woocommerce->cart->cart_contents_count;
-                        $treeWord = ($woocommerce->cart->cart_contents_count > 1) ? __(' trees!') : __(' tree!');
-                        echo sprintf(__('We plant a tree for each ordered item. With this purchase you\'ll plant %s %s', 'lavandre'), $treeAmount, $treeWord);
+                        $treeWord = ($woocommerce->cart->cart_contents_count > 1) ? __('trees') : __('tree');
+                        echo sprintf(__('We plant a tree for each ordered item. With this purchase you\'ll plant %s %s!', 'lavandre'), $treeAmount, $treeWord);
                     ?>
                 </p>
             </div>
