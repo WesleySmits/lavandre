@@ -405,13 +405,11 @@ function ww_custom_cart() {
 
             <div class="custom-cart_tree-planting">
                 <p>
-                    <?php _e('We plant a tree for each ordered item. With this purchase you\'ll plant'); ?>
-                    <span>
-                        <?php
-                            echo ' ' . $woocommerce->cart->cart_contents_count . '';
-                            echo ($woocommerce->cart->cart_contents_count > 1) ? _e(' trees!') : _e(' tree!')
-                        ?>
-                    </span>
+                    <?php
+                        $treeAmount = $woocommerce->cart->cart_contents_count;
+                        $treeWord = ($woocommerce->cart->cart_contents_count > 1) ? __(' trees!') : __(' tree!');
+                        echo sprintf(__('We plant a tree for each ordered item. With this purchase you\'ll plant %s %s', 'lavandre'), $treeAmount, $treeWord);
+                    ?>
                 </p>
             </div>
 
