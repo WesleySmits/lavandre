@@ -145,5 +145,3 @@
         </ul>
     </section>
 </footer>
-
-<!-- comment -->
