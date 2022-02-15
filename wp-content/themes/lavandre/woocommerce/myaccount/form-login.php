@@ -88,7 +88,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <section class="register-wrapper">
                 <header>
                     <h1><?php esc_html_e( 'Register', 'woocommerce' ); ?></h1>
-                    <p><?php _e('Checkout faster, view your order history and be the first to hear about new product launches!','lavandre'); ?></p>
+                    <p><?php esc_html_e('Checkout faster, view your order history and be the first to hear about new product launches!','lavandre'); ?></p>
                 </header>
 
                 <form method="post" class="woocommerce-form woocommerce-form-register register" <?php do_action( 'woocommerce_register_form_tag' ); ?> >
