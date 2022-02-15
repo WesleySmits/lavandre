@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Lavandré\n"
-"POT-Creation-Date: 2022-02-15 20:48+0100\n"
-"PO-Revision-Date: 2022-02-15 20:48+0100\n"
+"POT-Creation-Date: 2022-02-15 21:10+0100\n"
+"PO-Revision-Date: 2022-02-15 21:10+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -95,7 +95,7 @@ msgstr "Betaling"
 msgid "Orders"
 msgstr "Bestellingen"
 
-#: _footer-site.php:88 functions/woocommerce-custom-cart.php:332
+#: _footer-site.php:88 functions/woocommerce-custom-cart.php:328
 #: partials/panels/_customer-service.php:46 partials/panels/_shipping.php:19
 #: woocommerce/partials/overview.php:74
 msgid "Shipping"
@@ -656,6 +656,7 @@ msgid "Forgot your password?"
 msgstr "Wachtwoord vergeten?"
 
 #: functions/woocommerce-checkout-login-step.php:70
+#: partials/panels/_mobile-menu.php:39 partials/panels/_my-account.php:40
 #: woocommerce/myaccount/form-login.php:82
 msgid "Sign in"
 msgstr "Inloggen"
@@ -686,119 +687,118 @@ msgstr ""
 msgid "Continue shopping"
 msgstr "Verder winkelen"
 
-#: functions/woocommerce-custom-cart.php:29
-#: functions/woocommerce-custom-cart.php:616
-msgid "Taxes and shipping calculated at checkout."
-msgstr ""
-
-#: functions/woocommerce-custom-cart.php:38
+#: functions/woocommerce-custom-cart.php:34
 msgid "Continue Shopping"
 msgstr "Verder winkelen"
 
-#: functions/woocommerce-custom-cart.php:46
-#: functions/woocommerce-custom-cart.php:455
+#: functions/woocommerce-custom-cart.php:42
+#: functions/woocommerce-custom-cart.php:451
 msgid "Your order qualifies for Free shipping"
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:49
-#: functions/woocommerce-custom-cart.php:458
+#: functions/woocommerce-custom-cart.php:45
+#: functions/woocommerce-custom-cart.php:454
 #, php-format
 msgid "You are %s away from free shipping."
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:130
-#: functions/woocommerce-custom-cart.php:229
-#: functions/woocommerce-custom-cart.php:540
+#: functions/woocommerce-custom-cart.php:126
+#: functions/woocommerce-custom-cart.php:225
+#: functions/woocommerce-custom-cart.php:536
 #: woocommerce/checkout/review-order.php:105
 #: woocommerce/single-product/product-subscription-options.php:69
 #, php-format
 msgid "Delivery every %s %s"
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:158
-#: functions/woocommerce-custom-cart.php:300
-#: functions/woocommerce-custom-cart.php:573
+#: functions/woocommerce-custom-cart.php:154
+#: functions/woocommerce-custom-cart.php:296
+#: functions/woocommerce-custom-cart.php:569
 msgid "Remove"
 msgstr "Verwijderen"
 
-#: functions/woocommerce-custom-cart.php:322
+#: functions/woocommerce-custom-cart.php:318
 msgid "Order summary"
 msgstr "Overzicht van de bestelling"
 
-#: functions/woocommerce-custom-cart.php:327
-#: functions/woocommerce-custom-cart.php:620
+#: functions/woocommerce-custom-cart.php:323
+#: functions/woocommerce-custom-cart.php:616
 #: woocommerce/checkout/review-order.php:154
 #: woocommerce/partials/overview.php:69
 msgid "Subtotal"
 msgstr "Subtotaal"
 
-#: functions/woocommerce-custom-cart.php:337
+#: functions/woocommerce-custom-cart.php:333
 #: woocommerce/partials/overview.php:75
 msgid "Free"
 msgstr "Gratis"
 
-#: functions/woocommerce-custom-cart.php:345
+#: functions/woocommerce-custom-cart.php:341
 #: woocommerce/checkout/review-order.php:175
 #: woocommerce/checkout/review-order.php:181
 msgid "Tax"
 msgstr "BTW"
 
-#: functions/woocommerce-custom-cart.php:346
+#: functions/woocommerce-custom-cart.php:342
 msgid "TBD"
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:351
-#: functions/woocommerce-custom-cart.php:366
-#: functions/woocommerce-custom-cart.php:384
+#: functions/woocommerce-custom-cart.php:347
+#: functions/woocommerce-custom-cart.php:362
+#: functions/woocommerce-custom-cart.php:380
 msgid "Discount code"
 msgstr "Kortingscode"
 
-#: functions/woocommerce-custom-cart.php:357
+#: functions/woocommerce-custom-cart.php:353
 #: woocommerce/checkout/review-order.php:196
 #: woocommerce/partials/overview.php:84
 msgid "Total"
 msgstr "Totaal"
 
-#: functions/woocommerce-custom-cart.php:382
+#: functions/woocommerce-custom-cart.php:378
 msgid "Coupon code"
 msgstr "Kortingscode"
 
-#: functions/woocommerce-custom-cart.php:383
+#: functions/woocommerce-custom-cart.php:379
 msgid "Fill in a valid coupon code"
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:389
+#: functions/woocommerce-custom-cart.php:385
 msgid "Apply"
 msgstr "Toepassen"
 
-#: functions/woocommerce-custom-cart.php:404
+#: functions/woocommerce-custom-cart.php:400
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: functions/woocommerce-custom-cart.php:414
+#: functions/woocommerce-custom-cart.php:410
 #: woocommerce/myaccount/dashboard.php:77
 msgid "trees"
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:414
+#: functions/woocommerce-custom-cart.php:410
 msgid "tree"
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:415
+#: functions/woocommerce-custom-cart.php:411
 #, php-format
 msgid ""
 "We plant a tree for each ordered item. With this purchase you'll plant %s %s!"
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:421
+#: functions/woocommerce-custom-cart.php:417
 msgid "Continue to checkout"
 msgstr "Ga verder naar de kassa"
 
-#: functions/woocommerce-custom-cart.php:445
+#: functions/woocommerce-custom-cart.php:441
 msgid "Your bag is currently empty"
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:626
+#: functions/woocommerce-custom-cart.php:612
+msgid "Taxes and shipping calculated at checkout."
+msgstr ""
+
+#: functions/woocommerce-custom-cart.php:622
 msgid "Continue to Checkout"
 msgstr ""
 
@@ -842,10 +842,6 @@ msgstr "Account"
 msgid "Frequently asked questions"
 msgstr "Veelgestelde vragen"
 
-#: partials/panels/_mobile-menu.php:39
-msgid "Sign-in"
-msgstr "Aanmelden"
-
 #: partials/panels/_my-account.php:5 partials/panels/_my-account.php:40
 #: template-parts/rewards.php:117
 msgid "Log in"
@@ -863,10 +859,6 @@ msgstr ""
 #: partials/panels/_my-account.php:92
 msgid "Fill in a valid password"
 msgstr ""
-
-#: partials/panels/_my-account.php:40
-msgid "Sign In"
-msgstr "Inloggen"
 
 #: partials/panels/_my-account.php:45
 msgid "Are you new?"
@@ -1489,3 +1481,9 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "https://www.wesleysmits.com/"
 msgstr ""
+
+#~ msgid "Sign-in"
+#~ msgstr "Aanmelden"
+
+#~ msgid "Sign In"
+#~ msgstr "Inloggen"

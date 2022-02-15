@@ -37,7 +37,7 @@
                             data-role="password-forget"><?php _e('Forgot your password?', 'lavandre'); ?></a>
                     </p>
                     <button type="submit" is="lavandre-button" outline full-width size="large" name="login"
-                        value="<?php _e('Log in', 'lavandre'); ?>"><?php _e('Sign In', 'lavandre'); ?></button>
+                        value="<?php _e('Log in', 'lavandre'); ?>"><?php _e('Sign in', 'lavandre'); ?></button>
                 </form>
             </section>
 
