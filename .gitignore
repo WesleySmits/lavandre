@@ -120,6 +120,7 @@ autoupdater_maintenance_mode_enabled.tmp
 # Custom
 /node_modules
 /wp-content/themes/lavandre/node_modules
+wp-content/themes/lavandre/node_modules
 /vendor
 .wpe-devkit
 .lighthouseci
