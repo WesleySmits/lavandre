@@ -2,13 +2,13 @@
 
 function get_day_name($dayOfWeek) {
     $dayNames = [
-        'sunday',
-        'monday',
-        'tuesday',
-        'wednesday',
-        'thursday',
-        'friday',
-        'saturday'
+        __('sunday', 'lavandre'),
+        __('monday', 'lavandre'),
+        __('tuesday', 'lavandre'),
+        __('wednesday', 'lavandre'),
+        __('thursday', 'lavandre'),
+        __('friday', 'lavandre'),
+        __('saturday', 'lavandre')
     ];
 
     return $dayNames[$dayOfWeek];
@@ -16,18 +16,18 @@ function get_day_name($dayOfWeek) {
 
 function get_month_name($month) {
     $monthNames = [
-        'january',
-        'february',
-        'march',
-        'april',
-        'may',
-        'june',
-        'july',
-        'august',
-        'september',
-        'october',
-        'november',
-        'december'
+        __('january', 'lavandre'),
+        __('february', 'lavandre'),
+        __('march', 'lavandre'),
+        __('april', 'lavandre'),
+        __('may', 'lavandre'),
+        __('june', 'lavandre'),
+        __('july', 'lavandre'),
+        __('august', 'lavandre'),
+        __('september', 'lavandre'),
+        __('october', 'lavandre'),
+        __('november', 'lavandre'),
+        __('december', 'lavandre')
     ];
 
     return $monthNames[$month - 1];

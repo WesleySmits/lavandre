@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Lavandré\n"
-"POT-Creation-Date: 2022-02-15 20:27+0100\n"
-"PO-Revision-Date: 2022-02-15 20:30+0100\n"
+"POT-Creation-Date: 2022-02-15 20:48+0100\n"
+"PO-Revision-Date: 2022-02-15 20:48+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -95,7 +95,7 @@ msgstr "Betaling"
 msgid "Orders"
 msgstr "Bestellingen"
 
-#: _footer-site.php:88 functions/woocommerce-custom-cart.php:328
+#: _footer-site.php:88 functions/woocommerce-custom-cart.php:332
 #: partials/panels/_customer-service.php:46 partials/panels/_shipping.php:19
 #: woocommerce/partials/overview.php:74
 msgid "Shipping"
@@ -415,6 +415,88 @@ msgstr "Collecties"
 msgid "Completed"
 msgstr "Voltooid"
 
+#: functions/utilities.php:5
+msgid "sunday"
+msgstr ""
+
+#: functions/utilities.php:6
+msgid "monday"
+msgstr ""
+
+#: functions/utilities.php:7
+msgid "tuesday"
+msgstr ""
+
+#: functions/utilities.php:8
+msgid "wednesday"
+msgstr ""
+
+#: functions/utilities.php:9
+msgid "thursday"
+msgstr ""
+
+#: functions/utilities.php:10
+msgid "friday"
+msgstr ""
+
+#: functions/utilities.php:11
+msgid "saturday"
+msgstr ""
+
+#: functions/utilities.php:19
+msgid "january"
+msgstr ""
+
+#: functions/utilities.php:20
+msgid "february"
+msgstr ""
+
+#: functions/utilities.php:21
+#, fuzzy
+#| msgid "Search"
+msgid "march"
+msgstr "Zoeken"
+
+#: functions/utilities.php:22
+msgid "april"
+msgstr ""
+
+#: functions/utilities.php:23
+#, fuzzy
+#| msgid "Company"
+msgid "may"
+msgstr "Bedrijf"
+
+#: functions/utilities.php:24
+msgid "june"
+msgstr ""
+
+#: functions/utilities.php:25
+msgid "july"
+msgstr ""
+
+#: functions/utilities.php:26
+msgid "august"
+msgstr ""
+
+#: functions/utilities.php:27
+msgid "september"
+msgstr ""
+
+#: functions/utilities.php:28
+msgid "october"
+msgstr ""
+
+#: functions/utilities.php:29
+#, fuzzy
+#| msgid "Invoice Number:"
+msgid "november"
+msgstr "Factuurnummer:"
+
+#: functions/utilities.php:30
+msgid "december"
+msgstr ""
+
 #: functions/utilities.php:41
 #, php-format
 msgid "Order now, receive it on %s"
@@ -604,118 +686,119 @@ msgstr ""
 msgid "Continue shopping"
 msgstr "Verder winkelen"
 
-#: functions/woocommerce-custom-cart.php:34
+#: functions/woocommerce-custom-cart.php:29
+#: functions/woocommerce-custom-cart.php:616
+msgid "Taxes and shipping calculated at checkout."
+msgstr ""
+
+#: functions/woocommerce-custom-cart.php:38
 msgid "Continue Shopping"
 msgstr "Verder winkelen"
 
-#: functions/woocommerce-custom-cart.php:42
-#: functions/woocommerce-custom-cart.php:451
+#: functions/woocommerce-custom-cart.php:46
+#: functions/woocommerce-custom-cart.php:455
 msgid "Your order qualifies for Free shipping"
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:45
-#: functions/woocommerce-custom-cart.php:454
+#: functions/woocommerce-custom-cart.php:49
+#: functions/woocommerce-custom-cart.php:458
 #, php-format
 msgid "You are %s away from free shipping."
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:126
-#: functions/woocommerce-custom-cart.php:225
-#: functions/woocommerce-custom-cart.php:536
+#: functions/woocommerce-custom-cart.php:130
+#: functions/woocommerce-custom-cart.php:229
+#: functions/woocommerce-custom-cart.php:540
 #: woocommerce/checkout/review-order.php:105
 #: woocommerce/single-product/product-subscription-options.php:69
 #, php-format
 msgid "Delivery every %s %s"
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:154
-#: functions/woocommerce-custom-cart.php:296
-#: functions/woocommerce-custom-cart.php:569
+#: functions/woocommerce-custom-cart.php:158
+#: functions/woocommerce-custom-cart.php:300
+#: functions/woocommerce-custom-cart.php:573
 msgid "Remove"
 msgstr "Verwijderen"
 
-#: functions/woocommerce-custom-cart.php:318
+#: functions/woocommerce-custom-cart.php:322
 msgid "Order summary"
 msgstr "Overzicht van de bestelling"
 
-#: functions/woocommerce-custom-cart.php:323
-#: functions/woocommerce-custom-cart.php:616
+#: functions/woocommerce-custom-cart.php:327
+#: functions/woocommerce-custom-cart.php:620
 #: woocommerce/checkout/review-order.php:154
 #: woocommerce/partials/overview.php:69
 msgid "Subtotal"
 msgstr "Subtotaal"
 
-#: functions/woocommerce-custom-cart.php:333
+#: functions/woocommerce-custom-cart.php:337
 #: woocommerce/partials/overview.php:75
 msgid "Free"
 msgstr "Gratis"
 
-#: functions/woocommerce-custom-cart.php:341
+#: functions/woocommerce-custom-cart.php:345
 #: woocommerce/checkout/review-order.php:175
 #: woocommerce/checkout/review-order.php:181
 msgid "Tax"
 msgstr "BTW"
 
-#: functions/woocommerce-custom-cart.php:342
+#: functions/woocommerce-custom-cart.php:346
 msgid "TBD"
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:347
-#: functions/woocommerce-custom-cart.php:362
-#: functions/woocommerce-custom-cart.php:380
+#: functions/woocommerce-custom-cart.php:351
+#: functions/woocommerce-custom-cart.php:366
+#: functions/woocommerce-custom-cart.php:384
 msgid "Discount code"
 msgstr "Kortingscode"
 
-#: functions/woocommerce-custom-cart.php:353
+#: functions/woocommerce-custom-cart.php:357
 #: woocommerce/checkout/review-order.php:196
 #: woocommerce/partials/overview.php:84
 msgid "Total"
 msgstr "Totaal"
 
-#: functions/woocommerce-custom-cart.php:378
+#: functions/woocommerce-custom-cart.php:382
 msgid "Coupon code"
 msgstr "Kortingscode"
 
-#: functions/woocommerce-custom-cart.php:379
+#: functions/woocommerce-custom-cart.php:383
 msgid "Fill in a valid coupon code"
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:385
+#: functions/woocommerce-custom-cart.php:389
 msgid "Apply"
 msgstr "Toepassen"
 
-#: functions/woocommerce-custom-cart.php:400
+#: functions/woocommerce-custom-cart.php:404
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: functions/woocommerce-custom-cart.php:410
+#: functions/woocommerce-custom-cart.php:414
 #: woocommerce/myaccount/dashboard.php:77
 msgid "trees"
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:410
+#: functions/woocommerce-custom-cart.php:414
 msgid "tree"
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:411
+#: functions/woocommerce-custom-cart.php:415
 #, php-format
 msgid ""
 "We plant a tree for each ordered item. With this purchase you'll plant %s %s!"
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:417
+#: functions/woocommerce-custom-cart.php:421
 msgid "Continue to checkout"
 msgstr "Ga verder naar de kassa"
 
-#: functions/woocommerce-custom-cart.php:441
+#: functions/woocommerce-custom-cart.php:445
 msgid "Your bag is currently empty"
 msgstr ""
 
-#: functions/woocommerce-custom-cart.php:612
-msgid "Taxes and shipping calculated at checkout."
-msgstr ""
-
-#: functions/woocommerce-custom-cart.php:622
+#: functions/woocommerce-custom-cart.php:626
 msgid "Continue to Checkout"
 msgstr ""
 
