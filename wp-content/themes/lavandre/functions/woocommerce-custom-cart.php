@@ -619,7 +619,7 @@ function ww_custom_cart_mini() {
 
         <aside>
             <button is="lavandre-button" primary full-width size="large" href="/cart"
-                data-cy="mini-cart-button"><?php _e('Continue to Checkout', 'lavandre'); ?></button>
+                data-cy="mini-cart-button"><?php _e('Continue to checkout', 'lavandre'); ?></button>
         </aside>
 
         <?php
