@@ -25,10 +25,6 @@ function ww_custom_cart() {
     } else {
     ?>
 
-<section class="custom-cart--mini__messages">
-            <p><?php _e('Taxes and shipping calculated at checkout.', 'lavandre'); ?></p>
-        </section>
-
 <section id="custom-cart" class="custom-cart">
 
     <header class="custom-cart__header">
