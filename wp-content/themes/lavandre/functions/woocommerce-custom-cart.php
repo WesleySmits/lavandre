@@ -414,7 +414,7 @@ function ww_custom_cart() {
             </div>
 
             <button is="lavandre-button" href="/checkout" class="custom-cart__cta" primary size="large" full-width>
-                <?php _e('Continue to checkout'); ?>
+                <?php _e('Continue to checkout', 'lavandre'); ?>
             </button>
         </aside>
     </div>
