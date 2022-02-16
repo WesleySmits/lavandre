@@ -1,4 +1,4 @@
-<?php
+    <?php
     /* Template Name: Rewards Page Template */
 
     if ( ! defined( 'ABSPATH' ) ) {
@@ -193,3 +193,78 @@ get_footer();
         <button is="lavandre-button" outline size="large" full-width><?php _e('Follow Us', 'lavandre'); ?></button>
     </div>
 </template>
+
+
+<div class="delete-me">
+    <div class="points-grid__overlay">
+        <button type="button" data-close
+            class="points-grid__overlay__close"><?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?></button>
+        <button href="/my-account/" is="lavandre-button" outline size="large" full-width>
+            <?php _e('Sign up', 'lavandre'); ?>
+        </button>
+
+        <p><?php _e('Already a member?', 'lavandre'); ?> <a href="/my-account/"><?php _e('Log in', 'lavandre'); ?></a>
+        </p>
+    </div>
+
+    <div class="points-grid__overlay">
+        <button type="button" data-close
+            class="points-grid__overlay__close"><?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?></button>
+        <p><?php _e('You already completed this campaign', 'lavandre'); ?></p>
+    </div>
+
+    <div class="points-grid__overlay">
+        <button type="button" data-close
+            class="points-grid__overlay__close"><?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?></button>
+        <p><?php _e('Thanks! We\'re looking forward to helping you celebrate :)', 'lavandre'); ?></p>
+    </div>
+
+    <div class="points-grid__overlay">
+        <button type="button" data-close
+            class="points-grid__overlay__close"><?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?></button>
+        <p><?php _e('Earn 1 point for every €1 you spend in our store', 'lavandre'); ?></p>
+    </div>
+
+    <div class="points-grid__overlay">
+        <button type="button" data-close
+            class="points-grid__overlay__close"><?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?></button>
+        <p><?php _e('Earn 5 points when you like our Facebook page', 'lavandre'); ?></p>
+        <button is="lavandre-button" outline size="large"
+            full-width><?php _e('Like on Facebook', 'lavandre'); ?></button>
+    </div>
+
+    <div class="points-grid__overlay">
+        <button type="button" data-close
+            class="points-grid__overlay__close"><?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?></button>
+        <p><?php _e('Earn 5 points when you share us on Facebook', 'lavandre'); ?></p>
+        <button is="lavandre-button" outline size="large"
+            full-width><?php _e('Share on Facebook', 'lavandre'); ?></button>
+    </div>
+
+    <div class="points-grid__overlay">
+        <button type="button" data-close
+            class="points-grid__overlay__close"><?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?></button>
+        <p><?php _e('Earn 15 points on your birthday', 'lavandre'); ?></p>
+
+        <form is="birthday-form">
+
+            <div class="custom-date-wrapper">
+                <lavandre-select id="birthday-day" name="day"></lavandre-select>
+
+                <lavandre-select id="birthday-month" name="month"></lavandre-select>
+            </div>
+
+            <br>
+
+            <button is="lavandre-button" type="submit" outline size="large"
+                full-width><?php _e('Add my Birthday', 'lavandre'); ?></button>
+        </form>
+    </div>
+
+    <div class="points-grid__overlay">
+        <button type="button" data-close
+            class="points-grid__overlay__close"><?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?></button>
+        <p><?php _e('Earn 5 points when you follow us on Instagram', 'lavandre'); ?></p>
+        <button is="lavandre-button" outline size="large" full-width><?php _e('Follow Us', 'lavandre'); ?></button>
+    </div>
+</div>
