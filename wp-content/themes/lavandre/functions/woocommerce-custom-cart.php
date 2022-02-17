@@ -19,7 +19,7 @@ function ww_custom_cart() {
 <div class="custom-cart--empty">
     <p><?php _e('Your bag is currently empty.', 'lavandre'); ?></p>
     <button is="lavandre-button" href="/shop" primary full-width
-        size="large"><?php _e('Continue shopping', 'lavandre'); ?></button>
+        size="large"><?php _e('Continue Shopping', 'lavandre'); ?></button>
 </div>
 <?php
     } else {
