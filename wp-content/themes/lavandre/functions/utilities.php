@@ -45,21 +45,23 @@ function get_delivery_date_text($locale = 'nl_NL') {
     $today = date('Y-m-d');
     $dayOfWeek = date('w');
     $datetime = new DateTime($today);
+    $interval = new DateInterval('P1D');
 
     switch ($dayOfWeek) {
         case 6:
-            $datetime->add(new DateInterval('P2D'));
+            $interval = new DateInterval('P2D');
             break;
-        default:
-            $datetime->add(new DateInterval('P1D'));
     }
+
+    var_dump($locale);
+
+    $datetime->add($interval);
 
     $day = get_translated_text(get_day_name($datetime->format('w')), 'lavandre', $locale);
     $date = $datetime->format('d');
     $month = get_translated_text(get_month_name($datetime->format('n')), 'lavandre', $locale);
 
-
-    return $dateText = $day . ' ' . $date . ' ' . $month;
+    return $day . ' ' . $date . ' ' . $month;
 }
 
 function get_translated_text($text, $domain, $locale) {
