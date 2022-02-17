@@ -438,7 +438,7 @@ function ww_custom_cart_mini() {
     if (count($items) === 0) {
         ?>
     <div id="custom-cart" class="custom-cart--empty custom-cart--mini">
-        <p><?php _e('Your bag is currently empty', 'lavandre'); ?></p>
+        <p><?php _e('Your bag is currently empty.', 'lavandre'); ?></p>
     </div>
     <?php
     } else {
