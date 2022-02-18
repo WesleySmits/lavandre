@@ -24,8 +24,6 @@ $variations = $product->get_available_variations();
 $variations_json = wp_json_encode( $available_variations );
 $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
 
-// var_dump($variations_json); die;
-
 function sort_size($a, $b) {
     if (strpos($a, 'x') === false) {
         return;

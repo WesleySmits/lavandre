@@ -53,8 +53,6 @@ function get_delivery_date_text($locale = 'nl_NL') {
             break;
     }
 
-    var_dump($locale);
-
     $datetime->add($interval);
 
     $day = get_translated_text(get_day_name($datetime->format('w')), 'lavandre', $locale);
