@@ -58,7 +58,7 @@
             <h3><?php echo sprintf(__('€%d Off', 'lavandre'), $amount); ?></h3>
             <p><?php echo sprintf(__('%s Points', 'lavandre'), $points); ?></p>
             <button is="lavandre-button" data-role="redeem-coupon" data-id="<?php echo $id; ?>" size="large" outline
-                full-width <?php if ($points > $userPoints) { echo 'disabled'; } ?>>Redeem</redeem>
+                full-width <?php if ($points > $userPoints) { echo 'disabled'; } ?>><?php _e('Redeem', 'lavandre'); ?></redeem>
         </li>
         <?php } ?>
     </ul>
