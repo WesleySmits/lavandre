@@ -350,7 +350,7 @@ function ww_custom_cart() {
                     <?php } ?>
 
                     <tr class="custom-cart__sidebar__row custom-cart__sidebar__row--large-font">
-                        <th><?php _e('Total'); ?></th>
+                        <th><?php _e('Total', 'lavandre'); ?></th>
                         <td><?php echo wc_price($woocommerce->cart->total); ?></td>
                     </tr>
                 </tbody>

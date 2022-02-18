@@ -157,7 +157,7 @@ function coupon_code_add() {
 
     if ( $coupon->get_code() !== $coupon_code ) {
         wp_send_json_error(sprintf(
-            __( 'Enter a valid discount code', 'lavandre' ),
+            __( 'Fill in a valid coupon code', 'lavandre' ),
             esc_html( $coupon_code )
         ), $coupon);
     }
@@ -171,7 +171,7 @@ function coupon_code_add() {
 
     if (!$coupon->is_valid() ) {
         wp_send_json_error(sprintf(
-            __( 'Enter a valid discount code', 'lavandre' ),
+            __( 'Fill in a valid coupon code', 'lavandre' ),
             esc_html( $coupon_code )
         ), $coupon);
     }
