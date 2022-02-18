@@ -106,7 +106,7 @@ endwhile;
 get_footer();
 
 ?>
-<template id="points-grid-overlay">
+<!-- <template id="points-grid-overlay"> -->
     <div class="points-grid__overlay">
         <button type="button" data-close
             class="points-grid__overlay__close"><?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?></button>
@@ -117,33 +117,33 @@ get_footer();
         <p><?php _e('Already a member?', 'lavandre'); ?> <a href="/my-account/"><?php _e('Log in', 'lavandre'); ?></a>
         </p>
     </div>
-</template>
+<!-- </template> -->
 
-<template id="points-grid-overlay--completed">
+<!-- <template id="points-grid-overlay--completed"> -->
     <div class="points-grid__overlay">
         <button type="button" data-close
             class="points-grid__overlay__close"><?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?></button>
         <p><?php _e('You already completed this campaign', 'lavandre'); ?></p>
     </div>
-</template>
+<!-- </template> -->
 
-<template id="points-grid-overlay--completed--woorewards_birthday">
+<!-- <template id="points-grid-overlay--completed--woorewards_birthday"> -->
     <div class="points-grid__overlay">
         <button type="button" data-close
             class="points-grid__overlay__close"><?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?></button>
         <p><?php _e('Thanks! We\'re looking forward to helping you celebrate :)', 'lavandre'); ?></p>
     </div>
-</template>
+<!-- </template> -->
 
-<template id="points-grid-overlay--default">
+<!-- <template id="points-grid-overlay--default"> -->
     <div class="points-grid__overlay">
         <button type="button" data-close
             class="points-grid__overlay__close"><?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?></button>
         <p><?php _e('Earn 1 point for every €1 you spend in our store', 'lavandre'); ?></p>
     </div>
-</template>
+<!-- </template> -->
 
-<template id="points-grid-overlay--woorewards_liked_on_facebook">
+<!-- <template id="points-grid-overlay--woorewards_liked_on_facebook"> -->
     <div class="points-grid__overlay">
         <button type="button" data-close
             class="points-grid__overlay__close"><?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?></button>
@@ -151,9 +151,9 @@ get_footer();
         <button is="lavandre-button" outline size="large"
             full-width><?php _e('Like on Facebook', 'lavandre'); ?></button>
     </div>
-</template>
+<!-- </template> -->
 
-<template id="points-grid-overlay--woorewards_shared_on_facebook">
+<!-- <template id="points-grid-overlay--woorewards_shared_on_facebook"> -->
     <div class="points-grid__overlay">
         <button type="button" data-close
             class="points-grid__overlay__close"><?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?></button>
@@ -161,9 +161,9 @@ get_footer();
         <button is="lavandre-button" outline size="large"
             full-width><?php _e('Share on Facebook', 'lavandre'); ?></button>
     </div>
-</template>
+<!-- </template> -->
 
-<template id="points-grid-overlay--woorewards_birthday">
+<!-- <template id="points-grid-overlay--woorewards_birthday"> -->
     <div class="points-grid__overlay">
         <button type="button" data-close
             class="points-grid__overlay__close"><?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?></button>
@@ -183,13 +183,13 @@ get_footer();
                 full-width><?php _e('Add my Birthday', 'lavandre'); ?></button>
         </form>
     </div>
-</template>
+<!-- </template> -->
 
-<template id="points-grid-overlay--woorewards_followed_on_instagram">
+<!-- <template id="points-grid-overlay--woorewards_followed_on_instagram"> -->
     <div class="points-grid__overlay">
         <button type="button" data-close
             class="points-grid__overlay__close"><?php include get_stylesheet_directory() . '/partials/icons/close.svg.php'; ?></button>
         <p><?php _e('Earn 5 points when you follow us on Instagram', 'lavandre'); ?></p>
         <button is="lavandre-button" outline size="large" full-width><?php _e('Follow Us', 'lavandre'); ?></button>
     </div>
-</template>
+<!-- </template> -->
