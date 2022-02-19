@@ -7,6 +7,14 @@ export default class LavandreButton extends HTMLButtonElement {
         this.setAttribute('is', 'lavandre-button');
     }
 
+    get label(): string {
+        return this.innerText;
+    }
+
+    set label(value: string) {
+        this.innerText = value;
+    }
+
     get href(): string {
         return this.getAttribute('href') || '';
     }
@@ -69,6 +77,17 @@ export default class LavandreButton extends HTMLButtonElement {
         }
 
         this.setAttribute('loading', bool.toString());
+    }
+
+    #isDisabled: boolean = this.hasAttribute('aria-disabled');
+
+    get isDisabled(): boolean {
+        return this.#isDisabled;
+    }
+
+    set isDisabled(value: boolean) {
+        this.#isDisabled = value;
+        this.toggleAttribute('aria-disabled', value);
     }
 
     private clickHandler = (event: Event) => {

@@ -19,10 +19,18 @@ defined( 'ABSPATH' ) || exit;
 
 global $product;
 
+// var_dump($product->get_stock_status());
+// var_dump($product->get_stock_quantity());
+
+// die;
+
 $attribute_keys = array_keys( $attributes );
 $variations = $product->get_available_variations();
+$variations_id = wp_list_pluck( $variations, 'variation_id' );
 $variations_json = wp_json_encode( $available_variations );
 $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
+
+// var_dump($variations_id); die;
 
 function sort_size($a, $b) {
     if (strpos($a, 'x') === false) {
@@ -98,20 +106,25 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
                 <?php foreach ($options as $key => $value) : ?>
                 <?php
-                                $terms = get_terms($attribute_name);
-                                $label = '';
-                                $isFirst = ($key === array_key_first($options));
+                    $terms = get_terms($attribute_name);
+                    $label = '';
+                    $isFirst = ($key === array_key_first($options));
 
-                                foreach ($terms as $term) :
-                                    if ($term->slug !== $value) {
-                                        continue;
-                                    }
+                    foreach ($terms as $term) :
+                        if ($term->slug !== $value) {
+                            continue;
+                        }
 
-                                    $label = $term->name;
-                                endforeach;
+                        $label = $term->name;
+                    endforeach;
 
-                                $id = $attribute_name . '-' . $value;
-                            ?>
+                    $id = $attribute_name . '-' . $value;
+
+                    // $test1 = new WC_Product_Variable('346');
+                    // var_dump($test1); die;
+
+                    // var_dump($variations); die
+                ?>
                 <div
                     class="product-detail__variation custom-radio--variation custom-radio--<?php echo str_replace(' ', '-', strtolower(wc_attribute_label($attribute_name)));  ?>">
                     <input id="<?php echo $id; ?>" type="radio" name="<?php echo 'attribute_' . $attribute_name; ?>"

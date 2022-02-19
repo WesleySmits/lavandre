@@ -44,7 +44,7 @@
         --button-border-color: var(--old-burgundy);
         --button-text-color: var(--white);
 
-        &:hover {
+        &:not([aria-disabled]):hover {
             --button-background-color: transparent;
             --button-border-color: var(--old-burgundy);
             --button-text-color: var(--old-burgundy);
@@ -54,7 +54,7 @@
     &[outline] {
         --button-background-color: transparent;
 
-        &:hover {
+        &:not([aria-disabled]):hover {
             --button-background-color: var(--old-burgundy);
             --button-border-color: var(--old-burgundy);
             --button-text-color: var(--white);
@@ -73,6 +73,11 @@
         --button-font-size: 1.5rem;
     }
 
+    &[aria-disabled] {
+        cursor: initial;
+    }
+
+
     &[full-width] {
         --button-width: 100%;
     }
@@ -87,7 +92,7 @@
         stroke: var(--button-text-color);
     }
 
-    &:hover:not(:disabled) {
+    &:not([aria-disabled]):hover {
         text-decoration: none;
 
         svg,

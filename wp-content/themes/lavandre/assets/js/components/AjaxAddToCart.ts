@@ -4,13 +4,14 @@ import Component from '../common/Component';
 import SidePanel from '../ui/SidePanel';
 import addOrUpdateCartTotals from '../util/cart';
 import { sendAjaxRequest } from '../util/requests';
+import LavandreButton from '../web-components/button/LavandreButton';
 
 export default class AjaxAddToCart extends Component {
     private form: HTMLFormElement;
 
     private variationFields: HTMLInputElement[];
 
-    private button: HTMLButtonElement;
+    private button: LavandreButton;
 
     private variationData: any[] = [];
 
@@ -19,7 +20,7 @@ export default class AjaxAddToCart extends Component {
     constructor(form: HTMLFormElement) {
         super();
         this.form = form;
-        this.button = this.form.querySelector('button[name="add-to-cart"]') as HTMLButtonElement;
+        this.button = this.form.querySelector('button[name="add-to-cart"]') as LavandreButton;
         this.variationFields = Array.from(
             this.form.querySelectorAll('.product-detail__variations input')
         );
@@ -55,6 +56,10 @@ export default class AjaxAddToCart extends Component {
 
         const variationID: number | null = this.findMatchingVariant(currentOptions);
         this.disableNonExistingVariants(name, value);
+        this.disableOutOfStockVariants(name, value);
+        this.selectFirstAvailableVariant();
+
+        this.disableButtonIfOutOfStock();
         if (!variationID) {
             this.setFormInvalid();
             return;
@@ -73,6 +78,86 @@ export default class AjaxAddToCart extends Component {
     private setFormInvalid(): void {
         this.form.product_id.value = '';
         this.form.variation_id.value = '';
+    }
+
+    private selectFirstAvailableVariant(): void {
+        const names = new Set();
+
+        this.variationFields.forEach((field) => {
+            names.add(field.name);
+        });
+
+        for (const name of names) {
+            const fields: HTMLInputElement[] = Array.from(
+                this.form.querySelectorAll(`[name="${name}"]`)
+            );
+            fields.forEach((field) => {
+                if (field.disabled) {
+                    return;
+                }
+
+                field.checked = true;
+            });
+        }
+    }
+
+    private disableButtonIfOutOfStock(): void {
+        let isInStock = false;
+        this.variationData.forEach((variation) => {
+            if (variation.is_in_stock) {
+                isInStock = true;
+            }
+        });
+
+        if (!isInStock) {
+            this.button.isDisabled = true;
+            this.button.label = 'BOETTON';
+            this.button.label = this.button.dataset.outOfStock || 'Out of stock';
+        }
+    }
+
+    private disableOutOfStockVariants(name: string = '', value = ''): void {
+        if (name === 'attribute_pa_amount') {
+            return;
+        }
+
+        this.variationData.forEach((variation) => {
+            const { attributes } = variation;
+
+            if (!attributes) {
+                throw new Error('no attributes');
+            }
+
+            this.variationFields.forEach((field) => {
+                const match = attributes[field.name];
+                if (match === field.value) {
+                    if (variation.is_in_stock) {
+                        return;
+                    }
+
+                    this.#disableField(field);
+                }
+            });
+        });
+
+        this.variationData.forEach((variation) => {
+            const { attributes } = variation;
+
+            if (!attributes) {
+                throw new Error('no attributes');
+            }
+
+            this.variationFields.forEach((field) => {
+                const match = attributes[field.name];
+                if (match === field.value) {
+                    if (!variation.is_in_stock) {
+                        return;
+                    }
+
+                    this.#enableField(field);
+                }
+            });
+        });
     }
 
     private disableNonExistingVariants(name: string = '', value = ''): void {
@@ -256,6 +341,15 @@ export default class AjaxAddToCart extends Component {
         //     return;
         // }
         // form.submit();
+    }
+
+    #disableField(field: HTMLInputElement): void {
+        field.disabled = true;
+        field.removeAttribute('checked');
+    }
+
+    #enableField(field: HTMLInputElement): void {
+        field.removeAttribute('disabled');
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {
