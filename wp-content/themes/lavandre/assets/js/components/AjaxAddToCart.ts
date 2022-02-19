@@ -91,13 +91,24 @@ export default class AjaxAddToCart extends Component {
             const fields: HTMLInputElement[] = Array.from(
                 this.form.querySelectorAll(`[name="${name}"]`)
             );
-            fields.forEach((field) => {
-                if (field.disabled) {
-                    return;
-                }
 
-                field.checked = true;
+            let selectedField = false;
+
+            fields.forEach((field) => {
+                if (field.checked) {
+                    selectedField = true;
+                }
             });
+
+            if (!selectedField) {
+                fields.forEach((field) => {
+                    if (field.disabled) {
+                        return;
+                    }
+
+                    field.checked = true;
+                });
+            }
         }
     }
 
