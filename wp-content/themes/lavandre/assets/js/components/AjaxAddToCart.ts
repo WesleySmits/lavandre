@@ -29,6 +29,7 @@ export default class AjaxAddToCart extends Component {
 
         const currentSizeName = 'attribute_pa_size';
         const currentSizeValue = this.form[currentSizeName].value;
+
         this.handleChangeVariationAttribute(currentSizeName, currentSizeValue);
     }
 
@@ -57,7 +58,14 @@ export default class AjaxAddToCart extends Component {
         const variationID: number | null = this.findMatchingVariant(currentOptions);
         this.disableNonExistingVariants(name, value);
         this.disableOutOfStockVariants(name, value);
-        this.selectFirstAvailableVariant();
+
+        if (this.disabledChecker()) {
+            this.selectFirstAvailableVariant();
+        } else {
+            setTimeout(() => {
+                this.disableSubscriptionVariants();
+            }, 100);
+        }
 
         this.disableButtonIfOutOfStock();
         if (!variationID) {
@@ -78,6 +86,19 @@ export default class AjaxAddToCart extends Component {
     private setFormInvalid(): void {
         this.form.product_id.value = '';
         this.form.variation_id.value = '';
+    }
+
+    private disabledChecker(): boolean {
+        let returnValue: boolean = false;
+        this.variationFields.forEach((field) => {
+            if (field.disabled) {
+                return;
+            }
+
+            returnValue = true;
+        });
+
+        return returnValue;
     }
 
     private selectFirstAvailableVariant(): void {
@@ -361,6 +382,17 @@ export default class AjaxAddToCart extends Component {
 
     #enableField(field: HTMLInputElement): void {
         field.removeAttribute('disabled');
+    }
+
+    private disableSubscriptionVariants(): void {
+        const fields: HTMLInputElement[] = Array.from(
+            this.form.querySelectorAll('.custom-radio--subscription input')
+        );
+
+        fields.forEach((field) => {
+            field.disabled = true;
+            field.removeAttribute('checked');
+        });
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {
