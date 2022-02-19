@@ -368,11 +368,7 @@ export default class AjaxAddToCart extends Component {
     }
 
     private onFailure() {
-        // const form: HTMLFormElement | null = this.button.closest('form');
-        // if (form === null) {
-        //     return;
-        // }
-        // form.submit();
+        // stub
     }
 
     #disableField(field: HTMLInputElement): void {

@@ -95,7 +95,7 @@ if ( post_password_required() ) {
     <?php ww_benefit_block(get_field('block_2'), ['ww-block--full-height', 'bg-alabaster']); ?>
     <?php ww_benefit_block(get_field('block_3'), ['ww-block--full-height']); ?>
     <?php ww_banner_block(get_field('block_4')); ?>
-    <?php ww_benefit_block(get_field('block_5'), ['ww-block--full-height']); ?>
+    <?php ww_benefit_block(get_field('block_5'), ['ww-block--full-height'], 'large', 'Each component of our Lavandré blend is OEKO-TEX® Standard 100 certified.'); ?>
 
     <?php include get_stylesheet_directory() . '/partials/_instagram-feed.php'; ?>
 </div>

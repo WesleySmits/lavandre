@@ -137,7 +137,7 @@
 <?php
     }
 
-    function ww_benefit_block($block, $classes = [], $container = 'large'): void
+    function ww_benefit_block($block, $classes = [], $container = 'large', $footer = ''): void
     {
         if (!$block) {
             return;
@@ -176,6 +176,12 @@
             <?php include get_stylesheet_directory() . '/partials/icons/chevron-right.svg.php'; ?>
         </button>
     </carousel-element>
+
+    <?php if ($footer) { ?>
+        <footer class="ww-container ww-container--small benefit-block__footer">
+            <?php _e($footer, 'lavandre'); ?>
+        </footer>
+    <?php } ?>
 </section>
 <?php
     }
