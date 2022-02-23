@@ -29,7 +29,7 @@ class BirthdayForm extends HTMLFormElement {
         const returnValue: StandardObjectInterface = {};
         for (let i = 1; i <= 31; i++) {
             const num = formatNumberWithLeadingZero(i).toString();
-            returnValue[i] = num;
+            returnValue[num] = num;
         }
 
         return returnValue;

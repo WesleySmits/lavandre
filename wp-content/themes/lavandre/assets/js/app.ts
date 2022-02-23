@@ -20,6 +20,7 @@ import RedeemPointsForCoupon from './components/RedeemPointsForCoupon';
 import ScrollToContent from './components/ScrollToContent';
 import VideoMediaResolver from './components/VideoMediaResolver';
 import Module from './Module';
+import LanguagePopup from './ui/LanguagePopup';
 import SidePanel from './ui/SidePanel';
 import { setCurrentLinkClass } from './util/links';
 import './web-components/AccordionElement';
@@ -50,7 +51,8 @@ export default class App extends Module {
         ScrollToContent,
         VideoMediaResolver,
         RedeemPointsForCoupon,
-        CopyCoupon
+        CopyCoupon,
+        LanguagePopup
     ];
 
     public initialize() {

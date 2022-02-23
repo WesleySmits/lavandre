@@ -55,6 +55,18 @@ export default class LavandreButton extends HTMLButtonElement {
         this.setAttribute('outline', bool.toString());
     }
 
+    get link(): boolean {
+        return this.hasAttribute('link');
+    }
+
+    set link(bool: boolean) {
+        if (!bool) {
+            return;
+        }
+
+        this.setAttribute('link', bool.toString());
+    }
+
     get fullWidth(): boolean {
         return this.hasAttribute('primary');
     }

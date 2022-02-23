@@ -1,0 +1,135 @@
+@import "../variables/variables.pcss";
+
+.popup {
+    justify-content: flex-start;
+    flex-flow: column nowrap;
+
+    width: 100%;
+    height: 100%;
+    max-width: 45rem;
+    max-height: 35rem;
+
+    padding: 0;
+
+    font-size: 0.875rem;
+
+    background-color: var(--platinum);
+    border: 0 none;
+
+    overflow-x: hidden;
+    transition: opacity 400ms ease-in-out;
+    backface-visibility: hidden;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    opacity: 0;
+    z-index: 10;
+
+    &[open] {
+        display: flex;
+        opacity: 1;
+    }
+}
+
+.popup__row {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+
+    @media (--tablet) {
+        flex-direction: row;
+    }
+}
+
+.popup__column {
+    @media (--tablet) {
+        max-width: 50%;
+        flex: 0 0 50%;
+    }
+
+    &--content {
+        padding: 1rem;
+
+        @media (--tablet) {
+            padding: 3.125rem;
+        }
+    }
+}
+
+.popup__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    background: transparent;
+    border: 0 none;
+    outline: none;
+    cursor: pointer;
+
+    z-index: 10;
+
+    svg {
+        width: .75rem;
+        height: .75rem;
+    }
+}
+
+.language-popup {
+    padding: 2.5rem;
+    text-align: center;
+    height: fit-content;
+    overflow: visible;
+
+    @media (--up-to-tablet) {
+        max-width: 95%;
+    }
+
+    &__container {
+        position: relative;
+        padding: 5rem 0;
+    }
+
+    &__title {
+        margin-top: 1.25rem;
+        text-transform: uppercase;
+        font-size: 1rem;
+    }
+
+    &__logo {
+        svg {
+            width: auto;
+            height: 2.5rem;
+        }
+    }
+
+    p {
+        margin: 2.5rem 0;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+
+        max-width: 20rem;
+        margin: 0 auto;
+
+        button:not(:first-child) {
+            margin-top: 1.25rem;
+        }
+
+        button[link] {
+            margin-top: .625rem;
+        }
+    }
+
+    &__dropdown {
+        width: 100%;
+    }
+}

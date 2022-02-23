@@ -4,6 +4,8 @@
     --button-text-color: var(--old-burgundy);
 
     --button-font-size: calc(13rem / 16);
+    --button-font-style: italic;
+    --button-text-decoration: none;
 
     --button-width: auto;
     --button-min-width: 2.25rem;
@@ -30,11 +32,12 @@
     color: var(--button-text-color);
     font-family: var(--font-family-accent);
     font-weight: 100;
-    font-style: italic;
+    font-style: var(--button-font-style);
     font-size: var(--button-font-size);
     line-height: 1;
     text-transform: initial;
     text-align: center;
+    text-decoration: var(--button-text-decoration);
 
     cursor: pointer;
     transition: all .4s ease;
@@ -124,5 +127,16 @@
         &[primary]:after {
             border-color: transparent transparent #FFFFFF #FFFFFF;
         }
+    }
+
+    &[link] {
+        --button-background-color: transparent;
+        --button-border-color: transparent;
+        --button-padding: 0;
+        --button-font-size: 1rem;
+        --button-text-decoration: underline;
+        --button-text-style: normal;
+
+        appearance: none;
     }
 }

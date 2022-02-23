@@ -16,6 +16,7 @@
 <?php wp_footer(); ?>
 
 <?php include 'partials/panels/panels.php'; ?>
+<?php include 'partials/popups/popups.php'; ?>
 </body>
 
 </html>

@@ -3,6 +3,8 @@ import { formatNumberWithLeadingZero } from '../util/dateHelper';
 export default class LavandreSelect extends HTMLElement {
     #searchField: HTMLInputElement;
 
+    #searchFieldLabel: HTMLLabelElement;
+
     #dropdownField: HTMLUListElement;
 
     #optionValues: StandardObjectInterface = {};
@@ -10,6 +12,30 @@ export default class LavandreSelect extends HTMLElement {
     #selectedValue = '';
 
     #name = this.getAttribute('name') || '';
+
+    #placeholder = '';
+
+    get placeholder(): string {
+        return this.#placeholder;
+    }
+
+    set placeholder(value: string) {
+        this.#placeholder = value;
+        this.#searchField.placeholder = value;
+        this.#searchFieldLabel.innerText = value;
+    }
+
+    #id = '';
+
+    get id(): string {
+        return this.#id;
+    }
+
+    set id(value: string) {
+        this.#id = value;
+        this.#searchField.id = value;
+        this.#searchFieldLabel.htmlFor = value;
+    }
 
     get name(): string {
         return this.#name;
@@ -51,7 +77,7 @@ export default class LavandreSelect extends HTMLElement {
         }
     };
 
-    constructor() {
+    constructor(id = '', placeholder = '') {
         super();
 
         this.#searchField = document.createElement('INPUT') as HTMLInputElement;
@@ -59,11 +85,20 @@ export default class LavandreSelect extends HTMLElement {
         this.#searchField.name = this.name;
         this.#searchField.autocapitalize = 'off';
         this.#searchField.autocomplete = 'off';
+        this.#searchField.placeholder = placeholder;
+        this.#searchField.id = id;
         this.appendChild(this.#searchField);
+
+        this.#searchFieldLabel = document.createElement('LABEL') as HTMLLabelElement;
+        this.#searchFieldLabel.classList.add('lavandre-select__label');
+        this.#searchFieldLabel.innerText = placeholder;
+        this.#searchFieldLabel.htmlFor = id;
+        this.appendChild(this.#searchFieldLabel);
 
         this.#dropdownField = document.createElement('UL') as HTMLUListElement;
         this.#dropdownField.hidden = true;
         this.#dropdownField.classList.add('lavandre-select__dropdown');
+
         this.appendChild(this.#dropdownField);
     }
 
@@ -85,7 +120,7 @@ export default class LavandreSelect extends HTMLElement {
 
             const value = formatNumberWithLeadingZero(this.#optionValues[key]).toString();
             option.dataset.value = value;
-            option.innerText = value.replace(/^0+/, '');
+            option.innerText = key.replace(/^0+/, '');
             this.#dropdownField.appendChild(option);
         });
 
