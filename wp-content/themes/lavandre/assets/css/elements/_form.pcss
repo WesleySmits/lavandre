@@ -403,7 +403,7 @@ body.page-id-317 .site-main,
         width: 1.5rem;
         height: 3.5rem;
         margin: auto;
-        background: url("https://www.lavandre.com/wp-content/themes/lavandre/assets/images/icons/eye-closed.svg")
+        background: url("https://lavandre.com/wp-content/themes/lavandre/assets/images/icons/eye-closed.svg")
             center center no-repeat;
         border: none;
         color: var(--color-text);
@@ -411,7 +411,7 @@ body.page-id-317 .site-main,
         transition: none;
 
         &.opened {
-            background-image: url("https://www.lavandre.com/wp-content/themes/lavandre/assets/images/icons/eye-opened.svg");
+            background-image: url("https://lavandre.com/wp-content/themes/lavandre/assets/images/icons/eye-opened.svg");
         }
     }
 }
@@ -700,6 +700,7 @@ lavandre-select {
     min-width: 4rem;
     flex: 1 1 auto;
     font-family: var(--font-family-accent);
+    font-size: 1rem;
 
     &[name="day"] {
         flex: 0 0 4rem;
@@ -715,7 +716,7 @@ lavandre-select {
         width: .5rem;
         height: .5rem;
 
-        background: url('https://www.lavandre.com/wp-content/themes/lavandre/public/images/icons/caret.svg') no-repeat center;
+        background: url('https://lavandre.com/wp-content/themes/lavandre/public/images/icons/caret.svg') no-repeat center;
     }
 
     &.active:after {
@@ -756,6 +757,10 @@ lavandre-select {
     }
 
     .lavandre-select__dropdown__item {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+
         padding: .5rem 1rem;
         background-color: var(--platinum);
         color: var(--color-text);
@@ -766,6 +771,19 @@ lavandre-select {
         &:hover {
             background-color: var(--jet);
             color: var(--white);
+
+            svg, g {
+                fill: var(--white);
+            }
+        }
+
+        svg {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        g {
+            transition: fill .2s ease;
         }
     }
 

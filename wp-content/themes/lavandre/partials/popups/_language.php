@@ -24,20 +24,20 @@
 
     $websiteInfoMapping = [
         'International' => 'https://lavandre.com/',
-        'Belgium' => 'https://lavandre.nl/',
+        'België' => 'https://lavandre.nl/',
         'Belgique' => 'https://lavandre.fr/',
-        'Germany' => 'https://lavandre.de/',
+        'Deutschland' => 'https://lavandre.de/',
         'France' => 'https://lavandre.fr/',
-        'Netherlands' => 'https://lavandre.nl/'
+        'Nederland' => 'https://lavandre.nl/'
     ];
 
     $websiteInfo = [
         'International' => 'International',
-        'Belgium' => 'Belgium',
+        'België' => 'België',
         'Belgique' => 'Belgique',
-        'Germany' => 'Germany',
+        'Deutschland' => 'Deutschland',
         'France' => 'France',
-        'Netherlands' => 'Netherlands'
+        'Nederland' => 'Nederland'
     ];
 
     $language = $languages[$preferredLanguage] ?? 'English';

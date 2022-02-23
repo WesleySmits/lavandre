@@ -1,4 +1,5 @@
 import { formatNumberWithLeadingZero } from '../util/dateHelper';
+import { parseStringAsHtml } from '../util/dom';
 
 export default class LavandreSelect extends HTMLElement {
     #searchField: HTMLInputElement;
@@ -23,6 +24,12 @@ export default class LavandreSelect extends HTMLElement {
         this.#placeholder = value;
         this.#searchField.placeholder = value;
         this.#searchFieldLabel.innerText = value;
+    }
+
+    #icon = '';
+
+    set icon(value: string) {
+        this.#icon = value;
     }
 
     #id = '';
@@ -118,9 +125,17 @@ export default class LavandreSelect extends HTMLElement {
             option.addEventListener('click', this.#selectOption.bind(this));
             option.classList.add('lavandre-select__dropdown__item');
 
+            if (this.#icon) {
+                option.appendChild(parseStringAsHtml(this.#icon, 'svg'));
+            }
+
+            const span = document.createElement('span');
+            span.classList.add('lavandre-select__dropdown__item__text');
+            span.innerText = key.replace(/^0+/, '');
+            option.appendChild(span);
+
             const value = formatNumberWithLeadingZero(this.#optionValues[key]).toString();
             option.dataset.value = value;
-            option.innerText = key.replace(/^0+/, '');
             this.#dropdownField.appendChild(option);
         });
 

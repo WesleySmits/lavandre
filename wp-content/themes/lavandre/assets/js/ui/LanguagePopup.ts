@@ -44,6 +44,7 @@ export default class LanguagePopup extends Popup {
                 }
 
                 domainDropdown.id = 'domain-dropdown-field';
+                domainDropdown.icon = document.getElementById('cart')?.outerHTML ?? '';
 
                 const data = JSON.parse(json) || [];
                 domainDropdown.optionValues = data;
