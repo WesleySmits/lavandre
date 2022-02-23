@@ -60,8 +60,8 @@
             <p><?php echo sprintf(__('It seems you are %s. Do you want to go to our %s website?', 'lavandre'), $language, $websiteName); ?></p>
 
             <footer class="language-popup__footer">
-                <button id="moveDomain" is="lavandre-button" href="<?php echo $domain;?>" primary full-width size="large"><?php echo sprintf(__('Continue to %s site', 'lavandre'), $websiteName); ?></button>
-                <button id="stayDomain" is="lavandre-button" outline full-width size="large"><?php _e('Confirm', 'lavandre') ?></button>
+                <button id="moveDomain" is="lavandre-button" href="<?php echo $domain;?>" outline full-width size="large"><?php echo sprintf(__('Continue to %s', 'lavandre'), $websiteName); ?></button>
+                <button id="stayDomain" is="lavandre-button" primary full-width size="large"><?php _e('Confirm', 'lavandre') ?></button>
                 <button class="otherDomains" is="lavandre-button" link><?php _e('Other countries', 'lavandre'); ?></button>
             </footer>
         </div>

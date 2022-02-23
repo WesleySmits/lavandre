@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { getCookieValue, setCookieValue } from '../util/cookies';
+import { setCookieValue } from '../util/cookies';
 import LavandreSelect from '../web-components/LavandreSelect';
 import Popup from './Popup';
 
@@ -9,9 +9,9 @@ export default class LanguagePopup extends Popup {
             return;
         }
 
-        if (getCookieValue('language-popup-seen')) {
-            return;
-        }
+        // if (getCookieValue('language-popup-seen')) {
+        //     return;
+        // }
 
         const path = window.location.pathname;
         if (path === '/nl/' || path === '/fr/' || path === '/de/') {
@@ -19,7 +19,7 @@ export default class LanguagePopup extends Popup {
             return;
         }
 
-        const preferredLanguage = window.navigator.language ?? 'en';
+        // const preferredLanguage = window.navigator.language ?? 'en';
         // const language = preferredLanguage.substring(0, 2);
         // if (language === 'en') {
         //     console.log('language wrong');
