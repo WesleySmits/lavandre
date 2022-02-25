@@ -137,7 +137,7 @@
             <section class="ww-footer__links__column ww-footer__links__column--full">
                 <header class="ww-footer__links__header">
                     <h3 class="footer__h3" data-only-on-mobile="true" data-curtain-toggle="footer-column-4">
-                        <?php _e('Land', 'lavandre'); ?></h3>
+                        <?php _e('Country / Region', 'lavandre'); ?></h3>
                 </header>
 
                 <language-switcher id="domain-dropdown" data-change data-curtain-content="footer-column-4" class="language-popup__dropdown lavandre-select--blue lavandre-select--high lavandre-select--top" data-json='<?php echo json_encode($websiteInfo); ?>' data-mapping='<?php echo json_encode($websiteInfoMapping); ?>' data-only-on-mobile="true"></language-switcher>
