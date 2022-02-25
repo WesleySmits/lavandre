@@ -22,23 +22,9 @@
         'nl' => 'Dutch'
     ];
 
-    $websiteInfoMapping = [
-        'International' => 'https://lavandre.com/',
-        'België' => 'https://lavandre.nl/',
-        'Belgique' => 'https://lavandre.fr/',
-        'Deutschland' => 'https://lavandre.de/',
-        'France' => 'https://lavandre.fr/',
-        'Nederland' => 'https://lavandre.nl/'
-    ];
-
-    $websiteInfo = [
-        'International' => 'International',
-        'België' => 'België',
-        'Belgique' => 'Belgique',
-        'Deutschland' => 'Deutschland',
-        'France' => 'France',
-        'Nederland' => 'Nederland'
-    ];
+    $company = getCompany();
+    $websiteInfo = $company->getWebsiteInfo()->websiteInfo;
+    $websiteInfoMapping = $company->getWebsiteInfo()->websiteInfoMapping;
 
     $language = $languages[$preferredLanguage] ?? 'English';
     $domain = $domains[$preferredLanguage] ?? 'https://lavandre.com/';
@@ -76,7 +62,7 @@
             </section>
 
             <footer class="language-popup__footer">
-                <lavandre-select id="domain-dropdown" class="language-popup__dropdown" data-json='<?php echo json_encode($websiteInfo); ?>' data-mapping='<?php echo json_encode($websiteInfoMapping); ?>'></lavandre-select>
+                <language-switcher id="domain-dropdown" class="language-popup__dropdown" data-json='<?php echo json_encode($websiteInfo); ?>' data-mapping='<?php echo json_encode($websiteInfoMapping); ?>'></language-switcher>
                 <button id="submit-domain" is="lavandre-button" primary full-width size="large"><?php _e('Confirm', 'lavandre') ?></button>
             </footer>
         </div>

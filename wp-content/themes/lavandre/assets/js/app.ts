@@ -27,6 +27,7 @@ import './web-components/AccordionElement';
 import './web-components/BirthdayForm';
 import LavandreButton from './web-components/button/LavandreButton';
 import './web-components/CarouselElement';
+import './web-components/LanguageSwitcher';
 import './web-components/LavandreSelect';
 import './web-components/SignupBlock';
 

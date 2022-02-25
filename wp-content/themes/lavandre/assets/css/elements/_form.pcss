@@ -693,7 +693,7 @@ body.page-id-317 .site-main,
     margin: auto;
 }
 
-lavandre-select {
+.lavandre-select {
     position: relative;
     display: block;
     min-height: 44px;
@@ -707,20 +707,25 @@ lavandre-select {
     }
 
     &:after {
-        content: "";
+        content: '';
         position: absolute;
-        top: 0;
-        right: .5rem;
+        top: -4px;
+        right: 1.25rem;
         bottom: 0;
         margin: auto;
-        width: .5rem;
-        height: .5rem;
-
-        background: url('https://lavandre.com/wp-content/themes/lavandre/public/images/icons/caret.svg') no-repeat center;
+        display: inline-block;
+        vertical-align: top;
+        width: .75rem;
+        height: .75rem;
+        border-style: solid;
+        border-color: var(--color-text);
+        border-width: 0.1em 0.1em 0 0;
+        transform: rotate(135deg);
     }
 
     &.active:after {
-        transform: scaleY(-1);
+        transform: rotate(-45deg);
+        top: 4px;
     }
 
     .lavandre-select__input {
@@ -788,12 +793,40 @@ lavandre-select {
     }
 
     &.lavandre-select--blue {
+        .lavandre-select__input {
+            background-image: url("https://lavandre.com/wp-content/themes/lavandre/assets/images/footer-background.jpeg");
+        }
+
         .lavandre-select__dropdown {
-            max-height: 10rem;
+            background-image: url("https://lavandre.com/wp-content/themes/lavandre/assets/images/footer-background.jpeg");
         }
 
         .lavandre-select__dropdown__item {
-            background-color: var(--beau-blue);
+            background-color: transparent;
+
+            &:hover {
+                background-color: var(--jet);
+            }
+        }
+    }
+
+    &--high {
+        height: 3.75rem;
+    }
+
+    &--top {
+        .lavandre-select__dropdown {
+            top: auto;
+            bottom: 100%;
+        }
+
+        &.active .lavandre-select__input {
+            border-bottom: 1px solid var(--jet);
+        }
+
+        .lavandre-select__dropdown {
+            border-top: 1px solid var(--jet);
+            border-bottom: 0;
         }
     }
 }

@@ -1,6 +1,8 @@
 <?php
     $company = getCompany();
     $contactPoint = $company->getContactPoint();
+    $websiteInfo = $company->getWebsiteInfo()->websiteInfo;
+    $websiteInfoMapping = $company->getWebsiteInfo()->websiteInfoMapping;
 ?>
 
 <?php

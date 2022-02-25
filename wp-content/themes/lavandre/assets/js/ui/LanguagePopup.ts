@@ -1,6 +1,5 @@
-/* eslint-disable no-console */
 import { getCookieValue, setCookieValue } from '../util/cookies';
-import LavandreSelect from '../web-components/LavandreSelect';
+import LanguageSwitcher from '../web-components/LanguageSwitcher';
 import Popup from './Popup';
 
 export default class LanguagePopup extends Popup {
@@ -34,19 +33,7 @@ export default class LanguagePopup extends Popup {
                 return;
             }
 
-            const domainDropdown: LavandreSelect | null = popup.querySelector('#domain-dropdown');
-            if (domainDropdown) {
-                const json = domainDropdown.dataset.json;
-                if (!json) {
-                    return;
-                }
-
-                domainDropdown.id = 'domain-dropdown-field';
-                domainDropdown.icon = document.getElementById('cart')?.outerHTML ?? '';
-
-                const data = JSON.parse(json) || [];
-                domainDropdown.optionValues = data;
-            }
+            const domainDropdown: LanguageSwitcher | null = popup.querySelector('#domain-dropdown');
 
             const stayDomainButton: HTMLButtonElement | null =
                 popup?.querySelector('#stayDomain') ?? null;

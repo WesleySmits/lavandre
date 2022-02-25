@@ -63,6 +63,7 @@
 
         @media (--tablet) {
             flex-direction: row;
+            flex-wrap: wrap;
             padding: 3.5rem 0;
             gap: 4rem;
         }
@@ -83,6 +84,56 @@
 
         @media (--tablet-landscape) {
             border: none;
+        }
+    }
+
+    &__links__column-wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-content: center;
+
+        @media (--tablet) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 4rem;
+        }
+
+        @media (--tablet-landscape) {
+            flex: 1 1 50%;
+            max-width: 50%;
+            justify-content: space-between;
+        }
+    }
+
+    &__links__column--full {
+        flex: 0 0 50%;
+        contain: initial;
+
+        .lavandre-select.active {
+            overflow: initial;
+        }
+
+        .lavandre-select__input {
+            @media (--up-to-tablet) {
+                border-top: 0 !important;
+                border-right: 0 !important;
+                border-left: 0 !important;
+                background: none !important;
+            }
+        }
+
+
+        .lavandre-select__dropdown {
+            @media (--up-to-tablet) {
+                border-bottom: 1px solid var(--jet) !important;
+            }
+        }
+
+        @media (--up-to-tablet) {
+            [data-curtain-content].active {
+                margin-bottom: 1rem;
+            }
         }
     }
 
@@ -109,13 +160,21 @@
                     height: .75rem;
                     border-style: solid;
                     border-color: var(--color-text);
-                    border-width: 0.15em 0.15em 0 0;
+                    border-width: 0.125em 0.125em 0 0;
                     transform: rotate(135deg);
                 }
 
                 &.active:after {
-                    transform: rotate(-45deg);
-                    top: 4px;
+                    content: "\00d7";
+                    border: 0;
+                    transform: none;
+                    margin: 0;
+                    font-size: 2.5rem;
+                    font-weight: 100;
+                    width: 1rem;
+                    top: 0;
+                    right: 10px;
+
                 }
             }
 

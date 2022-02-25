@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import Component from '../common/Component';
 
 export default class CopyCoupon extends Component {
@@ -30,8 +29,6 @@ export default class CopyCoupon extends Component {
         const text = this.#button.dataset.text;
         const copiedText = this.#button.dataset.copiedText;
 
-        console.log(text, copiedText);
-
         if (!code || !text || !copiedText) {
             return false;
         }
@@ -57,12 +54,10 @@ export default class CopyCoupon extends Component {
 
     private onSuccess(res: any, event: Event): void {
         const response: any = res;
-        console.log('success', response);
     }
 
     private onFailure(res: string): void {
         const response = JSON.parse(res);
-        console.log('failure', response);
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {

@@ -9,6 +9,7 @@ class Company {
     private array $founders;
     private Address $address;
     private ContactPoint $contactPoint;
+    private WebsiteInfo $websiteInfo;
 
     function __construct(
         string $companyName,
@@ -16,7 +17,8 @@ class Company {
         int $foundingDate,
         array $founders,
         Address $address,
-        ContactPoint $contactPoint
+        ContactPoint $contactPoint,
+        WebsiteInfo $websiteInfo
     ) {
         $this->companyName = $companyName;
         $this->brandName = $brandName;
@@ -24,6 +26,7 @@ class Company {
         $this->founders = $founders;
         $this->address = $address;
         $this->contactPoint = $contactPoint;
+        $this->websiteInfo = $websiteInfo;
     }
 
     /**
@@ -143,6 +146,25 @@ class Company {
     {
         $this->contactPoint = $contactPoint;
 
+        return $this;
+    }
+
+    /**
+     * Get the value of websiteInfo
+     */
+    public function getWebsiteInfo()
+    {
+        return $this->websiteInfo;
+    }
+
+    /**
+     * Set the value of websiteInfo
+     *
+     * @return  self
+     */
+    public function setWebsiteInfo($websiteInfo)
+    {
+        $this->websiteInfo = $websiteInfo;
         return $this;
     }
 }

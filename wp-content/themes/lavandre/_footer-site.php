@@ -71,66 +71,78 @@
         </div>
 
         <div class="ww-footer__column ww-footer__link">
-            <section class="ww-footer__links__column">
+            <div class="ww-footer__links__column-wrapper">
+                <section class="ww-footer__links__column">
+                    <header class="ww-footer__links__header">
+                        <h3 class="footer__h3" data-only-on-mobile="true" data-curtain-toggle="footer-column-1">
+                            <?php _e('Customer service', 'lavandre'); ?></h3>
+                    </header>
+
+                    <ul class="no-list" data-curtain-content="footer-column-1" data-only-on-mobile="true">
+                        <li class="footer-links__item"><a class="footer-links__anchor"
+                                href="/contact/"><?php _e('Contact', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor"
+                                href="/customer-service/payment/"><?php _e('Payment', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor"
+                                href="/customer-service/orders/"><?php _e('Orders', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor"
+                                href="/customer-service/shipping/"><?php _e('Shipping', 'lavandre'); ?></a></li>
+                        <li class="footer-links__item"><a class="footer-links__anchor"
+                                href="/customer-service/returns/"><?php _e('Returns', 'lavandre'); ?></a></li>
+                    </ul>
+                </section>
+
+                <section class="ww-footer__links__column">
+                    <header class="ww-footer__links__header">
+                        <h3 class="footer__h3" data-only-on-mobile="true" data-curtain-toggle="footer-column-2">
+                            <?php _e('About Lavandré', 'lavandre'); ?></h3>
+                    </header>
+
+                    <ul class="no-list" data-curtain-content="footer-column-2" data-only-on-mobile="true">
+                        <li class="footer-links__item">
+                            <a class="footer-links__anchor" href="/about/"><?php _e('About us', 'lavandre'); ?></a>
+                        </li>
+
+                        <li class="footer-links__item">
+                            <a class="footer-links__anchor" href="/blog/"><?php _e('Blog', 'lavandre'); ?></a>
+                        </li>
+
+                        <li class="footer-links__item">
+                            <a class="footer-links__anchor"
+                                href="/sustainability/"><?php _e('Sustainability', 'lavandre'); ?></a>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="ww-footer__links__column">
+                    <header class="ww-footer__links__header">
+                        <h3 class="footer__h3" data-only-on-mobile="true" data-curtain-toggle="footer-column-3">
+                            <?php _e('Information', 'lavandre'); ?></h3>
+                    </header>
+
+                    <ul class="no-list" data-curtain-content="footer-column-3" data-only-on-mobile="true">
+                        <li class="footer-links__item">
+                            <a class="footer-links__anchor" href="/my-account/"><?php _e('My account', 'lavandre'); ?></a>
+                        </li>
+
+                        <li>
+                            <a href="/rewards">
+                                <?php _e('Rewards', 'lavandre'); ?>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <section class="ww-footer__links__column ww-footer__links__column--full">
                 <header class="ww-footer__links__header">
-                    <h3 class="footer__h3" data-only-on-mobile="true" data-curtain-toggle="footer-column-1">
-                        <?php _e('Customer service', 'lavandre'); ?></h3>
+                    <h3 class="footer__h3" data-only-on-mobile="true" data-curtain-toggle="footer-column-4">
+                        <?php _e('Land', 'lavandre'); ?></h3>
                 </header>
 
-                <ul class="no-list" data-curtain-content="footer-column-1" data-only-on-mobile="true">
-                    <li class="footer-links__item"><a class="footer-links__anchor"
-                            href="/contact/"><?php _e('Contact', 'lavandre'); ?></a></li>
-                    <li class="footer-links__item"><a class="footer-links__anchor"
-                            href="/customer-service/payment/"><?php _e('Payment', 'lavandre'); ?></a></li>
-                    <li class="footer-links__item"><a class="footer-links__anchor"
-                            href="/customer-service/orders/"><?php _e('Orders', 'lavandre'); ?></a></li>
-                    <li class="footer-links__item"><a class="footer-links__anchor"
-                            href="/customer-service/shipping/"><?php _e('Shipping', 'lavandre'); ?></a></li>
-                    <li class="footer-links__item"><a class="footer-links__anchor"
-                            href="/customer-service/returns/"><?php _e('Returns', 'lavandre'); ?></a></li>
-                </ul>
+                <language-switcher id="domain-dropdown" data-change data-curtain-content="footer-column-4" class="language-popup__dropdown lavandre-select--blue lavandre-select--high lavandre-select--top" data-json='<?php echo json_encode($websiteInfo); ?>' data-mapping='<?php echo json_encode($websiteInfoMapping); ?>' data-only-on-mobile="true"></language-switcher>
             </section>
 
-            <section class="ww-footer__links__column">
-                <header class="ww-footer__links__header">
-                    <h3 class="footer__h3" data-only-on-mobile="true" data-curtain-toggle="footer-column-2">
-                        <?php _e('About Lavandré', 'lavandre'); ?></h3>
-                </header>
-
-                <ul class="no-list" data-curtain-content="footer-column-2" data-only-on-mobile="true">
-                    <li class="footer-links__item">
-                        <a class="footer-links__anchor" href="/about/"><?php _e('About us', 'lavandre'); ?></a>
-                    </li>
-
-                    <li class="footer-links__item">
-                        <a class="footer-links__anchor" href="/blog/"><?php _e('Blog', 'lavandre'); ?></a>
-                    </li>
-
-                    <li class="footer-links__item">
-                        <a class="footer-links__anchor"
-                            href="/sustainability/"><?php _e('Sustainability', 'lavandre'); ?></a>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="ww-footer__links__column">
-                <header class="ww-footer__links__header">
-                    <h3 class="footer__h3" data-only-on-mobile="true" data-curtain-toggle="footer-column-3">
-                        <?php _e('Information', 'lavandre'); ?></h3>
-                </header>
-
-                <ul class="no-list" data-curtain-content="footer-column-3" data-only-on-mobile="true">
-                    <li class="footer-links__item">
-                        <a class="footer-links__anchor" href="/my-account/"><?php _e('My account', 'lavandre'); ?></a>
-                    </li>
-
-                    <li>
-                        <a href="/rewards">
-                            <?php _e('Rewards', 'lavandre'); ?>
-                        </a>
-                    </li>
-                </ul>
-            </section>
         </div>
     </section>
 

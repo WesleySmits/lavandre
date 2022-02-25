@@ -13,13 +13,14 @@
 }
 
 [data-curtain-content] {
-    transition: max-height .4s;
+    transition: min-height .4s, max-height .4s;
     overflow: hidden;
     padding-block: 0 !important;
 }
 
 [data-curtain-content]:not(.active) {
     max-height: 0;
+    min-height: initial;
 
     &:before.
     &:after {

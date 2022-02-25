@@ -78,7 +78,7 @@ export default class LavandreSelect extends HTMLElement {
             return;
         }
 
-        const closest = target.closest('lavandre-select');
+        const closest = target.closest('.lavandre-select');
         if (!target || closest === null || closest !== this) {
             this.#hideDropdown();
         }
@@ -86,6 +86,8 @@ export default class LavandreSelect extends HTMLElement {
 
     constructor(id = '', placeholder = '') {
         super();
+
+        this.classList.add('lavandre-select');
 
         this.#searchField = document.createElement('INPUT') as HTMLInputElement;
         this.#searchField.classList.add('lavandre-select__input');
@@ -157,6 +159,7 @@ export default class LavandreSelect extends HTMLElement {
 
         this.selectedValue = value;
         this.#hideDropdown();
+        this.dispatchEvent(new CustomEvent('change', { detail: { value } }));
     }
 
     #filter(): void {

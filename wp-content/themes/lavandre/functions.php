@@ -11,6 +11,7 @@ use Lavandre\Loyalty\LavandreLoyalty;
 require 'classes/Founder.php';
 require 'classes/Address.php';
 require 'classes/ContactPoint.php';
+require 'classes/WebsiteInfo.php';
 require 'classes/Company.php';
 
 include(get_stylesheet_directory() . '/functions/utilities.php');
@@ -97,7 +98,8 @@ function getCompany() {
 
     $address = new Address('Jan Valsterweg', 75, 0, 'Dordrecht', '3315 LG');
     $contactPoint = new ContactPoint($phoneNumber, $emailAddress, $facebook, $instagram, $twitter, $youtube, $linkedin, $facebookMessager, $whatsapp);
-    $company = new Company($companyName, $brandName, $foundingDate, $founders, $address, $contactPoint);
+    $websiteInfo = new WebsiteInfo();
+    $company = new Company($companyName, $brandName, $foundingDate, $founders, $address, $contactPoint, $websiteInfo);
 
     return $company;
 }

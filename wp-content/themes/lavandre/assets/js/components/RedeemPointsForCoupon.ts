@@ -62,12 +62,10 @@ export default class RedeemPointsForCoupon extends Component {
 
     private onSuccess(res: any, event: Event): void {
         const response: any = res;
-        console.log('success', response);
     }
 
     private onFailure(res: string): void {
         const response = JSON.parse(res);
-        console.log('failure', response);
     }
 
     public static onInit(selector: Document | HTMLElement = document): void {

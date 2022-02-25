@@ -19,8 +19,8 @@ class CurtainElement extends HTMLDetailsElement {
     }
 
     #handleClick = (event: Event) => {
-        event.stopPropagation();
-        event.stopImmediatePropagation();
+        // event.stopPropagation();
+        // event.stopImmediatePropagation();
 
         if (event.target instanceof HTMLAnchorElement) {
             event.preventDefault();
@@ -40,10 +40,10 @@ class CurtainElement extends HTMLDetailsElement {
     };
 
     protected connectedCallback(): void {
-        this.#summary.addEventListener('click', this.#handleClick, {
-            capture: true,
-            passive: false
-        });
+        // this.#summary.addEventListener('click', this.#handleClick, {
+        //     capture: true,
+        //     passive: false
+        // });
     }
 
     protected disconnectedCallback(): void {
