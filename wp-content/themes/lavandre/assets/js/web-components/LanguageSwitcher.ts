@@ -1,8 +1,6 @@
 import LavandreSelect from './LavandreSelect';
 
 export default class LanguageSwitcher extends LavandreSelect {
-    #icon = document.getElementById('cart')?.outerHTML ?? '';
-
     constructor() {
         super();
 
@@ -12,6 +10,7 @@ export default class LanguageSwitcher extends LavandreSelect {
         }
 
         this.id = 'domain-dropdown-field';
+        this.icon = document.getElementById('cart')?.outerHTML ?? '';
         this.optionValues = JSON.parse(json) || [];
     }
 

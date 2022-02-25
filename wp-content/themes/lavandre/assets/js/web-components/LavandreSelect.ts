@@ -26,7 +26,11 @@ export default class LavandreSelect extends HTMLElement {
         this.#searchFieldLabel.innerText = value;
     }
 
-    #icon = '';
+    #icon: string = '';
+
+    get icon(): string {
+        return this.#icon;
+    }
 
     set icon(value: string) {
         this.#icon = value;
@@ -127,8 +131,8 @@ export default class LavandreSelect extends HTMLElement {
             option.addEventListener('click', this.#selectOption.bind(this));
             option.classList.add('lavandre-select__dropdown__item');
 
-            if (this.#icon) {
-                option.appendChild(parseStringAsHtml(this.#icon, 'svg'));
+            if (this.icon) {
+                option.appendChild(parseStringAsHtml(this.icon, 'svg'));
             }
 
             const span = document.createElement('span');
