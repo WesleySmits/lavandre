@@ -188,7 +188,6 @@ export default class LavandreSelect extends HTMLElement {
     }
 
     #showDropdown(): void {
-        this.#searchField.value = '';
         this.#dropdownField.hidden = false;
         document.addEventListener('click', this.#outsideClickListener);
         this.classList.add('active');
