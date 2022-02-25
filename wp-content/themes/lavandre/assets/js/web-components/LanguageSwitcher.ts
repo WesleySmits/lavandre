@@ -4,6 +4,8 @@ export default class LanguageSwitcher extends LavandreSelect {
     constructor() {
         super();
 
+        this.classList.add('language-switcher');
+
         const json = this.dataset.json;
         if (!json) {
             return;
