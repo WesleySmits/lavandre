@@ -8,7 +8,7 @@ export default class LavandreSelect extends HTMLElement {
 
     #dropdownField: HTMLUListElement;
 
-    #optionValues: StandardObjectInterface = {};
+    #optionValues: [string, any][] = [];
 
     #selectedValue = '';
 
@@ -65,12 +65,14 @@ export default class LavandreSelect extends HTMLElement {
         this.#searchField.value = value.replace(/^0+/, '');
     }
 
-    get optionValues(): StandardObjectInterface {
+    get optionValues(): [string, any][] {
         return this.#optionValues;
     }
 
     set optionValues(value: StandardObjectInterface) {
-        this.#optionValues = value;
+        const arr = Object.entries(value).sort(([, a], [, b]) => a - b);
+        this.#optionValues = arr;
+
         this.#update();
     }
 
@@ -126,7 +128,7 @@ export default class LavandreSelect extends HTMLElement {
     }
 
     #update(): void {
-        Object.keys(this.#optionValues).forEach((key) => {
+        for (const [key, value] of this.#optionValues) {
             const option = document.createElement('li');
             option.addEventListener('click', this.#selectOption.bind(this));
             option.classList.add('lavandre-select__dropdown__item');
@@ -137,13 +139,13 @@ export default class LavandreSelect extends HTMLElement {
 
             const span = document.createElement('span');
             span.classList.add('lavandre-select__dropdown__item__text');
-            span.innerText = key.replace(/^0+/, '');
+            span.innerText = value.replace(/^0+/, '');
             option.appendChild(span);
 
-            const value = formatNumberWithLeadingZero(this.#optionValues[key]).toString();
-            option.dataset.value = value;
+            const value2 = formatNumberWithLeadingZero(value).toString();
+            option.dataset.value = value2;
             this.#dropdownField.appendChild(option);
-        });
+        }
 
         const firstOption = this.querySelector('.lavandre-select__dropdown__item');
         if (!firstOption) {
