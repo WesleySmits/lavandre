@@ -109,9 +109,7 @@
         flex: 0 0 60%;
         contain: initial;
 
-        .lavandre-select.active {
-            overflow: initial;
-
+        .lavandre-select {
             @media (--up-to-tablet) {
                 &:after {
                     right: .625rem !important;
@@ -119,6 +117,9 @@
             }
         }
 
+        .lavandre-select.active {
+            overflow: initial;
+        }
 
 
         .lavandre-select__input {
