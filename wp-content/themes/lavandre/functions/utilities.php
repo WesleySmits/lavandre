@@ -45,11 +45,20 @@ function get_delivery_date_text($locale = 'nl_NL') {
     $today = date('Y-m-d');
     $dayOfWeek = date('w');
     $datetime = new DateTime($today);
-    $interval = new DateInterval('P1D');
+
+    $deliveryInterval = 'P2D';
+    $deliveryIntervalSaturday = 'P3D';
+
+    if ($locale === 'nl_NL') {
+        $deliveryInterval = 'P1D';
+        $deliveryIntervalSaturday = 'P2D';
+    }
+
+    $interval = new DateInterval($deliveryInterval);
 
     switch ($dayOfWeek) {
         case 6:
-            $interval = new DateInterval('P2D');
+            $interval = new DateInterval($deliveryIntervalSaturday);
             break;
     }
 
