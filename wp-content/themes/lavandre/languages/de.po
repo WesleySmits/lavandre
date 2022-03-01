@@ -1,15 +1,15 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Lavandré\n"
-"POT-Creation-Date: 2022-03-01 21:49+0100\n"
-"PO-Revision-Date: 2022-02-15 20:27+0100\n"
+"POT-Creation-Date: 2022-03-01 21:47+0100\n"
+"PO-Revision-Date: 2022-03-01 21:48+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -25,7 +25,7 @@ msgstr ""
 
 #: 404.php:5
 msgid "404 PAGE NOT FOUND"
-msgstr ""
+msgstr "Seite konnte nicht gefunden werden."
 
 #: 404.php:6
 msgid ""
@@ -35,19 +35,19 @@ msgstr ""
 
 #: _footer-checkout.php:3 _footer-site.php:152
 msgid "Terms of use"
-msgstr ""
+msgstr "Nutzungsbedingungen"
 
 #: _footer-checkout.php:4 _footer-site.php:154
 msgid "Privacy policy"
-msgstr ""
+msgstr "Datenschutzerklärung"
 
 #: _footer-site.php:28
 msgid "Stay up to date"
-msgstr ""
+msgstr "Auf dem Laufenden bleiben"
 
 #: _footer-site.php:34 front-page.php:43 template-parts/rewards.php:89
 msgid "Please enter a valid e-mail address"
-msgstr ""
+msgstr "Bitte geben Sie eine gültige E-Mail-Adresse ein"
 
 #: _footer-site.php:35 front-page.php:40 front-page.php:44
 #: functions/woocommerce-account.php:89
@@ -68,28 +68,28 @@ msgstr ""
 #: woocommerce/myaccount/form-login.php:105
 #: woocommerce/myaccount/form-login.php:106
 msgid "Email"
-msgstr ""
+msgstr "E-Mail"
 
 #: _footer-site.php:38 front-page.php:47
 #: functions/woocommerce-checkout-login-step.php:32
 #: template-parts/rewards.php:95 woocommerce/myaccount/form-login.php:45
 msgid "Submit"
-msgstr ""
+msgstr "Senden"
 
 #: _footer-site.php:78 _header-site.php:6
 #: partials/panels/_customer-service.php:10 taxonomy-faq_category.php:30
 msgid "Customer service"
-msgstr ""
+msgstr "Kundendienst"
 
 #: _footer-site.php:83 _header-site.php:40
 #: partials/panels/_customer-service.php:21 partials/panels/_mobile-menu.php:46
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 #: _footer-site.php:85 partials/panels/_customer-service.php:39
 #: woocommerce/checkout/form-checkout.php:50
 msgid "Payment"
-msgstr ""
+msgstr "Zahlung"
 
 #: _footer-site.php:87 partials/panels/_customer-service.php:33
 msgid "Orders"
@@ -104,7 +104,7 @@ msgstr ""
 #: _footer-site.php:91 partials/panels/_customer-service.php:52
 #: partials/panels/_shipping.php:24
 msgid "Returns"
-msgstr ""
+msgstr "Rückgaben"
 
 #: _footer-site.php:98
 msgid "About Lavandré"
@@ -112,63 +112,63 @@ msgstr ""
 
 #: _footer-site.php:103
 msgid "About us"
-msgstr ""
+msgstr "Über uns"
 
 #: _footer-site.php:107 _header-site.php:37 partials/panels/_mobile-menu.php:33
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: _footer-site.php:112 _header-site.php:33 partials/panels/_mobile-menu.php:21
 msgid "Sustainability"
-msgstr ""
+msgstr "Nachhaltigkeit"
 
 #: _footer-site.php:120
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 #: _footer-site.php:125 partials/panels/_mobile-menu.php:39
 #: woocommerce/myaccount/navigation.php:29
 msgid "My account"
-msgstr ""
+msgstr "Mein Konto"
 
 #: _footer-site.php:130 _header-site.php:10 partials/panels/_mobile-menu.php:27
 msgid "Rewards"
-msgstr ""
+msgstr "Belohnungen"
 
 #: _footer-site.php:140
 msgid "Country / Region"
-msgstr ""
+msgstr "Land / Bundesland"
 
 #: _header-site.php:29 partials/panels/_mobile-menu.php:15
 msgid "Shop"
-msgstr ""
+msgstr "Shop"
 
 #: archive.php:47 template-parts/search.php:44
 #, php-format
 msgid "%s older"
-msgstr ""
+msgstr "%s Älter"
 
 #: archive.php:49 template-parts/search.php:46
 #, php-format
 msgid "newer %s"
-msgstr ""
+msgstr "neuer %s"
 
 #: comments.php:27
 msgctxt "comments title"
 msgid "One Response"
-msgstr ""
+msgstr "Eine Antwort"
 
 #: comments.php:32
 #, php-format
 msgctxt "comments title"
 msgid "%1$s Response"
 msgid_plural "%1$s Responses"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s Antwort"
+msgstr[1] "%1$s Antworten"
 
 #: comments.php:67
 msgid "Comments are closed."
-msgstr ""
+msgstr "Kommentare sind geschlossen."
 
 #: front-page.php:31
 msgid "Sign Up To Enjoy an Exclusive Welcome Offer"
@@ -183,11 +183,11 @@ msgstr ""
 #: functions/accountHandler.php:33
 #: woocommerce/myaccount/form-edit-account.php:26
 msgid "Account details"
-msgstr ""
+msgstr "Kontodetails"
 
 #: functions/accountHandler.php:34
 msgid "My orders"
-msgstr ""
+msgstr "Meine Bestellungen"
 
 #: functions/accountHandler.php:35
 msgid "My address book"
@@ -195,7 +195,7 @@ msgstr ""
 
 #: functions/accountHandler.php:40
 msgid "My Rewards"
-msgstr ""
+msgstr "Meine Prämien"
 
 #: functions/custom-ajax.php:129
 msgid "Coupon code is niet toegepast in de winkelmand."
@@ -228,7 +228,7 @@ msgstr ""
 
 #: functions/custom-ajax.php:324
 msgid "You are already subscribed."
-msgstr ""
+msgstr "Du hast schon ein Abonnement."
 
 #: functions/custom-ajax.php:338
 msgid "Welcome to the Lavandré family. We'll be in touch soon."
@@ -240,7 +240,7 @@ msgstr ""
 
 #: functions/custom-ajax.php:354
 msgid "Email is empty"
-msgstr ""
+msgstr "Die E-Mail ist leer"
 
 #: functions/custom-ajax.php:359
 msgid ""
@@ -250,11 +250,11 @@ msgstr ""
 
 #: functions/custom-ajax.php:362
 msgid "Invalid email address"
-msgstr ""
+msgstr "Ungültige E-Mail-Adresse"
 
 #: functions/custom-ajax.php:434
 msgid "Welcome back!"
-msgstr ""
+msgstr "Willkommen zurück!"
 
 #: functions/custom-ajax.php:436
 msgid ""
@@ -264,7 +264,7 @@ msgstr ""
 
 #: functions/custom-ajax.php:511
 msgid "You have registered successfully!"
-msgstr ""
+msgstr "Sie haben Sie erfolgreich angemeldet."
 
 #: functions/custom-ajax.php:518
 msgid "Error Occured please fill in the sign up form carefully."
@@ -272,7 +272,7 @@ msgstr ""
 
 #: functions/custom-ajax.php:535
 msgid "Username is empty"
-msgstr ""
+msgstr "Benutzername nicht vorhanden"
 
 #: functions/custom-ajax.php:540
 msgid "No user with that e-mail address"
@@ -284,7 +284,7 @@ msgstr ""
 
 #: functions/custom-ajax.php:552
 msgid "Invalid credentials"
-msgstr ""
+msgstr "Ungültige Zugangsdaten"
 
 #: functions/custom-ajax.php:578
 msgid "We have sent you an email with a link to change your password."
@@ -292,7 +292,7 @@ msgstr ""
 
 #: functions/customizer.php:9
 msgid "Theme Options"
-msgstr ""
+msgstr "Theme Optionen"
 
 #: functions/customizer.php:10
 msgid ""
@@ -302,7 +302,7 @@ msgstr ""
 
 #: functions/customizer.php:37
 msgid "Ship to different address?"
-msgstr ""
+msgstr "Wünschen Sie eine andere Lieferanschrift ?"
 
 #: functions/customizer.php:38
 msgid "Let the customer choose a different address to ship to by default?"
@@ -311,60 +311,60 @@ msgstr ""
 #: functions/faq.php:5
 msgctxt "Post Type General Name"
 msgid "FAQs"
-msgstr ""
+msgstr "FAQs"
 
 #: functions/faq.php:6
 msgctxt "Post Type Singular Name"
 msgid "FAQ"
-msgstr ""
+msgstr "FAQ"
 
 #: functions/faq.php:7 functions/faq.php:22
 msgid "FAQs"
-msgstr ""
+msgstr "FAQs"
 
 #: functions/faq.php:8
 msgid "Parent FAQ"
-msgstr ""
+msgstr "Übergeordnete FAQ"
 
 #: functions/faq.php:9
 msgid "All FAQs"
-msgstr ""
+msgstr "Alle FAQs"
 
 #: functions/faq.php:10
 msgid "View FAQ"
-msgstr ""
+msgstr "FAQ anzeigen"
 
 #: functions/faq.php:11
 msgid "Add New FAQ"
-msgstr ""
+msgstr "Neue FAQ hinzufügen"
 
 #: functions/faq.php:12
 msgid "Add New"
-msgstr ""
+msgstr "Neu hinzufügen"
 
 #: functions/faq.php:13
 msgid "Edit FAQ"
-msgstr ""
+msgstr "FAQ bearbeiten"
 
 #: functions/faq.php:14
 msgid "Update FAQ"
-msgstr ""
+msgstr "FAQ aktualisieren"
 
 #: functions/faq.php:15
 msgid "Search FAQ"
-msgstr ""
+msgstr "FAQ Suchen"
 
 #: functions/faq.php:16
 msgid "Not Found"
-msgstr ""
+msgstr "Nicht gefunden"
 
 #: functions/faq.php:17
 msgid "Not found in Trash"
-msgstr ""
+msgstr "Nichts im Papierkorb gefunden"
 
 #: functions/faq.php:21
 msgid "faqs"
-msgstr ""
+msgstr "FAQs"
 
 #: functions/faq.php:49
 msgctxt "taxonomy general name"
@@ -378,7 +378,7 @@ msgstr ""
 
 #: functions/faq.php:51
 msgid "Search FAQ categories"
-msgstr ""
+msgstr "FAQ suchen"
 
 #: functions/faq.php:52
 msgid "All FAQ categories"
@@ -386,19 +386,19 @@ msgstr ""
 
 #: functions/faq.php:53
 msgid "Parent FAQ category"
-msgstr ""
+msgstr "FAQ Hauptkategorie"
 
 #: functions/faq.php:54
 msgid "Parent FAQ category:"
-msgstr ""
+msgstr "FAQ Hauptkategorie:"
 
 #: functions/faq.php:55
 msgid "Edit FAQ category"
-msgstr ""
+msgstr "FAQ-Kategorie bearbeiten"
 
 #: functions/faq.php:56
 msgid "Update FAQ category"
-msgstr ""
+msgstr "FAQ-Kategorie updaten"
 
 #: functions/faq.php:57
 msgid "Add New FAQ category"
@@ -414,87 +414,87 @@ msgstr ""
 
 #: functions/templates.php:67
 msgid "Collections"
-msgstr ""
+msgstr "Sammlungen"
 
 #: functions/templates.php:343
 msgid "Completed"
-msgstr ""
+msgstr "Abgeschlossen"
 
 #: functions/utilities.php:5
 msgid "sunday"
-msgstr ""
+msgstr "sonntag"
 
 #: functions/utilities.php:6
 msgid "monday"
-msgstr ""
+msgstr "ontag"
 
 #: functions/utilities.php:7
 msgid "tuesday"
-msgstr ""
+msgstr "dienstag"
 
 #: functions/utilities.php:8
 msgid "wednesday"
-msgstr ""
+msgstr "mittwoch"
 
 #: functions/utilities.php:9
 msgid "thursday"
-msgstr ""
+msgstr "donnerstag"
 
 #: functions/utilities.php:10
 msgid "friday"
-msgstr ""
+msgstr "freitag"
 
 #: functions/utilities.php:11
 msgid "saturday"
-msgstr ""
+msgstr "samstag"
 
 #: functions/utilities.php:19
 msgid "january"
-msgstr ""
+msgstr "Januar"
 
 #: functions/utilities.php:20
 msgid "february"
-msgstr ""
+msgstr "Februar"
 
 #: functions/utilities.php:21
 msgid "march"
-msgstr ""
+msgstr "März"
 
 #: functions/utilities.php:22
 msgid "april"
-msgstr ""
+msgstr "April"
 
 #: functions/utilities.php:23
 msgid "may"
-msgstr ""
+msgstr "Mai"
 
 #: functions/utilities.php:24
 msgid "june"
-msgstr ""
+msgstr "Juni"
 
 #: functions/utilities.php:25
 msgid "july"
-msgstr ""
+msgstr "Juli"
 
 #: functions/utilities.php:26
 msgid "august"
-msgstr ""
+msgstr "August"
 
 #: functions/utilities.php:27
 msgid "september"
-msgstr ""
+msgstr "September"
 
 #: functions/utilities.php:28
 msgid "october"
-msgstr ""
+msgstr "Oktober"
 
 #: functions/utilities.php:29
 msgid "november"
-msgstr ""
+msgstr "November"
 
 #: functions/utilities.php:30
 msgid "december"
-msgstr ""
+msgstr "Dezember"
 
 #: functions/utilities.php:41
 #, php-format
@@ -508,7 +508,7 @@ msgstr ""
 #: woocommerce/myaccount/form-edit-account.php:30
 #: woocommerce/myaccount/form-edit-account.php:31
 msgid "First name"
-msgstr ""
+msgstr "Vorname"
 
 #: functions/woocommerce-account-fields.php:17
 #: functions/woocommerce-account-fields.php:18
@@ -517,20 +517,20 @@ msgstr ""
 #: woocommerce/myaccount/form-edit-account.php:35
 #: woocommerce/myaccount/form-edit-account.php:36
 msgid "Last name"
-msgstr ""
+msgstr "Nachname"
 
 #: functions/woocommerce-account-fields.php:33
 msgid "<strong>Error</strong>: First name is required!"
-msgstr ""
+msgstr "<strong>Fehler</strong>: Vorname ist erforderlich!"
 
 #: functions/woocommerce-account-fields.php:36
 msgid "<strong>Error</strong>: Last name is required!."
-msgstr ""
+msgstr "<strong>Fehler</strong>: Nachname ist erforderlich!."
 
 #: functions/woocommerce-account.php:85
 #: functions/woocommerce-checkout-fields.php:312
 msgid "Postal code"
-msgstr ""
+msgstr "Postleitzahl"
 
 #: functions/woocommerce-account.php:86
 #: functions/woocommerce-checkout-fields.php:313
@@ -542,79 +542,79 @@ msgstr ""
 #: woocommerce/myaccount/form-edit-account.php:59
 #: woocommerce/myaccount/form-edit-account.php:60
 msgid "Company"
-msgstr ""
+msgstr "Firma"
 
 #: functions/woocommerce-account.php:88
 #: functions/woocommerce-checkout-fields.php:314
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 #: functions/woocommerce-account.php:90
 #: woocommerce/myaccount/form-edit-account.php:52
 #: woocommerce/myaccount/form-edit-account.php:55
 msgid "Phone"
-msgstr ""
+msgstr "Telefon"
 
 #: functions/woocommerce-breadcrumbs.php:13
 msgctxt "breadcrumb"
 msgid "Home"
-msgstr ""
+msgstr "Startseite"
 
 #: functions/woocommerce-checkout-fields.php:37
 msgid "required"
-msgstr ""
+msgstr "erforderlich"
 
 #: functions/woocommerce-checkout-fields.php:99
 msgid "Select a country / region&hellip;"
-msgstr ""
+msgstr "Wählen Sie ein Land / eine Region&hellip;"
 
 #: functions/woocommerce-checkout-fields.php:107
 msgid "Update country / region"
-msgstr ""
+msgstr "Land/Region aktualisieren"
 
 #: functions/woocommerce-checkout-fields.php:125
 #: functions/woocommerce-checkout-fields.php:126
 msgid "Select an option&hellip;"
-msgstr ""
+msgstr "Wählen Sie eine Option&hellip;"
 
 #: functions/woocommerce-checkout-fields.php:177
 msgid "Choose an option"
-msgstr ""
+msgstr "Wählen Sie eine Option"
 
 #: functions/woocommerce-checkout-fields.php:255
 msgid "VAT number"
-msgstr ""
+msgstr "MwSt-Nummer"
 
 #: functions/woocommerce-checkout-fields.php:295
 #, php-format
 msgid "%s is a required field."
-msgstr ""
+msgstr "%s ist ein Pflichtfeld."
 
 #: functions/woocommerce-checkout-fields.php:309
 msgid "Street"
-msgstr ""
+msgstr "Straße"
 
 #: functions/woocommerce-checkout-fields.php:310
 msgid "House number"
-msgstr ""
+msgstr "Hausnummer"
 
 #: functions/woocommerce-checkout-fields.php:311
 msgid "Addition"
-msgstr ""
+msgstr "Zusatz"
 
 #: functions/woocommerce-checkout-fields.php:315
 msgid "Phone number"
-msgstr ""
+msgstr "Telefonnummer"
 
 #: functions/woocommerce-checkout-login-step.php:22
 #: woocommerce/myaccount/form-login.php:35
 msgid "Reset your password"
-msgstr ""
+msgstr "Passwort zurücksetzen"
 
 #: functions/woocommerce-checkout-login-step.php:23
 #: woocommerce/myaccount/form-login.php:36
 msgid "We will send you an email to reset your password."
-msgstr ""
+msgstr "Wir senden Ihnen eine E-Mail, um Ihr Passwort zurückzusetzen."
 
 #: functions/woocommerce-checkout-login-step.php:28
 #: functions/woocommerce-checkout-login-step.php:53
@@ -626,12 +626,12 @@ msgstr ""
 #: functions/woocommerce-checkout-login-step.php:37
 #: woocommerce/myaccount/form-login.php:50
 msgid "Back"
-msgstr ""
+msgstr "Zurück"
 
 #: functions/woocommerce-checkout-login-step.php:46
 #: woocommerce/myaccount/form-login.php:58
 msgid "Login"
-msgstr ""
+msgstr "Anmelden"
 
 #: functions/woocommerce-checkout-login-step.php:58
 #: functions/woocommerce-checkout-login-step.php:59
@@ -652,19 +652,19 @@ msgstr ""
 #: functions/woocommerce-checkout-login-step.php:66
 #: partials/panels/_my-account.php:37 woocommerce/myaccount/form-login.php:78
 msgid "Forgot your password?"
-msgstr ""
+msgstr "Passwort vergessen?"
 
 #: functions/woocommerce-checkout-login-step.php:70
 #: partials/panels/_mobile-menu.php:39 partials/panels/_my-account.php:40
 #: woocommerce/myaccount/form-login.php:82
 msgid "Sign in"
-msgstr ""
+msgstr "Anmelden"
 
 #: functions/woocommerce-checkout-login-step.php:78
 #: functions/woocommerce-checkout-login-step.php:83
 #: partials/panels/_my-account.php:99 woocommerce/myaccount/form-login.php:90
 msgid "Register"
-msgstr ""
+msgstr "Registrieren"
 
 #: functions/woocommerce-checkout-login-step.php:79
 #: woocommerce/myaccount/form-login.php:91
@@ -676,17 +676,17 @@ msgstr ""
 #: functions/woocommerce-checkout-login-step.php:89
 #: functions/woocommerce-checkout-login-step.php:93
 msgid "Order as guest"
-msgstr ""
+msgstr "Als Gast bestellen"
 
 #: functions/woocommerce-custom-cart.php:20
 #: functions/woocommerce-custom-cart.php:441
 msgid "Your bag is currently empty."
-msgstr ""
+msgstr "Der Warenkorb ist leer."
 
 #: functions/woocommerce-custom-cart.php:22
 #: functions/woocommerce-custom-cart.php:34
 msgid "Continue Shopping"
-msgstr ""
+msgstr "Weiter einkaufen"
 
 #: functions/woocommerce-custom-cart.php:42
 #: functions/woocommerce-custom-cart.php:451
@@ -712,11 +712,11 @@ msgstr ""
 #: functions/woocommerce-custom-cart.php:296
 #: functions/woocommerce-custom-cart.php:569
 msgid "Remove"
-msgstr ""
+msgstr "Entfernen"
 
 #: functions/woocommerce-custom-cart.php:318
 msgid "Order summary"
-msgstr ""
+msgstr "Zusammenfassung der Bestellung"
 
 #: functions/woocommerce-custom-cart.php:323
 #: functions/woocommerce-custom-cart.php:616
@@ -728,23 +728,23 @@ msgstr ""
 #: functions/woocommerce-custom-cart.php:333
 #: woocommerce/partials/overview.php:75
 msgid "Free"
-msgstr ""
+msgstr "Kostenlos"
 
 #: functions/woocommerce-custom-cart.php:341
 #: woocommerce/checkout/review-order.php:175
 #: woocommerce/checkout/review-order.php:181
 msgid "Tax"
-msgstr ""
+msgstr "Steuer"
 
 #: functions/woocommerce-custom-cart.php:342
 msgid "TBD"
-msgstr ""
+msgstr "TBD"
 
 #: functions/woocommerce-custom-cart.php:347
 #: functions/woocommerce-custom-cart.php:362
 #: functions/woocommerce-custom-cart.php:380
 msgid "Discount code"
-msgstr ""
+msgstr "Gutschein Code"
 
 #: functions/woocommerce-custom-cart.php:353
 #: woocommerce/checkout/review-order.php:196
@@ -754,15 +754,15 @@ msgstr ""
 
 #: functions/woocommerce-custom-cart.php:378
 msgid "Coupon code"
-msgstr ""
+msgstr "Gutscheincode"
 
 #: functions/woocommerce-custom-cart.php:385
 msgid "Apply"
-msgstr ""
+msgstr "Übernehmen"
 
 #: functions/woocommerce-custom-cart.php:400
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 #: functions/woocommerce-custom-cart.php:410
 #: woocommerce/myaccount/dashboard.php:77
@@ -771,7 +771,7 @@ msgstr ""
 
 #: functions/woocommerce-custom-cart.php:410
 msgid "tree"
-msgstr ""
+msgstr "Baum"
 
 #: functions/woocommerce-custom-cart.php:411
 #, php-format
@@ -782,7 +782,7 @@ msgstr ""
 #: functions/woocommerce-custom-cart.php:417
 #: functions/woocommerce-custom-cart.php:622
 msgid "Continue to checkout"
-msgstr ""
+msgstr "Weiter zur Kasse"
 
 #: functions/woocommerce-custom-cart.php:612
 msgid "Taxes and shipping calculated at checkout."
@@ -794,11 +794,11 @@ msgstr ""
 
 #: functions/woocommerce-tweaks.php:129
 msgid "Add to Bag"
-msgstr ""
+msgstr "In den Korb"
 
 #: functions/woocommerce-tweaks.php:148
 msgid "Pay now"
-msgstr ""
+msgstr "Jetzt bezahlen"
 
 #: partials/_cookie-bar.php:4
 msgid "This website uses cookies to ensure you get the best experience."
@@ -806,11 +806,11 @@ msgstr ""
 
 #: partials/_cookie-bar.php:5
 msgid "Learn more"
-msgstr ""
+msgstr "Mehr erfahren"
 
 #: partials/_cookie-bar.php:9
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: partials/_instagram-feed.php:3
 msgid "SHOP OUR INSTAGRAM"
@@ -818,24 +818,24 @@ msgstr ""
 
 #: partials/panels/_cart.php:5
 msgid "Shopping bag"
-msgstr ""
+msgstr "Einkaufstasche"
 
 #: partials/panels/_customer-service.php:27
 msgid "Account"
-msgstr ""
+msgstr "Konto"
 
 #: partials/panels/_customer-service.php:59
 msgid "Frequently asked questions"
-msgstr ""
+msgstr "Häufig gestellte Fragen"
 
 #: partials/panels/_my-account.php:5 partials/panels/_my-account.php:40
 #: template-parts/rewards.php:117
 msgid "Log in"
-msgstr ""
+msgstr "Anmelden"
 
 #: partials/panels/_my-account.php:13
 msgid "Log In"
-msgstr ""
+msgstr "Anmelden"
 
 #: partials/panels/_my-account.php:21 partials/panels/_my-account.php:70
 msgid "Fill in a valid email"
@@ -866,11 +866,11 @@ msgstr ""
 
 #: partials/panels/_my-account.php:91
 msgid "The passwords do not match."
-msgstr ""
+msgstr "Die Passwörter stimmen nicht überein."
 
 #: partials/panels/_my-account.php:94
 msgid "Confirm password"
-msgstr ""
+msgstr "Passwort bestätigen"
 
 #: partials/panels/_shipping.php:5
 msgid "Shipping and Returns"
@@ -892,15 +892,15 @@ msgstr ""
 #: partials/popups/_language.php:49
 #, php-format
 msgid "Continue to %s"
-msgstr ""
+msgstr "Weiter zur %s"
 
 #: partials/popups/_language.php:50 partials/popups/_language.php:66
 msgid "Confirm"
-msgstr ""
+msgstr "Bestätigen"
 
 #: partials/popups/_language.php:51
 msgid "Other countries"
-msgstr ""
+msgstr "Andere Länder"
 
 #: partials/popups/_language.php:61
 msgid ""
@@ -959,7 +959,7 @@ msgstr ""
 
 #: template-parts/contact.php:21 template-parts/single.php:25
 msgid "Tagged "
-msgstr ""
+msgstr "Verschlagwortet"
 
 #: template-parts/landingspage.php:59
 msgid "View our collection"
@@ -968,7 +968,7 @@ msgstr ""
 #: template-parts/rewards.php:30
 #, php-format
 msgid "Hi %s!"
-msgstr ""
+msgstr "Hallo %s!"
 
 #: template-parts/rewards.php:32
 #, php-format
@@ -977,11 +977,11 @@ msgstr ""
 
 #: template-parts/rewards.php:114
 msgid "Sign up"
-msgstr ""
+msgstr "Registrieren"
 
 #: template-parts/rewards.php:117
 msgid "Already a member?"
-msgstr ""
+msgstr "Haben Sie bereits ein Benutzerkonto?"
 
 #: template-parts/rewards.php:126
 msgid "You already completed this campaign"
@@ -1001,7 +1001,7 @@ msgstr ""
 
 #: template-parts/rewards.php:152
 msgid "Like on Facebook"
-msgstr ""
+msgstr "Liken Sie uns auf Facebook"
 
 #: template-parts/rewards.php:160
 msgid "Earn 5 points when you share us on Facebook"
@@ -1009,7 +1009,7 @@ msgstr ""
 
 #: template-parts/rewards.php:162
 msgid "Share on Facebook"
-msgstr ""
+msgstr "Auf Facebook teilen"
 
 #: template-parts/rewards.php:170
 msgid "Earn 15 points on your birthday"
@@ -1025,15 +1025,15 @@ msgstr ""
 
 #: template-parts/rewards.php:192
 msgid "Follow Us"
-msgstr ""
+msgstr "Folge uns"
 
 #: template-parts/search.php:16
 msgid "Search results for: "
-msgstr ""
+msgstr "Suchergebnisse für: "
 
 #: template-parts/search.php:32
 msgid "It seems we can't find what you're looking for."
-msgstr ""
+msgstr "Wir konnten leider keine Ergebnisse finden."
 
 #: woocommerce/archive-product.php:40
 #, php-format
@@ -1048,38 +1048,41 @@ msgstr ""
 #: woocommerce/cart/cart-shipping.php:60
 #, php-format
 msgid "Shipping to %s."
-msgstr ""
+msgstr "Versand nach %s."
 
 #: woocommerce/cart/cart-shipping.php:61
 msgid "Change address"
-msgstr ""
+msgstr "Adresse ändern"
 
 #: woocommerce/cart/cart-shipping.php:63
 msgid "Shipping options will be updated during checkout."
-msgstr ""
+msgstr "Wir sind stets um niedrigste Versandkosten bemüht."
 
 #: woocommerce/cart/cart-shipping.php:71
 msgid "Shipping costs are calculated during checkout."
-msgstr ""
+msgstr "Die Versandkosten werden während des Bezahlvorgangs berechnet."
 
 #: woocommerce/cart/cart-shipping.php:73
 msgid "Enter your address to view shipping options."
-msgstr ""
+msgstr "Geben Sie Ihre Adresse ein, um die Versandoptionen anzuzeigen."
 
 #: woocommerce/cart/cart-shipping.php:76
 msgid ""
 "There are no shipping options available. Please ensure that your address has "
 "been entered correctly, or contact us if you need any help."
 msgstr ""
+"Es sind keine Versandoptionen verfügbar. Bitte stellen Sie sicher, dass Ihre "
+"Adresse korrekt eingegeben wurde, oder kontaktieren Sie uns, wenn Sie Hilfe "
+"benötigen."
 
 #: woocommerce/cart/cart-shipping.php:79
 #, php-format
 msgid "No shipping options were found for %s."
-msgstr ""
+msgstr "Es wurden keine Versandoptionen für %s gefunden."
 
 #: woocommerce/cart/cart-shipping.php:80
 msgid "Enter a different address"
-msgstr ""
+msgstr "Geben Sie eine andere Adresse ein"
 
 #: woocommerce/checkout/form-billing.php:22
 #: woocommerce/checkout/thankyou.php:25
@@ -1088,12 +1091,12 @@ msgstr ""
 #: woocommerce/myaccount/my-address.php:35
 #: woocommerce/myaccount/view-order.php:39
 msgid "Billing address"
-msgstr ""
+msgstr "Rechnungsadresse"
 
 #: woocommerce/checkout/form-checkout.php:46
 #: woocommerce/partials/overview.php:4
 msgid "Overview"
-msgstr ""
+msgstr "Übersicht"
 
 #: woocommerce/checkout/form-shipping.php:28
 #: woocommerce/checkout/thankyou.php:26
@@ -1101,7 +1104,7 @@ msgstr ""
 #: woocommerce/myaccount/my-address.php:27
 #: woocommerce/myaccount/view-order.php:52
 msgid "Shipping address"
-msgstr ""
+msgstr "Lieferadresse"
 
 #: woocommerce/checkout/form-shipping.php:42
 msgid "Deliver to my billing address"
@@ -1109,11 +1112,11 @@ msgstr ""
 
 #: woocommerce/checkout/form-shipping.php:58
 msgid "New shipping address"
-msgstr ""
+msgstr "Neue Lieferadresse"
 
 #: woocommerce/checkout/payment.php:28
 msgid "Choose a payment method"
-msgstr ""
+msgstr "Wählen Sie eine Zahlungsmethode"
 
 #. translators: $1 and $2 opening and closing emphasis tags respectively
 #: woocommerce/checkout/payment.php:46
@@ -1123,14 +1126,18 @@ msgid ""
 "ensure you click the %1$sUpdate Totals%2$s button before placing your order. "
 "You may be charged more than the amount stated above if you fail to do so."
 msgstr ""
+"Da Ihr Browser JavaScript nicht unterstützt oder deaktiviert ist, stellen "
+"Sie bitte sicher, dass Sie vor der Bestellung auf die Schaltfläche%1$sUpdate "
+"Totals%2$s klicken. Eventuell werden Sie dann mehr als den oben genannten "
+"Betrag bezahlen, wenn Sie dies nicht tun."
 
 #: woocommerce/checkout/payment.php:49
 msgid "Update totals"
-msgstr ""
+msgstr "Gesamtbetrag aktualisieren"
 
 #: woocommerce/checkout/thankyou.php:74
 msgid "Thank you for your purchase!"
-msgstr ""
+msgstr "Vielen Dank für Ihren Einkauf!"
 
 #: woocommerce/checkout/thankyou.php:76
 msgid ""
@@ -1187,45 +1194,45 @@ msgstr ""
 
 #: woocommerce/myaccount/form-edit-account.php:74
 msgid "travel"
-msgstr ""
+msgstr "Reisen"
 
 #: woocommerce/myaccount/form-edit-account.php:75
 msgid "cleaning"
-msgstr ""
+msgstr "Handreinigung"
 
 #: woocommerce/myaccount/form-edit-account.php:76
 msgid "other"
-msgstr ""
+msgstr "andere"
 
 #: woocommerce/myaccount/form-edit-account.php:78
 msgid "Branch"
-msgstr ""
+msgstr "Branche"
 
 #: woocommerce/myaccount/form-edit-account.php:84
 msgid "Change password"
-msgstr ""
+msgstr "Passwort ändern"
 
 #: woocommerce/myaccount/form-edit-account.php:90
 msgid "Current password (leave blank to leave unchanged)"
-msgstr ""
+msgstr "Aktuelles Passwort (leer lassen für keine Änderung)"
 
 #: woocommerce/myaccount/form-edit-account.php:91
 msgid "Current password"
-msgstr ""
+msgstr "Aktuelles Passwort"
 
 #: woocommerce/myaccount/form-edit-account.php:95
 msgid "New password (leave blank to leave unchanged)"
-msgstr ""
+msgstr "Neues Passwort (leer lassen, um es unverändert zu lassen)"
 
 #: woocommerce/myaccount/form-edit-account.php:96
 #: woocommerce/myaccount/form-reset-password.php:33
 msgid "New password"
-msgstr ""
+msgstr "Neues Passwort"
 
 #: woocommerce/myaccount/form-edit-account.php:100
 #: woocommerce/myaccount/form-edit-account.php:101
 msgid "Confirm new password"
-msgstr ""
+msgstr "Neues Passwort bestätigen"
 
 #: woocommerce/myaccount/form-edit-account.php:107
 #: woocommerce/myaccount/form-edit-address.php:45
@@ -1236,25 +1243,28 @@ msgstr ""
 #: woocommerce/myaccount/form-login.php:98
 #: woocommerce/myaccount/form-login.php:99
 msgid "Username"
-msgstr ""
+msgstr "Benutzername"
 
 #: woocommerce/myaccount/form-login.php:116
 msgid "Create Account"
-msgstr ""
+msgstr "Konto erstellen"
 
 #: woocommerce/myaccount/form-lost-password.php:25
 msgid ""
 "Lost your password? Please enter your username or email address. You will "
 "receive a link to create a new password via email."
 msgstr ""
+"Haben Sie Ihr Passwort vergessen? Bitte geben Sie Ihren Benutzernamen oder E-"
+"Mail-Adresse ein. Sie erhalten einen Link per E-Mail, womit Sie sich ein "
+"neues Passwort erstellen können."
 
 #: woocommerce/myaccount/form-lost-password.php:28
 msgid "Username or email"
-msgstr ""
+msgstr "Benutzername oder E-Mail"
 
 #: woocommerce/myaccount/form-lost-password.php:38
 msgid "Reset password"
-msgstr ""
+msgstr "Passwort zurücksetzen"
 
 #: woocommerce/myaccount/form-reset-password.php:29
 msgid ""
@@ -1264,7 +1274,7 @@ msgstr ""
 
 #: woocommerce/myaccount/form-reset-password.php:37
 msgid "Re-enter new password"
-msgstr ""
+msgstr "Neues Passwort nochmals eingeben"
 
 #: woocommerce/myaccount/loyalty.php:13
 msgid "My Current Coupons"
@@ -1281,7 +1291,7 @@ msgstr ""
 
 #: woocommerce/myaccount/loyalty.php:30 woocommerce/myaccount/loyalty.php:32
 msgid "Copy code"
-msgstr ""
+msgstr "Kopiere Code"
 
 #: woocommerce/myaccount/loyalty.php:31
 msgid "Coupon Copied"
@@ -1305,168 +1315,170 @@ msgstr ""
 #: woocommerce/myaccount/loyalty.php:59
 #, php-format
 msgid "%s Points"
-msgstr ""
+msgstr "%s Punkte"
 
 #: woocommerce/myaccount/loyalty.php:61
 msgid "Redeem"
-msgstr ""
+msgstr "Einlösen"
 
 #: woocommerce/myaccount/my-address.php:58
 msgid "You have not set up this type of address yet."
-msgstr ""
+msgstr "Sie haben bisher keine Adresse dieser Art erstellt."
 
 #: woocommerce/myaccount/navigation.php:36
 msgid "Welcome,"
-msgstr ""
+msgstr "Willkommen,"
 
 #: woocommerce/myaccount/orders.php:28
 msgid "Order history"
-msgstr ""
+msgstr "Bestellverlauf"
 
 #: woocommerce/myaccount/orders.php:37
 msgid "Previous"
-msgstr ""
+msgstr "Zurück"
 
 #: woocommerce/myaccount/orders.php:41
 msgid "Next"
-msgstr ""
+msgstr "Weiter"
 
 #: woocommerce/myaccount/orders.php:49
 msgid "You haven't placed any orders yet."
-msgstr ""
+msgstr "Sie haben noch keine Bestellungen aufgegeben."
 
 #: woocommerce/myaccount/orders.php:50
 msgid "Continue shopping"
-msgstr ""
+msgstr "Weiter einkaufen"
 
 #: woocommerce/myaccount/partials/_order-block.php:28
 msgid "color"
-msgstr ""
+msgstr "Farbe"
 
 #: woocommerce/myaccount/partials/_order-block.php:31
 msgid "Article number"
-msgstr ""
+msgstr "Artikelnummer"
 
 #: woocommerce/myaccount/partials/_order-block.php:46
 msgid "Track & Trace"
-msgstr ""
+msgstr "Track & Trace"
 
 #: woocommerce/myaccount/view-order.php:26
 msgid "Back to Overview"
-msgstr ""
+msgstr "Zurück zur Übersicht"
 
 #: woocommerce/myaccount/view-order.php:68
 msgid "Download invoice"
-msgstr ""
+msgstr "Rechnung herunterladen"
 
 #: woocommerce/partials/overview.php:3
 #, php-format
 msgid "Order number: %s"
-msgstr ""
+msgstr "Bestellnummer: %s"
 
 #: woocommerce/partials/overview.php:79
 msgid "VAT"
-msgstr ""
+msgstr "MwSt."
 
 #: woocommerce/pdf/custom-business/credit-note.php:42
 #: woocommerce/pdf/custom-business/invoice.php:43
 #: woocommerce/pdf/custom-business/packing-slip.php:55
 #: woocommerce/pdf/custom-business/proforma.php:42
 msgid "Billing Address:"
-msgstr ""
+msgstr "Rechnungsadresse:"
 
 #: woocommerce/pdf/custom-business/credit-note.php:55
 #: woocommerce/pdf/custom-business/invoice.php:56
 #: woocommerce/pdf/custom-business/proforma.php:55
 msgid "Ship To:"
-msgstr ""
+msgstr "Versand an:"
 
 #: woocommerce/pdf/custom-business/credit-note.php:71
 msgid "Credit Note Number:"
-msgstr ""
+msgstr "Gutschrift Nummer:"
 
 #: woocommerce/pdf/custom-business/credit-note.php:76
 #: woocommerce/pdf/custom-business/invoice.php:77
 #: woocommerce/pdf/custom-business/packing-slip.php:70
 #: woocommerce/pdf/custom-business/proforma.php:76
 msgid "Order Number:"
-msgstr ""
+msgstr "Bestellnummer:"
 
 #: woocommerce/pdf/custom-business/credit-note.php:86
 msgid "Credit Note Date:"
-msgstr ""
+msgstr "Gutschrift Datum:"
 
 #: woocommerce/pdf/custom-business/credit-note.php:91
 #: woocommerce/pdf/custom-business/invoice.php:92
 #: woocommerce/pdf/custom-business/packing-slip.php:83
 #: woocommerce/pdf/custom-business/proforma.php:91
 msgid "Order Date:"
-msgstr ""
+msgstr "Bestelldatum:"
 
 #: woocommerce/pdf/custom-business/credit-note.php:139
 #: woocommerce/pdf/custom-business/invoice.php:150
 #: woocommerce/pdf/custom-business/packing-slip.php:131
 #: woocommerce/pdf/custom-business/proforma.php:139
 msgid "Customer Notes"
-msgstr ""
+msgstr "Kunden Notizen"
 
 #: woocommerce/pdf/custom-business/invoice.php:72
 msgid "Invoice Number:"
-msgstr ""
+msgstr "Rechnungsnummer:"
 
 #: woocommerce/pdf/custom-business/invoice.php:87
 msgid "Invoice Date:"
-msgstr ""
+msgstr "Rechnungsdatum:"
 
 #: woocommerce/pdf/custom-business/invoice.php:142
 msgid "Notes"
-msgstr ""
+msgstr "Notizen"
 
 #: woocommerce/pdf/custom-business/packing-slip.php:42
 msgid "Shipping Address:"
-msgstr ""
+msgstr "Lieferadresse:"
 
 #: woocommerce/pdf/custom-business/packing-slip.php:74
 msgid "Shipping Method:"
-msgstr ""
+msgstr "Versandmethode:"
 
 #: woocommerce/pdf/custom-business/proforma.php:71
 msgid "Proforma Invoice Number:"
-msgstr ""
+msgstr "Proforma R. Nr.:"
 
 #: woocommerce/pdf/custom-business/proforma.php:86
 msgid "Proforma Invoice Date:"
-msgstr ""
+msgstr "Proforma R. Dat.:"
 
 #: woocommerce/product-searchform.php:26
 msgid "Search for:"
-msgstr ""
+msgstr "Suche nach:"
 
 #: woocommerce/product-searchform.php:27
 msgid "Search"
-msgstr ""
+msgstr "Suche"
 
 #: woocommerce/product-searchform.php:28
 msgctxt "submit button"
 msgid "Search"
-msgstr ""
+msgstr "Suche"
 
 #: woocommerce/single-product/add-to-cart/variable.php:88
 msgid "This product is currently out of stock and unavailable."
-msgstr ""
+msgstr "Dieses Produkt ist derzeit ausverkauft und nicht verfügbar."
 
 #: woocommerce/single-product/add-to-cart/variation-add-to-cart-button.php:37
 msgid "Sold Out"
-msgstr ""
+msgstr "Ausverkauft"
 
 #: woocommerce/single-product/add-to-cart/variation.php:22
 msgid ""
 "Sorry, this product is unavailable. Please choose a different combination."
 msgstr ""
+"Dieses Produkt ist leider nicht verfügbar. Bitte wählen Sie eine andere "
+"Kombination."
 
 #: woocommerce/single-product/product-subscription-options.php:39
 msgid "One time purchase"
-msgstr ""
+msgstr "Einmaliger Kauf"
 
 #: woocommerce/single-product/product-subscription-options.php:52
 msgid "Subscribe and save 10%"
@@ -1474,7 +1486,7 @@ msgstr ""
 
 #: woocommerce/single-product/tabs/description.php:22
 msgid "Product information"
-msgstr ""
+msgstr "Produktinformation"
 
 #: woocommerce/single-product/title.php:28
 #, php-format
