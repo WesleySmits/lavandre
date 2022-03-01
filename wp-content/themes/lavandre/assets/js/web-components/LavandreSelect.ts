@@ -73,7 +73,7 @@ export default class LavandreSelect extends HTMLElement {
         const arr = Object.entries(value).sort(([, a], [, b]) => a - b);
         this.#optionValues = arr;
 
-        this.#update();
+        this.update();
     }
 
     #outsideClickListener = (event: Event): void => {
@@ -127,7 +127,7 @@ export default class LavandreSelect extends HTMLElement {
         this.#searchField.removeEventListener('focus', this.#showDropdown.bind(this));
     }
 
-    #update(): void {
+    protected update(): void {
         for (const [key, value] of this.#optionValues) {
             const option = document.createElement('li');
             option.addEventListener('click', this.#selectOption.bind(this));

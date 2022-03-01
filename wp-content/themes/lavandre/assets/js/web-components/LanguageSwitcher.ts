@@ -29,6 +29,35 @@ export default class LanguageSwitcher extends LavandreSelect {
         this.removeEventListener('change', this.#onChange.bind(this));
     }
 
+    protected update(): void {
+        super.update();
+
+        const path = window.location.pathname.substring(0, 4);
+        let value;
+
+        switch (path) {
+            case '/nl/':
+                value = this.#getValue('Nederlands');
+                break;
+            case '/de/':
+                value = this.#getValue('Deutschland');
+                break;
+            case '/fr/':
+                value = this.#getValue('France');
+                break;
+            default:
+                value = this.#getValue('International');
+                break;
+        }
+
+        this.selectedValue = value ?? 'International';
+    }
+
+    #getValue(value: string): string {
+        const mapping = this.dataset.mapping ? JSON.parse(this.dataset.mapping) : {};
+        return mapping[value] ? value : '';
+    }
+
     #onChange(): void {
         const value = this.selectedValue;
 
