@@ -51,13 +51,6 @@
 
                 <div class="mini-cart__price">
                     <?php echo wc_price($item->get_subtotal()); ?>
-                    <?php if ($item->get_quantity() > 1) { ?>
-                        <div>
-                            <?php echo wc_price($item->get_quantity()); ?>
-                            <span> x </span>
-                            <?php echo wc_price($item->get_subtotal() / $item->get_quantity()); ?>
-                        </div>
-                    <?php } ?>
                 </div>
             </li>
         <?php } ?>

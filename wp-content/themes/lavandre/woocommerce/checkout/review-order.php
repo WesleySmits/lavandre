@@ -136,11 +136,6 @@ defined( 'ABSPATH' ) || exit;
 
                         ?>
 
-                    <?php if ($cart_item['quantity'] > 1) { ?>
-                    <?php $unit_price = $discounted_price ? $discounted_price : $price; ?>
-                    <div>(<?php echo $cart_item['quantity'] ?> x <?php echo wc_price($unit_price); ?>)</div>
-                    <?php } ?>
-
                 </div>
             </li>
             <?php } ?>
