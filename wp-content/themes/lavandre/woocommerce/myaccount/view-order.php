@@ -30,36 +30,9 @@ defined( 'ABSPATH' ) || exit;
 
 <div class="order-details">
     <?php include get_stylesheet_directory() . '/woocommerce/partials/overview.php'; ?>
+    <?php include get_stylesheet_directory() . '/woocommerce/partials/order-address.php'; ?>
 
 
-
-    <div class="order-details__addresses">
-        <section class="order-details__billing-address">
-            <header>
-                <h1><?php _e('Billing address', 'lavandre'); ?></h1>
-            </header>
-
-            <address class="order-address">
-                <?php
-                    $address = wc_get_account_formatted_address('billing');
-                    echo wp_kses_post( $address );
-                ?>
-            </address>
-        </section>
-
-        <section class="order-details__shipping-address">
-            <header>
-                <h1><?php _e('Shipping address', 'lavandre'); ?></h1>
-            </header>
-
-            <address>
-                <?php
-                    $address = wc_get_account_formatted_address('shipping');
-                    echo wp_kses_post( $address );
-                ?>
-            </address>
-        </section>
-    </div>
 
     <?php $actions = wc_get_account_orders_actions( $order ); ?>
     <?php if ($actions['invoice']) { ?>

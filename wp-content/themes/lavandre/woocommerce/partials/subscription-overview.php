@@ -1,11 +1,10 @@
 <section>
     <header>
-        <h6><?php echo sprintf(__('Order number: %s', 'lavandre'), $order->get_order_number()); ?></h6>
         <h1><?php esc_html_e( 'Overview', 'lavandre' ); ?></h1>
     </header>
 
     <ul class="mini-cart mini-cart--thank-you">
-        <?php foreach ($order->get_items() as $item_id => $item ) { ?>
+        <?php foreach ($subscription->get_items() as $item_id => $item ) { ?>
             <?php
                 $product = $item->get_product();
                 $productID = $item['product_id'];
@@ -67,22 +66,39 @@
         <tbody>
             <tr class="cart-subtotal custom-cart__sidebar__row custom-cart__sidebar__row--large custom-cart__sidebar__row--large-font" data-cy="subtotal">
                 <th><?php _e('Subtotal', 'lavandre'); ?></th>
-                <td><?php echo $order->get_subtotal_to_display(); ?></td>
+                <td><?php echo $subscription->get_subtotal_to_display(); ?></td>
+            </tr>
+
+            <tr class="custom-cart__sidebar__row">
+                <th><?php _e('Next payment date', 'lavandre'); ?></th>
+                <td>
+                    <?php
+                        $date_type = 'next_payment';
+                        echo esc_html( $subscription->get_date_to_display( $date_type ) );
+                    ?>
+                </td>
+            </tr>
+
+            <tr class="custom-cart__sidebar__row">
+                <th><?php _e('Payment', 'lavandre'); ?></th>
+                <td>
+                    <span data-is_manual="<?php echo esc_attr( wc_bool_to_string( $subscription->is_manual() ) ); ?>" class="subscription-payment-method"><?php echo esc_html( $subscription->get_payment_method_to_display( 'customer' ) ); ?></span>
+                </td>
             </tr>
 
             <tr class="woocommerce-shipping-totals custom-cart__sidebar__row">
-                <th><?php _e('Payment', 'lavandre'); ?></th>
-                <td><?php echo ($order->get_shipping_total() !== '0.00') ? wc_price($order->get_shipping_total()) : __('Free'); ?></td>
+                <th><?php _e('Shipping', 'lavandre'); ?></th>
+                <td><?php echo ($subscription->get_shipping_total() !== '0.00') ? wc_price($subscription->get_shipping_total()) : __('Free'); ?></td>
             </tr>
 
             <tr class="tax-total custom-cart__sidebar__row">
                 <th><?php _e('VAT', 'lavandre'); ?></th>
-                <td><?php echo wc_price($order->get_total_tax()); ?></td>
+                <td><?php echo wc_price($subscription->get_total_tax()); ?></td>
             </tr>
 
             <tr class="order-total custom-cart__sidebar__row custom-cart__sidebar__row--large-font">
                 <th><?php _e('Total', 'lavandre'); ?></th>
-                <td><?php echo $order->get_formatted_order_total(); ?></td>
+                <td><?php echo $subscription->get_formatted_order_total(); ?></td>
             </tr>
         </tbody>
     </table>

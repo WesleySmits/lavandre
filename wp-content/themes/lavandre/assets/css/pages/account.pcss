@@ -83,10 +83,6 @@
                     fill: var(--color-text);
                 }
 
-                &--subscriptions {
-                    display: none;
-                }
-
                 &.woocommerce-MyAccount-navigation-link--customer-logout svg {
                     position: relative;
                     left: 4px;
@@ -137,6 +133,10 @@
 
         &__actions {
             margin-top: 3.5rem;
+
+            button + button {
+                margin-left: 1rem;
+            }
         }
     }
 }
