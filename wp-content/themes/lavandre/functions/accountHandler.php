@@ -33,6 +33,7 @@ Class LavandreAccountPages
             $items['edit-account'] = __('Account details', 'lavandre');
             $items['orders'] = __('My orders', 'lavandre');
             $items['edit-address'] = __('My address book', 'lavandre');
+            $items['subscriptions'] = __('My subscriptions', 'lavandre');
             return $items;
         }
 

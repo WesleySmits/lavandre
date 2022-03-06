@@ -194,4 +194,11 @@
             $is_valid = false;
         }
         return $is_valid;
-}
+    }
+
+    add_filter('woocommerce_subscription_status_active_to_pending-cancel', 'redirect_on_cancel_subscription', 10, 1);
+    function redirect_on_cancel_subscription()
+    {
+        wp_redirect('/my-account/subscriptions/');
+        exit;
+    }

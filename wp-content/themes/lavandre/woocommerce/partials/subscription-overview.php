@@ -46,6 +46,10 @@
                             ?>
                         </p>
                     <?php endif; ?>
+
+                    <p class="custom-cart__product-subtitle custom-cart__product-subtitle--accent">
+                        <?php echo sprintf('every %s %s', $subscription->get_billing_interval(), getPeriodTitle($subscription->get_billing_period(), $subscription->get_billing_interval())); ?>
+                    </p>
                 </div>
 
                 <div class="mini-cart__price">
@@ -98,7 +102,7 @@
 
             <tr class="order-total custom-cart__sidebar__row custom-cart__sidebar__row--large-font">
                 <th><?php _e('Total', 'lavandre'); ?></th>
-                <td><?php echo $subscription->get_formatted_order_total(); ?></td>
+                <td><?php echo WC_Price($subscription->get_total()); ?></td>
             </tr>
         </tbody>
     </table>
