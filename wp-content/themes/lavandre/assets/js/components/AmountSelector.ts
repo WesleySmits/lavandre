@@ -20,11 +20,11 @@ export default class AmountSelector extends Component {
                 return;
             }
 
-            if (+input.value > +input.max) {
+            if (input.max && +input.value > +input.max) {
                 input.value = input.max;
             }
 
-            if (+input.value < +input.min) {
+            if (input.min && +input.value < +input.min) {
                 input.value = input.min;
             }
 

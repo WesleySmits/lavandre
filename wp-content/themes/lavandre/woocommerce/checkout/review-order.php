@@ -129,13 +129,11 @@ defined( 'ABSPATH' ) || exit;
 
                 <div>
                     <?php
-                            if ($discounted_price) {
-                                echo '<ins>' . wc_price($discounted_price * $quantity) . '</ins>';
-                            }
+                        if ($discounted_price) {
+                            echo '<ins>' . wc_price($discounted_price * $quantity) . '</ins>';
                         }
-
-                        ?>
-
+                    }
+                    ?>
                 </div>
             </li>
             <?php } ?>

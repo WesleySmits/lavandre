@@ -8,6 +8,18 @@
         <?php foreach ($order->get_items() as $item_id => $item ) { ?>
             <?php
                 $product = $item->get_product();
+
+                $isSubscriptionProduct = ($item['wcsatt_data'] && $item['wcsatt_data']['active_subscription_scheme']) ? true : false;
+
+                if ($isSubscriptionProduct):
+                    $activeSchemeKey = WCS_ATT_Cart::get_subscription_scheme( $item );
+                    $schemes = WCS_ATT_Product_Schemes::get_subscription_schemes( $item );
+
+                    $period = $schemes[$activeSchemeKey]->get_period();
+                    $interval = $schemes[$activeSchemeKey]->get_interval();
+                    $periodTitle = getPeriodTitle($period, $interval);
+                endif;
+
                 $productID = $item['product_id'];
                 $variationID = $item['variation_id'];
 
@@ -15,7 +27,7 @@
                 $subtitle = ($variationID) ? $product->get_description() : '';
 
                 $productVariation = wc_get_product($variationID);
-                $attributes =  $productVariation->get_variation_attributes() ;
+                $attributes =  $productVariation->get_variation_attributes();
 
                 $color = (array_key_exists('attribute_pa_color', $attributes)) ? $attributes['attribute_pa_color'] : '';
                 $amount = (array_key_exists('attribute_pa_amount', $attributes)) ? $attributes['attribute_pa_amount'] : '';
@@ -36,6 +48,13 @@
                     <?php if ($color || $size): ?>
                         <p class="custom-cart__product-subtitle">
                             <?php echo $color; ?> <?php echo $size; ?>
+                        </p>
+                    <?php endif; ?>
+
+                    <?php if ($isSubscriptionProduct): ?>
+                        <p class="custom-cart__product-subtitle">
+                            <span
+                                class="custom-cart__product-subtitle"><?php echo sprintf(__('Delivery every %s %s', 'lavandre'), $interval, $periodTitle); ?></span>
                         </p>
                     <?php endif; ?>
 
