@@ -12,6 +12,7 @@ function account_setup(): void
     add_filter ( 'woocommerce_account_menu_items', [$accountHandler, 'addLinks'] );
     add_filter ( 'woocommerce_account_menu_items', [$accountHandler, 'reorderLinks'] );
     add_filter( 'woocommerce_get_query_vars', [$accountHandler, 'createRewardsEndpoint'] );
+    add_filter( 'woocommerce_get_query_vars', [$accountHandler, 'createSubscriptionsEndpoint'] );
     add_action ( 'woocommerce_account_rewards_endpoint', [$accountHandler, 'setupRewardsPage']);
 }
 

@@ -29,7 +29,8 @@ Class LavandreAccountPages
             return $items;
         }
 
-        public function renameLinks($items): Array {
+        public function renameLinks($items): Array
+        {
             $items['edit-account'] = __('Account details', 'lavandre');
             $items['orders'] = __('My orders', 'lavandre');
             $items['edit-address'] = __('My address book', 'lavandre');
@@ -53,6 +54,12 @@ Class LavandreAccountPages
         public function createRewardsEndpoint($query_vars): Array
         {
             $query_vars['rewards'] = 'rewards';
+            return $query_vars;
+        }
+
+        public function createSubscriptionsEndpoint($query_vars): Array
+        {
+            $query_vars['subscriptions'] = 'subscriptions?1';
             return $query_vars;
         }
 
