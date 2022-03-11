@@ -83,7 +83,9 @@
                     <?php echo $text; ?>
                 </div>
 
-                <form id="refer-a-friend-form" class="refer-a-friend-form" action="post">
+                <?php
+                /**
+                 <form id="refer-a-friend-form" class="refer-a-friend-form" action="post">
                     <label class="sr-only" for="refer-a-friend-form-email"><?php _e('Email', 'lavandre'); ?></label>
                     <input class="refer-a-friend-form__input" type="email" name="email" id="refer-a-friend-form-email"
                         title="<?php _e('Please enter a valid e-mail address', 'lavandre'); ?>"
@@ -95,6 +97,10 @@
                         <?php _e('Submit', 'lavandre'); ?>
                     </button>
                 </form>
+                */
+                ?>
+
+                <?php echo do_shortcode('[lws_sponsorship header="your header" button"Submit" unlogged="true"]'); ?>
             </div>
         </div>
     </section>
