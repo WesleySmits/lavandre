@@ -29,6 +29,7 @@ import LavandreButton from './web-components/button/LavandreButton';
 import './web-components/CarouselElement';
 import './web-components/LanguageSwitcher';
 import './web-components/LavandreSelect';
+import './web-components/LavandreToggle';
 import './web-components/SignupBlock';
 
 export default class App extends Module {

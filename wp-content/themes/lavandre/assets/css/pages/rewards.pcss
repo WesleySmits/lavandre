@@ -9,13 +9,6 @@
     }
 }
 
-.refer-a-friend-form {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    margin-top: 3rem;
-}
-
 body .lwss_selectable.lws_woorewards_sponsorship_input input,
 input.refer-a-friend-form__input {
     flex: 1 1 70%;
@@ -41,10 +34,6 @@ input.refer-a-friend-form__input {
     }
 }
 
-button.refer-a-friend-form__button {
-    flex: 1 1 30%;
-}
-
 body {
     .lws_woorewards_sponsorship_description {
         display: none;
@@ -63,5 +52,23 @@ body {
 
     .lwss_selectable.lwss_modify.lws_woorewards_sponsorship_submit {
         flex: 1 1 30%;
+    }
+
+    .refer-a-friend_thank-you {
+        text-align: center;
+    }
+
+    .refer-a-friend_thank-you-text {
+        margin: 2.5rem 0;
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+
+    .lws_woorewards_sponsorship_feedback {
+        display: none !important;
+
+        &.lws_woorewards_sponsorship_error {
+            display: block !important;
+        }
     }
 }

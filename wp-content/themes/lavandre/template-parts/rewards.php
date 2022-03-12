@@ -77,30 +77,27 @@
 
         <div class="ww-banner-block__content">
             <div class="ww-banner-block__inner-content">
-                <h1><?php echo $heading; ?></h1>
-                <br />
-                <div>
-                    <?php echo $text; ?>
-                </div>
+                <lavandre-toggle>
+                    <div data-name="form">
+                        <h1><?php echo $heading; ?></h1>
+                        <br />
+                        <div>
+                            <?php echo $text; ?>
+                        </div>
 
-                <?php
-                /**
-                 <form id="refer-a-friend-form" class="refer-a-friend-form" action="post">
-                    <label class="sr-only" for="refer-a-friend-form-email"><?php _e('Email', 'lavandre'); ?></label>
-                    <input class="refer-a-friend-form__input" type="email" name="email" id="refer-a-friend-form-email"
-                        title="<?php _e('Please enter a valid e-mail address', 'lavandre'); ?>"
-                        placeholder="<?php _e('Email', 'lavandre'); ?>" required>
+                        <?php echo do_shortcode('[lws_sponsorship header="your header" button"Submit" unlogged="true"]'); ?>
+                    </div>
 
-                    <button is="lavandre-button" size="large" full-width class="refer-a-friend-form__button"
-                        type="submit" id="refer-a-friend-form-submit" aria-label="Subscribe to newsletter button"
-                        outline>
-                        <?php _e('Submit', 'lavandre'); ?>
-                    </button>
-                </form>
-                */
-                ?>
-
-                <?php echo do_shortcode('[lws_sponsorship header="your header" button"Submit" unlogged="true"]'); ?>
+                    <div class="refer-a-friend_thank-you" data-name="thank-you" hidden>
+                        <h1 class="large-title"><?php _e('Thanks for referring', 'lavandre'); ?></h1>
+                        <p class="refer-a-friend_thank-you-text">
+                            <?php _e('Remind your friends to check their emails.', 'lavandre'); ?>
+                        </p>
+                        <button is="lavandre-button" primary full-width size="large" data-toggle>
+                            <?php _e('Refer More Friends', 'lavandre'); ?>
+                        </button>
+                    </div>
+                </lavandre-toggle>
             </div>
         </div>
     </section>
