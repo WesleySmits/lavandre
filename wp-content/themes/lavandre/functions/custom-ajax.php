@@ -52,10 +52,6 @@ function ajax_referafriendemail(): void
         $user = get_user_by('email', 'ws@intermation.nl');
     }
 
-    $pool_id = 'default';
-    $userEmail = $user->user_email;
-    $points = 100;
-
     $setSponsor = $LavandreLoyalty->setSponsorRelationShip($user, $email);
 
     if ($setSponsor !== true) {
