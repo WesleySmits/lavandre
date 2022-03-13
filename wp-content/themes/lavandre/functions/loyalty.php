@@ -30,7 +30,7 @@ Class LavandreLoyalty
         $this->getUserCoupons();
     }
 
-    public function addPoints($email, $pool_id, $points, $reason) {
+    public function addPoints($email, $pool_id, $points, $reason = '') {
         $woocommerce = $this->getClient();
         $endpoint = "points/$email/$pool_id/$points";
 
@@ -48,6 +48,15 @@ Class LavandreLoyalty
         }
 
         return self::$instance;
+    }
+
+    public function setSponsorRelationShip($user, $sponsor) {
+        if (!$user || !$sponsor) {
+            return;
+        }
+
+        $sponsorship = new \LWS\WOOREWARDS\PRO\Core\Sponsorship();
+        return $sponsorship->addRelationship($user, $sponsor);
     }
 
     public function getPool() {

@@ -15,6 +15,7 @@ function ajax_auth_init() {
     add_action( 'wp_ajax_nopriv_coupon_code_remove', 'coupon_code_remove' );
     add_action('wp_ajax_nopriv_mailchimpsubscribe', 'ajax_MailchimpSubscribe');
     add_action( 'wp_ajax_nopriv_ajaxgetvariantprice', 'ajax_getVariantPrice' );
+    add_action( 'wp_ajax_nopriv_ajaxreferafriendemail', 'ajax_referafriendemail' );
 }
 
 // Execute the action only if the user isn't logged in
@@ -31,6 +32,45 @@ add_action( 'wp_ajax_ajaxgetvariantprice', 'ajax_getVariantPrice' );
 add_action( 'wp_ajax_ajaxaddloyaltypoints', 'ajax_addLoyaltyPoints' );
 add_action( 'wp_ajax_ajaxdateofbirth', 'ajax_dateOfBirth' );
 add_action( 'wp_ajax_ajaxredeemcoupon', 'ajax_redeemCoupon' );
+add_action( 'wp_ajax_ajaxreferafriendemail', 'ajax_referafriendemail' );
+
+function ajax_referafriendemail(): void
+{
+    $email = $_POST['email'];
+
+
+    if (empty($email)) {
+        wp_send_json_error( array(
+            'message' => 'Incorrect data submitted',
+        ) );
+    }
+
+    $user = wp_get_current_user();
+    $userId = $user->ID;
+
+    if ($userId === 0) {
+        wp_send_json_error( array(
+            'message' => 'Not logged in',
+        ) );
+    }
+
+    $LavandreLoyalty = LavandreLoyalty::getInstance();
+
+    $pool_id = 'default';
+    $userEmail = $user->user_email;
+    $points = 100;
+
+    $updatePoints = $LavandreLoyalty->addPoints($userEmail, $pool_id, $points);
+    $setSponsor = $LavandreLoyalty->setSponsorRelationShip($user, $email);
+
+    wp_send_json_success([
+        'message' => 'Email sent successfully',
+        $updatePoints,
+        $setSponsor
+    ]);
+
+    wp_die();
+}
 
 function ajax_redeemCoupon() {
     $user = wp_get_current_user();
