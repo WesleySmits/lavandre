@@ -65,12 +65,8 @@ function ajax_referafriendemail(): void
             $message,
         ) );
     }
-
-    $updatePoints = $LavandreLoyalty->addPoints($userEmail, $pool_id, $points);
-
     wp_send_json_success([
         'message' => 'Email sent successfully',
-        $updatePoints,
         $setSponsor
     ]);
 
