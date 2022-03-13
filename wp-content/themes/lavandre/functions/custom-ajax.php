@@ -60,8 +60,17 @@ function ajax_referafriendemail(): void
     $userEmail = $user->user_email;
     $points = 100;
 
-    $updatePoints = $LavandreLoyalty->addPoints($userEmail, $pool_id, $points);
     $setSponsor = $LavandreLoyalty->setSponsorRelationShip($user, $email);
+
+    if ($setSponsor !== true) {
+        $message = $setSponsor->get_error_message();
+
+        wp_send_json_error( array(
+            $message,
+        ) );
+    }
+
+    $updatePoints = $LavandreLoyalty->addPoints($userEmail, $pool_id, $points);
 
     wp_send_json_success([
         'message' => 'Email sent successfully',
@@ -188,7 +197,7 @@ function coupon_code_add() {
         wp_send_json_error(sprintf(
             __('Please fill in a discount code.', 'lavandre'),
             esc_html( $coupon_code )
-        ), $coupon);
+        ));
     }
 
     global $woocommerce;
@@ -692,7 +701,7 @@ function checkIfUserExists() {
         $get_by = 'email';
     }
     else if (validate_username($username)) {
-        if (!username_exists($useranme)) {
+        if (!username_exists($username)) {
             wp_send_json_error( array('No user with that username') );
         }
 
@@ -719,7 +728,7 @@ function mc_checklist($email, $debug, $apikey, $listid, $server) {
 
     $response = '';
     $errors = [];
-    $errorStatusCode;
+    $errorStatusCode = 0;
 
     try {
         $response = $mailchimp->lists->getListMember($listid, $subscriber_hash);

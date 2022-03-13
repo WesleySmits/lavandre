@@ -1,9 +1,17 @@
 /* eslint-disable no-console */
+import FieldValidation from '../components/FieldValidation';
 import endpoints from '../util/endpoints';
 import { sendAjaxRequest } from '../util/requests';
+import LavandreToggle from './LavandreToggle';
 
 export default class ReferAFriendForm extends HTMLFormElement {
+    #emailField: HTMLInputElement | null = null;
+
     protected connectedCallback(): void {
+        this.#emailField = this.querySelector('[name="email"]');
+
+        const validator: FieldValidation = new FieldValidation(this.#emailField!);
+        validator.initialize();
         this.addEventListener('submit', this.#submitHandler.bind(this), false);
     }
 
@@ -28,6 +36,7 @@ export default class ReferAFriendForm extends HTMLFormElement {
 
         const submitButton = this.querySelector('[type="submit"]') as HTMLButtonElement;
 
+        FieldValidation.removeErrorText(this.#emailField!);
         sendAjaxRequest(
             data,
             endpoints.ajax,
@@ -41,10 +50,18 @@ export default class ReferAFriendForm extends HTMLFormElement {
 
     #onSuccess(response: Response): void {
         console.log('success', response);
+        const toggle = this.closest('lavandre-toggle') as LavandreToggle;
+        if (!toggle) {
+            return;
+        }
+
+        toggle.dispatchEvent(new CustomEvent('toggle'));
     }
 
-    #onFailure(response: Response): void {
-        console.log('success', response);
+    #onFailure(error: Error): void {
+        console.log(error);
+        FieldValidation.appendErrorText(this.#emailField!, error.message);
+        throw error;
     }
 }
 
