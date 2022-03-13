@@ -38,7 +38,6 @@ function ajax_referafriendemail(): void
 {
     $email = $_POST['email'];
 
-
     if (empty($email)) {
         wp_send_json_error( array(
             'message' => 'Incorrect data submitted',
@@ -47,14 +46,11 @@ function ajax_referafriendemail(): void
 
     $user = wp_get_current_user();
     $userId = $user->ID;
+    $LavandreLoyalty = LavandreLoyalty::getInstance();
 
     if ($userId === 0) {
-        wp_send_json_error( array(
-            'message' => 'Not logged in',
-        ) );
+        $user = get_user_by('email', 'ws@intermation.nl');
     }
-
-    $LavandreLoyalty = LavandreLoyalty::getInstance();
 
     $pool_id = 'default';
     $userEmail = $user->user_email;
