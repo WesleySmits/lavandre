@@ -85,15 +85,15 @@ function getCompany() {
     $companyName = 'WesTrade Beheer B.V.';
     $brandName = 'Lavandré';
     $phoneNumber = '085 303 1102';
-    $emailAddress = 'info@wegwerphanddoeken.nl';
+    $emailAddress = 'info@lavandre.com';
     $foundingDate = '2016';
     $founders = [new Founder('Annemarie Smits'), new Founder('Wesley Smits'), new Founder('Maria Bogaevskaya')];
-    $facebook = 'https://www.facebook.com/wegwerphanddoeken/';
-    $instagram = 'https://www.instagram.com/wegwerphanddoeken.nl/';
-    $twitter = 'https://twitter.com/wegwerphanddoek';
-    $youtube = 'https://www.youtube.com/channel/UC6864dvgoxtMz-LVoY0229Q';
-    $linkedin = 'https://www.linkedin.com/company/wegwerphanddoeken/';
-    $facebookMessager= 'https://m.me/wegwerphanddoeken';
+    $facebook = 'https://www.facebook.com/lavandrebeauty';
+    $instagram = 'https://www.instagram.com/lavandrebeauty/';
+    $twitter = '';
+    $youtube = '';
+    $linkedin = '';
+    $facebookMessager= 'https://m.me/lavandrebeauty';
     $whatsapp = 'https://api.whatsapp.com/send?phone=31853031102';
 
     $address = new Address('Jan Valsterweg', 75, 0, 'Dordrecht', '3315 LG');

@@ -41,10 +41,6 @@
 
                 <section class="ww-footer__social-links">
                     <ul class="socialmedia-list no-list">
-                        <li class="socialmedia-list__item"><a class="socialmedia-list__anchor"
-                                href="mailto:<?php echo $contactPoint->getEmailAddress(); ?>"
-                                aria-label="E-mail"><?php include get_stylesheet_directory() . '/partials/icons/envelope.svg.php'; ?></a>
-                        </li>
                         <li class="socialmedia-list__item"><a class="socialmedia-list__anchor" target="_blank"
                                 rel="noopener" href="<?php echo $contactPoint->getFacebook(); ?>"
                                 aria-label="Facebook"><?php include get_stylesheet_directory() . '/partials/icons/facebook-f.svg.php'; ?></a>
@@ -52,18 +48,6 @@
                         <li class="socialmedia-list__item"><a class="socialmedia-list__anchor" target="_blank"
                                 rel="noopener" href="<?php echo $contactPoint->getInstagram(); ?>"
                                 aria-label="Instagram"><?php include get_stylesheet_directory() . '/partials/icons/instagram.svg.php'; ?></a>
-                        </li>
-                        <li class="socialmedia-list__item"><a class="socialmedia-list__anchor" target="_blank"
-                                rel="noopener" href="<?php echo $contactPoint->getYoutube(); ?>"
-                                aria-label="YouTube"><?php include get_stylesheet_directory() . '/partials/icons/youtube.svg.php'; ?></a>
-                        </li>
-                        <li class="socialmedia-list__item"><a class="socialmedia-list__anchor" target="_blank"
-                                rel="noopener" href="<?php echo $contactPoint->getTwitter(); ?>"
-                                aria-label="Twitter"><?php include get_stylesheet_directory() . '/partials/icons/twitter.svg.php'; ?></a>
-                        </li>
-                        <li class="socialmedia-list__item"><a class="socialmedia-list__anchor" target="_blank"
-                                rel="noopener" href="<?php echo $contactPoint->getLinkedin(); ?>"
-                                aria-label="LinkedIn"><?php include get_stylesheet_directory() . '/partials/icons/linkedin.svg.php'; ?></a>
                         </li>
                     </ul>
                 </section>
@@ -128,6 +112,12 @@
                         <li>
                             <a href="/rewards">
                                 <?php _e('Rewards', 'lavandre'); ?>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/customer-service/faq/">
+                                <?php _e('FAQ', 'lavandre'); ?>
                             </a>
                         </li>
                     </ul>
