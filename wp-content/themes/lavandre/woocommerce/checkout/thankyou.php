@@ -18,9 +18,6 @@
 defined( 'ABSPATH' ) || exit;
 
 $customer_id = $order->get_customer_id();
-$$subscription = wcs_get_subscriptions_for_order( $order );
-
-var_dump($subscription); die;
 
 $addresses = apply_filters(
     'woocommerce_my_account_get_addresses',
