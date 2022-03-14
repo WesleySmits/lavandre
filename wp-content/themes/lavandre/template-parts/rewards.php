@@ -95,10 +95,6 @@
                                 outline>
                                 <?php _e('Submit', 'lavandre'); ?>
                             </button>
-
-                            <p>
-                                <?php echo sprintf(__("%s is already sponsored.", 'woorewards-pro'), 'testing'); ?>
-                            </p>
                         </form>
                     </div>
 
