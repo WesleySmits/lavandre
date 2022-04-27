@@ -544,7 +544,7 @@ function ajax_register() {
             )
         );
 
-        sendMandrillMail('new-account', $_POST['email'], $name, $merge_vars);
+        sendMandrillMail('lavandre-new-account', $_POST['email'], $name, $merge_vars);
         wp_send_json_success(__('You have registered successfully!', 'lavandre'));
     } else {
         if (isset($user_id->errors['empty_user_login'])) {
@@ -610,7 +610,7 @@ function ajax_forgotPassword() {
 
     $name = ($user->first_name) ? $user->first_name . ' ' . $user->last_name : 'Recipient 1';
 
-    sendMandrillMail('password-forget', $username, $name, $merge_vars);
+    sendMandrillMail('lavandre-password-forget', $username, $name, $merge_vars);
 
     wp_send_json_success(__('We have sent you an email with a link to change your password.', 'lavandre'));
     wp_die();
