@@ -764,6 +764,8 @@ function sendMandrillMail($template_name, $email, $name, $merge_vars, $language 
             'global_merge_vars' => $merge_vars
         );
 
+        var_dump($message); die;
+
         $mandrill->messages->sendTemplate([
             "template_name" => $template_name,
             "template_content" => [],
