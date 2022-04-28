@@ -24,7 +24,7 @@
             return;
         }
 
-        $template_name = 'order-' . $this_status_transition_to;
+        $template_name = 'lavandre-order-' . $this_status_transition_to;
 
         $order = wc_get_order($this_get_id);
 
