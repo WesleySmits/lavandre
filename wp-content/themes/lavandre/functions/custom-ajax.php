@@ -764,13 +764,13 @@ function sendMandrillMail($template_name, $email, $name, $merge_vars, $language 
             'global_merge_vars' => $merge_vars
         );
 
-        var_dump($message); die;
-
-        $mandrill->messages->sendTemplate([
+        $result = $mandrill->messages->sendTemplate([
             "template_name" => $template_name,
             "template_content" => [],
             "message" => $message,
         ]);
+
+        var_dump($result); die;
     } catch (Error $e) {
         var_dump('something went wrong', $e); die;
         // echo 'Error: ', $e->getMessage(), "\n";
