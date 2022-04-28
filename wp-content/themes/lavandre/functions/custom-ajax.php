@@ -753,7 +753,6 @@ function sendMandrillMail($template_name, $email, $name, $merge_vars, $language 
         }
 
         $info = json_decode(json_encode($info), true);
-        var_dump('info', $info); die;
 
         $message = array(
             'subject' => $info['subject'],
