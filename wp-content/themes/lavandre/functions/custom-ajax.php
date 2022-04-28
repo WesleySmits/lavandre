@@ -747,6 +747,13 @@ function sendMandrillMail($template_name, $email, $name, $merge_vars, $language 
         $mandrill->setApiKey($apiKey);
 
         $info = $mandrill->templates->info(["name" => $template_name]);
+
+        if ($info->slug != $template_name) {
+            throw new Exception("Template not found");
+        }
+
+        $info = json_decode(json_encode($info), true);
+
         $message = array(
             'subject' => $info['subject'],
             'from_email' => $info['from_email'],
@@ -756,12 +763,14 @@ function sendMandrillMail($template_name, $email, $name, $merge_vars, $language 
             'merge_language' => $language,
             'global_merge_vars' => $merge_vars
         );
+
         $mandrill->messages->sendTemplate([
             "template_name" => $template_name,
             "template_content" => [],
             "message" => $message,
         ]);
     } catch (Error $e) {
+        var_dump('something went wrong', $e); die;
         // echo 'Error: ', $e->getMessage(), "\n";
     }
 }
