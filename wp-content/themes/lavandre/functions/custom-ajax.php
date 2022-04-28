@@ -766,13 +766,9 @@ function sendMandrillMail($template_name, $email, $name, $merge_vars, $language 
 
         $result = $mandrill->messages->sendTemplate([
             "template_name" => $template_name,
-            "template_content" => [],
+            "template_content" => [["name"=>'','content'=>'']],
             "message" => $message,
         ]);
-
-        print_r($result);
-
-        var_dump($result); die;
     } catch (Error $e) {
         var_dump('something went wrong', $e); die;
         // echo 'Error: ', $e->getMessage(), "\n";
