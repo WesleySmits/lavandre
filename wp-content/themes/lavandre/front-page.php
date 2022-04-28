@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="front-page">
+<main class="front-page" data-mandrill-key="<?php echo $_ENV['MANDRILL_API_KEY']; ?>">
     <?php main_banner(get_field('main_banner')); ?>
 
     <?php ww_shop_now(get_field('block_2'), 'shop-now'); ?>
