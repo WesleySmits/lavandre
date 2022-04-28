@@ -770,6 +770,8 @@ function sendMandrillMail($template_name, $email, $name, $merge_vars, $language 
             "message" => $message,
         ]);
 
+        print_r($result);
+
         var_dump($result); die;
     } catch (Error $e) {
         var_dump('something went wrong', $e); die;
