@@ -15,7 +15,9 @@
 
     function findTrackAndTraceCode($notes) {
         foreach ($notes as $note) {
-            if (!strpos($note, 'PostNL')) {
+            $term = strtoupper('postnl');
+
+            if (!strpos($note, $term)) {
                 continue;
             }
 
@@ -24,4 +26,9 @@
 
             return $trackingCode[0];
         }
+    }
+
+    function getTrackAndTraceLinkFromOrder($order_id) {
+        $notes = custom_get_order_notes($order_id);
+        return findTrackAndTraceCode($notes);
     }

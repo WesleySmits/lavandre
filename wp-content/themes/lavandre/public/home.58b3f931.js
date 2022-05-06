@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklavandre=self.webpackChunklavandre||[]).push([[177],{7896:function(e,n,i){var t=i(2377),s=i(2706);class HomeModule extends t.Z{constructor(){super(...arguments),this.components=[s.Z]}initialize(){super.initialize()}}!function homeInit(){(new HomeModule).initialize()}()}},function(e){e.O(0,[650],(function(){return n=7896,e(e.s=n);var n}));e.O()}]);

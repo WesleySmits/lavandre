@@ -32,25 +32,12 @@
         $name = $order->get_formatted_billing_full_name();
 
         $deliveryDate = get_delivery_date_text('nl_NL');
+        $orderDate = $order->get_date_created()->date('d F Y');
         $deliveryOption = 'PostNL bezorging';
-        $address = $order->get_formatted_shipping_address();
+        $billingAddress = $order->get_formatted_billing_address();
+        $deliveryAddress = $order->get_formatted_shipping_address();
 
-        $notes = custom_get_order_notes($this_get_id);
-        $postnl_base = 'https://jouw.postnl.nl/track-and-trace/';
-        $locale = strtoupper($order->data['shipping']['country']);
-
-        if ($locale === 'be') {
-            $postnl_base = 'https://jouw.postnl.be/track-and-trace/';
-        }
-
-        $trackingCode = findTrackAndTraceCode($notes);
-        $postalCode = str_replace(' ', '', strtoupper($order->data['shipping']['postcode']));
-
-        $tracking_link = '';
-
-        if ($trackingCode) {
-            $tracking_link = $postnl_base . $trackingCode . '-' . $locale . '-' . $postalCode;
-        }
+        $tracking_link = getTrackAndTraceLinkFromOrder($this_get_id);
 
         $products = [];
         foreach ($order->get_items() as $item) {
@@ -58,9 +45,11 @@
             $products[] = [
                 'PRODUCTIMAGE' => str_replace('.local', '.nl', wp_get_attachment_url($product->get_image_id())),
                 'PRODUCTLINK' => $product->get_permalink(),
-                'PRODUCTTITLE' => $item->get_name(),
-                'PRODUCTPRICE' => '€'. wc_format_decimal($item->get_total(), 2),
-                'PRODUCTCOLOR' => $product->get_attribute('kleur'),
+                'PRODUCTTITLE' => $product->get_title(),
+                'PRODUCTPRICE' => '€ '. wc_format_decimal($item->get_total() / $item->get_quantity(), 2),
+                'PRODUCTTOTALPRICE' => '€ '. wc_format_decimal($item->get_total(), 2),
+                'PRODUCTCOLOR' => $product->get_attribute('pa_color'),
+                'PRODUCTSIZE' => $product->get_attribute('pa_size'),
                 'PRODUCTAMOUNT' => $item->get_quantity(),
             ];
         }
@@ -80,11 +69,27 @@
             ),
             array(
                 'name' => 'SHIPPINGCOSTS',
-                'content' => $order->get_shipping_to_display()
+                'content' => '€ '. wc_format_decimal($order->get_shipping_total(), 2)
+            ),
+            array(
+                'name' => 'SUBTOTAL',
+                'content' => '€ '. wc_format_decimal($order->get_subtotal(), 2)
+            ),
+            array(
+                'name' => 'ORDERDISCOUNT',
+                'content' => '€ '. wc_format_decimal($order->get_total_discount(), 2)
+            ),
+            array(
+                'name' => 'ORDERDISCOUNTVALUE',
+                'content' => $order->get_total_discount()
+            ),
+            array(
+                'name' => 'TOTALTAX',
+                'content' => '€ '. wc_format_decimal($order->get_total_tax(), 2)
             ),
             array(
                 'name' => 'TOTALPRICE',
-                'content' => '€'. wc_format_decimal($order->get_total(), 2)
+                'content' => '€ '. wc_format_decimal($order->get_total(), 2)
             ),
             array(
                 'name' => 'PAYMENTMETHOD',
@@ -95,12 +100,24 @@
                 'content' => $deliveryDate
             ),
             array(
+                'name' => 'ORDERDATE',
+                'content' => $orderDate
+            ),
+            array(
                 'name' => 'DELIVERYOPTION',
                 'content' => $deliveryOption
             ),
             array(
                 'name' => 'ADDRESS',
-                'content' => $address
+                'content' => $billingAddress
+            ),
+            array(
+                'name' => 'DELIVERYADDRESS',
+                'content' => $deliveryAddress
+            ),
+            array(
+                'name' => 'TRACKINGNUMBER',
+                'content' => $tracking_link
             ),
             array(
                 'name' => 'TRACKINGLINK',
