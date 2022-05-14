@@ -548,10 +548,11 @@ body.page-id-317 .site-main,
         padding: .5rem 1rem;
     }
 
-    input:disabled + label {
+    input:disabled + label,
+    input[aria-disabled] + label {
         border-color: #d8cfc6;
         color: #d3c9bf;
-        cursor: not-allowed;
+        /* cursor: not-allowed; */
     }
 
     input + label > span:not(.amount) {

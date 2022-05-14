@@ -17,6 +17,14 @@ export default class AjaxAddToCart extends Component {
 
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
 
+    // private outOfStockHandler = (field: HTMLInputElement) => {
+    //     if (field.checked === false) {
+    //         return;
+    //     }
+
+    //     this.disableButtonOnOutOfStock();
+    // };
+
     constructor(form: HTMLFormElement) {
         super();
         this.form = form;
@@ -58,6 +66,20 @@ export default class AjaxAddToCart extends Component {
         const variationID: number | null = this.findMatchingVariant(currentOptions);
         this.disableNonExistingVariants(name, value);
         this.disableOutOfStockVariants(name, value);
+
+        const selectedVariation = this.variationData.find(
+            (variation) => variation.variation_id === variationID
+        );
+
+        console.log(selectedVariation);
+
+        if (selectedVariation.is_in_stock === false) {
+            console.log('out of stock');
+            this.disableButtonOnOutOfStock();
+        } else {
+            console.log('in stock');
+            this.enableButtonOnOutOfStock();
+        }
 
         if (this.disabledChecker()) {
             this.selectFirstAvailableVariant();
@@ -142,10 +164,18 @@ export default class AjaxAddToCart extends Component {
         });
 
         if (!isInStock) {
-            this.button.isDisabled = true;
-            this.button.label = 'BOETTON';
-            this.button.label = this.button.dataset.outOfStock || 'Out of stock';
+            this.disableButtonOnOutOfStock();
         }
+    }
+
+    private disableButtonOnOutOfStock(): void {
+        this.button.isDisabled = true;
+        this.button.label = this.button.dataset.outOfStock || 'Out of stock';
+    }
+
+    private enableButtonOnOutOfStock(): void {
+        this.button.isDisabled = false;
+        this.button.label = this.button.dataset.inStock || 'Add to Bag';
     }
 
     private disableOutOfStockVariants(name: string = '', value = ''): void {
@@ -163,12 +193,12 @@ export default class AjaxAddToCart extends Component {
             this.variationFields.forEach((field) => {
                 const match = attributes[field.name];
                 if (match === field.value) {
-                    if (variation.is_in_stock) {
-                        return;
-                    }
-
-                    this.#disableField(field);
+                    return;
                 }
+                if (variation.is_in_stock) {
+                    return;
+                }
+                this.#disableField(field);
             });
         });
 
@@ -194,35 +224,7 @@ export default class AjaxAddToCart extends Component {
 
     private disableNonExistingVariants(name: string = '', value = ''): void {
         if (name === 'attribute_pa_amount') {
-            return;
         }
-
-        if (name && value) {
-            this.variationFields.forEach((field) => {
-                if (field.name !== name) {
-                    field.disabled = true;
-                }
-            });
-        }
-
-        this.variationData.forEach((variation) => {
-            const { attributes } = variation;
-
-            if (!attributes) {
-                throw new Error('no attributes');
-            }
-
-            if (attributes[name] !== value) {
-                return;
-            }
-
-            this.variationFields.forEach((field) => {
-                const match = attributes[field.name];
-                if (match === field.value) {
-                    field.disabled = false;
-                }
-            });
-        });
     }
 
     private findMatchingVariant(currentOptions: standardObject): number | null {
@@ -372,12 +374,14 @@ export default class AjaxAddToCart extends Component {
     }
 
     #disableField(field: HTMLInputElement): void {
-        field.disabled = true;
+        // field.disabled = true;
+        field.toggleAttribute('aria-disabled', true);
         field.removeAttribute('checked');
     }
 
     #enableField(field: HTMLInputElement): void {
         field.removeAttribute('disabled');
+        field.removeAttribute('aria-disabled');
     }
 
     private disableSubscriptionVariants(): void {
