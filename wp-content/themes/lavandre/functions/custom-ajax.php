@@ -16,6 +16,7 @@ function ajax_auth_init() {
     add_action('wp_ajax_nopriv_mailchimpsubscribe', 'ajax_MailchimpSubscribe');
     add_action( 'wp_ajax_nopriv_ajaxgetvariantprice', 'ajax_getVariantPrice' );
     add_action( 'wp_ajax_nopriv_ajaxreferafriendemail', 'ajax_referafriendemail' );
+    add_action( 'wp_ajax_nopriv_ajaxproductbackinstockemail', 'ajax_productbackinstockemail' );
 }
 
 // Execute the action only if the user isn't logged in
@@ -33,6 +34,57 @@ add_action( 'wp_ajax_ajaxaddloyaltypoints', 'ajax_addLoyaltyPoints' );
 add_action( 'wp_ajax_ajaxdateofbirth', 'ajax_dateOfBirth' );
 add_action( 'wp_ajax_ajaxredeemcoupon', 'ajax_redeemCoupon' );
 add_action( 'wp_ajax_ajaxreferafriendemail', 'ajax_referafriendemail' );
+add_action( 'wp_ajax_ajaxproductbackinstockemail', 'ajax_productbackinstockemail' );
+
+function ajax_productbackinstockemail(): void
+{
+    $email = $_POST['email'];
+    $size = $_POST['size'];
+
+    if (empty($email)) {
+        wp_send_json_error( array(
+            'message' => 'Incorrect data submitted',
+        ) );
+    }
+
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+    $apiKey = $_ENV['MAILCHIMP_API_KEY'];
+    $server = 'us17';
+    $list_id = "b7e2ff5fc6";
+
+    $mailchimp->setConfig([
+        'apiKey' => $apiKey,
+        'server' => $server
+    ]);
+
+    $subscriber_hash = md5(strtolower($email));
+    $subscribed = mc_checklist($email, true, $apiKey, $list_id, $server);
+
+    if ($subscribed != '404') {
+        wp_send_json_error( ['You are already subscribed.'] );
+    }
+
+    try {
+        $data = [
+            "email_address" => $email,
+            "status" => "subscribed",
+            "status_if_new" => "subscribed",
+            "tags" => [
+                "product-back-in-stock",
+                "product-back-in-stock-size-" . $size
+            ]
+        ];
+
+        $mailchimp->lists->setListMember($list_id, $subscriber_hash, $data);
+    } catch (MailchimpMarketing\ApiException $e) {
+        wp_send_json_error( [__('You are already subscribed.')] );
+        echo $e->getMessage();
+    } catch (GuzzleHttp\Exception\ClientException $e) {
+        echo '<pre>' . var_export($e->getResponse()->getBody()->getContents()).'</pre>';
+    }
+
+    wp_die();
+}
 
 function ajax_referafriendemail(): void
 {
@@ -318,16 +370,13 @@ function ajax_MailchimpSubscribe() {
     $mailchimp = new \MailchimpMarketing\ApiClient();
     $apiKey = $_ENV['MAILCHIMP_API_KEY'];
     $server = 'us17';
-    $list_id = "c06124c73b";
+    $list_id = "a4cea6dfad";
 
     $mailchimp->setConfig([
         'apiKey' => $apiKey,
         'server' => $server
     ]);
     $subscriber_hash = md5(strtolower($email));
-    $exists = false;
-    $response = '';
-
     $subscribed = mc_checklist($email, true, $apiKey, $list_id, $server);
 
     if ($subscribed != '404') {
@@ -356,7 +405,7 @@ function ajax_MailchimpSubscribe() {
             $data['merge_fields'] = $mergeFields;
         }
 
-        $response = $mailchimp->lists->setListMember($list_id, $subscriber_hash, $data);
+        $mailchimp->lists->setListMember($list_id, $subscriber_hash, $data);
     } catch (MailchimpMarketing\ApiException $e) {
         wp_send_json_error( [__('You are already subscribed.')] );
         echo $e->getMessage();
@@ -375,8 +424,6 @@ function ajax_MailchimpSubscribe() {
     wp_send_json_success([__('Welcome to the Lavandré family. We\'ll be in touch soon.')]);
     wp_die();
 }
-
-
 
 function ajax_emailCheck() {
     global $current_user;

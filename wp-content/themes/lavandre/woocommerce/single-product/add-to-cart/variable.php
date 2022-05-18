@@ -166,5 +166,15 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
     <?php do_action( 'woocommerce_after_variations_form' ); ?>
 </form>
 
+<form is="product-back-in-stock-form" id="product-back-in-stock-form" class="product-back-in-stock-form" method="post" action="/" data-success="<?php _e('You\'re in! We\'ll let you know when it\'s back.', 'lavandre'); ?>" hidden>
+    <h3 style="margin-top: 0; font-style: initial;">Notify Me When Available</h3>
+    <label class="sr-only" for="product-back-in-stock-email">Email</label>
+    <input class="product-back-in-stock__input" type="email" name="email" id="product-back-in-stock-email" title="Please enter a valid e-mail address" placeholder="Email" required>
+
+    <button is="lavandre-button" outline size="large" class="product-back-in-stock__button" type="submit" id="product-back-in-stock-submit" aria-label="Subscribe to product stock notification">
+        Notify Me
+    </button>
+</form>
+
 <?php
 do_action( 'woocommerce_after_add_to_cart_form' );

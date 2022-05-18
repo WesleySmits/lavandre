@@ -17,13 +17,9 @@ export default class AjaxAddToCart extends Component {
 
     private ajaxEndpoint: string = `${window.location.origin}/wp-admin/admin-ajax.php`;
 
-    // private outOfStockHandler = (field: HTMLInputElement) => {
-    //     if (field.checked === false) {
-    //         return;
-    //     }
-
-    //     this.disableButtonOnOutOfStock();
-    // };
+    private outOfStockForm: HTMLFormElement | null = document.getElementById(
+        'product-back-in-stock-form'
+    ) as HTMLFormElement;
 
     constructor(form: HTMLFormElement) {
         super();
@@ -64,22 +60,12 @@ export default class AjaxAddToCart extends Component {
         }
 
         const variationID: number | null = this.findMatchingVariant(currentOptions);
-        this.disableNonExistingVariants(name, value);
+        // this.disableNonExistingVariants(name, value);
         this.disableOutOfStockVariants(name, value);
 
         const selectedVariation = this.variationData.find(
             (variation) => variation.variation_id === variationID
         );
-
-        console.log(selectedVariation);
-
-        if (selectedVariation.is_in_stock === false) {
-            console.log('out of stock');
-            this.disableButtonOnOutOfStock();
-        } else {
-            console.log('in stock');
-            this.enableButtonOnOutOfStock();
-        }
 
         if (this.disabledChecker()) {
             this.selectFirstAvailableVariant();
@@ -87,6 +73,12 @@ export default class AjaxAddToCart extends Component {
             setTimeout(() => {
                 this.disableSubscriptionVariants();
             }, 100);
+        }
+
+        if (selectedVariation.is_in_stock === false) {
+            this.disableButtonOnOutOfStock();
+        } else {
+            this.enableButtonOnOutOfStock();
         }
 
         this.disableButtonIfOutOfStock();
@@ -145,7 +137,7 @@ export default class AjaxAddToCart extends Component {
 
             if (!selectedField) {
                 fields.forEach((field) => {
-                    if (field.disabled) {
+                    if (field.disabled || field.hasAttribute('aria-disabled')) {
                         return;
                     }
 
@@ -170,12 +162,18 @@ export default class AjaxAddToCart extends Component {
 
     private disableButtonOnOutOfStock(): void {
         this.button.isDisabled = true;
+        this.button.disabled = true;
         this.button.label = this.button.dataset.outOfStock || 'Out of stock';
+
+        this.outOfStockForm?.removeAttribute('hidden');
     }
 
     private enableButtonOnOutOfStock(): void {
         this.button.isDisabled = false;
+        this.button.disabled = false;
         this.button.label = this.button.dataset.inStock || 'Add to Bag';
+
+        this.outOfStockForm?.toggleAttribute('hidden', true);
     }
 
     private disableOutOfStockVariants(name: string = '', value = ''): void {
@@ -222,10 +220,10 @@ export default class AjaxAddToCart extends Component {
         });
     }
 
-    private disableNonExistingVariants(name: string = '', value = ''): void {
-        if (name === 'attribute_pa_amount') {
-        }
-    }
+    // private disableNonExistingVariants(name: string = '', value = ''): void {
+    //     if (name === 'attribute_pa_amount') {
+    //     }
+    // }
 
     private findMatchingVariant(currentOptions: standardObject): number | null {
         let variationID: number | null = null;

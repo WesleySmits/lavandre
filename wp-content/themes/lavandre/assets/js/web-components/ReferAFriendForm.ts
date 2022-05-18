@@ -49,7 +49,6 @@ export default class ReferAFriendForm extends HTMLFormElement {
     }
 
     #onSuccess(response: Response): void {
-        console.log('success', response);
         const toggle = this.closest('lavandre-toggle') as LavandreToggle;
         if (!toggle) {
             return;
@@ -59,7 +58,6 @@ export default class ReferAFriendForm extends HTMLFormElement {
     }
 
     #onFailure(error: Error): void {
-        console.log(error);
         FieldValidation.appendErrorText(this.#emailField!, error.message);
         throw error;
     }
