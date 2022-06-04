@@ -1,6 +1,10 @@
 <?php
 
 use Lavandre\Loyalty\LavandreLoyalty;
+use Lavandre\Mailchimp\Mailchimp;
+use Lavandre\Mandrill\Mandrill;
+use Lavandre\Mailchimp\MailchimpSubscriptionStatus;
+use Lavandre\User\UserHelper;
 
 function ajax_auth_init() {
     add_action('wp_ajax_nopriv_ajaxemailcheck', 'ajax_emailCheck');
@@ -40,6 +44,7 @@ function ajax_productbackinstockemail(): void
 {
     $email = $_POST['email'];
     $size = $_POST['size'];
+    $amount = $_POST['amount'];
 
     if (empty($email)) {
         wp_send_json_error( array(
@@ -47,40 +52,36 @@ function ajax_productbackinstockemail(): void
         ) );
     }
 
-    $mailchimp = new \MailchimpMarketing\ApiClient();
-    $apiKey = $_ENV['MAILCHIMP_API_KEY'];
-    $server = 'us17';
-    $list_id = "b7e2ff5fc6";
+    $userHelper = UserHelper::getInstance();
+    $user = $userHelper->getUserByEmail($email);
 
-    $mailchimp->setConfig([
-        'apiKey' => $apiKey,
-        'server' => $server
-    ]);
+    $firstName = $userHelper->getFirstName($user);
+    $companyName = $userHelper->getCompanyName($user);
+    $data = [
+        "email_address" => $email,
+        "status" => "subscribed",
+        "status_if_new" => "subscribed",
+        "tags" => [
+            "product-back-in-stock",
+            "product-back-in-stock-size-" . $size . "-" . $amount
+        ]
+    ];
 
-    $subscriber_hash = md5(strtolower($email));
-    $subscribed = mc_checklist($email, true, $apiKey, $list_id, $server);
+    $mailchimp = Mailchimp::getInstance();
+    $list_id = $_ENV['MAILCHIMP_LIST_ID_BACK_IN_STOCK'];
 
-    if ($subscribed != '404') {
-        wp_send_json_error( ['You are already subscribed.'] );
-    }
+    $status = $mailchimp->subscribeUser($email, $list_id, $firstName, $companyName, [], $data);
 
-    try {
-        $data = [
-            "email_address" => $email,
-            "status" => "subscribed",
-            "status_if_new" => "subscribed",
-            "tags" => [
-                "product-back-in-stock",
-                "product-back-in-stock-size-" . $size
-            ]
-        ];
-
-        $mailchimp->lists->setListMember($list_id, $subscriber_hash, $data);
-    } catch (MailchimpMarketing\ApiException $e) {
-        wp_send_json_error( [__('You are already subscribed.')] );
-        echo $e->getMessage();
-    } catch (GuzzleHttp\Exception\ClientException $e) {
-        echo '<pre>' . var_export($e->getResponse()->getBody()->getContents()).'</pre>';
+    switch ($status) {
+        case MailchimpSubscriptionStatus::ALREADY_SUBSCRIBED:
+            wp_send_json_error( [__('You are already subscribed.')] );
+            break;
+        case MailchimpSubscriptionStatus::ERROR:
+            wp_send_json_error( [__('Something went wrong.')] );
+            break;
+        default:
+            wp_send_json_success();
+            break;
     }
 
     wp_die();
@@ -363,65 +364,31 @@ function update_cart_item() {
 }
 
 function ajax_MailchimpSubscribe() {
-    $firstName = $_POST['firstName'];
-    $companyName = $_POST['companyName'];
+    $userHelper = UserHelper::getInstance();
     $email = $_POST['email'];
 
-    $mailchimp = new \MailchimpMarketing\ApiClient();
-    $apiKey = $_ENV['MAILCHIMP_API_KEY'];
-    $server = 'us17';
-    $list_id = "a4cea6dfad";
+    $user = $userHelper->getUserByEmail($email);
 
-    $mailchimp->setConfig([
-        'apiKey' => $apiKey,
-        'server' => $server
-    ]);
-    $subscriber_hash = md5(strtolower($email));
-    $subscribed = mc_checklist($email, true, $apiKey, $list_id, $server);
+    $firstName = $_POST['firstName'] ?? $userHelper->getFirstName($user);
+    $companyName = $_POST['companyName'] ?? $userHelper->getCompanyName($user);
 
-    if ($subscribed != '404') {
-        wp_send_json_error( ['You are already subscribed.'] );
+    $mailchimp = Mailchimp::getInstance();
+    $list_id = $_ENV['MAILCHIMP_LIST_ID'];
+
+    $status = $mailchimp->subscribeUser($email, $list_id, $firstName, $companyName);
+
+    switch ($status) {
+        case MailchimpSubscriptionStatus::ALREADY_SUBSCRIBED:
+            wp_send_json_error( [__('You are already subscribed.')] );
+            break;
+        case MailchimpSubscriptionStatus::ERROR:
+            wp_send_json_error( [__('Something went wrong.')] );
+            break;
+        default:
+            wp_send_json_success([__('Welcome to the Lavandré family. We\'ll be in touch soon.')]);
+            break;
     }
 
-    $errors = [];
-
-    try {
-        $mergeFields = [];
-        $data = [
-            "email_address" => $email,
-            "status" => "subscribed",
-            "status_if_new" => "subscribed"
-        ];
-
-        if ($firstName) {
-            $mergeFields["FNAME"] = $firstName;
-        }
-
-        if ($companyName) {
-            $mergeFields["CNAME"] = $companyName;
-        }
-
-        if ($mergeFields) {
-            $data['merge_fields'] = $mergeFields;
-        }
-
-        $mailchimp->lists->setListMember($list_id, $subscriber_hash, $data);
-    } catch (MailchimpMarketing\ApiException $e) {
-        wp_send_json_error( [__('You are already subscribed.')] );
-        echo $e->getMessage();
-    } catch (GuzzleHttp\Exception\ClientException $e) {
-        echo '<pre>' . var_export($e->getResponse()->getBody()->getContents()).'</pre>';
-        $errors[] = $e->getMessage();
-        $errorResponse = $e->getResponse();
-        $errorStatusCode = (string)$errorResponse->getStatusCode();
-    }
-
-    if ($errors) {
-        print_r($data); die;
-        die($errors[0]);
-    }
-
-    wp_send_json_success([__('Welcome to the Lavandré family. We\'ll be in touch soon.')]);
     wp_die();
 }
 
@@ -573,25 +540,10 @@ function ajax_register() {
             'remember' => true
         );
 
-        $user_signon = wp_signon( $user_login, false );
+        wp_signon( $user_login, false );
 
-        $name = $_POST['first_name'] . ' ' . $_POST['last_name'];
-        $merge_vars = array(
-            array(
-                'name' => 'FNAME',
-                'content' => $_POST['first_name']
-            ),
-            array(
-                'name' => 'LNAME',
-                'content' => $_POST['last_name']
-            ),
-            array(
-                'name' => 'EMAIL',
-                'content' => $_POST['email']
-            )
-        );
-
-        sendMandrillMail('lavandre-new-account', $_POST['email'], $name, $merge_vars);
+        $mandrill = Mandrill::getInstance();
+        $mandrill->sendMail('lavandre-new-account', $_POST['email']);
         wp_send_json_success(__('You have registered successfully!', 'lavandre'));
     } else {
         if (isset($user_id->errors['empty_user_login'])) {
@@ -657,7 +609,8 @@ function ajax_forgotPassword() {
 
     $name = ($user->first_name) ? $user->first_name . ' ' . $user->last_name : 'Recipient 1';
 
-    sendMandrillMail('lavandre-password-forget', $username, $name, $merge_vars);
+    $mandrill = Mandrill::getInstance();
+    $mandrill->sendMail('lavandre-password-forget', $username, $name, $merge_vars);
 
     wp_send_json_success(__('We have sent you an email with a link to change your password.', 'lavandre'));
     wp_die();
@@ -743,82 +696,6 @@ function checkIfUserExists() {
         $get_by = 'login';
     } else {
         wp_send_json_error( array('Invalid credentials') );
-    }
-}
-
-function mc_checklist($email, $debug, $apikey, $listid, $server) {
-    $subscriber_hash = md5(strtolower($email));
-    $auth = base64_encode( 'user:'. $apikey );
-    $data = array(
-        'apikey'        => $apikey,
-        'email_address' => $email
-        );
-    $json_data = json_encode($data);
-
-    $mailchimp = new \MailchimpMarketing\ApiClient();
-    $mailchimp->setConfig([
-        'apiKey' => $apikey,
-        'server' => $server
-    ]);
-
-    $response = '';
-    $errors = [];
-    $errorStatusCode = 0;
-
-    try {
-        $response = $mailchimp->lists->getListMember($listid, $subscriber_hash);
-    } catch (ClientException $e) {
-    } catch (RequestException $e) {
-    } catch (MailchimpMarketing\ApiException $e) {
-        $errors[] = $e->getMessage();
-    } catch (ClientErrorResponseException $e) {
-        $errors[] = $e->getMessage();
-    } catch (GuzzleHttp\Exception\ClientException $e) {
-        $errors[] = $e->getMessage();
-
-        $errorResponse = $e->getResponse();
-        $errorStatusCode = (string)$errorResponse->getStatusCode();
-    }
-
-    if ($errors) {
-        return $errorStatusCode;
-    }
-
-    return $response->status;
-}
-
-function sendMandrillMail($template_name, $email, $name, $merge_vars, $language = 'mailchimp') {
-    try {
-        $mandrill = new \MailchimpTransactional\ApiClient();
-        $apiKey = $_ENV['MANDRILL_API_KEY'];
-        $mandrill->setApiKey($apiKey);
-
-        $info = $mandrill->templates->info(["name" => $template_name]);
-
-        if ($info->slug != $template_name) {
-            throw new Exception("Template not found");
-        }
-
-        $info = json_decode(json_encode($info), true);
-
-        $message = array(
-            'subject' => $info['subject'],
-            'from_email' => $info['from_email'],
-            'from_name' => $info['from_name'],
-            'html' => $info['publish_code'],
-            'to' => array(array('email' => $email, 'name' => $name)),
-            'merge_language' => $language,
-            'global_merge_vars' => $merge_vars
-        );
-
-        $result = $mandrill->messages->sendTemplate([
-            "template_name" => $template_name,
-            "template_content" => [["name"=>'','content'=>'']],
-            "message" => $message,
-        ]);
-    } catch (Error $e) {
-        var_dump('something went wrong', $e); die;
-        // echo 'Error: ', $e->getMessage(), "\n";
     }
 }
 

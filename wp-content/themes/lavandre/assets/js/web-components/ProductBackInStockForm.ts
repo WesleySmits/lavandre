@@ -6,6 +6,16 @@ import AjaxForm from './AjaxForm';
 class ProductBackInStockForm extends AjaxForm {
     #emailField: HTMLInputElement | null = this.querySelector('[name="email"]');
 
+    #form: HTMLFormElement | null = null;
+
+    get form(): HTMLFormElement | null {
+        if (!this.#form) {
+            this.#form = document.querySelector('.variations_form');
+        }
+
+        return this.#form;
+    }
+
     get successMessage(): string {
         return this.dataset.success || "You're in! We'll let you know when it's back.";
     }
@@ -27,7 +37,8 @@ class ProductBackInStockForm extends AjaxForm {
         const data = {
             action: 'ajaxproductbackinstockemail',
             email: email,
-            size: this.#getProductSize() ?? ''
+            size: this.#getProductSize() ?? '',
+            amount: this.#getProductAmount() ?? ''
         };
 
         const submitButton = this.querySelector('[type="submit"]') as HTMLButtonElement;
@@ -45,12 +56,28 @@ class ProductBackInStockForm extends AjaxForm {
     }
 
     #getProductSize(): string | null {
-        const form = document.querySelector('.variations_form');
-        if (!form) {
+        if (!this.form) {
             return null;
         }
 
-        const size = form.querySelector('[name="attribute_pa_size"]:checked') as HTMLInputElement;
+        const size = this.form.querySelector(
+            '[name="attribute_pa_size"]:checked'
+        ) as HTMLInputElement;
+        if (!size) {
+            return null;
+        }
+
+        return size.value;
+    }
+
+    #getProductAmount(): string | null {
+        if (!this.form) {
+            return null;
+        }
+
+        const size = this.form.querySelector(
+            '[name="attribute_pa_amount"]:checked'
+        ) as HTMLInputElement;
         if (!size) {
             return null;
         }

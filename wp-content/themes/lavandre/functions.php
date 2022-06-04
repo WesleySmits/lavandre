@@ -1,7 +1,4 @@
 <?php
-
-use Lavandre\Loyalty\LavandreLoyalty;
-
 /**
  * Theme functions and definitions
  *
@@ -20,6 +17,10 @@ include(get_stylesheet_directory() . '/functions/customizer.php');
 include(get_stylesheet_directory() . '/functions/faq.php');
 include(get_stylesheet_directory() . '/functions/templates.php');
 include(get_stylesheet_directory() . '/functions/loyalty.php');
+include(get_stylesheet_directory() . '/functions/mailchimp.php');
+include(get_stylesheet_directory() . '/functions/mandrill.php');
+include(get_stylesheet_directory() . '/functions/UserHelper.php');
+include(get_stylesheet_directory() . '/functions/enums/MailchimpSubscriptionStatus.php');
 include(get_stylesheet_directory() . '/functions/accountHandler.php');
 
 include(get_stylesheet_directory() . '/functions/custom-ajax.php');
@@ -33,6 +34,7 @@ include(get_stylesheet_directory() . '/functions/woocommerce-track-trace.php');
 include(get_stylesheet_directory() . '/functions/woocommerce-custom-cart.php');
 include(get_stylesheet_directory() . '/functions/woocommerce-account.php');
 include(get_stylesheet_directory() . '/functions/woocommerce-checkout-login-step.php');
+include(get_stylesheet_directory() . '/functions/mandrill-triggers.php');
 
 function lavandre_setup() {
     load_theme_textdomain('lavandre', get_template_directory() . '/languages');
