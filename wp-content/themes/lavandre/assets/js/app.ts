@@ -11,7 +11,6 @@ import ForgotPasswordToggle from './components/ForgotPasswordToggle';
 import HeaderSearch from './components/HeaderSearch';
 import InfoPopup from './components/InfoPopup';
 import LazyLoader from './components/LazyLoader';
-import NewsletterSubscribe from './components/NewsletterSubscribe';
 import PasswordReveal from './components/PasswordReveal';
 import RedeemPointsForCoupon from './components/RedeemPointsForCoupon';
 import Module from './Module';
@@ -29,6 +28,7 @@ import './web-components/LanguageSwitcher';
 import './web-components/LavandreSelect';
 import './web-components/LavandreToggle';
 import './web-components/LazyBackground';
+import './web-components/NewsletterSubscribe';
 import './web-components/SignupBlock';
 import './web-components/VideoMediaResolver';
 
@@ -42,7 +42,6 @@ export default class App extends Module {
         InfoPopup,
         PasswordReveal,
         EmailValidation,
-        NewsletterSubscribe,
         ForgotPasswordToggle,
         FieldValidation,
         HeaderSearch,

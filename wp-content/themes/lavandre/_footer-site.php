@@ -28,7 +28,7 @@
                 <h3 class="footer__h3"><?php _e('Stay up to date', 'lavandre'); ?></h3>
 
                 <div class="ww-footer__subscribe-form-wrapper">
-                    <form class="ww-form" id="footer-newsletter-form" action="post">
+                    <form class="ww-form" id="footer-newsletter-form" is="newsletter-subscribe" action="post">
                         <p class="ww-form__field">
                             <input type="email" name="email" id="footer-newsletter-form-email"
                                 title="<?php _e('Please enter a valid e-mail address', 'lavandre'); ?>"

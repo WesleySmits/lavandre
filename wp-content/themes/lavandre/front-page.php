@@ -35,7 +35,7 @@
                     <?php _e('Sign up to receive the Lavandré newsletter and be the first to discover new arrivals, limited editions and email-only exclusive offers.', 'lavandre'); ?>
                 </p>
 
-                <form id="homepage-newsletter-form" class="homepage-newsletter-form" action="post">
+                <form id="homepage-newsletter-form" is="newsletter-subscribe" class="homepage-newsletter-form" action="post">
                     <label class="sr-only"
                         for="homepage-newsletter-form-email"><?php _e('Email', 'lavandre'); ?></label>
                     <input class="newsletter-subscribe-home__input" type="email" name="email"
