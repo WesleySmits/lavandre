@@ -8,7 +8,7 @@ export function setValidationMessage(message: string, element: HTMLElement) {
     removeExistingValidationMessages(element, formRowParent);
 
     const validationElement: HTMLElement = document.createElement('div');
-    validationElement.className = 'alert alert--warning inline-form-error';
+    validationElement.className = 'validation-message';
     validationElement.textContent = message;
 
     formRowParent.insertBefore(validationElement, formRow);
