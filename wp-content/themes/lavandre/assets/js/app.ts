@@ -2,7 +2,6 @@ import '@ungap/custom-elements';
 import '../css/app.pcss';
 import Component from './common/Component';
 import EventEmitter from './common/EventEmitter';
-import AjaxLogin from './components/AjaxLogin';
 import AjaxRegister from './components/AjaxRegister';
 import CookieBar from './components/CookieBar';
 import CopyCoupon from './components/CopyCoupon';
@@ -24,6 +23,7 @@ import LanguagePopup from './ui/LanguagePopup';
 import SidePanel from './ui/SidePanel';
 import { setCurrentLinkClass } from './util/links';
 import './web-components/AccordionElement';
+import './web-components/AjaxLoginForm';
 import './web-components/BirthdayForm';
 import LavandreButton from './web-components/button/LavandreButton';
 import './web-components/CarouselElement';
@@ -46,7 +46,6 @@ export default class App extends Module {
         NewsletterSubscribe,
         ForgotPassword,
         ForgotPasswordToggle,
-        AjaxLogin,
         AjaxRegister,
         FieldValidation,
         HeaderSearch,

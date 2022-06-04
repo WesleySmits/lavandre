@@ -58,7 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <h1><?php esc_html_e( 'Login', 'lavandre' ); ?></h1>
                 </header>
 
-                <form id="ajax-login-form" class="woocommerce-form woocommerce-form-login login" data-redirect="true" method="post" data-field-validation>
+                <form id="ajax-login-form" is="login-form" class="woocommerce-form woocommerce-form-login login" data-redirect="true" method="post" data-field-validation>
                     <?php do_action( 'woocommerce_login_form_start' ); ?>
 
                     <p class=" woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">

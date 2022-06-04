@@ -12,7 +12,7 @@
             <section class="side-panel__section side-panel__section--bordered side-panel__section--boxed">
                 <h2><?php _e('Log In', 'lavandre'); ?></h2>
 
-                <form id="ajax-login-form" class="woocommerce-form woocommerce-form-login login" method="post"
+                <form id="ajax-login-form" is="login-form" class="woocommerce-form woocommerce-form-login login" method="post"
                     novalidate>
                     <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                         <input type="email" id="ajax-login-username"
