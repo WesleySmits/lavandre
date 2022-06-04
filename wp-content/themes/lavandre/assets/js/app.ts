@@ -30,6 +30,7 @@ import './web-components/CarouselElement';
 import './web-components/LanguageSwitcher';
 import './web-components/LavandreSelect';
 import './web-components/LavandreToggle';
+import './web-components/LazyBackground';
 import './web-components/SignupBlock';
 
 export default class App extends Module {
@@ -78,7 +79,6 @@ export default class App extends Module {
     const app = new App();
     app.initialize();
 
-    lazyBackgrounds();
     footerUspSlider();
 })();
 
@@ -98,27 +98,6 @@ function footerUspSlider(): void {
 
         list.style.width = `${totalWidth}px`;
     }, 300);
-}
-
-function lazyBackgrounds(): void {
-    document.addEventListener('DOMContentLoaded', () => {
-        const lazyBackgrounds = [].slice.call(document.querySelectorAll('.lazy-background'));
-
-        if ('IntersectionObserver' in window) {
-            const lazyBackgroundObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        lazyBackgroundObserver.unobserve(entry.target);
-                    }
-                });
-            });
-
-            lazyBackgrounds.forEach((lazyBackground) => {
-                lazyBackgroundObserver.observe(lazyBackground);
-            });
-        }
-    });
 }
 
 if (LavandreButton) {

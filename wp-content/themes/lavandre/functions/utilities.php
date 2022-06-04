@@ -88,3 +88,8 @@ function get_translated_text($text, $domain, $locale) {
 
     return ($mo->translate($text)) ? $mo->translate($text) : $text;
 }
+
+function toDashCase($string): string
+{
+    return str_replace(' ', '-', strtolower($string));
+}
