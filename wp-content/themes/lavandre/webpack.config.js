@@ -36,7 +36,6 @@ Encore.setOutputPath('./public/')
     .enableTypeScriptLoader()
     .enableVersioning(Encore.isProduction())
     .configureTerserPlugin((options) => {
-        // options.cache = true;
         options.parallel = true;
         options.terserOptions = {
             keep_classnames: true,

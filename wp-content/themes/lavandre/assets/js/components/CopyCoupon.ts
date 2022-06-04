@@ -52,14 +52,6 @@ export default class CopyCoupon extends Component {
         return true;
     }
 
-    private onSuccess(res: any, event: Event): void {
-        const response: any = res;
-    }
-
-    private onFailure(res: string): void {
-        const response = JSON.parse(res);
-    }
-
     public static onInit(selector: Document | HTMLElement = document): void {
         const copyButtons: HTMLButtonElement[] = Array.from(
             selector.querySelectorAll('[data-role="copy-coupon"]')
