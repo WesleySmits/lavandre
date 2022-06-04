@@ -22,7 +22,7 @@ export function removeExistingValidationMessages(element: HTMLElement, selector?
     }
 
     const existingValidations: HTMLElement[] = Array.from(
-        grandparent.querySelectorAll('.alert--warning')
+        grandparent.querySelectorAll('.validation-message')
     );
     existingValidations.forEach((v) => {
         v.remove();
