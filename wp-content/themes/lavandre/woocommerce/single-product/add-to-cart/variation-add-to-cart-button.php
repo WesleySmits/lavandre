@@ -35,6 +35,7 @@ global $product;
         value="<?php echo esc_attr( $product->get_id() ); ?>" primary full-width
         size="large"
         data-out-of-stock="<?php _e('Sold Out', 'lavandre'); ?>"
+        data-in-stock="<?php echo esc_html( $product->single_add_to_cart_text() ); ?>"
     >
             <?php echo esc_html( $product->single_add_to_cart_text() ); ?>
     </button>

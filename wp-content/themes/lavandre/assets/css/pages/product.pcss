@@ -136,7 +136,7 @@ form.cart {
     display: flex;
     flex-flow: column nowrap;
     margin: 2.5rem 0;
-    padding: 1.25rem 0;
+    padding: 1.25rem 0 0;
 
     border-top: 1px solid var(--color-border);
 }
@@ -401,4 +401,38 @@ form.cart {
     .reset_variations {
         display: none;
     }
+}
+
+.product-back-in-stock-form {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+input.product-back-in-stock__input {
+    flex: 1 1 70%;
+    border-radius: 0;
+    height: 3.75rem;
+
+    background-color: transparent;
+    border-color: var(--color-text);
+    border-right: 0;
+    color: var(--color-text);
+
+    @media (--tablet-landscape) {
+        font-size: 14px;
+        line-height: 1.5rem;
+    }
+
+    &::-webkit-input-placeholder {
+        color: var(--old-burgundy);
+    }
+
+    &::-moz-placeholder {
+        color: var(--old-burgundy);
+    }
+}
+
+button.product-back-in-stock__button {
+    flex: 1 1 30%;
 }

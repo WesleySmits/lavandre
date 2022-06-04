@@ -1,11 +1,12 @@
 import Component from './common/Component';
+import DataLayer from './common/DataLayer';
 import AjaxAddToCart from './components/AjaxAddToCart';
 import AmountSelector from './components/AmountSelector';
 import ChangeVariantColor from './components/ChangeVariantColor';
 import ChangeVariantPrice from './components/ChangeVariantPrice';
 import ImageGallery from './components/ImageGallery';
 import Module from './Module';
-import DataLayer from './common/DataLayer';
+import './web-components/ProductBackInStockForm';
 
 export default class ProductDetail extends Module {
     public components: Component[] = [

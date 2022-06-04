@@ -6,6 +6,8 @@
      * 13. Send mandrill mail on order status change
      */
 
+use Lavandre\Mandrill\Mandrill;
+
     /*** checkout ****/
     remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
     add_action( 'woocommerce_checkout_order_payment_methods', 'woocommerce_checkout_payment', 20 );
@@ -43,7 +45,7 @@
         foreach ($order->get_items() as $item) {
             $product = $item->get_product();
             $products[] = [
-                'PRODUCTIMAGE' => str_replace('.local', '.nl', wp_get_attachment_url($product->get_image_id())),
+                'PRODUCTIMAGE' => str_replace('.local', '.com', wp_get_attachment_url($product->get_image_id())),
                 'PRODUCTLINK' => $product->get_permalink(),
                 'PRODUCTTITLE' => $product->get_title(),
                 'PRODUCTPRICE' => '€ '. wc_format_decimal($item->get_total() / $item->get_quantity(), 2),
@@ -129,7 +131,8 @@
             )
         );
 
-        sendMandrillMail($template_name, $username, $name, $merge_vars, 'handlebars');
+        $mandrill = Mandrill::getInstance();
+        $mandrill->sendMail($template_name, $username, $name, $merge_vars, 'handlebars');
     };
 
     // add the action
