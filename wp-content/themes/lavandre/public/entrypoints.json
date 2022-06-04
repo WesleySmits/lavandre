@@ -5,7 +5,7 @@
         "/runtime.8f675b1f.js",
         "/908.eff23dbb.js",
         "/91.891cee3a.js",
-        "/app.10c7057f.js"
+        "/app.17cfb9d7.js"
       ],
       "css": [
         "/app.e3b1a593.css"
@@ -75,7 +75,7 @@
         "/runtime.8f675b1f.js"
       ],
       "css": [
-        "/critical-styles.3a0c304d.css"
+        "/critical-styles.6f532bc0.css"
       ]
     },
     "deferred-styles": {

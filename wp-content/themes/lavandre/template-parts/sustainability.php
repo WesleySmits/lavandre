@@ -13,8 +13,7 @@ get_header();
             <source src="/wp-content/themes/lavandre/assets/video/sustainability.mov" type="video/mp4">
         </video>
 
-        <a href="#derived-from-nature" class="no-button full-video__see-more" aria-label="See more"
-            data-scroll-to="derived-from-nature">
+        <a href="#derived-from-nature" class="no-button full-video__see-more" aria-label="See more">
             <?php include get_stylesheet_directory() . '/partials/icons/down-arrow.svg.php'; ?>
         </a>
     </section>

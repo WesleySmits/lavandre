@@ -21,8 +21,7 @@
     </video>
 
     <?php if ($see_more) { ?>
-    <a href="#<?php echo $see_more; ?>" class="no-button full-video__see-more" aria-label="See more"
-        data-scroll-to="<?php echo $see_more; ?>">
+    <a href="#<?php echo $see_more; ?>" class="no-button full-video__see-more" aria-label="See more">
         <?php include get_stylesheet_directory() . '/partials/icons/down-arrow.svg.php'; ?>
     </a>
     <?php } ?>

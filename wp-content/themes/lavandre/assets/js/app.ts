@@ -15,7 +15,6 @@ import LazyLoader from './components/LazyLoader';
 import NewsletterSubscribe from './components/NewsletterSubscribe';
 import PasswordReveal from './components/PasswordReveal';
 import RedeemPointsForCoupon from './components/RedeemPointsForCoupon';
-import ScrollToContent from './components/ScrollToContent';
 import VideoMediaResolver from './components/VideoMediaResolver';
 import Module from './Module';
 import LanguagePopup from './ui/LanguagePopup';
@@ -49,7 +48,6 @@ export default class App extends Module {
         FieldValidation,
         HeaderSearch,
         LazyLoader,
-        ScrollToContent,
         VideoMediaResolver,
         RedeemPointsForCoupon,
         CopyCoupon,
