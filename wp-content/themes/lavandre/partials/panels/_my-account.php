@@ -44,7 +44,7 @@
             <section class="side-panel__section side-panel__section--bordered side-panel__section--boxed">
                 <h2><?php _e('Are you new?', 'lavandre'); ?></h2>
 
-                <form id="ajax-register-form" class="woocommerce-form woocommerce-form-login login" method="post"
+                <form id="ajax-register-form" is="register-form" class="woocommerce-form woocommerce-form-login login" method="post"
                     novalidate autocomplete="off">
                     <div class="flex customer-register__name-fields">
                         <p class="form-row form-row-first customer-register__name-field">
