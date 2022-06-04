@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <label for="username"><?php esc_html_e( 'Email', 'lavandre' ); ?>&nbsp;<span class="required">*</span></label>
                     </p>
 
-                    <button type="submit" is="lavandre-button" data-role="password-forget" primary full-width size="large" name="password-forget" value="<?php esc_attr_e( 'Submit', 'lavandre' ); ?>"><?php esc_html_e( 'Submit', 'lavandre' ); ?></button>
+                    <button type="submit" is="lavandre-button" primary full-width size="large" name="password-forget" value="<?php esc_attr_e( 'Submit', 'lavandre' ); ?>"><?php esc_html_e( 'Submit', 'lavandre' ); ?></button>
                 </form>
 
                 <a href="#" class="back-link" data-role="password-forget-toggle">

@@ -7,7 +7,6 @@ import CopyCoupon from './components/CopyCoupon';
 import Curtain from './components/Curtain';
 import EmailValidation from './components/EmailValidation';
 import FieldValidation from './components/FieldValidation';
-import ForgotPassword from './components/ForgotPassword';
 import ForgotPasswordToggle from './components/ForgotPasswordToggle';
 import HeaderSearch from './components/HeaderSearch';
 import InfoPopup from './components/InfoPopup';
@@ -26,6 +25,7 @@ import './web-components/AjaxRegisterForm';
 import './web-components/BirthdayForm';
 import LavandreButton from './web-components/button/LavandreButton';
 import './web-components/CarouselElement';
+import './web-components/ForgotPassword';
 import './web-components/LanguageSwitcher';
 import './web-components/LavandreSelect';
 import './web-components/LavandreToggle';
@@ -43,7 +43,6 @@ export default class App extends Module {
         PasswordReveal,
         EmailValidation,
         NewsletterSubscribe,
-        ForgotPassword,
         ForgotPasswordToggle,
         FieldValidation,
         HeaderSearch,

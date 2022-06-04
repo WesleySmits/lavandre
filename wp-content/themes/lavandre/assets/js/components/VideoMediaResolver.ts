@@ -6,8 +6,6 @@ export default class VideoMediaResolver extends Component {
 
     #sources: HTMLSourceElement[];
 
-    #timeout: number | null = null;
-
     constructor(element: HTMLVideoElement) {
         super();
         this.#element = element;

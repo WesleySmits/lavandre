@@ -29,7 +29,7 @@ function ww_wc_login_register() {
                         <label for="username"><?php esc_html_e( 'Email', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
                     </p>
 
-                    <button type="submit" is="lavandre-button" data-role="password-forget" primary full-width size="large" name="password-forget" value="<?php esc_attr_e( 'Submit', 'woocommerce' ); ?>"><?php esc_html_e( 'Submit', 'woocommerce' ); ?></button>
+                    <button type="submit" is="lavandre-button" primary full-width size="large" name="password-forget" value="<?php esc_attr_e( 'Submit', 'woocommerce' ); ?>"><?php esc_html_e( 'Submit', 'woocommerce' ); ?></button>
                 </form>
 
                 <a href="#" class="back-link" style="margin-top: 1rem;" data-role="password-forget-toggle">
