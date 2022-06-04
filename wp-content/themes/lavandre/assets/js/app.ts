@@ -14,7 +14,6 @@ import LazyLoader from './components/LazyLoader';
 import NewsletterSubscribe from './components/NewsletterSubscribe';
 import PasswordReveal from './components/PasswordReveal';
 import RedeemPointsForCoupon from './components/RedeemPointsForCoupon';
-import VideoMediaResolver from './components/VideoMediaResolver';
 import Module from './Module';
 import LanguagePopup from './ui/LanguagePopup';
 import SidePanel from './ui/SidePanel';
@@ -31,6 +30,7 @@ import './web-components/LavandreSelect';
 import './web-components/LavandreToggle';
 import './web-components/LazyBackground';
 import './web-components/SignupBlock';
+import './web-components/VideoMediaResolver';
 
 export default class App extends Module {
     public eventEmitter: EventEmitter = EventEmitter;
@@ -47,7 +47,6 @@ export default class App extends Module {
         FieldValidation,
         HeaderSearch,
         LazyLoader,
-        VideoMediaResolver,
         RedeemPointsForCoupon,
         CopyCoupon,
         LanguagePopup

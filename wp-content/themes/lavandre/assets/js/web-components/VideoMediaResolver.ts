@@ -1,18 +1,9 @@
-import Component from '../common/Component';
 import { matchMediaAddEventListener } from '../polyfills/matchMedia';
 
-export default class VideoMediaResolver extends Component {
-    #element: HTMLVideoElement;
+export default class VideoMediaResolver extends HTMLVideoElement {
+    #sources: HTMLSourceElement[] = Array.from(this.querySelectorAll('source'));
 
-    #sources: HTMLSourceElement[];
-
-    constructor(element: HTMLVideoElement) {
-        super();
-        this.#element = element;
-        this.#sources = Array.from(this.#element.querySelectorAll('source'));
-    }
-
-    public initialize(): void {
+    protected connectedCallback(): void {
         this.#handleResize();
 
         const mq: MediaQueryList = window.matchMedia('(max-width: 767px)');
@@ -20,7 +11,7 @@ export default class VideoMediaResolver extends Component {
 
         matchMediaAddEventListener(
             mq,
-            (event) => {
+            () => {
                 this.#handleResize();
             },
             false
@@ -28,7 +19,7 @@ export default class VideoMediaResolver extends Component {
 
         matchMediaAddEventListener(
             mq2,
-            (event) => {
+            () => {
                 this.#handleResize();
             },
             false
@@ -64,17 +55,8 @@ export default class VideoMediaResolver extends Component {
             return;
         }
 
-        this.#element.src = dataSrc;
-    }
-
-    public static onInit(selector: Document | HTMLElement = document): void {
-        const elements: HTMLVideoElement[] = Array.from(
-            selector.querySelectorAll('video[data-resolve]')
-        );
-
-        elements.forEach((element) => {
-            const instance = new VideoMediaResolver(element);
-            instance.initialize();
-        });
+        this.src = dataSrc;
     }
 }
+
+window.customElements.define('video-media-resolver', VideoMediaResolver, { extends: 'video' });
