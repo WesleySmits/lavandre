@@ -33,6 +33,7 @@
                             <input type="email" name="email" id="footer-newsletter-form-email"
                                 title="<?php _e('Please enter a valid e-mail address', 'lavandre'); ?>"
                                 placeholder="<?php _e('Email', 'lavandre'); ?>">
+                            <label class="sr-only" for="footer-newsletter-form-email">E-mail Address</label>
                         </p>
                         <button is="lavandre-button" outline size="large" type="submit"
                             id="footer-newsletter-form-submit"><?php _e('Submit', 'lavandre'); ?></button>

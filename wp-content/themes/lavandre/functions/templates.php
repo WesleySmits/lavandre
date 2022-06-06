@@ -168,10 +168,10 @@
                 <?php } ?>
             </ol>
         </div>
-        <button type="button" class="benefit-block__prev" data-prev>
+        <button type="button" class="benefit-block__prev" data-prev aria-label="<?php _e('Previous', 'lavandre'); ?>">
             <?php include get_stylesheet_directory() . '/partials/icons/chevron-right.svg.php'; ?>
         </button>
-        <button type="button" class="benefit-block__next" data-next>
+        <button type="button" class="benefit-block__next" data-next aria-label="<?php _e('Next', 'lavandre'); ?>">
             <?php include get_stylesheet_directory() . '/partials/icons/chevron-right.svg.php'; ?>
         </button>
     </carousel-element>
