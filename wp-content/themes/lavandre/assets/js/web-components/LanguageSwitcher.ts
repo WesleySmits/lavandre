@@ -12,6 +12,7 @@ export default class LanguageSwitcher extends LavandreSelect {
         }
 
         this.id = 'domain-dropdown-field';
+        this.placeholder = this.getAttribute('placeholder') || 'Select a language';
         this.icon = document.getElementById('cart')?.outerHTML ?? '';
         this.optionValues = JSON.parse(json) || [];
     }
