@@ -1,6 +1,5 @@
 import DataLayer from '../common/DataLayer';
 import ConfirmValidation from '../components/ConfirmValidation';
-import EmailValidation from '../components/EmailValidation';
 import FieldValidation from '../components/FieldValidation';
 import endpoints from '../util/endpoints';
 import { loadRecaptcha, sitekey } from '../util/loadRecaptcha';
@@ -14,11 +13,6 @@ class AjaxRegisterForm extends AjaxForm {
 
     protected connectedCallback(): void {
         super.connectedCallback();
-
-        if (this.#emailField !== null) {
-            const emailValidation: EmailValidation = new EmailValidation(this.#emailField);
-            emailValidation.initialize();
-        }
 
         const passwordField: HTMLInputElement | null = this.querySelector('#register-password');
         const confirmPasswordField: HTMLInputElement | null =

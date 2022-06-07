@@ -23,7 +23,7 @@
                                 class="required">*</span></label>
                     </p>
 
-                    <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                    <p is="password-reveal" class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                         <input type="password" id="ajax-login-password"
                             class="woocommerce-Inputt woocommerce-Input--text input-text" name="password"
                             placeholder="<?php _e('Password', 'lavandre'); ?>" autocomplete="current-password"
@@ -64,14 +64,14 @@
                     </div>
 
                     <p class=" woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                        <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email"
+                        <input is="email-validation" type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email"
                             id="user-email" placeholder="<?php _e('Email', 'lavandre'); ?>" autocomplete="email"
                             title="<?php _e('Fill in a valid email', 'lavandre'); ?>" required>
                         <label for="user-email"><?php _e('Email', 'lavandre'); ?>&nbsp;<span
                                 class="required">*</span></label>
                     </p>
 
-                    <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                    <p is="password-reveal" class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                         <input class="woocommerce-Inputt woocommerce-Input--text input-text" type="password"
                             name="password" id="register-password" placeholder="<?php _e('Password', 'lavandre'); ?>"
                             autocomplete="current-password"
@@ -82,7 +82,7 @@
                                 class="required">*</span></label>
                     </p>
 
-                    <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                    <p is="password-reveal" class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                         <input class="woocommerce-Inputt woocommerce-Input--text input-text" type="password"
                             name="confirm-password" id="confirm-password"
                             placeholder="<?php _e('Password', 'lavandre'); ?>" autocomplete="current-password" required

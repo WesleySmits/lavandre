@@ -38,8 +38,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                 <form id="ajax-password-forget-form" method="post" data-field-validation>
                     <p class=" woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                        <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" placeholder="<?php esc_html_e( 'Email', 'lavandre' ); ?>" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" title="<?php _e('Fill in a valid email address.', 'lavandre'); ?>" required /><?php // @codingStandardsIgnoreLine ?>
-                        <label for="username"><?php esc_html_e( 'Email', 'lavandre' ); ?>&nbsp;<span class="required">*</span></label>
+                        <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username-forgot-password" placeholder="<?php esc_html_e( 'Email', 'lavandre' ); ?>" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" title="<?php _e('Fill in a valid email address.', 'lavandre'); ?>" required /><?php // @codingStandardsIgnoreLine ?>
+                        <label for="username-forgot-password"><?php esc_html_e( 'Email', 'lavandre' ); ?>&nbsp;<span class="required">*</span></label>
                     </p>
 
                     <button type="submit" is="lavandre-button" primary full-width size="large" name="password-forget" value="<?php esc_attr_e( 'Submit', 'lavandre' ); ?>"><?php esc_html_e( 'Submit', 'lavandre' ); ?></button>
@@ -66,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <label for="username"><?php esc_html_e( 'Email', 'lavandre' ); ?>&nbsp;<span class="required">*</span></label>
                     </p>
 
-                    <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                    <p is="password-reveal" class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                         <input class="woocommerce-Inputt woocommerce-Input--text input-text" type="password" name="password" id="password" placeholder="<?php esc_html_e( 'Password', 'lavandre' ); ?>" autocomplete="current-password" title="<?php _e('Fill in the password.', 'lavandre'); ?>" required />
                         <label for="password"><?php esc_html_e( 'Password', 'lavandre' ); ?>&nbsp;<span class="required">*</span></label>
                     </p>
@@ -102,11 +102,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                     <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                         <?php wp_nonce_field( 'woocommerce-email-check', 'woocommerce-email-check-nonce' ); ?>
-                        <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" autocomplete="email" value="<?php echo ( ! empty( $_POST['email'] ) ) ? esc_attr( wp_unslash( $_POST['email'] ) ) : ''; ?>" required placeholder="<?php esc_html_e( 'Email', 'lavandre' ); ?>" /><?php // @codingStandardsIgnoreLine ?>
+                        <input is="email-validation" type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" autocomplete="email" value="<?php echo ( ! empty( $_POST['email'] ) ) ? esc_attr( wp_unslash( $_POST['email'] ) ) : ''; ?>" required placeholder="<?php esc_html_e( 'Email', 'lavandre' ); ?>" /><?php // @codingStandardsIgnoreLine ?>
                         <label for="reg_email"><?php esc_html_e( 'Email', 'lavandre' ); ?>&nbsp;<span class="required">*</span></label>
                     </p>
 
-                    <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                    <p is="password-reveal" class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                         <input type="password" class="woocommerce-Inputt woocommerce-Input--text input-text" name="password" id="reg_password" autocomplete="new-password" required placeholder="<?php esc_html_e( 'Password', 'lavandre' ); ?>" />
                         <label for="reg_password"><?php esc_html_e( 'Password', 'lavandre' ); ?>&nbsp;<span class="required">*</span></label>
                     </p>

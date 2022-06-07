@@ -54,7 +54,7 @@ function ww_wc_login_register() {
                         <label for="username"><?php esc_html_e( 'Email', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
                     </p>
 
-                    <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                    <p is="password-reveal" class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                         <input class="woocommerce-Inputt woocommerce-Input--text input-text" type="password" name="password" id="password" placeholder="<?php esc_html_e( 'Password', 'woocommerce' ); ?>" autocomplete="current-password" title="<?php _e('Fill in the password.', 'lavandre'); ?>" required />
                         <label for="password"><?php esc_html_e( 'Password', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
                     </p>

@@ -86,17 +86,17 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
     </h3>
 
     <div class="password-save" data-curtain-content="password-save">
-        <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+        <p is="password-reveal" class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
             <input type="password" class="woocommerce-Inputt woocommerce-Input--password input-text" name="password_current" id="password_current" autocomplete="off" placeholder="<?php esc_html_e( 'Current password (leave blank to leave unchanged)', 'woocommerce' ); ?>" />
             <label for="password_current"><?php esc_html_e( 'Current password', 'lavandre' ); ?></label>
         </p>
 
-        <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+        <p is="password-reveal" class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
             <input type="password" class="woocommerce-Inputt woocommerce-Input--password input-text" name="password_1" id="password_1" autocomplete="off" placeholder="<?php esc_html_e( 'New password (leave blank to leave unchanged)', 'woocommerce' ); ?>" />
             <label for="password_1"><?php esc_html_e( 'New password', 'lavandre' ); ?></label>
         </p>
 
-        <p class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+        <p is="password-reveal" class="password-row woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
             <input type="password" class="woocommerce-Inputt woocommerce-Input--password input-text" name="password_2" id="password_2" autocomplete="off" placeholder="<?php esc_html_e( 'Confirm new password', 'woocommerce' ); ?>" />
             <label for="password_2"><?php esc_html_e( 'Confirm new password', 'lavandre' ); ?></label>
         </p>

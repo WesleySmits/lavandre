@@ -45,7 +45,7 @@
                 <ul class="no-list inline-list">
                     <li class="header__search hide-on-mobile hide-on-tablet">
                         <div class="flex">
-                            <button type="button" class="no-button" aria-label="Search button">
+                            <button is="header-search-toggle" type="button" class="no-button" aria-label="Search button">
                                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lavandre/partials/icons/search.svg.php'; ?>
                             </button>
 

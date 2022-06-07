@@ -5,13 +5,10 @@ import EventEmitter from './common/EventEmitter';
 import CookieBar from './components/CookieBar';
 import CopyCoupon from './components/CopyCoupon';
 import Curtain from './components/Curtain';
-import EmailValidation from './components/EmailValidation';
 import FieldValidation from './components/FieldValidation';
 import ForgotPasswordToggle from './components/ForgotPasswordToggle';
-import HeaderSearch from './components/HeaderSearch';
 import InfoPopup from './components/InfoPopup';
 import LazyLoader from './components/LazyLoader';
-import PasswordReveal from './components/PasswordReveal';
 import RedeemPointsForCoupon from './components/RedeemPointsForCoupon';
 import Module from './Module';
 import LanguagePopup from './ui/LanguagePopup';
@@ -23,12 +20,15 @@ import './web-components/AjaxRegisterForm';
 import './web-components/BirthdayForm';
 import LavandreButton from './web-components/button/LavandreButton';
 import './web-components/CarouselElement';
+import './web-components/EmailValidation';
 import './web-components/ForgotPassword';
+import './web-components/HeaderSearchToggle';
 import './web-components/LanguageSwitcher';
 import './web-components/LavandreSelect';
 import './web-components/LavandreToggle';
 import './web-components/LazyBackground';
 import './web-components/NewsletterSubscribe';
+import './web-components/PasswordReveal';
 import './web-components/SignupBlock';
 import './web-components/VideoMediaResolver';
 
@@ -40,11 +40,8 @@ export default class App extends Module {
         SidePanel,
         Curtain,
         InfoPopup,
-        PasswordReveal,
-        EmailValidation,
         ForgotPasswordToggle,
         FieldValidation,
-        HeaderSearch,
         LazyLoader,
         RedeemPointsForCoupon,
         CopyCoupon,
