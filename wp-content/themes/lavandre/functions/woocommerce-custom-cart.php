@@ -26,7 +26,6 @@ function ww_custom_cart() {
     ?>
 
 <section id="custom-cart" class="custom-cart">
-
     <header class="custom-cart__header">
         <div class="custom-cart__previous">
             <a href="/shop" class="back-link">
@@ -41,7 +40,7 @@ function ww_custom_cart() {
             if (intval($woocommerce->cart->total) >= 75) {
                 _e('Your order qualifies for Free shipping', 'lavandre');
             } else {
-                $remaining = wc_price(75.00 - $woocommerce->cart->total);
+                $remaining = wc_price(150.00 - $woocommerce->cart->total);
                 echo sprintf(__('You are %s away from free shipping.', 'lavandre'), $remaining);
             }
         ?>
