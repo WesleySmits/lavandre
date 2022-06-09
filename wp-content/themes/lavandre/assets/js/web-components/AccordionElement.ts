@@ -6,8 +6,6 @@ class CurtainElement extends HTMLDetailsElement {
 
     #content = this.querySelector('.curtain-content') as HTMLElement;
 
-    #isClosing = false;
-
     #animation: Animation | null = null;
 
     get open(): boolean {
@@ -18,36 +16,31 @@ class CurtainElement extends HTMLDetailsElement {
         this.toggleAttribute('open', value);
     }
 
-    #handleClick = (event: Event) => {
-        // event.stopPropagation();
-        // event.stopImmediatePropagation();
+    #handleAnchorClick = (event: Event) => {
+        event.preventDefault();
 
-        if (event.target instanceof HTMLAnchorElement) {
-            event.preventDefault();
-        }
-
-        if (!this.#content) {
-            this.dispatchEvent(new Event('close'));
+        if (this.open) {
+            this.close();
             return;
         }
 
-        if (this.#isClosing || this.open === false) {
-            this.#open();
-            return;
-        }
-
-        this.close();
+        this.#open();
     };
 
     protected connectedCallback(): void {
-        // this.#summary.addEventListener('click', this.#handleClick, {
-        //     capture: true,
-        //     passive: false
-        // });
+        const summaryAnchors: HTMLAnchorElement[] = Array.from(this.#summary.querySelectorAll('a'));
+
+        summaryAnchors.forEach((anchor) => {
+            anchor.addEventListener('click', this.#handleAnchorClick);
+        });
     }
 
     protected disconnectedCallback(): void {
-        this.#summary.removeEventListener('click', this.#handleClick);
+        const summaryAnchors: HTMLAnchorElement[] = Array.from(this.#summary.querySelectorAll('a'));
+
+        summaryAnchors.forEach((anchor) => {
+            anchor.removeEventListener('click', this.#handleAnchorClick);
+        });
     }
 
     #open(): void {
@@ -78,7 +71,6 @@ class CurtainElement extends HTMLDetailsElement {
     }
 
     public close(): void {
-        this.#isClosing = true;
         this.classList.add('closing');
 
         const startHeight = `${this.offsetHeight}px`;
@@ -100,7 +92,6 @@ class CurtainElement extends HTMLDetailsElement {
 
         this.#animation.onfinish = () => this.#onAnimationFinish(false);
         this.#animation.oncancel = () => {
-            this.#isClosing = false;
             this.classList.remove('closing');
         };
     }
@@ -108,7 +99,6 @@ class CurtainElement extends HTMLDetailsElement {
     #onAnimationFinish(open: boolean) {
         this.open = open;
         this.#animation = null;
-        this.#isClosing = false;
         this.classList.remove('closing');
 
         this.style.height = '';
