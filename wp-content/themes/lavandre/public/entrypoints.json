@@ -5,7 +5,7 @@
         "/runtime.8f675b1f.js",
         "/908.eff23dbb.js",
         "/91.4a2dd3fb.js",
-        "/app.f2545b77.js"
+        "/app.0206ae54.js"
       ],
       "css": [
         "/app.e3b1a593.css"
@@ -25,10 +25,19 @@
       "js": [
         "/runtime.8f675b1f.js",
         "/650.f7597167.js",
-        "/rewards.a323eed3.js"
+        "/rewards.38abbee0.js"
       ],
       "css": [
         "/rewards.a1d87184.css"
+      ]
+    },
+    "loyalty": {
+      "js": [
+        "/runtime.8f675b1f.js",
+        "/loyalty.f3801f1f.js"
+      ],
+      "css": [
+        "/loyalty.9c017586.css"
       ]
     },
     "sustainability": {

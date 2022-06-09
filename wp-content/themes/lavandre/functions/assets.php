@@ -175,6 +175,10 @@ function loadWebpackModules(): void {
         loadEncoreModule('rewards-styles');
     }
 
+    if (is_page_template('woocommerce/myaccount/loyalty.php')) {
+        loadEncoreModule('loyalty');
+    }
+
     // #TODO: Get id's somehow
     if (
         (is_account_page() && !is_user_logged_in())

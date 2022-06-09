@@ -2,6 +2,7 @@ import Component from './common/Component';
 import StickyHeader from './components/StickyHeader';
 import Module from './Module';
 import './web-components/ReferAFriendForm';
+import './web-components/SignupBlock';
 
 export default class RewardsModule extends Module {
     public components: Component[] = [StickyHeader];

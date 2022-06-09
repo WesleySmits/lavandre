@@ -8,7 +8,6 @@ import FieldValidation from './components/FieldValidation';
 import ForgotPasswordToggle from './components/ForgotPasswordToggle';
 import InfoPopup from './components/InfoPopup';
 import LazyLoader from './components/LazyLoader';
-import RedeemPointsForCoupon from './components/RedeemPointsForCoupon';
 import Module from './Module';
 import LanguagePopup from './ui/LanguagePopup';
 import SidePanel from './ui/SidePanel';
@@ -19,7 +18,6 @@ import './web-components/AjaxRegisterForm';
 import './web-components/BirthdayForm';
 import LavandreButton from './web-components/button/LavandreButton';
 import './web-components/CarouselElement';
-import './web-components/CopyCoupon';
 import './web-components/EmailValidation';
 import './web-components/ForgotPassword';
 import './web-components/HeaderSearchToggle';
@@ -29,7 +27,6 @@ import './web-components/LavandreToggle';
 import './web-components/LazyBackground';
 import './web-components/NewsletterSubscribe';
 import './web-components/PasswordReveal';
-import './web-components/SignupBlock';
 import './web-components/VideoMediaResolver';
 
 export default class App extends Module {
@@ -43,7 +40,6 @@ export default class App extends Module {
         ForgotPasswordToggle,
         FieldValidation,
         LazyLoader,
-        RedeemPointsForCoupon,
         LanguagePopup
     ];
 
