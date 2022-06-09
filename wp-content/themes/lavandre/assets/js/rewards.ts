@@ -1,6 +1,8 @@
 import Component from './common/Component';
 import StickyHeader from './components/StickyHeader';
 import Module from './Module';
+import './web-components/BirthdayForm';
+import './web-components/LavandreToggle';
 import './web-components/ReferAFriendForm';
 import './web-components/SignupBlock';
 
