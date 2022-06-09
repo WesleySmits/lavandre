@@ -3,7 +3,6 @@ import '../css/app.pcss';
 import Component from './common/Component';
 import EventEmitter from './common/EventEmitter';
 import CookieBar from './components/CookieBar';
-import CopyCoupon from './components/CopyCoupon';
 import Curtain from './components/Curtain';
 import FieldValidation from './components/FieldValidation';
 import ForgotPasswordToggle from './components/ForgotPasswordToggle';
@@ -20,6 +19,7 @@ import './web-components/AjaxRegisterForm';
 import './web-components/BirthdayForm';
 import LavandreButton from './web-components/button/LavandreButton';
 import './web-components/CarouselElement';
+import './web-components/CopyCoupon';
 import './web-components/EmailValidation';
 import './web-components/ForgotPassword';
 import './web-components/HeaderSearchToggle';
@@ -44,7 +44,6 @@ export default class App extends Module {
         FieldValidation,
         LazyLoader,
         RedeemPointsForCoupon,
-        CopyCoupon,
         LanguagePopup
     ];
 

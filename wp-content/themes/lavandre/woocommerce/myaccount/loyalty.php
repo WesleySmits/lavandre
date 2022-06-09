@@ -26,7 +26,7 @@
             </div>
 
             <div>
-                <button is="lavandre-button" data-role="copy-coupon" data-code="<?php echo $code; ?>"
+                <button is="copy-coupon" data-code="<?php echo $code; ?>"
                     data-text="<?php _e('Copy code', 'lavandre'); ?>"
                     data-copied-text="<?php _e('Coupon Copied', 'lavandre'); ?>" size="large" outline
                     full-width><?php _e('Copy code', 'lavandre'); ?></redeem>
