@@ -73,9 +73,9 @@
                         $name = $product['title'];
                     ?>
 
-    <li data-lazyload>
+    <li>
         <a href="<?php echo $link; ?>" class="ww-products__link">
-            <img src="<?php echo get_image_kit_placeholder($image, 387, 581) ?>"
+            <img is="lazy-loader" src="<?php echo get_image_kit_placeholder($image, 387, 581) ?>"
                 data-src="<?php echo get_image_kit_url($image); ?>"
                 data-sizes="(min-width: 1024px) 20.17vw, (min-width: 768px) 46.5vw, 95vw" data-srcset="
                     <?php echo get_image_kit_src($image, 342, 513); ?> 342w,
@@ -107,9 +107,9 @@
         $imageUrl = $block['image'];
 
         ?>
-<section class="ww-banner-block <?php echo implode(' ', $classes); ?>" data-lazyload>
+<section class="ww-banner-block <?php echo implode(' ', $classes); ?>">
     <div class="ww-banner-block__banner">
-        <img loading="lazy" class="cover-image" src="<?php echo get_image_kit_placeholder($imageUrl, 960, 1015) ?>"
+        <img is="lazy-loader" loading="lazy" class="cover-image" src="<?php echo get_image_kit_placeholder($imageUrl, 960, 1015) ?>"
             data-src="<?php echo get_image_kit_src($imageUrl, 960, 1015); ?>" data-srcset="
                     <?php echo get_image_kit_src($imageUrl, 360, 380); ?> 414w,
                     <?php echo get_image_kit_src($imageUrl, 414, 437); ?> 414w,

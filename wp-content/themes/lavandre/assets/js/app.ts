@@ -6,7 +6,6 @@ import CookieBar from './components/CookieBar';
 import Curtain from './components/Curtain';
 import FieldValidation from './components/FieldValidation';
 import ForgotPasswordToggle from './components/ForgotPasswordToggle';
-import LazyLoader from './components/LazyLoader';
 import Module from './Module';
 import LanguagePopup from './ui/LanguagePopup';
 import SidePanel from './ui/SidePanel';
@@ -22,6 +21,7 @@ import './web-components/HeaderSearchToggle';
 import './web-components/LanguageSwitcher';
 import './web-components/LavandreSelect';
 import './web-components/LazyBackground';
+import './web-components/LazyLoader';
 import './web-components/NewsletterSubscribe';
 import './web-components/PasswordReveal';
 import './web-components/UspSlider';
@@ -36,7 +36,6 @@ export default class App extends Module {
         Curtain,
         ForgotPasswordToggle,
         FieldValidation,
-        LazyLoader,
         LanguagePopup
     ];
 

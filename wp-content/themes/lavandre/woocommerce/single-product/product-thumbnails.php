@@ -37,10 +37,10 @@ if ( $attachment_ids && $product->get_image_id() ) {
                         $image = wp_get_attachment_image_src($attachment_id, [$width,$height]);
                         $image_alt = get_post_meta($attachment_id, '_wp_attachment_image_alt', TRUE);
                     ?>
-    <li data-lazyload>
+    <li>
         <a href="<?php echo get_image_kit_url($image[0]); ?>" target="_blank"
             data-thumbnail-id="<?php echo $attachment_id; ?>"">
-                            <img
+                            <img is="lazy-loader"
                                 src=" <?php echo get_image_kit_placeholder($image[0], 1, 1) ?>"
             data-src="<?php echo get_image_kit_url($image[0]); ?>" class="ww-products__image loading"
             alt="<?php echo $image_alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height ?>" loading="lazy">
