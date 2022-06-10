@@ -2,7 +2,6 @@ import '@ungap/custom-elements';
 import '../css/app.pcss';
 import Component from './common/Component';
 import EventEmitter from './common/EventEmitter';
-import CookieBar from './components/CookieBar';
 import Curtain from './components/Curtain';
 import FieldValidation from './components/FieldValidation';
 import ForgotPasswordToggle from './components/ForgotPasswordToggle';
@@ -15,6 +14,7 @@ import './web-components/AjaxLoginForm';
 import './web-components/AjaxRegisterForm';
 import LavandreButton from './web-components/button/LavandreButton';
 import './web-components/CarouselElement';
+import './web-components/CookieBar';
 import './web-components/EmailValidation';
 import './web-components/ForgotPassword';
 import './web-components/HeaderSearchToggle';
@@ -31,7 +31,6 @@ export default class App extends Module {
     public eventEmitter: EventEmitter = EventEmitter;
 
     public components: Component[] = [
-        CookieBar,
         SidePanel,
         Curtain,
         ForgotPasswordToggle,

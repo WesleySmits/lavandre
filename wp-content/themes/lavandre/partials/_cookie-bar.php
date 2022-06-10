@@ -1,4 +1,4 @@
-<template id="cookie-bar-template">
+<template id="cookie-bar-template" is="cookie-bar">
     <aside class="cookie-bar ww-container" data-role="cookie-bar">
         <p>
             <?php _e('This website uses cookies to ensure you get the best experience.', 'lavandre'); ?>
