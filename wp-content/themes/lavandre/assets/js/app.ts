@@ -1,7 +1,6 @@
 import '@ungap/custom-elements';
 import '../css/app.pcss';
 import Component from './common/Component';
-import EventEmitter from './common/EventEmitter';
 import Curtain from './components/Curtain';
 import FieldValidation from './components/FieldValidation';
 import ForgotPasswordToggle from './components/ForgotPasswordToggle';
@@ -28,8 +27,6 @@ import './web-components/UspSlider';
 import './web-components/VideoMediaResolver';
 
 export default class App extends Module {
-    public eventEmitter: EventEmitter = EventEmitter;
-
     public components: Component[] = [
         SidePanel,
         Curtain,
