@@ -1,55 +1,7 @@
-import Component from './common/Component';
-import Module from './Module';
 import './web-components/BirthdayForm';
-import './web-components/LavandreToggle';
 import './web-components/ReferAFriendForm';
 import './web-components/SignupBlock';
+import './web-components/SponsorshipToggle';
 import './web-components/StickyHeader';
+// eslint-disable-next-line prettier/prettier
 
-export default class RewardsModule extends Module {
-    public components: Component[] = [];
-
-    #message: HTMLElement | null = null;
-
-    #timeout: number | null = null;
-
-    #timeoutDuration: number = 150;
-
-    public initialize() {
-        super.initialize();
-        this.#referAFriend();
-    }
-
-    #referAFriend() {
-        this.#message = document.querySelector('.lws_woorewards_sponsorship_feedback');
-        if (this.#message === null) {
-            return;
-        }
-
-        const mutationObserver = new MutationObserver(this.#referAFriendCallback.bind(this));
-        mutationObserver.observe(this.#message, { attributes: true });
-    }
-
-    #referAFriendCallback(mutationsList: MutationRecord[]) {
-        mutationsList.forEach((mutation) => {
-            if (mutation.attributeName === 'class' && this.#message) {
-                if (this.#message.classList.contains('lws_woorewards_sponsorship_succeed')) {
-                    if (this.#timeout !== null) {
-                        window.clearTimeout(this.#timeout);
-                    }
-
-                    this.#timeout = window.setTimeout(() => {
-                        this.#message!.closest('lavandre-toggle')?.dispatchEvent(
-                            new Event('toggle')
-                        );
-                    }, this.#timeoutDuration);
-                }
-            }
-        });
-    }
-}
-
-(function rewardsInit() {
-    const rewardsModule = new RewardsModule();
-    rewardsModule.initialize();
-})();

@@ -77,7 +77,7 @@
 
         <div class="ww-banner-block__content">
             <div class="ww-banner-block__inner-content">
-                <lavandre-toggle>
+                <sponsorship-toggle>
                     <div data-name="form">
                         <h1><?php echo $heading; ?></h1>
                         <br />
@@ -107,7 +107,7 @@
                             <?php _e('Refer More Friends', 'lavandre'); ?>
                         </button>
                     </div>
-                </lavandre-toggle>
+                </sponsorship-toggle>
             </div>
         </div>
     </section>
