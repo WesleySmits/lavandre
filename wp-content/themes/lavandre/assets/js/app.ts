@@ -6,7 +6,6 @@ import CookieBar from './components/CookieBar';
 import Curtain from './components/Curtain';
 import FieldValidation from './components/FieldValidation';
 import ForgotPasswordToggle from './components/ForgotPasswordToggle';
-import InfoPopup from './components/InfoPopup';
 import LazyLoader from './components/LazyLoader';
 import Module from './Module';
 import LanguagePopup from './ui/LanguagePopup';
@@ -25,6 +24,7 @@ import './web-components/LavandreSelect';
 import './web-components/LazyBackground';
 import './web-components/NewsletterSubscribe';
 import './web-components/PasswordReveal';
+import './web-components/UspSlider';
 import './web-components/VideoMediaResolver';
 
 export default class App extends Module {
@@ -34,7 +34,6 @@ export default class App extends Module {
         CookieBar,
         SidePanel,
         Curtain,
-        InfoPopup,
         ForgotPasswordToggle,
         FieldValidation,
         LazyLoader,
@@ -61,27 +60,7 @@ export default class App extends Module {
 (function appInit() {
     const app = new App();
     app.initialize();
-
-    footerUspSlider();
 })();
-
-function footerUspSlider(): void {
-    setTimeout(() => {
-        const list: HTMLElement | null = document.querySelector('.usp-slider');
-        if (!list) {
-            return;
-        }
-
-        const items: HTMLElement[] = Array.from(list.querySelectorAll('.usp-slider__item'));
-        let totalWidth = 0;
-
-        items.forEach((item) => {
-            totalWidth += item.clientWidth;
-        });
-
-        list.style.width = `${totalWidth}px`;
-    }, 300);
-}
 
 if (LavandreButton) {
     window.customElements.define('lavandre-button', LavandreButton, { extends: 'button' });

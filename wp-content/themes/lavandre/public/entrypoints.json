@@ -5,27 +5,22 @@
         "/runtime.8f675b1f.js",
         "/908.eff23dbb.js",
         "/91.4a2dd3fb.js",
-        "/app.0206ae54.js"
+        "/app.09873d50.js"
       ],
       "css": [
-        "/app.e3b1a593.css"
+        "/app.424cacaa.css"
       ]
     },
     "home": {
       "js": [
         "/runtime.8f675b1f.js",
-        "/650.f7597167.js",
-        "/home.58b3f931.js"
-      ],
-      "css": [
-        "/home.a1d87184.css"
+        "/home.6631c29a.js"
       ]
     },
     "rewards": {
       "js": [
         "/runtime.8f675b1f.js",
-        "/650.f7597167.js",
-        "/rewards.38abbee0.js"
+        "/rewards.b314b003.js"
       ],
       "css": [
         "/rewards.a1d87184.css"
@@ -34,20 +29,16 @@
     "loyalty": {
       "js": [
         "/runtime.8f675b1f.js",
-        "/loyalty.f3801f1f.js"
+        "/loyalty.4ba8e21e.js"
       ],
       "css": [
-        "/loyalty.9c017586.css"
+        "/loyalty.7c1bf822.css"
       ]
     },
     "sustainability": {
       "js": [
         "/runtime.8f675b1f.js",
-        "/650.f7597167.js",
-        "/sustainability.ce0ecb12.js"
-      ],
-      "css": [
-        "/sustainability.a1d87184.css"
+        "/sustainability.34bd9667.js"
       ]
     },
     "productDetail": {

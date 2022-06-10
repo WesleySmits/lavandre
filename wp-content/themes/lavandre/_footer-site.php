@@ -6,7 +6,7 @@
     </section>
 
     <section class="ww-footer__slider">
-        <ul class="usp-slider">
+        <ul class="usp-slider" is="usp-slider">
             <li class="usp-slider__item">Cruelty-Free</li>
             <li class="usp-slider__item">Eco-Friendly</li>
             <li class="usp-slider__item">Hypoallergenic</li>

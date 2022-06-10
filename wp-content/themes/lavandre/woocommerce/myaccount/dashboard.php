@@ -78,10 +78,6 @@ $user_id = get_current_user_id();
     </p>
 </section>
 
-<script src="https://unpkg.com/@popperjs/core@2"></script>
-<script src="https://unpkg.com/tippy.js@6"></script>
-<link rel="stylesheet" href="https://unpkg.com/tippy.js@6.2.7/themes/light.css">
-
 <?php
 	/**
 	 * My Account dashboard.

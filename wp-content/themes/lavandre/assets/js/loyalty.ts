@@ -1,16 +1,4 @@
-import Module from './Module';
 import './web-components/CopyCoupon';
 import './web-components/RedeemPointsForCoupon';
+// eslint-disable-next-line prettier/prettier
 
-export default class LoyaltyModule extends Module {
-    public components = [];
-
-    public initialize() {
-        super.initialize();
-    }
-}
-
-(function loyaltyInit() {
-    const loyaltyModule = new LoyaltyModule();
-    loyaltyModule.initialize();
-})();
