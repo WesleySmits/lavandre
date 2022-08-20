@@ -26,37 +26,41 @@
                 <?php echo $top_banner_title; ?></h1>
         </header>
 
-        <button type="button" class="toggle-side-navigation" data-curtain-toggle="account-menu">
-            <span><?php _e('Customer service', 'lavandre'); ?></span>
-            <?php include get_stylesheet_directory() . '/partials/icons/chevron-down.svg.php'; ?>
-        </button>
+        <details is="curtain-element">
+            <summary class="toggle-side-navigation">
+                <span><?php _e('Customer service', 'lavandre'); ?></span>
+                <?php include get_stylesheet_directory() . '/partials/icons/chevron-down.svg.php'; ?>
+            </summary>
 
-        <nav class="side-navigation" data-curtain-content="account-menu">
-            <ul>
-                <?php
-                    $post_type = 'faqs';
-                    $taxonomies = get_object_taxonomies( (object) array(
-                        'post_type' => $post_type,
-                    ) );
-                    foreach( $taxonomies as $taxonomy ) {
-                        $terms = get_terms([
-                            'taxonomy' => $taxonomy,
-                            'order' => 'ASC',
-                            'orderby' => 'term_order'
-                        ]);
-                        foreach( $terms as $loop_term) {
-                            ?>
-                <li class="side-navigation__item">
-                    <a href="<?php echo get_term_link($loop_term, $taxonomy); ?>" class="side-navigation__link">
-                        <?php echo $loop_term->name; ?>
-                    </a>
-                </li>
-                <?php
-                        }
-                    }
-                ?>
-            </ul>
-        </nav>
+            <div class="curtain-content">
+                <nav class="side-navigation">
+                    <ul>
+                        <?php
+                            $post_type = 'faqs';
+                            $taxonomies = get_object_taxonomies( (object) array(
+                                'post_type' => $post_type,
+                            ) );
+                            foreach( $taxonomies as $taxonomy ) {
+                                $terms = get_terms([
+                                    'taxonomy' => $taxonomy,
+                                    'order' => 'ASC',
+                                    'orderby' => 'term_order'
+                                ]);
+                                foreach( $terms as $loop_term) {
+                                    ?>
+                        <li class="side-navigation__item">
+                            <a href="<?php echo get_term_link($loop_term, $taxonomy); ?>" class="side-navigation__link">
+                                <?php echo $loop_term->name; ?>
+                            </a>
+                        </li>
+                        <?php
+                                }
+                            }
+                        ?>
+                    </ul>
+                </nav>
+            </div>
+        </details>
 
         <div class="page-content" itemscope itemtype="https://schema.org/FAQPage">
             <?php

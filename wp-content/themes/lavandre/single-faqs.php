@@ -45,7 +45,7 @@
                             <article class="ww-panel" itemprop="mainEntity" itemscope itemtype="http://schema.org/Question">
                                 <header>
                                     <h3 itemprop="name">
-                                        <a href="<?php echo get_the_permalink();?>" data-curtain-toggle="<?php echo 'accordion-' . get_the_ID()?>">
+                                        <a href="<?php echo get_the_permalink();?>">
                                             <?php echo get_the_title(); ?>
                                         </a>
                                     </h3>

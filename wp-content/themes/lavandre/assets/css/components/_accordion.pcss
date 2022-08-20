@@ -1,3 +1,25 @@
+[is="curtain-element"] {
+    & > summary {
+        list-style: none;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+
+    svg {
+        transition: transform .001s linear;
+    }
+
+    &[open]:not(.closing) svg {
+        transform: rotate(180deg);
+    }
+
+    &[open] summary:after {
+        transform: rotate(-45deg);
+    }
+}
+
 accordion-element {
     display: flex;
     flex-flow: column nowrap;
@@ -12,13 +34,13 @@ accordion-element {
         }
     }
 
-    details > summary {
+    /* details > summary {
         list-style: none;
 
         &::-webkit-details-marker {
             display: none;
         }
-    }
+    } */
 
     summary {
         position: relative;
@@ -61,17 +83,17 @@ accordion-element {
         letter-spacing: 1.6px;
     }
 
-    svg {
+    /* svg {
         transition: transform .001s linear;
-    }
+    } */
 
-    details[open]:not(.closing) svg {
+    /* details[open]:not(.closing) svg {
         transform: rotate(180deg);
     }
 
     details[open] summary:after {
         transform: rotate(-45deg);
-    }
+    } */
 
     .curtain-content {
         margin-bottom: 1.5rem;
